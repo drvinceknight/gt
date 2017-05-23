@@ -1,4 +1,4 @@
-# A rewrite of my Game Theory course.
+# Game Theory
 
 ## Description
 
@@ -12,8 +12,15 @@ The course is taught in an active learning framework with class time being used
 for activities and demonstrations whilst the content is made available to the
 students at the start of the course.
 
-Finally, throughout this course concepts are illustrated/demonstrated using
-Python.
+Throughout this course concepts are illustrated/demonstrated using
+Python. In particular the following libraries are used:
+
+- [Nashpy](https://github.com/drvinceknight/Nashpy): computation of
+  equilibria.
+- [Axelrod](http://axelrod.readthedocs.io/en/stable/): study of the Iterated
+  Prisoner's Dilemma.
+- [Sympy](http://www.sympy.org/en/index.html): used to verify and carry out
+  symbolic computations.
 
 ## Syllabus (WIP):
 
@@ -119,3 +126,12 @@ Python.
     - CCU Game paper with Jeff and Iza
     - Press and Dyson Paper
     - Moran paper
+
+## Contents of this repository
+
+```
+|--- README.md
+|--- environment.yml  # A conda environment file
+|--- docs  # documentation (notes for the class leader)
+|--- nbs  # nbs representing content for the site
+```
