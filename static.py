@@ -23,23 +23,19 @@ def get_name(path):
     stem = path.stem
     return stem[stem.index('-'):].replace('-', ' ')
 
-def convert_html(notebook_path):
+def convert_html(nb_path):
     """
     Convert a notebook to html
     """
-    json = notebook_path.read_text()
-    nb = nbformat.reads(json, as_version=4)
     html_exporter = HTMLExporter()
-    return html_exporter.from_notebook_node(nb)[0]
+    return html_exporter.from_file(str(nb_path))[0]
 
-def convert_pdf(notebook_path):
+def convert_pdf(nb_path):
     """
     Convert a notebook to pdf
     """
-    json = notebook_path.read_text()
-    nb = nbformat.reads(json, as_version=4)
     pdf_exporter = PDFExporter()
-    return pdf_exporter.from_notebook_node(nb)[0]
+    return pdf_exporter.from_file(str(nb_path))[0]
 
 
 def make_dir(path):
