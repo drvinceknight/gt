@@ -3,8 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Game theory's documentation!
-=======================================
+Welcome to the personal course notes for Vince Knight's Game Theory class
+=========================================================================
+
+The class notes are available here: `vknight.org/gt/ <http://vknight.org/gt/>`_.
 
 .. toctree::
    :maxdepth: 2
