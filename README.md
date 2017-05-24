@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a course on Game theory. It covers 2 main topics:
+This is a course on Game theory. It covers 3 main topics:
 
 1. Equilibrium computation and Repeated games;
 2. Evolutionary game theory;
@@ -134,4 +134,7 @@ Python. In particular the following libraries are used:
 |--- environment.yml  # A conda environment file
 |--- docs  # documentation (notes for the class leader)
 |--- nbs  # nbs representing content for the site
+|--- 00  # These are automatically generated folders that serve the website
+|--- 01
+|--- ...
 ```
