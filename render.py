@@ -64,7 +64,7 @@ if __name__ == "__main__":
         make_dir(pathlib.Path(filename))
 
     chapters = []
-    for path in tqdm.tqdm(nb_paths):
+    for path in tqdm.tqdm(sorted(nb_paths, key=str)):
         chapters.append(Chapter(get_id(path), get_name(path), str(path)))
 
     html = render_template("home.html", {"chapters": chapters})
