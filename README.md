@@ -149,12 +149,5 @@ notebooks in the `nbs` directory. These are used to create `.pdf` and `.html`
 versions of the content. To generate all the files:
 
 ```
-$ python static.py
-```
-
-There is also a `makefile` that will do the same but only if a notebook has
-changed:
-
-```
-$ make
+$ python render.py
 ```

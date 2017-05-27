@@ -1,13 +1,13 @@
-"""
-A script to generate index.html
-"""
+import itertools
+import nbformat
 import pathlib
 import shutil
-from nbconvert import HTMLExporter, PDFExporter
-import nbformat
 import sys
-import itertools
 import tqdm
+import collections
+import jinja2
+
+from nbconvert import HTMLExporter, PDFExporter
 
 def get_id(path):
     """
@@ -30,6 +30,14 @@ def convert_html(nb_path):
     html_exporter = HTMLExporter()
     return html_exporter.from_file(str(nb_path))[0]
 
+def render_template(template_file, template_vars):
+    """
+    Render a jinja2 template
+    """
+    templateLoader = jinja2.FileSystemLoader(searchpath="./templates/")
+    template_env = jinja2.Environment(loader=templateLoader)
+    template = template_env.get_template(template_file)
+    return template.render( template_vars )
 
 def make_dir(path):
     """
@@ -37,8 +45,11 @@ def make_dir(path):
     """
     p = pathlib.Path(f"./{get_id(path)}")
     p.mkdir(exist_ok=True)
-    html = convert_html(path)
+    nb = convert_html(path)
+    html = render_template("chapter.html", {"nb": nb})
     (p / 'index.html').write_text(html)
+
+Chapter = collections.namedtuple("chapter", ["dir", "title", "nb"])
 
 if __name__ == "__main__":
 
@@ -52,21 +63,10 @@ if __name__ == "__main__":
     for filename in changed_nb_paths:
         make_dir(pathlib.Path(filename))
 
-    index = "<h2>Content</h2>\n"
-    index += "<ul>"
-
+    chapters = []
     for path in tqdm.tqdm(nb_paths):
+        chapters.append(Chapter(get_id(path), get_name(path), str(path)))
 
-        index += f"<li>{get_id(path)}: "
-
-        # index.html
-        index += f"<a href=./{get_id(path)}/>{get_name(path)}</a> "
-
-        # *ipynb
-        index += f"(<a href={path}>ipynb</a>)"
-
-        index += "</li>"
-
-    index += "</ul>"
-    p = pathlib.Path("./index.html")
-    p.write_text(index)
+    html = render_template("home.html", {"chapters": chapters})
+    with open('index.html', 'w') as f:
+        f.write(html)
