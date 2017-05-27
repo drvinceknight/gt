@@ -5,9 +5,9 @@ import pathlib
 import shutil
 from nbconvert import HTMLExporter, PDFExporter
 import nbformat
-
-nb_dir = pathlib.Path('nbs')
-nb_paths = nb_dir.glob('*ipynb')
+import sys
+import itertools
+import tqdm
 
 def get_id(path):
     """
@@ -30,13 +30,6 @@ def convert_html(nb_path):
     html_exporter = HTMLExporter()
     return html_exporter.from_file(str(nb_path))[0]
 
-def convert_pdf(nb_path):
-    """
-    Convert a notebook to pdf
-    """
-    pdf_exporter = PDFExporter()
-    return pdf_exporter.from_file(str(nb_path))[0]
-
 
 def make_dir(path):
     """
@@ -45,26 +38,32 @@ def make_dir(path):
     p = pathlib.Path(f"./{get_id(path)}")
     p.mkdir(exist_ok=True)
     html = convert_html(path)
-    pdf = convert_pdf(path)
     (p / 'index.html').write_text(html)
-    (p / 'index.pdf').write_bytes(pdf)
 
 if __name__ == "__main__":
+
+    nb_dir = pathlib.Path('nbs')
+    nb_paths = nb_dir.glob('*ipynb')
+
+    changed_nb_paths = sys.argv[1:]
+    if changed_nb_paths == []:
+        changed_nb_paths, nb_paths = itertools.tee(nb_paths)
+
+    for filename in changed_nb_paths:
+        make_dir(pathlib.Path(filename))
+
     index = "<h2>Content</h2>\n"
     index += "<ul>"
-    for path in nb_paths:
-        make_dir(path)
+
+    for path in tqdm.tqdm(nb_paths):
 
         index += f"<li>{get_id(path)}: "
 
         # index.html
         index += f"<a href=./{get_id(path)}/>{get_name(path)}</a> "
 
-        # index.pdf
-        index += f"(<a href=./{get_id(path)}/index.pdf>pdf</a>, "
-
         # *ipynb
-        index += f"<a href={path}>ipynb</a>)"
+        index += f"(<a href={path}>ipynb</a>)"
 
         index += "</li>"
 
