@@ -28,7 +28,8 @@ def convert_html(nb_path):
     Convert a notebook to html
     """
     html_exporter = HTMLExporter()
-    return html_exporter.from_file(str(nb_path))[0]
+    html_exporter.template_file = "basic"
+    return html_exporter.from_file(str(nb_path))
 
 def render_template(template_file, template_vars):
     """
@@ -45,8 +46,9 @@ def make_dir(path):
     """
     p = pathlib.Path(f"./{get_id(path)}")
     p.mkdir(exist_ok=True)
-    nb = convert_html(path)
-    html = render_template("chapter.html", {"nb": nb})
+    nb, resources = convert_html(path)
+    css = resources["inlining"]["css"]
+    html = render_template("chapter.html", {"nb": nb, "css": css[1] + css[2]})
     (p / 'index.html').write_text(html)
 
 Chapter = collections.namedtuple("chapter", ["dir", "title", "nb"])
