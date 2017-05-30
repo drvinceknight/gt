@@ -40,11 +40,11 @@ def render_template(template_file, template_vars):
     template = template_env.get_template(template_file)
     return template.render( template_vars )
 
-def make_dir(path):
+def make_dir(path, directory):
     """
     Create a directory for the name of the file
     """
-    p = pathlib.Path(f"./{get_id(path)}")
+    p = pathlib.Path(f"./{directory}/{get_id(path)}")
     p.mkdir(exist_ok=True)
     nb, resources = convert_html(path)
     css = resources["inlining"]["css"]
@@ -56,19 +56,20 @@ Chapter = collections.namedtuple("chapter", ["dir", "title", "nb"])
 if __name__ == "__main__":
 
     nb_dir = pathlib.Path('nbs')
-    nb_paths = nb_dir.glob('*ipynb')
+    chapter_paths = list(nb_dir.glob('./chapters/*ipynb'))
 
-    changed_nb_paths = sys.argv[1:]
-    if changed_nb_paths == []:
-        changed_nb_paths, nb_paths = itertools.tee(nb_paths)
-
-    for filename in changed_nb_paths:
-        make_dir(pathlib.Path(filename))
+    for filename in chapter_paths:
+        make_dir(pathlib.Path(filename), directory="chapters")
 
     chapters = []
-    for path in tqdm.tqdm(sorted(nb_paths, key=str)):
-        chapters.append(Chapter(get_id(path), get_name(path), str(path)))
+    for path in tqdm.tqdm(sorted(chapter_paths, key=str)):
+        chapters.append(Chapter(f"chapters/{get_id(path)}",
+                                get_name(path), str(path)))
 
     html = render_template("home.html", {"chapters": chapters})
     with open('index.html', 'w') as f:
+        f.write(html)
+
+    html = render_template("chapters.html", {"chapters": chapters})
+    with open('./chapters/index.html', 'w') as f:
         f.write(html)
