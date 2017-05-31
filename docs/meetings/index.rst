@@ -3,15 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the personal course notes for Vince Knight's Game Theory class
-=========================================================================
+Class meetings
+==============
 
-The class notes are available here: `vknight.org/gt/ <http://vknight.org/gt/>`_.
+Here are my notes for each class meeting.
 
 .. toctree::
    :maxdepth: 2
+   :caption: Contents:
 
-   meetings/index.rst
+   00-introduction-to-class.rst
+
 
 
 Indices and tables
