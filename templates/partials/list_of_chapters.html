@@ -1,6 +1,6 @@
 <h2>Chapters</h2>
   <ol>
       {% for chapter in chapters %}
-          <li><a href=/{{ chapter.dir }}/>{{ chapter.title }}</a>
+          <li><a href=/{{root}}/chapters/{{ chapter.dir }}/>{{ chapter.title }}</a>
               (<a href={{ chapter.nb }}>ipynb</a>)</li>
       {% endfor %}

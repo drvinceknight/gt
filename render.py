@@ -9,6 +9,8 @@ import jinja2
 
 from nbconvert import HTMLExporter, PDFExporter
 
+ROOT = "gt"
+
 def get_id(path):
     """
     Return the id of a file
@@ -48,7 +50,8 @@ def make_dir(path, directory):
     p.mkdir(exist_ok=True)
     nb, resources = convert_html(path)
     css = resources["inlining"]["css"]
-    html = render_template("chapter.html", {"nb": nb, "css": css[1] + css[2]})
+    html = render_template("chapter.html", {"nb": nb, "css": css[1] + css[2],
+                                            "root": ROOT})
     (p / 'index.html').write_text(html)
 
 Chapter = collections.namedtuple("chapter", ["dir", "title", "nb"])
@@ -63,13 +66,13 @@ if __name__ == "__main__":
 
     chapters = []
     for path in tqdm.tqdm(sorted(chapter_paths, key=str)):
-        chapters.append(Chapter(f"chapters/{get_id(path)}",
+        chapters.append(Chapter(f"{get_id(path)}",
                                 get_name(path), str(path)))
 
-    html = render_template("home.html", {"chapters": chapters})
+    html = render_template("home.html", {"chapters": chapters, "root": ROOT})
     with open('index.html', 'w') as f:
         f.write(html)
 
-    html = render_template("chapters.html", {"chapters": chapters})
+    html = render_template("chapters.html", {"chapters": chapters, "root": ROOT})
     with open('./chapters/index.html', 'w') as f:
         f.write(html)
