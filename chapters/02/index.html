@@ -196,11 +196,11 @@ div.output_prompt {
            
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nash</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">nash</span>
 </pre></div>
 
 </div>
@@ -213,40 +213,73 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If we have a game \((A, B)\) and a strategy pair \(\sigma_1, \sigma_2\) then the utility of the row player is:</p>
-<p>\[
-\sigma_1 A \sigma_2
-\]</p>
-<p>The utility of the column player is:</p>
-<p>\[
-\sigma_1 B \sigma_2
-\]</p>
+<h1 id="Player-strategies">Player strategies<a class="anchor-link" href="#Player-strategies">&#182;</a></h1><hr>
+<h2 id="Definition-of-mixed-strategies">Definition of mixed strategies<a class="anchor-link" href="#Definition-of-mixed-strategies">&#182;</a></h2><p>A mixed strategy for a player with strategy set $S$ is denoted by $\sigma \in [0,1]_{\mathbb{R}}^{|S|}$ and corresponds to a probability distribution over the pure strategies of player $i$. So:</p>
+$$
+\sum_{i=1}^{|S|}\sigma_i = 1
+$$<hr>
+<p>The expected score of a player can then be calculated as a measure over the probability distributions.</p>
+<hr>
+<h2 id="Calculating-utilities">Calculating utilities<a class="anchor-link" href="#Calculating-utilities">&#182;</a></h2><p>Considering a game $(A, B)\in\mathbb{{R^{m \times n}}^2}$, if $\sigma_r$ and $\sigma_c$ are the mixed strategies for the row/column player (respectively). The utility to the row player is:</p>
+$$
+u_r(\sigma_r, \sigma_c) = \sum_{i=1}^m\sum_{j=1}^nA_{ij}{\sigma_r}_i{\sigma_c}_j
+$$<p>and the utility to the column player is:</p>
+$$
+u_c(\sigma_r, \sigma_c) = \sum_{i=1}^m\sum_{j=1}^nB_{ij}{\sigma_r}_i{\sigma_c}_j
+$$<p>This comes from:</p>
+<ul>
+<li>The probability of being in a given cell of $A$ or $B$: ${\sigma_r}_i{\sigma_c}_j$</li>
+<li>The value of the particular cell: $A_{ij}$ or $B_{ij}$</li>
+</ul>
+<hr>
+<p>As an example consider the matching pennies game:</p>
+$$
+A =
+\begin{pmatrix}
+    1 & -1\\
+    -1 & 1
+\end{pmatrix}\qquad
+B =
+\begin{pmatrix}
+    -1 & 1\\
+    1 & -1
+\end{pmatrix}
+$$<p>with the following mixed strategies:</p>
+$$
+\sigma_r = (.2, .8)
+\qquad
+\sigma_c = (.6, .4)
+$$<p>We have:</p>
+$$
+u_r(\sigma_r, \sigma_c) = 0.2 \times 0.6 \times 1 + 0.2 \times 0.4 \times (-1) + 0.8 \times 0.6 \times (-1) + 0.8 \times 0.4 \times 1=-0.12
+$$$$
+u_c(\sigma_r, \sigma_c) = 0.2 \times 0.6 \times (-1) + 0.2 \times 0.4 \times 1 + 0.8 \times 0.6 \times 1 + 0.8 \times 0.4 \times (-1)=0.12
+$$<hr>
+<h2 id="Linear-algebraic-calculation">Linear algebraic calculation<a class="anchor-link" href="#Linear-algebraic-calculation">&#182;</a></h2><p>Note that we can rearrange the expressions for the utilities:</p>
+$$
+u_r(\sigma_r, \sigma_c) = \sum_{i=1}^m{\sigma_r}_i\sum_{j=1}^nA_{ij}{\sigma_c}_j
+$$$$
+u_c(\sigma_r, \sigma_c) = \sum_{i=1}^m{\sigma_r}_i\sum_{j=1}^nB_{ij}{\sigma_c}_j
+$$<p>in turn this corresponds to the matrix vector product:</p>
+$$
+u_r(\sigma_r, \sigma_c) = {\sigma_r}A\sigma_c^T
+$$$$
+u_c(\sigma_r, \sigma_c) = {\sigma_r}B\sigma_c^T
+$$<p>We can use numpy to verify this calculation:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="n">B</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sigma_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">.</span><span class="mi">75</span><span class="p">,</span> <span class="o">.</span><span class="mi">25</span><span class="p">])</span>
-<span class="n">sigma_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">.</span><span class="mi">15</span><span class="p">,</span> <span class="o">.</span><span class="mi">85</span><span class="p">])</span>
-<span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">sigma_1</span><span class="p">,</span> <span class="n">A</span><span class="p">),</span> <span class="n">sigma_2</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">sigma_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">sigma_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">sigma_r</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">sigma_c</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">sigma_r</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">sigma_c</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -258,12 +291,12 @@ div.output_prompt {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>-0.34999999999999998</pre>
+<pre>(-0.11999999999999998, 0.11999999999999998)</pre>
 </div>
 
 </div>
@@ -271,16 +304,45 @@ div.output_prompt {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally we can also directly calculate this using a <code>nashpy</code> game:</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matching_pennies</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">Game</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">matching_pennies</span><span class="p">[</span><span class="n">sigma_r</span><span class="p">,</span> <span class="n">sigma_c</span><span class="p">]</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([-0.12,  0.12])</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 

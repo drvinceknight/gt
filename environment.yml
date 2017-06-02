@@ -90,7 +90,7 @@ dependencies:
   - jupyter-client==5.0.1
   - jupyter-console==5.1.0
   - jupyter-core==4.3.0
-  - nashpy==0.0.4
+  - nashpy==0.0.5
   - prompt-toolkit==1.0.14
   - requests==2.14.2
   - scipy==0.19.0
