@@ -65,7 +65,7 @@ if __name__ == "__main__":
         make_dir(pathlib.Path(filename), directory="chapters")
 
     chapters = []
-    for path in tqdm.tqdm(sorted(chapter_paths, key=str)):
+    for path in tqdm.tqdm(sorted(chapter_paths)):
         chapters.append(Chapter(f"{get_id(path)}",
                                 get_name(path), str(path)))
 
