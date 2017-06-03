@@ -1,3 +1,6 @@
+[![Build
+Status](https://travis-ci.org/drvinceknight/gt.svg?branch=master)](https://travis-ci.org/drvinceknight/gt)
+
 # Game Theory
 
 ## Description
