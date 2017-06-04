@@ -14,6 +14,7 @@ Here are my notes for each class meeting.
 
    00-introduction-to-class.rst
    01-strategies.rst
+   02-best-responses-and-nash-equilibria.rst
 
 
 
