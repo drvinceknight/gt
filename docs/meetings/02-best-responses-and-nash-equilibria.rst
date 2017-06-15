@@ -133,6 +133,15 @@ Some examples:
 
 **Discuss best response condition theorem and proof.**
 
+This gives a finite condition that needs to be checked. To find the best
+response against :math:`\sigma_c` we **potentially** would need to check all
+infinite possibilities alternatives to :math:`\sigma_r^*`. Now we simply need to
+check the values of the pure strategies against :math:`sigma_c`:
+
+- Either there will be a single **pure** best response;
+- There will be multiple **pure** strategies for which the row player is
+  indifferent.
+
 Return to previous example:if :math:`\sigma_r=(1/3, 2/3)` then
 :math:`(\sigma_rB)=(0, 0)` thus :math:`(\sigma_rB)_j = 0` for all :math:`j`.
 
