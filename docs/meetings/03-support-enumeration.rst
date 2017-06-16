@@ -294,7 +294,7 @@ We can confirm all of this using :code:`nashpy`::
     ...               [1, 0, -1],
     ...               [-1, 1, 0]])
     >>> rps = nash.Game(A)
-    >>> list(rps.equilibria())
+    >>> list(rps.support_enumeration())
     [(array([ 0.333...,  0.333...,  0.333...]), array([ 0.333...,  0.333...,  0.333...]))]
 
 
@@ -302,11 +302,11 @@ Note that it can be computationally expensive to find **all** equilibria however
 :code:`nashpy` can be used to find **a** Nash equilibrium by finding the first
 one::
 
-    >>> next(rps.equilibria())
+    >>> next(rps.support_enumeration())
     (array([ 0.333...,  0.333...,  0.333...]), array([ 0.333...,  0.333...,  0.333...]))
 
 Discuss Nash's theorem briefly. Highlight how that can seem contradictory for
-the output of :code:`nashpy` (which uses support enumeration)
+the output of :code:`nashpy` (using support enumeration)
 for the degenerate game of the notes. However, that won't always be the case::
 
       >>> A = np.array([[0, -1, 1, 1, -1],
@@ -315,7 +315,7 @@ for the degenerate game of the notes. However, that won't always be the case::
       ...               [-1, 1, -1, 0, 1],
       ...               [1, -1, 1, -1, 0]])
       >>> rpsls = nash.Game(A)
-      >>> list(rpsls.equilibria())
+      >>> list(rpsls.support_enumeration())
       [(array([ 0.2,  0.2,  0.2,  0.2,  0.2]), array([ 0.2,  0.2,  0.2,  0.2,  0.2]))]
 
 
