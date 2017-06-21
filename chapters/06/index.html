@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<style media="screen" type="text/css">
+
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+
+div.input_prompt {
+  color: #303F9F;
+}
+
+div.output_prompt {
+  color: #D84315;
+}
+</style>
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+          <a class="page-link" href="/gt/">Game Theory</a>
+          <a class="page-link" href="/gt/chapters/">Chapters</a>
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+ <div class="page-content">
+    <div class="wrap">
+      <div class="home">
+        
+           
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Best-response-polytopes">Best response polytopes<a class="anchor-link" href="#Best-response-polytopes">&#182;</a></h1><p>Another useful representation of games is to consider polytopes. A polytope $\mathcal{P}$ has the following definition:</p>
+<hr>
+<h2 id="Definition-of-a-Polytope-as-a-convex-hull">Definition of a Polytope as a convex hull<a class="anchor-link" href="#Definition-of-a-Polytope-as-a-convex-hull">&#182;</a></h2><p>For a given set of vertices $V\in\mathbb{R} ^ K$, a Polytope $\mathcal{P}$ can be defined as the following set of points:</p>
+$$
+\mathcal{P} = \left\{\sum_{i=1}^K \lambda_i v_i \in\mathbb{R} ^ K \;\left|\; \sum_{i=1}^K \lambda_i = 1; \lambda_i\geq 0;v_i \in V \right.\right\}
+$$<hr>
+<p>This is a higher dimensional generalization of polygons. Let us plot the polytope with vertices:</p>
+$$
+V = \{(0, 0), (1/2, 0), (1/2, 1/4), (0, 1/3)\}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.spatial</span>
+
+<span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">])]</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">ConvexHull</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">convex_hull_plot_2d</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An equivalent definition of Polytope is as an intersection of boundaries that seperate the space in to two distinct areas.</p>
+<hr>
+<h2 id="Definition-of-a-Polytope-as-an-intersection-of-halfspaces">Definition of a Polytope as an intersection of halfspaces<a class="anchor-link" href="#Definition-of-a-Polytope-as-an-intersection-of-halfspaces">&#182;</a></h2><p>For a matrix $M\in\mathbb{R} ^ {m\times n}$ and a vector $b\in\mathbb{m}$ a Polytope $\mathcal{P}$ can be defined as the following set of points:</p>
+$$
+\mathcal{P} = \left\{x \in\mathbb{R} ^ {m \times n} \;\left|\; Ax\leq b \right.\right\}
+$$<hr>
+<p>For example the previous polytope is equivalently described by the following inequalities:</p>
+$$
+\begin{align}
+- x_1       & \leq 0\\
+-x_2        & \leq 0\\
+2x_1        & \leq 1\\
+3x_2        & \leq 1\\
+x_1 + 6 x_2 & \leq 2
+\end{align}
+$$<hr>
+<h2 id="Definition-of-best-response-polytopes">Definition of best response polytopes<a class="anchor-link" href="#Definition-of-best-response-polytopes">&#182;</a></h2><p>For a two player game $(A, B)\in \in{\mathbb{R}^{m\times n}_{>0}}^2$ the row/column player best response polytope $\mathcal{P}$/$\mathcal{Q}$ is defined by:</p>
+$$
+\mathcal{P} = \left\{x\in\mathbb{R}^{m}\;|\;x\geq 0; xB\leq 1\right\}
+$$$$
+\mathcal{Q} = \left\{y\in\mathbb{R}^{n}\;|\; Ay\leq 1; y\geq 0 \right\}
+$$<hr>
+<p>The polytop $\mathcal{P}$, corresponds to the set of points with an upper bound on the utility of those points when considered as row strategies against which the column player plays.</p>
+<p>The fact that these polytopes are defined for $A, B > 0$ is not restrictive as we can simply add a constant to our utilities. As an example, let us consider the matching pennies game:</p>
+$$
+A = 
+\begin{pmatrix}
+    1 & -1\\
+    -1&  1
+\end{pmatrix}\qquad
+B = 
+\begin{pmatrix}
+    -1 & 1\\
+    1&  -1
+\end{pmatrix}
+$$<p>First let us add 2 to all utilities:</p>
+$$
+A = 
+\begin{pmatrix}
+    3 & 1\\
+    1 &  3
+\end{pmatrix}\qquad
+B = 
+\begin{pmatrix}
+    1 & 3\\
+    3 &  1
+\end{pmatrix}
+$$<p>The inequalities for $\mathcal{P}$ are then given by:</p>
+$$
+\begin{align}
+-x_1        & \leq 0\\
+-x_2        & \leq 0\\
+x_1 + 3 x_2        & \leq 1\\
+3 x_1 + x_2       & \leq 1\\
+\end{align}
+$$<p>which corresponds to:</p>
+$$
+\begin{align}
+x_1        & \geq 0\\
+x_2        & \geq 0\\
+x_2        & \leq 1/3 -x_1/3\\
+x_2       & \leq 1 - 3x_1\\
+\end{align}
+$$<p>the intersection of the two non trivial constraints is at the point:</p>
+$$1/3 -x_1/3=1 - 3x_1$$<p>giving:</p>
+$$x_1=1/4$$<p></p>
+<p>and</p>
+$$x_2=1/4$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="n">x_1</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x_1&#39;</span><span class="p">)</span>
+<span class="n">sym</span><span class="o">.</span><span class="n">solveset</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x_1</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x_1</span><span class="p">,</span> <span class="n">x_1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{0.25}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This gives 4 vertices:</p>
+$$
+V = \{(0, 0), (1/3, 0), (1/4, 1/4), (0, 1/3)\}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">])]</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">ConvexHull</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">convex_hull_plot_2d</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that these vertices are no longer probability vectors. Recall the four inequalities of this polytope:</p>
+<ol>
+<li>$x_1 \geq 0$: if this inequality is "binding" (ie $x_1=0$) that implies that the row player does not play that strategy.</li>
+<li>$x_2 \geq 0$: if this inequality is "binding" (ie $x_2=0$) that implies that the row player does not play that strategy.</li>
+<li>$x_1 + 3 x_2 \leq 1$: if this inequality is binding (ie $x_1 + 3 x_2 = 1$) then that implies that the utility to the column player for that particular column is as big as it can be.</li>
+<li>$3x_1 + x_2 \leq 1$: if this inequality is binding (ie $3x_1 + x_2 = 1$) then that implies that the utility to the column player for that particular column is as big as it can be.</li>
+</ol>
+<p>We in fact use this notion to <strong>label</strong> our vertices:</p>
+<ol>
+<li>$(0, 0)$ has labels $\{0, 1\}$ (we start our indexing at 0).</li>
+<li>$(1/3, 0)$ has labels $\{1, 3\}$</li>
+<li>$(1/4, 1/4)$ has labels $\{2, 3\}$</li>
+<li>$(0, 1/3)$ has labels $\{0, 3\}$</li>
+</ol>
+<p>Similarly the vertics and labels for $\mathcal{Q}$ are:</p>
+<ol>
+<li>$(0, 0)$ has labels $\{2, 3\}$</li>
+<li>$(1/3, 0)$ has labels $\{0, 3\}$</li>
+<li>$(1/4, 1/4)$ has labels $\{0, 1\}$</li>
+<li>$(0, 1/3)$ has labels $\{1, 2\}$</li>
+</ol>
+<p>Note that for a given pair of vertices, if the pair is fully labeled (so that the union of the labels is $\{0, 1, 2, 3\}$) then either a strategy is not played or it is a best response to the other player's strategies.</p>
+<p>This leads to a final observation:</p>
+<hr>
+<h2 id="Fully-labeled-vertex-pair">Fully labeled vertex pair<a class="anchor-link" href="#Fully-labeled-vertex-pair">&#182;</a></h2><p>For a pair of vertices $(x, y)\in\mathcal{P}\times \mathcal{Q}$, if the union of the labels of $x$ and $y$ correspond to the set of all labels then $x, y$, when normalised (so that the sum is 1), correspond to a Nash equilibrum.</p>
+<hr>
+<p>This leads to another algorithm for finding equilibria:</p>
+<hr>
+<h2 id="Vertex-enumeration-algorithm">Vertex enumeration algorithm<a class="anchor-link" href="#Vertex-enumeration-algorithm">&#182;</a></h2><p>For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}_{>0}}^2$ the following algorithm returns all nash equilibria:</p>
+<ol>
+<li>For all pairs of vertices of the best response polytopes</li>
+<li>Check if the vertices have full labels</li>
+<li>Return the normalised probabilities</li>
+</ol>
+<hr>
+<p>For our running example, the only pair of vertices that is fully labeled is:</p>
+$$((1/4, 1/4), (1/4, 1/4))$$<p>which, when normalised (so that the sum is 1) corresponds to:</p>
+$$((1/2, 1/2), (1/2, 1/2))$$<p>This algorithm is implemented in <code>Nashpy</code>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nash</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">matching_pennies</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">Game</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">matching_pennies</span><span class="o">.</span><span class="n">vertex_enumeration</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(array([ 0.5,  0.5]), array([ 0.5,  0.5]))]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+ 
+
+
+
+      </div>
+  </div>
+</div>
+
+
+</body>
+</html>
