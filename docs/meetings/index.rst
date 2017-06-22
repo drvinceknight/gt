@@ -16,6 +16,7 @@ Here are my notes for each class meeting.
    01-strategies.rst
    02-best-responses-and-nash-equilibria.rst
    03-support-enumeration.rst
+   04-best-response-polytopes.rst
 
 
 

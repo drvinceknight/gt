@@ -1,5 +1,7 @@
 *-checkpoint.ipynb
 docs/_build/
-docs/assets/activities/rpsls.aux
-docs/assets/activities/rpsls.log
-docs/assets/activities/rpsls.pdf
+docs/assets/activities/*.aux
+docs/assets/activities/*.log
+docs/assets/activities/*.pdf
+docs/assets/activities/*.fls
+docs/assets/activities/*.fdb_latexmk
