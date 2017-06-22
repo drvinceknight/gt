@@ -16,7 +16,7 @@ dependencies:
 - html5lib=0.999=py36_0
 - icu=54.1=0
 - ipykernel=4.6.1=py36_0
-- ipython=6.1.0=py36_0
+- ipython=6.0.0=py36_1
 - ipython_genutils=0.2.0=py36_0
 - ipywidgets=6.0.0=py36_0
 - jedi=0.10.2=py36_2
@@ -29,22 +29,21 @@ dependencies:
 - jupyter_core=4.3.0=py36_0
 - libffi=3.2.1=1
 - libgcc=5.2.0=0
-- libgfortran=3.0.0=1
 - libiconv=1.14=0
 - libpng=1.6.27=0
 - libsodium=1.0.10=0
 - libxcb=1.12=1
 - libxml2=2.9.4=0
 - markupsafe=0.23=py36_2
-- matplotlib=2.0.2=np113py36_0
+- matplotlib=2.0.2=np112py36_0
 - mistune=0.7.4=py36_0
 - mkl=2017.0.1=0
 - mpmath=0.19=py36_1
-- nbconvert=5.2.1=py36_0
+- nbconvert=5.1.1=py36_0
 - nbformat=4.3.0=py36_0
 - notebook=5.0.0=py36_0
-- numpy=1.13.0=py36_0
-- openssl=1.0.2l=0
+- numpy=1.12.1=py36_0
+- openssl=1.0.2k=2
 - pandocfilters=1.4.1=py36_0
 - path.py=10.3.1=py36_0
 - pcre=8.39=1
@@ -63,7 +62,6 @@ dependencies:
 - qt=5.6.2=4
 - qtconsole=4.3.0=py36_0
 - readline=6.2=2
-- scipy=0.19.0=np113py36_0
 - setuptools=27.2.0=py36_0
 - simplegeneric=0.8.1=py36_1
 - sip=4.18=py36_0
@@ -71,10 +69,9 @@ dependencies:
 - sqlite=3.13.0=0
 - sympy=1.0=py36_0
 - terminado=0.6=py36_0
-- testpath=0.3.1=py36_0
+- testpath=0.3=py36_0
 - tk=8.5.18=0
 - tornado=4.5.1=py36_0
-- tqdm=4.14.0=py36_0
 - traitlets=4.3.2=py36_0
 - wcwidth=0.1.7=py36_0
 - wheel=0.29.0=py36_0
@@ -83,11 +80,24 @@ dependencies:
 - zeromq=4.1.5=0
 - zlib=1.2.8=3
 - pip:
+  - alabaster==0.7.10
+  - axelrod==2.12.0
+  - babel==2.4.0
+  - docutils==0.13.1
+  - hypothesis==3.10.0
+  - imagesize==0.7.1
   - ipython-genutils==0.2.0
   - jupyter-client==5.0.1
   - jupyter-console==5.1.0
   - jupyter-core==4.3.0
-  - nashpy==0.0.6
+  - nashpy==0.0.10
   - prompt-toolkit==1.0.14
+  - requests==2.14.2
+  - scipy==0.19.0
+  - snowballstemmer==1.2.1
+  - sphinx==1.6.1
+  - sphinxcontrib-websupport==1.0.1
+  - tqdm==4.11.2
+  - typing==3.6.1
 prefix: /home/vince/anaconda3/envs/gt
 
