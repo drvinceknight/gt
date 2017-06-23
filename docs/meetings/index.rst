@@ -17,6 +17,7 @@ Here are my notes for each class meeting.
    02-best-responses-and-nash-equilibria.rst
    03-support-enumeration.rst
    04-best-response-polytopes.rst
+   05-lemke-howson.rst
 
 
 

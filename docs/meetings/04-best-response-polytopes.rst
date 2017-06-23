@@ -136,7 +136,7 @@ inequality if it is a strict equality.
 :math:`\mathcal{Q}`:
 
 .. image:: ../assets/activities/matching_pennies_col_best_response_polytope.png
-   :width: 500px
+   :height: 500px
 
 Explain that what these polytopes represent is the scaled strategies when
 players maximum utilities are 1. So given, the action of an opponent, if the
