@@ -19,7 +19,7 @@ Here are my notes for each class meeting.
    04-best-response-polytopes.rst
    05-lemke-howson.rst
    06-repeated-games.rst
-
+   07-prisoners-dilemma.rst
 
 
 Indices and tables
