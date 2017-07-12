@@ -20,6 +20,7 @@ Here are my notes for each class meeting.
    05-lemke-howson.rst
    06-repeated-games.rst
    07-prisoners-dilemma.rst
+   08-evolutionary-dynamics.rst
 
 
 Indices and tables
