@@ -21,6 +21,7 @@ Here are my notes for each class meeting.
    06-repeated-games.rst
    07-prisoners-dilemma.rst
    08-evolutionary-dynamics.rst
+   09-evolutionary-game-theory.rst
 
 
 Indices and tables
