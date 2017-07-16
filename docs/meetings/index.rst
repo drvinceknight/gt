@@ -22,6 +22,7 @@ Here are my notes for each class meeting.
    07-prisoners-dilemma.rst
    08-evolutionary-dynamics.rst
    09-evolutionary-game-theory.rst
+   10-moran-processes.rst
 
 
 Indices and tables
