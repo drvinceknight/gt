@@ -73,6 +73,7 @@ absorption probabilities of a birth death process.**
 
 Discuss and use code from chapter to show the fixation with the Hawk Dove game::
 
+    >>> import numpy as np
     >>> A = np.array([[0, 3], [1, 2]])
 
 Calculate theoretic value using formula from theorem:
