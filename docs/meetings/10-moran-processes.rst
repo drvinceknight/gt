@@ -107,3 +107,8 @@ Thus:
 - Discuss work of Maynard smith but that this actually used Hawk Dove game in
   infinite population games.
 - Discussion possibility for using a utility model on top of fitness.
+- A lot of current work looks at Moran processes: a good model of invasion of a
+  specifies etc...
+- The Prisoners dilemma can also be included, there is documentation about
+  simulating this with Axelrod is here:
+  http://axelrod.readthedocs.io/en/stable/tutorials/getting_started/moran.html
