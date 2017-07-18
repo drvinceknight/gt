@@ -15,20 +15,20 @@
             node [below left, very near start] {$p_2q_1$} (CD);
 
     \draw (CC) edge[out=90, in=-90, <->, thick]
-            node [left, very near end] {$(1 - p_1)q_1$}
-            node [left, very near start] {$p_1q_2$} (DC);
+            node [above left, pos=.95, sloped] {$(1 - p_1)q_1$}
+            node [above left, very near start, sloped] {$p_1q_2$} (DC);
 
     \draw (CC) edge[out=45, in=-135, <->, thick]
-            node [below right, pos=.7] {$(1-p_1)(1-q_1)$}
-            node [above left, pos=.1] {$p_2q_2$} (DD);
+            node [below right, pos=.7, sloped] {$(1-p_1)(1-q_1)$}
+            node [above left, pos=.15, sloped] {$p_2q_2$} (DD);
 
     \draw (CD) edge[out=135, in=-45, <->, thick]
-        node [above right, pos=.9] {$(1-p_2)q_1$}
-        node [below left, pos=.1] {$p_1(1-q_2)$} (DC);
+        node [above right, pos=.9, sloped] {$(1-p_2)q_1$}
+        node [below left, pos=.1, sloped] {$p_1(1-q_2)$} (DC);
 
     \draw (CD) edge[out=90, in=-90, <->, thick]
-        node [above right, very near end] {$(1-p_2)(1-q_1)$}
-        node [below right, very near start] {$p_2(1-q_2)$} (DD);
+        node [below right, pos=.6, sloped] {$(1-p_2)(1-q_1)$}
+        node [below right, pos=0, sloped] {$p_2(1-q_2)$} (DD);
 
     \draw (DC) edge[out=0, in=180, <->, thick]
         node [above right, pos=.65] {$(1-p_1)(1-q_2)$}
