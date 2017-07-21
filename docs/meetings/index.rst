@@ -23,6 +23,7 @@ Here are my notes for each class meeting.
    08-evolutionary-dynamics.rst
    09-evolutionary-game-theory.rst
    10-moran-processes.rst
+   11-contemporary-research.rst
 
 
 Indices and tables
