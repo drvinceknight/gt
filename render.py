@@ -16,7 +16,12 @@ def get_id(path):
     Return the id of a file
     """
     stem = path.stem
-    return stem[:stem.index('-')]
+    try:
+        return stem[:stem.index('-')]
+    except ValueError:
+        stem = stem.lower()
+        stem = stem.replace(" ", "-")
+        return stem
 
 def get_name(path):
     """
@@ -60,9 +65,13 @@ if __name__ == "__main__":
 
     nb_dir = pathlib.Path('nbs')
     chapter_paths = list(nb_dir.glob('./chapters/*ipynb'))
+    other_paths = list(nb_dir.glob('./other/*ipynb'))
 
     for filename in chapter_paths:
         make_dir(pathlib.Path(filename), directory="chapters")
+
+    for filename in other_paths:
+        make_dir(pathlib.Path(filename), directory="other")
 
     chapters = []
     for path in tqdm.tqdm(sorted(chapter_paths)):
@@ -76,3 +85,5 @@ if __name__ == "__main__":
     html = render_template("chapters.html", {"chapters": chapters, "root": ROOT})
     with open('./chapters/index.html', 'w') as f:
         f.write(html)
+
+
