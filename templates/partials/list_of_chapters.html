@@ -1,5 +1,5 @@
 <h1>Chapters</h1>
-  <ol>
+  <ol start=0>
       {% for chapter in chapters %}
           <li><a href=/{{root}}/chapters/{{ chapter.dir }}/>{{ chapter.title }}</a>
               (<a href={{ chapter.nb }}>ipynb</a>)</li>
