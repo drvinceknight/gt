@@ -651,14 +651,18 @@ NVgOkqQGy0GS1GA5SJIaLAdJUoPlIElq+P9Urnq1rpnbqwAAAABJRU5ErkJggg==
 <ul>
 <li>A given state of the system can be described by a single integer $0\leq i\leq N$;</li>
 <li><p>The state to state transition probabilities are given by:</p>
-<p>\begin{align}
-p<em>{i, i-1}&amp;=\frac{i(N - i)}{N^2}\
-p</em>{i, i+1}&amp;=\frac{i(N - i)}{N^2}\
-p<em>{i, i}&amp;=1 - p</em>{i, i-1} - p_{i, i+1}
-\end{align}</p>
+<p>$$
+\begin{align}
+p_{i, i-1}&=\frac{i(N - i)}{N^2}\\
+p_{i, i+1}&=\frac{i(N - i)}{N^2}\\
+p_{i, i}&=1 - p_{i, i-1} - p_{i, i+1}
+\end{align}
+$$</p>
 <p>We also have two absorbing states (when the Moran process ends):</p>
-<p>$$p_{00}=1\qquad p_{0i}=0\text{ for all }i>0$$
-$$p_{NN}=1\qquad p_{Ni}=0\text{ for all }i<N$$</p>
+<p>$$p_{00}=1\qquad p_{0i}=0\text{ for all }i>0$$</p>
+<p>$$
+p_{NN}=1\qquad p_{Ni}=0\text{ for all } N>i
+$$</p>
 <p>these transitions can be represented as a matrix. Here for example is the matrix for $N=6$:</p>
 </li>
 </ul>
