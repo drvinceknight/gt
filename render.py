@@ -56,7 +56,7 @@ def make_dir(path, directory):
     p.mkdir(exist_ok=True)
     nb, resources = convert_html(path)
     css = resources["inlining"]["css"]
-    html = render_template("chapter.html", {"nb": nb, "css": css[1] + css[2],
+    html = render_template("content.html", {"nb": nb, "css": css[1] + css[2],
                                             "root": ROOT,
                                             "id": path_id})
     (p / 'index.html').write_text(html)
