@@ -51,12 +51,14 @@ def make_dir(path, directory):
     """
     Create a directory for the name of the file
     """
-    p = pathlib.Path(f"./{directory}/{get_id(path)}")
+    path_id = get_id(path)
+    p = pathlib.Path(f"./{directory}/{path_id}")
     p.mkdir(exist_ok=True)
     nb, resources = convert_html(path)
     css = resources["inlining"]["css"]
     html = render_template("chapter.html", {"nb": nb, "css": css[1] + css[2],
-                                            "root": ROOT})
+                                            "root": ROOT,
+                                            "id": path_id})
     (p / 'index.html').write_text(html)
 
 Chapter = collections.namedtuple("chapter", ["dir", "title", "nb"])
