@@ -1,10 +1,10 @@
-02 Best responses and Nash equilibrium
+03 Best responses and Nash equilibrium
 ======================================
 
 Corresponding chapters
 ----------------------
 
-- `Nash equilibria <http://vknight.org/gt/chapters/05/>`_
+- `Best responses <http://vknight.org/gt/chapters/04/>`_
 
 
 Objectives
@@ -20,12 +20,20 @@ Objectives
 Notes
 -----
 
+Discuss best response in pure strategies.
+
 Best response against mixed strategies
 **************************************
 
 Use :download:`best responses against mixed
 strategies<../assets/activities/bestresponsetomixedstrategies.pdf>` have
-students play against a mixed strategy (sample using Python).
+students play against a mixed strategy::
+
+    >>> import random
+    >>> random.seed(0)  # Don't seed in class
+    >>> ["D", "C"][random.random() < 0.3]  # 30 chance of Cooperating
+    'D'
+
 
 Discuss the definition of a best response. Identify best responses for the game
 considered:

@@ -63,7 +63,8 @@ The course notes will include code throughout, this is both to show you how to
 use code to study mathematics (an exemplar of modern mathematics) but also to
 illustrate the ideas.
 
-Details about the programming involved can be found at http://vknight.org/gt/
+Details about the programming involved can be found at
+http://vknight.org/gt/other/programming/
 
 Introduction to games
 *********************

@@ -13,8 +13,9 @@ Here are my notes for each class meeting.
    :caption: Contents:
 
    00-introduction-to-class.rst
-   01-strategies.rst
-   02-best-responses-and-nash-equilibria.rst
+   01-strategy-utilities.rst
+   02-rationalisation.rst
+   03-best-response-condition.rst
    03-support-enumeration.rst
    04-best-response-polytopes.rst
    05-lemke-howson.rst
