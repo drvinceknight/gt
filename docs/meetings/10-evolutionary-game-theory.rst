@@ -1,4 +1,4 @@
-09 Evolutionary game theory
+10 Evolutionary game theory
 ===========================
 
 Corresponding chapters
@@ -15,9 +15,7 @@ Objectives
 Notes
 -----
 
-Recall
-that there are *no* players: just strategies in a population.
-
+Recall that there are *no* players: just strategies in a population.
 
 Go over the notes, explaining the mathematics.
 

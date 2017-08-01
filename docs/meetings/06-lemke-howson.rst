@@ -1,4 +1,4 @@
-05 Lemke Howson Algorithm
+06 Lemke Howson Algorithm
 =========================
 
 Corresponding chapters

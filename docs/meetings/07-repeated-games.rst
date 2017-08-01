@@ -1,4 +1,4 @@
-06 Repeated games
+07 Repeated games
 =================
 
 Corresponding chapters
@@ -45,9 +45,10 @@ In pairs:
 
 - Decide on row/column player (recall you don't care about your opponents
   reward).
-- We are going to play the game TWICE and write down both players *cumulative* scores.
+- We are going to play the game TWICE and write down both players *cumulative*
+  scores.
 - Define a strategy and ask players to write down a strategy that must describe
-  the what they do in both stages by answering the following question:
+  what they do in both stages by answering the following question:
   - What should the player do in the first stage?
   - What should the player do in the second stage given knowledge of what both
     players did in the first period?

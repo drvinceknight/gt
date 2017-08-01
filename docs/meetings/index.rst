@@ -16,15 +16,15 @@ Here are my notes for each class meeting.
    01-strategy-utilities.rst
    02-rationalisation.rst
    03-best-response-condition.rst
-   03-support-enumeration.rst
-   04-best-response-polytopes.rst
-   05-lemke-howson.rst
-   06-repeated-games.rst
-   07-prisoners-dilemma.rst
-   08-evolutionary-dynamics.rst
-   09-evolutionary-game-theory.rst
-   10-moran-processes.rst
-   11-contemporary-research.rst
+   04-support-enumeration.rst
+   05-best-response-polytopes.rst
+   06-lemke-howson.rst
+   07-repeated-games.rst
+   08-prisoners-dilemma.rst
+   09-evolutionary-dynamics.rst
+   10-evolutionary-game-theory.rst
+   11-moran-processes.rst
+   12-contemporary-research.rst
 
 
 Indices and tables

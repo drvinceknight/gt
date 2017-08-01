@@ -1,4 +1,4 @@
-04 Best response polytopes
+05 Best response polytopes
 ==========================
 
 Corresponding chapters
@@ -29,17 +29,17 @@ weighted average between three points :math:`x, y, z`:
 
 .. math::
 
-   \lambda_1 x + \lambda_2 x + \lambda_3 x
+   \lambda_1 x + \lambda_2 y + \lambda_3 z
 
 This corresponds to something like:
 
 .. image:: ../assets/activities/triangular_convex_hull.png
    :width: 500px
 
-Explain how another definition for that space would be draw inequalities on
+Explain how another definition for that space would be to draw inequalities on
 our variables.
 Give definition of best response polytopes for a game. Illustrate this with
-the battle of the sexes game (scaled!):
+the battle of the sexes game (scaled):
 
 .. math::
 

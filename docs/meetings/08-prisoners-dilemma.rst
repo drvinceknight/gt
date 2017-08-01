@@ -1,4 +1,4 @@
-07 Prisoners Dilemma
+08 Prisoners Dilemma
 ====================
 
 Corresponding chapters

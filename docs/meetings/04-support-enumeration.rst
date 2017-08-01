@@ -1,4 +1,4 @@
-03 Support enumeration
+04 Support enumeration
 ======================
 
 Corresponding chapters
