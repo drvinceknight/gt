@@ -57,3 +57,6 @@ https://link.springer.com/article/10.1140/epjb/e2008-00249-y
       - more complex dynamics;
       - using more phenotypes (strategies);
       - finite population analytical model;
+
+Here is a blog post on the EGT blog about this paper:
+https://egtheory.wordpress.com/2013/07/05/motility/
