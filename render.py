@@ -21,6 +21,7 @@ def get_id(path):
     except ValueError:
         stem = stem.lower()
         stem = stem.replace(" ", "-")
+        stem = stem.replace(",", "")
         return stem
 
 def get_name(path):
