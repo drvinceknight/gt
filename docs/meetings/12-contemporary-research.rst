@@ -108,3 +108,4 @@ http://www.pnas.org/content/109/26/10409.abstract
   the final utilty of the opponent is 1.6, so :math:`S_y-P=1.6-1=.6` and
   :math:`.6\times 5=3` whereas we see that the utility of the other player is
   indeed :math:`3 + 1`.
+- What occurs if two ZD strategies attempt to play each other?
