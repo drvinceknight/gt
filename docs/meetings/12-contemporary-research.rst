@@ -109,3 +109,59 @@ http://www.pnas.org/content/109/26/10409.abstract
   :math:`.6\times 5=3` whereas we see that the utility of the other player is
   indeed :math:`3 + 1`.
 - What occurs if two ZD strategies attempt to play each other?
+
+
+Measuring the price of anarchy in critical care unit interactions
+-----------------------------------------------------------------
+
+https://link.springer.com/article/10.1057/s41274-016-0100-8
+
+- A piece of work that applies Nash equilibria to the interaction of two health
+  providers. It assumes that a hospital's strategy is a threshold at which
+  patients are deviated to other hospitals.
+- This is one of a few papers on health care logistics that uses Game Theory.
+- To calculate the utilities a Markov model (just like the model of Reactive
+  strategies) is used. For every strategy pair that Markov model is used to get
+  the utilities.
+- The main theorem in the paper is one that allows for an easily calculation of
+  the Nash equilibria by showing that the best response functions are mutually
+  increasing which implies that there will be a single intersection of the best
+  response functions.
+- The above theorem is proven for some conditions which correspond to two
+  scenarios.
+- The paper then uses this to compute the PoA: price of anarchy looking at a
+  comparison between the optimal coordinated behaviour and the Nash equilibria.
+  Similarly to a Prisoners dilemma.
+- This is used to find a target that aligns selfish behaviour with coordinated
+  behaviour.
+- Things that could be improved: more players, non stationarity and different
+  models of behaviour.
+
+Evolution Reinforces Cooperation with the Emergence of Self-Recognition Mechanisms: an empirical study of the Moran process for the iterated Prisoner's dilemma
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- This is a paper that studies the Prisoner's dilemma in a Moran process.
+- It uses all the strategies from the Axelrod library but also includes 3
+  strategies that were trained using a genetic algorithm specifically for the
+  Paper. These are trained using a genetic algorithm.
+- These make use of Finite State Machines: a structure that maps states and
+  actions to another state and action.
+- The paper starts by showing why the numerical simulation is necessary with how
+  the theoretic values do not match up with the simulated ones for stochastic
+  strategies.
+- Then it goes on to examine two main scenarios: resistance and invasion.
+- One observation is that the results for N=2 (just 2 strategies, 1 of each
+  type) differ quite a lot from N>3. This implies that a lot of theoretic
+  research isn't quite right.
+- The other observation is that the trained strategies do well:
+  - Strategies with handshakes (self recognition mechanisms) do well in
+    resistance.
+  - Strategies trained for scores against opponents do well at invasion.
+- Some discussion is given to the placing of a particular type of strategy that
+  is of interest in the literature (the Press and Dyson paper) but does not do
+  well here.
+
+Here is are two blog posts on this subject:
+
+- http://vknight.org/unpeudemath/math/2017/07/28/sophisticated-ipd-strategies-beat-simple-ones.html
+- http://marcharper.codes/2017-07-31/axelrod.html
