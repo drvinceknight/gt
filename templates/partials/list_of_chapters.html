@@ -2,6 +2,7 @@
   <ol start=0>
       {% for chapter in chapters %}
           <li><a href=/{{root}}/chapters/{{ chapter.dir }}/>{{ chapter.title }}</a>
-              (<a href={{ chapter.nb }}>ipynb</a>)</li>
+              (<a href={{ chapter.nb }}>ipynb</a>
+               <a href=/{{root}}/chapters/{{ chapter.dir }}/index.pdf>pdf</a>)</li>
       {% endfor %}
   </ol>

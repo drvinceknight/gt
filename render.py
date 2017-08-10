@@ -39,6 +39,13 @@ def convert_html(nb_path):
     html_exporter.template_file = "basic"
     return html_exporter.from_file(str(nb_path))
 
+def convert_pdf(nb_path):
+    """
+    Convert a notebook to pdf
+    """
+    pdf_exporter = PDFExporter()
+    return pdf_exporter.from_file(str(nb_path))
+
 def render_template(template_file, template_vars):
     """
     Render a jinja2 template
@@ -56,10 +63,14 @@ def make_dir(path, directory):
     p = pathlib.Path(f"./{directory}/{path_id}")
     p.mkdir(exist_ok=True)
     nb, _ = convert_html(path)
+
     html = render_template("content.html", {"nb": nb,
         "root": ROOT,
         "id": path_id})
     (p / 'index.html').write_text(html)
+
+    pdf, _ = convert_pdf(path)
+    (p.parent / f"{path_id}.pdf").write_bytes(pdf)
 
 Chapter = collections.namedtuple("chapter", ["dir", "title", "nb"])
 
@@ -87,5 +98,3 @@ if __name__ == "__main__":
     html = render_template("chapters.html", {"chapters": chapters, "root": ROOT})
     with open('./chapters/index.html', 'w') as f:
         f.write(html)
-
-
