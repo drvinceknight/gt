@@ -165,3 +165,9 @@ Here is are two blog posts on this subject:
 
 - http://vknight.org/unpeudemath/math/2017/07/28/sophisticated-ipd-strategies-beat-simple-ones.html
 - http://marcharper.codes/2017-07-31/axelrod.html
+
+Here is a video about a talk I gave on this subject:
+
+- (https://www.youtube.com/watch?v=p4t9dMKxZAo)
+
+
