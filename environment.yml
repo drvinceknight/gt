@@ -91,7 +91,7 @@ dependencies:
   - jupyter-console==5.1.0
   - jupyter-core==4.3.0
   - nashpy==0.0.10
-  - nbval (/home/vince/src/nbval)==0.7
+  - nbval==0.7
   - prompt-toolkit==1.0.15
   - py==1.4.34
   - pytest==3.2.1
