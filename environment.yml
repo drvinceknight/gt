@@ -91,13 +91,16 @@ dependencies:
   - jupyter-console==5.1.0
   - jupyter-core==4.3.0
   - nashpy==0.0.10
-  - prompt-toolkit==1.0.14
+  - nbval==0.7
+  - prompt-toolkit==1.0.15
+  - py==1.4.34
+  - pytest==3.2.1
   - requests==2.14.2
   - scipy==0.19.1
   - snowballstemmer==1.2.1
   - sphinx==1.6.1
   - sphinxcontrib-websupport==1.0.1
-  - tqdm==4.14.0
+  - tqdm==4.15.0
   - typing==3.6.1
 prefix: /home/vince/anaconda3/envs/gt
 

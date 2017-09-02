@@ -17,11 +17,9 @@ install:
   # Useful for debugging any issues with conda
   - conda info -a
 
-  # Replace dep1 dep2 ... with your dependencies
   - conda env create -f environment.yml
   - source activate gt
 
 script:
 
-  - python doctests.py
-  - python nbtests.py
+  - sh run_tests.sh
