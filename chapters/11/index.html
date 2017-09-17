@@ -92,8 +92,7 @@ div.output_prompt {
       <div class="home">
         
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -124,8 +123,8 @@ $$<p>We see that we have 3 equilibria:</p>
 $$
 A = 
 \begin{pmatrix}
-a & b\\
-c & d
+a &amp; b\\
+c &amp; d
 \end{pmatrix}
 $$<p>Evolutionary Game theory assigns strategies as types in a population, and indivividuals randomly encounter other individuals and play their corresponding strategy. The matrix $A$ correspods to the utility of a row player in a game where the row player is a given individual and the column player is the population.</p>
 <p>This gives:</p>
@@ -141,20 +140,20 @@ $$\frac{dx}{dt}=x(f-\phi)$$<hr>
 <hr>
 <p>We now consider the utility of a stable population in a <strong>mutated</strong> population.</p>
 <hr>
-<h2 id="Mutated-population">Mutated population<a class="anchor-link" href="#Mutated-population">&#182;</a></h2><p>Give a strategy vector $x=(x_1, x_2)$, some $\epsilon>0$ and another strategy $y=(y_1, y_1)$, the post entry population $x_{\epsilon}$ is given by:</p>
+<h2 id="Mutated-population">Mutated population<a class="anchor-link" href="#Mutated-population">&#182;</a></h2><p>Give a strategy vector $x=(x_1, x_2)$, some $\epsilon&gt;0$ and another strategy $y=(y_1, y_1)$, the post entry population $x_{\epsilon}$ is given by:</p>
 $$
 x_{\epsilon} = (x_1 + \epsilon(y_1 - x_1), x_2 + \epsilon(y_2 - x_2))
 $$<hr>
-<h2 id="Evolutionary-Stable-Strategies">Evolutionary Stable Strategies<a class="anchor-link" href="#Evolutionary-Stable-Strategies">&#182;</a></h2><p>Give a stable population distribution, $x$ it represents an <strong>Evolutionary Stable Strategy</strong> (ESS) if and only if there exists $\bar\epsilon>0$:</p>
-$$u(x, x_{\epsilon})>u(y, x_{\epsilon})\text{ for all }0<\epsilon<\bar\epsilon, y$$<p>where $u(x, y)$ corresponds to the fitness of strategy $x$ in population $y$ which is given by:</p>
+<h2 id="Evolutionary-Stable-Strategies">Evolutionary Stable Strategies<a class="anchor-link" href="#Evolutionary-Stable-Strategies">&#182;</a></h2><p>Give a stable population distribution, $x$ it represents an <strong>Evolutionary Stable Strategy</strong> (ESS) if and only if there exists $\bar\epsilon&gt;0$:</p>
+$$u(x, x_{\epsilon})&gt;u(y, x_{\epsilon})\text{ for all }0&lt;\epsilon&lt;\bar\epsilon, y$$<p>where $u(x, y)$ corresponds to the fitness of strategy $x$ in population $y$ which is given by:</p>
 $$xAy^T$$<hr>
 <p>For the first type to be an ESS this corresponds to:</p>
-$$a(1-\epsilon)+b\epsilon > c(1-\epsilon) + d\epsilon$$<p>For small values of $\epsilon$ this corresponds to:</p>
-$$a>c$$<p>However if $a=c$, this corresponds to:</p>
-$$b>d$$<p>Thus the first strategy is an ESS (ie resists invasion) iff one of the two hold:</p>
+$$a(1-\epsilon)+b\epsilon &gt; c(1-\epsilon) + d\epsilon$$<p>For small values of $\epsilon$ this corresponds to:</p>
+$$a&gt;c$$<p>However if $a=c$, this corresponds to:</p>
+$$b&gt;d$$<p>Thus the first strategy is an ESS (ie resists invasion) iff one of the two hold:</p>
 <ol>
-<li>$a > c$</li>
-<li>$a=c$ and $b > d$</li>
+<li>$a &gt; c$</li>
+<li>$a=c$ and $b &gt; d$</li>
 </ol>
 
 </div>
@@ -187,12 +186,11 @@ $$b>d$$<p>Thus the first strategy is an ESS (ie resists invasion) iff one of the
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The case of $a>c$:</p>
+<p>The case of $a&gt;c$:</p>
 
 </div>
 </div>
@@ -217,7 +215,9 @@ $$b>d$$<p>Thus the first strategy is an ESS (ie resists invasion) iff one of the
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -328,12 +328,11 @@ d0kqkOEuSQUy3CWpQIa7JBXIcJekAv1/NIoO8uDcdCAAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The case of $a=c$ and $b>d$:</p>
+<p>The case of $a=c$ and $b&gt;d$:</p>
 
 </div>
 </div>
@@ -358,7 +357,9 @@ d0kqkOEuSQUy3CWpQIa7JBXIcJekAv1/NIoO8uDcdCAAAAAASUVORK5CYII=
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -482,12 +483,11 @@ LiISIYW7iEiEFO4iIhFSuIuIROj/Ay/N0EzMVQ7KAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$a=c$ and $b<d$:</p>
+<p>$a=c$ and $b&lt;d$:</p>
 
 </div>
 </div>
@@ -512,7 +512,9 @@ LiISIYW7iEiEFO4iIhFSuIuIROj/Ay/N0EzMVQ7KAAAAAElFTkSuQmCC
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -736,12 +738,11 @@ h9/VSQAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$a < c$:</p>
+<p>$a &lt; c$:</p>
 
 </div>
 </div>
@@ -766,7 +767,9 @@ h9/VSQAAAABJRU5ErkJggg==
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -951,8 +954,7 @@ cBcRyUD/H+QnHMFssJKaAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -960,22 +962,22 @@ cBcRyUD/H+QnHMFssJKaAAAAAElFTkSuQmCC
 $$u(x,x) = x_1f_1(x)+x_2f_2(x)$$<hr>
 <h2 id="General-condition-for-ESS">General condition for ESS<a class="anchor-link" href="#General-condition-for-ESS">&#182;</a></h2><p>If $x$ is an ESS, then for all $y\ne x$, either:</p>
 <ol>
-<li>$u(x,x)>u(y,x)$</li>
-<li>$u(x,x)=u(y,x)$ and $u(x,y)>u(y,y)$</li>
+<li>$u(x,x)&gt;u(y,x)$</li>
+<li>$u(x,x)=u(y,x)$ and $u(x,y)&gt;u(y,y)$</li>
 </ol>
 <hr>
 <p>Conversely, if either (1) or (2) holds for all $y\ne x$ then $x$ is an ESS.</p>
 <hr>
 <h3 id="Proof">Proof<a class="anchor-link" href="#Proof">&#182;</a></h3><hr>
 <p>If $x$ is an ESS, then by definition:</p>
-$$u(x,x_{\epsilon})>u(y,x_{\epsilon})$$<p>which corresponds to:</p>
-$$(1-\epsilon)u(x,x)+\epsilon u(x,y)>(1-\epsilon)u(y,x)+\epsilon u(y,y)$$<ul>
+$$u(x,x_{\epsilon})&gt;u(y,x_{\epsilon})$$<p>which corresponds to:</p>
+$$(1-\epsilon)u(x,x)+\epsilon u(x,y)&gt;(1-\epsilon)u(y,x)+\epsilon u(y,y)$$<ul>
 <li>If condition 1 of the theorem holds then the above inequality can be satisfied for \(\epsilon\) sufficiently small. If condition 2 holds then the inequality is satisfied.</li>
 <li><p>Conversely:</p>
 <ul>
-<li><p>If $u(x,x)<u(y,x)$ then we can find $\epsilon$ sufficiently small such that the inequality is violated.</p>
+<li><p>If $u(x,x)&lt;u(y,x)$ then we can find $\epsilon$ sufficiently small such that the inequality is violated.</p>
 </li>
-<li><p>If $u(x, x) = u(y,x)$ and $u(x,y) < u(y,y)$ then the inequality is violated.</p>
+<li><p>If $u(x, x) = u(y,x)$ and $u(x,y) &lt; u(y,y)$ then the inequality is violated.</p>
 </li>
 </ul>
 </li>
@@ -990,8 +992,8 @@ $$(1-\epsilon)u(x,x)+\epsilon u(x,y)>(1-\epsilon)u(y,x)+\epsilon u(y,y)$$<ul>
 <p>Let us apply it to the one example that seemed to stabilise at a mixed strategy:</p>
 $$
 A =\begin{pmatrix}
-1 & 3\\
-4 & 1
+1 &amp; 3\\
+4 &amp; 1
 \end{pmatrix}
 $$
 </div>
@@ -1016,7 +1018,9 @@ $$
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[16]:</div>
+
 
 
 
@@ -1032,8 +1036,7 @@ $$
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1042,9 +1045,9 @@ $$u(x, x)=u(y, x)$$<p>and (recall $y_1 + y_2 = 1$):</p>
 $$
 u(x, y)=2.8y_1 + 1.8y_2=2.8y_1 + 1.8(1-y_1)=y_1+1.8
 $$\begin{align}
-u(y, y)&=y_1^2+3y_1y_2+4y_1y_2+y_2^2\\
-       &=y_1^2+7y_1-7y_1^2+1 - 2y_1 + y_1^2\\
-       &=5y_1-5y_1^2+1
+u(y, y)&amp;=y_1^2+3y_1y_2+4y_1y_2+y_2^2\\
+       &amp;=y_1^2+7y_1-7y_1^2+1 - 2y_1 + y_1^2\\
+       &amp;=5y_1-5y_1^2+1
 \end{align}<p>Thus:</p>
 $$u(x, y) - u(y, y) = -4y_1+5y_1^2+.8 = (y_1 - .4)^2$$<p>however $y_1\ne.4$ thus $x=(.4, .6)$ is an ESS.</p>
 <p>Here is some code to verify the above calculations:</p>
@@ -1074,7 +1077,9 @@ $$u(x, y) - u(y, y) = -4y_1+5y_1^2+.8 = (y_1 - .4)^2$$<p>however $y_1\ne.4$ thus
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[17]:</div>
+
 
 
 
@@ -1106,7 +1111,9 @@ $$\left ( \left[\begin{matrix}1.0 & 3.0\\4.0 & 1.0\end{matrix}\right], \quad \le
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[18]:</div>
+
 
 
 
@@ -1138,7 +1145,9 @@ $$- 5.0 y_{1}^{2} + 5.0 y_{1} + 1.0$$
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[19]:</div>
+
 
 
 
@@ -1169,7 +1178,9 @@ $$1.0 y_{1} + 1.8$$
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[20]:</div>
+
 
 
 

@@ -92,8 +92,7 @@ div.output_prompt {
       <div class="home">
         
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -109,35 +108,35 @@ $$<hr>
 <h2 id="Best-responses-in-the-Prisoners-dilemma">Best responses in the Prisoners dilemma<a class="anchor-link" href="#Best-responses-in-the-Prisoners-dilemma">&#182;</a></h2><p>Consider the prisoners dilemma:</p>
 $$
 A = \begin{pmatrix}
-3 & 0\\
-5 & 1
+3 &amp; 0\\
+5 &amp; 1
 \end{pmatrix}\qquad
 B = \begin{pmatrix}
-3 & 5\\
-0 & 1
+3 &amp; 5\\
+0 &amp; 1
 \end{pmatrix}
 $$<p>We can easily identify the pure strategy best responses by underlying the corresponding utilities. For the row player, we will underline the best utility in each column:</p>
 $$
 A = \begin{pmatrix}
-3 & 0\\
-\underline{5} & \underline{1}
+3 &amp; 0\\
+\underline{5} &amp; \underline{1}
 \end{pmatrix}
 $$<p>For the column player we underling the best utility in each row:</p>
 $$
 B = \begin{pmatrix}
-3 & \underline{5}\\
-0 & \underline{1}
+3 &amp; \underline{5}\\
+0 &amp; \underline{1}
 \end{pmatrix}
 $$<p>We see that both players' best responses are their second strategy.</p>
 <h2 id="Best-responses-in-matching-pennies">Best responses in matching pennies<a class="anchor-link" href="#Best-responses-in-matching-pennies">&#182;</a></h2><p>Consider matching pennies with the best responses underlined:</p>
 $$
 A = \begin{pmatrix}
-\underline{1} & -1\\
--1 & \underline{1}
+\underline{1} &amp; -1\\
+-1 &amp; \underline{1}
 \end{pmatrix}\qquad
 B = \begin{pmatrix}
--1 & \underline{1}\\
-\underline{1} & -1
+-1 &amp; \underline{1}\\
+\underline{1} &amp; -1
 \end{pmatrix}
 $$<p>We see that the best response now depend on what the opponent does.</p>
 <p>Let us consider the best responses against a mixed strategy (and apply the previous definition):</p>
@@ -152,7 +151,7 @@ A\sigma_c^T = \begin{pmatrix}
 1-2y
 \end{pmatrix}\qquad
 \sigma_rB = \begin{pmatrix}
-1-2x & 2x-1
+1-2x &amp; 2x-1
 \end{pmatrix}
 $$
 </div>
@@ -184,7 +183,9 @@ $$
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[1]:</div>
+
 
 
 
@@ -198,8 +199,7 @@ $$\left ( \left[\begin{matrix}2 y - 1\\- 2 y + 1\end{matrix}\right], \quad \left
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -241,7 +241,9 @@ $$\left ( \left[\begin{matrix}2 y - 1\\- 2 y + 1\end{matrix}\right], \quad \left
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -591,7 +593,9 @@ DBERUfEfJ+TmcJJKxRcAAAAASUVORK5CYII=
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -915,8 +919,7 @@ RERUpDBERETF+7TTUVNErmOXAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -924,16 +927,16 @@ RERUpDBERETF+7TTUVNErmOXAAAAAElFTkSuQmCC
 $$
 \sigma_r^* = 
 \begin{cases}
-(1, 0),&\text{ if } y > 1/2\\
-(0, 1),&\text{ if } y < 1/2\\
-\text{indifferent},&\text{ if } y = 1/2
+(1, 0),&amp;\text{ if } y &gt; 1/2\\
+(0, 1),&amp;\text{ if } y &lt; 1/2\\
+\text{indifferent},&amp;\text{ if } y = 1/2
 \end{cases}
 \qquad
 \sigma_c^* = 
 \begin{cases}
-(0, 1),&\text{ if } x > 1/2\\
-(1, 0),&\text{ if } x < 1/2\\
-\text{indifferent},&\text{ if } x = 1/2
+(0, 1),&amp;\text{ if } x &gt; 1/2\\
+(1, 0),&amp;\text{ if } x &lt; 1/2\\
+\text{indifferent},&amp;\text{ if } x = 1/2
 \end{cases}
 $$<p>In this particular case we see that for any given strategy, the opponents' best response is either a pure strategy or a mixed strategy in which case they are indifferent between the pure strategies.</p>
 <p>For example:</p>
@@ -944,14 +947,14 @@ $$<p>In this particular case we see that for any given strategy, the opponents' 
 <p>This observation generalises to our first theorem:</p>
 <hr>
 <h2 id="Best-response-condition">Best response condition<a class="anchor-link" href="#Best-response-condition">&#182;</a></h2><p>In a two player game $(A,B)\in{\mathbb{R}^{m\times n}}^2$ a mixed strategy $\sigma_r^*$  of the row player is a best response to a column players' strategy $\sigma_c$ iff:</p>
-$${\sigma_r^*}_i > 0 \Rightarrow (A\sigma_c^T)_i = \max_{k}(A\sigma_c^T)_k\text{ for all }1\leq i\leq m$$<h3 id="Proof-of-best-response-condition">Proof of best response condition<a class="anchor-link" href="#Proof-of-best-response-condition">&#182;</a></h3><p>$(A\sigma_c^T)_i$ is the utility of the row player when they play their $i$th strategy. Thus:</p>
+$${\sigma_r^*}_i &gt; 0 \Rightarrow (A\sigma_c^T)_i = \max_{k}(A\sigma_c^T)_k\text{ for all }1\leq i\leq m$$<h3 id="Proof-of-best-response-condition">Proof of best response condition<a class="anchor-link" href="#Proof-of-best-response-condition">&#182;</a></h3><p>$(A\sigma_c^T)_i$ is the utility of the row player when they play their $i$th strategy. Thus:</p>
 $$\sigma_rA\sigma_c^T=\sum_{i=1}^{m}{\sigma_r}_i(A\sigma_c^T)_i$$<p>Let $u=\max_{k}(A\sigma_c^T)_k$. Thus:</p>
 $$
 \begin{align}
-\sigma_rA\sigma_c^T&=\sum_{i=1}^{m}{\sigma_r}_i(u - u + (A\sigma_c^T)_i)\\
-                   &=\sum_{i=1}^{m}{\sigma_r}_iu - \sum_{i=1}^{m}{\sigma_r}_i(u - (A\sigma_c^T)_i)\\
-                   &=u - \sum_{i=1}^{m}{\sigma_r}_i(u - (A\sigma_c^T)_i)
-\end{align}$$<p>We know that $u - (A\sigma_c^T)_i\geq 0$, thus the largest $\sigma_rA\sigma_c^T$ can be is $u$ which occurs iff ${\sigma_r}_i > 0 \Rightarrow (A\sigma_c^T)_i = u$ as required.</p>
+\sigma_rA\sigma_c^T&amp;=\sum_{i=1}^{m}{\sigma_r}_i(u - u + (A\sigma_c^T)_i)\\
+                   &amp;=\sum_{i=1}^{m}{\sigma_r}_iu - \sum_{i=1}^{m}{\sigma_r}_i(u - (A\sigma_c^T)_i)\\
+                   &amp;=u - \sum_{i=1}^{m}{\sigma_r}_i(u - (A\sigma_c^T)_i)
+\end{align}$$<p>We know that $u - (A\sigma_c^T)_i\geq 0$, thus the largest $\sigma_rA\sigma_c^T$ can be is $u$ which occurs iff ${\sigma_r}_i &gt; 0 \Rightarrow (A\sigma_c^T)_i = u$ as required.</p>
 <hr>
 <p>Returning to our previous example. If $\sigma_c=(1/2, 1/2)$, $(A\sigma_c^T)=(0, 0)$, thus $(A\sigma_c^T)_i = 0$ for all $i$.</p>
 <p>Note that while any strategy is a best response to $(1/2, 1/2)$ the pair of strategies $(\sigma_r, \sigma_c) = ((1/2, 1/2), (1/2, 1/2))$ are the only two strategies that are best responses to each other. This <em>coordinate</em> is called a <strong>Nash equilibrium</strong>.</p>

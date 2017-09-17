@@ -92,14 +92,13 @@ div.output_prompt {
       <div class="home">
         
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="The-Lemke-Howson-algorithm">The Lemke Howson algorithm<a class="anchor-link" href="#The-Lemke-Howson-algorithm">&#182;</a></h1><p>The vertex and support enumeration algorithms are all algorithms that use an exhaustive search. For large games, this can take a long time and/or have a high computational cost. The following algorithm gives an approach to create a path through vertices in both best response polytopes to find a pair that is fully labelled.</p>
 <hr>
-<h2 id="The-Lemke-Howson-algorithm">The Lemke Howson algorithm<a class="anchor-link" href="#The-Lemke-Howson-algorithm">&#182;</a></h2><p>For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}_{>0}}^2$ the following algorithm returns all nash equilibria:</p>
+<h2 id="The-Lemke-Howson-algorithm">The Lemke Howson algorithm<a class="anchor-link" href="#The-Lemke-Howson-algorithm">&#182;</a></h2><p>For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}_{&gt;0}}^2$ the following algorithm returns all nash equilibria:</p>
 <ol>
 <li>Start at the artificial equilibrium: $(0, 0)$</li>
 <li>Choose a label to drop.</li>
@@ -112,25 +111,25 @@ div.output_prompt {
 $$
 A = 
 \begin{pmatrix}
-    1 & -1\\
-    -1&  1
+    1 &amp; -1\\
+    -1&amp;  1
 \end{pmatrix}\qquad
 B = 
 \begin{pmatrix}
-    -1 & 1\\
-    1&  -1
+    -1 &amp; 1\\
+    1&amp;  -1
 \end{pmatrix}
 $$<p>First let us add 2 to all utilities:</p>
 $$
 A = 
 \begin{pmatrix}
-    3 & 1\\
-    1 &  3
+    3 &amp; 1\\
+    1 &amp;  3
 \end{pmatrix}\qquad
 B = 
 \begin{pmatrix}
-    1 & 3\\
-    3 &  1
+    1 &amp; 3\\
+    3 &amp;  1
 \end{pmatrix}
 $$<p>The vertices for $\mathcal{P}$ are:</p>
 <ol>
@@ -181,7 +180,9 @@ $$((1/2, 1/2), (1/2, 1/2))$$<p>This is also implemented in <code>Nashpy</code>:<
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[1]:</div>
+
 
 
 
@@ -195,8 +196,7 @@ $$((1/2, 1/2), (1/2, 1/2))$$<p>This is also implemented in <code>Nashpy</code>:<
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -223,7 +223,9 @@ $$((1/2, 1/2), (1/2, 1/2))$$<p>This is also implemented in <code>Nashpy</code>:<
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(array([ 0.5,  0.5]), array([ 0.5,  0.5]))
@@ -238,8 +240,7 @@ $$((1/2, 1/2), (1/2, 1/2))$$<p>This is also implemented in <code>Nashpy</code>:<
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -255,14 +256,14 @@ $$((1/2, 1/2), (1/2, 1/2))$$<p>This is also implemented in <code>Nashpy</code>:<
 $$
 T_r =
 \begin{pmatrix}
-1 & 3 & 1 & 0 & 1\\
-3 & 1 & 0 & 1 & 1
+1 &amp; 3 &amp; 1 &amp; 0 &amp; 1\\
+3 &amp; 1 &amp; 0 &amp; 1 &amp; 1
 \end{pmatrix}
 $$<p>Note that this corresponds to:</p>
 $$
 T_r = 
 \begin{pmatrix}
-B^T&I &1\\
+B^T&amp;I &amp;1\\
 \end{pmatrix}
 $$<hr>
 <h2 id="Basic-variables-and-labelled-vertices">Basic variables and labelled vertices<a class="anchor-link" href="#Basic-variables-and-labelled-vertices">&#182;</a></h2><p>A basic variable of a tableau is a column (ignoring the last column) that is linearly independent from the others. Any given vertex of a polytope corresponds to a tableau where the non basic variables are set to 0 and the basic variables are solved. Non basic variables corresponds to labels of a vertex.</p>
@@ -281,43 +282,43 @@ $$x_1=x_2=0$$<p>which corresponds to the origin of the polytope (which is the st
 $$
 T_r =
 \begin{pmatrix}
-    0 & 8 & 3 & -1 & 2\\
-    3 & 1 & 0 & 1 & 1
+    0 &amp; 8 &amp; 3 &amp; -1 &amp; 2\\
+    3 &amp; 1 &amp; 0 &amp; 1 &amp; 1
 \end{pmatrix}
 $$<p>We now (as in the example we carried out before) have non basic variables $x_2$ and $s_2$ in other words we have labels: $\{1, 3\}$. We have thus picked up the label $3$ which we need to drop from the other polytope.</p>
 <p>In tableau form the column best response polytope is given by:</p>
 $$
 T_c =
 \begin{pmatrix}
-    1 & 0 & 3 & 1 & 1\\
-    0 & 1 & 1 & 3 & 1
+    1 &amp; 0 &amp; 3 &amp; 1 &amp; 1\\
+    0 &amp; 1 &amp; 1 &amp; 3 &amp; 1
 \end{pmatrix}
 $$<p>Note that this corresponds to:</p>
 $$
 T_c = 
 \begin{pmatrix}
-I & A & 1\\
+I &amp; A &amp; 1\\
 \end{pmatrix}
-$$<p>we need to pivot the fourth column corresponding to label $3$ of $T_c$. First the minimum ratios: $1/1>1/3$, so we pivot on the second row. Let us multiply the first row by 3 and subtract the second row from it:</p>
+$$<p>we need to pivot the fourth column corresponding to label $3$ of $T_c$. First the minimum ratios: $1/1&gt;1/3$, so we pivot on the second row. Let us multiply the first row by 3 and subtract the second row from it:</p>
 $$
 T_c =
 \begin{pmatrix}
-    3 & -1 & 8 & 0 & 2\\
-    0 & 1 & 1 & 3 & 1
+    3 &amp; -1 &amp; 8 &amp; 0 &amp; 2\\
+    0 &amp; 1 &amp; 1 &amp; 3 &amp; 1
 \end{pmatrix}
 $$<p>This has labels: $\{1, 2\}$ with $1$ being the newly picked up label that we now drop (by pivoting the second column) from $T_r$:</p>
 $$
 T_r =
 \begin{pmatrix}
-    0 & 8 & 3 & -1 & 2\\
-    24 & 0 & -3 & 9 & 6
+    0 &amp; 8 &amp; 3 &amp; -1 &amp; 2\\
+    24 &amp; 0 &amp; -3 &amp; 9 &amp; 6
 \end{pmatrix}
 $$<p>which has labels: $\{2, 3\}$ with $2$ being the newly picked up label so we now pivot the third column of $T_c$:</p>
 $$
 T_c =
 \begin{pmatrix}
-    3 & -1 & 8 & 0 & 2\\
-    -3 & 9 & 0 & 24 & 6
+    3 &amp; -1 &amp; 8 &amp; 0 &amp; 2\\
+    -3 &amp; 9 &amp; 0 &amp; 24 &amp; 6
 \end{pmatrix}
 $$<p>which has labels: $\{0, 1\}$ so we have a fully labelled vertex pair. Setting the non basic variables to 0 in each tableau we obtain:</p>
 $$
