@@ -92,7 +92,8 @@ div.output_prompt {
       <div class="home">
         
     
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -151,9 +152,7 @@ div.output_prompt {
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -369,7 +368,8 @@ MyOHS66wRQAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -401,7 +401,8 @@ MyOHS66wRQAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -430,9 +431,7 @@ MyOHS66wRQAAAABJRU5ErkJggg==
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -537,7 +536,8 @@ NVgOkqQGy0GS1GA5SJIaLAdJUoPlIElq+P9Urnq1rpnbqwAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -548,15 +548,15 @@ NVgOkqQGy0GS1GA5SJIaLAdJUoPlIElq+P9Urnq1rpnbqwAAAABJRU5ErkJggg==
 <li><p>The state to state transition probabilities are given by:</p>
 <p>$$
 \begin{align}
-p_{i, i-1}&amp;=\frac{i(N - i)}{N^2}\\
-p_{i, i+1}&amp;=\frac{i(N - i)}{N^2}\\
-p_{i, i}&amp;=1 - p_{i, i-1} - p_{i, i+1}
+p_{i, i-1}&=\frac{i(N - i)}{N^2}\\
+p_{i, i+1}&=\frac{i(N - i)}{N^2}\\
+p_{i, i}&=1 - p_{i, i-1} - p_{i, i+1}
 \end{align}
 $$</p>
 <p>We also have two absorbing states (when the Moran process ends):</p>
-<p>$$p_{00}=1\qquad p_{0i}=0\text{ for all }i&gt;0$$</p>
+<p>$$p_{00}=1\qquad p_{0i}=0\text{ for all }i>0$$</p>
 <p>$$
-p_{NN}=1\qquad p_{Ni}=0\text{ for all } N&gt;i
+p_{NN}=1\qquad p_{Ni}=0\text{ for all } N>i
 $$</p>
 <p>these transitions can be represented as a matrix. Here for example is the matrix for $N=6$:</p>
 </li>
@@ -590,9 +590,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[13]:</div>
-
 
 
 
@@ -612,7 +610,8 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -628,9 +627,9 @@ $$</p>
 <p>Thus we have two absorbing states: $\{0, N\}$. Let us denote by $x_i$ the probability of being in $state$ $i$ and eventually reaching state $N$.</p>
 <p>We have the following linear system:</p>
 \begin{align}
-    x_0&amp;=0\\
-    x_i&amp;=p_{i,i-1}x_{i-1}+p_{ii}x_i+p_{i,i+1}x_{i+1}\text{ for all }0&lt; i&lt; N-1\\
-    x_N&amp;=1\\
+    x_0&=0\\
+    x_i&=p_{i,i-1}x_{i-1}+p_{ii}x_i+p_{i,i+1}x_{i+1}\text{ for all }0< i< N-1\\
+    x_N&=1\\
 \end{align}<hr>
 <h2 id="Theorem:-Fixation-probabilities-for-the-birth-death-process">Theorem: Fixation probabilities for the birth death process<a class="anchor-link" href="#Theorem:-Fixation-probabilities-for-the-birth-death-process">&#182;</a></h2><p>Given a birth death process as defined above, the fixation probability $x_i$ is given by:</p>
 $$x_i=\frac{1+\sum_{j=1}^{i-1}\prod_{k=1}^j\gamma_k}{1+\sum_{j=1}^{N-1}\prod_{k=1}^j\gamma_k}$$<p>where:</p>
@@ -638,18 +637,18 @@ $$
 \gamma_k = \frac{p_{k,k-1}}{p_{k,k+1}}
 $$<h3 id="Proof">Proof<a class="anchor-link" href="#Proof">&#182;</a></h3><p>We have:</p>
 \begin{align}
-    p_{i,i+1}x_{i+1} &amp; = -p_{i,i-1}x_{i-1} + x_i(1 - p_{ii}) \\ 
-    p_{i,i+1}x_{i+1} &amp; = p_{i,i-1}(x_{i} - x_{i-1}) + x_ip_{i,i+1} \\ 
-    x_{i+1} - x_i    &amp; = \frac{p_{i, i-1}}{p_{i, i+1}}(x_i-x_{i-1})=\gamma_i(x_i-x_{i-1})
+    p_{i,i+1}x_{i+1} & = -p_{i,i-1}x_{i-1} + x_i(1 - p_{ii}) \\ 
+    p_{i,i+1}x_{i+1} & = p_{i,i-1}(x_{i} - x_{i-1}) + x_ip_{i,i+1} \\ 
+    x_{i+1} - x_i    & = \frac{p_{i, i-1}}{p_{i, i+1}}(x_i-x_{i-1})=\gamma_i(x_i-x_{i-1})
 \end{align}<p>We observe that:</p>
 \begin{align}
-    x_2 - x_1 &amp;= \gamma_1(x_1-x_{0})=\gamma_1x_1\\
-    x_3 - x_2 &amp;= \gamma_2(x_2-x_1)=\gamma_2\gamma_1x_1\\
-    x_4 - x_3 &amp;= \gamma_3(x_3-x_2)=\gamma_3\gamma_2\gamma_1x_1\\
-              &amp;\; \vdots &amp; \\
-    x_{i+1} - x_i &amp;= \gamma_i(x_i-x_{i-1})=\prod_{k=1}^i\gamma_kx_1\\
-               &amp;\; \vdots &amp; \\   
-    x_{N} - x_{N-1} &amp;= \gamma_{N-1}(x_{N-1}-x_{N-2})=\prod_{k=1}^{N-1}\gamma_kx_1\\
+    x_2 - x_1 &= \gamma_1(x_1-x_{0})=\gamma_1x_1\\
+    x_3 - x_2 &= \gamma_2(x_2-x_1)=\gamma_2\gamma_1x_1\\
+    x_4 - x_3 &= \gamma_3(x_3-x_2)=\gamma_3\gamma_2\gamma_1x_1\\
+              &\; \vdots & \\
+    x_{i+1} - x_i &= \gamma_i(x_i-x_{i-1})=\prod_{k=1}^i\gamma_kx_1\\
+               &\; \vdots & \\   
+    x_{N} - x_{N-1} &= \gamma_{N-1}(x_{N-1}-x_{N-2})=\prod_{k=1}^{N-1}\gamma_kx_1\\
 \end{align}<p>thus we have:</p>
 $$x_i=\sum_{j=0}^{i-1}x_{j+1}-x_j=\left(1+\sum_{j=1}^{i-1}\prod_{k=1}^j\gamma_k\right)x_1$$<p>we complete the proof by solving the following equation to obtain $x_1$:</p>
 $$x_N=1=\left(1+\sum_{j=1}^{N-1}\prod_{k=1}^j\gamma_k\right)x_1$$<hr>
@@ -686,9 +685,7 @@ $$
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -909,7 +906,8 @@ SUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -926,8 +924,8 @@ $$<hr>
 $$
 A=
 \begin{pmatrix}
-    a &amp; b\\
-    c &amp; d
+    a & b\\
+    c & d
 \end{pmatrix}
 $$<p>The Moran process is as follows:</p>
 <ul>
@@ -1023,7 +1021,8 @@ $$<hr>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1031,8 +1030,8 @@ $$<hr>
 $$
 A = 
 \begin{pmatrix}
-    4 &amp; 1\\
-    1 &amp; 4
+    4 & 1\\
+    1 & 4
 \end{pmatrix}
 $$<p>with initial population: $(1, 7)$ where the invader manages to become fixed.</p>
 
@@ -1059,9 +1058,7 @@ $$<p>with initial population: $(1, 7)$ where the invader manages to become fixed
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -1266,7 +1263,8 @@ AaOFWymlAkYLt1JKBYwWbqWUChgt3EopFTBauJVSKmD+P8Xfl3m/0ZpUAAAAAElFTkSuQmCC
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1298,9 +1296,7 @@ AaOFWymlAkYLt1JKBYwWbqWUChgt3EopFTBauJVSKmD+P8Xfl3m/0ZpUAAAAAElFTkSuQmCC
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 

@@ -92,7 +92,8 @@ div.output_prompt {
       <div class="home">
         
     
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -134,9 +135,7 @@ $$
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -274,7 +273,8 @@ yjj4zcxS5v8D76hzgq97BsoAAAAASUVORK5CYII=
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -287,59 +287,59 @@ $$<hr>
 <p>For example the previous polytope is equivalently described by the following inequalities:</p>
 $$
 \begin{align}
-- x_1       &amp; \leq 0\\
--x_2        &amp; \leq 0\\
-2x_1        &amp; \leq 1\\
-3x_2        &amp; \leq 1\\
-x_1 + 6 x_2 &amp; \leq 2
+- x_1       & \leq 0\\
+-x_2        & \leq 0\\
+2x_1        & \leq 1\\
+3x_2        & \leq 1\\
+x_1 + 6 x_2 & \leq 2
 \end{align}
 $$<hr>
-<h2 id="Definition-of-best-response-polytopes">Definition of best response polytopes<a class="anchor-link" href="#Definition-of-best-response-polytopes">&#182;</a></h2><p>For a two player game $(A, B)\in \in{\mathbb{R}^{m\times n}_{&gt;0}}^2$ the row/column player best response polytope $\mathcal{P}$/$\mathcal{Q}$ is defined by:</p>
+<h2 id="Definition-of-best-response-polytopes">Definition of best response polytopes<a class="anchor-link" href="#Definition-of-best-response-polytopes">&#182;</a></h2><p>For a two player game $(A, B)\in \in{\mathbb{R}^{m\times n}_{>0}}^2$ the row/column player best response polytope $\mathcal{P}$/$\mathcal{Q}$ is defined by:</p>
 $$
 \mathcal{P} = \left\{x\in\mathbb{R}^{m}\;|\;x\geq 0; xB\leq 1\right\}
 $$$$
 \mathcal{Q} = \left\{y\in\mathbb{R}^{n}\;|\; Ay\leq 1; y\geq 0 \right\}
 $$<hr>
 <p>The polytop $\mathcal{P}$, corresponds to the set of points with an upper bound on the utility of those points when considered as row strategies against which the column player plays.</p>
-<p>The fact that these polytopes are defined for $A, B &gt; 0$ is not restrictive as we can simply add a constant to our utilities. As an example, let us consider the matching pennies game:</p>
+<p>The fact that these polytopes are defined for $A, B > 0$ is not restrictive as we can simply add a constant to our utilities. As an example, let us consider the matching pennies game:</p>
 $$
 A = 
 \begin{pmatrix}
-    1 &amp; -1\\
-    -1&amp;  1
+    1 & -1\\
+    -1&  1
 \end{pmatrix}\qquad
 B = 
 \begin{pmatrix}
-    -1 &amp; 1\\
-    1&amp;  -1
+    -1 & 1\\
+    1&  -1
 \end{pmatrix}
 $$<p>First let us add 2 to all utilities:</p>
 $$
 A = 
 \begin{pmatrix}
-    3 &amp; 1\\
-    1 &amp;  3
+    3 & 1\\
+    1 &  3
 \end{pmatrix}\qquad
 B = 
 \begin{pmatrix}
-    1 &amp; 3\\
-    3 &amp;  1
+    1 & 3\\
+    3 &  1
 \end{pmatrix}
 $$<p>The inequalities for $\mathcal{P}$ are then given by:</p>
 $$
 \begin{align}
--x_1        &amp; \leq 0\\
--x_2        &amp; \leq 0\\
-x_1 + 3 x_2        &amp; \leq 1\\
-3 x_1 + x_2       &amp; \leq 1\\
+-x_1        & \leq 0\\
+-x_2        & \leq 0\\
+x_1 + 3 x_2        & \leq 1\\
+3 x_1 + x_2       & \leq 1\\
 \end{align}
 $$<p>which corresponds to:</p>
 $$
 \begin{align}
-x_1        &amp; \geq 0\\
-x_2        &amp; \geq 0\\
-x_2        &amp; \leq 1/3 -x_1/3\\
-x_2       &amp; \leq 1 - 3x_1\\
+x_1        & \geq 0\\
+x_2        & \geq 0\\
+x_2        & \leq 1/3 -x_1/3\\
+x_2       & \leq 1 - 3x_1\\
 \end{align}
 $$<p>the intersection of the two non trivial constraints is at the point:</p>
 $$1/3 -x_1/3=1 - 3x_1$$<p>giving:</p>
@@ -368,9 +368,7 @@ $$x_2=1/4$$
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[3]:</div>
-
 
 
 
@@ -384,7 +382,8 @@ $$x_2=1/4$$
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -414,9 +413,7 @@ $$
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 
@@ -585,7 +582,8 @@ LyKSYlT4RURSjAq/iEiKUeEXEUkxKvwiIinm/wPkIyxjeiP+bwAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -617,7 +615,7 @@ LyKSYlT4RURSjAq/iEiKUeEXEUkxKvwiIinm/wPkIyxjeiP+bwAAAABJRU5ErkJggg==
 <hr>
 <p>This leads to another algorithm for finding equilibria:</p>
 <hr>
-<h2 id="Vertex-enumeration-algorithm">Vertex enumeration algorithm<a class="anchor-link" href="#Vertex-enumeration-algorithm">&#182;</a></h2><p>For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}_{&gt;0}}^2$ the following algorithm returns all nash equilibria:</p>
+<h2 id="Vertex-enumeration-algorithm">Vertex enumeration algorithm<a class="anchor-link" href="#Vertex-enumeration-algorithm">&#182;</a></h2><p>For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}_{>0}}^2$ the following algorithm returns all nash equilibria:</p>
 <ol>
 <li>For all pairs of vertices of the best response polytopes</li>
 <li>Check if the vertices have full labels</li>
@@ -651,9 +649,7 @@ $$((1/2, 1/2), (1/2, 1/2))$$<p>This algorithm is implemented in <code>Nashpy</co
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[5]:</div>
-
 
 
 
