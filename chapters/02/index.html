@@ -92,6 +92,15 @@ div.output_prompt {
       <div class="home">
         
     
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Calculating-utilities-of-strategies">Calculating utilities of strategies<a class="anchor-link" href="#Calculating-utilities-of-strategies">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
@@ -106,7 +115,8 @@ div.output_prompt {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -133,13 +143,13 @@ $$<p>This comes from:</p>
 $$
 A =
 \begin{pmatrix}
-    1 &amp; -1\\
-    -1 &amp; 1
+    1 & -1\\
+    -1 & 1
 \end{pmatrix}\qquad
 B =
 \begin{pmatrix}
-    -1 &amp; 1\\
-    1 &amp; -1
+    -1 & 1\\
+    1 & -1
 \end{pmatrix}
 $$<p>with the following mixed strategies:</p>
 $$
@@ -148,9 +158,9 @@ $$
 \sigma_c = (.6, .4)
 $$<p>We have:</p>
 $$
-u_r(\sigma_r, \sigma_c) = 0.2 \times 0.6 \times 1 + 0.2 \times 0.4 \times (-1) + 0.8 \times 0.6 \times (-1) + 0.8 \times 0.4 \times 1=-0.12
+u_r(\sigma_r, \sigma_c) = 0.2 \times 0.6 \times 1 + 0.2 \times 0.4 \times (-1) + 0.8 \times 0.6 \times (-1) + 0.8 \times 0.4 \times 1=-0.12,
 $$$$
-u_c(\sigma_r, \sigma_c) = 0.2 \times 0.6 \times (-1) + 0.2 \times 0.4 \times 1 + 0.8 \times 0.6 \times 1 + 0.8 \times 0.4 \times (-1)=0.12
+u_c(\sigma_r, \sigma_c) = 0.2 \times 0.6 \times (-1) + 0.2 \times 0.4 \times 1 + 0.8 \times 0.6 \times 1 + 0.8 \times 0.4 \times (-1)=0.12.
 $$<hr>
 <h2 id="Linear-algebraic-calculation">Linear algebraic calculation<a class="anchor-link" href="#Linear-algebraic-calculation">&#182;</a></h2><p>Note that we can rearrange the expressions for the utilities:</p>
 $$
@@ -188,9 +198,7 @@ $$<p>We can use numpy to verify this calculation:</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[2]:</div>
-
 
 
 
@@ -204,7 +212,8 @@ $$<p>We can use numpy to verify this calculation:</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -215,7 +224,7 @@ $$<p>We can use numpy to verify this calculation:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">matching_pennies</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">Game</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
@@ -231,9 +240,7 @@ $$<p>We can use numpy to verify this calculation:</p>
 
 
 <div class="output_area">
-
-<div class="prompt output_prompt">Out[4]:</div>
-
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
