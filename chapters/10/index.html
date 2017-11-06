@@ -98,7 +98,7 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Evolutionary-Dynamics">Evolutionary Dynamics<a class="anchor-link" href="#Evolutionary-Dynamics">&#182;</a></h1><p>We will now consider how Game Theory can be used to study evolutionary processes. The main difference is that we now consider not two player games but game with an <strong>infinite</strong> population. The strategies will make up a dynamic population that changes over time.</p>
-<h2 id="Reproduction">Reproduction<a class="anchor-link" href="#Reproduction">&#182;</a></h2><p>Consider a simple model of populatio growth: let $x(t)$ denote the size of the population at time $t$ and let as assume that the rate of growth is $a$ per population size:</p>
+<h2 id="Reproduction">Reproduction<a class="anchor-link" href="#Reproduction">&#182;</a></h2><p>Consider a simple model of population growth: let $x(t)$ denote the size of the population at time $t$ and let as assume that the rate of growth is $a$ per population size:</p>
 $$\frac{dx}{dt}=ax$$<p>Note that from here on we will refer to this rate as a <strong>fitness</strong>.</p>
 <p>The solution of this differential equation is:</p>
 $$x(t)=x_0e^{at}\text{ where }x_0=x(0)$$
@@ -449,13 +449,13 @@ D4a7JJWQ4S5JJWS4S1IJGe6SVEKGuySVkOEuSSVkuEtSCf0/sEIlioVzkvQAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Selection">Selection<a class="anchor-link" href="#Selection">&#182;</a></h2><p>Reproduction alone is not enough to study evolutionary processes. Let us consider a population of made up of two types of individuals:</p>
+<h2 id="Selection">Selection<a class="anchor-link" href="#Selection">&#182;</a></h2><p>Reproduction alone is not enough to study evolutionary processes. Let us consider a population made up of two types of individuals:</p>
 <ul>
 <li>$x(t)$ denotes the first type;</li>
 <li>$y(t)$ denotes the second type.</li>
 </ul>
 <p>Let us assume the same expressions for the as before:</p>
-$$\frac{dx}{dt}=ax\qquad\frac{dy}{dt}=bx$$<p>both these population will increase or decrease independantly so there's not much of interest there <strong>but</strong> if we introduce the following:</p>
+$$\frac{dx}{dt}=ax\qquad\frac{dy}{dt}=by$$<p>both these population will increase or decrease independantly so there's not much of interest there <strong>but</strong> if we introduce the following:</p>
 $$
 \rho(t) = \frac{x(t)}{y(t)}
 $$<p>then $\lim_{t\to\infty}\rho(t)$ indicates which type takes over the population over time.</p>
