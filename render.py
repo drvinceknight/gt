@@ -67,10 +67,14 @@ if __name__ == "__main__":
 
     nb_dir = pathlib.Path('nbs')
     chapter_paths = list(nb_dir.glob('./chapters/*ipynb'))
+    exercise_paths = list(nb_dir.glob('./exercises/*ipynb'))
     other_paths = list(nb_dir.glob('./other/*ipynb'))
 
     for filename in chapter_paths:
         make_dir(pathlib.Path(filename), directory="chapters")
+
+    for filename in exercise_paths:
+        make_dir(pathlib.Path(filename), directory="exercises")
 
     for filename in other_paths:
         make_dir(pathlib.Path(filename), directory="other")
@@ -79,8 +83,14 @@ if __name__ == "__main__":
     for path in tqdm.tqdm(sorted(chapter_paths)):
         chapters.append(Chapter(f"{get_id(path)}",
                                 get_name(path), str(path)))
+    exercises = []
+    for path in tqdm.tqdm(sorted(exercise_paths)):
+        exercises.append(Chapter(f"{get_id(path)}",
+                                get_name(path), str(path)))
 
-    html = render_template("home.html", {"chapters": chapters, "root": ROOT})
+    html = render_template("home.html", {"chapters": chapters, 
+                                         "root": ROOT,
+                                         "exercises": exercises})
     with open('index.html', 'w') as f:
         f.write(html)
 
@@ -88,4 +98,6 @@ if __name__ == "__main__":
     with open('./chapters/index.html', 'w') as f:
         f.write(html)
 
-
+    html = render_template("exercises.html", {"exercises": exercises, "root": ROOT})
+    with open('./exercises/index.html', 'w') as f:
+        f.write(html)
