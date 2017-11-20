@@ -68,6 +68,7 @@ if __name__ == "__main__":
     nb_dir = pathlib.Path('nbs')
     chapter_paths = list(nb_dir.glob('./chapters/*ipynb'))
     exercise_paths = list(nb_dir.glob('./exercises/*ipynb'))
+    solution_paths = list(nb_dir.glob('./solutions/*ipynb'))
     other_paths = list(nb_dir.glob('./other/*ipynb'))
 
     for filename in chapter_paths:
@@ -75,6 +76,9 @@ if __name__ == "__main__":
 
     for filename in exercise_paths:
         make_dir(pathlib.Path(filename), directory="exercises")
+
+    for filename in solution_paths:
+        make_dir(pathlib.Path(filename), directory="solutions")
 
     for filename in other_paths:
         make_dir(pathlib.Path(filename), directory="other")
