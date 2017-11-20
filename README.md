@@ -1,8 +1,6 @@
 [![Build
 Status](https://travis-ci.org/drvinceknight/gt.svg?branch=master)](https://travis-ci.org/drvinceknight/gt)
 
-[![Binder](https://mybinder.org/badge.svg)](https://hub.mybinder.org/user/drvinceknight-gt-bk2i8i4o/tree/nbs/chapters)
-
 # Game Theory
 
 ## Description
