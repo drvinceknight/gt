@@ -99,7 +99,8 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Best-responses">Best responses<a class="anchor-link" href="#Best-responses">&#182;</a></h1><hr>
-<h2 id="Definition-of-a-best-response">Definition of a best response<a class="anchor-link" href="#Definition-of-a-best-response">&#182;</a></h2><p>In a two player game $(A,B)\in{\mathbb{R}^{m\times n}}^2$ a mixed strategy $\sigma_r^*$  of the row player is a best response to a column players' strategy $\sigma_c$ iff:</p>
+<h2 id="Definition-of-a-best-response">Definition of a best response<a class="anchor-link" href="#Definition-of-a-best-response">&#182;</a></h2><p><a href="https://youtu.be/cJUZEmfhdcA?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>In a two player game $(A,B)\in{\mathbb{R}^{m\times n}}^2$ a mixed strategy $\sigma_r^*$  of the row player is a best response to a column players' strategy $\sigma_c$ iff:</p>
 $$
 \sigma_r^*=\text{argmax}_{\sigma_r\in S_r}\sigma_rA\sigma_c^T.
 $$<p>Similarly a mixed strategy $\sigma_c^*$  of the column player is a best response to a row players' strategy $\sigma_r$ iff:</p>
@@ -130,7 +131,8 @@ B = \begin{pmatrix}
 0 & \underline{1}
 \end{pmatrix}
 $$<p>We see that both players' best responses are their second strategy.</p>
-<h2 id="Best-responses-in-matching-pennies">Best responses in matching pennies<a class="anchor-link" href="#Best-responses-in-matching-pennies">&#182;</a></h2><p>Consider matching pennies with the best responses underlined:</p>
+<h2 id="Best-responses-in-matching-pennies">Best responses in matching pennies<a class="anchor-link" href="#Best-responses-in-matching-pennies">&#182;</a></h2><p><a href="https://youtu.be/dLUWbKNxU44?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>Consider matching pennies with the best responses underlined:</p>
 $$
 A = \begin{pmatrix}
 \underline{1} & -1\\
@@ -944,7 +946,8 @@ $$<p>In this particular case we see that for any given strategy, the opponents' 
 </ul>
 <p>This observation generalises to our first theorem:</p>
 <hr>
-<h2 id="Best-response-condition">Best response condition<a class="anchor-link" href="#Best-response-condition">&#182;</a></h2><p>In a two player game $(A,B)\in{\mathbb{R}^{m\times n}}^2$ a mixed strategy $\sigma_r^*$  of the row player is a best response to a column players' strategy $\sigma_c$ iff:</p>
+<h2 id="Best-response-condition">Best response condition<a class="anchor-link" href="#Best-response-condition">&#182;</a></h2><p><a href="https://youtu.be/UQWoNZBifs8?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>In a two player game $(A,B)\in{\mathbb{R}^{m\times n}}^2$ a mixed strategy $\sigma_r^*$  of the row player is a best response to a column players' strategy $\sigma_c$ iff:</p>
 $${\sigma_r^*}_i > 0 \Rightarrow (A\sigma_c^T)_i = \max_{k}(A\sigma_c^T)_k\text{ for all }1\leq i\leq m$$<h3 id="Proof-of-best-response-condition">Proof of best response condition<a class="anchor-link" href="#Proof-of-best-response-condition">&#182;</a></h3><p>$(A\sigma_c^T)_i$ is the utility of the row player when they play their $i$th strategy. Thus:</p>
 $$\sigma_rA\sigma_c^T=\sum_{i=1}^{m}{\sigma_r}_i(A\sigma_c^T)_i$$<p>Let $u=\max_{k}(A\sigma_c^T)_k$. Thus:</p>
 $$
@@ -956,23 +959,11 @@ $$
 <hr>
 <p>Returning to our previous example. If $\sigma_c=(1/2, 1/2)$, $(A\sigma_c^T)=(0, 0)$, thus $(A\sigma_c^T)_i = 0$ for all $i$.</p>
 <p>Note that while any strategy is a best response to $(1/2, 1/2)$ the pair of strategies $(\sigma_r, \sigma_c) = ((1/2, 1/2), (1/2, 1/2))$ are the only two strategies that are best responses to each other. This <em>coordinate</em> is called a <strong>Nash equilibrium</strong>.</p>
-<h2 id="Definition-of-Nash-equilibrium">Definition of Nash equilibrium<a class="anchor-link" href="#Definition-of-Nash-equilibrium">&#182;</a></h2><p>In a two player game $(A,B)\in{\mathbb{R}^{m\times n}}^2$, $(\sigma_r, \sigma_c)$ is a Nash equilibrium if $\sigma_r$ is a best response to $\sigma_c$ and vice versa.</p>
+<h2 id="Definition-of-Nash-equilibrium">Definition of Nash equilibrium<a class="anchor-link" href="#Definition-of-Nash-equilibrium">&#182;</a></h2><p><a href="https://youtu.be/b1JBFU0wDyY?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>In a two player game $(A,B)\in{\mathbb{R}^{m\times n}}^2$, $(\sigma_r, \sigma_c)$ is a Nash equilibrium if $\sigma_r$ is a best response to $\sigma_c$ and vice versa.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
  
 
