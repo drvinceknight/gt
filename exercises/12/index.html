@@ -98,76 +98,26 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Evolutionary-game-theory---exercises">Evolutionary game theory - exercises<a class="anchor-link" href="#Evolutionary-game-theory---exercises">&#182;</a></h1><ol>
-<li>Assume the frequency dependent selection model for a population with two types of individuals: $x=(x_1, x_2)$ such that $x_1 + x_2 = 1$. Obtain all the stable distribution for the sytem defined by the following fitness functions:<ol>
-<li>$f_1(x)=x_1 - x_2\qquad f_2(x)=x_2 - 2 x_1$</li>
-<li>$f_1(x)=x_1x_2 - x_2\qquad f_2(x)=x_2 - x_1 + 1/2$</li>
-<li>$f_1(x)=x_1 ^ 2 \qquad f_2(x)=x_2^2$</li>
+<h1 id="Moran-processes---exercises">Moran processes - exercises<a class="anchor-link" href="#Moran-processes---exercises">&#182;</a></h1><ol>
+<li>Describe the transition probabilities for the Moran process with neutral drift.</li>
+<li>Obtain the transition probability matrix for the Moran process with neutral drift with $N=4$ individuals.</li>
+<li>State and prove the theorem for fixation probabilities in a birth death process.</li>
+<li>Extend the formulae of question 3 to the case of a Moran process on a game.</li>
+<li>For the following games, obtain the fixation probabilities for $N=4$:<ol>
+<li>$A=\begin{pmatrix}1 & 1 \\ 1 & 1\end{pmatrix}$</li>
+<li>$A=\begin{pmatrix}1 & 2 \\ 2 & 1\end{pmatrix}$</li>
+<li>$A=\begin{pmatrix}1 & 2 \\ 2 & 2\end{pmatrix}$</li>
 </ol>
 </li>
-<li>For the following games, obtain all the stable distributions for the evolutionary game:<ol>
-<li>$A = \begin{pmatrix}2 & 4 \\ 5 & 1\end{pmatrix}$</li>
-<li>$A = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$</li>
+<li>Consider the game $A=\begin{pmatrix}r & 1 \\ 1 & 1\end{pmatrix}$ for $r>1$, and obtain $x_1$ as a function of $r$.<ol>
+<li>How does $r$ effect the chance of fixation?</li>
+<li>What value of $r$ ensures a fixation probability of $0 < \lambda < 1$?</li>
 </ol>
 </li>
-<li>Define:<ol>
-<li>mutated population.</li>
-<li>Evolutionary stable strategies</li>
-</ol>
-</li>
-<li>Using the definition of an evolutionary stable strategy identify what strategies are evolutionarily stable for the games of question 2.</li>
-<li>State and prove the general condition for ESS theorem.</li>
-<li>Using the general condition for ESS theorem identify what strategies are evolutionarily stable for the games of question 2.</li>
 </ol>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">turns</span> <span class="o">=</span> <span class="p">[</span><span class="mi">63</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">151</span><span class="p">,</span><span class="mi">156</span><span class="p">,</span><span class="mi">308</span><span class="p">]</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">turns</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>151.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
  
 
@@ -182,7 +132,7 @@ div.output_prompt {
 /*
 var disqus_config = function () {
 this.page.url = http://vknight.org/gt/;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 11; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.identifier = 12; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 */
 (function() { // DON'T EDIT BELOW THIS LINE
