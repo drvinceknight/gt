@@ -81,6 +81,7 @@ div.output_prompt {
       <div class="trigger">
           <a class="page-link" href="/gt/">Game Theory</a>
           <a class="page-link" href="/gt/chapters/">Chapters</a>
+          <a class="page-link" href="/gt/exercises/">Exercises</a>
       </div>
     </nav>
 
@@ -99,7 +100,8 @@ div.output_prompt {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="The-Lemke-Howson-algorithm">The Lemke Howson algorithm<a class="anchor-link" href="#The-Lemke-Howson-algorithm">&#182;</a></h1><p>The vertex and support enumeration algorithms are all algorithms that use an exhaustive search. For large games, this can take a long time and/or have a high computational cost. The following algorithm gives an approach to create a path through vertices in both best response polytopes to find a pair that is fully labelled.</p>
 <hr>
-<h2 id="The-Lemke-Howson-algorithm">The Lemke Howson algorithm<a class="anchor-link" href="#The-Lemke-Howson-algorithm">&#182;</a></h2><p>For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}_{>0}}^2$ the following algorithm returns all nash equilibria:</p>
+<h2 id="The-Lemke-Howson-algorithm">The Lemke Howson algorithm<a class="anchor-link" href="#The-Lemke-Howson-algorithm">&#182;</a></h2><p><a href="https://youtu.be/HekHAuWR_30?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}_{>0}}^2$ the following algorithm returns all nash equilibria:</p>
 <ol>
 <li>Start at the artificial equilibrium: $(0, 0)$</li>
 <li>Choose a label to drop.</li>
@@ -245,7 +247,8 @@ $$((1/2, 1/2), (1/2, 1/2))$$<p>This is also implemented in <code>Nashpy</code>:<
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this case they will always give the same result (this game indeed has a unique equilibria), however that's not always the case and also note that not all equilibria can be obtained from a given starting vertex pair.</p>
 <hr>
-<h2 id="Tableaux">Tableaux<a class="anchor-link" href="#Tableaux">&#182;</a></h2><p>Carrying out the Lemke Howson algorithm in this way is straightforward when the polytope can be visualised and/or the vertices themselves can all be enumerated to begin with. This is not always the case: using tools from linear programming we can traverse our polytopes using a technique called "pivoting" or a tabular representation of the polytopes called "tableaux" (plural).</p>
+<h2 id="Tableaux">Tableaux<a class="anchor-link" href="#Tableaux">&#182;</a></h2><p><a href="https://youtu.be/krXbHbVhVTM?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>Carrying out the Lemke Howson algorithm in this way is straightforward when the polytope can be visualised and/or the vertices themselves can all be enumerated to begin with. This is not always the case: using tools from linear programming we can traverse our polytopes using a technique called "pivoting" or a tabular representation of the polytopes called "tableaux" (plural).</p>
 <p>A tableau corresponds to the inequalities relating to the payoffs considered but as equalities.The inequalities for the row polytope for the matching pennies game can be rewritten as:</p>
 <ol>
 <li>$x_1+3x_2 + s_1 = 1$</li>
@@ -266,12 +269,14 @@ T_r =
 B^T&I &1\\
 \end{pmatrix}
 $$<hr>
-<h2 id="Basic-variables-and-labelled-vertices">Basic variables and labelled vertices<a class="anchor-link" href="#Basic-variables-and-labelled-vertices">&#182;</a></h2><p>A basic variable of a tableau is a column (ignoring the last column) that is linearly independent from the others. Any given vertex of a polytope corresponds to a tableau where the non basic variables are set to 0 and the basic variables are solved. Non basic variables corresponds to labels of a vertex.</p>
+<h2 id="Basic-variables-and-labelled-vertices">Basic variables and labelled vertices<a class="anchor-link" href="#Basic-variables-and-labelled-vertices">&#182;</a></h2><p><a href="https://youtu.be/6ujffslY318?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>A basic variable of a tableau is a column (ignoring the last column) that is linearly independent from the others. Any given vertex of a polytope corresponds to a tableau where the non basic variables are set to 0 and the basic variables are solved. Non basic variables corresponds to labels of a vertex.</p>
 <hr>
 <p>For example setting the non basic variables in $T_r$ to 0 we get:</p>
 $$x_1=x_2=0$$<p>which corresponds to the origin of the polytope (which is the starting point for the Lemke Howson algorithm). Thus the labels of vertex corresponds to the non basic variables.</p>
 <hr>
-<h2 id="Pivoting-and-the-Lemke-Howson-Algorithm">Pivoting and the Lemke Howson Algorithm<a class="anchor-link" href="#Pivoting-and-the-Lemke-Howson-Algorithm">&#182;</a></h2><p>In the Lemke Howson algorithm we need to drop a label and move along an edge of the Polytope to arrive at another vertex where a new label will replace the dropped label. This is equivalent to making a non basic variable basic (and vice versa). We do this by carrying out row operations on the tableau.</p>
+<h2 id="Pivoting-and-the-Lemke-Howson-Algorithm">Pivoting and the Lemke Howson Algorithm<a class="anchor-link" href="#Pivoting-and-the-Lemke-Howson-Algorithm">&#182;</a></h2><p><a href="https://youtu.be/aJq73gJwd24?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>In the Lemke Howson algorithm we need to drop a label and move along an edge of the Polytope to arrive at another vertex where a new label will replace the dropped label. This is equivalent to making a non basic variable basic (and vice versa). We do this by carrying out row operations on the tableau.</p>
 <p>Let us drop the 0 label (corresponding to the first column) on $T_c$. We need to "pivot" the first column, so one of thoe non zero variables in that column will become 0. We identify this by choosing the row with the minimum positive ratio of $(T_r)_{i5} / (T_r)_{i1}$. This ensures that the resulting vertex is valid (and will have no negative variables). In our case the ratios in the first column are:</p>
 <ol>
 <li>First row: $1/1$</li>

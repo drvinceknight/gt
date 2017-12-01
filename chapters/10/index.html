@@ -81,6 +81,7 @@ div.output_prompt {
       <div class="trigger">
           <a class="page-link" href="/gt/">Game Theory</a>
           <a class="page-link" href="/gt/chapters/">Chapters</a>
+          <a class="page-link" href="/gt/exercises/">Exercises</a>
       </div>
     </nav>
 
@@ -98,7 +99,8 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Evolutionary-Dynamics">Evolutionary Dynamics<a class="anchor-link" href="#Evolutionary-Dynamics">&#182;</a></h1><p>We will now consider how Game Theory can be used to study evolutionary processes. The main difference is that we now consider not two player games but game with an <strong>infinite</strong> population. The strategies will make up a dynamic population that changes over time.</p>
-<h2 id="Reproduction">Reproduction<a class="anchor-link" href="#Reproduction">&#182;</a></h2><p>Consider a simple model of population growth: let $x(t)$ denote the size of the population at time $t$ and let as assume that the rate of growth is $a$ per population size:</p>
+<h2 id="Reproduction">Reproduction<a class="anchor-link" href="#Reproduction">&#182;</a></h2><p><a href="https://youtu.be/kBhoG3pjyG0?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>Consider a simple model of population growth: let $x(t)$ denote the size of the population at time $t$ and let as assume that the rate of growth is $a$ per population size:</p>
 $$\frac{dx}{dt}=ax$$<p>Note that from here on we will refer to this rate as a <strong>fitness</strong>.</p>
 <p>The solution of this differential equation is:</p>
 $$x(t)=x_0e^{at}\text{ where }x_0=x(0)$$
@@ -107,7 +109,7 @@ $$x(t)=x_0e^{at}\text{ where }x_0=x(0)$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
@@ -126,7 +128,7 @@ $$x(t)=x_0e^{at}\text{ where }x_0=x(0)$$
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[1]:</div>
 
 
 
@@ -153,7 +155,7 @@ $$x{\left (t \right )} = C_{1} e^{a t}$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -187,7 +189,7 @@ $$x{\left (t \right )} = C_{1} e^{a t}$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
@@ -322,7 +324,7 @@ aiDDXZIayHCXpAYy3CWpgQx3SWogw12SGuj/A1AspmmClUtlAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
@@ -449,7 +451,8 @@ D4a7JJWQ4S5JJWS4S1IJGe6SVEKGuySVkOEuSSVkuEtSCf0/sEIlioVzkvQAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Selection">Selection<a class="anchor-link" href="#Selection">&#182;</a></h2><p>Reproduction alone is not enough to study evolutionary processes. Let us consider a population made up of two types of individuals:</p>
+<h2 id="Selection">Selection<a class="anchor-link" href="#Selection">&#182;</a></h2><p><a href="https://youtu.be/ERbQGLLNGYo?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>Reproduction alone is not enough to study evolutionary processes. Let us consider a population made up of two types of individuals:</p>
 <ul>
 <li>$x(t)$ denotes the first type;</li>
 <li>$y(t)$ denotes the second type.</li>
@@ -475,7 +478,7 @@ $$<p>note that even if both population grow, but one grows faster than the other
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">drho</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -605,7 +608,8 @@ DG5JqhiDW5IqxuCWpIoxuCWpYgxuSaoYg1uSKuY/AL776WaDL3i3AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Selection-with-constant-population-size">Selection with constant population size<a class="anchor-link" href="#Selection-with-constant-population-size">&#182;</a></h2><p>Let us consider the case of $x(t) + y(t)=1$: so the case of a constant population size (choosing a constant of 1 is just a question of scale). For this to be possible, the rates need to reduced:</p>
+<h2 id="Selection-with-constant-population-size">Selection with constant population size<a class="anchor-link" href="#Selection-with-constant-population-size">&#182;</a></h2><p><a href="https://youtu.be/_bsaV5sq6ZU?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>Let us consider the case of $x(t) + y(t)=1$: so the case of a constant population size (choosing a constant of 1 is just a question of scale). For this to be possible, the rates need to reduced:</p>
 $$\frac{dx}{dt}=x(a - \phi)\qquad\frac{dy}{dt}=y(b - \phi)$$<p>because $x(t) + y(t)=1$:</p>
 $$\frac{dx}{dt} + \frac{dy}{dt} = 0$$<p>also:</p>
 $$\frac{dx}{dt} + \frac{dy}{dt} = ax + by - \phi(x + y)= ax + by - \phi$$<p>thus $\phi=ax+by$ (this corresponds to the average of the fitness).</p>
@@ -626,7 +630,7 @@ $$\frac{dx}{dt}=x(a-b)(1-x)$$<p>We do not need to solve this differential equati
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">dxy</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -779,7 +783,7 @@ KdxFRAKkcBcRCZDCXUQkQP8fU1TcbDMKXdsAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span>
@@ -877,7 +881,7 @@ LkkNGXdJasi4S1JDxl2SGjLuktTQ/wKR9mPyUUcjkAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span>
@@ -975,7 +979,7 @@ SWrIuEtSQ8Zdkhoy7pLUkHGXpIb+B9BxY/LpixWPAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>

@@ -81,6 +81,7 @@ div.output_prompt {
       <div class="trigger">
           <a class="page-link" href="/gt/">Game Theory</a>
           <a class="page-link" href="/gt/chapters/">Chapters</a>
+          <a class="page-link" href="/gt/exercises/">Exercises</a>
       </div>
     </nav>
 
@@ -97,7 +98,8 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Prisoners-Dilemma">Prisoners Dilemma<a class="anchor-link" href="#Prisoners-Dilemma">&#182;</a></h1><p>One big area of repeated games is specifically the Prisoner's Dilemma. We have previously defined this as the following game:</p>
+<h1 id="Prisoners-Dilemma">Prisoners Dilemma<a class="anchor-link" href="#Prisoners-Dilemma">&#182;</a></h1><p><a href="https://youtu.be/DivraIWIwlQ?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>One big area of repeated games is specifically the Prisoner's Dilemma. We have previously defined this as the following game:</p>
 $$
 A =
 \begin{pmatrix}
@@ -129,7 +131,8 @@ $$T > R > P > S$$$$2R > T + S$$<ul>
 <p>This game is a good model of agent (human, etc) interaction: a player can choose to take a slight loss of utility for the benefit of the other play <strong>and</strong> themselves.</p>
 <p>As a single one shot game there is not much more to say about the Prisoner's dilemma. It becomes fascinating when studied as a repeated game.</p>
 <hr>
-<h2 id="Axelrod's-tournaments">Axelrod's tournaments<a class="anchor-link" href="#Axelrod's-tournaments">&#182;</a></h2><p>In 1980, Robert Axelrod (a political scientist) invited submissions to a computer tournament version of an iterated prisoners dilemma. This was described in a 1980 paper titled <a href="http://journals.sagepub.com/doi/abs/10.1177/002200278002400101">"Effective Choice in the Prisoner's Dilemma"</a>.</p>
+<h2 id="Axelrod's-tournaments">Axelrod's tournaments<a class="anchor-link" href="#Axelrod's-tournaments">&#182;</a></h2><p><a href="https://youtu.be/Vfcv7k5PRvE?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>In 1980, Robert Axelrod (a political scientist) invited submissions to a computer tournament version of an iterated prisoners dilemma. This was described in a 1980 paper titled <a href="http://journals.sagepub.com/doi/abs/10.1177/002200278002400101">"Effective Choice in the Prisoner's Dilemma"</a>.</p>
 <h3 id="First-tournament">First tournament<a class="anchor-link" href="#First-tournament">&#182;</a></h3><ul>
 <li>15 strategies submitted. </li>
 <li>Round robin tournament with 200 stages including a 16th player who played uniformly randomly.</li>
@@ -146,7 +149,7 @@ $$T > R > P > S$$$$2R > T + S$$<ul>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -186,9 +189,9 @@ $$T > R > P > S$$$$2R > T + S$$<ul>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>Playing matches: 100%|██████████| 91/91 [00:03&lt;00:00, 26.57it/s]
-Analysing: 100%|██████████| 1820/1820 [00:03&lt;00:00, 596.67it/s]
-Finishing: 100%|██████████| 39/39 [00:00&lt;00:00, 952.00it/s]
+<pre>Playing matches: 100%|██████████| 91/91 [00:03&lt;00:00, 24.08it/s]
+Analysing: 100%|██████████| 1820/1820 [00:03&lt;00:00, 484.75it/s]
+Finishing: 100%|██████████| 39/39 [00:00&lt;00:00, 1060.40it/s]
 </pre>
 </div>
 </div>
@@ -602,7 +605,7 @@ KFYE6FoAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span>axl.TitForTat.strategy<span class="o">??</span>
@@ -639,7 +642,7 @@ KFYE6FoAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span>axl.Grudger.strategy<span class="o">??</span>
@@ -676,7 +679,8 @@ KFYE6FoAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reactive-strategies">Reactive strategies<a class="anchor-link" href="#Reactive-strategies">&#182;</a></h2><p>In 1989 a particular family of strategies was introduced by Martin Nowak. These strategies are defined by two parameters: $(p_1, p_1)$ where:</p>
+<h2 id="Reactive-strategies">Reactive strategies<a class="anchor-link" href="#Reactive-strategies">&#182;</a></h2><p><a href="https://youtu.be/Hbb2GcrbtVw?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>In 1989 a particular family of strategies was introduced by Martin Nowak. These strategies are defined by two parameters: $(p_1, p_1)$ where:</p>
 <ul>
 <li>$p_1$ is the probability of cooperating after an opponent cooperates;</li>
 <li>$p_2$ is the probability of cooperating after an opponent defects.</li>
@@ -707,7 +711,7 @@ $$<p>below is some code that calculates the probabilities over 20 turns starting
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -979,7 +983,7 @@ $$s_1s_2\times R +  s1(1-s_2) \times T +  (1-s_1)s_2 \times S + (1-s_1)(1-s_2)\t
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">theoretic_steady_state</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
@@ -1001,7 +1005,7 @@ $$s_1s_2\times R +  s1(1-s_2) \times T +  (1-s_1)s_2 \times S + (1-s_1)(1-s_2)\t
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">theoretic_utility</span><span class="p">(</span><span class="n">v_1</span><span class="p">,</span> <span class="n">v_2</span><span class="p">),</span> <span class="n">theoretic_utility</span><span class="p">(</span><span class="n">v_2</span><span class="p">,</span> <span class="n">v_1</span><span class="p">)</span>
@@ -1016,7 +1020,7 @@ $$s_1s_2\times R +  s1(1-s_2) \times T +  (1-s_1)s_2 \times S + (1-s_1)(1-s_2)\t
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -1042,7 +1046,7 @@ $$s_1s_2\times R +  s1(1-s_2) \times T +  (1-s_1)s_2 \times S + (1-s_1)(1-s_2)\t
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">player_1</span> <span class="o">=</span> <span class="n">axl</span><span class="o">.</span><span class="n">ReactivePlayer</span><span class="p">(</span><span class="n">probabilities</span><span class="o">=</span><span class="n">v_1</span><span class="p">)</span>
@@ -1062,7 +1066,7 @@ $$s_1s_2\times R +  s1(1-s_2) \times T +  (1-s_1)s_2 \times S + (1-s_1)(1-s_2)\t
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
+<div class="prompt output_prompt">Out[7]:</div>
 
 
 

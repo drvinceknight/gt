@@ -1,0 +1,7 @@
+<h1>Exercises</h1>
+  <ol start=1>
+      {% for exercise in exercises %}
+          <li><a href=/{{root}}/exercises/{{ exercise.dir }}/>{{ exercise.title }}</a>
+              </li>
+      {% endfor %}
+  </ol>
