@@ -98,14 +98,17 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Calculating-utilities-of-strategies---Exercises">Calculating utilities of strategies - Exercises<a class="anchor-link" href="#Calculating-utilities-of-strategies---Exercises">&#182;</a></h1><ol>
-<li>Give the definition of a mixed strategy.</li>
-<li>For the following vectors explain which ones are valid mixed strategy vectors for a strategy set of size 5. If there are not: explain why.<ol>
-<li>$\sigma=(1, 0, 0, 0, 0)$</li>
-<li>$\sigma=(1/4, 1/4, 0, 0, 1/4)$</li>
-<li>$\sigma=(1/4, 1/4, 1/2, -1/2, 1/2)$</li>
-<li>$\sigma=(1/4, 1/4, 0, 0, 11/20)$</li>
-<li>$\sigma=(1/5, 1/5, 1/5, 1/5, 1/5)$</li>
+<h1 id="Calculating-utilities-of-strategies---Solutions">Calculating utilities of strategies - Solutions<a class="anchor-link" href="#Calculating-utilities-of-strategies---Solutions">&#182;</a></h1><ol>
+<li><p>Give the definition of a mixed strategy.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/02/#Definition-of-mixed-strategies">https://vknight.org/gt/chapters/02/#Definition-of-mixed-strategies</a></p>
+</li>
+<li><p>For the following vectors explain which ones are valid mixed strategy vectors for a strategy set of size 5. If there are not: explain why.</p>
+<ol>
+<li>$\sigma=(1, 0, 0, 0, 0)$: Valid.</li>
+<li>$\sigma=(1/4, 1/4, 0, 0, 1/4)$: Not valid, do not sum to 1.</li>
+<li>$\sigma=(1/4, 1/4, 1/2, -1/2, 1/2)$: Not valid, non positive values.</li>
+<li>$\sigma=(1/4, 1/4, 0, 0, 11/20)$: Not valid, do not sum to 1.</li>
+<li>$\sigma=(1/5, 1/5, 1/5, 1/5, 1/5)$: Valid.</li>
 </ol>
 </li>
 <li><p>Calculate the utilities (for both the row and column player) for the following game for the following strategy pairs:</p>
@@ -121,12 +124,22 @@ B =
 1 & -1\end{pmatrix}
 $$</p>
 <ol>
-<li>$\sigma_r = (.2, .8)\qquad\sigma_c = (.6, .4)$</li>
-<li>$\sigma_r = (.3, .7)\qquad\sigma_c = (.2, .8)$</li>
-<li>$\sigma_r = (.9, .1)\qquad\sigma_c = (.5, .5)$</li>
+<li><p>$\sigma_r = (.2, .8)\qquad\sigma_c = (.6, .4)$</p>
+<p>$$u_r(\sigma_r, \sigma_c) = \sigma_r A \sigma_c ^T = .2\times.6\times 1 + .2\times .4\times (-1) + .8\times.6\times (-3) + .8\times .4\times 1=-1.08$$</p>
+<p>$$u_c(\sigma_r, \sigma_c) = \sigma_r B \sigma_c ^T = .2\times.6\times (-1) + .2\times .4\times 2 + .8\times.6\times 1 + .8\times .4\times (-1)=0.2 $$</p>
+</li>
+<li><p>$\sigma_r = (.3, .7)\qquad\sigma_c = (.2, .8)$</p>
+<p>$$u_r(\sigma_r, \sigma_c) = -0.04$$</p>
+<p>$$u_c(\sigma_r, \sigma_c) = 0$$</p>
+</li>
+<li><p>$\sigma_r = (.9, .1)\qquad\sigma_c = (.5, .5)$</p>
+<p>$$u_r(\sigma_r, \sigma_c) = -0.1$$</p>
+<p>$$u_c(\sigma_r, \sigma_c) = 0.45$$</p>
+</li>
 </ol>
 </li>
-<li><p>Consider two column player strategies $z^{(1)}$ and $z^{(2)}$, obtain a linear algebraic expression for the expected utility to the row player playing against both these strategies, in terms of a row strategy $\sigma_r$, a payoff matrix $A$ and $\sigma_c=\frac{z^{(1)} + z^{(2)}}{2}$</p>
+<li><p>Consider two column player strategies $z^{(1)}$ and $z^{(2)}$, obtain a linear algebraic expression for the expected utility to the row player playing against both these strategies, in terms of a row strategy $\sigma_r$, a payoff matrix $A$ and $\sigma_c=\frac{z^{(1)} + z^{(2)}}{2}$:</p>
+<p>$$E(u_r(\sigma_r)) = 1/2u_r(\sigma_r, z^{(1)}) + 1/2u_r(\sigma_r, z^{(2)}) = 1/2\sigma_rA{z^{(2)}}^T +  1/2\sigma_rA{z^{(1)}}^T = \sigma_rA\left(1/2{z^{(2)}}^T +  1/2{z^{(1)}}^T\right)=\sigma_rA\sigma_c^T$$</p>
 </li>
 </ol>
 
