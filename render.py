@@ -92,7 +92,7 @@ if __name__ == "__main__":
         exercises.append(Chapter(f"{get_id(path)}",
                                 get_name(path), str(path)))
 
-    html = render_template("home.html", {"chapters": chapters, 
+    html = render_template("home.html", {"chapters": chapters,
                                          "root": ROOT,
                                          "exercises": exercises})
     with open('index.html', 'w') as f:
