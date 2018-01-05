@@ -115,7 +115,7 @@ div.output_prompt {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -254,7 +254,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>  <span class="o">/</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">5</span><span class="p">])]</span>
@@ -513,7 +513,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>  <span class="o">/</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">5</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])]</span>
@@ -782,36 +782,38 @@ B =
 -3 & 1\\
 1 & -6\end{pmatrix}
 $</p>
-<p>First we need nonegative valued matrices, let us add 7 to all values:</p>
+<p>First we need nonegative valued matrices:</p>
+</li>
+</ol>
 <p>$$
-A =
-\begin{pmatrix}
-10 & 6\\
-9 & 14\end{pmatrix}
-\qquad
-B =
-\begin{pmatrix}
-4 & 8\\
-8 & 1\end{pmatrix}
-$$</p>
+   A \to A + 2 =
+   \begin{pmatrix}
+   5 & 1\\
+   4 & 9\end{pmatrix}
+   \qquad
+   B \to B + 7 =
+   \begin{pmatrix}
+   4 & 8\\
+   8 & 1\end{pmatrix}
+   $$</p>
 <p>The inequalities of $\mathcal{P}$ are then given by:</p>
 <p>$$
-\begin{align}
--x_1       & \leq 0\\
--x_2       & \leq 0\\
-4x_1 + 8x_2       & \leq 1\\
-8x_1 + 1x_2        & \leq 1\
-\end{align}
-$$</p>
+   \begin{align}
+    -x_1       & \leq 0\\
+    -x_2       & \leq 0\\
+    4x_1 + 8x_2       & \leq 1\\
+    8x_1 + 1x_2        & \leq 1\
+    \end{align}
+   $$</p>
 <p>which corresponds to:</p>
 <p>$$
-\begin{align}
-x_1       & \geq 0\\
-x_2       & \geq 0\\
-x_2       & \leq 1/8 - (1/2)x_1\\
-x_2       & \leq 1 - 8x_1
-\end{align}
-$$</p>
+   \begin{align}
+    x_1       & \geq 0\\
+    x_2       & \geq 0\\
+    x_2       & \leq 1/8 - (1/2)x_1\\
+    x_2       & \leq 1 - 8x_1
+    \end{align}
+   $$</p>
 <p>The vertices are given by:</p>
 <p>$$V=\{(0, 0), (0, 1/8), (1/8, 0), (7/60, 1/15)\}$$</p>
 <p>The labels of our vertices (using the ordering of the inequalities):</p>
@@ -819,13 +821,12 @@ $$</p>
 <li>$(0, 0)$: $\{0, 1\}$</li>
 <li>$(0, 1/8)$: $\{0, 2\}$</li>
 <li>$(1/8, 0)$: $\{1, 3\}$</li>
-<li>$(7/60, 1/15)$: $\{2, 3\}$</li>
-</ul>
+<li><p>$(7/60, 1/15)$: $\{2, 3\}$</p>
 <p>The inequalities of $\mathcal{Q}$ are given by:</p>
 <p>$$
 \begin{align}
-10x_1 + 6x_2       & \leq 1\\
-9x_1 + 14x_2        & \leq 1\\
+5x_1 + x_2       & \leq 1\\
+4x_1 + 9x_2        & \leq 1\\
 -x_1       & \leq 0\\
 -x_2       & \leq 0
 \end{align}
@@ -833,14 +834,14 @@ $$</p>
 <p>which corresponds to:</p>
 <p>$$
 \begin{align}
-x_2       & \leq 1/6 - (5/3)x_1\\
-x_2       & \leq 1/14 - (9/14)x_1\\
+x_2       & \leq 1 - 5x_1\\
+x_2       & \leq 1/9 - (4/9)x_1\\
 x_1       & \geq 0\\
 x_2       & \geq 0
 \end{align}
 $$</p>
 <p>The vertices are given by:</p>
-<p>$$V=\{(0, 0), (0, 1/14), (1/10, 0), (4/43, 1/86)\}$$</p>
+<p>$$V=\{(0, 0), (0, 1/9), (1/5, 0), (8/41, 1/41)\}$$</p>
 <p>The labels of our vertices (using the ordering of the inequalities):</p>
 <ul>
 <li>$(0, 0)$: $\{2, 3\}$</li>
@@ -849,19 +850,19 @@ $$</p>
 <li>$(4/43, 1/86)$: $\{0, 1\}$</li>
 </ul>
 <p>The only fully labeled vertex pair is given by:</p>
-<p>$$((7/60, 1/15), (4/43, 1/86))$$</p>
+<p>$$((7/60, 1/15), (8/41, 1/41))$$</p>
 <p>which gives the normalised Nash equilibrium:</p>
 <p>$$((7/11, 4/11), (8/9, 1/9))$$</p>
 <p>Here is some code to verify this numerically:</p>
 </li>
-</ol>
+</ul>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nash</span>
@@ -897,11 +898,11 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Obtaining the column player best response polytope vertices</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">14</span><span class="p">]])</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
 <span class="n">halfspaces</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">polytope</span><span class="o">.</span><span class="n">build_halfspaces</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">nash</span><span class="o">.</span><span class="n">polytope</span><span class="o">.</span><span class="n">non_trivial_vertices</span><span class="p">(</span><span class="n">halfspaces</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
@@ -919,9 +920,9 @@ $$</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[  3.46944695e-18   7.14285714e-02]
-[ 0.09302326  0.01162791]
-[  1.00000000e-01  -3.46944695e-18]
+<pre>[  6.93889390e-18   1.11111111e-01]
+[ 0.19512195  0.02439024]
+[  2.00000000e-01  -6.93889390e-18]
 </pre>
 </div>
 </div>
@@ -932,11 +933,11 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Verifying the Nash equilibria:</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="mi">7</span>  <span class="c1"># Scaling back down (note this makes no difference)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="mi">2</span>  <span class="c1"># Scaling back down (note this makes no difference)</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">B</span> <span class="o">-</span> <span class="mi">7</span> 
 <span class="n">game</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">Game</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">vertex_enumeration</span><span class="p">())</span>
@@ -951,7 +952,7 @@ $$</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -981,14 +982,14 @@ $$</p>
    -2 & 2\\
    1 & -2\end{pmatrix}
    $</p>
-<p>First we need nonegative valued matrices, let us add 3 to all values:</p>
+<p>First we need nonegative valued matrices:</p>
 <p>$$
-   A =
+   A \to A + 2 =
    \begin{pmatrix}
-   5 & 2\\
-   4 & 6\end{pmatrix}
+   4 & 1\\
+   3 & 5\end{pmatrix}
    \qquad
-   B =
+   B \to B + 3 =
    \begin{pmatrix}
    1 & 5\\
    4 & 1\end{pmatrix}
@@ -1023,8 +1024,8 @@ $$</p>
 <p>The inequalities of $\mathcal{Q}$ are given by:</p>
 <p>$$
    \begin{align}
-    5x_1 + 2x_2       & \leq 1\\
-    4x_1 + 6x_2        & \leq 1\\
+    4x_1 + x_2       & \leq 1\\
+    3x_1 + 5x_2        & \leq 1\\
     -x_1       & \leq 0\\
     -x_2       & \leq 0
     \end{align}
@@ -1032,23 +1033,23 @@ $$</p>
 <p>which corresponds to:</p>
 <p>$$
    \begin{align}
-    x_2       & \leq 1/2 - (5/2)x_1\\
-    x_2       & \leq 1/6 - (4/6)x_1\\
+    x_2       & \leq 1 - 4x_1\\
+    x_2       & \leq 1/5 - (3/5)x_1\\
     x_1       & \geq 0\\
     x_2       & \geq 0
     \end{align}
    $$</p>
 <p>The vertices are given by:</p>
-<p>$$V=\{(0, 0), (0, 1/6), (1/5, 0), (2/11, 1/22)\}$$</p>
+<p>$$V=\{(0, 0), (0, 1/5), (1/4, 0), (4/17, 1/17)\}$$</p>
 <p>The labels of our vertices (using the ordering of the inequalities):</p>
 <ul>
 <li>$(0, 0)$: $\{2, 3\}$</li>
-<li>$(0, 1/6)$: $\{1, 2\}$</li>
-<li>$(1/5, 0)$: $\{0, 3\}$</li>
-<li>$(2/11, 1/22)$: $\{0, 1\}$</li>
+<li>$(0, 1/5)$: $\{1, 2\}$</li>
+<li>$(1/4, 0)$: $\{0, 3\}$</li>
+<li>$(4/17, 1/17)$: $\{0, 1\}$</li>
 </ul>
 <p>The only fully labeled vertex pair is given by:</p>
-<p>$$((3/19, 4/19), (2/11, 1/22))$$</p>
+<p>$$((3/19, 4/19), (4/17, 1/17))$$</p>
 <p>which gives the normalised Nash equilibrium:</p>
 <p>$$((3/7, 4/7), (4/5, 1/5))$$</p>
 <p>Here is some code to verify this numerically:</p>
@@ -1058,7 +1059,7 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Obtaining the row player best response polytope vertices</span>
@@ -1093,11 +1094,11 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Obtaining the column player best response polytope vertices</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 <span class="n">halfspaces</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">polytope</span><span class="o">.</span><span class="n">build_halfspaces</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">nash</span><span class="o">.</span><span class="n">polytope</span><span class="o">.</span><span class="n">non_trivial_vertices</span><span class="p">(</span><span class="n">halfspaces</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
@@ -1115,10 +1116,9 @@ $$</p>
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[  1.38777878e-17   1.66666667e-01]
-[  6.93889390e-18   6.93889390e-18]
-[ 0.18181818  0.04545455]
-[ 0.2  0. ]
+<pre>[ 0.   0.2]
+[ 0.23529412  0.05882353]
+[  2.50000000e-01   1.38777878e-17]
 </pre>
 </div>
 </div>
@@ -1129,11 +1129,11 @@ $$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Verifying the Nash equilibria:</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="mi">3</span>  <span class="c1"># Scaling back down (note this makes no difference)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="mi">2</span>  <span class="c1"># Scaling back down (note this makes no difference)</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">B</span> <span class="o">-</span> <span class="mi">3</span> 
 <span class="n">game</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">Game</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">vertex_enumeration</span><span class="p">())</span>
@@ -1148,7 +1148,7 @@ $$</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
+<div class="prompt output_prompt">Out[32]:</div>
 
 
 
