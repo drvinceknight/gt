@@ -115,7 +115,7 @@ div.output_prompt {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -224,7 +224,7 @@ $$<p>[1]</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -482,7 +482,7 @@ fqWUcjFa/Eop5WK0+JVSysX8P7u3pNc+0W/FAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">10</span><span class="p">])]</span>
@@ -781,7 +781,7 @@ $$((1, 0), (1, 0))$$$$((0, 1), (0, 1))$$<p>[2]</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nash</span>
@@ -836,7 +836,7 @@ $$<p>some code to verify the result:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">vertex_enumeration</span><span class="p">())</span>
@@ -851,7 +851,7 @@ $$<p>some code to verify the result:</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[59]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -977,6 +977,153 @@ $$<p>[2]</p>
 <p>simplifying gives the required result.</p>
 <p>We see that our function is decreasing for all values of $x$ (it has negative derivative). Thus, the optimal value of $x$ is $0$.</p>
 <p>[2]</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">&#182;</a></h2><h3 id="(a)-Defining-equations-(bookwork)">(a) Defining equations (bookwork)<a class="anchor-link" href="#(a)-Defining-equations-(bookwork)">&#182;</a></h3><p>The matrix $A$ correspods to the utility of a row player in a game where the row player is a given individual and the column player is the population.</p>
+<p>This gives:</p>
+$$f_1=ax_1+bx_2\qquad f_2=cx_1+dx_2$$<p>[1]</p>
+<p>or equivalently:</p>
+$$f=Ax\qquad \phi=fx$$<p>thus we have the same equation as before but in matrix notation:</p>
+$$\frac{dx}{dt}=x(f-\phi)$$<p>[1]</p>
+<h3 id="(b)-Defining-mutated-population-(bookwork)">(b) Defining mutated population (bookwork)<a class="anchor-link" href="#(b)-Defining-mutated-population-(bookwork)">&#182;</a></h3><p>Given a strategy vector $x=(x_1, x_2)$, some $\epsilon>0$ and another strategy $y=(y_1, y_1)$, the post entry population $x_{\epsilon}$ is given by:</p>
+$$
+x_{\epsilon} = (x_1 + \epsilon(y_1 - x_1), x_2 + \epsilon(y_2 - x_2))
+$$<p>[2]</p>
+<h3 id="(c)-Defining-an-evolutionary-stable-strategy-(bookwork)">(c) Defining an evolutionary stable strategy (bookwork)<a class="anchor-link" href="#(c)-Defining-an-evolutionary-stable-strategy-(bookwork)">&#182;</a></h3><p>Given a stable population distribution, $x$ it represents an <strong>Evolutionary Stable Strategy</strong> (ESS) if and only if there exists $\bar\epsilon>0$:</p>
+$$u(x, x_{\epsilon})>u(y, x_{\epsilon})\text{ for all }0<\epsilon<\bar\epsilon, y$$<p>[1]</p>
+<p>where $u(x, y)$ corresponds to the fitness of strategy $x$ in population $y$ which is given by:</p>
+$$xAy^T$$<p>[1]</p>
+<h3 id="(d)-Proof-of-result-for-ESS-(bookwork)">(d) Proof of result for ESS (bookwork)<a class="anchor-link" href="#(d)-Proof-of-result-for-ESS-(bookwork)">&#182;</a></h3><p><strong>Theorem:</strong></p>
+<p>If $x$ is an ESS, then for all $y\ne x$, either:</p>
+<ol>
+<li>$u(x,x)>u(y,x)$</li>
+<li>$u(x,x)=u(y,x)$ and $u(x,y)>u(y,y)$</li>
+</ol>
+<hr>
+<p>Conversely, if either (1) or (2) holds for all $y\ne x$ then $x$ is an ESS.</p>
+<p>[2]</p>
+<hr>
+<p><strong>Proof:</strong></p>
+<hr>
+<p>If $x$ is an ESS, then by definition:</p>
+$$u(x,x_{\epsilon})>u(y,x_{\epsilon})$$<p>which corresponds to:</p>
+$$(1-\epsilon)u(x,x)+\epsilon u(x,y)>(1-\epsilon)u(y,x)+\epsilon u(y,y)$$<ul>
+<li>If condition 1 of the theorem holds then the above inequality can be satisfied for \(\epsilon\) sufficiently small. If condition 2 holds then the inequality is satisfied.</li>
+<li><p>Conversely:</p>
+<ul>
+<li><p>If $u(x,x) < u(y,x)$ then we can find $\epsilon$ sufficiently small such that the inequality is violated. [1]</p>
+</li>
+<li><p>If $u(x, x) = u(y,x)$ and $u(x,y) \leq u(y,y)$ then the inequality is violated. [1]</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="(e)-Obtain-all-ESS-for-a-2-by-2-game">(e) Obtain all ESS for a 2 by 2 game<a class="anchor-link" href="#(e)-Obtain-all-ESS-for-a-2-by-2-game">&#182;</a></h3><p>First step is to identify the Nash equilibria. Identify best responses for the associated two player game $(A, A^T)$:</p>
+$$
+A=\begin{pmatrix}
+1&\underline{4}\\
+\underline{2}&1
+\end{pmatrix}\qquad
+A^T=\begin{pmatrix}
+1&\underline{2}\\
+\underline{4}&1
+\end{pmatrix}
+$$<p>[1]</p>
+<p>This immediately gives 2 pure Nash equilibria, which are ESS from the theorem:</p>
+$$
+(\sigma_r, \sigma_c) \in \{((1, 0), (0, 1)), ((0, 1), (1, 0))\}
+$$<p>To find the remaining Nash equilibria, we use the support enumeration algorithm which gives:</p>
+$${\sigma_r}_1  + 4{\sigma_r}_2 = 2{\sigma_r}_1  + {\sigma_r}_2$$$${\sigma_c}_1  + 4{\sigma_c}_2 = 2{\sigma_c}_1  + {\sigma_c}_2$$<p>This gives:</p>
+$$3{\sigma_r}_2  = {\sigma_r}_1$$<p>which gives, a final Nash equilibrium of:</p>
+$$x = (3/4, 1/4)$$<p>[2]</p>
+<p>some code to verify this:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nash</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">game</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">Game</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">support_enumeration</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(array([ 1.,  0.]), array([ 0.,  1.])),
+ (array([ 0.,  1.]), array([ 1.,  0.])),
+ (array([ 0.75,  0.25]), array([ 0.75,  0.25]))]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Considering this final equilibria, we have:</p>
+$$u(x, x)=u(y, x)\text{ for all }y$$<p>Applying the theorem we thus consider:</p>
+$$
+u(x, y)=(5/4)y_1 + (13/4)y_2=(5/4)y_1 + (13/4)(1-y_1)=-2y_1+13/4
+$$\begin{align}
+u(y, y)&=y_1^2+4y_1y_2+2y_1y_2+y_2^2\\
+       &=y_1^2+6y_1-6y_1^2+1 - 2y_1 + y_1^2\\
+       &=1+4y_1-4y_1^2
+\end{align}<p>Thus:</p>
+$$u(x, y) - u(y, y) = 4y_1^2 - 6y_1+9/4 = 4(y_1 - 3/4)^2$$<p>[2]</p>
+<p>however $y_1\ne3/44$ thus $x=(3/4, 1/4)$ is an ESS.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="(f)-Discussing-the-research-paper">(f) Discussing the research paper<a class="anchor-link" href="#(f)-Discussing-the-research-paper">&#182;</a></h3><ul>
+<li>(i) This paper looks at GT and cancer: it is a proof of concept sitting in literature that already exists on the subject. The main result is confirming intuitive understanding of proliferation/motility. Increased nutrients implies less motility. This is done in two ways: a theoretic game and a simulation. [3]</li>
+<li>(ii) The game matrix should in fact be: $\begin{pmatrix}b/2 & b - c\\ b & b - c / 2\end{pmatrix}$ [2]</li>
+<li>(iii) The theorem is used in the paper, although it is not done explicitly it is used to implictely describe the stability of the equilibria. [2]</li>
+<li>(iv) Another approach would be to use a Moran process. The main difference with the approach in the paper would be to use a Moran process. This would correspond to considering a finite population size as opposed to the infinite population model used. This would correspond more closely to the simulation model used in the paper. [3]</li>
+</ul>
 
 </div>
 </div>
