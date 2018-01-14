@@ -1128,6 +1128,273 @@ $$u(x, y) - u(y, y) = 4y_1^2 - 6y_1+9/4 = 4(y_1 - 3/4)^2$$<p>[2]</p>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Question-4">Question 4<a class="anchor-link" href="#Question-4">&#182;</a></h2><h3 id="(a)-Definition-of-a-Moran-process-on-a-game">(a) Definition of a Moran process on a game<a class="anchor-link" href="#(a)-Definition-of-a-Moran-process-on-a-game">&#182;</a></h3><p>Consider a matrix $A\in\mathbb{R}^{m\times n}$ representing a game with two strategies.</p>
+$$
+A=
+\begin{pmatrix}
+    a & b\\
+    c & d
+\end{pmatrix}
+$$<p>The Moran process is as follows:</p>
+<ul>
+<li>At a given time step: all individuals play all other individuals.</li>
+<li>Obtain their fitness as given by the game.</li>
+<li>Randomly select an individual proportional to their fitness as an individual to be reproduced</li>
+<li>Uniformly select an individual to be replaced</li>
+<li>Proceed to the next time step.</li>
+<li>The process terminates when there is only one type of individual in the population.</li>
+</ul>
+<h3 id="(b)-Theorem">(b) Theorem<a class="anchor-link" href="#(b)-Theorem">&#182;</a></h3><p><strong>Theorem: Fixation probabilities for the birth death process</strong></p>
+<p>Given a birth death process as defined above, the fixation probability $x_i$ is given by:</p>
+$$x_i=\frac{1+\sum_{j=1}^{i-1}\prod_{k=1}^j\gamma_k}{1+\sum_{j=1}^{N-1}\prod_{k=1}^j\gamma_k}$$<p>where:</p>
+$$
+\gamma_k = \frac{p_{k,k-1}}{p_{k,k+1}}
+$$<p><strong>Proof</strong></p>
+<p>We have:</p>
+\begin{align}
+    p_{i,i+1}x_{i+1} & = -p_{i,i-1}x_{i-1} + x_i(1 - p_{ii}) \\ 
+    p_{i,i+1}x_{i+1} & = p_{i,i-1}(x_{i} - x_{i-1}) + x_ip_{i,i+1} \\ 
+    x_{i+1} - x_i    & = \frac{p_{i, i-1}}{p_{i, i+1}}(x_i-x_{i-1})=\gamma_i(x_i-x_{i-1})
+\end{align}<p>We observe that:</p>
+\begin{align}
+    x_2 - x_1 &= \gamma_1(x_1-x_{0})=\gamma_1x_1\\
+    x_3 - x_2 &= \gamma_2(x_2-x_1)=\gamma_2\gamma_1x_1\\
+    x_4 - x_3 &= \gamma_3(x_3-x_2)=\gamma_3\gamma_2\gamma_1x_1\\
+              &\; \vdots & \\
+    x_{i+1} - x_i &= \gamma_i(x_i-x_{i-1})=\prod_{k=1}^i\gamma_kx_1\\
+               &\; \vdots & \\   
+    x_{N} - x_{N-1} &= \gamma_{N-1}(x_{N-1}-x_{N-2})=\prod_{k=1}^{N-1}\gamma_kx_1\\
+\end{align}<p>thus we have:</p>
+$$x_i=\sum_{j=0}^{i-1}x_{j+1}-x_j=\left(1+\sum_{j=1}^{i-1}\prod_{k=1}^j\gamma_k\right)x_1$$<p>we complete the proof by solving the following equation to obtain $x_1$:</p>
+$$x_N=1=\left(1+\sum_{j=1}^{N-1}\prod_{k=1}^j\gamma_k\right)x_1$$<h3 id="(c)-Moran-process-for-the-game">(c) Moran process for the game<a class="anchor-link" href="#(c)-Moran-process-for-the-game">&#182;</a></h3><p>Assuming $i$ individuals of the first type, for this game we have $N=5$ and $(a, b, c, d)=(4, 1, 6, 2)$ the fitness of both types is given respectively by:</p>
+$$f_{1i}=\frac{a(i-1)+b(N-i)}{N-1}=\frac{4i-4+5-i}{4}=\frac{3i+1}{4}$$$$f_{2i}=\frac{c(i)+d(N-i-1)}{N-1}=\frac{6i+2(4-i)}{4}=\frac{4i+8}{4}=i$$<p>which gives:</p>
+$$\gamma_i=\frac{f_{2i}}{f_{1i}}=\frac{4i+8}{3i+1}$$<p>thus:</p>
+$$
+x_1=\frac{1}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{3k+1}{4k+8}}=\frac{1}{1+3+3(16/7)+3(16/7)2+3(16/7)2(24/13)}=\frac{91}{4540}
+$$$$
+x_{4}=\frac{1+\sum_{j=1}^{3}\prod_{k=1}^j\frac{3k+1}{4k+8}}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{3k+1}{4k+8}}=\frac{1+3+3(16/7)+3(16/7)2}{1+3+3(16/7)+3(16/7)2+3(16/7)2(24/13)}=\frac{559}{1135}
+$$<p>Thus the two fixation probabilities $x_1$ are:</p>
+<ul>
+<li>Cooperation: $\frac{91}{4540}\approx 0.02$</li>
+<li>Defection $1-\frac{559}{1135}=\frac{576}{1135}\approx 0.51$</li>
+</ul>
+<p>Some code to verify the result:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">game</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate x_i as given by the above formula</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">game</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">game</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">i</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)])</span>
+    <span class="n">f_twos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">game</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="n">game</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)])</span>
+    <span class="n">gammas</span> <span class="o">=</span> <span class="n">f_twos</span> <span class="o">/</span> <span class="n">f_ones</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gammas</span><span class="p">[:</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gammas</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">game</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)],</span> <span class="p">[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)]])</span>
+<span class="n">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">game</span><span class="o">=</span><span class="n">game</span><span class="p">),</span> <span class="mi">1</span><span class="o">-</span> <span class="n">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">game</span><span class="o">=</span><span class="n">game</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[73]:</div>
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$$\left ( \frac{91}{4540}, \quad \frac{576}{1135}\right )$$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[74]:</div>
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$$\left [ 0.020044052863436124, \quad 0.507488986784141\right ]$$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="(d)-Game-for-TfT-vs-Alternator">(d) Game for TfT vs Alternator<a class="anchor-link" href="#(d)-Game-for-TfT-vs-Alternator">&#182;</a></h3><p>The history of 5 turns would give between TfT and Alternator</p>
+<ol>
+<li>TfT: C Alternator: C with scores: (4, 4)</li>
+<li>TfT: C Alternator: D with scores: (1, 6)</li>
+<li>TfT: D Alternator: C with scores: (6, 1)</li>
+<li>TfT: C Alternator: D with scores: (1, 6)</li>
+<li>TfT: D Alternator: C with scores: (6, 1)</li>
+</ol>
+<p>The history of 5 turns would give between TfT and TfT</p>
+<ol>
+<li>TfT: C TfT: C with scores: (4, 4)</li>
+<li>TfT: C TfT: C with scores: (4, 4)</li>
+<li>TfT: D TfT: C with scores: (4, 4)</li>
+<li>TfT: C TfT: C with scores: (4, 4)</li>
+<li>TfT: D TfT: C with scores: (4, 4)</li>
+</ol>
+<p>The history of 5 turns between Alternator and Alternator:</p>
+<ol>
+<li>Alternator: C Alternator: C with scores: (4, 4)</li>
+<li>Alternator: D Alternator: D with scores: (2, 2)</li>
+<li>Alternator: C Alternator: C with scores: (4, 4)</li>
+<li>Alternator: D Alternator: D with scores: (2, 2)</li>
+<li>Alternator: C Alternator: C with scores: (4, 4)</li>
+</ol>
+<p>Summing these, the payoff matrix is thus given by:</p>
+$$
+\begin{pmatrix}
+20 & 18 \\
+18 & 16\\
+\end{pmatrix}
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="(e)-Moran-calculations">(e) Moran calculations<a class="anchor-link" href="#(e)-Moran-calculations">&#182;</a></h3><p>Repeating the previous calculations:</p>
+$$f_{1i}=\frac{a(i-1)+b(N-i)}{N-1}=\frac{20(i - 1) + 18(5-i)}{4}=\frac{2i+70}{4}$$$$f_{2i}=\frac{c(i)+d(N-i-1)}{N-1}=\frac{18i+16(4-i)}{4}=\frac{2i+64}{4}=i$$<p>which gives:</p>
+$$\gamma_i=\frac{f_{2i}}{f_{1i}}=\frac{2i+64}{2i+70}$$<p>thus:</p>
+$$
+x_1=\frac{1}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{3k+1}{4k+8}}=\frac{1}{1+11/12+(11/12)(34/37)+(11/12)(34/37)(35/38)+(11/12)(34/37)(35/38)(12/13)}=\frac{247}{1050}
+$$$$
+x_4=\frac{1+\sum_{j=1}^{3}\prod_{k=1}^j\frac{3k+1}{4k+8}}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{3k+1}{4k+8}}=\frac{1+11/12+(11/12)(34/37)+(11/12)(34/37)(35/38)}{1+11/12+(11/12)(34/37)+(11/12)(34/37)(35/38)+(11/12)(34/37)(35/38)(12/13)}=\frac{247}{1050}
+$$<p>Thus the two fixation probabilities $x_1$ are:</p>
+<ul>
+<li>TfT: $\frac{247}{1050}\approx 0.24$</li>
+<li>Alternator $1-\frac{923}{1110}=\frac{187}{1110}\approx 0.17$</li>
+</ul>
+<p>Some code to verify the result:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">game</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">18</span><span class="p">)],</span> <span class="p">[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">16</span><span class="p">)]])</span>
+<span class="n">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">game</span><span class="o">=</span><span class="n">game</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">game</span><span class="o">=</span><span class="n">game</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[77]:</div>
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$$\left ( \frac{247}{1050}, \quad \frac{187}{1110}\right )$$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[78]:</div>
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$$\left [ 0.23523809523809525, \quad 0.16846846846846847\right ]$$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
  
 
 
