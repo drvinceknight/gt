@@ -29,7 +29,10 @@ def get_name(path):
     Return the name of a file
     """
     stem = path.stem
-    return stem[stem.index('-'):].replace('-', ' ')
+    try:
+        return stem[stem.index('-'):].replace('-', ' ')
+    except ValueError:
+        return stem
 
 def convert_html(nb_path):
     """
@@ -56,6 +59,8 @@ def make_dir(path, directory):
     p = pathlib.Path(f"./{directory}/{path_id}")
     p.mkdir(exist_ok=True)
     nb, _ = convert_html(path)
+    check = False
+    nb = nb.replace("{{root}}", ROOT)
     html = render_template("content.html", {"nb": nb,
         "root": ROOT,
         "id": path_id})

@@ -1,0 +1,249 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning}
+
+
+\usepackage{amsmath,amssymb,mdframed}            % AMS package gives better equation layouts
+\setcounter{page}{5}                    % sets first page number to 2
+\setlength{\oddsidemargin}{-0.25in}     % set left margin
+\setlength{\textwidth}{6.5in}           % set text width
+\setlength{\topmargin}{-0.5in}          % controls layout at
+\setlength{\headsep}{0.5in}             % top of page
+\setlength{\textheight}{9.0in}          % set text length
+
+
+
+\makeatletter
+\renewcommand{\@oddhead}{\hfill MA3600/Mock}  % sets header
+\renewcommand{\@oddfoot}{\hfil \arabic{page} \hfil}    % sets page footer
+\makeatother
+
+\renewcommand{\labelenumi}{\arabic{enumi}} % Sets the first level of enumerate to be arabic (normal) numbers
+\renewcommand{\labelenumii}{(\alph{enumii})} %Sets the second level of enumerate to be (a), (b), (c), .....
+\renewcommand{\labelenumiii}{(\roman{enumiii})} % Sets the third level of enumerate to be (i), (ii), (iii), ....
+
+
+
+\begin{document}
+\null \vskip1cm
+\begin{enumerate}
+
+\renewcommand\labelenumi{\bfseries\theenumi.}
+
+\item
+
+    \begin{enumerate}
+        \item Give the definition of Normal Form Game.
+        ~\hfill{[2]}
+        \item For the rest of this question, consider the Normal Form Game with
+            the following matrix representation:
+            $$A=
+                \begin{pmatrix}
+                    3 & 1\\
+                    0 & 2
+                \end{pmatrix}
+              \qquad
+              B=
+                \begin{pmatrix}
+                    2 & 1\\
+                    0 & 3
+                \end{pmatrix}
+            $$
+            Give the utilities to both players using the following strategy
+            pairs:
+
+            \begin{enumerate}
+                \item $\sigma_r=(1, 0)\qquad\sigma_c=(0,1)$
+                    ~\hfill{[1]}
+                \item $\sigma_r=(1/2, 1/2)\qquad\sigma_c=(1/3,2/3)$
+                    ~\hfill{[1]}
+                \item $\sigma_r=(1/4, 3/4)\qquad\sigma_c=(0,1)$
+                    ~\hfill{[1]}
+            \end{enumerate}
+        \item Give the definition for the Lemke-Howson algorithm.
+            ~\hfill{[5]}
+        \item Show that the vertices and their labels for the best response
+            polytopes are given by:
+
+            For the row player best response player \(\mathcal{P}\):
+
+            \begin{itemize}
+                \item $(0, 0)$ with labels: $\{0, 1\}$
+                \item $(1/3, 0)$ with labels: $\{1, 2\}$
+                \item $(0, 1/4)$ with labels: $\{0, 3\}$
+                \item $(3/10, 1/10)$ with labels: $\{2, 3\}$
+            \end{itemize}
+
+            For the column player best response player \(\mathcal{Q}\):
+
+            \begin{itemize}
+                \item $(0, 0)$ with labels: $\{2, 3\}$
+                \item $(1/4, 0)$ with labels: $\{0, 3\}$
+                \item $(0, 1/3)$ with labels: $\{1, 2\}$
+                \item $(1/10, 3/10)$ with labels: $\{0, 1\}$
+            \end{itemize}
+
+            ~\hfill{[4]}
+        \item Draw the best response polytopes.
+            ~\hfill{[2]}
+        \item Use the plots to carry out the Lemke-Howson algorithm with all
+            possible initial dropped labels.
+            ~\hfill{[4]}
+        \item Consider a modified Lemke-Howson algorithm that uses any pair of
+            fully labeled vertices (and not necessarily (0, 0)).
+            Use any pair of fully labeled vertices found in the previous question
+            and find
+            an initial dropped label that gives a different Nash equilibrium
+            than the ones obtained in the previous question.
+            ~\hfill{[1]}
+        \item Give a sketch of a proof, including potential assumptions that in
+            a non degenerate game the number of Nash equilibria is odd.
+            ~\hfill{[4]}
+    \end{enumerate}
+
+\newpage
+\item
+
+    \begin{enumerate}
+
+        \item Give the general definition of the Prisoner's Dilemma.
+            ~\hfill{[2]}
+        \item What values of $S, T$ give valid Prisoner's Dilemma games:
+            \begin{enumerate}
+                \item  \(A =
+                         \begin{pmatrix}
+                            3 & S\\
+                            5 & 1
+                         \end{pmatrix}
+                         \qquad
+                         B =
+                         \begin{pmatrix}
+                            3 & T\\
+                            -1 & 1
+                         \end{pmatrix}
+                       \)
+                ~\hfill{[4]}
+                \item  \(A =
+                         \begin{pmatrix}
+                            2 & S\\
+                            -2 & 1
+                         \end{pmatrix}
+                         \qquad
+                         B =
+                         \begin{pmatrix}
+                            2 & -2\\
+                            S & 1
+                         \end{pmatrix}
+                       \)
+                ~\hfill{[4]}
+            \end{enumerate}
+        \item Consider the following reactive players:
+            \[p = (3/5, 3/4)\qquad q = (1/2, 1/4)\]
+
+            Obtain the Markov chain representation of a match between
+                    these two players.
+                    ~\hfill{[4]}
+        \item State a theoretic result giving the utility of two general
+            reactive players in a Prisoner's dilemma match (as a function of
+            \((R, S, P, T)\)).
+            ~\hfill{[5]}
+        \item Consider a reactive player \(p=(x, x / 2)\) and an opponent
+            \(q=(1/2, 1/4)\). Show that, for \((R, S, P, T)=(3, 0, 4, 1)\) the 
+            utility to the player \(p\) is given by:
+            \[
+                u(x)=\frac{1}{\left(x - 8\right)^{2}} \left(3 x^{2} - 38 x + 112\right)
+            \]
+            ~\hfill{[5]}
+        \item Using the above, show that:
+            \[
+                \frac{du}{dx}=- \frac{10}{(x - 8) ^ 2}
+            \]
+
+            and use this to identify the optimal value of \(x\).
+
+            ~\hfill{[4]}
+    \end{enumerate}
+
+\newpage
+\item
+
+    \begin{enumerate}
+        \item For a matrix \(A=\begin{pmatrix}a&b\\c &d\end{pmatrix}\), obtain
+              the following equation describing the corresponding evolutionary
+              game:
+              \[\frac{dx}{dt}=x(f-\phi)\]
+              where \(f=Ax\) and \(\phi=fx\).
+              ~\hfill{[2]}
+        \item Define a mutated population.
+              ~\hfill{[2]}
+        \item Define an evolutionary stable strategy.
+              ~\hfill{[2]}
+        \item State and prove a theorem giving a general condition for an
+            Evolutionary stable strategy.
+              ~\hfill{[4]}
+        \item Consider the following game
+        \(A=\begin{pmatrix}1&4\\2 &1\end{pmatrix}\), obtain all evolutionary
+            stable strategies.
+              ~\hfill{[5]}
+         \item Consider the accompanying 2008 paper entitled ``Studying the
+             emergence of invasiveness in tumours using game theory'' by Basanta
+             et al.
+             \begin{enumerate}
+                 \item Give a general summary of the paper.
+                     ~\hfill{[3]}
+                 \item There is a minor error in this paper in the game matrix, 
+                     describe and suggest the fix.~\hfill{[2]}
+                 \item How does the theorem in part 4 of this question relate to
+                     the findings of the paper?~\hfill{[2]}
+                 \item Suggest an alternative area of game theory that could
+                     also be used.~\hfill{[3]}
+             \end{enumerate}
+    \end{enumerate}
+
+\newpage
+\item
+
+    \begin{enumerate}
+        \item Give the definition of a Moran process on a game.
+            ~\hfill{[4]}
+        \item State and prove a theorem giving the fixation probabilities for a
+            general birth death process.
+            ~\hfill{[6]}
+        \item Consider the Markov process on the Prisoners Dilemma:
+        \(A = \begin{pmatrix} 4 & 1\\ 6 & 2 \end{pmatrix}\)
+            Use the above theorem to obtain the fixation probabilities for each
+            strategy for \(N=6\).
+
+            ~\hfill{[4]}
+        \item Consider the following two strategies for the Prisoners Dilemma:
+            \begin{itemize}
+                \item Tit For Tat: start by cooperating and then repeat the
+                    opponents previous message.
+                \item Alternator: start by cooperating and then alternate
+                    between defecting and cooperating.
+            \end{itemize}
+            Assuming a match lasting 5 turns show that the utility matrix
+            between these two strategies corresponds to:
+
+            \[
+                \begin{pmatrix}
+                    20 & 18\\
+                    18 & 16
+                \end{pmatrix}
+            \]
+                ~\hfill{[5]}
+            \item Obtain the fixation probabilities \(x_1\) for each strategy
+                for \(N=4\).
+          ~\hfill{[6]}
+    \end{enumerate}
+\end{enumerate}
+
+
+\makeatletter
+\renewcommand{\@oddfoot}{\hfil \arabic{page}X \hfil}    % sets last page footer
+\makeatother
+
+\end{document}
