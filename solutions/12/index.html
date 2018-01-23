@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<style media="screen" type="text/css">
+
+
+div.input_prompt {
+  color: #303F9F;
+}
+
+div.output_prompt {
+  color: #D84315;
+}
+</style>
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    <!-- gitter side car -->
+    <script> ((window.gitter = {}).chat = {}).options = { room: 'vkgt/Lobby' }; </script>
+    <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+</head>
+<body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+          <a class="page-link" href="/gt/">Game Theory</a>
+          <a class="page-link" href="/gt/chapters/">Chapters</a>
+          <a class="page-link" href="/gt/exercises/">Exercises</a>
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+ <div class="page-content">
+    <div class="wrap">
+      <div class="home">
+        
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Moran-processes---solutions">Moran processes - solutions<a class="anchor-link" href="#Moran-processes---solutions">&#182;</a></h1><ol>
+<li><p>Give the transition probabilities for the Moran process with neutral drift.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/12/#Moran-process-with-neutral-drift">https://vknight.org/gt/chapters/12/#Moran-process-with-neutral-drift</a></p>
+</li>
+<li><p>Obtain the transition probability matrix for the Moran process with neutral drift with $N=4$ individuals.</p>
+<p>$$
+M = \begin{pmatrix}</p>
+
+<pre><code>1&amp;0&amp;0&amp;0&amp;0\\
+3/16&amp;5/8&amp;3/16&amp;0&amp;0\\
+0&amp;1/4&amp;1/2&amp;1/4&amp;0\\
+0&amp;0&amp;3/16&amp;5/8&amp;3/16\\
+0&amp;0&amp;0&amp;0&amp;1\\
+</code></pre>
+<p>\end{pmatrix}
+$$</p>
+</li>
+<li><p>State and prove the theorem for fixation probabilities in a birth death process.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/12/#Theorem:-Fixation-probabilities-for-the-birth-death-process">https://vknight.org/gt/chapters/12/#Theorem:-Fixation-probabilities-for-the-birth-death-process</a></p>
+</li>
+<li><p>Extend the formulae of question 3 to the case of a Moran process on a game.</p>
+<p>Boookwork: <a href="https://vknight.org/gt/chapters/12/#Moran-process-on-a-game">https://vknight.org/gt/chapters/12/#Moran-process-on-a-game</a></p>
+</li>
+<li><p>For the following games, obtain the fixation probabilities for $N=4$:</p>
+<ol>
+<li><p>$A=\begin{pmatrix}1 & 1 \\ 1 & 1\end{pmatrix}$</p>
+<p>This game corresponds to neutral drift, thus:</p>
+<p>$x_1=1/N=1/4$ (for both strategies).</p>
+</li>
+<li><p>$A=\begin{pmatrix}1 & 2 \\ 3 & 1\end{pmatrix}$</p>
+<p>Assuming $i$ individuals of the first type, for this game we have $N=4$ and $(a, b, c, d)=(1, 2, 3, 1)$ the fitness of both types is given respectively by:</p>
+<p>$$f_{1i}=\frac{a(i-1)+b(N-i)}{N-1}=\frac{7-i}{3}$$
+$$f_{2i}=\frac{c(i)+d(N-i-1)}{N-1}=\frac{2i+3}{3}$$</p>
+<p>which gives:</p>
+<p>$$\gamma_i=\frac{f_{2i}}{f_{1i}}=\frac{2i+3}{7-i}$$</p>
+<p>thus:</p>
+<p>$$</p>
+
+<pre><code>x_1=\frac{1}{1+\sum_{j=1}^{3}\prod_{k=1}^j\frac{2k+3}{5-k}}=\frac{1}{1+5/6+(5/6)(7/5)+(5/6)(7/5)(9/4)}=\frac{8}{45}
+</code></pre>
+<p>$$</p>
+<p>Some code to verify this:</p>
+</li>
+</ol>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="k">def</span> <span class="nf">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">game</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate x_i as given by the above formula</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">game</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">game</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">i</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)])</span>
+    <span class="n">f_twos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">game</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="n">game</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)])</span>
+    <span class="n">gammas</span> <span class="o">=</span> <span class="n">f_twos</span> <span class="o">/</span> <span class="n">f_ones</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gammas</span><span class="p">[:</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gammas</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">game</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span> <span class="p">[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]])</span>
+<span class="n">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">game</span><span class="o">=</span><span class="n">game</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[29]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>8/45</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>6</code>. Consider the game $A=\begin{pmatrix}r & 1 \\ 1 & 1\end{pmatrix}$ for $r>1$, and obtain $x_1$ as a function of $r$ and $N$. How does $r$ effect the chance of fixation?</p>
+<p>Assuming $i$ individuals of the first type, for this game we have $N=4$ and $(a, b, c, d)=(r, 1, 1, 1)$ the fitness of both types is given respectively by:</p>
+$$f_{1i}=\frac{r(i-1)+(N-i)}{N-1}$$$$f_{2i}=\frac{(i)+(N-i-1)}{N-1}=1$$<p>which gives:</p>
+$$\gamma_i=\frac{f_{2i}}{f_{1i}}=\frac{N-1}{r(i-1)+(N-i)}$$<p>thus:</p>
+$$
+  x_1=\frac{1}{1+\sum_{j=1}^{N-1}\prod_{k=1}^j\frac{N-1}{r(k-1)+(N-i)}}
+$$<p>Note that as $r$ increases the denominator of $x_1$ decreases (each term in the product decreases), thus $x_1$ increases as a function of $r$ (as expected).</p>
+
+</div>
+</div>
+</div>
+ 
+
+
+
+    <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = http://vknight.org/gt/;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 12; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://vkgt.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+      </div>
+  </div>
+</div>
+
+
+</body>
+</html>
