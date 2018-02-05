@@ -130,12 +130,12 @@ As a class work through the following example.
       7
       \end{pmatrix}\qquad
       B = \begin{pmatrix}
-      0\\
-      0
+      3\\
+      1
       \end{pmatrix}
 
-3. Second (third) row dominates first row. Thus the rationalised behaviour is
-   :math:`(r_3, c_1)`.
+3. First row dominates third row. Thus the rationalised behaviour is
+   :math:`(r_1, c_2)`.
 
 
 Now return to the last example played as a pair:
