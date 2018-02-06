@@ -135,7 +135,7 @@ Conclude:
 
 Some examples:
 
-- If :math:`\sigma_r=(2/3, 1/3)` then :math:`\sigma_r^*=(0, 1)`.
+- If :math:`\sigma_r=(2/3, 1/3)` then :math:`\sigma_c^*=(0, 1)`.
 - If :math:`\sigma_r=(1/3, 2/3)` then *any* strategy is a best response.
 
 
@@ -144,7 +144,7 @@ Some examples:
 This gives a finite condition that needs to be checked. To find the best
 response against :math:`\sigma_c` we **potentially** would need to check all
 infinite possibilities alternatives to :math:`\sigma_r^*`. Now we simply need to
-check the values of the pure strategies against :math:`sigma_c`:
+check the values of the pure strategies against :math:`\sigma_c`:
 
 - Either there will be a single **pure** best response;
 - There will be multiple **pure** strategies for which the row player is
