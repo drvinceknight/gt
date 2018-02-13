@@ -6,6 +6,7 @@ Corresponding chapters
 
 - `Calculating utilities of strategies <http://vknight.org/gt/chapters/02/>`_
 
+**Duration**: 50 minutes
 
 Objectives
 ----------

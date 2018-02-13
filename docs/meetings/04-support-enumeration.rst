@@ -6,6 +6,7 @@ Corresponding chapters
 
 - `Support enumeration <http://vknight.org/gt/chapters/05/>`_
 
+**Duration**: 100 minutes
 
 Objectives
 ----------

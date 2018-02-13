@@ -6,6 +6,8 @@ Corresponding chapters
 
 - `Best responses <http://vknight.org/gt/chapters/04/>`_
 
+**Duration**: 100 minutes
+
 
 Objectives
 ----------

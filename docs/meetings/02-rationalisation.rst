@@ -6,6 +6,8 @@ Corresponding chapters
 
 - `Rationalisation <http://vknight.org/gt/chapters/03/>`_
 
+**Duration**: 50 minutes
+
 
 Objectives
 ----------

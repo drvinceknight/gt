@@ -7,6 +7,8 @@ Corresponding chapters
 - `Introduction to the course <http://vknight.org/gt/chapters/00/>`_
 - `Normal form games <http://vknight.org/gt/chapters/01/>`_
 
+**Duration**: 50 minutes
+
 
 Objectives
 ----------
