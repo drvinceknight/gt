@@ -6,6 +6,8 @@ Corresponding chapters
 
 - `Best response polytopes <http://vknight.org/gt/chapters/06/>`_
 
+**Duration**: 50 minutes
+
 Objectives
 ----------
 
