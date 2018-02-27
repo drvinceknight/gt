@@ -78,7 +78,7 @@ the utilities):
         3 & 1 & 2\\
    \end{pmatrix}\qquad
 
-We first need to scale the tableaux so that all variables are positive:
+This gives the following tableaux:
 
 .. math::
 
@@ -248,7 +248,7 @@ This has labels :math:`\{0, 1, 2\}` so we have a Nash equilibrium with vertices:
 
 .. math::
 
-   \left((189/1134, 9/54, 63/378), (63/378, 189/1134, 9/54)\right) = \left((1/6, 1/6, 1/6, (1/6, 1/6, 1/6)\right)
+   \left((189/1134, 9/54, 63/378), (63/378, 189/1134, 9/54)\right) = \left((1/6, 1/6, 1/6), (1/6, 1/6, 1/6)\right)
 
 Which in turn corresponds to the expected equilibrium:
 
