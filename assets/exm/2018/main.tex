@@ -1,0 +1,258 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning}
+
+
+\usepackage{amsmath,amssymb,mdframed}   % AMS package gives better equation layouts
+\setcounter{page}{2}                    % sets first page number to 2
+\setlength{\oddsidemargin}{-0.25in}     % set left margin
+\setlength{\textwidth}{6.5in}           % set text width
+\setlength{\topmargin}{-0.5in}          % controls layout at
+\setlength{\headsep}{0.5in}             % top of page
+\setlength{\textheight}{9.0in}          % set text length
+
+
+
+\makeatletter
+\renewcommand{\@oddhead}{\hfill MA3600/Mock}  % sets header % TODO fix header
+\renewcommand{\@oddfoot}{\hfil \arabic{page} \hfil}    % sets page footer
+\makeatother
+
+\renewcommand{\labelenumi}{\arabic{enumi}} % Sets the first level of enumerate to be arabic (normal) numbers
+\renewcommand{\labelenumii}{(\alph{enumii})} %Sets the second level of enumerate to be (a), (b), (c), .....
+\renewcommand{\labelenumiii}{(\roman{enumiii})} % Sets the third level of enumerate to be (i), (ii), (iii), ....
+
+
+
+\begin{document}
+\null \vskip1cm
+\begin{enumerate}
+
+\renewcommand\labelenumi{\bfseries\theenumi.}
+
+\item
+
+    \begin{enumerate}
+        \item Give the definition of Normal Form Game.
+        ~\hfill{[2]}
+        \item Consider the Normal Form Game with
+            the following matrix representation:
+            $$A=
+                \begin{pmatrix}
+                    1 & -2\\
+                    -2 & 1
+                \end{pmatrix}
+              \qquad
+              B=
+                \begin{pmatrix}
+                    -2 & 1\\
+                    1 & -2
+                \end{pmatrix}
+            $$
+
+            Consider the mixed strategies for the row/column players
+            \(\sigma_r=(x,1-x)\)/\(\sigma_c(y,1-y)\). Sketch a plot of:
+
+            \begin{itemize}
+                \item Of the row player's utilities: \(u_r((1, 0), \sigma_c)\)
+                    and \(u_r((0, 1), \sigma_c)\).
+                    ~\hfill{[1]}
+                \item Of the column player's utilities: \(u_r(\sigma_r, (1, 0))\)
+                    and \(u_c(\sigma_r, (0, 1))\).
+                    ~\hfill{[1]}
+            \end{itemize}
+
+            Using the plot obtain the best responses of both
+            players.~\hfill{[1]}
+
+        \item Give a proof of the following theorem:
+
+              In a two player game $(A,B)\in{\mathbb{R}^{m\times n}}^2$ a mixed
+              strategy $\sigma_r^*$  of the row player is a best response to a
+              column players' strategy $\sigma_c$ if and only if:
+
+              $${\sigma_r^*}_i > 0 \Rightarrow (A\sigma_c^T)_i =
+              \max_{k}(A\sigma_c^T)_k\text{ for all }1\leq i\leq m$$
+
+              ~\hfill{[5]}
+
+        \item Using the above theorem, confirm the findings of question 2.
+              ~\hfill{[5]}
+
+        \item Consider the accompanying 2017 paper entitled ``Measuring the price
+            of anarchy in critical care unit interactions'' by Knight et al.
+
+            \begin{enumerate}
+                \item Give a general summary of the paper.~\hfill{[3]}
+                \item What is the main theoretic result of the
+                    paper?~\hfill{[2]}
+                \item Identify a specific modelling assumption made that limits
+                    the work.~\hfill{[2]}
+                \item Propose an approach that could be used to overcome
+                    this limit factor.~\hfill{[3]}
+            \end{enumerate}
+    \end{enumerate}
+
+\newpage
+\item
+
+    \begin{enumerate}
+        \item Give the definition of repeated game.
+            ~\hfill{[2]}
+        \item Give the definition of strategy in a repeated game.
+            ~\hfill{[2]}
+        \item Obtain all possible histories for the 2 stage repeated game with
+            the following stage game:
+
+            \[
+                A = \begin{pmatrix}
+                    5 & 2 & 1\\
+                    1 & 2 & 5\\
+                    \end{pmatrix}
+                \qquad
+                B = \begin{pmatrix}
+                    4 & 2  & 1\\
+                    1 & -1 & 5\\
+                    \end{pmatrix}
+            \]
+            ~\hfill{[3]}
+
+        \item Show that in general the total size of the history space is given
+            by:
+
+            \[
+                \left|\bigcup_{t=0}^{T-1}H(t)\right| = \frac{1 - (|S_1||S_2|)^T}{1 - |S_1||S_2|}
+            \]
+
+            Where \(S_1, S_2\) are the strategy spaces for the stage game for
+            both players and \(H(t)\) is the history of play at stage \(t\).
+            ~\hfill{[5]}
+
+
+        \item Give a proof of the following theorem:
+
+            For any repeated game, any sequence of stage Nash profiles gives a
+            Nash equilibrium.
+            ~\hfill{[4]}
+
+        \item Obtain all Nash equilibria for the repeated game of question 3
+            that are sequence
+            of stage Nash equilibria.
+            ~\hfill{[3]}
+
+        \item Obtain a Nash equilibrium that is not a sequence of stage Nash
+            equilibria for the repeated game of question 3. Justify this.
+            ~\hfill{[6]}
+
+
+    \end{enumerate}
+
+\newpage
+\item
+
+    \begin{enumerate}
+        \item For a two player game $(A, B)\in{\mathbb{R}^{m\times n}_{>0}}^2$
+            give the definition of the row/column player best response polytope.
+            ~\hfill{[3]}
+        \item Obtain the half space (inequalities) definition of the best
+            response polytopes for the following game:
+
+            \[
+                A = \begin{pmatrix}
+                    5 & 2 & 1\\
+                    1 & 2 & 5\\
+                    \end{pmatrix}
+                \qquad
+                B = \begin{pmatrix}
+                    4 & 2  & 1\\
+                    1 & -1 & 5\\
+                    \end{pmatrix}
+            \]
+            ~\hfill{[5]}
+         \item The vertices that correspond to these polytopes are given by:
+
+             \[
+             \dots
+             \]
+
+             Show that they have labels:
+
+             \[
+             \dots
+             \]
+
+             ~\hfill{[4]}
+
+         \item Describe the vertex enumeration algorithm.
+             ~\hfill{[2]}
+
+         \item Use the vertex enumeration algorithm to find all equilibria of
+             the game.
+             ~\hfill{[5]}
+
+         \item Describe the Lemke-Howson algorithm for two player games.
+             ~\hfill{[2]}
+
+         \item Use the Lemke-Howson algorithm to find a Nash equilibria for the
+             game.
+             ~\hfill{[4]}
+    \end{enumerate}
+
+\newpage
+\item
+
+    \begin{enumerate}
+        \item Give the definition of a Moran process on a game.
+            ~\hfill{[4]}
+		\item Consider a matrix $A\in\mathbb{R}^{m\times n}$ representing a
+game with two strategies.
+
+			$$ A= \begin{pmatrix} a & b\\ c & d \end{pmatrix} $$
+
+			Let:
+
+			$$f_{1i}=\frac{a(i-1)+b(N-i)}{N-1}$$
+$$f_{2i}=\frac{c(i)+d(N-i-1)}{N-1}$$
+
+			For the Moran process on this game, prove that the fixation
+probability \(x_i\) (of \(i\) individuals of the first type taking over the
+population) is given by:
+
+			$$
+x_i=\frac{1+\sum_{j=1}^{i-1}\prod_{k=1}^j\frac{f_{2k}}{f_{1k}}}{1+\sum_{j=1}^{N-1}\prod_{k=1}^j\frac{f_{2k}}{f_{1k}}}
+$$
+
+            ~\hfill{[6]}
+        \item Consider the Markov process on the following game:
+        \(A = \begin{pmatrix} 3 & 2\\ r & 3 \end{pmatrix}\)
+            Use the above theorem to obtain the fixation probabilities for each
+            strategy for \(r=2\) and \(N=6\).
+            ~\hfill{[5]}
+        \item What value of \(r\) ensures that the fixation probability for the
+            second strategy is \(>.9\) (for \(N=6\))?
+            ~\hfill{[5]}
+        \item Consider a population with 3 strategies corresponding to the
+            following game with neutral drift (all strategies have equal
+            fitness).
+
+            Assuming \(N=3\) list all possible states of the underlying Markov
+            chain.
+            ~\hfill{[2]}
+
+            For a given state \((i_1, i_2, i_3\) obtain the probability of
+            transitioning
+            to a state with \(i_1 + 1\) individuals of the first type.
+            ~\hfill{[3]}
+
+    \end{enumerate}
+\end{enumerate}
+
+
+\makeatletter
+\renewcommand{\@oddfoot}{\hfil \arabic{page}X \hfil}    % sets last page footer
+\makeatother
+
+\end{document}
