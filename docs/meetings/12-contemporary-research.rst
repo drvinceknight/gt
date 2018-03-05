@@ -154,6 +154,7 @@ Evolution Reinforces Cooperation with the Emergence of Self-Recognition Mechanis
   type) differ quite a lot from N>3. This implies that a lot of theoretic
   research isn't quite right.
 - The other observation is that the trained strategies do well:
+
   - Strategies with handshakes (self recognition mechanisms) do well in
     resistance.
   - Strategies trained for scores against opponents do well at invasion.

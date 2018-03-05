@@ -12,6 +12,8 @@ Objectives
 - Describe the Lemke Howson algorithm graphically
 - Describe integer pivoting
 
+**Duration**: 50 minutes
+
 Notes
 -----
 
