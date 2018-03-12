@@ -19,7 +19,7 @@ Playing team based Iterated Prisoner's Dilemma
 
 Show this video: https://www.youtube.com/watch?v=p3Uos2fzIJ0
 
-Ask class to form 4 teams of equal size.
+Ask class to form in to teams of 4.
 
 Write the following on the board:
 
@@ -67,9 +67,9 @@ For every dual write the following on the board (assuming 5 turns):
 
 Instructions for a dual:
 
-- Give both teams copies of a :download:`C and a D <../assets/activities/C_and_D_cards.pdf>`.
-- In your teams: discuss plans for a strategy.
-- Before every stage invite both teams to talk to each other.
+- Give all teams copies of a :download:`document to help record <../assets/activities/pd_tournament_sheet.pdf>`.
+- Think about strategy.
+- Before every stage invite both individuals to talk to each other.
 - Get teams to "face away", after a count down "show" (either a C or a D).
 
 
