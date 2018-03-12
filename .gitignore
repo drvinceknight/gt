@@ -2,6 +2,5 @@
 docs/_build/
 docs/assets/activities/*.aux
 docs/assets/activities/*.log
-docs/assets/activities/*.pdf
 docs/assets/activities/*.fls
 docs/assets/activities/*.fdb_latexmk
