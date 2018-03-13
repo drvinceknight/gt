@@ -14,6 +14,8 @@ students.
    :caption: Contents:
 
    AA-revisit-polytopes.rst
+   AB-revisit-repeated-games.rst
+   AC-coursework-peer-review.rst
 
 
 Indices and tables
