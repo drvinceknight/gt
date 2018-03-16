@@ -86,11 +86,11 @@ Consider the :math:`(A,B)\in{\mathbb{R}^{2\times 2}}^2` game with :math:`T=2`:
 
      .. math::
 
-        (r_2, c_1) \to c_1
+        (r_2, c_2) \to c_1
 
      .. math::
 
-        (r_1, c_3) \to c_1
+        (r_1, c_2) \to c_3
 
   This corresponds to the following scenario:
 
