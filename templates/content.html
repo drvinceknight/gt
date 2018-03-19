@@ -44,6 +44,13 @@ div.output_prompt {
 {% block body %}
     {{ nb }}
 
+    {% if previous_url %}
+        <a href="../{{previous_url}}/">Previous</a>
+    {% endif %}
+    {% if next_url %}
+        <p align="right"><a href="../{{next_url}}/">Next</a></p>
+    {% endif %}
+
     {% include 'partials/disqus_comments.html' %}
 
 {% endblock %}
