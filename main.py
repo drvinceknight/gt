@@ -51,7 +51,7 @@ def render_template(template_file, template_vars):
     template = template_env.get_template(template_file)
     return template.render( template_vars )
 
-def make_dir(path, directory):
+def make_dir(path, directory, previous_url=None, next_url=None):
     """
     Create a directory for the name of the file
     """
@@ -63,7 +63,9 @@ def make_dir(path, directory):
     nb = nb.replace("{{root}}", ROOT)
     html = render_template("content.html", {"nb": nb,
         "root": ROOT,
-        "id": path_id})
+        "id": path_id,
+        "previous_url": previous_url,
+        "next_url": next_url})
     (p / 'index.html').write_text(html)
 
 Chapter = collections.namedtuple("chapter", ["dir", "title", "nb"])
@@ -71,19 +73,44 @@ Chapter = collections.namedtuple("chapter", ["dir", "title", "nb"])
 if __name__ == "__main__":
 
     nb_dir = pathlib.Path('nbs')
-    chapter_paths = list(nb_dir.glob('./chapters/*ipynb'))
-    exercise_paths = list(nb_dir.glob('./exercises/*ipynb'))
-    solution_paths = list(nb_dir.glob('./solutions/*ipynb'))
+    chapter_paths = sorted(nb_dir.glob('./chapters/*ipynb'))
+    exercise_paths = sorted(nb_dir.glob('./exercises/*ipynb'))
+    solution_paths = sorted(nb_dir.glob('./solutions/*ipynb'))
     other_paths = list(nb_dir.glob('./other/*ipynb'))
 
-    for filename in chapter_paths:
-        make_dir(pathlib.Path(filename), directory="chapters")
+    number_of_chapters = len(chapter_paths)
+    for index, filename in enumerate(chapter_paths):
+        previous_path = chapter_paths[(index - 1) % number_of_chapters]
+        previous_id = get_id(previous_path)
+        next_path = chapter_paths[(index + 1) % number_of_chapters]
+        next_id = get_id(next_path)
 
-    for filename in exercise_paths:
-        make_dir(pathlib.Path(filename), directory="exercises")
+        make_dir(pathlib.Path(filename), directory="chapters", 
+                 previous_url=previous_id,
+                 next_url=next_id)
 
-    for filename in solution_paths:
-        make_dir(pathlib.Path(filename), directory="solutions")
+    number_of_exercises = len(exercise_paths)
+    for index, filename in enumerate(exercise_paths):
+        previous_path = exercise_paths[(index - 1) % number_of_exercises]
+        previous_id = get_id(previous_path)
+        next_path = exercise_paths[(index + 1) % number_of_exercises]
+        next_id = get_id(next_path)
+
+        make_dir(pathlib.Path(filename), directory="exercises",
+                 previous_url=previous_id,
+                 next_url=next_id)
+
+
+    number_of_solutions = len(solution_paths)
+    for index, filename in enumerate(solution_paths):
+        previous_path = solution_paths[(index - 1) % number_of_solutions]
+        previous_id = get_id(previous_path)
+        next_path = solution_paths[(index + 1) % number_of_solutions]
+        next_id = get_id(next_path)
+
+        make_dir(pathlib.Path(filename), directory="solutions",
+                 previous_url=previous_id,
+                 next_url=next_id)
 
     for filename in other_paths:
         make_dir(pathlib.Path(filename), directory="other")
