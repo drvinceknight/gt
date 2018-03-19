@@ -19,7 +19,6 @@ Explain difference from games so far:
 - Players were discrete entities (and we only consider 2 player games);
 - Now there are *no* players: just strategies in a population.
 
-
 Our population will be *stand* ers or *sit* ers.
 
 Say we are going to use the following differential equation to denote the rate
@@ -35,8 +34,6 @@ at which people become standing up*. Using a continuous population these two
 things are equivalent.
 
 Get one student to stand up.
-
-
 
 The speed at which other individuals are becoming *standing up* is at that exact
 point 2. Get someone to slowly stand up ... until they become stood up etc...
@@ -62,16 +59,15 @@ Show how we can use Python to solve this differential equation numerically::
    array([[  1.000...
 
 
-Now consider population of two individuals (see notes).
-
-Discuss having students neither sitting or standing (who knows how? :)). What
-happens over time:
+Now consider population of two individuals (see notes) (:math:`x`: standers and
+:math:`y` sitting on desk).
+What happens over time:
 
 .. math::
 
-   \frac{dx}{dt} = 2 x \qquad \frac{dx}{dt} = 3 x
+   \frac{dx}{dt} = 2 x \qquad \frac{dy}{dt} = 3 y
 
-This means that the we would very quickly run out of sitters and standers but
+This means that the we would very quickly run out of sitters and desk sitters but
 what would happen to the limit of the ratio? (Go over mathematics in notes)
 
 Now, finally consider a constant population:
@@ -82,7 +78,7 @@ What must we have for our rates?
 
 One population increases at a rate of 2 and the other increases at a rate of 3.
 
-So our population also, somehow decrease by 5.
+So our population source also, somehow decrease by 5.
 
 Ask students to suggest how this can be done. Have a discussion.
 
