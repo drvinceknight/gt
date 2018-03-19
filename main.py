@@ -68,6 +68,22 @@ def make_dir(path, directory, previous_url=None, next_url=None):
         "next_url": next_url})
     (p / 'index.html').write_text(html)
 
+def make_collection(paths, directory,
+                    make_previous_url=True,
+                    make_next_url=True):
+
+    number_of_paths = len(paths)
+    for index, filename in enumerate(paths):
+        previous_path = paths[(index - 1) % number_of_paths]
+        previous_id = get_id(previous_path)
+
+        next_path = paths[(index + 1) % number_of_paths]
+        next_id = get_id(next_path)
+
+        make_dir(pathlib.Path(filename), directory=directory,
+                 previous_url=previous_id,
+                 next_url=next_id)
+
 Chapter = collections.namedtuple("chapter", ["dir", "title", "nb"])
 
 if __name__ == "__main__":
@@ -78,42 +94,12 @@ if __name__ == "__main__":
     solution_paths = sorted(nb_dir.glob('./solutions/*ipynb'))
     other_paths = list(nb_dir.glob('./other/*ipynb'))
 
-    number_of_chapters = len(chapter_paths)
-    for index, filename in enumerate(chapter_paths):
-        previous_path = chapter_paths[(index - 1) % number_of_chapters]
-        previous_id = get_id(previous_path)
-        next_path = chapter_paths[(index + 1) % number_of_chapters]
-        next_id = get_id(next_path)
 
-        make_dir(pathlib.Path(filename), directory="chapters", 
-                 previous_url=previous_id,
-                 next_url=next_id)
-
-    number_of_exercises = len(exercise_paths)
-    for index, filename in enumerate(exercise_paths):
-        previous_path = exercise_paths[(index - 1) % number_of_exercises]
-        previous_id = get_id(previous_path)
-        next_path = exercise_paths[(index + 1) % number_of_exercises]
-        next_id = get_id(next_path)
-
-        make_dir(pathlib.Path(filename), directory="exercises",
-                 previous_url=previous_id,
-                 next_url=next_id)
-
-
-    number_of_solutions = len(solution_paths)
-    for index, filename in enumerate(solution_paths):
-        previous_path = solution_paths[(index - 1) % number_of_solutions]
-        previous_id = get_id(previous_path)
-        next_path = solution_paths[(index + 1) % number_of_solutions]
-        next_id = get_id(next_path)
-
-        make_dir(pathlib.Path(filename), directory="solutions",
-                 previous_url=previous_id,
-                 next_url=next_id)
-
-    for filename in other_paths:
-        make_dir(pathlib.Path(filename), directory="other")
+    for paths, directory in [(chapter_paths, "chapters"),
+                             (exercise_paths, "exercises"),
+                             (solution_paths, "solutions"),
+                             (other_paths, "other")]:
+        make_collection(paths=paths, directory=directory)
 
     chapters = []
     for path in tqdm.tqdm(sorted(chapter_paths)):
