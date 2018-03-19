@@ -43,7 +43,7 @@ Teaching notes are available here http://vkgt.readthedocs.io/en/latest/
 ```
 |--- README.md
 |--- environment.yml  # A conda environment file
-|--- render.py  # A file to serve the static content
+|--- main.py  # A file to serve the static content
 |--- nbtests.py  # A file to test the notebooks
 |--- doctests.py  # A file to test the code in the docs
 |--- docs  # documentation (notes for the class leader)
@@ -63,7 +63,7 @@ notebooks in the `nbs` directory. These are used to create `.html`
 versions of the content. To generate all the files:
 
 ```
-$ python render.py
+$ python main.py
 ```
 
 This requires python 3+. An anaconda virtual environment file `environment.yml`
