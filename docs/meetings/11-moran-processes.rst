@@ -20,7 +20,11 @@ Activity
 Use :download:`moran process
 form<../assets/activities/moran_process/main.pdf>` have students play in pairs.
 
-**Also requires use of many D6 and D8 dice.**
+**Also requires use of dice, allowing for multiples of 4 and 6**. For example:
+
+- 1 D12 (12 sided dice) or;
+- 1 D6 and 1 D4 (the example used in this page);
+- 1 D6 and 1 D8.
 
 Explain that we will aim to reproduce a Moran process with :math:`N=3`.
 
@@ -91,10 +95,10 @@ Confirm:
 +=========+==================+===============================+====================+=========================+
 | 1 Hawk  |  6               |  :math:`\{1, 2, 3\}`          | 6                  |  :math:`\{1, 2\}`       |
 +---------+------------------+-------------------------------+--------------------+-------------------------+
-| 2 Hawks |  8               |  :math:`\{1, 2, 3, 4, 5, 6\}` | 6                  |  :math:`\{1, 2, 3, 4\}` |
+| 2 Hawks |  4               |  :math:`\{1, 2, 3\}`          | 6                  |  :math:`\{1, 2, 3, 4\}` |
 +---------+------------------+-------------------------------+--------------------+-------------------------+
 
-Hand out a dice to each group (ideally a D6 and a D8 to each group but perhaps
+Hand out a dice to each group (ideally a D6 and a D4 to each group but perhaps
 they can identify other ways).
 
 **Let students simulate**
@@ -135,7 +139,7 @@ the students (this is not the same code as in the notes)::
     ...         self.number_of_hawks = number_of_hawks
     ...         self.number_of_doves = 3 - number_of_hawks
     ...
-    ...         self.dice_and_values_for_hawk_birth = {1: (6, {1, 2, 3}), 2: (8, {1, 2, 3, 4, 5, 6})}
+    ...         self.dice_and_values_for_hawk_birth = {1: (6, {1, 2, 3}), 2: (4, {1, 2, 3})}
     ...         self.dice_and_values_for_hawk_death = {1: (6, {1, 2}), 2: (6, {1, 2, 3, 4})}
     ...
     ...         self.history = [(self.number_of_hawks, self.number_of_doves)]
@@ -194,7 +198,7 @@ This carries out the simulations::
     ...     path_lengths.append(len(mp))
     >>> counts = collections.Counter(end_states)
     >>> counts[3] / repetitions
-    0.54627
+    0.54666
 
 **Now work through the notes: culminating in the proof of the theorem for the
 absorption probabilities of a birth death process.**
