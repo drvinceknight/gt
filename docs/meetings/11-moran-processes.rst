@@ -1,6 +1,8 @@
 11 Moran Processes
 ==================
 
+**Duration**: 140 minutes
+
 Corresponding chapters
 ----------------------
 
