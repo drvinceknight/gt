@@ -968,11 +968,317 @@ $$<p>for:</p>
 $$r_1=p_1-p_2\qquad r_2=q_1-q_2$$<h3 id="(e)-Expected-utility-for-specific-type-of-player">(e) Expected utility for specific type of player<a class="anchor-link" href="#(e)-Expected-utility-for-specific-type-of-player">&#182;</a></h3><p>Direct substitution gives:</p>
 $$P \left(1 - \frac{\frac{x}{8} + \frac{1}{4}}{- \frac{x}{8} + 1}\right) \left(- \frac{5 x}{- x + 8} + 1\right) + \frac{5 R x \left(\frac{x}{8} + \frac{1}{4}\right)}{8 \left(- \frac{x}{8} + 1\right)^{2}} + \frac{5 S x}{- x + 8} \left(1 - \frac{\frac{x}{8} + \frac{1}{4}}{- \frac{x}{8} + 1}\right) + \frac{T}{- \frac{x}{8} + 1} \left(\frac{x}{8} + \frac{1}{4}\right) \left(- \frac{5 x}{- x + 8} + 1\right)$$<p>substituting $(R, S, T, P)=(3, 0, 4, 1)$ factorising the $\frac{1}{(x - 8)^2}$ term gives:</p>
 $$
-\frac{1}{\left(x - 8\right)^{2}} \left(3 x^{2} - 38 x + 112\right)
+\frac{1}{\left(x - 8\right)} \left(3 x-14\right)
 $$<p>expanding the required result gives the same as above.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">theoretic_steady_state</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+    <span class="n">r_1</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">r_2</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">s_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_1</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r_1</span> <span class="o">*</span> <span class="n">r_2</span><span class="p">)</span>
+    <span class="n">s_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_2</span> <span class="o">+</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r_1</span> <span class="o">*</span> <span class="n">r_2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">s_1</span> <span class="o">*</span> <span class="n">s_2</span><span class="p">,</span> <span class="n">s_1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s_2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s_1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s_2</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s_1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s_2</span><span class="p">)])</span>
+
+<span class="k">def</span> <span class="nf">theoretic_utility</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">rstp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])):</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="n">theoretic_steady_state</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">rstp</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="n">theoretic_utility</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">rstp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="n">sym</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(3*x - 14)/(x - 8)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is a plot of the utility (calculated both ways)</p>
+<p><strong>Note that this is not requested in the question: just here to help understanding.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="n">theoretic_utility</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">rstp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
+<span class="n">simplified_ys</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">14</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$u(x)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">simplified_ys</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">frac{3x-14}{x-8}$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="(f)-Identifying-the-optimal-behaviour">(f) Identifying the optimal behaviour<a class="anchor-link" href="#(f)-Identifying-the-optimal-behaviour">&#182;</a></h3><p>Direct differentiating gives:</p>
 $$
-\frac{6 x - 38}{\left(x - 8\right)^{2}} - \frac{1}{\left(x - 8\right)^{3}} \left(6 x^{2} - 76 x + 224\right)=\frac{-10(x - 8)}{\left(x - 8\right)^{3}}=\frac{-10}{\left(x - 8\right)^{2}}
+\frac{3x - 24 - (3x - 14)}{\left(x - 8\right)^2}=\frac{-10}{\left(x - 8\right)^{2}}
 $$<p>[2]</p>
 <p>simplifying gives the required result.</p>
 <p>We see that our function is decreasing for all values of $x$ (it has negative derivative). Thus, the optimal value of $x$ is $0$.</p>
@@ -980,6 +1286,37 @@ $$<p>[2]</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sym</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-10/(x - 8)**2</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1059,7 +1396,7 @@ $$x = (3/4, 1/4)$$<p>[2]</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nash</span>
@@ -1077,7 +1414,7 @@ $$x = (3/4, 1/4)$$<p>[2]</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -1190,7 +1527,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">game</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -1210,7 +1547,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
@@ -1227,7 +1564,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -1243,7 +1580,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_</span><span class="p">]</span>
@@ -1258,7 +1595,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
+<div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -1335,7 +1672,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">game</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">18</span><span class="p">)],</span> <span class="p">[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">16</span><span class="p">)]])</span>
@@ -1351,7 +1688,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -1367,7 +1704,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_</span><span class="p">]</span>
@@ -1382,7 +1719,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[11]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 
