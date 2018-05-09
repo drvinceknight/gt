@@ -965,11 +965,29 @@ $$s_1s_2\times R +  s1(1-s_2) \times T +  (1-s_1)s_2 \times S + (1-s_1)(1-s_2)\t
 $$
 s_1 = \frac{q_2r_1+p_2}{1-r_1r_2}\qquad s_2 = \frac{p_2r_2+q_2}{1-r_1r_2}
 $$<p>for:</p>
-$$r_1=p_1-p_2\qquad r_2=q_1-q_2$$<h3 id="(e)-Expected-utility-for-specific-type-of-player">(e) Expected utility for specific type of player<a class="anchor-link" href="#(e)-Expected-utility-for-specific-type-of-player">&#182;</a></h3><p>Direct substitution gives:</p>
-$$P \left(1 - \frac{\frac{x}{8} + \frac{1}{4}}{- \frac{x}{8} + 1}\right) \left(- \frac{5 x}{- x + 8} + 1\right) + \frac{5 R x \left(\frac{x}{8} + \frac{1}{4}\right)}{8 \left(- \frac{x}{8} + 1\right)^{2}} + \frac{5 S x}{- x + 8} \left(1 - \frac{\frac{x}{8} + \frac{1}{4}}{- \frac{x}{8} + 1}\right) + \frac{T}{- \frac{x}{8} + 1} \left(\frac{x}{8} + \frac{1}{4}\right) \left(- \frac{5 x}{- x + 8} + 1\right)$$<p>substituting $(R, S, T, P)=(3, 0, 4, 1)$ factorising the $\frac{1}{(x - 8)^2}$ term gives:</p>
+$$r_1=p_1-p_2\qquad r_2=q_1-q_2$$<h3 id="(e)-Expected-utility-for-specific-type-of-player">(e) Expected utility for specific type of player<a class="anchor-link" href="#(e)-Expected-utility-for-specific-type-of-player">&#182;</a></h3><p>We have:</p>
+$$r_1=x-x/2=x/2\qquad r_2=1/2-1/4=1/4$$<p>thus</p>
 $$
-\frac{1}{\left(x - 8\right)} \left(3 x-14\right)
-$$<p>expanding the required result gives the same as above.</p>
+s_1 = \frac{1/4x/2+x/2}{1-x/8}=\frac{5x}{8-x}\qquad s_2 = \frac{1/4x/2+1/4}{1-x/8}=\frac{x+2}{8-x}
+$$<p>Direct substitution gives:</p>
+$$\frac{5x(x+2)}{(8-x)^2}\times R 
+  +  \frac{5x(6-2x)}{(8-x)^2} \times S 
+  +  \frac{(8-6x)(x+2)}{(8-x)^2} \times T 
+  +  \frac{(8-6x)(6-2x)}{(8-x)^2}\times P$$<p>expanding:</p>
+$$\frac{R\times(5x^2+10x) + S\times (35x-10x^2) + T\times (-6x^2+16-4x) + P\times (48-52x+12x^2)}{(8-x)^2}$$<p>substituting $(R, S, T, P)=(3, 0, 4, 1)$:</p>
+$$\frac{3x^2 - 38x + 112}{(8-x)^2}$$<p>factorising the $(8-x)$ term gives:</p>
+$$\frac{(8-x)(14-3x)}{(8-x)^2}=
+\frac{\left(3 x-14\right)}{\left(x - 8\right)} 
+$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Some code to verify the calculations:</p>
 
 </div>
 </div>
@@ -977,6 +995,53 @@ $$<p>expanding the required result gives the same as above.</p>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x, R, S, T, P&quot;</span><span class="p">)</span>
+
+<span class="n">expr</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">S</span> <span class="o">*</span> <span class="p">(</span><span class="mi">35</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">T</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">6</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">16</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">P</span> <span class="o">*</span><span class="p">(</span><span class="mi">48</span> <span class="o">-</span> <span class="mi">52</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">*</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">R</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">S</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="n">P</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">factor</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(x - 8)*(3*x - 14)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1000,12 +1065,10 @@ $$<p>expanding the required result gives the same as above.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">])</span>
 <span class="n">expr</span> <span class="o">=</span> <span class="n">theoretic_utility</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">rstp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
 <span class="n">sym</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span> 
@@ -1020,7 +1083,7 @@ $$<p>expanding the required result gives the same as above.</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -1047,7 +1110,7 @@ $$<p>expanding the required result gives the same as above.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
@@ -1289,7 +1352,7 @@ $$<p>[2]</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sym</span><span class="o">.</span><span class="n">factor</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -1304,7 +1367,7 @@ $$<p>[2]</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
+<div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -1396,7 +1459,7 @@ $$x = (3/4, 1/4)$$<p>[2]</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nash</span>
@@ -1414,7 +1477,7 @@ $$x = (3/4, 1/4)$$<p>[2]</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -1512,9 +1575,9 @@ $$x_N=1=\left(1+\sum_{j=1}^{N-1}\prod_{k=1}^j\gamma_k\right)x_1$$<h3 id="(c)-Mor
 $$f_{1i}=\frac{a(i-1)+b(N-i)}{N-1}=\frac{4i-4+5-i}{4}=\frac{3i+1}{4}$$$$f_{2i}=\frac{c(i)+d(N-i-1)}{N-1}=\frac{6i+2(4-i)}{4}=\frac{4i+8}{4}=i$$<p>which gives:</p>
 $$\gamma_i=\frac{f_{2i}}{f_{1i}}=\frac{4i+8}{3i+1}$$<p>thus:</p>
 $$
-x_1=\frac{1}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{3k+1}{4k+8}}=\frac{1}{1+3+3(16/7)+3(16/7)2+3(16/7)2(24/13)}=\frac{91}{4540}
+x_1=\frac{1}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{4k+8}{3k+1}}=\frac{1}{1+3+3(16/7)+3(16/7)2+3(16/7)2(24/13)}=\frac{91}{4540}
 $$$$
-x_{4}=\frac{1+\sum_{j=1}^{3}\prod_{k=1}^j\frac{3k+1}{4k+8}}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{3k+1}{4k+8}}=\frac{1+3+3(16/7)+3(16/7)2}{1+3+3(16/7)+3(16/7)2+3(16/7)2(24/13)}=\frac{559}{1135}
+x_{4}=\frac{1+\sum_{j=1}^{3}\prod_{k=1}^j\frac{4k+8}{3k+1}}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{4k+8}{3k+1}}=\frac{1+3+3(16/7)+3(16/7)2}{1+3+3(16/7)+3(16/7)2+3(16/7)2(24/13)}=\frac{559}{1135}
 $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 <ul>
 <li>Cooperation: $\frac{91}{4540}\approx 0.02$</li>
@@ -1527,7 +1590,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">game</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -1547,7 +1610,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
@@ -1564,7 +1627,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[12]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -1580,7 +1643,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_</span><span class="p">]</span>
@@ -1595,7 +1658,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -1657,9 +1720,9 @@ $$
 $$f_{1i}=\frac{a(i-1)+b(N-i)}{N-1}=\frac{20(i - 1) + 18(5-i)}{4}=\frac{2i+70}{4}$$$$f_{2i}=\frac{c(i)+d(N-i-1)}{N-1}=\frac{18i+16(4-i)}{4}=\frac{2i+64}{4}=i$$<p>which gives:</p>
 $$\gamma_i=\frac{f_{2i}}{f_{1i}}=\frac{2i+64}{2i+70}$$<p>thus:</p>
 $$
-x_1=\frac{1}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{3k+1}{4k+8}}=\frac{1}{1+11/12+(11/12)(34/37)+(11/12)(34/37)(35/38)+(11/12)(34/37)(35/38)(12/13)}=\frac{247}{1050}
+x_1=\frac{1}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{2k+64}{2k+70}}=\frac{1}{1+11/12+(11/12)(34/37)+(11/12)(34/37)(35/38)+(11/12)(34/37)(35/38)(12/13)}=\frac{247}{1050}
 $$$$
-x_4=\frac{1+\sum_{j=1}^{3}\prod_{k=1}^j\frac{3k+1}{4k+8}}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{3k+1}{4k+8}}=\frac{1+11/12+(11/12)(34/37)+(11/12)(34/37)(35/38)}{1+11/12+(11/12)(34/37)+(11/12)(34/37)(35/38)+(11/12)(34/37)(35/38)(12/13)}=\frac{247}{1050}
+x_4=\frac{1+\sum_{j=1}^{3}\prod_{k=1}^j\frac{2k+64}{2k+70}}{1+\sum_{j=1}^{4}\prod_{k=1}^j\frac{2k+64}{2k+70}}=\frac{1+11/12+(11/12)(34/37)+(11/12)(34/37)(35/38)}{1+11/12+(11/12)(34/37)+(11/12)(34/37)(35/38)+(11/12)(34/37)(35/38)(12/13)}=\frac{923}{1110}
 $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 <ul>
 <li>TfT: $\frac{247}{1050}\approx 0.24$</li>
@@ -1672,7 +1735,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">game</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">18</span><span class="p">)],</span> <span class="p">[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">16</span><span class="p">)]])</span>
@@ -1688,7 +1751,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[14]:</div>
+<div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -1704,7 +1767,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">_</span><span class="p">]</span>
@@ -1719,7 +1782,7 @@ $$<p>Thus the two fixation probabilities $x_1$ are:</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[15]:</div>
+<div class="prompt output_prompt">Out[17]:</div>
 
 
 
