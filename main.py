@@ -30,7 +30,7 @@ def get_name(path):
     """
     stem = path.stem
     try:
-        return stem[stem.index('-'):].replace('-', ' ')
+        return stem[stem.index('-'):].replace('-', ' ').lstrip()
     except ValueError:
         return stem
 
@@ -42,14 +42,14 @@ def convert_html(nb_path):
     html_exporter.template_file = "basic"
     return html_exporter.from_file(str(nb_path))
 
-def render_template(template_file, template_vars):
+def render_template(template_file, template_vars, searchpath="./templates/"):
     """
     Render a jinja2 template
     """
-    templateLoader = jinja2.FileSystemLoader(searchpath="./templates/")
+    templateLoader = jinja2.FileSystemLoader(searchpath=searchpath)
     template_env = jinja2.Environment(loader=templateLoader)
     template = template_env.get_template(template_file)
-    return template.render( template_vars )
+    return template.render(template_vars)
 
 def make_dir(path, directory, previous_url=None, next_url=None):
     """
