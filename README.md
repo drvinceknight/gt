@@ -44,6 +44,7 @@ Teaching notes are available here http://vkgt.readthedocs.io/en/latest/
 |--- README.md
 |--- environment.yml  # A conda environment file
 |--- main.py  # A file to serve the static content
+|--- test_main.py  # Tests for main.py
 |--- run_tests.sh  # A file to test the notebooks
 |--- assets  # Static files for the course
 |--- templates # The various templates for the html
