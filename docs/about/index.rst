@@ -14,7 +14,7 @@ This is done using a combination of `Python <https://www.python.org/>`_ and
 
 The Jupyter notebooks are then converted in to html which is served using
 `Github pages <https://pages.github.com/>`_ and can be seen here:
-`https://vknight.org/gt/`_.
+`<https://vknight.org/gt/>`_.
 
 How this is done
 ----------------
