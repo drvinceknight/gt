@@ -105,49 +105,50 @@ Apply the algorithm.
 
           .. math::
 
-             \begin{align}
+             \begin{align*}
              0{\sigma_r}_1 - {\sigma_r}_2 &= {\sigma_r}_1 + 0{\sigma_r}_2\\
              - {\sigma_r}_2 &= {\sigma_r}_1
-             \end{align}
+             \end{align*}
 
           .. math::
 
-             \begin{align}
+             \begin{align*}
              0{\sigma_c}_1 - {\sigma_c}_2 &= {\sigma_c}_1 + 0{\sigma_c}_2\\
              {\sigma_c}_1 &= -{\sigma_c}_2
-             \end{align}
+             \end{align*}
 
 
        2. :math:`J=\{1, 3\}`
 
           .. math::
 
-             \begin{align}
+             \begin{align*}
              0{\sigma_r}_1 - {\sigma_r}_2 &= -{\sigma_r}_1 + {\sigma_r}_2\\
              {\sigma_r}_1 &= 2{\sigma_r}_2
-             \end{align}
+             \end{align*}
 
           .. math::
-             \begin{align}
+
+             \begin{align*}
              0{\sigma_c}_1 + {\sigma_c}_3 &= {\sigma_c}_1 - {\sigma_c}_3\\
              {\sigma_c}_1 &= 2{\sigma_c}_3
-             \end{align}
+             \end{align*}
 
 
        2. :math:`J=\{2, 3\}`
 
           .. math::
 
-             \begin{align}
+             \begin{align*}
              {\sigma_r}_1 + 0{\sigma_r}_2 &= -{\sigma_r}_1 + {\sigma_r}_2\\
              2{\sigma_r}_1 &= {\sigma_r}_2
-             \end{align}
+             \end{align*}
 
           .. math::
-             \begin{align}
+             \begin{align*}
              -{\sigma_c}_2 + {\sigma_c}_3 &= 0{\sigma_c}_2 - {\sigma_c}_3\\
              {\sigma_c}_2 &= 2{\sigma_c}_3
-             \end{align}
+             \end{align*}
 
    2. :math:`I=\{1, 3\}` Similarly.
    3. :math:`I=\{2, 3\}` Similarly.
@@ -157,10 +158,10 @@ Apply the algorithm.
 
       .. math::
 
-         \begin{align}
+         \begin{align*}
          -{\sigma_r}_2 + {\sigma_r}_3 &= {\sigma_r}_1 - {\sigma_r}_3\\
          {\sigma_r}_1 - {\sigma_r}_3 &= -{\sigma_r}_1 + {\sigma_r}_2\\
-         \end{align}
+         \end{align*}
 
       which has solution:
 
@@ -172,10 +173,10 @@ Apply the algorithm.
 
       .. math::
 
-         \begin{align}
+         \begin{align*}
          -{\sigma_c}_2 + {\sigma_c}_3 &= {\sigma_c}_1 - {\sigma_c}_3\\
          {\sigma_c}_1 - {\sigma_c}_3 &= -{\sigma_c}_1 + {\sigma_c}_2\\
-         \end{align}
+         \end{align*}
 
       which has solution:
 
@@ -199,20 +200,20 @@ Apply the algorithm.
 
           .. math::
 
-             \begin{align}
+             \begin{align*}
              {\sigma_r} &= (2/3, 1/3, 0)\\
              {\sigma_c} &= (2/3, 0, 1/3)
-             \end{align}
+             \end{align*}
 
 
        3. :math:`J=\{2, 3\}`
 
           .. math::
 
-             \begin{align}
+             \begin{align*}
              {\sigma_r} &= (1/3, 2/3, 0)\\
              {\sigma_c} &= (0, 2/3, 1/3)
-             \end{align}
+             \end{align*}
 
    2. :math:`I=\{1, 3\}` Similarly.
    3. :math:`I=\{2, 3\}` Similarly.
@@ -220,10 +221,10 @@ Apply the algorithm.
 
           .. math::
 
-             \begin{align}
+             \begin{align*}
              {\sigma_r} &= (1/3, 1/3, 1/3)\\
              {\sigma_c} &= (1/3, 1/3, 1/3)
-             \end{align}
+             \end{align*}
 
 5. The final step is to check the best response condition:
 

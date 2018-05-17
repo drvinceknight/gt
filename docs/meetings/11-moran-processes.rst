@@ -213,10 +213,10 @@ Calculate theoretic value using formula from theorem:
 
 .. math::
 
-   \begin{align}
+   \begin{align*}
        f_{1i} &= \frac{3(N-i)}{N - 1}=3\frac{N-i}{N-1}\\
        f_{2i} &= \frac{i+2(N - i -1)}{N - 1}=\frac{2N-2-i}{N - 1}\\
-   \end{align}
+   \end{align*}
 
 This gives (for :math:`N=3`):
 
