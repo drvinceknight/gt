@@ -25,11 +25,3 @@ Here are my notes for each class meeting.
    10-evolutionary-game-theory.rst
    11-moran-processes.rst
    12-contemporary-research.rst
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

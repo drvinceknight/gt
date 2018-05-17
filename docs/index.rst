@@ -13,11 +13,4 @@ The class notes are available here: `vknight.org/gt/ <http://vknight.org/gt/>`_.
 
    meetings/index.rst
    optional/index.rst
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   about/index.rst
