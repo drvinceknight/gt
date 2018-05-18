@@ -19,7 +19,7 @@ Playing team based Iterated Prisoner's Dilemma
 
 Show this video: https://www.youtube.com/watch?v=p3Uos2fzIJ0
 
-Ask class to form in to teams of 4.
+Ask class to form in to groups of approximately 8: 4 teams of 2.
 
 Write the following on the board:
 
@@ -55,19 +55,19 @@ Discuss NE of stage game.
 Discuss "Cooperation" versus "Defection" and explain that goal is to maximise
 overall score (not necessarily beat direct opponent).
 
-For every dual write the following on the board (assuming 5 turns):
+For every dual write the following on the board (assuming 8 turns):
 
-+---------+-------+--------------------+--------------------+--------------------+--------------------+
-|  Name   | Score | :math:`\sum` score | :math:`\sum` score | :math:`\sum` score | :math:`\sum` score |
-+=========+=======+====================+====================+====================+====================+
-|         |       |                    |                    |                    |                    |
-+---------+-------+--------------------+--------------------+--------------------+--------------------+
-|         |       |                    |                    |                    |                    |
-+---------+-------+--------------------+--------------------+--------------------+--------------------+
++---------+-------+--------------------+--------------------+--------------------+---------------------+--------------------+--------------------+-------------------+
+|  Name   | Score | :math:`\sum` score | :math:`\sum` score | :math:`\sum` score |  :math:`\sum` score | :math:`\sum` score | :math:`\sum` score |:math:`\sum` score |
++=========+=======+====================+====================+====================+=====================+====================+====================+===================+
+|         |       |                    |                    |                    |                     |                    |                    |                   |
++---------+-------+--------------------+--------------------+--------------------+---------------------+--------------------+--------------------+-------------------+
+|         |       |                    |                    |                    |                     |                    |                    |                   |
++---------+-------+--------------------+--------------------+--------------------+---------------------+--------------------+--------------------+-------------------+
 
 Instructions for a dual:
 
-- Give all teams copies of a :download:`document to help record <../assets/activities/pd_tournament_sheet.pdf>`.
+- Give all teams copies of a :download:`document to help record <../assets/activities/pd_tournament/main.pdf>`.
 - Think about strategy.
 - Before every stage invite both individuals to talk to each other.
 - Get teams to "face away", after a count down "show" (either a C or a D).
