@@ -224,7 +224,7 @@ readable using pure best responses:
 
 Checking using :code:`nashpy`::
 
-    >>> import nash
+    >>> import nashpy as nash
     >>> A = [[1, 4], [-3, 2]]
     >>> B = [[5, 2], [-1, 9]]
     >>> game = nash.Game(A, B)

@@ -137,7 +137,7 @@ Look at theorem and discuss proof.
 
 Carry out Nash equilibria computation (which corresponds to the above case)::
 
-    >>> import nash
+    >>> import nashpy as nash
     >>> game = nash.Game(A, A.transpose())
     >>> list(game.support_enumeration())
     [(array([ 1.,  0.]), array([ 1.,  0.])), (array([ 0.,  1.]), array([ 0.,  1.])), (array([ 0.5,  0.5]), array([ 0.5,  0.5]))]

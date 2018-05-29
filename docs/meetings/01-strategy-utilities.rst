@@ -102,7 +102,7 @@ player:
 
 We can use games defined in :code:`nashpy` in that way::
 
-    >>> import nash
+    >>> import nashpy as nash
     >>> game = nash.Game(A, B)
     >>> game[sigma_r, sigma_c]
     array([ 0.08, -0.08])
