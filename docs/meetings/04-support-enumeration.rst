@@ -291,7 +291,7 @@ Apply the algorithm.
 
 We can confirm all of this using :code:`nashpy`::
 
-    >>> import nash
+    >>> import nashpy as nash
     >>> A = np.array([[0, -1, 1],
     ...               [1, 0, -1],
     ...               [-1, 1, 0]])

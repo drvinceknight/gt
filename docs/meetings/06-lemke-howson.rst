@@ -132,7 +132,7 @@ giving:
 
 Code::
 
-    >>> import nash
+    >>> import nashpy as nash
     >>> dropped_label = nash.integer_pivoting.pivot_tableau(row_tableau,
     ...                                                     column_index=0)
     >>> row_tableau

@@ -80,7 +80,7 @@ From this we can identify the vertices:
 This can be confirmed using :code:`nashpy`::
 
     >>> import numpy as np
-    >>> import nash
+    >>> import nashpy as nash
     >>> B = np.array([[2, 1], [0, 3]])
     >>> halfspaces = nash.polytope.build_halfspaces(B.transpose())
     >>> for v, l in nash.polytope.non_trivial_vertices(halfspaces):
@@ -112,7 +112,6 @@ From this we can identify the vertices:
 Confirmed::
 
     >>> import numpy as np
-    >>> import nash
     >>> A = np.array([[3, 1], [0, 2]])
     >>> halfspaces = nash.polytope.build_halfspaces(A)
     >>> for v, l in nash.polytope.non_trivial_vertices(halfspaces):
