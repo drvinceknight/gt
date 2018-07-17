@@ -86,6 +86,7 @@ dependencies:
   - docutils==0.13.1
   - hypothesis==3.13.0
   - imagesize==0.7.1
+  - invoke==1.1.0
   - ipython-genutils==0.2.0
   - jupyter-client==5.0.1
   - jupyter-console==5.1.0

@@ -1,6 +1,8 @@
 [![Build
 Status](https://travis-ci.org/drvinceknight/gt.svg?branch=master)](https://travis-ci.org/drvinceknight/gt)
 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/drvinceknight/gt/master)
+
 # Game Theory
 
 ## Description
@@ -76,7 +78,7 @@ notebooks in the `nbs` directory. These are used to create `.html`
 versions of the content. To generate all the files:
 
 ```
-$ python main.py
+$ inv main
 ```
 
 This requires python 3+. An anaconda virtual environment file `environment.yml`

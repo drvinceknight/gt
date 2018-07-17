@@ -10,6 +10,7 @@ import jinja2
 from nbconvert import HTMLExporter, PDFExporter
 
 ROOT = "gt"
+BINDERROOT = "https://mybinder.org/v2/gh/drvinceknight/gt/master?filepath=nbs"
 
 def get_id(path):
     """
@@ -84,7 +85,7 @@ def make_collection(paths, directory,
                  previous_url=previous_id,
                  next_url=next_id)
 
-Chapter = collections.namedtuple("chapter", ["dir", "title", "nb"])
+Chapter = collections.namedtuple("chapter", ["dir", "title", "nb", "filename"])
 
 if __name__ == "__main__":
 
@@ -104,22 +105,29 @@ if __name__ == "__main__":
     chapters = []
     for path in tqdm.tqdm(sorted(chapter_paths)):
         chapters.append(Chapter(f"{get_id(path)}",
-                                get_name(path), str(path)))
+                                get_name(path), 
+                                str(path),
+                                path.name))
     exercises = []
     for path in tqdm.tqdm(sorted(exercise_paths)):
         exercises.append(Chapter(f"{get_id(path)}",
-                                get_name(path), str(path)))
+                                 get_name(path), 
+                                 str(path),
+                                 path.name))
 
     html = render_template("home.html", {"chapters": chapters,
                                          "root": ROOT,
+                                         "binderoot": BINDERROOT,
                                          "exercises": exercises})
     with open('index.html', 'w') as f:
         f.write(html)
 
-    html = render_template("chapters.html", {"chapters": chapters, "root": ROOT})
+    html = render_template("chapters.html", {"chapters": chapters, "root": ROOT,
+                                             "binderoot": BINDERROOT})
     with open('./chapters/index.html', 'w') as f:
         f.write(html)
 
-    html = render_template("exercises.html", {"exercises": exercises, "root": ROOT})
+    html = render_template("exercises.html", {"exercises": exercises, "root": ROOT,
+                                              "binderoot": BINDERROOT})
     with open('./exercises/index.html', 'w') as f:
         f.write(html)
