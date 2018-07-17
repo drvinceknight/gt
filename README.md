@@ -76,7 +76,7 @@ notebooks in the `nbs` directory. These are used to create `.html`
 versions of the content. To generate all the files:
 
 ```
-$ python main.py
+$ inv main
 ```
 
 This requires python 3+. An anaconda virtual environment file `environment.yml`

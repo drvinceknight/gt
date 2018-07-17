@@ -64,7 +64,7 @@ for this**) that you can browse and use the notebooks with.
 line application, making sure you have activated the :code:`gt` environment
 type::
 
-    python main.py
+    inv main
 
 Testing all the code
 --------------------
@@ -75,9 +75,4 @@ tested. This helps ensure that there are no errors in the notes.
 
 To test the code, in your command line application type::
 
-    sh run_tests.sh
-
-**Note** the above is a command that will only work on Mac OSX or linux. On
-windows you should type the specific command in that file which is::
-
-    pytest --nbval --current-env --doctest-glob="*.rst"
+    inv test
