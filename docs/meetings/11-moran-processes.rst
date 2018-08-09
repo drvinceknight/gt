@@ -79,14 +79,6 @@ Confirm:
 | 2 Hawks, 1 Dove | Dove    |  :math:`\frac{2}{2\times 3+2}`           |  :math:`\frac{1}{3}`     |
 +-----------------+---------+------------------------------------------+--------------------------+
 
-Which gives:
-
-.. math::
-   p_{10}=\frac{6}{12}\frac{1}{3}=\frac{1}{6}\qquad
-   p_{12}=\frac{6}{12}\frac{2}{3}=\frac{1}{3}\qquad
-   p_{21}=\frac{2}{8}\frac{2}{3}=\frac{1}{6}\qquad
-   p_{23}=\frac{6}{8}\frac{1}{3}=\frac{1}{4}
-
 Give students 5 minutes to identify what sided dice and what values will allow
 them to simulate the process of selecting birth/death individuals.
 
@@ -201,6 +193,14 @@ This carries out the simulations::
     >>> counts = collections.Counter(end_states)
     >>> counts[3] / repetitions
     0.54666
+
+Discuss obtaining theoretic probabilities of changing state:
+
+.. math::
+   p_{10}=\frac{6}{12}\frac{1}{3}=\frac{1}{6}\qquad
+   p_{12}=\frac{6}{12}\frac{2}{3}=\frac{1}{3}\qquad
+   p_{21}=\frac{2}{8}\frac{2}{3}=\frac{1}{6}\qquad
+   p_{23}=\frac{6}{8}\frac{1}{3}=\frac{1}{4}
 
 **Now work through the notes: culminating in the proof of the theorem for the
 absorption probabilities of a birth death process.**

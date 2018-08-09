@@ -14,9 +14,9 @@
 
 
 \[
-N=3 
-\text{ and } 
-A = 
+N=3
+\text{ and }
+A =
 \begin{pmatrix}
     0 & 3 \\ 
     1 & 2
@@ -44,39 +44,6 @@ A =
 \subsection*{\centering{Probabilities}}
 
 \begin{center}
-    \begin{tikzpicture}[
-        dove/.style={circle, pattern=north west lines, pattern color=blue!70, draw=blue},
-        hawk/.style={circle, pattern=north east lines, pattern color=red!70, draw=red},
-        ]
-
-	\node (N1) at (1, 1) [dove] {D};
-	\node (N2) at (0, 0) [dove] {D};
-	\node (N3) at (2, 0) [dove] {D};
-
-    \draw [thick, <-] ($(N1)!0.5!(N2) + (2.5, -.25)$) -- node [below] {\(p_{10}\)} ++(1, 0);
-
-    \node (N1) at ($(N1) + (5, 0)$) [dove] {D};
-    \node (N2) at ($(N2) + (5, 0)$) [dove] {D};
-    \node (N3) at ($(N3) + (5, 0)$) [hawk] {H};
-
-    \draw [thick, <-] ($(N1)!0.5!(N2) + (2.5, -.25)$) -- node [below] {\(p_{12}\)} ++(1, 0);
-    \draw [thick, ->] ($(N1)!0.5!(N2) + (2.5, .25)$) -- node [above] {\(p_{21}\)} ++(1, 0);
-
-    \node (N1) at ($(N1) + (5, 0)$) [dove] {D};
-    \node (N2) at ($(N2) + (5, 0)$) [hawk] {H};
-    \node (N3) at ($(N3) + (5, 0)$) [hawk] {H};
-
-    \draw [thick, ->] ($(N1)!0.5!(N2) + (2.5, .25)$) -- node [above] {\(p_{23}\)} ++(1, 0);
-
-    \node (N1) at ($(N1) + (5, 0)$) [hawk] {H};
-    \node (N2) at ($(N2) + (5, 0)$) [hawk] {H};
-    \node (N3) at ($(N3) + (5, 0)$) [hawk] {H};
-    \end{tikzpicture}
-\end{center}
-
-\vspace{1cm}
-
-\begin{center}
     \begin{tabular}{r|r|c|c}
         \toprule
         & Select       & Selection: Birth   & Selection: Death   \\
@@ -99,15 +66,6 @@ A =
         \bottomrule
     \end{tabular}
 \end{center}
-
-Which gives:
-
-\[
-    p_{10}=\frac{6}{12}\frac{1}{3}=\frac{1}{6}\qquad
-    p_{12}=\phantom{\frac{6}{12}\frac{2}{3}=\frac{1}{3}}\qquad
-    p_{21}=\phantom{\frac{2}{8}\frac{2}{3}=\frac{1}{6}}\qquad
-    p_{23}=\phantom{\frac{6}{8}\frac{1}{3}=\frac{1}{4}}
-\]
 
 \newpage
 \section*{\centering{Simulation}}
@@ -161,7 +119,7 @@ states:
 
 \subsection*{\centering{Activity}}
 
-Every time you arrive at 0 \textbf{or} 3 Hawks: 
+Every time you arrive at 0 \textbf{or} 3 Hawks:
 
 \begin{enumerate}
     \item Stop;
@@ -226,6 +184,52 @@ Every time you arrive at 0 \textbf{or} 3 Hawks:
                       &                  &              &                  &              &              \\
     \end{tabular}
 \end{center}
+
+
+\section*{\centering{Computation}}
+
+\begin{center}
+    \begin{tikzpicture}[
+        dove/.style={circle, pattern=north west lines, pattern color=blue!70, draw=blue},
+        hawk/.style={circle, pattern=north east lines, pattern color=red!70, draw=red},
+        ]
+
+	\node (N1) at (1, 1) [dove] {D};
+	\node (N2) at (0, 0) [dove] {D};
+	\node (N3) at (2, 0) [dove] {D};
+
+    \draw [thick, <-] ($(N1)!0.5!(N2) + (2.5, -.25)$) -- node [below] {\(p_{10}\)} ++(1, 0);
+
+    \node (N1) at ($(N1) + (5, 0)$) [dove] {D};
+    \node (N2) at ($(N2) + (5, 0)$) [dove] {D};
+    \node (N3) at ($(N3) + (5, 0)$) [hawk] {H};
+
+    \draw [thick, ->] ($(N1)!0.5!(N2) + (2.5, -.25)$) -- node [below] {\(p_{12}\)} ++(1, 0);
+    \draw [thick, <-] ($(N1)!0.5!(N2) + (2.5, .25)$) -- node [above] {\(p_{21}\)} ++(1, 0);
+
+    \node (N1) at ($(N1) + (5, 0)$) [dove] {D};
+    \node (N2) at ($(N2) + (5, 0)$) [hawk] {H};
+    \node (N3) at ($(N3) + (5, 0)$) [hawk] {H};
+
+    \draw [thick, ->] ($(N1)!0.5!(N2) + (2.5, .25)$) -- node [above] {\(p_{23}\)} ++(1, 0);
+
+    \node (N1) at ($(N1) + (5, 0)$) [hawk] {H};
+    \node (N2) at ($(N2) + (5, 0)$) [hawk] {H};
+    \node (N3) at ($(N3) + (5, 0)$) [hawk] {H};
+    \end{tikzpicture}
+\end{center}
+
+\vspace{1cm}
+
+Which gives:
+
+\[
+    p_{10}=\frac{6}{12}\frac{1}{3}=\frac{1}{6}\qquad
+    p_{12}=\phantom{\frac{6}{12}\frac{2}{3}=\frac{1}{3}}\qquad
+    p_{21}=\phantom{\frac{2}{8}\frac{2}{3}=\frac{1}{6}}\qquad
+    p_{23}=\phantom{\frac{6}{8}\frac{1}{3}=\frac{1}{4}}
+\]
+
 
 \end{document}
 
