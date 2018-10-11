@@ -4,6 +4,8 @@
   <title>Game Theory</title>
 
   <link rel="stylesheet" href="/{{root}}/assets/css/main.css">
+  <link rel="stylesheet" href="/{{root}}/assets/css/normalize.css">
+  <link rel="stylesheet" href="/{{root}}/assets/css/skeleton.css">
   <link rel="shortcut icon" type="image/png" href="/{{root}}/assets/favicon.ico"/>
 
    {% block head %}
@@ -20,24 +22,41 @@
     ga('send', 'pageview');
     </script>
 
-    <!-- gitter side car -->
-    <script> ((window.gitter = {}).chat = {}).options = { room: 'vkgt/Lobby' }; </script>
-    <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
-
 </head>
 <body>
 
-    {% include "header.html" %}
+{% include "header.html" %}
 
- <div class="page-content">
-    <div class="wrap">
-      <div class="home">
-        {% block body %}
-        {% endblock %}
-      </div>
-  </div>
+<div class="container">
+    {% block body %}
+    {% endblock %}
 </div>
 
+<div class="container">
+    <center>
+    <p style="font-size: small;">
+    Source code:
+    <a href="https://github.com/drvinceknight/gt">@drvinceknight</a>
+    Powered by:
+        <a href="https://www.python.org/">Python</a>
+        <a href="https://www.mathjax.org/">Mathjax</a>
+        <a href="https://pages.github.com/">Github pages</a>
+        <a href="http://getskeleton.com/">Skeleton css</a>
+    </p>
+    </center>
+</div>
+
+<script>
+    document.querySelector('header nav ul').addEventListener('click', function(){
+        document.querySelector('#nav').checked = false;
+    });
+
+    var menuHeight = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.section-title').forEach(function(a){
+        a.style.paddingTop = menuHeight + 'px';
+        a.style.marginTop = '-' + menuHeight + 'px';
+    });
+</script>
 
 </body>
 </html>
