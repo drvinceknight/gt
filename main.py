@@ -127,11 +127,11 @@ if __name__ == "__main__":
                              (other_paths, "other")]:
         make_collection(paths=paths, directory=directory, chapters=chapters)
         if directory == "chapters":
-            md = ""
+            md = "---\ntitle: Game Theory\n---\n"
             for path in paths:
                 chapter_md, _ = convert_markdown(path)
                 md += chapter_md
-            path = pathlib.Path("./main.md")
+            path = pathlib.Path("./assets/main.md")
             path.write_text(md)
 
 

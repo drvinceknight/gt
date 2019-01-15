@@ -11,6 +11,7 @@ The class notes are available here: `vknight.org/gt/ <http://vknight.org/gt/>`_.
 .. toctree::
    :maxdepth: 2
 
+   prep/index.rst
    meetings/index.rst
    optional/index.rst
    about/index.rst
