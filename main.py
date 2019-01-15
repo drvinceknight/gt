@@ -7,7 +7,7 @@ import tqdm
 import collections
 import jinja2
 
-from nbconvert import HTMLExporter, PDFExporter
+from nbconvert import HTMLExporter, PDFExporter, MarkdownExporter
 
 ROOT = "gt"
 BINDERROOT = "https://mybinder.org/v2/gh/drvinceknight/gt/master?filepath=nbs"
@@ -35,6 +35,13 @@ def get_name(path):
         return stem[stem.index('-'):].replace('-', ' ').lstrip()
     except ValueError:
         return stem
+
+def convert_markdown(nb_path):
+    """
+    Convert a notebook to markdown
+    """
+    markdown_exporter = MarkdownExporter()
+    return markdown_exporter.from_file(str(nb_path))
 
 def convert_html(nb_path):
     """
@@ -119,6 +126,14 @@ if __name__ == "__main__":
                              (solution_paths, "solutions"),
                              (other_paths, "other")]:
         make_collection(paths=paths, directory=directory, chapters=chapters)
+        if directory == "chapters":
+            md = "---\ntitle: Game Theory\n---\n"
+            for path in paths:
+                chapter_md, _ = convert_markdown(path)
+                md += chapter_md
+            path = pathlib.Path("./assets/main.md")
+            path.write_text(md)
+
 
     html = render_template("home.html", {"chapters": chapters,
                                          "root": ROOT,

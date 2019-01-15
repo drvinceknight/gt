@@ -53,6 +53,8 @@ Learning and assessment
 
 All resources can be found at http://vknight.org/gt/
 
+Discuss the markdown version of notes (available on hackmd.io).
+
 Seeking assistance
 ******************
 
