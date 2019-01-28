@@ -4,3 +4,4 @@ docs/assets/activities/*.aux
 docs/assets/activities/*.log
 docs/assets/activities/*.fls
 docs/assets/activities/*.fdb_latexmk
+*mypy_cache*
