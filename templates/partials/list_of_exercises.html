@@ -3,8 +3,7 @@
       {% for exercise in exercises %}
           <li><a href=/{{root}}/exercises/{{ exercise.dir }}/>{{ exercise.title }}</a>
               - 
-              (<a href=/{{root}}/solutions/{{ exercise.dir }}/>solution</a>,
-               <a href={{binderoot}}/solutions/{{ exercise.filename }}>binder</a>)
+              (<a href=/{{root}}/solutions/{{ exercise.dir }}/>solution</a>)
               </li>
       {% endfor %}
   </ol>
