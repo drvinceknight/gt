@@ -21,14 +21,14 @@ Notes
 Play a knockout RPSLS tournament
 ********************************
 
-16 volunteers and play RPSLS as a dropout tournament.
+Tell students to create groups of 4 or 8 and play a knockout RPSLS tournament.
 
 Explain rules and show:
 
 .. image:: ../assets/activities/rpsls.png
    :width: 500px
 
-Following the tournament: have discussion about how winner won etc...
+Following the tournaments: have discussion about how winner won etc...
 
 Explain that we will study this game using Game Theory:
 

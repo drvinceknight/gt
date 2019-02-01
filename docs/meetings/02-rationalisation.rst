@@ -93,6 +93,8 @@ the total amount of chocolates/sweets gathered so far:
 Capture all of the above (on the white board) and discuss each action and why
 they were taken.
 
+Ask students to repeat the game against each other in groups of two (use "days
+of doing the dishes perhaps?").
 
 Iterated elimination of dominated strategies
 ********************************************
