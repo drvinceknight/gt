@@ -1295,6 +1295,7 @@ list(game.support_enumeration())
 This result is given without proof:
 
 ---
+
 ## Nash's theorem
 
 Any game with a finite set of players and finit set of strategies has a Nash equilibrium in mixed strategies.
@@ -1332,7 +1333,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.spatial
 
-V = [np.array([0, 0]), np.array([1 / 2, 0]), np.array([1 / 2, 1 / 4]), np.array([0, 1 / 3])]
+V = [
+    np.array([0, 0]), 
+    np.array([1 / 2, 0]), 
+    np.array([1 / 2, 1 / 4]), 
+    np.array([0, 1 / 3])
+]
 P = scipy.spatial.ConvexHull(V)
 scipy.spatial.convex_hull_plot_2d(P);
 ```
@@ -1341,9 +1347,11 @@ scipy.spatial.convex_hull_plot_2d(P);
 ![png](output_1_0.png)
 
 
+
 An equivalent definition of Polytope is as an intersection of boundaries that seperate the space in to two distinct areas.
 
 ---
+
 ## Definition of a Polytope as an intersection of halfspaces
 
 [Video](https://youtu.be/_JJ2O6q_pEg?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb)
@@ -1359,13 +1367,13 @@ $$
 For example the previous polytope is equivalently described by the following inequalities:
 
 $$
-\begin{align}
+\begin{aligned}
 - x_1       & \leq 0\\
 -x_2        & \leq 0\\
 2x_1        & \leq 1\\
 3x_2        & \leq 1\\
 x_1 + 6 x_2 & \leq 2
-\end{align}
+\end{aligned}
 $$
 
 ---
@@ -1422,23 +1430,23 @@ $$
 The inequalities for $\mathcal{P}$ are then given by:
 
 $$
-\begin{align}
+\begin{aligned}
 -x_1        & \leq 0\\
 -x_2        & \leq 0\\
 x_1 + 3 x_2        & \leq 1\\
 3 x_1 + x_2       & \leq 1\\
-\end{align}
+\end{aligned}
 $$
 
 which corresponds to:
 
 $$
-\begin{align}
+\begin{aligned}
 x_1        & \geq 0\\
 x_2        & \geq 0\\
 x_2        & \leq 1/3 -x_1/3\\
 x_2       & \leq 1 - 3x_1\\
-\end{align}
+\end{aligned}
 $$
 
 the intersection of the two non trivial constraints is at the point:
@@ -1475,7 +1483,12 @@ $$
 
 
 ```python
-V = [np.array([0, 0]), np.array([1 / 3, 0]), np.array([1 / 4, 1 / 4]), np.array([0, 1 / 3])]
+V = [
+    np.array([0, 0]), 
+    np.array([1 / 3, 0]), 
+    np.array([1 / 4, 1 / 4]), 
+    np.array([0, 1 / 3])
+]
 P = scipy.spatial.ConvexHull(V)
 scipy.spatial.convex_hull_plot_2d(P);
 ```
