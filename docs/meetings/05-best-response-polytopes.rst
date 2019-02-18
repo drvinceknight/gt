@@ -6,7 +6,7 @@ Corresponding chapters
 
 - `Best response polytopes <http://vknight.org/gt/chapters/06/>`_
 
-**Duration**: 50 minutes
+**Duration**: 100 minutes
 
 Objectives
 ----------
@@ -143,75 +143,70 @@ Explain that what these polytopes represent is the scaled strategies when
 players maximum utilities are 1. So given, the action of an opponent, if the
 players' utility is 1 they are playing a best response.
 
-Ask students to assign each other either :math:`\mathcal{P}` or
-:math:`\mathcal{Q}`. Both players should choose a vertex and investigate the
-utilities.
+Ask everyone to fill in a table for every vertex:
 
-**For example, if:**
+For :math:`\mathcal{P}`:
 
-- The row player (:math:`\mathcal{P}`) picked: :math:`(0, 1/3)` with labels:
-  :math:`\{0, 3\}`.
-- The column player (:math:`\mathcal{Q}`) picked: :math:`(1/6, 1/2)` with
-  labels: :math:`\{0, 1\}`.
+- :math:`(0, 1/3)`:
 
-This implies:
+  - Labels: :math:`\{0, 3\}`
+  - Strategy: :math:`(0, 1)`
+  - Support: :math:`\{r_2\}`
+  - Best response: :math:`\{c_2\}`
 
-- The row player is **not** playing their first strategy (label 0), so playing
-  their second strategy. Also (label 3), the best response to this is that the
-  column player plays their second strategy.
-- The best response to what the column player is currently doing is to play both
-  strategies.
+- :math:`(1/2, 1/6)`:
 
-At this point the column player has an incentive to move, they will move to the
-:math:`(0, 1/2)` vertex with labels: :math:`\{1, 2\}` which implies:
+  - Labels: :math:`\{2, 3\}`
+  - Strategy: :math:`(3/4, 1/4)`
+  - Support: :math:`\{r_1, r_2\}`
+  - Best response: :math:`\{c_1, c_2\}`
 
-- The row player is as before.
-- The column player is playing their first strategy (label 2). The best response
-  to this is for the row player to play their second strategy (label 1).
+- :math:`(1/2, 0)`:
 
-So this is a Nash equilibria.
+  - Labels: :math:`\{1, 2\}`
+  - Strategy: :math:`(1, 0)`
+  - Support: :math:`\{r_1\}`
+  - Best response: :math:`\{c_1\}`
 
-**Another example:**
+For :math:`\mathcal{Q}`:
 
-- The row player (:math:`\mathcal{P}`) picked: :math:`(1/2, 1/6)` with labels:
-  :math:`\{2, 3\}`.
-- The column player (:math:`\mathcal{Q}`) picked: :math:`(1/6, 1/2)` with
-  labels: :math:`\{0, 1\}`.
+- :math:`(0, 1/2)`:
 
-This implies:
+  - Labels: :math:`\{1, 2\}`
+  - Strategy: :math:`(0, 1)`
+  - Support: :math:`\{c_2\}`
+  - Best response: :math:`\{r_2\}`
 
-- The best response to what the row player is currently doing is to play both
-  strategies.
-- The best response to what the column player is currently doing is to play both
-  strategies.
+- :math:`(1/6, 1/2)`:
 
-Neither player has a reason to move.
+  - Labels: :math:`\{0, 1\}`
+  - Strategy: :math:`(1/4, 3/4)`
+  - Support: :math:`\{c_1, c_2\}`
+  - Best response: :math:`\{r_1, r_2\}`
 
-**Another example:**
+- :math:`(1/3, 0)`:
 
-- The row player (:math:`\mathcal{P}`) picked: :math:`(0, 1/3)` with labels:
-  :math:`\{0, 3\}`.
-- The column player (:math:`\mathcal{Q}`) picked: :math:`(1/3, 0)` with
-  labels: :math:`\{0, 3\}`.
+  - Labels: :math:`\{0, 3\}`
+  - Strategy: :math:`(1, 0)`
+  - Support: :math:`\{c_1\}`
+  - Best response: :math:`\{r_1\}`
 
-This implies:
 
-- The row player is **not** playing their first strategy (label 0), so playing
-  their second strategy. Also (label 3), the best response to this is that the
-  column player plays their second strategy.
-- The column player is **not** playing their second strategy (label 3), so playing
-  their first strategy. Also (label 0), the best response to this is that the
-  row player plays their first strategy.
+Once they have filled in this table:
 
-Neither player is happy here. Once one moves (not allowing the origin because
-that's not playing) we arrive at a similar situation to before.
+Ask students what is connection between:
 
-**After students have walked through this themselves have a discussion about
-what property seems to indicate Nash equilibrium.** Move to discussing the
-notes.
+- Support and labels?
+- Best responses and labels?
 
-In particular highlight that we've scaled the utility so we need to (at the end)
-scale the vertices too!
+
+Now identify strategies that are best responses to each other:
+
+- :math:`\sigma_r=(0, 1)` and :math:`\sigma_r=(0,1)`
+- :math:`\sigma_r=(3/4, 1/4)` and :math:`\sigma_r=(1/4,3/4)`
+- :math:`\sigma_r=(1, 0)` and :math:`\sigma_r=(1, 0)`
+
+Discuss how this relates to the labels.
 
 Finally show how this is implemented in :code:`nashpy`::
 
@@ -220,3 +215,5 @@ Finally show how this is implemented in :code:`nashpy`::
     >>> for eq in matching_pennies.vertex_enumeration():
     ...     print(eq)
     (array([ 0.5,  0.5]), array([ 0.5,  0.5]))
+
+If there is time use support enumeration to compare.
