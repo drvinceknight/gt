@@ -1578,6 +1578,7 @@ list(matching_pennies.vertex_enumeration())
 The vertex and support enumeration algorithms are all algorithms that use an exhaustive search. For large games, this can take a long time and/or have a high computational cost. The following algorithm gives an approach to create a path through vertices in both best response polytopes to find a pair that is fully labelled.
 
 ---
+
 ## The Lemke Howson algorithm
 
 [Video](https://youtu.be/HekHAuWR_30?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb)
@@ -1911,6 +1912,7 @@ where:
 
 - $H(t)$ is the history of play of **both** players up until stage $t$ ($H(0)=(\emptyset, \emptyset)$)
 - $a$ is an action (for either player) of the **stage** game
+
 ---
 
 To help avoid confusion, whilst we have referred to pure strategies as choices made in stage games, here we will call those **actions**.
@@ -2095,9 +2097,9 @@ plot = axl.Plot(results)
 plot.boxplot();
 ```
 
-    Playing matches: 100%|██████████| 91/91 [00:04<00:00, 22.41it/s]
-    Analysing: 100%|██████████| 1820/1820 [00:04<00:00, 440.09it/s]
-    Finishing: 100%|██████████| 39/39 [00:00<00:00, 695.11it/s]
+    Playing matches: 100%|██████████| 91/91 [00:04<00:00, 18.43it/s]
+    Analysing: 100%|██████████| 1820/1820 [00:04<00:00, 394.14it/s]
+    Finishing: 100%|██████████| 39/39 [00:00<00:00, 903.60it/s]
 
 
 
@@ -2300,7 +2302,7 @@ theoretic_utility(v_1, v_2), theoretic_utility(v_2, v_1)
 
 
 
-    (1.6752308185399241, 2.7845555773823683)
+    (1.6752308185399241, 2.7845555773823678)
 
 
 
