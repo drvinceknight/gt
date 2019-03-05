@@ -2938,6 +2938,7 @@ The Moran process is as follows:
 - The eliminated individual is replaced by a new individual of the same type as the individual chosen for reproduction.
 - Proceed to the next time step.
 - The process terminates when there is only one type of individual in the population.
+
 ---
 
 Here is some simple Python code that simulates such a Process assuming an initial population of $(3, 3)$:
@@ -3010,11 +3011,11 @@ This Moran Process is a specific case of a Markov Process:
 - The state to state transition probabilities are given by:
 
   $$
-  \begin{align}
+  \begin{aligned}
   p_{i, i-1}&=\frac{i(N - i)}{N^2}\\
   p_{i, i+1}&=\frac{i(N - i)}{N^2}\\
   p_{i, i}&=1 - p_{i, i-1} - p_{i, i+1}
-  \end{align}
+  \end{aligned}
   $$
   
   We also have two absorbing states (when the Moran process ends):
@@ -3056,6 +3057,7 @@ p.round(2)
 The above corresponds to a particular type of Markov process called a Birth-Death process
 
 ---
+
 ## Birth death process
 
 [Video](https://youtu.be/zJQQF2tq9AA?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb)
@@ -3096,15 +3098,18 @@ $$
 
 We have:
 
-\begin{align}
+$$
+\begin{aligned}
     p_{i,i+1}x_{i+1} & = -p_{i,i-1}x_{i-1} + x_i(1 - p_{ii}) \\ 
     p_{i,i+1}x_{i+1} & = p_{i,i-1}(x_{i} - x_{i-1}) + x_ip_{i,i+1} \\ 
     x_{i+1} - x_i    & = \frac{p_{i, i-1}}{p_{i, i+1}}(x_i-x_{i-1})=\gamma_i(x_i-x_{i-1})
-\end{align}
+\end{aligned}
+$$
 
 We observe that:
 
-\begin{align}
+$$
+\begin{aligned}
     x_2 - x_1 &= \gamma_1(x_1-x_{0})=\gamma_1x_1\\
     x_3 - x_2 &= \gamma_2(x_2-x_1)=\gamma_2\gamma_1x_1\\
     x_4 - x_3 &= \gamma_3(x_3-x_2)=\gamma_3\gamma_2\gamma_1x_1\\
@@ -3112,7 +3117,8 @@ We observe that:
     x_{i+1} - x_i &= \gamma_i(x_i-x_{i-1})=\prod_{k=1}^i\gamma_kx_1\\
                &\; \vdots & \\   
     x_{N} - x_{N-1} &= \gamma_{N-1}(x_{N-1}-x_{N-2})=\prod_{k=1}^{N-1}\gamma_kx_1\\
-\end{align}
+\end{aligned}
+$$
 
 thus we have:
 
@@ -3264,10 +3270,10 @@ theoretic_fixation(N=4, i=1, game=A)
 Applying the theorem gives:
 
 $$
-\begin{align}
+\begin{aligned}
 f_{1i}&=\frac{4(i - 1) + 4 - i}{3} = \frac{4i-4+4-i}{3}=i\\
 f_{2i}&=\frac{i + 4(3 - i)}{3} = \frac{12-3i}{3}=4-i
-\end{align}
+\end{aligned}
 $$
 
 $$
@@ -3277,12 +3283,12 @@ $$
 Thus:
 
 $$
-\begin{align}
+\begin{aligned}
 x_1 & =\frac{1 + \sum_{j=1}^{0}\prod_{k=1}^{j}\gamma_k}{1 + \sum_{j=1}^{4 - 1}\prod_{k=1}^{j}\gamma_k}\\  
     & =\frac{1}{1 + \sum_{j=1}^{3}\prod_{k=1}^{j}\gamma_k}\\ 
     & =\frac{1}{1 + \gamma_1 + \gamma_1\times \gamma_2 + \gamma_1 \times \gamma_2 \times \gamma_3}\\ 
     & =\frac{1}{1+3+3\times 1 + 3 \times 1\times \frac{1}{3}} = \frac{1}{1 + 3 + 3 + 1}=\frac{1}{8}\\
-\end{align}
+\end{aligned}
 $$
 
 Here is some code to simulate a Moran process.
@@ -3371,7 +3377,7 @@ In particular 4 pieces of work will be reviewed:
 - [Measuring the price of anarchy in critical care unit interactions](https://link.springer.com/article/10.1057/s41274-016-0100-8)
 - [Iterated Prisoner’s Dilemma contains strategies that dominate any evolutionary opponent](http://www.pnas.org/content/109/26/10409.abstract)
 - [Studying the emergence of invasiveness in tumours using game theory](https://link.springer.com/article/10.1140/epjb/e2008-00249-y)
-- [Evolution Reinforces Cooperation with the Emergence of Self-Recognition Mechanisms: an empirical study of the Moran process for the iterated Prisoner's dilemma](https://arxiv.org/abs/1707.06920)
+- [Evolution Reinforces Cooperation with the Emergence of Self-Recognition Mechanisms: an empirical study of the Moran process for the iterated Prisoner's dilemma](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204981)
 
 These four papers offer insights in to modern game theoretic research across the topics studied in this course. As a class we will discuss the papers in turn (so you will need to have read them).
 
@@ -3395,6 +3401,6 @@ This is a paper that considers a particular type of strategy in the Iterated Pri
 
 This is a paper that looks at cancer tumours using evolutionary game theory.
 
-## [Evolution Reinforces Cooperation with the Emergence of Self-Recognition Mechanisms: an empirical study of the Moran process for the iterated Prisoner's dilemma](https://arxiv.org/abs/1707.06920)
+## [Evolution Reinforces Cooperation with the Emergence of Self-Recognition Mechanisms: an empirical study of the Moran process for the iterated Prisoner's dilemma](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0204981)
 
 This is a paper that gives an in depth numerical study of Moran processes.
