@@ -89,7 +89,7 @@ We can confirm all of this using :code:`nashpy`::
     ...               [-2, 2]])
     >>> game = nash.Game(A)
     >>> list(game.support_enumeration())
-    [(array([ 0.666..., 0.333...]), array([0.5, 0.5]))]
+    [(array([ 0.666...,  0.333...]), array([ 0.5,  0.5]))]
 
 As a second example consider:
 
