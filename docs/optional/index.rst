@@ -17,3 +17,4 @@ students.
    AB-revisit-repeated-games.rst
    AC-coursework-peer-review.rst
    AD-moran-process.rst
+   AE-support-enumeration.rst
