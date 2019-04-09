@@ -1,10 +1,10 @@
-AA- Revisiting Polytopes
-========================
+AF- Revisiting Lemke-Howson
+===========================
 
 Corresponding chapters
 ----------------------
 
-- `Best response polytopes <https://vknight.org/gt/chapters/06/>`_
+- `Lemke Howson algorithm <https://vknight.org/gt/chapters/07/>`_
 
 **Duration**: 50 minutes
 
@@ -12,7 +12,7 @@ Corresponding chapters
 Objectives
 ----------
 
-- Re visit best response polytopes using a game with a dominated strategy.
+- Re visit Lemke Howson Algorithm
 
 
 Notes
@@ -200,33 +200,101 @@ Here is some sympy code to verify the intersection of both boundaries::
    >>> sym.solveset(sym.S(1) / 3-3 * x - sym.S(1) / 9 + sym.S(2) / 9 * x, x)
    {2/25}
 
-We can now identify a fully labelled vertex pair (we already know that label
-:math:`code` must come from a vertex in :math:`\mathcal{P}`):
+We now carry out the Lemke-Howson algorithm.
+
+- Start at :math:`((0, 0), (0, 0))`, have labels :math:`\{0, 1, 2, 3\}`. Drop 3 in
+  :math:`\mathcal{Q}`: move to :math:`((0, 0), (0, 1/8))` and pick up 0.
+- At :math:`((0, 0), (0, 1/8))`, have labels :math:`\{0, 1, 2\}`. Drop 0 in
+  :math:`\mathcal{P}`: move to :math:`((1 / 9, 0), (0, 1/8))` and pick up 2.
+- At :math:`((1/9, 0), (0, 1/8))`, have labels :math:`\{0, 1, 2\}`. Drop 2 in
+  :math:`\mathcal{Q}`: move to :math:`((1 / 9, 0), (1/5, 0))` and pick up 3.
+- At :math:`((1/9, 0), (1/5, 0))`, have labels :math:`\{0, 1, 2, 3\}`: stop.
+
+Normalise to get:
 
 .. math::
 
-   ((1/9, 0), (1/5, 0))
+   ((1, 0), (1, 0))
 
-Which once normalised gives: :math:`((1, 0),(0, 1))` which is in fact readily
-readable using pure best responses:
+Now, ask students to carry this out using tableaux:
+
+Apply definitions to get:
+
 
 .. math::
 
-   A = \begin{pmatrix}
-   \underline{1} & \underline{4} \\
-   -3 & 2
-   \end{pmatrix}
-   \qquad
-   B = \begin{pmatrix}
-   \underline{5} & 2 \\
-   -1 & \underline{9}
+   T_r = \begin{pmatrix}
+       9 &  3  &  1 & 0 & 1 \\
+       6 &  13 &  0 & 1 & 1 \\
    \end{pmatrix}
 
-Checking using :code:`nashpy`::
+and:
 
-    >>> import nashpy as nash
-    >>> A = [[1, 4], [-3, 2]]
-    >>> B = [[5, 2], [-1, 9]]
-    >>> game = nash.Game(A, B)
-    >>> list(game.vertex_enumeration())
-    [(array([ 1.,  0.]), array([ 1.,  0.]))]
+.. math::
+
+   T_c = \begin{pmatrix}
+       1 &  0  &  5 & 8 & 1 \\
+       0 &  1  &  1 & 6 & 1 \\
+   \end{pmatrix}
+
+
+- :math:`T_r` has labels :math:`\{0, 1\}`.
+- :math:`T_c` has labels :math:`\{2, 3\}`.
+
+
+Now let us drop 3 from :math:`T_c`. The minimum ratio test: :math:`1/8<1/6` so
+pivot on 1st row.
+
+.. math::
+
+   T_c = \begin{pmatrix}
+       1 &  0  &  5  & 8 & 1 \\
+      -6 &  8  & -22 & 0 & 2 \\
+   \end{pmatrix}
+
+which has labels :math:`\{0, 2\}` thus we need to drop 0 in :math:`\mathcal{P}`.
+The minimum ratio test: :math:`1/9<1/6` so pivot on 1st row:
+
+.. math::
+
+   T_r = \begin{pmatrix}
+       9 &  3  &  1 & 0 & 1 \\
+       0 &  99 &  -6 & 9 & 3 \\
+   \end{pmatrix}
+
+which has labels :math:`\{1, 2\}` thus we need to drop 2 in :math:`\mathcal{Q}`.
+The minimum ratio test: there is only 1 positive ratio so we pivot on 1st row.
+
+.. math::
+
+   T_c = \begin{pmatrix}
+       1 &  0  &  5  & 8 & 1 \\
+      -8 & 40  &  0  & 176 & 32 \\
+   \end{pmatrix}
+
+which has labels :math:`\{0, 3\}` thus we have a Nash equilibria.
+
+Recall that the variable for :math:`T_r` in order are:
+
+.. math::
+
+   x_1, x_2, s_1, s_2
+
+
+Recall that the variable for :math:`T_r` in order are:
+
+.. math::
+
+   s_1, s_2, y_1, y_2
+
+Thus, :math:`5y_1=1` and :math:`9x_1=1` which gives:
+
+.. math::
+
+   x = (1/9, 0)\qquad y=(1/5, 0)
+
+after normalising we get the required result:
+
+.. math::
+
+   \sigma_r = (1, 0)\qquad \sigma_c=(1, 0)
