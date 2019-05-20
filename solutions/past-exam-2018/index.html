@@ -533,7 +533,7 @@ $$\{((1, 0), (0, 0, 1)), ((1, 0), (0, 1, 0))\}$$<p>[1]</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="(g)-The-L-H-Algorithm">(g) The L-H Algorithm<a class="anchor-link" href="#(g)-The-L-H-Algorithm">&#182;</a></h3><p>For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}_{>0}}^2$ the following algorithm returns all nash equilibria:</p>
+<h3 id="(g)-The-L-H-Algorithm">(g) The L-H Algorithm<a class="anchor-link" href="#(g)-The-L-H-Algorithm">&#182;</a></h3><p>For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}_{>0}}^2$ the following algorithm returns a nash equilibria:</p>
 <ol>
 <li>Start at the artificial equilibrium: $(0, 0)$</li>
 <li>Choose a label to drop.</li>
@@ -602,7 +602,7 @@ $$
 x_1=\frac{1}{1+\sum_{j=1}^{2}\prod_{k=1}^j\frac{rk}{6-2k}}=\frac{1}{1 + \frac{r}{4} + \frac{r}{4}\frac{2r}{2}}=\frac{1}{\frac{r^{2}}{4} + \frac{r}{4} + 1}
 $$<p>for $r=2$ we get:</p>
 $$
-x_1 = 2 / 3
+x_1 = 2 / 5
 $$<p>Some code to verify the result:</p>
 
 </div>
@@ -638,7 +638,7 @@ $$<p>Some code to verify the result:</p>
 <span class="n">r</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">game</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span> <span class="p">[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">0</span><span class="p">)]])</span>
 <span class="n">x_1</span> <span class="o">=</span> <span class="n">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">game</span><span class="o">=</span><span class="n">game</span><span class="p">)</span>
-<span class="n">x_1</span><span class="p">,</span> <span class="n">x_1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">r</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="n">x_1</span><span class="p">,</span> <span class="n">x_1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">r</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 </pre></div>
 
 </div>
@@ -655,7 +655,7 @@ $$<p>Some code to verify the result:</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(1/(r**2/4 + r/4 + 1), 2/3)</pre>
+<pre>(1/(r**2/4 + r/4 + 1), 2/5)</pre>
 </div>
 
 </div>
