@@ -96,12 +96,10 @@ Plot these two things::
    [<matplotlib...>]
    >>> plt.plot(ys, row_us[1], label="$(A\sigma_c^T)_2$")
    [<matplotlib...>]
-   >>> plt.xlabel("$\sigma_c=(y, 1-y)$")
-   <matplotlib...>
-   >>> plt.title("Utility to player 1")
-   <matplotlib...>
-   >>> plt.legend();
-   <matplotlib...>
+   >>> plt.xlabel("$\sigma_c=(y, 1-y)$")  # doctest: +SKIP
+   >>> plt.title("Utility to player 1")  # doctest: +SKIP
+   >>> plt.legend(); # doctest: +SKIP
+
 
    >>> xs = [0, 1]
    >>> row_us = [[(sigma_r * B)[j].subs({x: val}) for val in xs] for j in range(2)]
@@ -109,12 +107,9 @@ Plot these two things::
    [<matplotlib...>]
    >>> plt.plot(ys, row_us[1], label="$(\sigma_rB)_2$")
    [<matplotlib...>]
-   >>> plt.xlabel("$\sigma_r=(x, 1-x)$")
-   <matplotlib...>
-   >>> plt.title("Utility to column player")
-   <matplotlib...>
-   >>> plt.legend();
-   <matplotlib...>
+   >>> plt.xlabel("$\sigma_r=(x, 1-x)$")  # doctest: +SKIP
+   >>> plt.title("Utility to column player")  # doctest: +SKIP
+   >>> plt.legend();  # doctest: +SKIP
 
 Conclude:
 

@@ -4,11 +4,11 @@ channels:
 dependencies:
 - jinja2=2.9.6
 - jupyter=1.0.0
-- matplotlib=2.0.2
+- matplotlib=3.1.0
 - nbconvert=5.5.0
 - numpy=1.15.4
 - pip=19.1.1
-- python=3.6.1
+- python=3.6
 - scipy=0.19.1
 - sympy=1.0
 - pip:
