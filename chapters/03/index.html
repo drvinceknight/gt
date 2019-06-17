@@ -99,32 +99,30 @@
 <div class="container">
     
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Rationalisation">Rationalisation<a class="anchor-link" href="#Rationalisation">&#182;</a></h1><hr>
 <h2 id="Definition-of-a-strictly-dominated-strategy">Definition of a strictly dominated strategy<a class="anchor-link" href="#Definition-of-a-strictly-dominated-strategy">&#182;</a></h2><p><a href="https://youtu.be/KOSSfH_Z3F0?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
 <p>In a two player game $(A, B)\in\mathbb{{R^{m \times n}}^2}$ a strategy $s$ is <em>dominated</em> by strategy $\bar s$ if for all strategies of the other player $t$:</p>
 $$
-u(s, t) < u(\bar s, t)
+u(s, t) &lt; u(\bar s, t)
 $$<hr>
 <p>For example if we consider the Prisoner's Dilemma:</p>
 $$
 A =
 \begin{pmatrix}
-    3 & 0\\
-    5 & 1
+    3 &amp; 0\\
+    5 &amp; 1
 \end{pmatrix}\qquad
 B =
 \begin{pmatrix}
-    3 & 5\\
-    0 & 1
+    3 &amp; 5\\
+    0 &amp; 1
 \end{pmatrix}
 $$<ul>
-<li>we see that $A_{2j} > A_{1j}$ for all $j$, so we can say that the row players' first strategy is dominated by its second strategy.</li>
-<li>we see that $B_{i2} > B_{i1}$ for all $i$, so we can say that the column players' first strategy is dominated by its second strategy.</li>
+<li>we see that $A_{2j} &gt; A_{1j}$ for all $j$, so we can say that the row players' first strategy is dominated by its second strategy.</li>
+<li>we see that $B_{i2} &gt; B_{i1}$ for all $i$, so we can say that the column players' first strategy is dominated by its second strategy.</li>
 </ul>
 <hr>
 <h2 id="Definition-of-a-weakly-dominated-strategy">Definition of a weakly dominated strategy<a class="anchor-link" href="#Definition-of-a-weakly-dominated-strategy">&#182;</a></h2><p><a href="https://youtu.be/uJPcXIDDO8M?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
@@ -133,23 +131,23 @@ $$
 u(s, t) \leq u(\bar s, t)
 $$<p><strong>and there exists</strong> a $t'$ such that:</p>
 $$
-u(s, t') < u(\bar s, t')
+u(s, t') &lt; u(\bar s, t')
 $$<hr>
 <p>For example if we consider the modified version of the previous game:</p>
 $$
 A =
 \begin{pmatrix}
-    3 & 0\\
-    3 & 1
+    3 &amp; 0\\
+    3 &amp; 1
 \end{pmatrix}\qquad
 B =
 \begin{pmatrix}
-    3 & 3\\
-    0 & 1
+    3 &amp; 3\\
+    0 &amp; 1
 \end{pmatrix}
 $$<ul>
-<li>we see that $A_{2j} \geq A_{1j}$ for all $j$ <strong>and</strong> $A_{22} > A_{12}$, so we can say that the row players' first strategy is weakly dominated by its second strategy.</li>
-<li>we see that $B_{i2} \geq B_{i1}$ for all $i$ <strong>and</strong> $B_{22} > B_{21}$, so we can say that the column players' first strategy is weakly dominated by its second strategy.</li>
+<li>we see that $A_{2j} \geq A_{1j}$ for all $j$ <strong>and</strong> $A_{22} &gt; A_{12}$, so we can say that the row players' first strategy is weakly dominated by its second strategy.</li>
+<li>we see that $B_{i2} \geq B_{i1}$ for all $i$ <strong>and</strong> $B_{22} &gt; B_{21}$, so we can say that the column players' first strategy is weakly dominated by its second strategy.</li>
 </ul>
 <p>We can use <code>numpy</code> to verify if a strategy is weakly/strictly dominated:</p>
 
@@ -166,7 +164,7 @@ $$<ul>
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -180,7 +178,7 @@ $$<ul>
 <span class="nb">all</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -189,7 +187,9 @@ $$<ul>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
 
 
 
@@ -212,7 +212,7 @@ $$<ul>
 <span class="nb">all</span><span class="p">(</span><span class="n">B</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">B</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">B</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -221,7 +221,9 @@ $$<ul>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
 
 
 
@@ -235,10 +237,8 @@ $$<ul>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h2 id="Definition--of-common-knowledge-of-rationality">Definition  of common knowledge of rationality<a class="anchor-link" href="#Definition--of-common-knowledge-of-rationality">&#182;</a></h2><p><a href="https://youtu.be/7FZAWCI_q60?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
@@ -254,13 +254,13 @@ $$<ul>
 $$
 A =
 \begin{pmatrix}
-    10 & 5 & 1\\
-    10 & 5 & 4
+    10 &amp; 5 &amp; 1\\
+    10 &amp; 5 &amp; 4
 \end{pmatrix}\qquad
 B =
 \begin{pmatrix}
-    1 & 1 & -2\\
-    1 & 0 & 2
+    1 &amp; 1 &amp; -2\\
+    1 &amp; 0 &amp; 2
 \end{pmatrix}
 $$<p>We see that the rows players' first strategy is weakly dominated by its second.</p>
 
@@ -277,7 +277,7 @@ $$<p>We see that the rows players' first strategy is weakly dominated by its sec
 <span class="nb">all</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -286,7 +286,9 @@ $$<p>We see that the rows players' first strategy is weakly dominated by its sec
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
 
 
 
@@ -300,20 +302,18 @@ $$<p>We see that the rows players' first strategy is weakly dominated by its sec
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Once we have removed that strategy the game reduces to:</p>
 $$
 A =
 \begin{pmatrix}
-    10 & 5 & 4
+    10 &amp; 5 &amp; 4
 \end{pmatrix}\qquad
 B =
 \begin{pmatrix}
-    1 & 0 & 2
+    1 &amp; 0 &amp; 2
 \end{pmatrix}
 $$<p>and now we see that the column players' third strategy would dominate the other two.</p>
 <p>Thus a prediction of rational behaviour would be the strategy profile: $(r_2, c_3)$.</p>

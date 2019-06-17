@@ -1255,7 +1255,7 @@ list(game.support_enumeration())
 
 
 
-    [(array([ 0.5,  0.5]), array([ 0.5,  0.5]))]
+    [(array([0.5, 0.5]), array([0.5, 0.5]))]
 
 
 
@@ -1270,8 +1270,8 @@ list(game.support_enumeration())
 
 
 
-    [(array([ 0.66666667,  0.33333333]),
-      array([ 0.        ,  0.33333333,  0.66666667]))]
+    [(array([0.66666667, 0.33333333]),
+      array([-0.        ,  0.33333333,  0.66666667]))]
 
 
 
@@ -1569,7 +1569,7 @@ list(matching_pennies.vertex_enumeration())
 
 
 
-    [(array([ 0.5,  0.5]), array([ 0.5,  0.5]))]
+    [(array([0.5, 0.5]), array([0.5, 0.5]))]
 
 
 
@@ -1664,7 +1664,7 @@ matching_pennies.lemke_howson(initial_dropped_label=0)
 
 
 
-    (array([ 0.5,  0.5]), array([ 0.5,  0.5]))
+    (array([0.5, 0.5]), array([0.5, 0.5]))
 
 
 
@@ -1676,10 +1676,10 @@ for eq in matching_pennies.lemke_howson_enumeration():
     print(eq)
 ```
 
-    (array([ 0.5,  0.5]), array([ 0.5,  0.5]))
-    (array([ 0.5,  0.5]), array([ 0.5,  0.5]))
-    (array([ 0.5,  0.5]), array([ 0.5,  0.5]))
-    (array([ 0.5,  0.5]), array([ 0.5,  0.5]))
+    (array([0.5, 0.5]), array([0.5, 0.5]))
+    (array([0.5, 0.5]), array([0.5, 0.5]))
+    (array([0.5, 0.5]), array([0.5, 0.5]))
+    (array([0.5, 0.5]), array([0.5, 0.5]))
 
 
 In this case they will always give the same result (this game indeed has a unique equilibria), however that's not always the case and also note that not all equilibria can be obtained from a given starting vertex pair.
@@ -1891,8 +1891,8 @@ list(game.support_enumeration())
 
 
 
-    [(array([ 0.,  1.]), array([ 1.,  0.,  0.])),
-     (array([ 0.,  1.]), array([ 0.,  0.,  1.]))]
+    [(array([0., 1.]), array([1., 0., 0.])),
+     (array([0., 1.]), array([0., 0., 1.]))]
 
 
 
@@ -2068,38 +2068,38 @@ The fact that Tit For Tat won garnered a lot of research (still ongoing) as it s
 
 There is a Python library (`axelrod`) with over 200 strategies that can be used to reproduce this work. You can read the documentation for it here: http://axelrod.readthedocs.io.
 
-Note that in version '3.1.0' two of the original strategies are not implemented so here is the best reproduction of Axelrod's tournament:
-
 
 ```python
 %matplotlib inline
 
 import axelrod as axl
-assert axl.__version__ == '3.6.0'
 
 axl.seed(0)  # Make this reproducible
-players = [axl.TitForTat(),
-           axl.Nydegger(),
-           axl.Grofman(),
-           axl.Shubik(),
-           axl.SteinAndRapoport(),
-           axl.Grudger(),
-           axl.Davis(),
-           axl.RevisedDowning(revised=False),
-           axl.Feld(),
-           axl.Joss(),
-           axl.Tullock(),
-           axl.UnnamedStrategy(),
-           axl.Random()]
+players = [
+    axl.TitForTat(),
+    axl.TidemanAndChieruzzi(),
+    axl.Nydegger(),
+    axl.Grofman(),
+    axl.Shubik(),
+    axl.SteinAndRapoport(),
+    axl.Grudger(),
+    axl.Davis(),
+    axl.Graaskamp(),
+    axl.RevisedDowning(revised=False),
+    axl.Feld(),
+    axl.Joss(),
+    axl.Tullock(),
+    axl.UnnamedStrategy(),
+    axl.Random()
+]
 tournament = axl.Tournament(players, turns=200, repetitions=20)
 results = tournament.play()
 plot = axl.Plot(results)
 plot.boxplot();
 ```
 
-    Playing matches: 100%|██████████| 91/91 [00:04<00:00, 18.43it/s]
-    Analysing: 100%|██████████| 1820/1820 [00:04<00:00, 394.14it/s]
-    Finishing: 100%|██████████| 39/39 [00:00<00:00, 903.60it/s]
+    Playing matches: 100%|██████████| 120/120 [00:19<00:00,  6.01it/s]
+    Analysing: 100%|██████████| 25/25 [00:00<00:00, 50.64it/s]
 
 
 
@@ -2302,7 +2302,7 @@ theoretic_utility(v_1, v_2), theoretic_utility(v_2, v_1)
 
 
 
-    (1.6752308185399241, 2.7845555773823678)
+    (1.675230818539924, 2.784555577382368)
 
 
 
@@ -2833,9 +2833,9 @@ list(game.support_enumeration())
 
 
 
-    [(array([ 1.,  0.]), array([ 0.,  1.])),
-     (array([ 0.,  1.]), array([ 1.,  0.])),
-     (array([ 0.4,  0.6]), array([ 0.4,  0.6]))]
+    [(array([1., 0.]), array([0., 1.])),
+     (array([0., 1.]), array([1., 0.])),
+     (array([0.4, 0.6]), array([0.4, 0.6]))]
 
 
 
@@ -3044,13 +3044,13 @@ p.round(2)
 
 
 
-    array([[ 1.  ,  0.  ,  0.  ,  0.  ,  0.  ,  0.  ,  0.  ],
-           [ 0.14,  0.72,  0.14,  0.  ,  0.  ,  0.  ,  0.  ],
-           [ 0.  ,  0.22,  0.56,  0.22,  0.  ,  0.  ,  0.  ],
-           [ 0.  ,  0.  ,  0.25,  0.5 ,  0.25,  0.  ,  0.  ],
-           [ 0.  ,  0.  ,  0.  ,  0.22,  0.56,  0.22,  0.  ],
-           [ 0.  ,  0.  ,  0.  ,  0.  ,  0.14,  0.72,  0.14],
-           [ 0.  ,  0.  ,  0.  ,  0.  ,  0.  ,  0.  ,  1.  ]])
+    array([[1.  , 0.  , 0.  , 0.  , 0.  , 0.  , 0.  ],
+           [0.14, 0.72, 0.14, 0.  , 0.  , 0.  , 0.  ],
+           [0.  , 0.22, 0.56, 0.22, 0.  , 0.  , 0.  ],
+           [0.  , 0.  , 0.25, 0.5 , 0.25, 0.  , 0.  ],
+           [0.  , 0.  , 0.  , 0.22, 0.56, 0.22, 0.  ],
+           [0.  , 0.  , 0.  , 0.  , 0.14, 0.72, 0.14],
+           [0.  , 0.  , 0.  , 0.  , 0.  , 0.  , 1.  ]])
 
 
 

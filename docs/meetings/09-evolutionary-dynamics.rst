@@ -56,7 +56,7 @@ Show how we can use Python to solve this differential equation numerically::
    >>> a = 10
    >>> xs = odeint(func=dx, y0=1, t=t, args=(a,))
    >>> xs
-   array([[  1.000...
+   array([[1.000...
 
 
 Now consider population of two individuals (see notes) (:math:`x`: standers and
@@ -108,7 +108,7 @@ Show how can obtain this numerically::
     >>> a, b = 10, 5
     >>> xys = odeint(func=dxy, y0=[.5, .5], t=t, args=(a, b))
     >>> xys
-    array([[  5.00000000e-01,   5.000...
+    array([[ 5.00000000e-01,  5.000...
 
 
 Discuss how this basic notion of fitness will now be extended to consider game

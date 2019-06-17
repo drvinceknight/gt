@@ -89,7 +89,7 @@ We can confirm all of this using :code:`nashpy`::
     ...               [-2, 2]])
     >>> game = nash.Game(A)
     >>> list(game.support_enumeration())
-    [(array([ 0.666...,  0.333...]), array([ 0.5,  0.5]))]
+    [(array([0.666..., 0.333...]), array([0.5, 0.5]))]
 
 As a second example consider:
 
@@ -192,6 +192,6 @@ We can confirm all of this using :code:`nashpy`::
     ...               [-1, 1, 0]])
     >>> rps = nash.Game(A)
     >>> list(rps.support_enumeration())
-    [(array([ 0.2...,  0.4...,  0.4...]), array([ 0.333...,  0.333...,  0.333...]))]
+    [(array([0.2..., 0.4..., 0.4...]), array([0.333..., 0.333..., 0.333...]))]
 
 Discuss with students about what happens when we have a 3 by 2 game?

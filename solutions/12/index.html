@@ -99,10 +99,8 @@
 <div class="container">
     
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Moran-processes---solutions">Moran processes - solutions<a class="anchor-link" href="#Moran-processes---solutions">&#182;</a></h1><ol>
 <li><p>Give the transition probabilities for the Moran process with neutral drift.</p>
@@ -113,11 +111,11 @@
 </ol>
 $$
 M = \begin{pmatrix}
-   1&0&0&0&0\\
-   3/16&5/8&3/16&0&0\\
-   0&1/4&1/2&1/4&0\\
-   0&0&3/16&5/8&3/16\\
-   0&0&0&0&1\\
+   1&amp;0&amp;0&amp;0&amp;0\\
+   3/16&amp;5/8&amp;3/16&amp;0&amp;0\\
+   0&amp;1/4&amp;1/2&amp;1/4&amp;0\\
+   0&amp;0&amp;3/16&amp;5/8&amp;3/16\\
+   0&amp;0&amp;0&amp;0&amp;1\\
 \end{pmatrix}
 $$<p></p>
 <p><code>3</code>. State and prove the theorem for fixation probabilities in a birth death process.</p>
@@ -126,11 +124,11 @@ $$<p></p>
 <p>Boookwork: <a href="https://vknight.org/gt/chapters/12/#Moran-process-on-a-game">https://vknight.org/gt/chapters/12/#Moran-process-on-a-game</a></p>
 <p><code>5</code>. For the following games, obtain the fixation probabilities for $N=4$:</p>
 <ol>
-<li><p>$A=\begin{pmatrix}1 & 1 \\ 1 & 1\end{pmatrix}$</p>
+<li><p>$A=\begin{pmatrix}1 &amp; 1 \\ 1 &amp; 1\end{pmatrix}$</p>
 <p>This game corresponds to neutral drift, thus:</p>
 <p>$x_1=1/N=1/4$ (for both strategies).</p>
 </li>
-<li><p>$A=\begin{pmatrix}1 & 2 \\ 3 & 1\end{pmatrix}$</p>
+<li><p>$A=\begin{pmatrix}1 &amp; 2 \\ 3 &amp; 1\end{pmatrix}$</p>
 <p>Assuming $i$ individuals of the first type, for this game we have $N=4$ and $(a, b, c, d)=(1, 2, 3, 1)$ the fitness of both types is given respectively by:</p>
 <p>$$f_{1i}=\frac{a(i-1)+b(N-i)}{N-1}=\frac{7-i}{3}$$
 $$f_{2i}=\frac{c(i)+d(N-i-1)}{N-1}=\frac{2i+3}{3}$$</p>
@@ -164,7 +162,7 @@ $$</p>
     <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gammas</span><span class="p">[:</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gammas</span><span class="p">)))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -178,7 +176,7 @@ $$</p>
 <span class="n">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">game</span><span class="o">=</span><span class="n">game</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -187,7 +185,9 @@ $$</p>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
 
 
 
@@ -201,12 +201,10 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>6</code>. Consider the game $A=\begin{pmatrix}r & 1 \\ 1 & 1\end{pmatrix}$ for $r>1$, and obtain $x_1$ as a function of $r$ and $N$. How does $r$ effect the chance of fixation?</p>
+<p><code>6</code>. Consider the game $A=\begin{pmatrix}r &amp; 1 \\ 1 &amp; 1\end{pmatrix}$ for $r&gt;1$, and obtain $x_1$ as a function of $r$ and $N$. How does $r$ effect the chance of fixation?</p>
 <p>Assuming $i$ individuals of the first type, for this game we have $N=4$ and $(a, b, c, d)=(r, 1, 1, 1)$ the fitness of both types is given respectively by:</p>
 $$f_{1i}=\frac{r(i-1)+(N-i)}{N-1}$$$$f_{2i}=\frac{(i)+(N-i-1)}{N-1}=1$$<p>which gives:</p>
 $$\gamma_i=\frac{f_{2i}}{f_{1i}}=\frac{N-1}{r(i-1)+(N-i)}$$<p>thus:</p>
