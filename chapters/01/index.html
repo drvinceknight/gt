@@ -99,10 +99,8 @@
 <div class="container">
     
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Normal-Form-Games">Normal Form Games<a class="anchor-link" href="#Normal-Form-Games">&#182;</a></h1><p><a href="https://youtu.be/VDZ4I4IoFss?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
 <p>Game theory is the study of interactive decision making. Consider the following situation:</p>
@@ -119,15 +117,15 @@
 $$
 A = 
 \begin{pmatrix}
-3 & 1\\
-0 & 2
+3 &amp; 1\\
+0 &amp; 2
 \end{pmatrix}
 $$<p>and matrix $B$ will represent the utilities of Bob:</p>
 $$
 B = 
 \begin{pmatrix}
-2 & 1\\
-0 & 3
+2 &amp; 1\\
+0 &amp; 3
 \end{pmatrix}
 $$<p>We refer to <strong>Alice as the row player</strong> and <strong>Bob as the column player</strong>:</p>
 <ul>
@@ -142,7 +140,7 @@ $$<p>We refer to <strong>Alice as the row player</strong> and <strong>Bob as the
 <p>This representation of the stategic interaction between Alice and Bob is called a <strong>Normal Form Game</strong>.</p>
 <hr>
 <h2 id="Definition-of-Normal-Form-Game">Definition of Normal Form Game<a class="anchor-link" href="#Definition-of-Normal-Form-Game">&#182;</a></h2><p><a href="https://youtu.be/tP2WE0FdI0w?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
-<p>An \(N\) player normal form game consists of:</p>
+<p>An $N$ player normal form game consists of:</p>
 <ul>
 <li>A finite set of $N$ players</li>
 <li>Strategy spaces for the players: $\{S_1,S_2,S_3,\dots,S_N\}$;</li>
@@ -152,7 +150,7 @@ $$<p>We refer to <strong>Alice as the row player</strong> and <strong>Bob as the
 <p><strong>In this course we will only consider the case of $N=2$.</strong></p>
 <p>For the battle of the sexes:</p>
 <ul>
-<li>We have \(N=2\) players (Alice and Bob)</li>
+<li>We have $N=2$ players (Alice and Bob)</li>
 <li>The strategy spaces: $S_1=S_2=\{\text{comedy}, \text{sport movie}\}$ or equivalently $S_1=S_2=\{1, 2\}$</li>
 <li><p>The payoff functions mapping an element of $\tilde s \in S_1\times S_2=\{(1, 1), (1, 2), (2, 1), (2, 2)\}$ to $\mathbb{R}$:</p>
 <p>$$u_1(\tilde s)=A_{\tilde s},$$</p>
@@ -175,15 +173,13 @@ $$<p>We refer to <strong>Alice as the row player</strong> and <strong>Bob as the
 <span class="n">B</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We then create a <code>nash.Game</code> instance:</p>
 
@@ -199,7 +195,7 @@ $$<p>We refer to <strong>Alice as the row player</strong> and <strong>Bob as the
 <span class="n">battle_of_the_sexes</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -208,7 +204,9 @@ $$<p>We refer to <strong>Alice as the row player</strong> and <strong>Bob as the
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
 
 
 
@@ -230,10 +228,8 @@ Column player:
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the next chapter we will start to see how to use that for further calculations.</p>
 <h1 id="Examples-of-other-common-games">Examples of other common games<a class="anchor-link" href="#Examples-of-other-common-games">&#182;</a></h1><h2 id="Prisoners-Dilemma">Prisoners Dilemma<a class="anchor-link" href="#Prisoners-Dilemma">&#182;</a></h2><p><a href="https://youtu.be/qcQMeiUnfVQ?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
@@ -243,13 +239,13 @@ Column player:
 $$
 A =
 \begin{pmatrix}
-    3 & 0\\
-    5 & 1
+    3 &amp; 0\\
+    5 &amp; 1
 \end{pmatrix}\qquad
 B =
 \begin{pmatrix}
-    3 & 5\\
-    0 & 1
+    3 &amp; 5\\
+    0 &amp; 1
 \end{pmatrix}
 $$
 </div>
@@ -266,7 +262,7 @@ $$
 <span class="n">prisoners_dilemma</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -275,7 +271,9 @@ $$
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
 
 
 
@@ -297,10 +295,8 @@ Column player:
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Hawk-Dove-game">Hawk Dove game<a class="anchor-link" href="#Hawk-Dove-game">&#182;</a></h2><p><a href="https://youtu.be/_7HtcsVB2uU?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
 <blockquote><p>Suppose two birds of prey must share a limited resource. The birds can act like a hawk or a dove. Hawks always fight over the resource to the point of exterminating a fellow hawk and/or take a majority of the resource from a dove. Two doves can share the resource.</p>
@@ -309,13 +305,13 @@ Column player:
 $$
 A =
 \begin{pmatrix}
-    0 & 3\\
-    1 & 2
+    0 &amp; 3\\
+    1 &amp; 2
 \end{pmatrix}\qquad
 B =
 \begin{pmatrix}
-    0 & 1\\
-    3 & 2
+    0 &amp; 1\\
+    3 &amp; 2
 \end{pmatrix}
 $$
 </div>
@@ -332,7 +328,7 @@ $$
 <span class="n">hawk_dove</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -341,7 +337,9 @@ $$
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
 
 
 
@@ -363,10 +361,8 @@ Column player:
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Pigs">Pigs<a class="anchor-link" href="#Pigs">&#182;</a></h2><p><a href="https://youtu.be/ORGYJdqZkX0?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
 <blockquote><p>Consider two pigs. One dominant pig and one subservient pig. These pigs share a pen. There is a lever in the pen that delivers food but if either pig pushes the lever it will take them a little while to get to the food. If the dominant pig pushes the lever, the subservient pig has some time to eat most of the food before being pushed out of the way. If the subservient pig push the lever, the dominant pig will eat all the food. Finally if both pigs go to push the lever the subservient pig will be able to eat a third of the food.</p>
@@ -375,13 +371,13 @@ Column player:
 $$
 A =
 \begin{pmatrix}
-    4 & 2\\
-    6 & 0
+    4 &amp; 2\\
+    6 &amp; 0
 \end{pmatrix}\qquad
 B =
 \begin{pmatrix}
-    2 & 3\\
-    -1 & 0
+    2 &amp; 3\\
+    -1 &amp; 0
 \end{pmatrix}
 $$
 </div>
@@ -398,7 +394,7 @@ $$
 <span class="n">pigs</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -407,7 +403,9 @@ $$
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
 
 
 
@@ -429,10 +427,8 @@ Column player:
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Matching-pennies">Matching pennies<a class="anchor-link" href="#Matching-pennies">&#182;</a></h2><p><a href="https://youtu.be/80ImlktaeeY?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
 <blockquote><p>Consider two players who can choose to display a coin either Heads facing up or Tails facing up. If both players show the same face then player 1 wins, if not then player 2 wins.</p>
@@ -441,13 +437,13 @@ Column player:
 $$
 A =
 \begin{pmatrix}
-    1 & -1\\
-    -1 & 1
+    1 &amp; -1\\
+    -1 &amp; 1
 \end{pmatrix}\qquad
 B =
 \begin{pmatrix}
-    -1 & 1\\
-    1 & -1
+    -1 &amp; 1\\
+    1 &amp; -1
 \end{pmatrix}
 $$
 </div>
@@ -464,7 +460,7 @@ $$
 <span class="n">matching_pennies</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -473,7 +469,9 @@ $$
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
 
 
 
@@ -495,10 +493,8 @@ Column player:
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As indicated by <code>nashpy</code>, this is a <code>Zero sum game</code>:</p>
 $$
@@ -524,7 +520,7 @@ $$<hr>
 <span class="n">matching_pennies</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -533,7 +529,9 @@ $$<hr>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
 
 
 

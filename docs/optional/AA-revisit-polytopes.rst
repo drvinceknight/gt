@@ -229,4 +229,4 @@ Checking using :code:`nashpy`::
     >>> B = [[5, 2], [-1, 9]]
     >>> game = nash.Game(A, B)
     >>> list(game.vertex_enumeration())
-    [(array([ 1.,  0.]), array([ 1.,  0.]))]
+    [(array([1., 0.]), array([1., 0.]))]

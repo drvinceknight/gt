@@ -85,9 +85,9 @@ This can be confirmed using :code:`nashpy`::
     >>> halfspaces = nash.polytope.build_halfspaces(B.transpose())
     >>> for v, l in nash.polytope.non_trivial_vertices(halfspaces):
     ...     print(v)
-    [ 0.5  0. ]
-    [ 0.          0.333...]
-    [ 0.5         0.166...]
+    [0.5 0. ]
+    [0.         0.333...]
+    [0.5        0.166...]
 
 The *column* best response polytope is given by:
 
@@ -116,9 +116,9 @@ Confirmed::
     >>> halfspaces = nash.polytope.build_halfspaces(A)
     >>> for v, l in nash.polytope.non_trivial_vertices(halfspaces):
     ...     print(v)
-    [ 0.333...  0.        ]
-    [ 0.   0.5]
-    [ 0.1666...  0.5       ]
+    [0.333... 0.        ]
+    [0.  0.5]
+    [0.1666... 0.5       ]
 
 Pair activity
 *************
@@ -214,6 +214,6 @@ Finally show how this is implemented in :code:`nashpy`::
     >>> matching_pennies = nash.Game(A)
     >>> for eq in matching_pennies.vertex_enumeration():
     ...     print(eq)
-    (array([ 0.5,  0.5]), array([ 0.5,  0.5]))
+    (array([0.5, 0.5]), array([0.5, 0.5]))
 
 If there is time use support enumeration to compare.

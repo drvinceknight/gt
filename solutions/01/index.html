@@ -99,10 +99,8 @@
 <div class="container">
     
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Normal-Form-Games---Solutions">Normal Form Games - Solutions<a class="anchor-link" href="#Normal-Form-Games---Solutions">&#182;</a></h1><blockquote><p><code>1.</code> Give the definition of a Normal Form Game.</p>
 </blockquote>
@@ -110,9 +108,9 @@
 <blockquote><p><code>2.</code> Give the definition of a zero sum game. Obtain the full game representations $(A, B)$ for the zero sum games with row play payoff matrix given by:</p>
 </blockquote>
 <ol>
-<li>$A =\begin{pmatrix}1 & 3\\ -1 & 4\end{pmatrix}\qquad B =\begin{pmatrix}-1 & -3\\ 1 & -4\end{pmatrix}$</li>
-<li>$A =\begin{pmatrix}1 & -2\\ -1 & 2\end{pmatrix}\qquad B =\begin{pmatrix}-1 & 2\\ 1 & -2\end{pmatrix}$</li>
-<li>$A =\begin{pmatrix}1 & -2 & 4\\ 2 & -1 & 2\\ 7 & -7 & 6\end{pmatrix}\qquad B =\begin{pmatrix}-1 & 2 & -4\\ -2 & 1 & -2\\ -7 & 7 & -6\end{pmatrix}$</li>
+<li>$A =\begin{pmatrix}1 &amp; 3\\ -1 &amp; 4\end{pmatrix}\qquad B =\begin{pmatrix}-1 &amp; -3\\ 1 &amp; -4\end{pmatrix}$</li>
+<li>$A =\begin{pmatrix}1 &amp; -2\\ -1 &amp; 2\end{pmatrix}\qquad B =\begin{pmatrix}-1 &amp; 2\\ 1 &amp; -2\end{pmatrix}$</li>
+<li>$A =\begin{pmatrix}1 &amp; -2 &amp; 4\\ 2 &amp; -1 &amp; 2\\ 7 &amp; -7 &amp; 6\end{pmatrix}\qquad B =\begin{pmatrix}-1 &amp; 2 &amp; -4\\ -2 &amp; 1 &amp; -2\\ -7 &amp; 7 &amp; -6\end{pmatrix}$</li>
 </ol>
 <blockquote><p><code>3.</code> Consider the game described as follows:</p>
 <p>An airline loses two suitcases belonging to two different travelers. Both suitcases have the same value. An airline manager tasked to settle the claims of both travelers explains that the airline is liable for a maximum of £5 per suitcase.</p>
@@ -125,17 +123,17 @@
 </blockquote>
 $$
 A = \begin{pmatrix}
-2 & 4 & 4 & 4\\
-0 & 3 & 5 & 5\\
-0 & 1 & 4 & 6\\
-0 & 1 & 2 & 5
+2 &amp; 4 &amp; 4 &amp; 4\\
+0 &amp; 3 &amp; 5 &amp; 5\\
+0 &amp; 1 &amp; 4 &amp; 6\\
+0 &amp; 1 &amp; 2 &amp; 5
 \end{pmatrix}
 \qquad
 B = \begin{pmatrix}
-2 & 0 & 0 & 0\\
-4 & 3 & 1 & 1\\
-4 & 5 & 4 & 2\\
-4 & 5 & 6 & 5
+2 &amp; 0 &amp; 0 &amp; 0\\
+4 &amp; 3 &amp; 1 &amp; 1\\
+4 &amp; 5 &amp; 4 &amp; 2\\
+4 &amp; 5 &amp; 6 &amp; 5
 \end{pmatrix}
 $$<blockquote><p><code>4.</code> For each of the following give a Normal Form Game representation or explain why this is not possible.</p>
 <p><code>A.</code> Alice, Bob and Celine are childhood friends that would like to communicate online. They have a choice between 3 messaging platforms: facebook messager, whatsapp or signal. They need to choose without prior communication.</p>
@@ -145,11 +143,11 @@ $$<blockquote><p><code>4.</code> For each of the following give a Normal Form Ga
 <li>Strategy space: $S_1 = S_2 = S_3 = \{\text{facebook}, \text{whatsapp}, \text{signal}\}$</li>
 <li>Utility function: $u_i(s_1, s_2, s_3) = \left|\{s \in \{s_1, s_2, s_3\}\setminus s_i\;|\;s=s_i\}\right|$ (the utility to player $i$ is the number of other players who have made the same choice as them).</li>
 </ul>
-<blockquote><p><code>B.</code> Alice must choose a number $0 < x < 1$, she receives a utility of $f(x)$ for some function $f:\mathbb{R}\to\mathbb{R}$</p>
+<blockquote><p><code>B.</code> Alice must choose a number $0 &lt; x &lt; 1$, she receives a utility of $f(x)$ for some function $f:\mathbb{R}\to\mathbb{R}$</p>
 </blockquote>
 <ul>
 <li>Finite set of players: Alice.</li>
-<li>Strategy space: $0 < x < 1$</li>
+<li>Strategy space: $0 &lt; x &lt; 1$</li>
 <li>Utility function: $f(x)$</li>
 </ul>
 <blockquote><p><code>C.</code> Rock Paper Scissors (official rules: <a href="http://worldrps.com/game-basics/the-official-rules-of-rock-paper-scissors/">http://worldrps.com/game-basics/the-official-rules-of-rock-paper-scissors/</a>).</p>
@@ -157,9 +155,9 @@ $$<blockquote><p><code>4.</code> For each of the following give a Normal Form Ga
 <p>A two player zero sum game with the following representation:</p>
 $$
 A = \begin{pmatrix}
-0  & -1 & 1\\
-1  & 0  & -1\\
--1 & 1  & 0
+0  &amp; -1 &amp; 1\\
+1  &amp; 0  &amp; -1\\
+-1 &amp; 1  &amp; 0
 \end{pmatrix}
 $$
 </div>

@@ -99,10 +99,8 @@
 <div class="container">
     
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Evolutionary-game-theory---solutions">Evolutionary game theory - solutions<a class="anchor-link" href="#Evolutionary-game-theory---solutions">&#182;</a></h1><ol>
 <li><p>Assume the frequency dependent selection model for a population with two types of individuals: $x=(x_1, x_2)$ such that $x_1 + x_2 = 1$. Obtain all the stable distribution for the sytem defined by the following fitness functions:</p>
@@ -128,7 +126,7 @@
 <span class="n">sym</span><span class="o">.</span><span class="n">solveset</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x_1</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x_1</span><span class="p">),</span> <span class="n">x_1</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -137,7 +135,9 @@
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[1]:</div>
+
+    <div class="prompt output_prompt">Out[1]:</div>
+
 
 
 
@@ -151,10 +151,8 @@
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>B</code>. $f_1(x)=x_1x_2 - x_2\qquad f_2(x)=x_2 - x_1 + 1/2$</p>
 <p>$f_1(x)=f_2(x)\Rightarrow x_1x_2 - x_2 = x_2 - x_1 + 1/2$ setting $x=x_1$ so that $1 - x = x_2$ gives: $x - x ^ 2 - 1 + x = 1 - x - x + 1/2$ which corresponds to:</p>
@@ -173,7 +171,7 @@ $$-x ^ 2 + 4 x - 5/2=0$$<p>This has solution $x=2 \pm \sqrt{6}/2$, thus $(x_1, x
 <span class="n">res</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -182,7 +180,9 @@ $$-x ^ 2 + 4 x - 5/2=0$$<p>This has solution $x=2 \pm \sqrt{6}/2$, thus $(x_1, x
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
 
 
 
@@ -205,7 +205,7 @@ $$-x ^ 2 + 4 x - 5/2=0$$<p>This has solution $x=2 \pm \sqrt{6}/2$, thus $(x_1, x
     <span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">sol</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sol</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -214,7 +214,9 @@ $$-x ^ 2 + 4 x - 5/2=0$$<p>This has solution $x=2 \pm \sqrt{6}/2$, thus $(x_1, x
 
 
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>-sqrt(6)/2 + 2 0.775255128608411 0.22474487139158905
@@ -227,20 +229,18 @@ sqrt(6)/2 + 2 3.224744871391589 -2.224744871391589
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>C</code>. $f_1(x)=x_1 ^ 2 \qquad f_2(x)=x_2^2$</p>
 <p>$f_1(x)=f_2(x)\Rightarrow x_1 = \pm x_2$ which has a single solution $(x_1, x_2)=(1/2, 1/2)$.</p>
 <p><code>2</code>. For the following games, obtain all the stable distributions for the evolutionary game:</p>
 <p>For bother of these we aim to find $x$ such that $(1, 0)Ax^T=(0, 1)Ax^T$.</p>
 <ol>
-<li><p>$A = \begin{pmatrix}2 & 4 \\ 5 & 3\end{pmatrix}$</p>
+<li><p>$A = \begin{pmatrix}2 &amp; 4 \\ 5 &amp; 3\end{pmatrix}$</p>
 <p>$(1, 0)Ax^T=(0, 1)Ax^T\Rightarrow 2x+4(1-x)=5x+3(1-x)\Rightarrow x=1/4$</p>
 </li>
-<li><p>$A = \begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix}$</p>
+<li><p>$A = \begin{pmatrix}1 &amp; 0 \\ 0 &amp; 1\end{pmatrix}$</p>
 <p>$(1, 0)Ax^T=(0, 1)Ax^T\Rightarrow x=1-x\Rightarrow x=1/2$</p>
 </li>
 </ol>
@@ -258,23 +258,23 @@ sqrt(6)/2 + 2 3.224744871391589 -2.224744871391589
 <p><code>5</code>. Using the general condition for ESS theorem identify what strategies are evolutionarily stable for the games of question 2.</p>
 <p>For both these games we start by identifying the Nash equilibria:</p>
 <ol>
-<li><p>$(A, A^T) = (\begin{pmatrix}2 & \underline{4} \\ \underline{5} & 3\end{pmatrix}, \begin{pmatrix}2 & \underline{5} \\ \underline{4} & 3\end{pmatrix})$</p>
+<li><p>$(A, A^T) = (\begin{pmatrix}2 &amp; \underline{4} \\ \underline{5} &amp; 3\end{pmatrix}, \begin{pmatrix}2 &amp; \underline{5} \\ \underline{4} &amp; 3\end{pmatrix})$</p>
 <p>The pure NE are given by $\{((1, 0), (0, 1)), ((0, 1), (1, 0))\}$, these are not symmetric so do not correspond to ESS. The mixed nash equilibrium corresonds to the stationary point calculated previously: $x=1/4$.</p>
 <p>For a general $y$, we have $u(x, x)=u(y,x)$ (by the defnining calculation of $x$). Thus, we look at the second condition:</p>
 <p>$$u(x, y)=1/4(2y+4(1-y)) + 3/4(5y+3(1-y))=1/4(4-2y) + 1/4(6y+9)=1/4(4y+13)$$</p>
 <p>$$u(y, y)=y(2y+4(1-y)) + (1-y)(5y+3(1-y))=y(4-2y) + (1-y)(2y+3)=-4y^2+3y+3$$</p>
 <p>thus:</p>
 <p>$$u(x, y) - u(y, y) = 4y^2 - 2y + 1/4=\frac{(4y-1)^2}{4}$$</p>
-<p>which is $>0$ for $y\ne 1/4$, thus $x=(1/4, 3/4)$ is an ESS.</p>
+<p>which is $&gt;0$ for $y\ne 1/4$, thus $x=(1/4, 3/4)$ is an ESS.</p>
 </li>
-<li><p>$(A, A^T) = (\begin{pmatrix}\underline{1} & 0 \\ 0 & \underline{1}\end{pmatrix}, \begin{pmatrix}\underline{1} & 0 \\ 0 & \underline{1}\end{pmatrix})$</p>
-<p>The pure NE are given by $\{((1, 0), (1, 0)), ((0, 1), (0, 1))\}$, these are symmetric, for both we have $u(x, x)=1$ which will be $>u(y, x)$ for all $y\ne x$ as $x$ is a best response to itself. Thus, these are both ESS.</p>
+<li><p>$(A, A^T) = (\begin{pmatrix}\underline{1} &amp; 0 \\ 0 &amp; \underline{1}\end{pmatrix}, \begin{pmatrix}\underline{1} &amp; 0 \\ 0 &amp; \underline{1}\end{pmatrix})$</p>
+<p>The pure NE are given by $\{((1, 0), (1, 0)), ((0, 1), (0, 1))\}$, these are symmetric, for both we have $u(x, x)=1$ which will be $&gt;u(y, x)$ for all $y\ne x$ as $x$ is a best response to itself. Thus, these are both ESS.</p>
 <p>We now consider $x=1/2$. For a general $y$, we have $u(x, x)=u(y,x)$ (by the defnining calculation of $x$). Thus, we look at the second condition:</p>
 <p>$$u(x, y)=1/2(y + 1 - y)=1/2$$</p>
 <p>$$u(y, y)=y^2 + (1-y)^2=2y^2-2y+1$$</p>
 <p>thus:</p>
 <p>$$u(x, y) - u(y, y) = -2y^2 + 2 y - 1/2=-\frac{(2y-1)^2}{2}$$</p>
-<p>which is $<0$ for $y\ne 1/2$, thus $x=(1/2, 1/2)$ is not an ESS.</p>
+<p>which is $&lt;0$ for $y\ne 1/2$, thus $x=(1/2, 1/2)$ is not an ESS.</p>
 </li>
 </ol>
 

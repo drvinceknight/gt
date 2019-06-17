@@ -99,10 +99,8 @@
 <div class="container">
     
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Prisoners-dilemma---exercises">Prisoners dilemma - exercises<a class="anchor-link" href="#Prisoners-dilemma---exercises">&#182;</a></h1><ol>
 <li><p>Give the general definition for a Prisoners dilemma.</p>
@@ -113,14 +111,14 @@
 <li><p>$
 A =
 \begin{pmatrix}
-3 & 0\\
-5 & 1
+3 &amp; 0\\
+5 &amp; 1
 \end{pmatrix}
 \qquad
 B =
 \begin{pmatrix}
-3 & 5\\
-0 & 1
+3 &amp; 5\\
+0 &amp; 1
 \end{pmatrix}
 $</p>
 <p>This is a Prisoners Dilemma: $(R, S, T, P) = (3, 1, 5, 0)$.</p>
@@ -128,29 +126,29 @@ $</p>
 <li><p>$
 A =
 \begin{pmatrix}
-1 & -1\\
-2 & 0
+1 &amp; -1\\
+2 &amp; 0
 \end{pmatrix}
 \qquad
 B =
 \begin{pmatrix}
-1 & 2\\
--1 & 0
+1 &amp; 2\\
+-1 &amp; 0
 \end{pmatrix}
 $</p>
-<p>This is a Prisoners Dilemma: $(R, S, T, P) = (1, -1, 2, 0)$: $2>1>0>-1$ and $2\times 1 > 2 - 1$.</p>
+<p>This is a Prisoners Dilemma: $(R, S, T, P) = (1, -1, 2, 0)$: $2&gt;1&gt;0&gt;-1$ and $2\times 1 &gt; 2 - 1$.</p>
 </li>
 <li><p>$
 A =
 \begin{pmatrix}
-1 & -1\\
-2 & 0
+1 &amp; -1\\
+2 &amp; 0
 \end{pmatrix}
 \qquad
 B =
 \begin{pmatrix}
-3 & 5\\
-0 & 1
+3 &amp; 5\\
+0 &amp; 1
 \end{pmatrix}
 $</p>
 <p>This is not a Prisoner's Dilemma $A \ne B ^ T$</p>
@@ -158,14 +156,14 @@ $</p>
 <li><p>$
 A =
 \begin{pmatrix}
-6 & 0\\
-12 & 1
+6 &amp; 0\\
+12 &amp; 1
 \end{pmatrix}
 \qquad
 B =
 \begin{pmatrix}
-6 & 12\\
-0 & 0
+6 &amp; 12\\
+0 &amp; 0
 \end{pmatrix}
 $</p>
 <p>This is not a Prisoner's Dilemma $A \ne B ^ T$</p>
@@ -177,26 +175,26 @@ $</p>
 <ol>
 <li><p>$p=(1/2, 1/2)\qquad q=(1/2, 1/2)$</p>
 <p>$$M = \begin{pmatrix}
-1/4&1/4&1/4&1/4\\
-1/4&1/4&1/4&1/4\\
-1/4&1/4&1/4&1/4\\
-1/4&1/4&1/4&1/4
+1/4&amp;1/4&amp;1/4&amp;1/4\\
+1/4&amp;1/4&amp;1/4&amp;1/4\\
+1/4&amp;1/4&amp;1/4&amp;1/4\\
+1/4&amp;1/4&amp;1/4&amp;1/4
 \end{pmatrix}$$</p>
 </li>
 <li><p>$p=(1/4, 1/2)\qquad q=(1/2, 1/4)$</p>
 <p>$$M = \begin{pmatrix}
-1/8&1/8&3/8&3/8\\
-1/4&1/4&1/4&1/4\\
-1/16&3/16&3/16&9/16\\
-1/8&3/8&1/8&3/8
+1/8&amp;1/8&amp;3/8&amp;3/8\\
+1/4&amp;1/4&amp;1/4&amp;1/4\\
+1/16&amp;3/16&amp;3/16&amp;9/16\\
+1/8&amp;3/8&amp;1/8&amp;3/8
 \end{pmatrix}$$</p>
 </li>
 <li><p>$p=(1/3, 1/3)\qquad q=(2/3, 1/4)$</p>
 <p>$$M = \begin{pmatrix}
-2/9 & 1/9 & 4/9 & 2/9\\
-2/9 & 1/9 & 4/9 & 2/9\\
-1/12 & 1/4 & 1/6 & 1/2\\
-1/12 & 1/4 & 1/6 & 1/2
+2/9 &amp; 1/9 &amp; 4/9 &amp; 2/9\\
+2/9 &amp; 1/9 &amp; 4/9 &amp; 2/9\\
+1/12 &amp; 1/4 &amp; 1/6 &amp; 1/2\\
+1/12 &amp; 1/4 &amp; 1/6 &amp; 1/2
 \end{pmatrix}$$</p>
 </li>
 </ol>
@@ -244,7 +242,7 @@ $</p>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">rstp</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -265,7 +263,7 @@ $</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;With utility:&quot;</span><span class="p">,</span> <span class="n">theoretic_utility</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">),</span> <span class="n">theoretic_utility</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -274,7 +272,9 @@ $</p>
 
 
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>=====
@@ -309,10 +309,8 @@ With utility: 113/54 49/27
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>5</code>. Assuming $p=(x, 1/2)$, find the optimal $x$ against the following players:</p>
 <p>A part of this question involves bookwork: this is a substitution exercise using <a href="https://vknight.org/gt/chapters/09/#Theorem:-steady-state-probabilities-for-match-between-reactive-players">https://vknight.org/gt/chapters/09/#Theorem:-steady-state-probabilities-for-match-between-reactive-players</a>. This is a substitution exercise to obtain a formula for the utility of $p$ as a function of $x$.</p>
@@ -323,7 +321,7 @@ With utility: 113/54 49/27
 <p>$$
 \frac{2(6x - 7)}{(2x - 3)^3}
 $$</p>
-<p>This derivative has zero for $x=7/6$ which is $>1$. Thus the utility is monotic increasing over the interval $[0, 1]$. We have (by substitution):</p>
+<p>This derivative has zero for $x=7/6$ which is $&gt;1$. Thus the utility is monotic increasing over the interval $[0, 1]$. We have (by substitution):</p>
 <p>$$u(0)=17/9\qquad u(1)=3$$</p>
 <p>Thus $u(x)$ is an increasing function so the optimal value of $x$ is $1$.</p>
 <p>Against a player that is unforgiving (reacts to defection with defection), given that our player will play randomly against a defection it is better to always cooperate.</p>
@@ -350,7 +348,7 @@ $$</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">utility</span><span class="o">.</span><span class="n">simplify</span><span class="p">(),</span> <span class="n">utility</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">}),</span> <span class="n">utility</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">}),</span> <span class="n">sym</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">simplify</span><span class="p">(),</span> <span class="n">sym</span><span class="o">.</span><span class="n">solveset</span><span class="p">(</span><span class="n">sym</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -359,7 +357,9 @@ $$</p>
 
 
 <div class="output_area">
-<div class="prompt"></div>
+
+    <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(-10*x + 4*(x - 1)**2 + 13)/(2*x - 3)**2 17/9 3 2*(6*x - 7)/(2*x - 3)**3 {7/6}
