@@ -2077,20 +2077,20 @@ import axelrod as axl
 axl.seed(0)  # Make this reproducible
 players = [
     axl.TitForTat(),
-    axl.TidemanAndChieruzzi(),
-    axl.Nydegger(),
-    axl.Grofman(),
-    axl.Shubik(),
-    axl.SteinAndRapoport(),
+    axl.FirstByTidemanAndChieruzzi(),
+    axl.FirstByNydegger(),
+    axl.FirstByGrofman(),
+    axl.FirstByShubik(),
+    axl.FirstBySteinAndRapoport(),
     axl.Grudger(),
-    axl.Davis(),
-    axl.Graaskamp(),
-    axl.RevisedDowning(revised=False),
-    axl.Feld(),
-    axl.Joss(),
-    axl.Tullock(),
-    axl.UnnamedStrategy(),
-    axl.Random()
+    axl.FirstByDavis(),
+    axl.FirstByGraaskamp(),
+    axl.FirstByDowning(),
+    axl.FirstByFeld(),
+    axl.FirstByJoss(),
+    axl.FirstByTullock(),
+    axl.FirstByAnonymous(),
+    axl.Random(),
 ]
 tournament = axl.Tournament(players, turns=200, repetitions=20)
 results = tournament.play()
@@ -2098,15 +2098,15 @@ plot = axl.Plot(results)
 plot.boxplot();
 ```
 
-    Playing matches: 100%|██████████| 120/120 [00:19<00:00,  6.01it/s]
-    Analysing: 100%|██████████| 25/25 [00:00<00:00, 50.64it/s]
+    Playing matches: 100%|██████████| 120/120 [00:26<00:00, 10.03it/s]
+    Analysing: 100%|██████████| 25/25 [00:00<00:00, 35.71it/s]
 
 
 
 ![png](output_1_1.png)
 
 
-We see that Tit For Tat does in fact **not** win this tournament. This highlights that there is no such thing as a best strategy but a best strategy for a particular environment.
+We see that Tit For Tat does in fact **not** win this tournament (you can find a tutorial on reproducing the original work at https://axelrod.readthedocs.io/en/stable/tutorials/getting_started/running_axelrods_first_tournament.html). This highlights that there is no such thing as a best strategy but a best strategy for a particular environment.
 
 Here is some of the source code for the strategies:
 
