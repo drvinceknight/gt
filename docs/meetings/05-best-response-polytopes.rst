@@ -143,70 +143,30 @@ Explain that what these polytopes represent is the scaled strategies when
 players maximum utilities are 1. So given, the action of an opponent, if the
 players' utility is 1 they are playing a best response.
 
-Ask everyone to fill in a table for every vertex:
+Ask each person in a pair to be the row or the column player.
 
-For :math:`\mathcal{P}`:
+Have the row player pick a vertex, then identify the strategy and it's best
+response and then pick the corresponding vertex.
 
-- :math:`(0, 1/3)`:
+For example:
 
-  - Labels: :math:`\{0, 3\}`
-  - Strategy: :math:`(0, 1)`
-  - Support: :math:`\{r_2\}`
-  - Best response: :math:`\{c_2\}`
+Row player picks :math:`(0, 1/3)` which has labels :math:`(0, 3)` and
+corresponds to the strategy :math:`(0, 1)`. The best response to the second row
+is the first column which corresponds to vertex :math:`(0, 1/2)` which has
+labels :math:`(1, 2)`.
 
-- :math:`(1/2, 1/6)`:
+Remind ourselves why these are the labels? (Refer to the defining properties of
+the polytopes).
 
-  - Labels: :math:`\{2, 3\}`
-  - Strategy: :math:`(3/4, 1/4)`
-  - Support: :math:`\{r_1, r_2\}`
-  - Best response: :math:`\{c_1, c_2\}`
+Repeat with other vertices.
 
-- :math:`(1/2, 0)`:
-
-  - Labels: :math:`\{1, 2\}`
-  - Strategy: :math:`(1, 0)`
-  - Support: :math:`\{r_1\}`
-  - Best response: :math:`\{c_1\}`
-
-For :math:`\mathcal{Q}`:
-
-- :math:`(0, 1/2)`:
-
-  - Labels: :math:`\{1, 2\}`
-  - Strategy: :math:`(0, 1)`
-  - Support: :math:`\{c_2\}`
-  - Best response: :math:`\{r_2\}`
-
-- :math:`(1/6, 1/2)`:
-
-  - Labels: :math:`\{0, 1\}`
-  - Strategy: :math:`(1/4, 3/4)`
-  - Support: :math:`\{c_1, c_2\}`
-  - Best response: :math:`\{r_1, r_2\}`
-
-- :math:`(1/3, 0)`:
-
-  - Labels: :math:`\{0, 3\}`
-  - Strategy: :math:`(1, 0)`
-  - Support: :math:`\{c_1\}`
-  - Best response: :math:`\{r_1\}`
-
-
-Once they have filled in this table:
-
-Ask students what is connection between:
-
-- Support and labels?
-- Best responses and labels?
-
-
-Now identify strategies that are best responses to each other:
+Aim to identify strategies that are best responses to each other:
 
 - :math:`\sigma_r=(0, 1)` and :math:`\sigma_r=(0,1)`
 - :math:`\sigma_r=(3/4, 1/4)` and :math:`\sigma_r=(1/4,3/4)`
 - :math:`\sigma_r=(1, 0)` and :math:`\sigma_r=(1, 0)`
 
-Discuss how this relates to the labels.
+Discuss how this relates to the labels again.
 
 Finally show how this is implemented in :code:`nashpy`::
 
