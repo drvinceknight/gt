@@ -2600,7 +2600,7 @@ $$
 We see that we have 3 equilibria:
 
 - $x_1=0$
-- $x_2=1$
+- $x_1=1$
 - Whatever distribution of $x$ that ensures: $f_1(x)=f_2(x)$
 
 
