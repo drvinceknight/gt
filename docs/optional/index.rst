@@ -19,3 +19,4 @@ students.
    AD-moran-process.rst
    AE-support-enumeration.rst
    AF-revisit-lemke-howson.rst
+   AG-evolutionary-game-theory.rst
