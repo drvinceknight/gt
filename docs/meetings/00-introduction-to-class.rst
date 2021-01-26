@@ -79,4 +79,10 @@ Using http://vknight.org/school-outreach/assets/playing-games/tex/form.pdf
 2. Rationalise
 3. Play two thirds of the average game
 
+**Virtual modification:** Use MentiMeter:
+
+1. Send link to first round
+2. Rationalise
+3. Send link to third round
+
 Discuss notes on Normal form games.

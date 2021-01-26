@@ -98,8 +98,7 @@
 
 <div class="container">
     
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Evolutionary-Dynamics">Evolutionary Dynamics<a class="anchor-link" href="#Evolutionary-Dynamics">&#182;</a></h1><p>We will now consider how Game Theory can be used to study evolutionary processes. The main difference is that we now consider not two player games but game with an <strong>infinite</strong> population. The strategies will make up a dynamic population that changes over time.</p>
@@ -166,7 +165,7 @@ $$x{\left (t \right )} = C_{1} e^{a t}$$
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="k">import</span> <span class="n">odeint</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Obtain 100 time points</span>
 
@@ -189,7 +188,7 @@ $$x{\left (t \right )} = C_{1} e^{a t}$$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing code_cell rendered celltag_nbval-ignore-output">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
@@ -234,7 +233,7 @@ $$x{\left (t \right )} = C_{1} e^{a t}$$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing code_cell rendered celltag_nbval-ignore-output">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
@@ -299,7 +298,7 @@ $$<p>note that even if both population grow, but one grows faster than the other
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing code_cell rendered celltag_nbval-ignore-output">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
@@ -363,7 +362,7 @@ $$\frac{dx}{dt}=x(a-b)(1-x)$$<p>We do not need to solve this differential equati
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing code_cell rendered celltag_nbval-ignore-output">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
@@ -409,7 +408,7 @@ $$\frac{dx}{dt}=x(a-b)(1-x)$$<p>We do not need to solve this differential equati
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing code_cell rendered celltag_nbval-ignore-output">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
@@ -446,7 +445,7 @@ $$\frac{dx}{dt}=x(a-b)(1-x)$$<p>We do not need to solve this differential equati
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing code_cell rendered celltag_nbval-ignore-output">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
@@ -483,7 +482,7 @@ $$\frac{dx}{dt}=x(a-b)(1-x)$$<p>We do not need to solve this differential equati
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing code_cell rendered celltag_nbval-ignore-output">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
