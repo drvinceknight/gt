@@ -72,6 +72,11 @@ illustrate the ideas.
 Details about the programming involved can be found at
 http://vknight.org/gt/other/programming/
 
+Kindness
+********
+
+Highlight the kindness section.
+
 Introduction to games
 *********************
 
