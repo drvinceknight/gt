@@ -29,6 +29,9 @@ Following each game:
 - Ask how many people won?
 - Ask why they won?
 
+**Virtual modification:** Use breakout rooms of 4 (still ask students to pair
+up, the other two can observe).
+
 Mixed strategies
 ****************
 

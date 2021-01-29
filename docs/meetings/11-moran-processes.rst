@@ -28,6 +28,9 @@ form<../assets/activities/moran_process/main.pdf>` have students play in pairs.
 - 1 D6 and 1 D4 (the example used in this page);
 - 1 D6 and 1 D8.
 
+**Virtual modification:** Use breakout rooms of 4. For dice show how to use the
+Python random library. 
+
 Explain that we will aim to reproduce a Moran process with :math:`N=3`.
 
 .. image:: ../assets/activities/moran_process/moran_process.png

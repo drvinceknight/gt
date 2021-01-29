@@ -36,7 +36,6 @@ students play against a mixed strategy::
     >>> ["D", "C"][random.random() < 0.3]  # 30 chance of Cooperating
     'D'
 
-
 Discuss the definition of a best response. Identify best responses for the game
 considered:
 

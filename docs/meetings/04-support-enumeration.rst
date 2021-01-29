@@ -23,6 +23,8 @@ Play a knockout RPSLS tournament
 
 Tell students to create groups of 4 or 8 and play a knockout RPSLS tournament.
 
+**Virtual modification:** Use breakout rooms of 4.
+
 Explain rules and show:
 
 .. image:: ../assets/activities/rpsls.png
