@@ -24,6 +24,7 @@ Playing repeated games in pairs
 
 In groups we are going to play:
 
+**Virtual modification:** Use breakout rooms of 4.
 
 .. math::
 

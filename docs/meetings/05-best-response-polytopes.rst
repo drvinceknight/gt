@@ -123,6 +123,8 @@ Confirmed::
 Pair activity
 *************
 
+**Virtual modification:** Use breakout rooms of 4.
+
 Ask everyone to draw these two polytopes.
 
 Now describe how we label the vertices: **using the same ordering as the

@@ -21,6 +21,8 @@ Show this video: https://www.youtube.com/watch?v=p3Uos2fzIJ0
 
 Ask class to form in to groups of approximately 8: 4 teams of 2.
 
+**Virtual modification:** Use breakout rooms of 8.
+
 Write the following on the board:
 
 +---------+------------------+-------------------------------+-------------------------------+
