@@ -31,6 +31,8 @@ Timetable and approach
 
 Discuss timetable
 
+**Virtual modification** Show week by week schedule. Explain that it's flexible.
+
 **I will not lecture**
 
 This course is taught in a flipped learning environment. All notes, homework,
