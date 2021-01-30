@@ -1,6 +1,40 @@
 00 Introduction to class
 ========================
 
+Pre class email
+---------------
+
+Send the following email before class::
+
+    Hi all,
+
+    I hope you are all well.
+
+    This is a brief email before our first class on Monday at 1000 am.
+
+    All of the course materials (including short videos) are available at
+    https://vknight.org/gt/.
+
+    Our classes will be on Zoom:
+
+    - Zoom link: https://cardiff.zoom.us/my/vknight 
+    - Password is: 401665
+
+    Before each class I will also send you that again via email.
+
+    I realise that some of you are no doubt still deciding whether or not you
+    will choose the Game Theory this Semester. During our first class on Monday
+    I will hopefully answer any questions you have but please don't hesitate to
+    use the chat if there's anything you'd like to know as you choose your
+    modules.
+
+    Important: My wife and I are expecting our second child any day now, so at
+    some point over the next couple of weeks I will not be around (for a week).
+    I am confident that we have sufficient time in the schedule to catch up.
+
+    Please get in touch if I can assist with anything,
+    Vince
+
 Corresponding chapters
 ----------------------
 
