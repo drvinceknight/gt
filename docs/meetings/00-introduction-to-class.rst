@@ -125,3 +125,22 @@ Using http://vknight.org/school-outreach/assets/playing-games/tex/form.pdf
 3. Send link to third round
 
 Discuss notes on Normal form games.
+
+After class email
+*****************
+
+Send the following email to class::
+
+    Dear all,
+
+    In class today we spoke about the way the class will be delivered.
+
+    A recording is available here <LINK> and on Learning central.
+
+    Here is an invitation to the Discod <LINK>.
+
+    All class resources are available at: https://vknight.org/gt/
+
+    Thanks,
+    Vince
+
