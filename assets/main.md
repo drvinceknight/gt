@@ -1,6 +1,7 @@
 ---
 title: Game Theory
 ---
+
 # Game Theory: Introduction to the course
 
 [Video](https://youtu.be/T50RbGZv-gw)
@@ -61,6 +62,7 @@ There are two piece of assessment in this course:
 
 - Individual coursework (25%): **The individual coursework includes a programming component.**
 - Exam (75%)
+
 # Normal Form Games
 
 [Video](https://youtu.be/VDZ4I4IoFss?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb)
@@ -393,6 +395,7 @@ matching_pennies
      [ 1 -1]]
 
 
+
 # Calculating utilities of strategies
 
 # Player strategies
@@ -527,6 +530,7 @@ matching_pennies[sigma_r, sigma_c]
 
 
     array([-0.12,  0.12])
+
 
 
 # Rationalisation
@@ -701,6 +705,7 @@ and now we see that the column players' third strategy would dominate the other 
 Thus a prediction of rational behaviour would be the strategy profile: $(r_2, c_3)$.
 
 Not all games allow for prediction of rational behaviour through rationalisation **and** for some games the prediction will change depending on the order of the elimination.
+
 # Best responses
 
 ---
@@ -924,6 +929,7 @@ Note that while any strategy is a best response to $(1/2, 1/2)$ the pair of stra
 [Video](https://youtu.be/b1JBFU0wDyY?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb)
 
 In a two player game $(A,B)\in{\mathbb{R}^{m\times n}}^2$, $(\sigma_r, \sigma_c)$ is a Nash equilibrium if $\sigma_r$ is a best response to $\sigma_c$ and vice versa.
+
 # Support enumeration
 
 The definition implies that a Nash equilibrium is a pair of best responses.
@@ -1295,6 +1301,7 @@ This result is given without proof:
 Any game with a finite set of players and finit set of strategies has a Nash equilibrium in mixed strategies.
 
 ---
+
 # Best response polytopes
 
 Another useful representation of games is to consider polytopes. A polytope $\mathcal{P}$ has the following definition:
@@ -1565,6 +1572,7 @@ list(matching_pennies.vertex_enumeration())
     [(array([0.5, 0.5]), array([0.5, 0.5]))]
 
 
+
 # The Lemke Howson algorithm
 
 The vertex and support enumeration algorithms are all algorithms that use an exhaustive search. For large games, this can take a long time and/or have a high computational cost. The following algorithm gives an approach to create a path through vertices in both best response polytopes to find a pair that is fully labelled.
@@ -1818,6 +1826,7 @@ A summary of integer pivoting:
 
 1. Identify the row to pivot on using the minumum ratio test.
 2. Carry out row operations to ensure that the pivot row is the only row with non zero variables in that column.
+
 # Repeated games
 
 ---
@@ -1989,6 +1998,7 @@ If both players play these strategies their utilities are: $(11, 4)$ which is be
 2. If the column player deviates, they would only do so in the first stage and gain no utility.
 
 Thus this strategy pair **is a Nash equilibrium** and evidences how a reputation can be built and cooperation can emerge from complex dynamics.
+
 # Prisoners Dilemma
 
 [Video](https://youtu.be/DivraIWIwlQ?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb)
@@ -2321,6 +2331,7 @@ match.final_score_per_turn()
 - Playing the tournament on a Graph. This was carried out by Nowak in 1992 in a paper titled: ["Evolutionary games and Spatial chaos"](https://www.researchgate.net/profile/Martin_Nowak2/publication/216634494_Evolutionary_Games_and_Spatial_Chaos/links/54217b730cf274a67fea8e60/Evolutionary-Games-and-Spatial-Chaos.pdf).
 - Understanding Evolutionary dynamics (we will understand what we mean by this in the later chapters as we start exploring evolutionary game theory).
 - A specific type of strategy has recently garnered a lot of interest: Zero Determinant Strategies (in a 2012 paper titled: [Iterated Prisoner’s Dilemma contains strategies that dominate any evolutionary opponent](http://www.pnas.org/content/109/26/10409.short)). Claiming that memory does not matter. We will discuss this in further chapters.
+
 # Evolutionary Dynamics
 
 We will now consider how Game Theory can be used to study evolutionary processes. The main difference is that we now consider not two player games but game with an **infinite** population. The strategies will make up a dynamic population that changes over time.
@@ -2543,6 +2554,7 @@ plt.plot(xys);
 
 
 ![png](output_14_0.png)
+
 
 # Evolutionary Game Theory
 
@@ -2903,6 +2915,7 @@ sym.factor(lhs - rhs)
 
 
 $$1.0 \left(1.0 y_{1} - 0.4\right)^{2}$$
+
 
 
 # Moran Processes
@@ -3353,6 +3366,7 @@ plt.legend();
 
 
 ![png](output_21_0.png)
+
 
 # Contemporary research topics
 

@@ -10,7 +10,7 @@ dependencies:
 - pip=19.1.1
 - python=3.6
 - scipy=0.19.1
-- sympy=1.0
+- sympy=1.7.1
 - pip:
   - axelrod==4.8.0
   - invoke==1.1.0
