@@ -12,7 +12,7 @@ dependencies:
 - scipy=0.19.1
 - sympy=1.0
 - pip:
-  - axelrod==4.8.0
+  - axelrod
   - invoke==1.1.0
   - nashpy==0.0.14
   - nbval==0.7
