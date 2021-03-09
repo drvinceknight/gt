@@ -1048,7 +1048,7 @@ For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}}^2$ the foll
 
 4. Solve
    - $\sum_{i=1}^{m}{\sigma_{r}}_i=1$ and ${\sigma_{r}}_i\geq 0$ for all $i$
-   - $\sum_{j=1}^{n}{\sigma_{c}}_i=1$ and ${\sigma_{c}}_j\geq 0$ for all $j$
+   - $\sum_{j=1}^{n}{\sigma_{c}}_j=1$ and ${\sigma_{c}}_j\geq 0$ for all $j$
 5. Check the best response condition.
 
 Repeat steps 3,4 and 5 for all potential support pairs.
