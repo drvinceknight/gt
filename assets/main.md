@@ -1091,7 +1091,7 @@ $$
 So there are no pairs.
    
 1. Thus we start again with $k=2$.
-2. There is only one pair of best responses to be considered: $I=J=\{1, 2\}$.
+2. There is only one pair of best responses to be considered: $I=J=(1, 2)$.
 3. The equations we need to solve are:
 
    $$-{\sigma_{r}}_1+{\sigma_{r}}_2=v$$
