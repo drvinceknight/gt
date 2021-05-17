@@ -1915,7 +1915,7 @@ The actions for our example:
 
 A strategy for the row/column player thus needs to map an element of the following set to an element of $\{r_1, r_2\}$/$\{c_1, c_2, c_3\}$:
 
-$$\bigcup_{t=0}^{1}H(t)=\{(\emptyset, \emptyset), (r_1, c_1), (r_1, c_2), (r_1, c_3), (r_2, c_1), (r_2, c_2), (r_3, c_3)\}$$
+$$\bigcup_{t=0}^{1}H(t)=\{(\emptyset, \emptyset), (r_1, c_1), (r_1, c_2), (r_1, c_3), (r_2, c_1), (r_2, c_2), (r_2, c_3)\}$$
 
 In other words, in our example, a strategy answers both of the following questions:
 
