@@ -153,7 +153,7 @@ So the inequalities are:
    x_1&\geq 0&&\text{ label: }0\\
    x_2&\geq 0&&\text{ label: }1\\
    9x_1+3x_2&\leq 1&&\text{ label: }2\\
-   2x_1 + 9x_2&\leq 1&&\text{ label: }3
+   6x_1 + 13x_2&\leq 1&&\text{ label: }3
    \end{align*}
 
 Rearranging:
@@ -164,17 +164,17 @@ Rearranging:
    x_1&\geq 0&&\text{ label: }0\\
    x_2&\geq 0&&\text{ label: }1\\
    x_2&\leq 1/3 - 3 x_1&&\text{ label: }2\\
-   x_2&\leq 1/9 - 2/9x_1&&\text{ label: }3
+   x_2&\leq 1/13 - 6/13x_1&&\text{ label: }3
    \end{align*}
 
 Now let us sketch these::
 
     x1s = [0, 1]
     first_line = [1 / 3 - 3 * x for x in x1s]
-    second_line = [1 / 9 - 2 / 9 * x for x in x1s]
+    second_line = [1 / 13 - 6 / 13 * x for x in x1s]
     plt.figure()
     plt.plot(first_line, label="$1/3-3x_1$ (label: 2)")
-    plt.plot(second_line, label="$1/9-2/9x_1/6$ (label: 3)")
+    plt.plot(second_line, label="$1/13-6/13x_1$ (label: 3)")
     plt.legend();
 
 This gives:
@@ -188,17 +188,17 @@ We see that there our polytope has 4 vertices:
 
    \begin{align*}
    (0, 0)&\text{ labels }\{0, 1\}\\
-   (0, 1/9)&\text{ labels }\{0, 3\}\\
+   (0, 1/6)&\text{ labels }\{0, 3\}\\
    (1/9, 0)&\text{ labels }\{1, 2\}\\
-   (2/25, 7/75)&\text{ labels }\{2, 3\}\\
+   (10/99, 1/33)&\text{ labels }\{2, 3\}\\
    \end{align*}
 
 Here is some sympy code to verify the intersection of both boundaries::
 
    >>> import sympy as sym
    >>> x = sym.Symbol("x")
-   >>> sym.solveset(sym.S(1) / 3-3 * x - sym.S(1) / 9 + sym.S(2) / 9 * x, x)
-   {2/25}
+   >>> sym.solveset(sym.S(1) / 3-3 * x - sym.S(1) / 1/13 + sym.S(6) / 13 * x, x)
+   {10/99}
 
 We now carry out the Lemke-Howson algorithm.
 
