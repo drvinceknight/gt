@@ -1202,7 +1202,7 @@ $$
 T_c = \begin{pmatrix}
       6 &amp; -5 &amp; 0 &amp; 13 &amp; 0 &amp; 1\\
       0 &amp; 1 &amp; 0 &amp; 1 &amp; 6 &amp; 1\\
-      0 &amp; -3 &amp; 3 &amp; 21 &amp; 0 &amp; 3
+      0 &amp; -3 &amp; 6 &amp; 21 &amp; 0 &amp; 3
       \end{pmatrix}
 $$<p>$T_c$ now has labels: $\{1, 3\}$, we drop 1 in $T_r$:</p>
 <ul>
@@ -1230,10 +1230,10 @@ T_c = \begin{pmatrix}
 $$<p>$T_c$ now has labels: $\{0, 1\}$ thus we have a fully labeled vertex pair.</p>
 <p>Reading from $T_r$ we have: $x_3=0$ and: $x_2 = 5 / 34$ and $x_1 = 14 / 238$.</p>
 <p>Reading from $T_c$ we have: $y_1 = 1 / 13$ and $y_2=12/78$:</p>
-$$x = (5 / 34, 14 / 238, 0)$$$$y = (1 / 13, 12 / 78)$$<p>Normalising these gives:</p>
-$$\sigma_r = \left(0, \frac{5 / 34}{5 / 34 + 14 / 238}, \frac{14 / 238}{5 / 34 + 14 / 238}\right) = \left(\frac{5}{7}, \frac{2}{7}, 0\right)$$<p>and:</p>
+$$x = (14 / 238, 5 / 34, 0)$$$$y = (1 / 13, 12 / 78)$$<p>Normalising these gives:</p>
+$$\sigma_r = \left(\frac{14 / 238}{5 / 34 + 14 / 238}, \frac{5 / 34}{5 / 34 + 14 / 238}, 0\right) = \left(\frac{2}{7}, \frac{5}{7}, 0\right)$$<p>and:</p>
 $$
-\sigma_c = \left(\frac{1 / 13}{1 / 13 + 12 / 78}, \frac{12 / 78}{1 / 13 + 12 / 78}\right) = \left(\frac{1}{3}, \frac{2}{3}, 0\right)
+\sigma_c = \left(\frac{1 / 13}{1 / 13 + 12 / 78}, \frac{12 / 78}{1 / 13 + 12 / 78}\right) = \left(\frac{1}{3}, \frac{2}{3}\right)
 $$<p>Here is some code to carry out the above:</p>
 
 </div>
