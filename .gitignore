@@ -5,3 +5,4 @@ docs/assets/activities/*.log
 docs/assets/activities/*.fls
 docs/assets/activities/*.fdb_latexmk
 *mypy_cache*
+*DS_Store
