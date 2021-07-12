@@ -26,13 +26,12 @@ description: >- # this means to ignore newlines until "baseurl:"
   programming through notions such as Nash Equilibria and Evolutionary Game
   Theory. Students will learn Game Theory in an active way through role playing
   and student-led activities.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/gt" # the subpath of your site, e.g. /blog
+url: "https://vknight.org" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: drvinceknight
 github_username:  drvinceknight
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
 
@@ -55,3 +54,13 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+#
+collections:
+  weeks:
+  faqs:
+  topics:
+    output: true
+
+kramdown:
+  syntax_highlighter_opts:
+    disable : true
