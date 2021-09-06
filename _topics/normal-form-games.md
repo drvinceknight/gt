@@ -9,8 +9,3 @@ video_urls:
 meeting_urls:
     - "https://vkgt.readthedocs.io"
 ---
-
-
-Here is some mathematics:
-
-$$ \max(x) \times \frac{1}{2} $$
