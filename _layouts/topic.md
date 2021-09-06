@@ -41,11 +41,3 @@ layout: default
 {{ page.content }}
 
 </div>
-<script src="https://utteranc.es/client.js"
-        repo="drvinceknight/gt"
-        issue-term="pathname"
-        label="💬 comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
