@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="stylesheet" href="/gt/assets/css/normalize.css">
+  <link rel="stylesheet" href="/gt/assets/css/skeleton.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<link rel="stylesheet" href="/gt/assets/css/notebook.css">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+<header>
+    <div class="row">
+        <div class="three.columns">
+            <a class="logo" href="/gt">Game Theory</a>
+        </div>
+        <div class="nine.columns">
+              <input id="nav" type="checkbox">
+              <label for="nav"></label>
+              <nav>
+                  <ul>
+                      
+                      <li><a href=/gt/chapters/00/>00: Introduction to the course</a></li>
+                      
+                      <li><a href=/gt/chapters/01/>01: Normal Form Games</a></li>
+                      
+                      <li><a href=/gt/chapters/02/>02: Calculating utilities of strategies</a></li>
+                      
+                      <li><a href=/gt/chapters/03/>03: Rationalisation</a></li>
+                      
+                      <li><a href=/gt/chapters/04/>04: Nash equilibria</a></li>
+                      
+                      <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
+                      
+                      <li><a href=/gt/chapters/06/>06: Best Responses Polytopes</a></li>
+                      
+                      <li><a href=/gt/chapters/07/>07: The Lemke Howson algorithm</a></li>
+                      
+                      <li><a href=/gt/chapters/08/>08: Repeated games</a></li>
+                      
+                      <li><a href=/gt/chapters/09/>09: Prisoners Dilemma</a></li>
+                      
+                      <li><a href=/gt/chapters/10/>10: Evolutionary dynamics</a></li>
+                      
+                      <li><a href=/gt/chapters/11/>11: Evolutionary Game Theory</a></li>
+                      
+                      <li><a href=/gt/chapters/12/>12: Moran processes</a></li>
+                      
+                      <li><a href=/gt/chapters/13/>13: Contemporary Research</a></li>
+                      
+                  </ul>
+              </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Reading-list">Reading list<a class="anchor-link" href="#Reading-list">&#182;</a></h1><h2 id="Books">Books<a class="anchor-link" href="#Books">&#182;</a></h2><p><strong>The 3 main texts that complement/follow this course are:</strong></p>
+<ul>
+<li>Nash equilibrium <a href="https://www.amazon.co.uk/d/Books/Algorithmic-Game-Theory-Noam-Nisan/0521872820/ref=sr_1_2?ie=UTF8&amp;qid=1500820951&amp;sr=8-2&amp;keywords=algorithmic+game+theory">Algorithmic Game Theory by Noam Nisan, Tim Roughgarden, Eva Tardos and Vijay V. Vazirani</a>.</li>
+<li>Repeated games <a href="https://www.amazon.co.uk/Evolution-Co-Operation-Penguin-Press-Science/dp/0140124950/ref=sr_1_1?ie=UTF8&amp;qid=1500830024&amp;sr=8-1&amp;keywords=the+evolution+of+cooperation">The evolution of cooperation by Robert Axelrod</a>.</li>
+<li>Evolutionary game theory <a href="https://www.amazon.co.uk/Evolutionary-Dynamics-Exploring-Equations-Life-x/dp/0674023382/ref=sr_1_1?ie=UTF8&amp;qid=1500830048&amp;sr=8-1&amp;keywords=evolutionary+dynamics+nowak">Evolutionary dynamics by Martin Nowak</a>.</li>
+</ul>
+<p>Other books:</p>
+<ul>
+<li><a href="https://www.amazon.co.uk/Game-Theory-Michael-Maschler/dp/1107005485">Game Theory by Michael Maschler, Eilon Solan and Shmuel Zamir</a></li>
+<li><a href="https://arxiv.org/abs/1512.06808">GAME THEORY An open access textbook with 165 solved exercises by Giacomo Bonanno</a></li>
+<li><a href="https://www.amazon.co.uk/gp/product/0393929345/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=103612307&amp;pf_rd_s=lpo-top-stripe&amp;pf_rd_t=201&amp;pf_rd_i=0393976483&amp;pf_rd_m=A3P5ROKL5A1OLE&amp;pf_rd_r=0BE4W0BXXBE8Q2YNV72B">Strategy: An introduction to Game Theory by Joel Watson</a></li>
+<li><a href="https://www.amazon.co.uk/Introduction-Game-Theory-Martin-Osborne/dp/0195128958/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1390326628&amp;sr=1-1&amp;keywords=osborne+game+theory">An Introduction to Game Theory by Martin Osborne</a></li>
+<li><a href="http://greenteapress.com/wp/think-complexity/">Think complexity by Allen Downey</a></li>
+</ul>
+<h2 id="Web-resources:">Web resources:<a class="anchor-link" href="#Web-resources:">&#182;</a></h2><ul>
+<li><a href="https://www.youtube.com/playlist?list=PL6EF60E1027E1A10B&amp;feature=plcp">Ben Polak's Yale course youtube playlist</a></li>
+<li><a href="http://www.gametheory.net/">www.gametheory.net/</a></li>
+<li><a href="https://www.reddit.com/r/GAMETHEORY/">Game theory reddit sub</a></li>
+<li><a href="http://ncase.me/trust/">A very cool interactive web game about the Prisoners Dilemma and Moran Processes</a></li>
+<li><a href="http://axelrod.readthedocs.io/en/stable/">Documentation for the Axelrod library with background information</a></li>
+<li><a href="http://nashpy.readthedocs.io/en/stable/">Documentation for the Nashpy library with background information</a></li>
+<li><a href="https://egtheory.wordpress.com/">EGT blog - an evolutionary game theory blog</a></li>
+<li><a href="https://twitter.com/AxelrodPython/">Twitter account for the Axelrod library with tweets of matches and tournaments</a></li>
+<li><a href="https://arxiv.org/list/cs.GT/recent">Recent research pre prints on Game Theory</a></li>
+</ul>
+<h2 id="Some-game-theorists:">Some game theorists:<a class="anchor-link" href="#Some-game-theorists:">&#182;</a></h2><ul>
+<li><a href="https://twitter.com/dbasanta">Twitter account for David Basanta</a></li>
+<li><a href="https://twitter.com/CancerConnector">Twitter account for Jacob G Scott</a></li>
+<li><a href="https://twitter.com/kaznatcheev">Twitter account for Artem Kaznatcheev</a></li>
+<li><a href="https://twitter.com/DrMANowak">Twitter account for Martin Nowak</a></li>
+<li><a href="https://twitter.com/jorgeapenas">Twitter account for Jorge Peña</a></li>
+<li><a href="https://twitter.com/yshoham?lang=en">Twitter account for Yoav Shoham</a></li>
+<li><a href="https://twitter.com/k_leyton_brown?lang=en">Twitter account for Kevin Leyton Brown</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+ 
+
+
+
+    
+        <a href="../assessment/">Previous</a>
+    
+    
+        <p align="right"><a href="../obtaining-assistance/">Next</a></p>
+    
+
+
+</div>
+
+<div class="container">
+    <center>
+    <p style="font-size: small;">
+    Source code:
+    <a href="https://github.com/drvinceknight/gt">@drvinceknight</a>
+    Powered by:
+        <a href="https://www.python.org/">Python</a>
+        <a href="https://www.mathjax.org/">Mathjax</a>
+        <a href="https://pages.github.com/">Github pages</a>
+        <a href="http://getskeleton.com/">Skeleton css</a>
+    </p>
+    </center>
+</div>
+
+<script>
+    document.querySelector('header nav ul').addEventListener('click', function(){
+        document.querySelector('#nav').checked = false;
+    });
+
+    var menuHeight = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.section-title').forEach(function(a){
+        a.style.paddingTop = menuHeight + 'px';
+        a.style.marginTop = '-' + menuHeight + 'px';
+    });
+</script>
+
+</body>
+</html>

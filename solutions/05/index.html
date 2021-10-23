@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="stylesheet" href="/gt/assets/css/normalize.css">
+  <link rel="stylesheet" href="/gt/assets/css/skeleton.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<link rel="stylesheet" href="/gt/assets/css/notebook.css">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+<header>
+    <div class="row">
+        <div class="three.columns">
+            <a class="logo" href="/gt">Game Theory</a>
+        </div>
+        <div class="nine.columns">
+              <input id="nav" type="checkbox">
+              <label for="nav"></label>
+              <nav>
+                  <ul>
+                      
+                      <li><a href=/gt/chapters/00/>00: Introduction to the course</a></li>
+                      
+                      <li><a href=/gt/chapters/01/>01: Normal Form Games</a></li>
+                      
+                      <li><a href=/gt/chapters/02/>02: Calculating utilities of strategies</a></li>
+                      
+                      <li><a href=/gt/chapters/03/>03: Rationalisation</a></li>
+                      
+                      <li><a href=/gt/chapters/04/>04: Nash equilibria</a></li>
+                      
+                      <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
+                      
+                      <li><a href=/gt/chapters/06/>06: Best Responses Polytopes</a></li>
+                      
+                      <li><a href=/gt/chapters/07/>07: The Lemke Howson algorithm</a></li>
+                      
+                      <li><a href=/gt/chapters/08/>08: Repeated games</a></li>
+                      
+                      <li><a href=/gt/chapters/09/>09: Prisoners Dilemma</a></li>
+                      
+                      <li><a href=/gt/chapters/10/>10: Evolutionary dynamics</a></li>
+                      
+                      <li><a href=/gt/chapters/11/>11: Evolutionary Game Theory</a></li>
+                      
+                      <li><a href=/gt/chapters/12/>12: Moran processes</a></li>
+                      
+                      <li><a href=/gt/chapters/13/>13: Contemporary Research</a></li>
+                      
+                  </ul>
+              </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Support-enumeration---solutions">Support enumeration - solutions<a class="anchor-link" href="#Support-enumeration---solutions">&#182;</a></h1><ol>
+<li><p>Define the support of a strategy.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/05/#Definition-of-support">https://vknight.org/gt/chapters/05/#Definition-of-support</a></p>
+</li>
+<li><p>Obtain the supports for the following strategy vectors:</p>
+<ol>
+<li>$\sigma = (1, 0, 0, 0)$: $S(\sigma)=\{1\}$</li>
+<li>$\sigma = (.5, 0, .5, 0)$: $S(\sigma)=\{1, 3\}$</li>
+<li>$\sigma = (.25, .25, .25, .25)$: $S(\sigma)=\{1, 2, 3, 4\}$</li>
+</ol>
+</li>
+<li><p>Define a degenerate game.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/05/#Definition-of-nondegenerate-games">https://vknight.org/gt/chapters/05/#Definition-of-nondegenerate-games</a></p>
+</li>
+<li><p>Construct a degenerate $3\times 3$ game.</p>
+<p>Many possible solutions. Here is one:</p>
+<p>$$
+A = \begin{pmatrix}
+1 &amp; 2 &amp; 3\\
+1 &amp; 3 &amp; 2\\
+0 &amp; 1 &amp; 4
+\end{pmatrix}
+\qquad
+B = \begin{pmatrix}
+-1 &amp; -2 &amp; -3\\
+-1 &amp; -3 &amp; -2\\
+0  &amp; -1 &amp; -4
+\end{pmatrix}
+$$</p>
+<p>Consider $\sigma_c = (1, 0, 0)$, we have $A\sigma_c^T=\begin{pmatrix}1 &amp; 1 &amp; 0\end{pmatrix}$. Thus, there are two best responses to $\sigma_c$ however $|S(\sigma_c)|=1$.</p>
+</li>
+<li><p>Describe the support enumeration algorithm.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/05/#Support-enumeration-algorithm">https://vknight.org/gt/chapters/05/#Support-enumeration-algorithm</a></p>
+</li>
+<li><p>Use support enumeration to find Nash equilibria for the following games:</p>
+<ol>
+<li><p>$
+A =
+\begin{pmatrix}
+3  &amp; 3 &amp; 2 \\
+2  &amp; 1 &amp; 3 
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+2  &amp; 1 &amp; 3 \\
+2  &amp; 3 &amp; 2 
+\end{pmatrix}
+$</p>
+<p>We need to consider three possible supports for the column player: $J\in\{(1, 2), (1, 3), (2, 3)\}$:</p>
+<ol>
+<li><p>$I=(1, 2)$ and $J=(1, 2)$, the indifference condition gives:</p>
+<p>$$
+2{\sigma_{r}}_1+2{\sigma_{r}}_2={\sigma_{r}}_1+3{\sigma_{r}}_2
+$$</p>
+<p>$$
+{\sigma_{r}}_1={\sigma_{r}}_2
+$$</p>
+<p>$$
+3{\sigma_{c}}_1+3{\sigma_{c}}_2=2{\sigma_{c}}_1+{\sigma_{c}}_2
+$$</p>
+<p>$$
+{\sigma_{c}}_1=-2{\sigma_{c}}_2
+$$</p>
+<p>which would not give a valid probability vector.</p>
+</li>
+<li><p>$I=(1, 2)$ and $J=(1, 3)$, the indifference condition gives:</p>
+<p>$$
+2{\sigma_{r}}_1+2{\sigma_{r}}_2=3{\sigma_{r}}_1+2{\sigma_{r}}_2
+$$</p>
+<p>$$
+-{\sigma_{r}}_1=0
+$$</p>
+<p>which is not valid for this support. (No need to check the condition on $\sigma_c$).</p>
+</li>
+<li><p>$I=(1, 2)$ and $J=(2, 3)$, the indifference condition gives:</p>
+<p>$$
+{\sigma_{r}}_1+3{\sigma_{r}}_2=3{\sigma_{r}}_1+2{\sigma_{r}}_2
+$$</p>
+<p>$$
+{\sigma_{r}}_2=2{\sigma_{r}}_1
+$$</p>
+<p>$$
+3{\sigma_{c}}_2+2{\sigma_{c}}_3={\sigma_{c}}_2+3{\sigma_{c}}_3
+$$</p>
+<p>$$
+2{\sigma_{c}}_2={\sigma_{c}}_3
+$$</p>
+<p>Normalising both these solutions gives:</p>
+<p>$$\sigma_r=(1/3, 2/3)\qquad\sigma_c=(0, 1/3, 2/3)$$</p>
+<p>We confirm these two vectors are best responses to each other:</p>
+<p>$$A\sigma_c^T=\begin{pmatrix}7/3\\7/3\end{pmatrix}$$</p>
+<p>thus $\sigma_r$ is a best response to $\sigma_c$.</p>
+<p>$$\sigma_rB=\begin{pmatrix}2&amp;7/3&amp;7/3\end{pmatrix}$$</p>
+<p>thus $\sigma_c$ is a best response to $\sigma_r$.</p>
+</li>
+</ol>
+<p>Thus the unique Nash equilibrium for this game is:</p>
+<p>$$((1/3, 2/3), (0, 1/3, 2/3))$$</p>
+</li>
+<li><p>$
+A =
+\begin{pmatrix}
+3 &amp; -1\\
+2 &amp; 7\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+-3 &amp; 1\\
+1 &amp; -6\end{pmatrix}
+$</p>
+<p>There is a single pair of supports to investigate here giving the pair of equations:</p>
+<p>$$
+-3{\sigma_{r}}_1+{\sigma_{r}}_2={\sigma_{r}}_1-6{\sigma_{r}}_2
+$$</p>
+<p>$$
+{\sigma_{r}}_2=4/7{\sigma_{r}}_1
+$$</p>
+<p>$$
+3{\sigma_{c}}_1-{\sigma_{c}}_2=2{\sigma_{c}}_1+7{\sigma_{c}}_2
+$$</p>
+<p>$$
+{\sigma_{c}}_1=8{\sigma_{c}}_2
+$$</p>
+<p>Normalising these gives: ${\sigma_{r}}_1(4/7 + 1) = 1\Rightarrow {\sigma_{r}}_1=7/11$ and ${\sigma_{c}}_1(1/8 + 1) = 1\Rightarrow {\sigma_{c}}_1=8/9$. Giving the unique nash equilibrium (there is no need to check the best response, as there are no other strategies outside of these supports):</p>
+<p>$$((7/11, 4/11), (8/9, 1/9))$$</p>
+</li>
+</ol>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+ 
+
+
+
+    
+        <a href="../04/">Previous</a>
+    
+    
+        <p align="right"><a href="../06/">Next</a></p>
+    
+
+
+</div>
+
+<div class="container">
+    <center>
+    <p style="font-size: small;">
+    Source code:
+    <a href="https://github.com/drvinceknight/gt">@drvinceknight</a>
+    Powered by:
+        <a href="https://www.python.org/">Python</a>
+        <a href="https://www.mathjax.org/">Mathjax</a>
+        <a href="https://pages.github.com/">Github pages</a>
+        <a href="http://getskeleton.com/">Skeleton css</a>
+    </p>
+    </center>
+</div>
+
+<script>
+    document.querySelector('header nav ul').addEventListener('click', function(){
+        document.querySelector('#nav').checked = false;
+    });
+
+    var menuHeight = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.section-title').forEach(function(a){
+        a.style.paddingTop = menuHeight + 'px';
+        a.style.marginTop = '-' + menuHeight + 'px';
+    });
+</script>
+
+</body>
+</html>

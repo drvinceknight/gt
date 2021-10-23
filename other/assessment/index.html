@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="stylesheet" href="/gt/assets/css/normalize.css">
+  <link rel="stylesheet" href="/gt/assets/css/skeleton.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<link rel="stylesheet" href="/gt/assets/css/notebook.css">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+<header>
+    <div class="row">
+        <div class="three.columns">
+            <a class="logo" href="/gt">Game Theory</a>
+        </div>
+        <div class="nine.columns">
+              <input id="nav" type="checkbox">
+              <label for="nav"></label>
+              <nav>
+                  <ul>
+                      
+                      <li><a href=/gt/chapters/00/>00: Introduction to the course</a></li>
+                      
+                      <li><a href=/gt/chapters/01/>01: Normal Form Games</a></li>
+                      
+                      <li><a href=/gt/chapters/02/>02: Calculating utilities of strategies</a></li>
+                      
+                      <li><a href=/gt/chapters/03/>03: Rationalisation</a></li>
+                      
+                      <li><a href=/gt/chapters/04/>04: Nash equilibria</a></li>
+                      
+                      <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
+                      
+                      <li><a href=/gt/chapters/06/>06: Best Responses Polytopes</a></li>
+                      
+                      <li><a href=/gt/chapters/07/>07: The Lemke Howson algorithm</a></li>
+                      
+                      <li><a href=/gt/chapters/08/>08: Repeated games</a></li>
+                      
+                      <li><a href=/gt/chapters/09/>09: Prisoners Dilemma</a></li>
+                      
+                      <li><a href=/gt/chapters/10/>10: Evolutionary dynamics</a></li>
+                      
+                      <li><a href=/gt/chapters/11/>11: Evolutionary Game Theory</a></li>
+                      
+                      <li><a href=/gt/chapters/12/>12: Moran processes</a></li>
+                      
+                      <li><a href=/gt/chapters/13/>13: Contemporary Research</a></li>
+                      
+                  </ul>
+              </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Assessment">Assessment<a class="anchor-link" href="#Assessment">&#182;</a></h1><p>There are two components of assessment in this course:</p>
+<ul>
+<li>Individual coursework (25%)</li>
+<li>Exam (75%)</li>
+</ul>
+<hr>
+<h2 id="Individual-coursework">Individual coursework<a class="anchor-link" href="#Individual-coursework">&#182;</a></h2><p><strong>Due date: 2021-04-02 (1st Week of Easter Break)</strong></p>
+<p><strong>Goal:</strong> Demonstrate your understanding of an aspect of game theory.</p>
+<p><strong>How:</strong> Write a 2 page (<strong>strict</strong> upper limit) report that illustrates an aspect of game theory using a programming language.</p>
+<p>I recommend you use Python for the programming language (you can make use of the various code snippets included in the notes) but you are free to use any software you want.</p>
+<p><strong>You will submit a pdf via turnitin on learning central.</strong></p>
+<h3 id="Marking-critera">Marking critera<a class="anchor-link" href="#Marking-critera">&#182;</a></h3><ul>
+<li>Scope 50%: Your depth of understanding of the subject.</li>
+<li>Presentation 25% - How well written the report is.</li>
+<li>Code 25% - Your use of code.</li>
+</ul>
+<p><strong>The choice of subject is yours, here are two potential general directions:</strong></p>
+<ul>
+<li>Prove and illustrate a theorem from the notes (or otherwise);</li>
+<li>Model a real world scenario using game theory.</li>
+</ul>
+<hr>
+<h2 id="Exam">Exam<a class="anchor-link" href="#Exam">&#182;</a></h2><p>This will be a standard 3rd year Cardiff University, School of Mathematics exam: you will choose 3 questions from a collection of 4.</p>
+<p>Each question will be out of 25 marks. This is to be seen to roughly correspond to:</p>
+<ul>
+<li>10 marks covering aspects directly seen in the notes (proving seen theorems, performing similar calculations;</li>
+<li>10 marks extending things seen in the notes (proving similar theorems, considering particular games);</li>
+<li>5 marks on unseen materials</li>
+</ul>
+<p>A slight particularity of the course is that it is possible that you are asked questions about current contemporary research based on the papers discussed in <a href="http://vknight.org/gt/chapters/13/">http://vknight.org/gt/chapters/13/</a></p>
+
+</div>
+</div>
+</div>
+ 
+
+
+
+    
+        <a href="../list-of-theorems-proofs-and-algorithms/">Previous</a>
+    
+    
+        <p align="right"><a href="../reading-list/">Next</a></p>
+    
+
+
+</div>
+
+<div class="container">
+    <center>
+    <p style="font-size: small;">
+    Source code:
+    <a href="https://github.com/drvinceknight/gt">@drvinceknight</a>
+    Powered by:
+        <a href="https://www.python.org/">Python</a>
+        <a href="https://www.mathjax.org/">Mathjax</a>
+        <a href="https://pages.github.com/">Github pages</a>
+        <a href="http://getskeleton.com/">Skeleton css</a>
+    </p>
+    </center>
+</div>
+
+<script>
+    document.querySelector('header nav ul').addEventListener('click', function(){
+        document.querySelector('#nav').checked = false;
+    });
+
+    var menuHeight = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.section-title').forEach(function(a){
+        a.style.paddingTop = menuHeight + 'px';
+        a.style.marginTop = '-' + menuHeight + 'px';
+    });
+</script>
+
+</body>
+</html>

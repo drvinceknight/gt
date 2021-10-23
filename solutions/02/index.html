@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="stylesheet" href="/gt/assets/css/normalize.css">
+  <link rel="stylesheet" href="/gt/assets/css/skeleton.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<link rel="stylesheet" href="/gt/assets/css/notebook.css">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+<header>
+    <div class="row">
+        <div class="three.columns">
+            <a class="logo" href="/gt">Game Theory</a>
+        </div>
+        <div class="nine.columns">
+              <input id="nav" type="checkbox">
+              <label for="nav"></label>
+              <nav>
+                  <ul>
+                      
+                      <li><a href=/gt/chapters/00/>00: Introduction to the course</a></li>
+                      
+                      <li><a href=/gt/chapters/01/>01: Normal Form Games</a></li>
+                      
+                      <li><a href=/gt/chapters/02/>02: Calculating utilities of strategies</a></li>
+                      
+                      <li><a href=/gt/chapters/03/>03: Rationalisation</a></li>
+                      
+                      <li><a href=/gt/chapters/04/>04: Nash equilibria</a></li>
+                      
+                      <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
+                      
+                      <li><a href=/gt/chapters/06/>06: Best Responses Polytopes</a></li>
+                      
+                      <li><a href=/gt/chapters/07/>07: The Lemke Howson algorithm</a></li>
+                      
+                      <li><a href=/gt/chapters/08/>08: Repeated games</a></li>
+                      
+                      <li><a href=/gt/chapters/09/>09: Prisoners Dilemma</a></li>
+                      
+                      <li><a href=/gt/chapters/10/>10: Evolutionary dynamics</a></li>
+                      
+                      <li><a href=/gt/chapters/11/>11: Evolutionary Game Theory</a></li>
+                      
+                      <li><a href=/gt/chapters/12/>12: Moran processes</a></li>
+                      
+                      <li><a href=/gt/chapters/13/>13: Contemporary Research</a></li>
+                      
+                  </ul>
+              </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Calculating-utilities-of-strategies---Solutions">Calculating utilities of strategies - Solutions<a class="anchor-link" href="#Calculating-utilities-of-strategies---Solutions">&#182;</a></h1><ol>
+<li><p>Give the definition of a mixed strategy.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/02/#Definition-of-mixed-strategies">https://vknight.org/gt/chapters/02/#Definition-of-mixed-strategies</a></p>
+</li>
+<li><p>For the following vectors explain which ones are valid mixed strategy vectors for a strategy set of size 5. If there are not: explain why.</p>
+<ol>
+<li>$\sigma=(1, 0, 0, 0, 0)$: Valid.</li>
+<li>$\sigma=(1/4, 1/4, 0, 0, 1/4)$: Not valid, do not sum to 1.</li>
+<li>$\sigma=(1/4, 1/4, 1/2, -1/2, 1/2)$: Not valid, non positive values.</li>
+<li>$\sigma=(1/4, 1/4, 0, 0, 11/20)$: Not valid, do not sum to 1.</li>
+<li>$\sigma=(1/5, 1/5, 1/5, 1/5, 1/5)$: Valid.</li>
+</ol>
+</li>
+<li><p>Calculate the utilities (for both the row and column player) for the following game for the following strategy pairs:</p>
+<p>$$
+A =
+\begin{pmatrix}
+1 &amp; -1\\
+-3 &amp; 1\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+-1 &amp; 2\\
+1 &amp; -1\end{pmatrix}
+$$</p>
+<ol>
+<li><p>$\sigma_r = (.2, .8)\qquad\sigma_c = (.6, .4)$</p>
+<p>$$u_r(\sigma_r, \sigma_c) = \sigma_r A \sigma_c ^T = .2\times.6\times 1 + .2\times .4\times (-1) + .8\times.6\times (-3) + .8\times .4\times 1=-1.08$$</p>
+<p>$$u_c(\sigma_r, \sigma_c) = \sigma_r B \sigma_c ^T = .2\times.6\times (-1) + .2\times .4\times 2 + .8\times.6\times 1 + .8\times .4\times (-1)=0.2 $$</p>
+</li>
+<li><p>$\sigma_r = (.3, .7)\qquad\sigma_c = (.2, .8)$</p>
+<p>$$u_r(\sigma_r, \sigma_c) = -0.04$$</p>
+<p>$$u_c(\sigma_r, \sigma_c) = 0$$</p>
+</li>
+<li><p>$\sigma_r = (.9, .1)\qquad\sigma_c = (.5, .5)$</p>
+<p>$$u_r(\sigma_r, \sigma_c) = -0.1$$</p>
+<p>$$u_c(\sigma_r, \sigma_c) = 0.45$$</p>
+</li>
+</ol>
+</li>
+<li><p>Consider two column player strategies $z^{(1)}$ and $z^{(2)}$, obtain a linear algebraic expression for the expected utility to the row player playing against both these strategies, in terms of a row strategy $\sigma_r$, a payoff matrix $A$ and $\sigma_c=\frac{z^{(1)} + z^{(2)}}{2}$:</p>
+<p>$$E(u_r(\sigma_r)) = 1/2u_r(\sigma_r, z^{(1)}) + 1/2u_r(\sigma_r, z^{(2)}) = 1/2\sigma_rA{z^{(2)}}^T +  1/2\sigma_rA{z^{(1)}}^T = \sigma_rA\left(1/2{z^{(2)}}^T +  1/2{z^{(1)}}^T\right)=\sigma_rA\sigma_c^T$$</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+ 
+
+
+
+    
+        <a href="../01/">Previous</a>
+    
+    
+        <p align="right"><a href="../03/">Next</a></p>
+    
+
+
+</div>
+
+<div class="container">
+    <center>
+    <p style="font-size: small;">
+    Source code:
+    <a href="https://github.com/drvinceknight/gt">@drvinceknight</a>
+    Powered by:
+        <a href="https://www.python.org/">Python</a>
+        <a href="https://www.mathjax.org/">Mathjax</a>
+        <a href="https://pages.github.com/">Github pages</a>
+        <a href="http://getskeleton.com/">Skeleton css</a>
+    </p>
+    </center>
+</div>
+
+<script>
+    document.querySelector('header nav ul').addEventListener('click', function(){
+        document.querySelector('#nav').checked = false;
+    });
+
+    var menuHeight = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.section-title').forEach(function(a){
+        a.style.paddingTop = menuHeight + 'px';
+        a.style.marginTop = '-' + menuHeight + 'px';
+    });
+</script>
+
+</body>
+</html>
