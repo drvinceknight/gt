@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ site.title }}</title>
+
+        <meta charset="UTF-8">
+        <!-- Mobile Specific Metas –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="{{ description }}">
+        <meta name="keywords" content="{{ keywords }}">
+        <meta name="author" content="{{ author }}">
+        <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<link rel="shortcut icon" type="image/png" href="{{ site.baseurl}}/assets/favicon.ico"/>
+
+        <!-- Mathjax -->
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <!-- Google Analytics -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-38016329-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </head>
+
+    <body>
+        <nav class="navbar sticky-top navbar-light bg-light">
+            <a class="navbar-brand" href={{ site.baseurl }}/>{{ site.title }}</a>
+        </nav>
+
+        <div class="container">
+
+            {{ content }}
+
+        </div>
+
+    <div class="container">
+        <script src="https://utteranc.es/client.js"
+                repo="drvinceknight/gt"
+                issue-term="pathname"
+                label="💬 comment"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+    </div>
+
+        <div class="container">
+            <center>
+                <p style="font-size: small;">
+                Source code:
+                <a href="https://github.com/drvinceknight/cfm">@drvinceknight</a>
+                Powered by:
+                <a href="https://jekyllrb.com">Jekyll</a>
+                <a href="https://pages.github.com/">Github pages</a>
+                <a href="https://getbootstrap.com">Bootsrap css</a>
+                </p>
+            </center>
+        </div>
+
+    </body>
+
+</html>
