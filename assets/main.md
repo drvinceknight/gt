@@ -1934,20 +1934,8 @@ Thus the first strategy is an ESS (ie resists invasion) iff one of the two hold:
 
 ```python
 import numpy as np
+import nashpy as nash
 import matplotlib.pyplot as plt
-%matplotlib inline
-
-from scipy.integrate import odeint
-
-t = np.linspace(0, 10, 100)  # Obtain 100 time points
-
-def dx(x, t, A):
-    """
-    Define the derivate of x.
-    """
-    f = np.dot(A, x)
-    phi = np.dot(f, x)
-    return x * (f - phi)
 ```
 
 The case of $a>c$:
@@ -1955,8 +1943,13 @@ The case of $a>c$:
 
 ```python
 A = np.array([[4, 3], [2, 1]])
+game = nash.Game(A)
+timepoints = np.linspace(0, 10, 1000)
 epsilon = 10 ** -1
-xs = odeint(func=dx, y0=[1 - epsilon, epsilon], t=t, args=(A,))
+xs = game.replicator_dynamics(
+    y0=[1 - epsilon, epsilon], 
+    timepoints=timepoints,
+)
 plt.plot(xs);
 ```
 
@@ -1969,8 +1962,11 @@ The case of $a=c$ and $b>d$:
 
 ```python
 A = np.array([[4, 3], [4, 1]])
-epsilon = 10 ** -1
-xs = odeint(func=dx, y0=[1 - epsilon, epsilon], t=t, args=(A,))
+game = nash.Game(A)
+xs = game.replicator_dynamics(
+    y0=[1 - epsilon, epsilon], 
+    timepoints=timepoints,
+)
 plt.plot(xs);
 ```
 
@@ -1983,8 +1979,11 @@ $a=c$ and $b < d$:
 
 ```python
 A = np.array([[4, 3], [4, 5]])
-epsilon = 10 ** -1
-xs = odeint(func=dx, y0=[1 - epsilon, epsilon], t=t, args=(A,))
+game = nash.Game(A)
+xs = game.replicator_dynamics(
+    y0=[1 - epsilon, epsilon], 
+    timepoints=timepoints,
+)
 plt.plot(xs);
 ```
 
@@ -1997,8 +1996,11 @@ $a < c$:
 
 ```python
 A = np.array([[1, 3], [4, 1]])
-epsilon = 10 ** -1
-xs = odeint(func=dx, y0=[1 - epsilon, epsilon], t=t, args=(A,))
+game = nash.Game(A)
+xs = game.replicator_dynamics(
+    y0=[1 - epsilon, epsilon], 
+    timepoints=timepoints,
+)
 plt.plot(xs);
 ```
 
@@ -2116,7 +2118,7 @@ A, y
 
 
 
-$$\left ( \left[\begin{matrix}1.0 & 3.0\\4.0 & 1.0\end{matrix}\right], \quad \left[\begin{matrix}y_{1}\\y_{2}\end{matrix}\right]\right )$$
+$\displaystyle \left( \left[\begin{matrix}1 & 3\\4 & 1\end{matrix}\right], \  \left[\begin{matrix}y_{1}\\y_{2}\end{matrix}\right]\right)$
 
 
 
@@ -2129,7 +2131,7 @@ rhs
 
 
 
-$$- 5.0 y_{1}^{2} + 5.0 y_{1} + 1.0$$
+$\displaystyle - 5 y_{1}^{2} + 5 y_{1} + 1$
 
 
 
@@ -2142,7 +2144,7 @@ lhs
 
 
 
-$$1.0 y_{1} + 1.8$$
+$\displaystyle 1.0 y_{1} + 1.8$
 
 
 
@@ -2154,7 +2156,7 @@ sym.factor(lhs - rhs)
 
 
 
-$$1.0 \left(1.0 y_{1} - 0.4\right)^{2}$$
+$\displaystyle 5.0 \left(1.0 y_{1} - 0.4\right)^{2}$
 
 
 # Moran Processes
