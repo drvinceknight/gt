@@ -74,21 +74,15 @@
                       
                       <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
                       
-                      <li><a href=/gt/chapters/06/>06: Best Responses Polytopes</a></li>
+                      <li><a href=/gt/chapters/06/>06: Repeated games</a></li>
                       
-                      <li><a href=/gt/chapters/07/>07: The Lemke Howson algorithm</a></li>
+                      <li><a href=/gt/chapters/07/>07: Prisoners Dilemma</a></li>
                       
-                      <li><a href=/gt/chapters/08/>08: Repeated games</a></li>
+                      <li><a href=/gt/chapters/08/>08: Evolutionary Game Theory</a></li>
                       
-                      <li><a href=/gt/chapters/09/>09: Prisoners Dilemma</a></li>
+                      <li><a href=/gt/chapters/09/>09: Moran processes</a></li>
                       
-                      <li><a href=/gt/chapters/10/>10: Evolutionary dynamics</a></li>
-                      
-                      <li><a href=/gt/chapters/11/>11: Evolutionary Game Theory</a></li>
-                      
-                      <li><a href=/gt/chapters/12/>12: Moran processes</a></li>
-                      
-                      <li><a href=/gt/chapters/13/>13: Contemporary Research</a></li>
+                      <li><a href=/gt/chapters/10/>10: Contemporary Research</a></li>
                       
                   </ul>
               </nav>
@@ -101,113 +95,45 @@
     <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Prisoners-dilemma---exercises">Prisoners dilemma - exercises<a class="anchor-link" href="#Prisoners-dilemma---exercises">&#182;</a></h1><ol>
-<li><p>Give the general definition for a Prisoners dilemma.</p>
-<p>Bookwork: <a href="https://vknight.org/gt/chapters/09/#Prisoners-Dilemma">https://vknight.org/gt/chapters/09/#Prisoners-Dilemma</a></p>
+<h1 id="Moran-processes---solutions">Moran processes - solutions<a class="anchor-link" href="#Moran-processes---solutions">&#182;</a></h1><ol>
+<li><p>Give the transition probabilities for the Moran process with neutral drift.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/12/#Moran-process-with-neutral-drift">https://vknight.org/gt/chapters/12/#Moran-process-with-neutral-drift</a></p>
 </li>
-<li><p>Justify if the following games are Prisoners dilemmas or not:</p>
+<li><p>Obtain the transition probability matrix for the Moran process with neutral drift with $N=4$ individuals.</p>
+</li>
+</ol>
+$$
+M = \begin{pmatrix}
+   1&amp;0&amp;0&amp;0&amp;0\\
+   3/16&amp;5/8&amp;3/16&amp;0&amp;0\\
+   0&amp;1/4&amp;1/2&amp;1/4&amp;0\\
+   0&amp;0&amp;3/16&amp;5/8&amp;3/16\\
+   0&amp;0&amp;0&amp;0&amp;1\\
+\end{pmatrix}
+$$<p></p>
+<p><code>3</code>. State and prove the theorem for fixation probabilities in a birth death process.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/12/#Theorem:-Fixation-probabilities-for-the-birth-death-process">https://vknight.org/gt/chapters/12/#Theorem:-Fixation-probabilities-for-the-birth-death-process</a></p>
+<p><code>4</code>. Extend the formulae of question 3 to the case of a Moran process on a game.</p>
+<p>Boookwork: <a href="https://vknight.org/gt/chapters/12/#Moran-process-on-a-game">https://vknight.org/gt/chapters/12/#Moran-process-on-a-game</a></p>
+<p><code>5</code>. For the following games, obtain the fixation probabilities for $N=4$:</p>
 <ol>
-<li><p>$
-A =
-\begin{pmatrix}
-3 &amp; 0\\
-5 &amp; 1
-\end{pmatrix}
-\qquad
-B =
-\begin{pmatrix}
-3 &amp; 5\\
-0 &amp; 1
-\end{pmatrix}
-$</p>
-<p>This is a Prisoners Dilemma: $(R, S, T, P) = (3, 1, 5, 0)$.</p>
+<li><p>$A=\begin{pmatrix}1 &amp; 1 \\ 1 &amp; 1\end{pmatrix}$</p>
+<p>This game corresponds to neutral drift, thus:</p>
+<p>$x_1=1/N=1/4$ (for both strategies).</p>
 </li>
-<li><p>$
-A =
-\begin{pmatrix}
-1 &amp; -1\\
-2 &amp; 0
-\end{pmatrix}
-\qquad
-B =
-\begin{pmatrix}
-1 &amp; 2\\
--1 &amp; 0
-\end{pmatrix}
-$</p>
-<p>This is a Prisoners Dilemma: $(R, S, T, P) = (1, -1, 2, 0)$: $2&gt;1&gt;0&gt;-1$ and $2\times 1 &gt; 2 - 1$.</p>
-</li>
-<li><p>$
-A =
-\begin{pmatrix}
-1 &amp; -1\\
-2 &amp; 0
-\end{pmatrix}
-\qquad
-B =
-\begin{pmatrix}
-3 &amp; 5\\
-0 &amp; 1
-\end{pmatrix}
-$</p>
-<p>This is not a Prisoner's Dilemma $A \ne B ^ T$</p>
-</li>
-<li><p>$
-A =
-\begin{pmatrix}
-6 &amp; 0\\
-12 &amp; 1
-\end{pmatrix}
-\qquad
-B =
-\begin{pmatrix}
-6 &amp; 12\\
-0 &amp; 0
-\end{pmatrix}
-$</p>
-<p>This is not a Prisoner's Dilemma $A \ne B ^ T$</p>
+<li><p>$A=\begin{pmatrix}1 &amp; 2 \\ 3 &amp; 1\end{pmatrix}$</p>
+<p>Assuming $i$ individuals of the first type, for this game we have $N=4$ and $(a, b, c, d)=(1, 2, 3, 1)$ the fitness of both types is given respectively by:</p>
+<p>$$f_{1i}=\frac{a(i-1)+b(N-i)}{N-1}=\frac{7-i}{3}$$
+$$f_{2i}=\frac{c(i)+d(N-i-1)}{N-1}=\frac{2i+3}{3}$$</p>
+<p>which gives:</p>
+<p>$$\gamma_i=\frac{f_{2i}}{f_{1i}}=\frac{2i+3}{7-i}$$</p>
+<p>thus:</p>
+<p>$$
+x_1=\frac{1}{1+\sum_{j=1}^{3}\prod_{k=1}^j\frac{2k+3}{5-k}}=\frac{1}{1+5/6+(5/6)(7/5)+(5/6)(7/5)(9/4)}=\frac{8}{45}
+$$</p>
+<p>Some code to verify this:</p>
 </li>
 </ol>
-</li>
-<li><p>Obtain the Markov chain representation for a match between reactive strategies with the following vectors:</p>
-<p>Bookwork: this is a substitution exercise using <a href="https://vknight.org/gt/chapters/09/#Markov-chain-representation-of-a-Match-between-two-reactive-strategies">https://vknight.org/gt/chapters/09/#Markov-chain-representation-of-a-Match-between-two-reactive-strategies</a></p>
-<ol>
-<li><p>$p=(1/2, 1/2)\qquad q=(1/2, 1/2)$</p>
-<p>$$M = \begin{pmatrix}
-1/4&amp;1/4&amp;1/4&amp;1/4\\
-1/4&amp;1/4&amp;1/4&amp;1/4\\
-1/4&amp;1/4&amp;1/4&amp;1/4\\
-1/4&amp;1/4&amp;1/4&amp;1/4
-\end{pmatrix}$$</p>
-</li>
-<li><p>$p=(1/4, 1/2)\qquad q=(1/2, 1/4)$</p>
-<p>$$M = \begin{pmatrix}
-1/8&amp;1/8&amp;3/8&amp;3/8\\
-1/4&amp;1/4&amp;1/4&amp;1/4\\
-1/16&amp;3/16&amp;3/16&amp;9/16\\
-1/8&amp;3/8&amp;1/8&amp;3/8
-\end{pmatrix}$$</p>
-</li>
-<li><p>$p=(1/3, 1/3)\qquad q=(2/3, 1/4)$</p>
-<p>$$M = \begin{pmatrix}
-2/9 &amp; 1/9 &amp; 4/9 &amp; 2/9\\
-2/9 &amp; 1/9 &amp; 4/9 &amp; 2/9\\
-1/12 &amp; 1/4 &amp; 1/6 &amp; 1/2\\
-1/12 &amp; 1/4 &amp; 1/6 &amp; 1/2
-\end{pmatrix}$$</p>
-</li>
-</ol>
-</li>
-<li><p>Obtain the utilities for both players for the vectors of question 3.</p>
-<p>Bookwork: this is a substitution exercise using <a href="https://vknight.org/gt/chapters/09/#Theorem:-steady-state-probabilities-for-match-between-reactive-players">https://vknight.org/gt/chapters/09/#Theorem:-steady-state-probabilities-for-match-between-reactive-players</a></p>
-<ol>
-<li>$p=(1/2, 1/2)\qquad q=(1/2, 1/2)$ gives utilities: $(9/4, 9/4)$</li>
-<li>$p=(1/4, 1/2)\qquad q=(1/2, 1/4)$ gives utilities: $(536/289, 621/289)$</li>
-<li>$p=(1/3, 1/3)\qquad q=(2/3, 1/4)$ gives utilities: $(113/54, 49/27)$</li>
-</ol>
-</li>
-</ol>
-<p>Here is some python code that also carries out these calculations:</p>
 
 </div>
 </div>
@@ -217,28 +143,16 @@ $</p>
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
-
-<span class="k">def</span> <span class="nf">make_matrix</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">game</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Code to obtain Markov chain representation of match between two reactive players.</span>
+<span class="sd">    Calculate x_i as given by the above formula</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">M</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ele</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">ele</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="n">player</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">player</span><span class="p">],</span> 
-                                                       <span class="p">[</span><span class="n">opponent</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">opponent</span><span class="p">])]</span>
-         <span class="k">for</span> <span class="n">opponent</span> <span class="ow">in</span> <span class="n">q</span> <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">p</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">theoretic_steady_state</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
-    <span class="n">r_1</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">r_2</span> <span class="o">=</span> <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">s_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_1</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r_1</span> <span class="o">*</span> <span class="n">r_2</span><span class="p">)</span>
-    <span class="n">s_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_2</span> <span class="o">+</span> <span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r_1</span> <span class="o">*</span> <span class="n">r_2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">s_1</span> <span class="o">*</span> <span class="n">s_2</span><span class="p">,</span> <span class="n">s_1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s_2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s_1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s_2</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s_1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s_2</span><span class="p">)])</span>
-
-<span class="k">def</span> <span class="nf">theoretic_utility</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">rstp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])):</span>
-    <span class="n">pi</span> <span class="o">=</span> <span class="n">theoretic_steady_state</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">rstp</span><span class="p">)</span>
+    <span class="n">f_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">game</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">game</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">i</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)])</span>
+    <span class="n">f_twos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">game</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="n">game</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)])</span>
+    <span class="n">gammas</span> <span class="o">=</span> <span class="n">f_twos</span> <span class="o">/</span> <span class="n">f_ones</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gammas</span><span class="p">[:</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">gammas</span><span class="p">)))</span>
 </pre></div>
 
     </div>
@@ -251,15 +165,8 @@ $</p>
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
-<span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="p">[([</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]),</span>
-             <span class="p">([</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]),</span>
-             <span class="p">([</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">])]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=====&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;gives:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">make_matrix</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;With utility:&quot;</span><span class="p">,</span> <span class="n">theoretic_utility</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">),</span> <span class="n">theoretic_utility</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">game</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span> <span class="p">[</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]])</span>
+<span class="n">theoretic_fixation</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">game</span><span class="o">=</span><span class="n">game</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -272,36 +179,15 @@ $</p>
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>=====
-[1/2, 1/2] [1/2, 1/2]
-gives:
-[[1/4 1/4 1/4 1/4]
- [1/4 1/4 1/4 1/4]
- [1/4 1/4 1/4 1/4]
- [1/4 1/4 1/4 1/4]]
-With utility: 9/4 9/4
-=====
-[1/4, 1/2] [1/2, 1/4]
-gives:
-[[1/8 1/8 3/8 3/8]
- [1/4 1/4 1/4 1/4]
- [1/16 3/16 3/16 9/16]
- [1/8 3/8 1/8 3/8]]
-With utility: 536/289 621/289
-=====
-[1/3, 1/3] [2/3, 1/4]
-gives:
-[[2/9 1/9 4/9 2/9]
- [2/9 1/9 4/9 2/9]
- [1/12 1/4 1/6 1/2]
- [1/12 1/4 1/6 1/2]]
-With utility: 113/54 49/27
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>8/45</pre>
 </div>
+
 </div>
 
 </div>
@@ -311,65 +197,16 @@ With utility: 113/54 49/27
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>5</code>. Assuming $p=(x, 1/2)$, find the optimal $x$ against the following players:</p>
-<p>A part of this question involves bookwork: this is a substitution exercise using <a href="https://vknight.org/gt/chapters/09/#Theorem:-steady-state-probabilities-for-match-between-reactive-players">https://vknight.org/gt/chapters/09/#Theorem:-steady-state-probabilities-for-match-between-reactive-players</a>. This is a substitution exercise to obtain a formula for the utility of $p$ as a function of $x$.</p>
-<ol>
-<li><p>$q=(1, 0)$</p>
-<p>$$u(x)=\frac{(-10x + 4(x - 1)^2 + 13)}{(2x - 3)^2}$$</p>
-<p>The derivative of this function is given by:</p>
-<p>$$
-\frac{2(6x - 7)}{(2x - 3)^3}
-$$</p>
-<p>This derivative has zero for $x=7/6$ which is $&gt;1$. Thus the utility is monotic increasing over the interval $[0, 1]$. We have (by substitution):</p>
-<p>$$u(0)=17/9\qquad u(1)=3$$</p>
-<p>Thus $u(x)$ is an increasing function so the optimal value of $x$ is $1$.</p>
-<p>Against a player that is unforgiving (reacts to defection with defection), given that our player will play randomly against a defection it is better to always cooperate.</p>
-</li>
-<li><p>$q=(1/2, 1/2)$</p>
-<p>$$u(x)=-3x/4+21/8$$</p>
-<p>This is a decreasing function so the optimal value of $x$ is $0$.</p>
-<p>Against a random player (who takes no notice of what we do) it is better to defect.</p>
-</li>
-</ol>
-<p>Below is some code to verify this calculations.</p>
+<p><code>6</code>. Consider the game $A=\begin{pmatrix}r &amp; 1 \\ 1 &amp; 1\end{pmatrix}$ for $r&gt;1$, and obtain $x_1$ as a function of $r$ and $N$. How does $r$ effect the chance of fixation?</p>
+<p>Assuming $i$ individuals of the first type, for this game we have $N=4$ and $(a, b, c, d)=(r, 1, 1, 1)$ the fitness of both types is given respectively by:</p>
+$$f_{1i}=\frac{r(i-1)+(N-i)}{N-1}$$$$f_{2i}=\frac{(i)+(N-i-1)}{N-1}=1$$<p>which gives:</p>
+$$\gamma_i=\frac{f_{2i}}{f_{1i}}=\frac{N-1}{r(i-1)+(N-i)}$$<p>thus:</p>
+$$
+  x_1=\frac{1}{1+\sum_{j=1}^{N-1}\prod_{k=1}^j\frac{N-1}{r(k-1)+(N-k)}}
+$$<p>Note that as $r$ increases the denominator of $x_1$ decreases (each term in the product decreases), thus $x_1$ increases as a function of $r$ (as expected).</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span> <span class="p">(</span><span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)]:</span>
-    <span class="n">utility</span> <span class="o">=</span> <span class="n">theoretic_utility</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">q</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">utility</span><span class="o">.</span><span class="n">simplify</span><span class="p">(),</span> <span class="n">utility</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">}),</span> <span class="n">utility</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="p">}),</span> <span class="n">sym</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">simplify</span><span class="p">(),</span> <span class="n">sym</span><span class="o">.</span><span class="n">solveset</span><span class="p">(</span><span class="n">sym</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">utility</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(-10*x + 4*(x - 1)**2 + 13)/(2*x - 3)**2 17/9 3 2*(6*x - 7)/(2*x - 3)**3 {7/6}
--3*x/4 + 21/8 21/8 15/8 -3/4 EmptySet()
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
  
 

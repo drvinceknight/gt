@@ -74,21 +74,15 @@
                       
                       <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
                       
-                      <li><a href=/gt/chapters/06/>06: Best Responses Polytopes</a></li>
+                      <li><a href=/gt/chapters/06/>06: Repeated games</a></li>
                       
-                      <li><a href=/gt/chapters/07/>07: The Lemke Howson algorithm</a></li>
+                      <li><a href=/gt/chapters/07/>07: Prisoners Dilemma</a></li>
                       
-                      <li><a href=/gt/chapters/08/>08: Repeated games</a></li>
+                      <li><a href=/gt/chapters/08/>08: Evolutionary Game Theory</a></li>
                       
-                      <li><a href=/gt/chapters/09/>09: Prisoners Dilemma</a></li>
+                      <li><a href=/gt/chapters/09/>09: Moran processes</a></li>
                       
-                      <li><a href=/gt/chapters/10/>10: Evolutionary dynamics</a></li>
-                      
-                      <li><a href=/gt/chapters/11/>11: Evolutionary Game Theory</a></li>
-                      
-                      <li><a href=/gt/chapters/12/>12: Moran processes</a></li>
-                      
-                      <li><a href=/gt/chapters/13/>13: Contemporary Research</a></li>
+                      <li><a href=/gt/chapters/10/>10: Contemporary Research</a></li>
                       
                   </ul>
               </nav>
@@ -101,38 +95,63 @@
     <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Best-response-polytopes---exercises">Best response polytopes - exercises<a class="anchor-link" href="#Best-response-polytopes---exercises">&#182;</a></h1><ol>
-<li>Define a polytope as a convex hull</li>
-<li>Define a polytope as an intersection of halfspaces</li>
-<li>For the following set of vertices draw the corresponding polytope <strong>and</strong> obtain their definition as an intersection of halfspaces:<ol>
-<li>V = $\{(0, 0), (0, 1), (1, 0), (1, 1)\}$</li>
-<li>V = $\{(0, 0), (0, 1/4), (1, 2/3), (2, 1/5)\}$</li>
-<li>V = $\{(0, 0), (0, 1/4), (1, 2/3), (2, 1/5), (1, 0)\}$</li>
+<h1 id="Repeated-games---exercises">Repeated games - exercises<a class="anchor-link" href="#Repeated-games---exercises">&#182;</a></h1><ol>
+<li>Define a repeated game.</li>
+<li>Define a strategy for a repeated game.</li>
+<li>Write the full potential history $\bigcup_{t=0}^{T-1}H(t)$ for repeated games with $T$ periods in the following cases:<ol>
+<li>$S_1=S_2=\{0, 1\}$ and $T=2$</li>
+<li>$S_1=\{r_1, r_2\}\;S_2=\{c_1, c_2\}$ and $T=3$</li>
 </ol>
 </li>
-<li>Define the best response polytopes.</li>
-<li>For the following games, obtain the best response polytopes, label the vertices and identify all Nash equilibria:<ol>
+<li>Obtain a formula for $\left|\bigcup_{t=0}^{T-1}H(t)\right|$ in terms of $S_1, S_2$ and $T$.</li>
+<li>State and prove the theorem of sequence of stage Nash equilibria.</li>
+<li>Obtain all sequence of stage Nash equilibria as well as another Nash equilibrium for the following repeated games:<ol>
 <li>$
 A =
 \begin{pmatrix}
 3 &amp; -1\\
-2 &amp; 7\end{pmatrix}
+2 &amp; 4\\
+3 &amp; 1
+\end{pmatrix}
 \qquad
 B =
 \begin{pmatrix}
--3 &amp; 1\\
-1 &amp; -6\end{pmatrix}
-$  </li>
+13 &amp; -1\\
+6 &amp; 2\\
+3 &amp; 1
+\end{pmatrix}
+\qquad
+T=2
+$ </li>
 <li>$
 A =
 \begin{pmatrix}
-2 &amp; -1\\
-1 &amp; 3\end{pmatrix}
+2 &amp; -1 &amp; 8\\
+4 &amp; 2 &amp; 9
+\end{pmatrix}
 \qquad
 B =
 \begin{pmatrix}
--2 &amp; 2\\
-1 &amp; -2\end{pmatrix}
+13 &amp; 14 &amp; -1\\
+6 &amp; 2 &amp; 6
+\end{pmatrix}
+\qquad
+T=2
+$</li>
+<li>$
+A =
+\begin{pmatrix}
+2 &amp; -1 &amp; 8\\
+4 &amp; 2 &amp; 9
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+501 &amp; 12 &amp; 31\\
+6 &amp; 14 &amp; 14
+\end{pmatrix}
+\qquad
+T=2
 $</li>
 </ol>
 </li>

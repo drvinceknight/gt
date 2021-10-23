@@ -74,21 +74,15 @@
                       
                       <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
                       
-                      <li><a href=/gt/chapters/06/>06: Best Responses Polytopes</a></li>
+                      <li><a href=/gt/chapters/06/>06: Repeated games</a></li>
                       
-                      <li><a href=/gt/chapters/07/>07: The Lemke Howson algorithm</a></li>
+                      <li><a href=/gt/chapters/07/>07: Prisoners Dilemma</a></li>
                       
-                      <li><a href=/gt/chapters/08/>08: Repeated games</a></li>
+                      <li><a href=/gt/chapters/08/>08: Evolutionary Game Theory</a></li>
                       
-                      <li><a href=/gt/chapters/09/>09: Prisoners Dilemma</a></li>
+                      <li><a href=/gt/chapters/09/>09: Moran processes</a></li>
                       
-                      <li><a href=/gt/chapters/10/>10: Evolutionary dynamics</a></li>
-                      
-                      <li><a href=/gt/chapters/11/>11: Evolutionary Game Theory</a></li>
-                      
-                      <li><a href=/gt/chapters/12/>12: Moran processes</a></li>
-                      
-                      <li><a href=/gt/chapters/13/>13: Contemporary Research</a></li>
+                      <li><a href=/gt/chapters/10/>10: Contemporary Research</a></li>
                       
                   </ul>
               </nav>
@@ -101,48 +95,79 @@
     <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-Lemke-Howson-algorithm---exercises">The Lemke-Howson algorithm - exercises<a class="anchor-link" href="#The-Lemke-Howson-algorithm---exercises">&#182;</a></h1><ol>
-<li>Define the Lemke-Howson algorithm</li>
-<li>Draw the best response polytopes and use the Lemke-Howson algorithm (with all possible starting labels) for the following games:<ol>
+<h1 id="Prisoners-dilemma---exercises">Prisoners dilemma - exercises<a class="anchor-link" href="#Prisoners-dilemma---exercises">&#182;</a></h1><ol>
+<li>Give the general definition for a Prisoners dilemma.</li>
+<li><p>Justify if the following games are Prisoners dilemmas or not:</p>
+<ol>
 <li>$
 A =
 \begin{pmatrix}
-3 &amp; -1\\
-2 &amp; 7\end{pmatrix}
+3 &amp; 0\\
+5 &amp; 1
+\end{pmatrix}
 \qquad
 B =
-\begin{pmatrix}
--3 &amp; 1\\
-1 &amp; -6\end{pmatrix}
-$  </li>
-<li>$
-A =
-\begin{pmatrix}
-2 &amp; -1\\
-1 &amp; 3\end{pmatrix}
-\qquad
-B =
-\begin{pmatrix}
--2 &amp; 2\\
-1 &amp; -2\end{pmatrix}
-$  </li>
-</ol>
-</li>
-<li>Use the tableaux representation to execute the Lemke-Howson algorithm (using starting label: 0) on the games of question 2.</li>
-<li><p>Using tableaux, use the Lemke-Howson algorithm to find a Nash equilibria of the following game:</p>
-<p>$$
-A =
 \begin{pmatrix}
 3 &amp; 5\\
-1 &amp; 6\\
-4 &amp; 3\end{pmatrix}
+0 &amp; 1
+\end{pmatrix}
+$ </li>
+<li>$
+A =
+\begin{pmatrix}
+1 &amp; -1\\
+2 &amp; 0
+\end{pmatrix}
 \qquad
 B =
 \begin{pmatrix}
-2 &amp; 7\\
-6 &amp; 4\\
-4 &amp; 7\end{pmatrix}
-$$</p>
+1 &amp; 2\\
+-1 &amp; 0
+\end{pmatrix}
+$ </li>
+<li>$
+A =
+\begin{pmatrix}
+1 &amp; -1\\
+2 &amp; 0
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+3 &amp; 5\\
+0 &amp; 1
+\end{pmatrix}
+$ </li>
+<li>$
+A =
+\begin{pmatrix}
+6 &amp; 0\\
+12 &amp; 1
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+6 &amp; 12\\
+0 &amp; 0
+\end{pmatrix}
+$ </li>
+</ol>
+</li>
+<li><p>Obtain the Markov chain representation for a match between reactive strategies with the following vectors:</p>
+<ol>
+<li>$p=(1/2, 1/2)\qquad q=(1/2, 1/2)$</li>
+<li>$p=(1/4, 1/2)\qquad q=(1/2, 1/4)$</li>
+<li>$p=(1/3, 1/3)\qquad q=(2/3, 1/4)$</li>
+</ol>
+</li>
+<li><p>Obtain the utilities for both players for the vectors of question 3.</p>
+</li>
+<li><p>Assuming $p=(x, 1/2)$, find the optimal $x$ against the following players:</p>
+<ol>
+<li>$q=(1, 0)$</li>
+<li>$q=(1/2, 1/2)$</li>
+</ol>
+<p>Interpret these results.</p>
 </li>
 </ol>
 
