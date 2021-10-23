@@ -1,10 +1,10 @@
-12 Contemporary research
+09 Contemporary research
 ========================
 
 Corresponding chapters
 ----------------------
 
-- `Contemporary research <http://vknight.org/gt/chapters/13/>`_
+- `Contemporary research <http://vknight.org/gt/chapters/10/>`_
 
 Objectives
 ----------

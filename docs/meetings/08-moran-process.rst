@@ -1,4 +1,4 @@
-11 Moran Processes
+08 Moran Processes
 ==================
 
 **Duration**: 140 minutes
@@ -6,7 +6,7 @@
 Corresponding chapters
 ----------------------
 
-- `Moran Processes <http://vknight.org/gt/chapters/12/>`_
+- `Moran Processes <http://vknight.org/gt/chapters/08/>`_
 
 Objectives
 ----------

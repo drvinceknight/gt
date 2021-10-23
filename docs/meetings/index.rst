@@ -17,11 +17,9 @@ Here are my notes for each class meeting.
    02-rationalisation.rst
    03-best-response-condition.rst
    04-support-enumeration.rst
-   05-best-response-polytopes.rst
-   06-lemke-howson.rst
-   07-repeated-games.rst
-   08-prisoners-dilemma.rst
-   09-evolutionary-dynamics.rst
-   10-evolutionary-game-theory.rst
-   11-moran-processes.rst
-   12-contemporary-research.rst
+   05-repeated-games.rst
+   06-prisoners-dilemma.rst
+   07-evolutionary-game-theory.rst
+   08-moran-process.rst
+   09-presentation.rst
+   10-contemporary-research.rst

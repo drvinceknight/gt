@@ -1,10 +1,10 @@
-10 Evolutionary game theory
+07 Evolutionary game theory
 ===========================
 
 Corresponding chapters
 ----------------------
 
-- `Evolutionary game theory <http://vknight.org/gt/chapters/11/>`_
+- `Evolutionary game theory <http://vknight.org/gt/chapters/07/>`_
 
 Objectives
 ----------

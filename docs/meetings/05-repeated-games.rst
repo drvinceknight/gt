@@ -1,4 +1,4 @@
-07 Repeated games
+05 Repeated games
 =================
 
 Corresponding chapters

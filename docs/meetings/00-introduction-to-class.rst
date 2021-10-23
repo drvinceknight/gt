@@ -10,15 +10,15 @@ Send the following email before class::
 
     I hope you are all well.
 
-    This is a brief email before our first class on Monday at 1000 am.
+    This is a brief email before our first class <>
 
     All of the course materials (including short videos) are available at
     https://vknight.org/gt/.
 
-    Our classes will be on Zoom:
+    [Our classes will be on Zoom:
 
     - Zoom link: https://cardiff.zoom.us/my/vknight 
-    - Password is: 401665
+    - Password is: 401665]
 
     Before each class I will also send you that again via email.
 
@@ -27,10 +27,6 @@ Send the following email before class::
     I will hopefully answer any questions you have but please don't hesitate to
     use the chat if there's anything you'd like to know as you choose your
     modules.
-
-    Important: My wife and I are expecting our second child any day now, so at
-    some point over the next couple of weeks I will not be around (for a week).
-    I am confident that we have sufficient time in the schedule to catch up.
 
     Please get in touch if I can assist with anything,
     Vince
@@ -104,6 +100,10 @@ illustrate the ideas.
 Details about the programming involved can be found at
 http://vknight.org/gt/other/programming/
 
+The first assessment is a coding exercise: this is to highlight that I am not
+interested in mathematical button pushing. I want you to become game theorists
+by doing this course.
+
 Kindness
 ********
 
@@ -137,7 +137,7 @@ Send the following email to class::
 
     A recording is available here <LINK> and on Learning central.
 
-    Here is an invitation to the Discod <LINK>.
+    Here is an invitation to the Discord <LINK>.
 
     All class resources are available at: https://vknight.org/gt/
 
