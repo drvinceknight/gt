@@ -1,0 +1,18 @@
+<header>
+    <div class="row">
+        <div class="three.columns">
+            <a class="logo" href="/{{ root }}">{{ title }}</a>
+        </div>
+        <div class="nine.columns">
+              <input id="nav" type="checkbox">
+              <label for="nav"></label>
+              <nav>
+                  <ul>
+                      {% for chapter in chapters %}
+                      <li><a href=/{{root}}/chapters/{{ chapter.dir }}/>{{ chapter.dir }}: {{ chapter.title }}</a></li>
+                      {% endfor %}
+                  </ul>
+              </nav>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block body %}
+    {% include 'partials/list_of_chapters.html' %}
+
+    <h1>Other materials</h1>
+
+        <ul>
+          <li>
+               <a href=/{{root}}/other/schedule/>Schedule</a>
+          </li>
+          <li>
+               <a
+                   href=https://www.youtube.com/playlist?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb>YouTube
+               playlist (Content)</a>
+          </li>
+          <li>
+               <a
+                   href=https://www.youtube.com/playlist?list=PLnC5h3PY-znw_SyhvDO3-yH_EWB5z0w_8>YouTube
+                   playlist (Code)</a>
+          </li>
+          <li>
+               <a href=/{{root}}/other/programming/>Programming</a>
+          </li>
+          <li>
+               <a href=/{{root}}/other/reading-list/>Reading list</a>
+          </li>
+          <li>
+               <a
+                   href=/{{root}}/other/list-of-theorems-proofs-and-algorithms/>List
+               of theorems proofs and algorithms</a>
+          </li>
+          <li>
+               <a href=/{{root}}/other/obtaining-assistance/>Obtaining assistance</a>
+          </li>
+          <li>
+               <a href=/{{root}}/other/assessment/>Assessment</a>
+          </li>
+        </ul>
+
+    {% include 'partials/list_of_exercises.html' %}
+
+    <h1>Kindness</h1>
+    <p>In this course every participant (including myself) will be having many
+    interactions with other participants. Some potential examples of this:</p>
+    <ul>
+        <li>Peer to peer discussions during classes;</li>
+        <li>Me explaining a given topic.</li>
+    </ul>
+    <p>I expect <strong>every participant</strong> (including myself) to act with kindness during
+    these interactions.</p>
+    <p>Some examples of how this applies to me:</p>
+    <ul>
+        <li>When a student is late or absent at a class <strong>I</strong> will assume they have good
+            reasons. If this happens regularly<ol>
+                <li>I will first be concerned for their well-being.</li>
+                <li>Ask how <strong>I</strong> can help them catch up.</li>
+            </ol>
+        </li>
+        <li>If a student asks for an explanation of a topic that has been covered
+            multiples times <strong>I</strong> will assume that some set of circumstances has prevented
+            them from seeing these explanations and:<ol>
+                <li>will explain the topic.</li>
+                <li>also point them at the explanations in the course materials and/or class
+                    recordings.
+                    If this is a regular occurrence I might ask if there are any circumstances
+                    that I can help with.</li>
+            </ol>
+        </li>
+        <li>If <strong>I</strong> make a mistake in a class explanation and someone helpfully points it
+            out. <strong>I</strong> will listen and thank them for pointing it out and either go over
+            the mistake then and there or go over it again at a future meeting.</li>
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+<html lang="en">
+
+
+{% block head %}
+<link rel="stylesheet" href="/{{root}}/assets/css/notebook.css">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+{% endblock %}
+
+
+{% block body %}
+    {{ nb }}
+
+    {% if previous_url %}
+        <a href="../{{previous_url}}/">Previous</a>
+    {% endif %}
+    {% if next_url %}
+        <p align="right"><a href="../{{next_url}}/">Next</a></p>
+    {% endif %}
+
+{% endblock %}
+
+</html>

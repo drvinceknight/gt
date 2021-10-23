@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="stylesheet" href="/gt/assets/css/normalize.css">
+  <link rel="stylesheet" href="/gt/assets/css/skeleton.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<link rel="stylesheet" href="/gt/assets/css/notebook.css">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+<header>
+    <div class="row">
+        <div class="three.columns">
+            <a class="logo" href="/gt">Game Theory</a>
+        </div>
+        <div class="nine.columns">
+              <input id="nav" type="checkbox">
+              <label for="nav"></label>
+              <nav>
+                  <ul>
+                      
+                      <li><a href=/gt/chapters/00/>00: Introduction to the course</a></li>
+                      
+                      <li><a href=/gt/chapters/01/>01: Normal Form Games</a></li>
+                      
+                      <li><a href=/gt/chapters/02/>02: Calculating utilities of strategies</a></li>
+                      
+                      <li><a href=/gt/chapters/03/>03: Rationalisation</a></li>
+                      
+                      <li><a href=/gt/chapters/04/>04: Nash equilibria</a></li>
+                      
+                      <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
+                      
+                      <li><a href=/gt/chapters/06/>06: Repeated games</a></li>
+                      
+                      <li><a href=/gt/chapters/07/>07: Prisoners Dilemma</a></li>
+                      
+                      <li><a href=/gt/chapters/08/>08: Evolutionary Game Theory</a></li>
+                      
+                      <li><a href=/gt/chapters/09/>09: Moran processes</a></li>
+                      
+                      <li><a href=/gt/chapters/10/>10: Contemporary Research</a></li>
+                      
+                  </ul>
+              </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Nash-equilibria---Exercises">Nash equilibria - Exercises<a class="anchor-link" href="#Nash-equilibria---Exercises">&#182;</a></h1><ol>
+<li>Give the definition of a best response.</li>
+<li><p>For the following games identify the best reponses:</p>
+<ol>
+<li><p>$
+A =
+\begin{pmatrix}
+2 &amp; 1\\
+1 &amp; 1\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+1 &amp; 1\\
+1 &amp; 3\end{pmatrix}
+$</p>
+</li>
+<li><p>$
+A =
+\begin{pmatrix}
+2  &amp; 1 &amp; 3 &amp; 17\\
+27 &amp; 3 &amp; 1 &amp; 1\\
+4  &amp; 6 &amp; 7 &amp; 18
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+11 &amp; 9  &amp; 10 &amp; 22\\
+0  &amp; 1  &amp; 1  &amp; 0\\
+2  &amp; 10 &amp; 12 &amp; 0
+\end{pmatrix}
+$</p>
+</li>
+<li><p>$
+A =
+\begin{pmatrix}
+3  &amp; 3 &amp; 2 \\
+2  &amp; 1 &amp; 3 
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+2  &amp; 1 &amp; 3 \\
+2  &amp; 3 &amp; 2 
+\end{pmatrix}
+$</p>
+</li>
+<li><p>$
+A =
+\begin{pmatrix}
+3 &amp; -1\\
+2 &amp; 7\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+-3 &amp; 1\\
+1 &amp; -6\end{pmatrix}
+$</p>
+</li>
+</ol>
+</li>
+<li><p>Represent the following game in normal form:</p>
+<blockquote><p>Assume two neighbouring countries have at their disposal very destructive armies. If both countries attack each other the countries' civilian population will suffer 10 thousand casualties. If one country attacks whilst the other remains peaceful, the peaceful country will lose 15 thousand casualties but would also retaliate causing the offensive country 13 thousand casualties. If both countries remain peaceful then there are no casualties.</p>
+</blockquote>
+<ol>
+<li>Clearly state the players and strategy sets.</li>
+<li>Plot the utilities to both countries assuming that they play a mixed strategy while the other country remains peaceful.</li>
+<li>Plot the utilities to both countries assuming that they play a mixed strategy while the other country attacks.</li>
+<li>Obtain the best responses of each player.</li>
+</ol>
+</li>
+<li><p>State and prove the best response condition.</p>
+</li>
+<li>Define Nash equilibria.</li>
+</ol>
+
+</div>
+</div>
+</div>
+ 
+
+
+
+    
+        <a href="../03/">Previous</a>
+    
+    
+        <p align="right"><a href="../05/">Next</a></p>
+    
+
+
+</div>
+
+<div class="container">
+    <center>
+    <p style="font-size: small;">
+    Source code:
+    <a href="https://github.com/drvinceknight/gt">@drvinceknight</a>
+    Powered by:
+        <a href="https://www.python.org/">Python</a>
+        <a href="https://www.mathjax.org/">Mathjax</a>
+        <a href="https://pages.github.com/">Github pages</a>
+        <a href="http://getskeleton.com/">Skeleton css</a>
+    </p>
+    </center>
+</div>
+
+<script>
+    document.querySelector('header nav ul').addEventListener('click', function(){
+        document.querySelector('#nav').checked = false;
+    });
+
+    var menuHeight = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.section-title').forEach(function(a){
+        a.style.paddingTop = menuHeight + 'px';
+        a.style.marginTop = '-' + menuHeight + 'px';
+    });
+</script>
+
+</body>
+</html>

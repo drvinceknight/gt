@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="stylesheet" href="/gt/assets/css/normalize.css">
+  <link rel="stylesheet" href="/gt/assets/css/skeleton.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<link rel="stylesheet" href="/gt/assets/css/notebook.css">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+<header>
+    <div class="row">
+        <div class="three.columns">
+            <a class="logo" href="/gt">Game Theory</a>
+        </div>
+        <div class="nine.columns">
+              <input id="nav" type="checkbox">
+              <label for="nav"></label>
+              <nav>
+                  <ul>
+                      
+                      <li><a href=/gt/chapters/00/>00: Introduction to the course</a></li>
+                      
+                      <li><a href=/gt/chapters/01/>01: Normal Form Games</a></li>
+                      
+                      <li><a href=/gt/chapters/02/>02: Calculating utilities of strategies</a></li>
+                      
+                      <li><a href=/gt/chapters/03/>03: Rationalisation</a></li>
+                      
+                      <li><a href=/gt/chapters/04/>04: Nash equilibria</a></li>
+                      
+                      <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
+                      
+                      <li><a href=/gt/chapters/06/>06: Repeated games</a></li>
+                      
+                      <li><a href=/gt/chapters/07/>07: Prisoners Dilemma</a></li>
+                      
+                      <li><a href=/gt/chapters/08/>08: Evolutionary Game Theory</a></li>
+                      
+                      <li><a href=/gt/chapters/09/>09: Moran processes</a></li>
+                      
+                      <li><a href=/gt/chapters/10/>10: Contemporary Research</a></li>
+                      
+                  </ul>
+              </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Support-enumeration">Support enumeration<a class="anchor-link" href="#Support-enumeration">&#182;</a></h1><p>The definition implies that a Nash equilibrium is a pair of best responses.</p>
+<p>We can use this and the best response condition of the previous chapter to find Nash equilibrium.</p>
+<hr>
+<h2 id="Definition-of-support">Definition of support<a class="anchor-link" href="#Definition-of-support">&#182;</a></h2><p><a href="https://youtu.be/AlBfCs5bxhk?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>For a given strategy $\sigma$, the support of $\sigma$: $\mathcal{S}(\sigma)$ is the set of strategies for which $\sigma_i&gt;0$:</p>
+$$
+i\in\mathcal{S}(\sigma)\Leftrightarrow \sigma_i &gt; 0
+$$<hr>
+<p>For example:</p>
+<ul>
+<li>If $\sigma=(1/3, 1/2, 0, 0, 1/6)$: $\mathcal{S}(\sigma)=\{1, 2, 5\}$</li>
+<li>If $\sigma=(0, 0, 1, 0)$: $\mathcal{S}(\sigma)=\{3\}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sigma</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Recall Python indexing starts at 0</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[1]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([0, 1, 4]),)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sigma</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Recall Python indexing starts at 0</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([2]),)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h2 id="Definition-of-nondegenerate-games">Definition of nondegenerate games<a class="anchor-link" href="#Definition-of-nondegenerate-games">&#182;</a></h2><p>A two player game is called nondegenerate if no mixed strategy of support size $k$ has more than $k$ pure best responses.</p>
+<hr>
+<p>For example, the following game is degenerate:</p>
+$$
+A = 
+\begin{pmatrix}
+    1 &amp; 1 &amp; 0\\
+    2 &amp; 3 &amp; 0
+\end{pmatrix}\qquad
+B = 
+\begin{pmatrix}
+    1/2 &amp; -1 &amp; -1/2\\
+    -1 &amp; -1 &amp; 2
+\end{pmatrix}
+$$<p>Indeed, consider $\sigma_c=(0, 0, 1)$, we have $|\mathcal{S}(\sigma_c)|=1$ and:</p>
+$$
+A\sigma_c^T = 
+\begin{pmatrix}
+    0\\
+    0
+\end{pmatrix}
+$$<p>So the number of pure best responses to $\sigma_c$ is 2.</p>
+<p>Thus the game considered is indeed degenerate.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">sigma_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">sigma_c</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([0, 0])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This leads to the following algorithm for identifying Nash equilibria:</p>
+<hr>
+<h2 id="Support-enumeration-algorithm">Support enumeration algorithm<a class="anchor-link" href="#Support-enumeration-algorithm">&#182;</a></h2><p><a href="https://youtu.be/w5MDcvzNI_A?list=PLnC5h3PY-znxMsG0TRYGOyrnEO-QhVwLb">Video</a></p>
+<p>For a nondegenerate 2 player game $(A, B)\in{\mathbb{R}^{m\times n}}^2$ the following algorithm returns all nash equilibria:</p>
+<ol>
+<li>For all $1\leq k\leq \min(m, n)$;</li>
+<li>For all pairs of support $(I, J)$ with $|I|=|J|=k$</li>
+<li><p>Solve the following equations (this ensures we have best responses):</p>
+<p>$$\sum_{i\in I}{\sigma_{r}}_iB_{ij}=v\text{ for all }j\in J$$</p>
+<p>$$\sum_{j\in J}A_{ij}{\sigma_{c}}_j=u\text{ for all }i\in I$$</p>
+</li>
+<li><p>Solve</p>
+<ul>
+<li>$\sum_{i=1}^{m}{\sigma_{r}}_i=1$ and ${\sigma_{r}}_i\geq 0$ for all $i$</li>
+<li>$\sum_{j=1}^{n}{\sigma_{c}}_j=1$ and ${\sigma_{c}}_j\geq 0$ for all $j$</li>
+</ul>
+</li>
+<li>Check the best response condition.</li>
+</ol>
+<p>Repeat steps 3,4 and 5 for all potential support pairs.</p>
+<hr>
+<h2 id="2-by-2-example-of-support-enumeration">2 by 2 example of support enumeration<a class="anchor-link" href="#2-by-2-example-of-support-enumeration">&#182;</a></h2><p>As an example consider the matching pennies game.</p>
+$$
+A=
+\begin{pmatrix}
+1 &amp; -1\\
+-1 &amp; 1
+\end{pmatrix}\qquad
+B=
+\begin{pmatrix}
+-1 &amp; 1\\
+1 &amp; -1
+\end{pmatrix}
+$$<ol>
+<li><p>Consider $k=1$: so here we are just considering supports of size 1, in other words pairs of pure best responses. The easiest way to identify these is by looking at the best responses:</p>
+<p>$$
+A=
+\begin{pmatrix}
+\underline{1} &amp; -1\\
+-1 &amp; \underline{1}
+\end{pmatrix}\qquad
+B=
+\begin{pmatrix}
+-1 &amp; \underline{1}\\
+\underline{1} &amp; -1
+\end{pmatrix}
+$$</p>
+</li>
+</ol>
+<p>So there are no pairs.</p>
+<ol>
+<li>Thus we start again with $k=2$.</li>
+<li>There is only one pair of best responses to be considered: $I=J=(1, 2)$.</li>
+<li><p>The equations we need to solve are:</p>
+<p>$$-{\sigma_{r}}_1+{\sigma_{r}}_2=v$$
+$${\sigma_{r}}_1-{\sigma_{r}}_2=v$$</p>
+<p>and</p>
+<p>$${\sigma_{c}}_1-{\sigma_{c}}_2=u$$
+$$-{\sigma_{c}}_1+{\sigma_{c}}_2=u$$</p>
+<p>We don't actually care (or know!) the values of $u, v$ so we in fact solve:</p>
+<p>$$-{\sigma_{r}}_1+{\sigma_{r}}_2={\sigma_{r}}_1-{\sigma_{r}}_2$$</p>
+<p>$${\sigma_{c}}_1-{\sigma_{c}}_2=-{\sigma_{c}}_1+{\sigma_{c}}_2$$</p>
+<p>which gives:</p>
+<p>$${\sigma_{r}}_1={\sigma_{r}}_2$$</p>
+<p>$${\sigma_{c}}_1={\sigma_{c}}_2$$</p>
+</li>
+<li><p>This gives:</p>
+<p>$$\sigma_{r}=(1/2, 1/2)$$</p>
+<p>$$\sigma_{c}=(1/2, 1/2)$$</p>
+</li>
+<li><p>Finally we check the best response condition: (we already did this in the previous chapter).</p>
+</li>
+</ol>
+<p>Note that for 2 player games with $m=n=2$ step 5 is trivial so in fact to find best mix strategy Nash equilibrium for games of this size simply reduces to finding a solution to 2 linear equations (step 3).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us consider a large game:</p>
+<p>$$
+   A=
+   \begin{pmatrix}
+   1 &amp; 1 &amp; -1\\
+   2 &amp; -1 &amp; 0
+   \end{pmatrix}\qquad
+   B=
+   \begin{pmatrix}
+   1/2 &amp; -1 &amp; -1/2\\
+   -1 &amp; 3 &amp; 2
+   \end{pmatrix}
+   $$</p>
+<ol>
+<li>It is immediate to note that there are no pairs of pure best responses.</li>
+<li><p>All possible support pairs are:</p>
+<ul>
+<li>$I=(1, 2)$ and $J=(1,2)$</li>
+<li>$I=(1, 2)$ and $J=(1,3)$</li>
+<li>$I=(1, 2)$ and $J=(2,3)$</li>
+</ul>
+</li>
+<li><p>Let us solve the corresponding linear equations:</p>
+<ul>
+<li><p>$I=(1, 2)$ and $J=(1, 2)$:</p>
+<p>$$1/2{\sigma_{r}}_1-{\sigma_{r}}_2=-{\sigma_{r}}_1+3{\sigma_{r}}_2$$
+$${\sigma_{r}}_1=8/3{\sigma_{r}}_2$$</p>
+<p>$${\sigma_{c}}_1+{\sigma_{c}}_2=2{\sigma_{c}}_1-{\sigma_{c}}_2$$
+$${\sigma_{c}}_1=2{\sigma_{c}}_2$$</p>
+</li>
+<li><p>$I=(1, 2)$ and $J=(1,3)$:</p>
+<p>$$1/2{\sigma_{r}}_1-{\sigma_{r}}_2=-1/2{\sigma_{r}}_1+2{\sigma_{r}}_2$$
+$${\sigma_{r}}_1=3{\sigma_{r}}_2$$</p>
+<p>$${\sigma_{c}}_1-{\sigma_{c}}_3=2{\sigma_{c}}_1+0{\sigma_{c}}_3$$
+$${\sigma_{c}}_1=-{\sigma_{c}}_3$$</p>
+</li>
+<li><p>$I=(1, 2)$ and $J=(2,3)$:</p>
+<p>$$-{\sigma_{r}}_1+3{\sigma_{r}}_2=-1/2{\sigma_{r}}_1+2{\sigma_{r}}_2$$
+$${\sigma_{r}}_1=2{\sigma_{r}}_2$$</p>
+<p>$${\sigma_{c}}_2-{\sigma_{c}}_3=-{\sigma_{c}}_2+0{\sigma_{c}}_3$$
+$$2{\sigma_{c}}_2={\sigma_{c}}_3$$</p>
+</li>
+</ul>
+</li>
+<li><p>We check which supports give valid mixed strategies:</p>
+<ul>
+<li><p>$I=(1, 2)$ and $J=(1, 2)$:</p>
+<p>$$\sigma_r=(8/11, 3/11)$$
+$$\sigma_c=(2/3, 1/3, 0)$$</p>
+</li>
+<li><p>$I=(1, 2)$ and $J=(1, 3)$:</p>
+<p>$$\sigma_r=(3/4, 1/4)$$
+$$\sigma_c=(k, 0, -k)$$</p>
+<p><strong>which is not a valid mixed strategy.</strong></p>
+</li>
+<li><p>$I=(1, 2)$ and $J=(2, 3)$:</p>
+<p>$$\sigma_r=(2/3, 1/3)$$
+$$\sigma_c=(0, 1/3, 2/3)$$</p>
+</li>
+</ul>
+</li>
+<li><p>Let us verify the best response condition:</p>
+<ul>
+<li><p>$I=(1, 2)$ and $J=(1, 2)$:</p>
+<p>$$\sigma_c=(2/3, 1/3, 0)$$</p>
+<p>$$A\sigma_c^T=
+\begin{pmatrix}
+1\\
+1
+\end{pmatrix}
+$$</p>
+<p>Thus $\sigma_r$ is a best response to $\sigma_c$</p>
+<p>$$\sigma_r=(8/11, 3/11)$$
+$$\sigma_r B=(1/11, 1/11, 2/11)$$</p>
+<p><strong>Thus $\sigma_c$ is not a best response to $\sigma_r$</strong> (because there is a better response outside of the support of $\sigma_c$).</p>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>$I=(1, 2)$ and $J=(2, 3)$:</p>
+<p>$$\sigma_c=(0, 1/3, 2/3)$$</p>
+<p>$$A\sigma_c^T=
+\begin{pmatrix}
+-1/3\\
+-1/3
+\end{pmatrix}
+$$</p>
+<p>Thus $\sigma_r$ is a best response to $\sigma_c$</p>
+<p>$$\sigma_r=(2/3, 1/3)$$
+$$\sigma_r B=(0, 1/3, 1/3)$$</p>
+<p>Thus $\sigma_c$ is a best response to $\sigma_r$.</p>
+</li>
+</ul>
+<p>Thus the (unique) Nash equilibrium for this game is:</p>
+$$((2/3, 1/3), (0, 1/3, 2/3))$$<p>Note that we can confirm all of this using <code>nashpy</code>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nashpy</span> <span class="k">as</span> <span class="nn">nash</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">game</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">Game</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">support_enumeration</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(array([0.5, 0.5]), array([0.5, 0.5]))]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered celltag_nbval-ignore-output">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">game</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">Game</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">support_enumeration</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[(array([0.66666667, 0.33333333]),
+  array([-0.        ,  0.33333333,  0.66666667]))]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you recall the degenerate game mentioned previously:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">game</span> <span class="o">=</span> <span class="n">nash</span><span class="o">.</span><span class="n">Game</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">support_enumeration</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This result is given without proof:</p>
+<hr>
+<h2 id="Nash's-theorem">Nash's theorem<a class="anchor-link" href="#Nash's-theorem">&#182;</a></h2><p>Any game with a finite set of players and finit set of strategies has a Nash equilibrium in mixed strategies.</p>
+<hr>
+
+</div>
+</div>
+</div>
+ 
+
+
+
+    
+        <a href="../04/">Previous</a>
+    
+    
+        <p align="right"><a href="../06/">Next</a></p>
+    
+
+
+</div>
+
+<div class="container">
+    <center>
+    <p style="font-size: small;">
+    Source code:
+    <a href="https://github.com/drvinceknight/gt">@drvinceknight</a>
+    Powered by:
+        <a href="https://www.python.org/">Python</a>
+        <a href="https://www.mathjax.org/">Mathjax</a>
+        <a href="https://pages.github.com/">Github pages</a>
+        <a href="http://getskeleton.com/">Skeleton css</a>
+    </p>
+    </center>
+</div>
+
+<script>
+    document.querySelector('header nav ul').addEventListener('click', function(){
+        document.querySelector('#nav').checked = false;
+    });
+
+    var menuHeight = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.section-title').forEach(function(a){
+        a.style.paddingTop = menuHeight + 'px';
+        a.style.marginTop = '-' + menuHeight + 'px';
+    });
+</script>
+
+</body>
+</html>

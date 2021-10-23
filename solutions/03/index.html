@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="stylesheet" href="/gt/assets/css/normalize.css">
+  <link rel="stylesheet" href="/gt/assets/css/skeleton.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<link rel="stylesheet" href="/gt/assets/css/notebook.css">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+<header>
+    <div class="row">
+        <div class="three.columns">
+            <a class="logo" href="/gt">Game Theory</a>
+        </div>
+        <div class="nine.columns">
+              <input id="nav" type="checkbox">
+              <label for="nav"></label>
+              <nav>
+                  <ul>
+                      
+                      <li><a href=/gt/chapters/00/>00: Introduction to the course</a></li>
+                      
+                      <li><a href=/gt/chapters/01/>01: Normal Form Games</a></li>
+                      
+                      <li><a href=/gt/chapters/02/>02: Calculating utilities of strategies</a></li>
+                      
+                      <li><a href=/gt/chapters/03/>03: Rationalisation</a></li>
+                      
+                      <li><a href=/gt/chapters/04/>04: Nash equilibria</a></li>
+                      
+                      <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
+                      
+                      <li><a href=/gt/chapters/06/>06: Repeated games</a></li>
+                      
+                      <li><a href=/gt/chapters/07/>07: Prisoners Dilemma</a></li>
+                      
+                      <li><a href=/gt/chapters/08/>08: Evolutionary Game Theory</a></li>
+                      
+                      <li><a href=/gt/chapters/09/>09: Moran processes</a></li>
+                      
+                      <li><a href=/gt/chapters/10/>10: Contemporary Research</a></li>
+                      
+                  </ul>
+              </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Rationalisation---Solutions">Rationalisation - Solutions<a class="anchor-link" href="#Rationalisation---Solutions">&#182;</a></h1><ol>
+<li><p>Give the definition of a dominated strategy.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/03/#Definition-of-a-strictly-dominated-strategy">https://vknight.org/gt/chapters/03/#Definition-of-a-strictly-dominated-strategy</a></p>
+</li>
+<li><p>Give the definition of a weakly dominated strategy.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/03/#Definition-of-a-weakly-dominated-strategy">https://vknight.org/gt/chapters/03/#Definition-of-a-weakly-dominated-strategy</a></p>
+</li>
+<li><p>Give the defininition of common knowledge of rationality.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/03/#Definition-of-a-weakly-dominated-strategy">https://vknight.org/gt/chapters/03/#Definition-of-a-weakly-dominated-strategy</a></p>
+</li>
+<li><p>For the following games predict rational behaviour or explain why this cannot be done:</p>
+<ol>
+<li>$
+A =
+\begin{pmatrix}
+2 &amp; 1\\
+1 &amp; 1\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+1 &amp; 1\\
+1 &amp; 3\end{pmatrix}
+$ </li>
+</ol>
+<p>We see that $r_1$ weakly dominates $r_2$ so we have:</p>
+<p>$$A=(2,1)\qquad B =(1,1)$$</p>
+<p>There are no further strategies that can be eliminated.</p>
+<p>We see however that $c_2$ weakly dominates $c_1$ which would give:</p>
+<p>$$\begin{pmatrix}</p>
+
+<pre><code> (1,1)\\
+ (1,3)\\
+ \end{pmatrix}$$
+
+</code></pre>
+<p>Again, there are no further strategies that can be eliminated.</p>
+<ol>
+<li>$
+A =
+\begin{pmatrix}
+2  &amp; 1 &amp; 3 &amp; 17\\
+27 &amp; 3 &amp; 1 &amp; 1\\
+4  &amp; 6 &amp; 7 &amp; 18
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+11 &amp; 9  &amp; 10 &amp; 22\\
+0  &amp; 1  &amp; 1  &amp; 0\\
+2  &amp; 10 &amp; 12 &amp; 0
+\end{pmatrix}
+$</li>
+</ol>
+<p>We see that $c_2$ is weakly dominated by $c_3$ so we have:</p>
+<p>$$
+A =
+\begin{pmatrix}
+2  &amp; 3 &amp; 17\\
+27 &amp; 1 &amp; 1\\
+4  &amp; 7 &amp; 18
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+11 &amp; 10 &amp; 22\\
+0  &amp; 1  &amp; 0\\
+2  &amp; 12 &amp; 0
+\end{pmatrix}
+$$</p>
+<p>Now $r_3$ strictly dominates $r_1$ so we have:</p>
+<p>$$
+A =
+\begin{pmatrix}
+27 &amp; 1 &amp; 1\\
+4  &amp; 7 &amp; 18
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+0  &amp; 1  &amp; 0\\
+2  &amp; 12 &amp; 0
+\end{pmatrix}
+$$</p>
+<p>Now $c_3$ stricly dominates $c_1$ and $c_4$ so we have:</p>
+</li>
+</ol>
+<p>$$
+   A =
+   \begin{pmatrix}
+   1\\
+   7
+   \end{pmatrix}
+   \qquad
+   B =
+   \begin{pmatrix}
+   1 \\
+   12
+   \end{pmatrix}
+   $$</p>
+<p>Thus the predicted rational behaviour is $(r_3, c_3)$.</p>
+<ol>
+<li><p>$
+A =
+\begin{pmatrix}
+3  &amp; 3 &amp; 2 \\
+2  &amp; 1 &amp; 3 
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+2  &amp; 1 &amp; 3 \\
+2  &amp; 3 &amp; 2 
+\end{pmatrix}
+$</p>
+<p>$c_1$ is weakly dominated by $c_3$:</p>
+<p>$$A =
+\begin{pmatrix}
+3 &amp; 2 \\
+1 &amp; 3 
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+1 &amp; 3 \\
+3 &amp; 2 
+\end{pmatrix}$$</p>
+<p>There are no further dominated strategies.</p>
+</li>
+<li><p>$
+A =
+\begin{pmatrix}
+3 &amp; -1\\
+2 &amp; 7\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+-3 &amp; 1\\
+1 &amp; -6\end{pmatrix}
+$</p>
+<p>There are no dominated strategies.</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+ 
+
+
+
+    
+        <a href="../02/">Previous</a>
+    
+    
+        <p align="right"><a href="../04/">Next</a></p>
+    
+
+
+</div>
+
+<div class="container">
+    <center>
+    <p style="font-size: small;">
+    Source code:
+    <a href="https://github.com/drvinceknight/gt">@drvinceknight</a>
+    Powered by:
+        <a href="https://www.python.org/">Python</a>
+        <a href="https://www.mathjax.org/">Mathjax</a>
+        <a href="https://pages.github.com/">Github pages</a>
+        <a href="http://getskeleton.com/">Skeleton css</a>
+    </p>
+    </center>
+</div>
+
+<script>
+    document.querySelector('header nav ul').addEventListener('click', function(){
+        document.querySelector('#nav').checked = false;
+    });
+
+    var menuHeight = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.section-title').forEach(function(a){
+        a.style.paddingTop = menuHeight + 'px';
+        a.style.marginTop = '-' + menuHeight + 'px';
+    });
+</script>
+
+</body>
+</html>

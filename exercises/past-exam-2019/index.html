@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="stylesheet" href="/gt/assets/css/normalize.css">
+  <link rel="stylesheet" href="/gt/assets/css/skeleton.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<link rel="stylesheet" href="/gt/assets/css/notebook.css">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+<header>
+    <div class="row">
+        <div class="three.columns">
+            <a class="logo" href="/gt">Game Theory</a>
+        </div>
+        <div class="nine.columns">
+              <input id="nav" type="checkbox">
+              <label for="nav"></label>
+              <nav>
+                  <ul>
+                      
+                      <li><a href=/gt/chapters/00/>00: Introduction to the course</a></li>
+                      
+                      <li><a href=/gt/chapters/01/>01: Normal Form Games</a></li>
+                      
+                      <li><a href=/gt/chapters/02/>02: Calculating utilities of strategies</a></li>
+                      
+                      <li><a href=/gt/chapters/03/>03: Rationalisation</a></li>
+                      
+                      <li><a href=/gt/chapters/04/>04: Nash equilibria</a></li>
+                      
+                      <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
+                      
+                      <li><a href=/gt/chapters/06/>06: Repeated games</a></li>
+                      
+                      <li><a href=/gt/chapters/07/>07: Prisoners Dilemma</a></li>
+                      
+                      <li><a href=/gt/chapters/08/>08: Evolutionary Game Theory</a></li>
+                      
+                      <li><a href=/gt/chapters/09/>09: Moran processes</a></li>
+                      
+                      <li><a href=/gt/chapters/10/>10: Contemporary Research</a></li>
+                      
+                  </ul>
+              </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="2019-exam-paper">2019 exam paper<a class="anchor-link" href="#2019-exam-paper">&#182;</a></h1><p><a href="/gt/assets/exm/2019/main.pdf">The 2018-2019 paper</a> aims to generally follow the template that approximately:</p>
+<ul>
+<li>40 % of marks demonstrate a basic level of familiarity with the course;</li>
+<li>40 % demonstrate some understanding;</li>
+<li>20 % aim to allow student to demonstrate a deaper understanding of the concepts</li>
+</ul>
+<h2 id="Question-1:-Normal-form-games-and-best-responses">Question 1: Normal form games and best responses<a class="anchor-link" href="#Question-1:-Normal-form-games-and-best-responses">&#182;</a></h2><p>This question is a general overview of normal form games.</p>
+<ul>
+<li>There are 8 marks available that are pure bookwork (definitions and theorem).</li>
+<li>4 marks that might push students a bit as they need to recognise a strategy is dominated.</li>
+<li>13 marks are exercises similar to those done in class and require the students to carry out calculations.</li>
+</ul>
+<h2 id="Question-2:-Repeated-games">Question 2: Repeated games<a class="anchor-link" href="#Question-2:-Repeated-games">&#182;</a></h2><p>This question is looking at repeated games and includes some theoretic and algorithmic questions as well as an unseen venture in to extensive form games and their connection to normal form games.</p>
+<ul>
+<li>There are 10 marks for definitions and basic calculations.</li>
+<li>6 marks push students to use their understanding of repeated games to consider a previously unseen extensive form game.</li>
+<li>9 marks are exercises similar to those done in class and require the students to carry out calculations.</li>
+</ul>
+<h2 id="Question-3:--Prisoners-Dilemma">Question 3:  Prisoners Dilemma<a class="anchor-link" href="#Question-3:--Prisoners-Dilemma">&#182;</a></h2><p>This question is about the Prisoners Dilemma, in general it is a lot of bookwork however there is some previously unseen algebraic exercises that should push students.</p>
+<ul>
+<li>There are 10 marks available that are bookwork and basic calculations.</li>
+<li>8 marks are obtainable through algebraic manipulation of seen definitions.</li>
+<li>7 marks ask students to apply the definitions and carry out algebraic manipulations in a completely unseed way. 3 of these marks are arguably a bit difficult, however the intuitive answer for those who understand the underlying game theoretic principles should push them in the correct direction.</li>
+</ul>
+<h2 id="Question-4:-Evolutionary-game-theory">Question 4: Evolutionary game theory<a class="anchor-link" href="#Question-4:-Evolutionary-game-theory">&#182;</a></h2><ul>
+<li>There are 10 marks available that are pure bookwork (definitions and theorem).</li>
+<li>5 marks are a numeric application of a method seen in class on a previously unseen game.</li>
+<li>10 marks are based on the contemporary research: 5 of them are relatively straightforward and 5 of them are pushing student to critique the work.</li>
+</ul>
+
+</div>
+</div>
+</div>
+ 
+
+
+
+    
+        <a href="../past-exam-2018/">Previous</a>
+    
+    
+        <p align="right"><a href="../past-exam-mock/">Next</a></p>
+    
+
+
+</div>
+
+<div class="container">
+    <center>
+    <p style="font-size: small;">
+    Source code:
+    <a href="https://github.com/drvinceknight/gt">@drvinceknight</a>
+    Powered by:
+        <a href="https://www.python.org/">Python</a>
+        <a href="https://www.mathjax.org/">Mathjax</a>
+        <a href="https://pages.github.com/">Github pages</a>
+        <a href="http://getskeleton.com/">Skeleton css</a>
+    </p>
+    </center>
+</div>
+
+<script>
+    document.querySelector('header nav ul').addEventListener('click', function(){
+        document.querySelector('#nav').checked = false;
+    });
+
+    var menuHeight = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.section-title').forEach(function(a){
+        a.style.paddingTop = menuHeight + 'px';
+        a.style.marginTop = '-' + menuHeight + 'px';
+    });
+</script>
+
+</body>
+</html>

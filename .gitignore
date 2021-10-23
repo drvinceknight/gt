@@ -1,7 +1,7 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
-*DS_Store
-*/.ipynb_checkpoints/*
+*-checkpoint.ipynb
+docs/_build/
+docs/assets/activities/*.aux
+docs/assets/activities/*.log
+docs/assets/activities/*.fls
+docs/assets/activities/*.fdb_latexmk
+*mypy_cache*

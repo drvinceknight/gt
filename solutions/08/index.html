@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Theory</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/gt/assets/css/main.css">
+  <link rel="stylesheet" href="/gt/assets/css/normalize.css">
+  <link rel="stylesheet" href="/gt/assets/css/skeleton.css">
+  <link rel="shortcut icon" type="image/png" href="/gt/assets/favicon.ico"/>
+
+   
+<link rel="stylesheet" href="/gt/assets/css/notebook.css">
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration --></head>
+
+
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38016329-2', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+</head>
+<body>
+
+<header>
+    <div class="row">
+        <div class="three.columns">
+            <a class="logo" href="/gt">Game Theory</a>
+        </div>
+        <div class="nine.columns">
+              <input id="nav" type="checkbox">
+              <label for="nav"></label>
+              <nav>
+                  <ul>
+                      
+                      <li><a href=/gt/chapters/00/>00: Introduction to the course</a></li>
+                      
+                      <li><a href=/gt/chapters/01/>01: Normal Form Games</a></li>
+                      
+                      <li><a href=/gt/chapters/02/>02: Calculating utilities of strategies</a></li>
+                      
+                      <li><a href=/gt/chapters/03/>03: Rationalisation</a></li>
+                      
+                      <li><a href=/gt/chapters/04/>04: Nash equilibria</a></li>
+                      
+                      <li><a href=/gt/chapters/05/>05: Support enumeration</a></li>
+                      
+                      <li><a href=/gt/chapters/06/>06: Repeated games</a></li>
+                      
+                      <li><a href=/gt/chapters/07/>07: Prisoners Dilemma</a></li>
+                      
+                      <li><a href=/gt/chapters/08/>08: Evolutionary Game Theory</a></li>
+                      
+                      <li><a href=/gt/chapters/09/>09: Moran processes</a></li>
+                      
+                      <li><a href=/gt/chapters/10/>10: Contemporary Research</a></li>
+                      
+                  </ul>
+              </nav>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    
+    <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Repeated-games---solutions">Repeated games - solutions<a class="anchor-link" href="#Repeated-games---solutions">&#182;</a></h1><ol>
+<li><p>Define a repeated game.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/08/#Definition-of-a-repeated-game">https://vknight.org/gt/chapters/08/#Definition-of-a-repeated-game</a></p>
+</li>
+<li><p>Define a strategy for a repeated game.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/08/#Definition-of-a-repeated-game">https://vknight.org/gt/chapters/08/#Definition-of-a-repeated-game</a></p>
+</li>
+<li><p>Write the full potential history $\bigcup_{t=0}^{T-1}H(t)$ for repeated games with $T$ periods in the following cases:</p>
+<ol>
+<li><p>$S_1=S_2=\{0, 1\}$ and $T=2$</p>
+<p>$$\{(\emptyset, \emptyset), (0, 0), (0, 1), (1, 0), (1, 1)\}$$</p>
+</li>
+<li><p>$S_1=\{r_1, r_2\}\;S_2=\{c_1, c_2\}$ and $T=3$</p>
+<p>$$\{(\emptyset, \emptyset), (r_1, c_1), (r_1, c_2), (r_2, c_1), (r_2, c_2),\\ (r_1r_1, c_1c_1), (r_1r_1, c_1c_2), (r_1r_2, c_1c_1), (r_1r_2, c_1c_2),\\(r_1r_1, c_2c_1), (r_1r_1, c_2c_2), (r_1r_2, c_2c_1), (r_1r_2, c_2c_2),\\(r_2r_1, c_1c_1), (r_2r_1, c_1c_2), (r_2r_2, c_1c_1), (r_2r_2, c_1c_2),\\(r_2r_1, c_2c_1), (r_2r_1, c_2c_2), (r_2r_2, c_2c_1), (r_2r_2, c_2c_2)\}$$</p>
+</li>
+</ol>
+</li>
+<li><p>Obtain a formula for $\left|\bigcup_{t=0}^{T-1}H(t)\right|$ in terms of $S_1, S_2$ and $T$.</p>
+<p>For a given integer value of $0\leq t&lt; T$ there are $|S_1|^t$ possible histories for player 1 and $|S_2|^t$ possible histories for player 2. Thus the total number of histories is:</p>
+<p>$$
+\sum_{t=0}^{T - 1}|S_1|^t|S_2|^t=\sum_{t=0}^{T - 1}(|S_1||S_2|)^t=\frac{1 - (|S_1||S_2|)^T}{1 - |S_1||S_2|}
+$$</p>
+<p>Let us check for the two examples above: $|S_1||S_2|=4$. Indeed for $T=2$ we have:</p>
+<p>$$
+\frac{1 - (|S_1||S_2|)^T}{1 - |S_1||S_2|}=\frac{15}{3}=5
+$$</p>
+<p>For $T=3$ we have:</p>
+<p>$$
+\frac{1 - (|S_1||S_2|)^T}{1 - |S_1||S_2|}=\frac{63}{3}=21
+$$</p>
+</li>
+<li><p>State and prove the theorem of sequence of stage Nash equilibria.</p>
+<p>Bookwork: <a href="https://vknight.org/gt/chapters/08/#Theorem-of-sequence-of-stage-Nash-equilibria">https://vknight.org/gt/chapters/08/#Theorem-of-sequence-of-stage-Nash-equilibria</a></p>
+</li>
+</ol>
+<p><code>6</code>. Obtain all sequence of pure stage Nash equilibria as well as another Nash equilibrium for the following repeated games:
+<code>1</code>. $
+A =
+\begin{pmatrix}
+3 &amp; -1\\
+2 &amp; 4\\
+3 &amp; 1
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+13 &amp; -1\\
+6 &amp; 2\\
+3 &amp; 1
+\end{pmatrix}
+\qquad
+T=2
+$</p>
+<p>Identifying the best responses:</p>
+<p>$
+A =
+\begin{pmatrix}
+\underline{3} &amp; -1\\
+2 &amp; \underline{4}\\
+\underline{3} &amp; 1
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+\underline{13} &amp; -1\\
+\underline{6} &amp; 2\\
+\underline{3} &amp; 1
+\end{pmatrix}
+$</p>
+<p>Thus the pure Nash equilibria for the stage game are:</p>
+$$\{(r_1, c_1), (r_3, c_1)\}$$<p>So the following are Nash equilibria for the repeated games:</p>
+$$\{(r_1r_1, c_1c_1), (r_1r_3, c_1c_1), (r_3r_1, c_1c_1), (r_3r_3, c_1c_1)\}$$<p>Consider the following strategy pair:</p>
+<p>For the row player:</p>
+$$(\emptyset, \emptyset) \to r_2$$$$(r_2, c_1) \to r_3$$$$(r_2, c_2) \to r_1$$<p>For the column player:</p>
+$$(\emptyset, \emptyset) \to c_2$$$$(r_1, c_2) \to c_1$$$$(r_2, c_2) \to c_1$$$$(r_3, c_2) \to c_1$$<p>This strategy corresponds to the following scenario:</p>
+<blockquote><p>Play $(r_2,c_2)$ in first stage and $(r_1,c_1)$ in second stage unless the column player does not cooperate in which case play $(r_3, c_1)$.</p>
+</blockquote>
+<p>If both players play these strategies their utilities are: $(7, 15)$. <strong>But</strong> is this a Nash equilibrium? To find out we investigate if either player has an incentive to deviate.</p>
+<ul>
+<li>If the column player deviates, they would only be rational to do so in the first stage, if they did they would gain 4 in that stage but lose 10 in the second stage. Thus they have no incentive to deviate.</li>
+<li>If the row player deviates, they would only do so in the first stage and gain no utility.</li>
+</ul>
+<p>Thus this is a Nash equilibria.</p>
+<p><code>2</code>. $
+A =
+\begin{pmatrix}
+2 &amp; -1 &amp; 8\\
+4 &amp; 2 &amp; 9
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+13 &amp; 14 &amp; -1\\
+6 &amp; 2 &amp; 6
+\end{pmatrix}
+\qquad
+T=2
+$</p>
+<p>Identifying the best responses:</p>
+<p>$
+A =
+\begin{pmatrix}
+2 &amp; -1 &amp; 8\\
+\underline{4} &amp; \underline{2} &amp; \underline{9}
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+13 &amp; \underline{14} &amp; -1\\
+\underline{6} &amp; 2 &amp; \underline{6}
+\end{pmatrix}
+$</p>
+<p>The pure Nash equilibria are:</p>
+$$\{(r_2, c_1), (r_2, c_3)\}$$<p>So the following is a Nash equilibrium for the repeated game:</p>
+$$\{(r_2r_2, c_1c_1), (r_2r_2, c_3c_1), (r_2r_2, c_1c_3), (r_2r_2, c_3c_3)\}$$<p>Consider the following strategy pair:</p>
+<p>For the row player:</p>
+$$(\emptyset, \emptyset) \to r_1$$$$(r_1, c_1) \to r_2$$$$(r_1, c_2) \to r_2$$$$(r_1, c_3) \to r_2$$<p>For the column player:</p>
+$$(\emptyset, \emptyset) \to c_2$$$$(r_1, c_2) \to c_3$$$$(r_2, c_2) \to c_1$$<p>This strategy corresponds to the following scenario:</p>
+<blockquote><p>Play $(r_1,c_2)$ in first stage and $(r_2,c_3)$ in second stage unless the row player does not cooperate in which case play $(r_2, c_1)$.</p>
+</blockquote>
+<p>If both players play these strategies their utilities are: $(8, 20)$. <strong>But</strong> is this a Nash equilibrium? To find out we investigate if either player has an incentive to deviate.</p>
+<ul>
+<li>If the row player deviates, they would only be rational to do so in the first stage, if they did they would gain 3 in that stage but lose 5 in the second stage. Thus they have no incentive to deviate.</li>
+<li>If the column player deviates, they would only do so in the first stage and gain no utility.</li>
+</ul>
+<p>Thus this is a Nash equilibria.</p>
+<p><code>3</code>. $
+   A =
+   \begin{pmatrix}
+   2 &amp; -1 &amp; 8\\
+   4 &amp; 2 &amp; 9
+   \end{pmatrix}
+   \qquad
+   B =
+   \begin{pmatrix}
+   501 &amp; 12 &amp; 31\\
+   6 &amp; 14 &amp; 14
+   \end{pmatrix}
+   \qquad
+   T=2
+   $</p>
+<p>$
+A =
+\begin{pmatrix}
+2 &amp; -1 &amp; 8\\
+\underline{4} &amp; \underline{2} &amp; \underline{9}
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+\underline{501} &amp; 12 &amp; 31\\
+6 &amp; \underline{14} &amp; \underline{14}
+\end{pmatrix}
+$</p>
+<p>The pure Nash equilibria are:</p>
+$$\{(r_2, c_2), (r_2, c_3)\}$$<p>So the following is a Nash equilibrium for the repeated game:</p>
+$$\{(r_2r_2, c_2c_2), (r_2r_2, c_2c_3), (r_2r_2, c_3c_2), (r_2r_2, c_3c_3)\}$$<p>Consider the following strategy pair:</p>
+<p>For the row player:</p>
+$$(\emptyset, \emptyset) \to r_1$$$$(r_1, c_1) \to r_2$$$$(r_1, c_2) \to r_2$$$$(r_1, c_3) \to r_2$$<p>For the column player:</p>
+$$(\emptyset, \emptyset) \to c_1$$$$(r_1, c_1) \to c_3$$$$(r_2, c_1) \to c_2$$<p>This strategy corresponds to the following scenario:</p>
+<blockquote><p>Play $(r_1,c_1)$ in first stage and $(r_2,c_3)$ in second stage unless the row player does not cooperate in which case play $(r_2, c_2)$.</p>
+</blockquote>
+<p>If both players play these strategies their utilities are: $(11, 515)$. <strong>But</strong> is this a Nash equilibrium? To find out we investigate if either player has an incentive to deviate.</p>
+<ul>
+<li>If the row player deviates, they would only be rational to do so in the first stage, if they did they would gain 2 in that stage but lose 7 in the second stage. Thus they have no incentive to deviate.</li>
+<li>If the column player deviates, they would only do so in the first stage and gain no utility.</li>
+</ul>
+<p>Thus this is a Nash equilibria.</p>
+
+</div>
+</div>
+</div>
+ 
+
+
+
+    
+        <a href="../08/">Previous</a>
+    
+    
+        <p align="right"><a href="../09/">Next</a></p>
+    
+
+
+</div>
+
+<div class="container">
+    <center>
+    <p style="font-size: small;">
+    Source code:
+    <a href="https://github.com/drvinceknight/gt">@drvinceknight</a>
+    Powered by:
+        <a href="https://www.python.org/">Python</a>
+        <a href="https://www.mathjax.org/">Mathjax</a>
+        <a href="https://pages.github.com/">Github pages</a>
+        <a href="http://getskeleton.com/">Skeleton css</a>
+    </p>
+    </center>
+</div>
+
+<script>
+    document.querySelector('header nav ul').addEventListener('click', function(){
+        document.querySelector('#nav').checked = false;
+    });
+
+    var menuHeight = document.querySelector('header').offsetHeight;
+    document.querySelectorAll('.section-title').forEach(function(a){
+        a.style.paddingTop = menuHeight + 'px';
+        a.style.marginTop = '-' + menuHeight + 'px';
+    });
+</script>
+
+</body>
+</html>
