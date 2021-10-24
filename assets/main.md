@@ -2532,71 +2532,66 @@ x_1 & =\frac{1 + \sum_{j=1}^{0}\prod_{k=1}^{j}\gamma_k}{1 + \sum_{j=1}^{4 - 1}\p
 \end{aligned}
 $$
 
-Here is some code to simulate a Moran process.
+Nashpy has the ability to run a single Moran process:
 
 
 ```python
-def moran(N, game, i=1, seed=0):
-    """
-    Return the population counts for 
-    the Moran process on a 2 by 2 game
-    """
-    population = [0 for _ in range(i)] + [1 for _ in range(N - i)]
-    counts = [(population.count(0), population.count(1))]
-    
-    np.random.seed(seed)
-    
-    while len(set(population)) == 2:
-        
-        scores = []
-        
-        for i, player in enumerate(population):
-            total = 0
-            for j, opponent in enumerate(population):
-                if i != j:
-                    total += game[player, opponent]
-            scores.append(total)
+import nashpy as nash
 
-        total_score = sum(scores)
-        probabilities = [score / total_score for score in scores]
-        reproduce_index = np.random.choice(range(N), p=probabilities)
-        
-        eliminate_index = np.random.randint(N)
-        population[eliminate_index] = population[reproduce_index]
-        
-        counts.append((population.count(0), population.count(1)))
-    return counts
+game = nash.Game(A)
+initial_population = np.array((0, 1, 1, 1))
+np.random.seed(0)
+generations = game.moran_process(
+    initial_population=initial_population
+)
+for population in generations:
+    print(population)
+```
+
+    [0 1 1 1]
+    [0 1 1 1]
+    [0 1 1 1]
+    [0 1 1 1]
+    [0 1 1 1]
+    [0 1 1 1]
+    [0 1 1 1]
+    [0 1 1 1]
+    [0 1 1 1]
+    [1 1 1 1]
 
 
-def fixation(N, game, i=None, repetitions=10):
+We see there that in a population of 4 individuals, a single individual of the first type (`0`) does not become fixed. That is just for a single run, to be able to approximate the fixation probability the process needs to be repeated.
+
+
+```python
+import collections
+
+
+def approximate_fixation(N, A, i=None, repetitions=10):
     """
     Repeat the Moran process and calculate the fixation probability
     """
+    game = nash.Game(A)
+    initial_population = i * [0] + (N - i) * [1]
     fixation_count = 0
+    
     for seed in range(repetitions):
-        final_counts = moran(N=N, i=i, game=game, seed=seed)
-        if final_counts[-1][0] > 0:
+        np.random.seed(seed)
+        generations = game.moran_process(
+            initial_population=initial_population
+        )
+        last_population = tuple(generations)[-1]
+        if 0 in last_population:
             fixation_count += 1
+            
     return  fixation_count / repetitions
 ```
-
-Here is one specific simulated process for the game with initial population: $(1, 7)$ where the invader manages to become fixed.
-
-
-```python
-N = 8
-plt.plot(moran(N=N, i=1, seed=44, game=A));
-```
-
-
-![png](output_19_0.png)
-
 
 Here is how the fixation probabilities vary for different initial populations:
 
 
 ```python
-probabilities = [fixation(N, i=i, game=A, repetitions=500) for i in range(1, N)]
+probabilities = [approximate_fixation(N, i=i, A=A, repetitions=500) for i in range(1, N)]
 plt.scatter(range(1, N), probabilities, label="Simulated")
 plt.plot(range(1, N), [i / N for i in range(1, N)], label="Neutral: $i/N$", linestyle="dashed")
 plt.plot(range(1, N), [theoretic_fixation(N=N, i=i, game=A) for i in range(1, N)], label="Theoretic")
