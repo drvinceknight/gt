@@ -2560,7 +2560,7 @@ for population in generations:
     [1 1 1 1]
 
 
-We see there that in a population of 4 individuals, a single individual of the first type (`0`) does not become fixed. That is just for a single run, to be able to approximate the fixation probability the process needs to be repeated.
+We see there that in a population of 4 individuals, a single individual of the first type (`0`) does not become fixed. That is just for a single run, to be able to approximate the fixation probability the process needs to be repeated, this can be done in Nashpy:
 
 
 ```python
@@ -2570,21 +2570,23 @@ import collections
 def approximate_fixation(N, A, i=None, repetitions=10):
     """
     Repeat the Moran process and calculate the fixation probability
+    
+    This is done by carrying out the following steps:
+    
+    1. Creating a game
+    2. Building an initial population with i individuals 
+       of the first type
+    3. Getting the fixation probabilities of both types
+    4. Returning the probability of the first type
     """
     game = nash.Game(A)
     initial_population = i * [0] + (N - i) * [1]
-    fixation_count = 0
+    probabilities = game.fixation_probabilities(
+        initial_population=initial_population, 
+        repetitions=repetitions
+    )
     
-    for seed in range(repetitions):
-        np.random.seed(seed)
-        generations = game.moran_process(
-            initial_population=initial_population
-        )
-        last_population = tuple(generations)[-1]
-        if 0 in last_population:
-            fixation_count += 1
-            
-    return  fixation_count / repetitions
+    return probabilities[0]
 ```
 
 Here is how the fixation probabilities vary for different initial populations:
