@@ -109,3 +109,15 @@ We can use games defined in :code:`nashpy` in that way::
     >>> game = nash.Game(A, B)
     >>> game[sigma_r, sigma_c]
     array([ 0.08, -0.08])
+
+Post class email
+----------------
+
+    A recording of today's class is available at <>.
+
+    Today we played matching pennies and a slight modification of matching
+    pennies. This was to help illustrate the ideas in this chapter of the
+    course: https://vknight.org/gt/chapters/02/
+
+    Let me know if there is anything I can assist with,
+    Vince
