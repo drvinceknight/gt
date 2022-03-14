@@ -105,13 +105,15 @@ if __name__ == "__main__":
     chapter_paths = sorted(nb_dir.glob('./chapters/*ipynb'))
     exercise_paths = sorted(nb_dir.glob('./exercises/*ipynb'))
     solution_paths = sorted(nb_dir.glob('./solutions/*ipynb'))
+    solution_paths.append(pathlib.Path("./assets/assessment/mock/ind/mock.ipynb"))
     other_paths = list(nb_dir.glob('./other/*ipynb'))
+    extra_paths = []
 
 
     chapters = []
     for path in tqdm.tqdm(sorted(chapter_paths)):
         chapters.append(Chapter(f"{get_id(path)}",
-                                get_name(path), 
+                                get_name(path),
                                 str(path),
                                 path.name))
     exercises = []
@@ -154,3 +156,4 @@ if __name__ == "__main__":
                                               "binderoot": BINDERROOT})
     with open('./exercises/index.html', 'w') as f:
         f.write(html)
+
