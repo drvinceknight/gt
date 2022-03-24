@@ -1,0 +1,153 @@
+\documentclass[a4paper]{article}
+
+% Set up page size
+\usepackage[margin=1.5cm, includefoot, footskip=30pt]{geometry}
+
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{graphicx}
+
+\title{Not reproducing Axelrod's original tournament}
+\author{Vince Knight and the maintainers of the Axelrod library}
+\date{2022--03--24}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The Iterated Prisoner's Dilemma is a model used to understand the emergence of
+cooperation in complex situations. One of the first papers on this topic
+presented the results of a computer tournament.
+
+This paper presents the unsuccessful attempts made to reproduce these results.
+As well as describing the general conclusions as it pertains to game theory a
+discussion about reproducibility of scientific research will also be given.
+\end{abstract}
+
+\section{Introduction}
+
+The Prisoner's Dilemma was first described in~\cite{flood1958some} and is
+represented using the following matrix and constraints:
+
+\begin{equation}
+    A = \begin{pmatrix}
+            R & S\\
+            T & P\\
+        \end{pmatrix}
+        \qquad
+    T > R > P > S
+        \qquad
+    2R > T + S
+\end{equation}
+
+The constraints ensure a social dilemma where rational actions lead to a Nash
+equilibrium where both players obtain less than a coordinated outcome.
+Choosing the first row or column are referred to as ``cooperating'' whereas
+choosing the second row or column are referred to as ``defecting''.
+
+The repeated version of the Prisoners Dilemma: the Iterated Prisoners Dilemma
+has given rise to a large amount of research. A systematic review of this
+research is available at~\cite{glynatsi2021bibliometric}. The initial pieces of
+this body of work relate to the 2 computer tournaments run by Robert Axelrod in
+the 1980s. These were originally reported in~\cite{axelrod1980effective,
+axelrod1980more} but subsequently lead to~\cite{axelrod1981evolution} which has
+over 45,500 citations.
+
+The winning of both of the above tournaments was a strategy called
+Tit For Tat: a strategy that starts by cooperating and then just mimics
+the previous move of the opponent.
+
+In the next section of this paper an attempt to replicate the work of Robert
+Axelrod will be described.
+
+\section{Results}
+
+Previous work by the authors includes the design and continued maintenance
+of the Python axelrod library~\cite{knight2016open}. This library is written following best
+practices in software engineering, most notably that tests are written for all
+code to ensure accurate behaviour. Secondly, this library is open source which
+has allowed it to have a large number of contributors this not only adds to the
+diversity of the code base (specifically to the large number of strategies
+available) but also further ensures its correctness.
+
+The descriptions of the strategies in Robert Axelrod's first
+paper~\cite{axelrod1980effective} are
+all that is available to be able to reproduce the work: the source code is not
+available. Some of these are not precise, for example here is a quote from the
+paper describing one of the strategies:
+
+\begin{quote}
+"This rule plays Tit for Tat except that it cooperates on the first four moves,
+it defects on the last two moves, and every fifteen moves it checks to see
+if the opponent seems to be playing randomly. This check uses a chi-squared
+test of the other’s transition probabilities and also checks for alternating
+moves of CD and DC."
+\end{quote}
+
+What is specifically meant by "alternating moves of CD and DC" is ambiguous.
+
+Following careful investigation of the paper the strategies have been
+implemented in the \mintinline{python}{axelrod} library and so the tournament
+can be rerun.
+
+Figure~\ref{fig:results_from_tournament} shows the result of a given run of the
+tournament.
+
+\begin{figure}[!htbp]
+    \begin{center}
+        \includegraphics[width=.3\textwidth]{../assets/results_from_tournament.pdf}
+    \end{center}
+    \caption{The reproduced results of Axelrod's first tournament.}
+    \label{fig:results_from_tournament}
+\end{figure}
+
+This shows that the results are not actually reproduced. There are a few reasons
+for which this could be the case:
+
+\begin{enumerate}
+    \item The implementation of the strategies do not correspond to the
+        descriptions in~\cite{axelrod1980effective}.
+    \item The stochastic effects.
+    \item The descriptions in~\cite{axelrod1980effective} do not correspond to the results reported.
+\end{enumerate}
+
+The first reason is unlikely: a blog post was published at:
+\begin{center}
+    \url{https://vknight.org/blog/posts/reproducing-axelrods-first-tournament/}
+\end{center}
+due to the open nature of this research project some details were improved in
+implementations.
+
+To rule out the second reason the tournament was run over a large number of
+repetitions. The best number of strategies who obtained the same rank was 11 and
+this occurred less than 0.002 \textbf{percent} of the time.
+
+\section{Conclusion}
+
+This paper presents a study aiming to reproduce the work of Axelrod's first
+tournament. To the best of the authors' knowledge it is not possible to
+reproduce these results.
+
+Whether or not the research is reproducible corresponds to an ongoing
+conversation in modern scientific research~\cite{wilson2014best}. Perhaps a more
+interesting questions is whether or not the overall conclusions remain the same.
+One of the main conclusions from the victory of Tit for Tat was that cooperation
+can emerge in complex situations.
+Figure~\ref{fig:the-evolution-of-the-cooperation-rate} shows the overall
+cooperation rate through the evolutionary process through replicator dynamics:
+cooperation still emerges.
+
+\begin{figure}[!htbp]
+    \begin{center}
+        \includegraphics[width=.3\textwidth]{../assets/the_evolution_of_the_cooperation_rate.pdf}
+    \end{center}
+    \caption{The evolution of the cooperation rate for the tournament of Figure~\ref{fig:results_from_tournament}}
+    \label{fig:the_evolution_of_the_cooperation_rate}
+\end{figure}
+
+\bibliographystyle{plain}
+\bibliography{bibliography.bib}
+
+\end{document}
