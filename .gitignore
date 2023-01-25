@@ -1,7 +1,9 @@
 _site
+docs/_build/
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
 vendor
 *DS_Store
 */.ipynb_checkpoints/*
+assets/
