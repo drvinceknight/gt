@@ -18,14 +18,24 @@ layout: default
         </ul>
 {% endif %}
 
-{% if page.video_urls %}
-    <h3> Video playlist </h3>
+{% if page.public_videos %}
+    <h3> YouTube playlist </h3>
 
-        <ul>
-            {% for url in page.video_urls %}
-                <li><a href="{{ url }}">{{ url }}</a></li>
+        <ol>
+            {% for url in page.public_videos %}
+                <li>{{ url | markdownify }}</li>
             {% endfor %}
-        </ul>
+        </ol>
+{% endif %}
+
+{% if page.private_videos %}
+    <h3> Cardiff University hosted playlist </h3>
+
+        <ol>
+            {% for url in page.private_videos %}
+                <li>{{ url | markdownify }}</li>
+            {% endfor %}
+        </ol>
 {% endif %}
 
 {% if page.meeting_urls %}
