@@ -15,15 +15,18 @@ Send the following email before class::
     All of the course materials (including short videos) are available at
     https://vknight.org/gt/.
 
-    Here is an invite link to a discord server we will be using for this class:
-    https://discord.gg/FCTyXP3G
+    During the class I will use a virtual whiteboard, if you want to you can
+    access the whiteboard on your own device here: <link>.
+
+    I will be using the School discord server to duplicate class communication.
+    If you have not joined the School discord server and would like to here is
+    an invite: <>.
 
     I realise that some of you are no doubt still deciding whether or not you
-    will choose the Game Theory this Semester (even more so given that the
-    course assessment is different from previous years). During our first class
-    tomorrow I will hopefully answer any questions you have but please don't
-    hesitate to ask (then, before or after) if there's anything you'd like to
-    know as you choose your modules.
+    will choose the Game Theory this Semester. During our first class 
+    I will hopefully answer any questions you have but please don't hesitate to
+    use the chat if there's anything you'd like to know as you choose your
+    modules.
 
     Please get in touch if I can assist with anything,
     Vince
@@ -31,11 +34,10 @@ Send the following email before class::
 Corresponding chapters
 ----------------------
 
-- `Introduction to the course <http://vknight.org/gt/chapters/00/>`_
-- `Normal form games <http://vknight.org/gt/chapters/01/>`_
+- `Introduction to the course <https://vknight.org/gt/topics/about-the-course.html>`_
+- `Normal form games <https://vknight.org/gt/topics/normal-form-games.html>`_
 
 **Duration**: 50 minutes
-
 
 Objectives
 ----------
@@ -57,6 +59,8 @@ Timetable and approach
 **********************
 
 Discuss timetable
+
+**Virtual modification** Show week by week schedule. Explain that it's flexible.
 
 **I will not lecture**
 
@@ -88,13 +92,6 @@ Details on website.
 Programming
 ***********
 
-The course notes will include code throughout, this is both to show you how to
-use code to study mathematics (an exemplar of modern mathematics) but also to
-illustrate the ideas.
-
-Details about the programming involved can be found at
-http://vknight.org/gt/other/programming/
-
 The first assessment is a coding exercise: this is to highlight that I am not
 interested in mathematical button pushing. I want you to become game theorists
 by doing this course.
@@ -107,18 +104,17 @@ Highlight the kindness section.
 Introduction to games
 *********************
 
-**Virtual modification:** Use MentiMeter:
+Use MentiMeter to play 2/3rds of the average game.
 
-1. Send link to first round
+1. Send <link> to first round
 2. Rationalise
 3. Send link to third round
 
 Discuss notes on Normal form games.
 
-After class email
-*****************
+After class communication
+*************************
 
-Send the following email to class::
 
     Dear all,
 

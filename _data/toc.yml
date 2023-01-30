@@ -2,7 +2,6 @@
   topics:
     - title: About the course
     - title: Normal form games
-    - title: Meetings
 - title: Week 2
   topics:
     - title: Strategies
@@ -10,6 +9,7 @@
 - title: Week 3
   topics:
     - title: Support enumeration
+    - title: Meetings
 - title: Week 4
   topics:
     - title: Extensive form games

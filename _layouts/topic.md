@@ -18,21 +18,10 @@ layout: default
         </ul>
 {% endif %}
 
-{% if page.public_videos %}
-    <h3> YouTube playlist </h3>
-
+{% if page.video_urls %}
+    <h3> Videos </h3>
         <ol>
-            {% for url in page.public_videos %}
-                <li>{{ url | markdownify }}</li>
-            {% endfor %}
-        </ol>
-{% endif %}
-
-{% if page.private_videos %}
-    <h3> Cardiff University hosted playlist </h3>
-
-        <ol>
-            {% for url in page.private_videos %}
+            {% for url in page.video_urls %}
                 <li>{{ url | markdownify }}</li>
             {% endfor %}
         </ol>

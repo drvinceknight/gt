@@ -39,5 +39,5 @@ and student-led activities.
 
 # Assessment
 
-- An individual coursework software assessment: 50%
-- A group coursework with a presentation + paper: 50%
+- An individual coursework software assessment: 40%
+- A group coursework with a presentation + paper: 60%
