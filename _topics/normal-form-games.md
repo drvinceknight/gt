@@ -10,7 +10,7 @@ video_urls:
     - "The Prisoners Dilemma and Matching Pennies: examples of other normal form games - [YouYube](https://youtu.be/lGsN58fEBRU) - [Private](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b13a398c-3c6a-41d4-b462-af93010f7d6a)"
     - "Using python to define Normal Form games with Nashpy - [YouYube](https://youtu.be/Llj8EU7Zjm4) - [Private](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=584ce47d-f41d-4ad1-922c-af93010f8d7e)"
 meeting_urls:
-    - "https://github.com/drvinceknight/gt/do/00-introduction-to-class.rst"
+    - "https://github.com/drvinceknight/gt/blob/main/do/00-introduction-to-class.rst"
 ---
 
 

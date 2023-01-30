@@ -11,5 +11,5 @@ video_urls:
     - "Strategies in Extensive Form games equivalence with Normal Form Games. - [YouTube](https://youtu.be/7ehCQMG1x1U) - [Private](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=afd69c70-6ea3-4f73-92b8-af930110c317)"
     - "Using Python to find Nash equilibria of Extensive Form Games using Nashpy - [YouTube](https://youtu.be/eAK_7p0ZH_E) - [Private](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fa04e43d-7046-4f14-a17d-af930110dfb6)"
 meeting_urls:
-    - "https://github.com/drvinceknight/gt/do/"
+    - "https://github.com/drvinceknight/gt/blob/main/do/04-extensive-form-games.rst"
 ---

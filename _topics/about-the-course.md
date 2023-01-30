@@ -2,7 +2,7 @@
 layout: topic
 title:  "About the Course"
 meeting_urls:
-    - "https://github.com/drvinceknight/gt/do/00-introduction-to-class.rst"
+    - "https://github.com/drvinceknight/gt/tree/main/do/00-introduction-to-class.rst"
 ---
 
 # Game Theory: Introduction to the course
@@ -42,7 +42,7 @@ I will use a virtual board throughout class:
 In class we will not follow the class text: these are there for you to read on
 your own time. Instead we will use activities and other examples to illustrate
 the concepts. I have my own notes for those (which are also available to you):
-[github.com/drvinceknight/gt/do](https://github.com/drvinceknight/gt/do)
+[github.com/drvinceknight/gt/do](https://github.com/drvinceknight/gt/tree/main/do)
 
 
 If you would like some information about the pedagogic approach:
