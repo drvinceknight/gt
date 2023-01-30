@@ -63,8 +63,7 @@ know if I can help with anything.
 ## Office hours
 
 I will hold 2-3 hours a week for office hours during which you may come and get
-help. Specific hours will be determined collaboratively as a class during the
-first class meeting.
+help. Specific hours will be determined collaboratively as a class.
 
 ## Kindness
 
