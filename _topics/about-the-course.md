@@ -66,6 +66,35 @@ I will hold 2-3 hours a week for office hours during which you may come and get
 help. Specific hours will be determined collaboratively as a class during the
 first class meeting.
 
+## Kindness
+
+In this course every participant (including myself) will be having many
+interactions with other participants. Some potential examples of this:
+
+-   Peer to peer discussions during classes;
+-   Me explaining a given topic.
+
+I expect **every participant** (including myself) to act with kindness
+during these interactions.
+
+Some examples of how this applies to me:
+
+-   When a student is late or absent at a class **I** will assume they
+    have good reasons. If this happens regularly
+    1.  I will first be concerned for their well-being.
+    2.  Ask how **I** can help them catch up.
+-   If a student asks for an explanation of a topic that has been
+    covered multiples times **I** will assume that some set of
+    circumstances has prevented them from seeing these explanations and:
+    1.  will explain the topic.
+    2.  also point them at the explanations in the course materials
+        and/or class recordings. If this is a regular occurrence I might
+        ask if there are any circumstances that I can help with.
+-   If **I** make a mistake in a class explanation and someone helpfully
+    points it out. **I** will listen and thank them for pointing it out
+    and either go over the mistake then and there or go over it again at
+    a future meeting.
+
 ## Assessment
 
 There are two piece of assessment in this course:
