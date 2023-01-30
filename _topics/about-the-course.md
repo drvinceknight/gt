@@ -1,6 +1,8 @@
 ---
-layout: default
+layout: topic
 title:  "About the Course"
+meeting_urls:
+    - "https://github.com/drvinceknight/gt/do/00-introduction-to-class.rst"
 ---
 
 # Game Theory: Introduction to the course
@@ -22,7 +24,7 @@ There are 3 components to the course content, all of which can be found at this
 site.
 
 - The course notes we will use are the open source text book available here:
-https://nashpy.readthedocs.io/en/stable/text-book/index.html#
+[nashpy.readthedocs.io/en/stable/text-book/index.html](https://nashpy.readthedocs.io/en/stable/text-book/index.html#)
 - Video explainers for every topic. A private link and a YouTube link are
   available.
 - Content we will generate in class: through our discussions and activities we
