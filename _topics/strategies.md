@@ -13,3 +13,21 @@ video_urls:
 meeting_urls:
     - "https://github.com/drvinceknight/gt/blob/main/do/01-strategy-utilities.rst"
 ---
+
+## Typical Programming Exercises
+
+1. Create a variable `utilities` which has value the expected utilities for both players for the following Normal Form Game when the row player is playing \\(\sigma_r=(.4, .6)\\) and the column player is playing \\(\sigma_c=(0, 1)\\):
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix} \qquad B = \begin{pmatrix}-1 & 1\\ 1 & -1\end{pmatrix}$$
+2. Output the expected utility for both players for the following Normal Form Game when the row player is playing \\(\sigma_r=(1 / 3, 2 / 3)\\) and the column player is playing \\(\sigma_c=(1 / 2, 1 / 2)\\):
+   $$A = \begin{pmatrix}3 & 2\\ 3 & 1\end{pmatrix} \qquad B = \begin{pmatrix}4 & 9\\ 5 & 3\end{pmatrix}$$
+3. Create a variable `utilities` which has value the expected utilities for both
+   players for the following zero sum Normal Form Game
+   defined by:
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix}$$
+   when the row player is playing \\(\sigma_r=(0, 1)\\) and the column player is
+   playing \\(\sigma_c=(1/4, 3/4)\\).
+4. Output the expected utilities for both players for the following zero sum Normal Form Game
+   defined by:
+   $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\\ 0 & 3 & -2\end{pmatrix}$$
+   when the row player is playing \\(\sigma_r=(0, 1, 0)\\) and the column player is
+   playing \\(\sigma_c=(1/4, 1/4, 1/2)\\).

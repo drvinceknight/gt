@@ -14,3 +14,15 @@ meeting_urls:
 ---
 
 
+## Typical Programming Exercises
+
+1. Create a variable `game` which has value the following Normal Form Game:
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix} \qquad B = \begin{pmatrix}-1 & 1\\ 1 & -1\end{pmatrix}$$
+2. Output the following Normal Form Game:
+   $$A = \begin{pmatrix}3 & 2\\ 3 & 1\end{pmatrix} \qquad B = \begin{pmatrix}4 & 9\\ 5 & 3\end{pmatrix}$$
+3. Create a variable `game` which has value the zero sum Normal Form Game
+   defined by:
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix}$$
+4. Output the zero sum Normal Form Game
+   defined by:
+   $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\\ 0 & 3 & -2\end{pmatrix}$$
