@@ -23,6 +23,8 @@ layout: default
 
 {% endfor %}
 
+## [Assessment]({{ site.baseurl}}/assessment/)
+
 ## [Log](#blog)
 
 ([RRS feed]({{ site.baseurl }}/feed.xml))

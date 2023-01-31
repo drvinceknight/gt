@@ -100,3 +100,5 @@ There are two piece of assessment in this course:
 
 - Individual coursework (40%)
 - Group coursework (60%)
+
+More information about assessment: [here]({{ site.baseurl}}/assessment/)

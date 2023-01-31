@@ -52,6 +52,8 @@ collections:
   faqs:
   topics:
     output: true
+  assessment:
+    output: true
 
 kramdown:
   syntax_highlighter_opts:
