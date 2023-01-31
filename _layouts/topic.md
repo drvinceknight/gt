@@ -39,3 +39,5 @@ layout: default
 
 {{ page.content }}
 </div>
+
+{% include utterances.html %}
