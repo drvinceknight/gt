@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How do office hours work?"
+title:  How do office hours work?
 ---
 
 During the agreed office hours, you can come to my office (you do not need to
