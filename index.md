@@ -15,7 +15,7 @@ layout: default
 
 {% for question in site.faqs %}
 
-### [{{ question.title}}](#{{ question.slug }})
+### [{{ question.title }}](#{{ question.slug }})
 
 ```plaintext
 {{ question.content | strip_html}}
