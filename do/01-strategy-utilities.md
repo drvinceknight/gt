@@ -5,7 +5,7 @@ Corresponding chapters
 ----------------------
 
 -   [Calculating utilities of
-    strategies](http://vknight.org/gt/chapters/02/)
+    strategies](https://vknight.org/gt/topics/strategies.html)
 
 **Duration**: 50 minutes
 
@@ -21,7 +21,7 @@ Notes
 
 ### Utility calculations
 
-Use [matching pennies](./assets/matchingpennies/main.pdf) have
+Use [matching pennies](./static/matching_pennies/main.pdf) have
 students play in pairs. Following each game:
 
 -   Ask how many people won?
