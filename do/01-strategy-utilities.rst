@@ -11,8 +11,8 @@ Corresponding chapters
 Objectives
 ----------
 
-- Define mixed strategies
-- Understand utility calculation for mixed strategies
+- Define strategies
+- Understand utility calculation for strategies
 - Understand utility calculation as a linear algebraic construct
 
 
@@ -22,20 +22,16 @@ Notes
 Utility calculations
 ********************
 
-Use :download:`matching pennies
-form<../assets/activities/matchingpennies.pdf>` have students play in pairs.
+Use [matching pennies](../assets/activities/matchingpennies.pdf) have students play in pairs.
 Following each game:
 
 - Ask how many people won?
 - Ask why they won?
 
-**Virtual modification:** Use breakout rooms of 4 (still ask students to pair
-up, the other two can observe).
+Strategies
+**********
 
-Mixed strategies
-****************
-
-Look at definition for mixed strategies.
+Look at definition for strategies.
 
 Consider:
 
