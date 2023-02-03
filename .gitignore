@@ -6,7 +6,7 @@ docs/_build/
 vendor
 *DS_Store
 */.ipynb_checkpoints/*
-assets/
+assets/assessment/
 *.aux
 *.fdb_latexmk
 *.fls
