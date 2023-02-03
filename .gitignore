@@ -7,3 +7,8 @@ vendor
 *DS_Store
 */.ipynb_checkpoints/*
 assets/
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.xdv
