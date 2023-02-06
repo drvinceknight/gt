@@ -11,5 +11,5 @@ video_urls:
     - "When no player has a reason to change: Nash equilibrium - [YouTube](https://youtu.be/R0aZ_4vd4cM) - [Private](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9c1b0cbe-8bde-4024-936e-af93010ff23a)"
     - "Using Python to check if strategies are best responses to each other - [YouTube](https://youtu.be/h6zSP8G1aQw) - [Private](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4aaf679f-7bd7-4d00-8edc-af9301100d43)"
 meeting_urls:
-    - "https://github.com/drvinceknight/gt/blob/main/do/02-best-response-condition.rst"
+    - "https://github.com/drvinceknight/gt/blob/main/do/02-best-response-condition.md"
 ---
