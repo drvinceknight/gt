@@ -18,7 +18,7 @@ We saw that depending on the value of \\(x\\) we had 3 possible best responses:
   column.
 - If \\(x=.1\\) then \\(\sigma\_c*=(0, 1)\\): we should always play the second
   column.
-- If \\(x=1/3\\) then \\(sigma\_c^*\\) can be any valid strategy: it does not
+- If \\(x=1/3\\) then \\(\sigma\_c^*\\) can be any valid strategy: it does not
   matter what we do.
 
 This leads to the concepts described in this section of the notes:
@@ -26,26 +26,26 @@ This leads to the concepts described in this section of the notes:
 
 Which is that we could write down a generic form of \\(\sigma\_c^*\\):
 
-\[
-\sigma\_c^*
+\\[
+\sigma\_c^*=
 \begin{cases}
-    (0, 1),&\text{ if } x > 1/3\\
-    (1, 0),&\text{ if } x < 1/3\\
+    (0, 1),&\text{ if } x > 1/3\\\\\\
+    (1, 0),&\text{ if } x < 1/3\\\\\\
     \text{indifferent},&\text{ if } x = 1/3
 \end{cases}
-\]
+\\]
 
 I left as an exercise to repeat the procedure for \\(\sigma\_r^*\\) which gives:
 
 
-\[
+\\[
 \sigma\_r^* =
 \begin{cases}
-    (1, 0),&\text{ if } y > 1/2\\
-    (0, 1),&\text{ if } y < 1/2\\
+    (1, 0),&\text{ if } y > 1/2\\\\\\
+    (0, 1),&\text{ if } y < 1/2\\\\\\
     \text{indifferent},&\text{ if } y = 1/2
 \end{cases}
-\]
+\\]
 
 (where \\(y\\) is the probability of being in the first column).
 
