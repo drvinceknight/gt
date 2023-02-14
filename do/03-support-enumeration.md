@@ -23,9 +23,7 @@ Notes
 Tell students to create groups of 4 or 8 and play a knockout RPSLS
 tournament.
 
-Explain rules and show:
-
-![image]((./static/rpsls/main.pdf)
+Explain rules and show [rock paper scissors lizard spock]((./static/rpsls/main.pdf)
 
 Following the tournaments: have discussion about how winner won etc\...
 
