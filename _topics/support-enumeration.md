@@ -10,3 +10,14 @@ video_urls:
 meeting_urls:
     - "https://github.com/drvinceknight/gt/blob/main/do/03-support-enumeration.md"
 ---
+
+## Typical Programming Exercises
+
+1. Create a variable `equilibria` which has value a list containing all equilibria for the Normal Form Game defined by:
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix} \qquad B = \begin{pmatrix}-1 & 1\\ 1 & -1\end{pmatrix}$$
+2. Output a list containing all equilibria for the Normal Form Game defined by:
+   $$A = \begin{pmatrix}3 & 2\\ 3 & 1\end{pmatrix} \qquad B = \begin{pmatrix}4 & 9\\ 5 & 3\end{pmatrix}$$
+3. Create a variable `equilibria` which has value a list containing all equilibria for the Normal Form Game defined by:
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix}$$
+4. Output a list containing all equilibria for the Zero sum Normal Form Game defined by:
+   $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\\ 0 & 3 & -2\end{pmatrix}$$

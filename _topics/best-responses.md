@@ -13,3 +13,14 @@ video_urls:
 meeting_urls:
     - "https://github.com/drvinceknight/gt/blob/main/do/02-best-response-condition.md"
 ---
+
+## Typical Programming Exercises
+
+1. Create a variable `are_best_responses` which has value a tuple of booleans indicating if the following pairs of strategies are best responses to each other for the Normal Form Game when the row player is playing \\(\sigma_r=(.4, .6)\\) and the column player is playing \\(\sigma_c=(0, 1)\\):
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix} \qquad B = \begin{pmatrix}-1 & 1\\ 1 & -1\end{pmatrix}$$
+2. Output a tuple of booleans indicating if the following pairs of strategies are best responses to each other for the Normal Form Game when the row player is playing \\(\sigma_r=(1 / 3, 2 / 3)\\) and the column player is playing \\(\sigma_c=(1 / 2, 1 / 2)\\):
+   $$A = \begin{pmatrix}3 & 2\\ 3 & 1\end{pmatrix} \qquad B = \begin{pmatrix}4 & 9\\ 5 & 3\end{pmatrix}$$
+3. Create a variable `are_best_responses` which has value a tuple of booleans indicating if the following pairs of strategies are best responses to each other for the Normal Form Game when the row player is playing \\(\sigma_r=(0, 1)\\) and the column player is playing \\(\sigma_c=(1/4, 3/4)\\):
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix}$$
+4. Output a tuple of booleans indicating if the following pairs of strategies are best responses to each other for the zero sum Normal Form Game when the row player is playing \\(\sigma_r=(0, 1, 0)\\) and the column player is playing \\(\sigma_c=(1/4, 1/4, 1/2)\\):
+   $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\\ 0 & 3 & -2\end{pmatrix}$$
