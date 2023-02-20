@@ -1,6 +1,11 @@
 ---
 layout: post
 title:  "Valentines day"
+tags:
+    - normal-form-games
+    - best-responses
+    - support-enumeration
+    - assessment
 ---
 
 In today's class we spoke about a deadline for the individual coursework but

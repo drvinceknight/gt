@@ -3,6 +3,7 @@ layout: topic
 title:  "About the Course"
 meeting_urls:
     - "https://github.com/drvinceknight/gt/tree/main/do/00-introduction-to-class.rst"
+tag: "about"
 ---
 
 # Game Theory: Introduction to the course

@@ -1,6 +1,8 @@
 ---
 layout: post
 title:  "More best responses"
+tags:
+    - best-responses
 ---
 
 Friday's class was hopefully helpful: we spent some time working on drawing

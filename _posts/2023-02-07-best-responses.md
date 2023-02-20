@@ -1,6 +1,9 @@
 ---
 layout: post
 title:  "Utility calculations and the start of best responses"
+tags:
+    - strategies
+    - best-responses
 ---
 
 Today was a fun class: thanks! We spoke about calculating utilities as well as

@@ -1,6 +1,7 @@
 ---
 layout: topic
 title:  "Normal form games"
+tag: normal-form-games
 note_urls:
     - "https://nashpy.readthedocs.io/en/stable/text-book/normal-form-games.html#"
 video_urls:
