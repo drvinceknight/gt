@@ -1,6 +1,8 @@
 ---
 layout: post
 title:  "An anonymous feedback form"
+tags:
+    - about
 ---
 
 Following a suggestion from a student, here is a link to an anonymous (in

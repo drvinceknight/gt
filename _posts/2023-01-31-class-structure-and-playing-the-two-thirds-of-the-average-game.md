@@ -1,6 +1,9 @@
 ---
 layout: post
 title:  "Structure of the class and the two thirds of the average game"
+tags:
+    - about
+    - normal-form-games
 ---
 
 Thanks all today for a fun class!

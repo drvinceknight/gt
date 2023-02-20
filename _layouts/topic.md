@@ -38,6 +38,18 @@ layout: default
 {% endif %}
 
 {{ page.content }}
+
+<h2>Log of past relevant classes</h2>
+
+{% for post in site.posts %}
+    {% if post.tags contains page.tag %}
+<h4>
+<a href="{{site.baseurl}}{{post.url}}">{{post.date | date: "%D"}}: {{ post.title }}
+</a>
+</h4>
+  {{ post.excerpt }}
+    {% endif %}
+{% endfor %}
 </div>
 
 {% include utterances.html %}

@@ -1,6 +1,7 @@
 ---
 layout: topic
 title:  "Strategies"
+tag: strategies
 note_urls:
     - "https://nashpy.readthedocs.io/en/stable/text-book/strategies.html"
 video_urls:

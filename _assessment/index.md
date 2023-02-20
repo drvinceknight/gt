@@ -1,5 +1,6 @@
 ---
 layout: default
+tag: assessment
 ---
 
 # Individual coursework (40%)
@@ -38,4 +39,14 @@ A list of titles of past projects:
 {% for title in year.titles %}
 - {{ title }}
 {% endfor %}
+{% endfor %}
+
+
+## [Log of past relevant classes](#log-of-past-relevant-classes)
+
+{% for post in site.posts %}
+    {% if post.tags contains page.tag %}
+[{{post.date | date: "%D"}}: {{ post.title }}]({{site.baseurl}}{{post.url}})
+  {{ post.excerpt }}
+    {% endif %}
 {% endfor %}

@@ -1,6 +1,7 @@
 ---
 layout: topic
 title:  "Support enumeration"
+tag: support-enumeration
 note_urls:
     - "https://nashpy.readthedocs.io/en/stable/text-book/support-enumeration.html#"
 video_urls:

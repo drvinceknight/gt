@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Welcome to the Game Theory class 2023"
+tags: about
 ---
 
 Welcome to you if you are thinking of doing MA3604 (Game Theory) this year.

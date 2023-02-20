@@ -1,6 +1,7 @@
 ---
 layout: topic
 title:  "Best responses"
+tag: best-responses
 note_urls:
     - "https://nashpy.readthedocs.io/en/stable/text-book/best-responses.html#best-responses"
 video_urls:

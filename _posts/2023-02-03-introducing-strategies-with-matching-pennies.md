@@ -1,6 +1,8 @@
 ---
 layout: post
-title:  "Introducting strategies with matching pennies"
+title:  "Introducing strategies with matching pennies"
+tags:
+    - strategies
 ---
 
 Today we mainly talked about what a strategy was: defining it as a way of
