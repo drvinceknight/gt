@@ -1,6 +1,7 @@
 ---
 layout: topic
 title:  "Extensive form games"
+tag: extensive-form
 note_urls:
     - "https://nashpy.readthedocs.io/en/stable/text-book/extensive-form-games.html"
 video_urls:
@@ -11,5 +12,12 @@ video_urls:
     - "Strategies in Extensive Form games equivalence with Normal Form Games. - [YouTube](https://youtu.be/7ehCQMG1x1U) - [Private](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=afd69c70-6ea3-4f73-92b8-af930110c317)"
     - "Using Python to find Nash equilibria of Extensive Form Games using Nashpy - [YouTube](https://youtu.be/eAK_7p0ZH_E) - [Private](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=fa04e43d-7046-4f14-a17d-af930110dfb6)"
 meeting_urls:
-    - "https://github.com/drvinceknight/gt/blob/main/do/04-extensive-form-games.rst"
+    - "https://github.com/drvinceknight/gt/blob/main/do/04-extensive-form-games.md"
 ---
+
+## Typical Programming Exercises
+
+1. Create a variable `repeated_game` which has value the Normal Form Game obtained by repeating the following stage game twice:
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix} \qquad B = \begin{pmatrix}-1 & 1\\ 1 & -1\end{pmatrix}$$
+2. Output the Normal Form Game obtained by repeating the following zero sum game twice:
+   $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\end{pmatrix}$$
