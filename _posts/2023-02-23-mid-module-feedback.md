@@ -1,7 +1,9 @@
 ---
 layout: post
 title:  "Mid module feedback"
-tags: about
+tags:
+    - about
+    - assessment
 ---
 
 On Friday you spent some time filling in the mid module feedback for Game
