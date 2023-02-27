@@ -10,6 +10,16 @@ A mock coursework is available:
 
 # Group project (60%)
 
+Carry out a group research project using Game Theory. This can either be a
+theoretical exploration of a topic of Game Theory or an applied problem:
+investigating some interactive process using the tools of the course.
+
+You will evidence your progress with 3 mediums:
+
+1. Regular logs (to be filled in individually).
+2. A 2 page paper
+3. A 15 minute presentation
+
 ## [Marking criteria](#marking-criteria)
 
 ### 2 Page Paper
