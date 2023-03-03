@@ -8,6 +8,27 @@ tag: assessment
 A mock coursework is available:
 [here]({{site.baseurl}}/assets/assessment/mock/ind/assignment.ipynb).
 
+The 2022-2023 coursework is available here:
+[here]({{site.baseurl}}/assets/assessment/2022-2023/ind/assignment.ipynb).
+
+The topics for the individual coursework for the past few years have been:
+
+- 2022-2023:
+    1. [Repeated games]({{ site.baseurl }}/topics/repeated-games.html)
+    2. [Replicator Dynamics]({{ site.baseurl }}/topics/replicator-dynamics.html)
+    3. [Support enumeration]({{ site.baseurl }}/topics/support-enumeration.html)
+    4. [Asymmetric replicator dynamics](https://nashpy.readthedocs.io/en/stable/text-book/asymmetric-replicator-dynamics.html)
+- 2021-2022:
+    1. [Moran Process]({{ site.baseurl }}/topics/moran-process.html)
+    2. [Replicator Dynamics]({{ site.baseurl }}/topics/replicator-dynamics.html)
+    3. [Support enumeration]({{ site.baseurl }}/topics/support-enumeration.html)
+    4. [Fictitious play](https://nashpy.readthedocs.io/en/stable/text-book/fictitious-play.html)
+- Mock:
+    1. [Support enumeration]({{ site.baseurl }}/topics/support-enumeration.html)
+    2. [Prisoners dilemma]({{ site.baseurl }}/topics/prisoners-dilemma.html)
+    3. [Repeated games]({{ site.baseurl }}/topics/repeated-games.html)
+    4. [Lemke Howson Algorithm](https://nashpy.readthedocs.io/en/stable/text-book/lemke-howson.html#the-lemke-howson-algorithm)
+
 # Group project (60%)
 
 Carry out a group research project using Game Theory. This can either be a

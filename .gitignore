@@ -6,9 +6,12 @@ docs/_build/
 vendor
 *DS_Store
 */.ipynb_checkpoints/*
-assets/assessment/
+assets/assessment/**/*.xlsx
+assets/assessment/**/*.numbers
+assets/assessment/**/submissions/
 *.aux
 *.fdb_latexmk
 *.fls
 *.log
 *.xdv
+**checkpoint**
