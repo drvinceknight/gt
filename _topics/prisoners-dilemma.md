@@ -1,6 +1,7 @@
 ---
 layout: topic
 title:  "Prisoners Dilemma"
+tag: prisoners-dilemma
 note_urls:
     - "https://nashpy.readthedocs.io/en/stable/text-book/cooperation.html"
 video_urls:

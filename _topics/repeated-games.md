@@ -1,6 +1,7 @@
 ---
 layout: topic
 title:  "Repeated games"
+tag: repeated-games
 note_urls:
     - "https://nashpy.readthedocs.io/en/stable/text-book/repeated-games.html"
 video_urls:
