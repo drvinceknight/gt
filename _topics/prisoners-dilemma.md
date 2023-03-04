@@ -13,3 +13,26 @@ video_urls:
 meeting_urls:
     - "https://github.com/drvinceknight/gt/blob/main/do/05-extensive-form-games.rst"
 ---
+
+## Typical Programming Exercises
+
+1. Output the row player payoff matrix corresponding to an Iterated Prisoners
+   Dilemma Tournament (with 200 turns) with the following strategies from the Axelrod library:
+   - [`axelrod.TitForTat`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.titfortat.TitForTat)
+   - [`axelrod.Random`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.rand.Random)
+   - [`axelrod.Grudger`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.grudger.Grudger)
+2. Create a variable `A` which has value the row player payoff matrix
+corresponding to an Iterated Prisoners Dilemma Tournament (with 200 turns) with
+the following strategies from the Axelrod library:
+   - [`axelrod.EvolvedFSM16`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.finite_state_machines.EvolvedFSM16)
+   - [`axelrod.Adaptive`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.adaptive.Adaptive)
+   - [`axelrod.GoByMajority`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.gobymajority.GoByMajority)
+3. Output the Nash equilibria that corresponds to the Normal Form Game for the
+   following strategies of an Iterated Prisoners Dilemma Tournament (with 200
+   turns) from the Axelrod library:
+   - [`axelrod.TitForTat`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.titfortat.TitForTat)
+   - [`axelrod.Random`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.rand.Random)
+   - [`axelrod.Grudger`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.grudger.Grudger)
+   - [`axelrod.EvolvedFSM16`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.finite_state_machines.EvolvedFSM16)
+   - [`axelrod.Adaptive`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.adaptive.Adaptive)
+   - [`axelrod.GoByMajority`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.gobymajority.GoByMajority)

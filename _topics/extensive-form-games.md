@@ -17,7 +17,7 @@ meeting_urls:
 
 ## Typical Programming Exercises
 
-1. Create a variable `repeated_game` which has value the Normal Form Game obtained by repeating the following stage game twice:
-   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix} \qquad B = \begin{pmatrix}-1 & 1\\ 1 & -1\end{pmatrix}$$
-2. Output the Normal Form Game obtained by repeating the following zero sum game twice:
-   $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\end{pmatrix}$$
+1. Create a variable `normal_form_game` which has value the Normal Form Game
+   that corresponds to the extensive form game shown [here](https://nashpy.readthedocs.io/en/stable/_images/main11.png).
+2. Output the Normal Form Game that corresponds to the extensive form game shown
+   [here](https://nashpy.readthedocs.io/en/stable/_images/main10.png).

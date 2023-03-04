@@ -13,3 +13,10 @@ video_urls:
 meeting_urls:
     - "https://github.com/drvinceknight/gt/blob/main/do/05-extensive-form-games.rst"
 ---
+
+## Typical Programming Exercises
+
+1. Create a variable `repeated_game` which has value the Normal Form Game obtained by repeating the following stage game twice:
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix} \qquad B = \begin{pmatrix}-1 & 1\\ 1 & -1\end{pmatrix}$$
+2. Output the Normal Form Game obtained by repeating the following zero sum game twice:
+   $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\end{pmatrix}$$

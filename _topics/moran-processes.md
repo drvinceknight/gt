@@ -1,6 +1,7 @@
 ---
 layout: topic
 title:  "Moran Processes"
+tag: "moran-process"
 note_urls:
     - "https://nashpy.readthedocs.io/en/stable/text-book/moran-process.html"
 video_urls:
@@ -15,3 +16,34 @@ video_urls:
 meeting_urls:
     - "https://github.com/drvinceknight/gt/blob/main/do/08-moran-process.rst"
 ---
+
+## Typical Programming Exercises
+
+For each of the following matrices \\(A\\) and initial populations \\(x_0\\), for the corresponding normal form game:
+
+- create a variable `initial_population` which has value the corresponding `nashpy` initial population.
+- create a variable `probabilities` which has value the fixation probabilities of the simulated [Moran process](https://nashpy.readthedocs.io/en/stable/how-to/obtain-fixation-probabilities.html) (using the given repetitions and random seed).
+
+a. $$
+    A = \begin{pmatrix}1 & 2 \\ 2 & 1\end{pmatrix}
+    \qquad
+    x_0 = \begin{pmatrix}10 & 0\end{pmatrix}
+   $$
+
+b. $$
+    A = \begin{pmatrix}1 & 2 \\ 2 & 1\end{pmatrix}
+    \qquad
+    x_0 = \begin{pmatrix}3 & 0\end{pmatrix}
+   $$
+
+c. $$
+    A = \begin{pmatrix}1 & 2 & 3 \\ 2 & 1 & 4 \\ 2 & 3 & 1\end{pmatrix}
+    \qquad
+    x_0 = \begin{pmatrix}3 & 1 & 2\end{pmatrix}
+   $$
+
+d. $$
+    A = \begin{pmatrix}1 & 2 & 3 \\ 2 & 1 & 4 \\ 2 & 3 & 1\end{pmatrix}
+    \qquad
+    x_0 = \begin{pmatrix}6 & 2 & 4\end{pmatrix}
+   $$
