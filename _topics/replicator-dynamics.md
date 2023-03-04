@@ -1,6 +1,7 @@
 ---
 layout: topic
 title:  "Replicator Dynamics"
+tag: "replicator-dynamics"
 note_urls:
     - "https://nashpy.readthedocs.io/en/stable/text-book/replicator-dynamics.html"
 video_urls:
@@ -13,3 +14,14 @@ video_urls:
 meeting_urls:
     - "https://github.com/drvinceknight/gt/blob/main/do/07-evolutionary-game-theory.rst"
 ---
+
+## Typical Programming Exercises
+
+1. Create a variable `populations` which has value a list containing all population vectors for the replicator dynamics (with `timepoints=numpy.linspace(0, 1, 500)`) for the Normal Form Game defined by:
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix} \qquad B = \begin{pmatrix}-1 & 1\\ 1 & -1\end{pmatrix}$$
+2. Output a list containing all population vectors for the replicator dynamics (with `timepoints=numpy.linspace(0, 1, 500)`) for the Normal Form Game defined by:
+   $$A = \begin{pmatrix}3 & 2\\ 3 & 1\end{pmatrix} \qquad B = \begin{pmatrix}4 & 9\\ 5 & 3\end{pmatrix}$$
+3. Create a variable `last_population` which has value the final population vectors for the replicator dynamics (with `timepoints=numpy.linspace(0, 1, 500)`) for the Normal Form Game defined by:
+   $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix}$$
+4. Output the final population vectors for the replicator dynamics (with `timepoints=numpy.linspace(0, 1, 500)`) for the Normal Form Game defined by:
+   $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\\ 0 & 3 & -2\end{pmatrix}$$
