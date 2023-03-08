@@ -27,3 +27,5 @@ meeting_urls:
 4. Output the zero sum Normal Form Game
    defined by:
    $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\\ 0 & 3 & -2\end{pmatrix}$$
+
+[Solutions]({{ site.baseurl }}/assets/solutions/normal-form-games.ipynb)

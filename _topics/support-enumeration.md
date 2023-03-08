@@ -22,3 +22,5 @@ meeting_urls:
    $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix}$$
 4. Output a list containing all equilibria for the Zero sum Normal Form Game defined by:
    $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\\ 0 & 3 & -2\end{pmatrix}$$
+
+[Solutions]({{ site.baseurl }}/assets/solutions/support-enumeration.ipynb)
