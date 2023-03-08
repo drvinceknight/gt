@@ -32,3 +32,5 @@ meeting_urls:
    $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\\ 0 & 3 & -2\end{pmatrix}$$
    when the row player is playing \\(\sigma_r=(0, 1, 0)\\) and the column player is
    playing \\(\sigma_c=(1/4, 1/4, 1/2)\\).
+
+[Solutions]({{ site.baseurl }}/assets/solutions/strategies.ipynb)

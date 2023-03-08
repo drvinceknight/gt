@@ -25,3 +25,5 @@ meeting_urls:
    $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix}$$
 4. Output a tuple of booleans indicating if the following pairs of strategies are best responses to each other for the zero sum Normal Form Game when the row player is playing \\(\sigma_r=(0, 1, 0)\\) and the column player is playing \\(\sigma_c=(1/4, 1/4, 1/2)\\):
    $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\\ 0 & 3 & -2\end{pmatrix}$$
+
+[Solutions]({{ site.baseurl }}/assets/solutions/best-responses.ipynb)
