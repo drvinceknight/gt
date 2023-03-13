@@ -20,3 +20,5 @@ meeting_urls:
    $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix} \qquad B = \begin{pmatrix}-1 & 1\\ 1 & -1\end{pmatrix}$$
 2. Output the Normal Form Game obtained by repeating the following zero sum game twice:
    $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\end{pmatrix}$$
+
+[Solutions]({{ site.baseurl }}/assets/solutions/repeated-games.ipynb)

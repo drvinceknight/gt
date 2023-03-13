@@ -27,7 +27,7 @@ the following strategies from the Axelrod library:
    - [`axelrod.EvolvedFSM16`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.finite_state_machines.EvolvedFSM16)
    - [`axelrod.Adaptive`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.adaptive.Adaptive)
    - [`axelrod.GoByMajority`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.gobymajority.GoByMajority)
-3. Output the Nash equilibria that corresponds to the Normal Form Game for the
+3. Output the Nash equilibria (as a list) that corresponds to the Normal Form Game for the
    following strategies of an Iterated Prisoners Dilemma Tournament (with 200
    turns) from the Axelrod library:
    - [`axelrod.TitForTat`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.titfortat.TitForTat)
@@ -36,3 +36,5 @@ the following strategies from the Axelrod library:
    - [`axelrod.EvolvedFSM16`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.finite_state_machines.EvolvedFSM16)
    - [`axelrod.Adaptive`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.adaptive.Adaptive)
    - [`axelrod.GoByMajority`](https://axelrod.readthedocs.io/en/stable/reference/strategy_index.html#axelrod.strategies.gobymajority.GoByMajority)
+
+[Solutions]({{ site.baseurl }}/assets/solutions/prisoners-dilemma.ipynb)
