@@ -21,3 +21,5 @@ meeting_urls:
    that corresponds to the extensive form game shown [here](https://nashpy.readthedocs.io/en/stable/_images/main11.png).
 2. Output the Normal Form Game that corresponds to the extensive form game shown
    [here](https://nashpy.readthedocs.io/en/stable/_images/main10.png).
+
+[Solutions]({{ site.baseurl }}/assets/solutions/extensive-form-games.ipynb)
