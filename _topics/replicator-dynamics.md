@@ -25,3 +25,5 @@ meeting_urls:
    $$A = \begin{pmatrix}1 & - 1\\ -1 & 1\end{pmatrix}$$
 4. Output the final population vectors for the replicator dynamics (with `timepoints=numpy.linspace(0, 1, 500)`) for the Normal Form Game defined by:
    $$A = \begin{pmatrix}-3 & - 1 & 4\\ 2 & -1 &  1\\ 0 & 3 & -2\end{pmatrix}$$
+
+[Solutions]({{ site.baseurl }}/assets/solutions/replicator-dynamics.ipynb)
