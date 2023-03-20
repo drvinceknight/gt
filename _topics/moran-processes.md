@@ -30,11 +30,15 @@ a. $$
     x_0 = \begin{pmatrix}10 & 0\end{pmatrix}
    $$
 
+   `repetitions=500` and `seed=0`
+
 b. $$
     A = \begin{pmatrix}1 & 2 \\ 2 & 1\end{pmatrix}
     \qquad
     x_0 = \begin{pmatrix}3 & 0\end{pmatrix}
    $$
+
+   `repetitions=350` and `seed=4`
 
 c. $$
     A = \begin{pmatrix}1 & 2 & 3 \\ 2 & 1 & 4 \\ 2 & 3 & 1\end{pmatrix}
@@ -42,8 +46,14 @@ c. $$
     x_0 = \begin{pmatrix}3 & 1 & 2\end{pmatrix}
    $$
 
+   `repetitions=1` and `seed=2`
+
 d. $$
     A = \begin{pmatrix}1 & 2 & 3 \\ 2 & 1 & 4 \\ 2 & 3 & 1\end{pmatrix}
     \qquad
     x_0 = \begin{pmatrix}6 & 2 & 4\end{pmatrix}
    $$
+
+   `repetitions=350` and `seed=0`
+
+[Solutions]({{ site.baseurl }}/assets/solutions/moran-process.ipynb)
