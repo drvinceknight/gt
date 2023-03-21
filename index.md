@@ -30,6 +30,6 @@ layout: default
 ([RRS feed]({{ site.baseurl }}/feed.xml))
 
 {% for post in site.posts %}
-- [{{post.date | date: "%D"}}: {{ post.title }}](./{{ post.url }})
+- [{{post.date | date: '%Y-%m-%d'}}: {{ post.title }}](./{{ post.url }})
   {{ post.excerpt }}
 {% endfor %}
