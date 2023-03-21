@@ -1,6 +1,8 @@
 ---
 layout: post
 title:  "Solutions to mock"
+tags:
+    - about
 ---
 
 In class today I went over the [mock coursework]({{site.baseurl}}/assets/assessment/mock/ind/assignment.ipynb).
