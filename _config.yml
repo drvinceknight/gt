@@ -46,6 +46,7 @@ plugins:
 exclude:
   - assets/assessment/mock/ind/submissions/
   - assets/assessment/2021-2022/ind/submissions/
+  - assets/assessment/2022-2023/ind/submissions/
 
 collections:
   weeks:
