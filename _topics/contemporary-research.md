@@ -1,6 +1,7 @@
 ---
 layout: topic
 title:  "Contemporary research"
+tag: "contemporary-research"
 ---
 
 We will discuss the following 4 papers:

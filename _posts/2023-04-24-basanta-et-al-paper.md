@@ -3,6 +3,7 @@ layout: post
 title:  "A paper on applying Game Theory to cancer"
 tags:
     - replicator-dynamics
+    - contemporary-research
 ---
 
 In class today I discussed this paper: [Studying the emergence of invasiveness
