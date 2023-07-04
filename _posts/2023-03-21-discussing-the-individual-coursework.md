@@ -3,6 +3,7 @@ layout: post
 title:  "Discussing the individual coursework"
 tags:
     - about
+    - assessment
 ---
 
 In class today we discussed the individual coursework. I did my best to take all
