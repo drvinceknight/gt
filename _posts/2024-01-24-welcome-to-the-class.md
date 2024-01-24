@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Welcome to the Game Theory class 2023 -- important note about timetable"
+title: "Welcome to the Game Theory class 2024 -- important note about timetable"
 tags: about
 ---
 
