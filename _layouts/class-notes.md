@@ -16,7 +16,7 @@ notes from class.
 </p>
 
 <p>
-Student facing resources for each topic are all available at <a href={{site.baseurl}}/>vknight.org/cfm/</a>.
+Student facing resources for each topic are all available at <a href={{site.baseurl}}/>vknight.org/gt/</a>.
 </p>
 </div>
 
