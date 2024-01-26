@@ -1,23 +1,8 @@
-08 Moran Processes
-==================
-
-**Duration**: 140 minutes
-
-Corresponding chapters
-----------------------
-
-- `Moran Processes <http://vknight.org/gt/chapters/08/>`_
-
-Objectives
-----------
-
-- Play a class activity of a Moran process;
-- Define a Moran process;
-- Prove theorem for formula of fixation probabilities;
-- Numeric calculations.
-
-Activity
---------
+---
+layout: class-notes
+title: "Moran Processes"
+tag: "moran-process"
+---
 
 Use :download:`moran process
 form<../assets/activities/moran_process/main.pdf>` have students play in pairs.
@@ -29,21 +14,21 @@ form<../assets/activities/moran_process/main.pdf>` have students play in pairs.
 - 1 D6 and 1 D8.
 
 **Virtual modification:** Use breakout rooms of 4. For dice show how to use the
-Python random library. 
+Python random library.
 
 Explain that we will aim to reproduce a Moran process with :math:`N=3`.
 
 .. image:: ../assets/activities/moran_process/moran_process.png
-   :width: 500px
+:width: 500px
 
 We will do this with the Hawk-Dove game:
 
-.. math::
-
-   A = \begin{pmatrix}
-       0 & 3\\
-       1 & 2
-   \end{pmatrix}
+$$
+A = \begin{pmatrix}
+   0 & 3\\
+   1 & 2
+\end{pmatrix}
+$$
 
 Recall, this corresponds to sharing of 4 resources:
 
@@ -57,43 +42,43 @@ situation.
 
 Confirm:
 
-+------------------+----------------------------------+----------------------------------+
-|                  | :math:`f(\text{Hawk})`           | :math:`f(\text{Dove})`           |
-+==================+==================================+==================================+
-| 1 Hawk, 2 Doves  |  :math:`0\times 0 + 2\times 3=6` |  :math:`1\times 1 + 1\times 2=3` |
-+------------------+----------------------------------+----------------------------------+
-| 2 Hawks, 1 Dove  |  :math:`1\times 0 + 1\times 3=3` |  :math:`2\times 1 + 0\times 2=2` |
-+------------------+----------------------------------+----------------------------------+
+    +------------------+----------------------------------+----------------------------------+
+    |                  | :math:`f(\text{Hawk})`           | :math:`f(\text{Dove})`           |
+    +==================+==================================+==================================+
+    | 1 Hawk, 2 Doves  |  :math:`0\times 0 + 2\times 3=6` |  :math:`1\times 1 + 1\times 2=3` |
+    +------------------+----------------------------------+----------------------------------+
+    | 2 Hawks, 1 Dove  |  :math:`1\times 0 + 1\times 3=3` |  :math:`2\times 1 + 0\times 2=2` |
+    +------------------+----------------------------------+----------------------------------+
 
 Give students 5 minutes to write out the probabilities of selection of each type
 in each possible situation.
 
 Confirm:
 
-+-----------------+---------+------------------------------------------+--------------------------+
-|                 | Select  | Selection: Birth                         | Selection: Death         |
-+=================+=========+==========================================+==========================+
-| 1 Hawk, 2 Doves | Hawk    |  :math:`\frac{6}{6+2\times 3}`           |  :math:`\frac{1}{3}`     |
-+-----------------+---------+------------------------------------------+--------------------------+
-| 1 Hawk, 2 Doves | Dove    |  :math:`\frac{2\times 3}{6+2\times 3}`   |  :math:`\frac{2}{3}`     |
-+-----------------+---------+------------------------------------------+--------------------------+
-| 2 Hawks, 1 Dove | Hawk    |  :math:`\frac{2\times 3}{2\times 3+2}`   |  :math:`\frac{2}{3}`     |
-+-----------------+---------+------------------------------------------+--------------------------+
-| 2 Hawks, 1 Dove | Dove    |  :math:`\frac{2}{2\times 3+2}`           |  :math:`\frac{1}{3}`     |
-+-----------------+---------+------------------------------------------+--------------------------+
+    +-----------------+---------+------------------------------------------+--------------------------+
+    |                 | Select  | Selection: Birth                         | Selection: Death         |
+    +=================+=========+==========================================+==========================+
+    | 1 Hawk, 2 Doves | Hawk    |  :math:`\frac{6}{6+2\times 3}`           |  :math:`\frac{1}{3}`     |
+    +-----------------+---------+------------------------------------------+--------------------------+
+    | 1 Hawk, 2 Doves | Dove    |  :math:`\frac{2\times 3}{6+2\times 3}`   |  :math:`\frac{2}{3}`     |
+    +-----------------+---------+------------------------------------------+--------------------------+
+    | 2 Hawks, 1 Dove | Hawk    |  :math:`\frac{2\times 3}{2\times 3+2}`   |  :math:`\frac{2}{3}`     |
+    +-----------------+---------+------------------------------------------+--------------------------+
+    | 2 Hawks, 1 Dove | Dove    |  :math:`\frac{2}{2\times 3+2}`           |  :math:`\frac{1}{3}`     |
+    +-----------------+---------+------------------------------------------+--------------------------+
 
 Give students 5 minutes to identify what sided dice and what values will allow
 them to simulate the process of selecting birth/death individuals.
 
 Confirm:
 
-+---------+------------------+-------------------------------+--------------------+-------------------------+
-| State   | Birth: dice used | Select Hawk values            | Death: dice used   | Select Hawk values      |
-+=========+==================+===============================+====================+=========================+
-| 1 Hawk  |  6               |  :math:`\{1, 2, 3\}`          | 6                  |  :math:`\{1, 2\}`       |
-+---------+------------------+-------------------------------+--------------------+-------------------------+
-| 2 Hawks |  4               |  :math:`\{1, 2, 3\}`          | 6                  |  :math:`\{1, 2, 3, 4\}` |
-+---------+------------------+-------------------------------+--------------------+-------------------------+
+    +---------+------------------+-------------------------------+--------------------+-------------------------+
+    | State   | Birth: dice used | Select Hawk values            | Death: dice used   | Select Hawk values      |
+    +=========+==================+===============================+====================+=========================+
+    | 1 Hawk  |  6               |  :math:`\{1, 2, 3\}`          | 6                  |  :math:`\{1, 2\}`       |
+    +---------+------------------+-------------------------------+--------------------+-------------------------+
+    | 2 Hawks |  4               |  :math:`\{1, 2, 3\}`          | 6                  |  :math:`\{1, 2, 3, 4\}` |
+    +---------+------------------+-------------------------------+--------------------+-------------------------+
 
 Hand out a dice to each group (ideally a D6 and a D4 to each group but perhaps
 they can identify other ways).
@@ -199,11 +184,12 @@ This carries out the simulations::
 
 Discuss obtaining theoretic probabilities of changing state:
 
-.. math::
-   p_{10}=\frac{6}{12}\frac{1}{3}=\frac{1}{6}\qquad
-   p_{12}=\frac{6}{12}\frac{2}{3}=\frac{1}{3}\qquad
-   p_{21}=\frac{2}{8}\frac{2}{3}=\frac{1}{6}\qquad
-   p_{23}=\frac{6}{8}\frac{1}{3}=\frac{1}{4}
+$$
+p_{10}=\frac{6}{12}\frac{1}{3}=\frac{1}{6}\qquad
+p_{12}=\frac{6}{12}\frac{2}{3}=\frac{1}{3}\qquad
+p_{21}=\frac{2}{8}\frac{2}{3}=\frac{1}{6}\qquad
+p_{23}=\frac{6}{8}\frac{1}{3}=\frac{1}{4}
+$$
 
 **Now work through the notes: culminating in the proof of the theorem for the
 absorption probabilities of a birth death process.**
@@ -216,29 +202,28 @@ Calculate theoretic value using formula from theorem:
 
 .. math::
 
-   \begin{align*}
-       f_{1i} &= \frac{3(N-i)}{N - 1}=3\frac{N-i}{N-1}\\
-       f_{2i} &= \frac{i+2(N - i -1)}{N - 1}=\frac{2N-2-i}{N - 1}\\
-   \end{align*}
+\begin{align*}
+f*{1i} &= \frac{3(N-i)}{N - 1}=3\frac{N-i}{N-1}\\
+f*{2i} &= \frac{i+2(N - i -1)}{N - 1}=\frac{2N-2-i}{N - 1}\\
+\end{align*}
 
 This gives (for :math:`N=3`):
 
-+------------------+--------------+--------------+
-|                  | :math:`i=1`  | :math:`i=2`  |
-+==================+==============+==============+
-| :math:`f_{1i}`   |      3       |       3/2    |
-+------------------+--------------+--------------+
-| :math:`f_{2i}`   |      3/2     |       1      |
-+------------------+--------------+--------------+
-| :math:`\gamma_i` |      1/2     |       2/3    |
-+------------------+--------------+--------------+
+    +------------------+--------------+--------------+
+    |                  | :math:`i=1`  | :math:`i=2`  |
+    +==================+==============+==============+
+    | :math:`f_{1i}`   |      3       |       3/2    |
+    +------------------+--------------+--------------+
+    | :math:`f_{2i}`   |      3/2     |       1      |
+    +------------------+--------------+--------------+
+    | :math:`\gamma_i` |      1/2     |       2/3    |
+    +------------------+--------------+--------------+
 
 Thus:
 
-.. math::
-
-   x_1 = \frac{1}{1 + 1/2 + 1/2\times2/3}=\frac{1}{11/6}\approx.545455
-
+$$
+x_1 = \frac{1}{1 + 1/2 + 1/2\times2/3}=\frac{1}{11/6}\approx.545455
+$$
 
 - Discuss work of Maynard smith but that this actually used Hawk Dove game in
   infinite population games.

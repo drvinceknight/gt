@@ -1,30 +1,26 @@
-03 Best responses and Nash equilibrium
-======================================
-
-Corresponding chapters
-----------------------
-
--   [Best responses](http://vknight.org/gt/chapters/04/)
+---
+layout: class-notes
+title: "Best responses"
+tag: best-responses
+---
 
 **Duration**: 100 minutes
 
-Objectives
-----------
+## Objectives
 
--   Define best responses
--   Identify best responses in pure strategies
--   Identify best responses against mixed strategies
--   Theorem: best response condition
--   Definition of Nash equilibria
+- Define best responses
+- Identify best responses in pure strategies
+- Identify best responses against mixed strategies
+- Theorem: best response condition
+- Definition of Nash equilibria
 
-Notes
------
+## Notes
 
 Discuss best response in pure strategies.
 
 ### Best response against mixed strategies
 
-Use [best responses](./static/best_responses/main.pdf) have students play against a mixed strategy:
+Use [best responses]({{site.baseurl}}/assets/activities/best_responses/main.pdf) have students play against a mixed strategy:
 
     >>> import random
     >>> random.seed(0)  # Don't seed in class
@@ -34,7 +30,8 @@ Use [best responses](./static/best_responses/main.pdf) have students play agains
 Discuss the definition of a best response. Identify best responses for
 the game considered:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 A=
 \begin{pmatrix}
     \underline{2} & -2\\
@@ -46,16 +43,18 @@ B=
     -2 & \underline{2}\\
     \underline{1} & -1\\
 \end{pmatrix}
-\end{aligned}$$
+\end{aligned}
+$$
 
 Consider the best responses against a mixed strategy:
 
--   Assume $\sigma_r=(x, 1-x)$
--   Assume $\sigma_c=(y, 1-y)$
+- Assume $\sigma_r=(x, 1-x)$
+- Assume $\sigma_c=(y, 1-y)$
 
 We have:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 A\sigma_c^T = \begin{pmatrix}
 4y-2\\
 1-2y
@@ -63,7 +62,8 @@ A\sigma_c^T = \begin{pmatrix}
 \sigma_rB = \begin{pmatrix}
 1-3x & 3x-1
 \end{pmatrix}
-\end{aligned}$$
+\end{aligned}
+$$
 
 Here is the code to do this calculation with `sympy`:
 
@@ -105,7 +105,8 @@ Plot these two things:
 
 Conclude:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \sigma_r^* =
 \begin{cases}
     (1, 0),&\text{ if } y > 1/2\\
@@ -119,12 +120,13 @@ $$\begin{aligned}
     (1, 0),&\text{ if } x < 1/3\\
     \text{indifferent},&\text{ if } x = 1/3
 \end{cases}
-\end{aligned}$$
+\end{aligned}
+$$
 
 Some examples:
 
--   If $\sigma_r=(2/3, 1/3)$ then $\sigma_c^*=(0, 1)$.
--   If $\sigma_r=(1/3, 2/3)$ then *any* strategy is a best response.
+- If $\sigma_r=(2/3, 1/3)$ then $\sigma_c^*=(0, 1)$.
+- If $\sigma_r=(1/3, 2/3)$ then _any_ strategy is a best response.
 
 **Discuss best response condition theorem and proof.**
 
@@ -133,9 +135,9 @@ response against $\sigma_c$ we **potentially** would need to check all
 infinite possibilities alternatives to $\sigma_r^*$. Now we simply need
 to check the values of the pure strategies against $\sigma_c$:
 
--   Either there will be a single **pure** best response;
--   There will be multiple **pure** strategies for which the row player
-    is indifferent.
+- Either there will be a single **pure** best response;
+- There will be multiple **pure** strategies for which the row player
+  is indifferent.
 
 Return to previous <example:if> $\sigma_r=(1/3, 2/3)$ then
 $(\sigma_rB)=(0, 0)$ thus $(\sigma_rB)_j = 0$ for all $j$.
@@ -147,6 +149,6 @@ responses.
 
 Explain how the best response condition theorem can be used to find NE.
 
--   All possible supports (strategies that are played with positive
-    probabilities) can be checked.
--   All pure strategies must have maximum and equal payoff.
+- All possible supports (strategies that are played with positive
+  probabilities) can be checked.
+- All pure strategies must have maximum and equal payoff.

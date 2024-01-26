@@ -1,52 +1,37 @@
-05 Repeated games
-=================
+---
+layout: class-notes
+title: "Repeated games"
+tag: repeated-games
+---
 
-Corresponding chapters
-----------------------
-
-- `Repeated games <http://vknight.org/gt/chapters/08/>`_
-
-Objectives
-----------
-
-- Define repeated games and strategies in repeated games
-- Understand proof of theorem for sequence of stage Nash
-- Understand that other equilibria exist
-
-Notes
------
-
-Playing repeated games in pairs
-*******************************
+### Playing repeated games in pairs
 
 - Explain that we are about to play a game twice.
 - Explain that this has to be done **SILENTLY**
 
 In groups we are going to play:
 
-**Virtual modification:** Use breakout rooms of 4.
-
-.. math::
-
-   A =
-   \begin{pmatrix}
-       \underline{12} & 6\\
-       0 & \underline{24}\\
-       \underline{12} & 23\\
-   \end{pmatrix}
-   \qquad
-   B =
-   \begin{pmatrix}
-       \underline{2} & 1\\
-       \underline{5} & 4\\
-       \underline{0} & 0\\
-   \end{pmatrix}
+$$
+A =
+\begin{pmatrix}
+\underline{12} & 6\\
+0 & \underline{24}\\
+\underline{12} & 23\\
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+\underline{2} & 1\\
+\underline{5} & 4\\
+\underline{0} & 0\\
+\end{pmatrix}
+$$
 
 In pairs:
 
 - Decide on row/column player (recall you don't care about your opponents
   reward).
-- We are going to play the game TWICE and write down both players *cumulative*
+- We are going to play the game TWICE and write down both players _cumulative_
   scores.
 - Define a strategy and ask players to write down a strategy that must describe
   what they do in both stages by answering the following question:
@@ -75,53 +60,37 @@ Then work through the notes:
 - Theorem of sequence of stage Nash (relate this back to the utilities of our
   game):
 
-  - :math:`(r_1r_1, c_1c_1)` with utility: (24, 4).
-  - :math:`(r_1r_3, c_1c_1)` with utility: (24, 2).
-  - :math:`(r_3r_1, c_1c_1)` with utility: (24, 2).
-  - :math:`(r_3r_3, c_1c_1)` with utility: (24, 0).
+  - $(r_1r_1, c_1c_1)$ with utility: (24, 4).
+  - $(r_1r_3, c_1c_1)$ with utility: (24, 2).
+  - $(r_3r_1, c_1c_1)$ with utility: (24, 2).
+  - $(r_3r_3, c_1c_1)$ with utility: (24, 0).
 
 Now discuss the potential of a different equilibrium:
 
-
 1. For the row player:
 
-   .. math::
-
-      (\emptyset, \emptyset) \to r_2
-
-   .. math::
-
-      (r_2, c_1) \to r_3
-
-   .. math::
-
-      (r_2, c_2) \to r_1
+$$
+(\emptyset, \emptyset) \to r_2
+(r_2, c_1) \to r_3
+(r_2, c_2) \to r_1
+$$
 
 2. For the column player:
 
-   .. math::
-
-      (\emptyset, \emptyset) \to c_2
-
-   .. math::
-
-      (r_1, c_2) \to c_1
-
-   .. math::
-
-      (r_2, c_2) \to c_1
-
-   .. math::
-
-      (r_3, c_2) \to c_1
+$$
+(\emptyset, \emptyset) \to c_2
+(r_1, c_2) \to c_1
+(r_2, c_2) \to c_1
+(r_3, c_2) \to c_1
+$$
 
 This corresponds to the following scenario:
 
-> Play :math:`(r_2, c_2)` in first stage and :math:`(r_1,c_1)` in second stage
-unless the column player does not cooperate in which case play :math:`(r_3,
-c_1)`.
+> Play $(r_2, c_2)$ in first stage and $(r_1,c_1)$ in second stage
+> unless the column player does not cooperate in which case play $(r_3,
+c_1)$
 
-This gives a utility of :math:`(36, 6)`. Is this an equilibrium?
+This gives a utility of $(36, 6)$. Is this an equilibrium?
 
 1. If the row player deviates, they would do so in the first round and gain no
    utility.

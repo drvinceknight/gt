@@ -1,18 +1,20 @@
-# 04 Extensive Form Games
+---
+layout: class-notes
+title: "Extensive form games"
+tag: extensive-form
+---
 
-## Corresponding chapters
-
--   [Extensive form games](https://vknight.org/gt/topics/extensive-form-games.html)
+## Typical Programming Exercises
 
 #### During the class
 
 Invite two students to play 4 level centipede game:
 
 - Player 1 can take or pass (if take: (2,0))
-    - Player 2 can take or pass (if take: (1,3))
-        - Player 1 can take or pass (if take: (4,2))
-            - Player 2 can take or pass (if take (3,5))
-                - Leaf: (4,4)
+  - Player 2 can take or pass (if take: (1,3))
+    - Player 1 can take or pass (if take: (4,2))
+      - Player 2 can take or pass (if take (3,5))
+        - Leaf: (4,4)
 
 Give out chocolates based on what happened.
 
