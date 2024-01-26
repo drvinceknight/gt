@@ -1,8 +1,12 @@
-00 Introduction to class
-========================
+---
+layout: class-notes
+title: "About the class and Normal Form Games"
+tags:
+  - about
+  - normal-form-games
+---
 
-Pre class email
----------------
+## Pre class email
 
 Send the following email before class::
 
@@ -23,7 +27,7 @@ Send the following email before class::
     an invite: <>.
 
     I realise that some of you are no doubt still deciding whether or not you
-    will choose the Game Theory this Semester. During our first class 
+    will choose the Game Theory this Semester. During our first class
     I will hopefully answer any questions you have but please don't hesitate to
     use the chat if there's anything you'd like to know as you choose your
     modules.
@@ -31,16 +35,14 @@ Send the following email before class::
     Please get in touch if I can assist with anything,
     Vince
 
-Corresponding chapters
-----------------------
+### Corresponding chapters
 
-- `Introduction to the course <https://vknight.org/gt/topics/about-the-course.html>`_
-- `Normal form games <https://vknight.org/gt/topics/normal-form-games.html>`_
+- `Introduction to the course <https://vknight.org/gt/topics/about-the-course.html>`\_
+- `Normal form games <https://vknight.org/gt/topics/normal-form-games.html>`\_
 
 **Duration**: 50 minutes
 
-Objectives
-----------
+## Objectives
 
 - Outline timetable and approach to class.
 - Discuss feedback from previous years.
@@ -50,17 +52,13 @@ Objectives
   content)
 - Introduce games.
 
-
-Notes
------
-
+## Notes
 
 Timetable and approach
-**********************
+
+---
 
 Discuss timetable
-
-**Virtual modification** Show week by week schedule. Explain that it's flexible.
 
 **I will not lecture**
 
@@ -73,36 +71,41 @@ You will be expected to play an active role in your learning:
 - Activities that demonstrate concepts;
 - Discussions
 
-
 Feedback
-********
+
+---
 
 Show feedback from previous year.
 
 Learning and assessment
-***********************
+
+---
 
 All resources can be found at http://vknight.org/gt/
 
 Seeking assistance
-******************
+
+---
 
 Details on website.
 
 Programming
-***********
+
+---
 
 The first assessment is a coding exercise: this is to highlight that I am not
 interested in mathematical button pushing. I want you to become game theorists
 by doing this course.
 
 Kindness
-********
+
+---
 
 Highlight the kindness section.
 
 Introduction to games
-*********************
+
+---
 
 Use MentiMeter to play 2/3rds of the average game.
 
@@ -113,8 +116,8 @@ Use MentiMeter to play 2/3rds of the average game.
 Discuss notes on Normal form games.
 
 After class communication
-*************************
 
+---
 
     Dear all,
 
@@ -128,4 +131,3 @@ After class communication
 
     Thanks,
     Vince
-

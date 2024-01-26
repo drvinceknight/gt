@@ -8,7 +8,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you: 
+# If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -29,7 +29,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/gt" # the subpath of your site, e.g. /blog
 url: "https://vknight.org" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: drvinceknight
-github_username:  drvinceknight
+github_username: drvinceknight
 
 # Build settings
 plugins:
@@ -55,7 +55,9 @@ collections:
     output: true
   assessment:
     output: true
+  class-notes:
+    output: true
 
 kramdown:
   syntax_highlighter_opts:
-    disable : true
+    disable: true

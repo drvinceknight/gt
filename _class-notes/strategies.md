@@ -1,31 +1,26 @@
-01 Strategies and utilities
-===========================
-
-Corresponding chapters
-----------------------
-
--   [Calculating utilities of
-    strategies](https://vknight.org/gt/topics/strategies.html)
+---
+layout: class-notes
+title: "Strategies"
+tag: strategies
+---
 
 **Duration**: 50 minutes
 
-Objectives
-----------
+## Objectives
 
--   Define strategies
--   Understand utility calculation for strategies
--   Understand utility calculation as a linear algebraic construct
+- Define strategies
+- Understand utility calculation for strategies
+- Understand utility calculation as a linear algebraic construct
 
-Notes
------
+## Notes
 
 ### Utility calculations
 
-Use [matching pennies](./static/matching_pennies/main.pdf) have
+Use [matching pennies]({{site.baseurl}}/assets/activities/matching_pennies/main.pdf) have
 students play in pairs. Following each game:
 
--   Ask how many people won?
--   Ask why they won?
+- Ask how many people won?
+- Ask why they won?
 
 ### Strategies
 
@@ -33,7 +28,8 @@ Look at definition for strategies.
 
 Consider:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 A =
 \begin{pmatrix}
     2 & -2\\
@@ -44,12 +40,15 @@ B =
     -2 & 2\\
     1 & -1
 \end{pmatrix}
-\end{aligned}$$
+\end{aligned}
+$$
 
 Let us assume we have $\sigma_r=(.3, .7)$ and $\sigma_c=(.1, .9)$:
 
-$$u_r(\sigma_r, \sigma_c) = 0.3 \times 0.1 \times 2 + 0.3 \times 0.9 \times
-(-2) + 0.7 \times 0.1 \times (-1) + 0.7 \times 0.9 \times 1 = 0.08$$
+$$
+u_r(\sigma_r, \sigma_c) = 0.3 \times 0.1 \times 2 + 0.3 \times 0.9 \times
+(-2) + 0.7 \times 0.1 \times (-1) + 0.7 \times 0.9 \times 1 = 0.08
+$$
 
 because the game is zero sum we immediately know:
 

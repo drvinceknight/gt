@@ -1,24 +1,19 @@
-09 Contemporary research
-========================
+---
+layout: class-notes
+title: "Contemporary research"
+tag: "contemporary-research"
+---
 
-Corresponding chapters
-----------------------
-
-- `Contemporary research <http://vknight.org/gt/chapters/10/>`_
-
-Objectives
-----------
+## Objectives
 
 - Discuss different papers that will be looked at.
 - Answer queries about assessment of these papers.
-
 
 Explain that in future sessions we will discuss the papers, students will be
 expected to have read them. This will allow me to answer any questions they
 might have.
 
-Studying the emergence of invasiveness in tumours using game theory
--------------------------------------------------------------------
+## Studying the emergence of invasiveness in tumours using game theory
 
 https://link.springer.com/article/10.1140/epjb/e2008-00249-y
 
@@ -30,11 +25,10 @@ https://link.springer.com/article/10.1140/epjb/e2008-00249-y
   is a typo in the game:
 
   .. math::
-     \begin{pmatrix}
-        b/2 & b - c\\
-        b   & b - c/2
-     \end{pmatrix}
-
+  \begin{pmatrix}
+  b/2 & b - c\\
+  b & b - c/2
+  \end{pmatrix}
 
   Also note that this is showing the utility of the column player so that's
   slightly different from the framework in the course.
@@ -53,16 +47,12 @@ https://link.springer.com/article/10.1140/epjb/e2008-00249-y
 
 - They implement a Cellular automaton model (why?): does this compare to the evo
   game or to a Moran process?
-- Improvements could include:
-      - more complex dynamics;
-      - using more phenotypes (strategies);
-      - finite population analytical model;
+- Improvements could include: - more complex dynamics; - using more phenotypes (strategies); - finite population analytical model;
 
 Here is a blog post on the EGT blog about this paper:
 https://egtheory.wordpress.com/2013/07/05/motility/
 
-Iterated Prisoner's Dilemma contains strategies that dominate any evolutionary opponent
----------------------------------------------------------------------------------------
+## Iterated Prisoner's Dilemma contains strategies that dominate any evolutionary opponent
 
 http://www.pnas.org/content/109/26/10409.abstract
 
@@ -74,13 +64,14 @@ http://www.pnas.org/content/109/26/10409.abstract
 
   .. math::
 
-     \alpha S_{X} + \beta S_{Y} + \gamma
+  \alpha S*{X} + \beta S*{Y} + \gamma
 
   is shown to be the ratio two determinants (essentially one determinant with a
   scaling factor). The columns of the corresponding matrix however are
   independent across both players (one has only :math:`p` variables and another,
   only :math:`q` variables). Thus, choosing a particular set of values for the
   :math:`p` can set the linear relationship above to be 0.
+
 - This
   shows that it's possible for one player to set the score of the other. **It is
   however not possible for a player to set it's own score.**.
@@ -110,9 +101,7 @@ http://www.pnas.org/content/109/26/10409.abstract
   indeed :math:`3 + 1`.
 - What occurs if two ZD strategies attempt to play each other?
 
-
-Measuring the price of anarchy in critical care unit interactions
------------------------------------------------------------------
+## Measuring the price of anarchy in critical care unit interactions
 
 https://link.springer.com/article/10.1057/s41274-016-0100-8
 
@@ -137,8 +126,7 @@ https://link.springer.com/article/10.1057/s41274-016-0100-8
 - Things that could be improved: more players, non stationarity and different
   models of behaviour.
 
-Evolution Reinforces Cooperation with the Emergence of Self-Recognition Mechanisms: an empirical study of the Moran process for the iterated Prisoner's dilemma
----------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Evolution Reinforces Cooperation with the Emergence of Self-Recognition Mechanisms: an empirical study of the Moran process for the iterated Prisoner's dilemma
 
 - This is a paper that studies the Prisoner's dilemma in a Moran process.
 - It uses all the strategies from the Axelrod library but also includes 3
@@ -158,6 +146,7 @@ Evolution Reinforces Cooperation with the Emergence of Self-Recognition Mechanis
   - Strategies with handshakes (self recognition mechanisms) do well in
     resistance.
   - Strategies trained for scores against opponents do well at invasion.
+
 - Some discussion is given to the placing of a particular type of strategy that
   is of interest in the literature (the Press and Dyson paper) but does not do
   well here.
@@ -170,5 +159,3 @@ Here is are two blog posts on this subject:
 Here is a video about a talk I gave on this subject:
 
 - (https://www.youtube.com/watch?v=p4t9dMKxZAo)
-
-
