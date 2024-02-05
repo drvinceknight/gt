@@ -47,9 +47,9 @@ is a linear function. The function can either:
 - Be decreasing in \\(y\\): then it is optimised for \\(y=0\\).
 - Be a flat line that does not depend on \\(y\\).
 
-An interesting concept one of you raised was that \\(\sigma*r\B\\) which is a
+An interesting concept one of you raised was that \\(\sigma^rB\\) which is a
 row vector is essentially the **game from the column players point of view**. I
-hadn't heard anyone put that like that and it's completely correct *for a given
+hadn't heard anyone put that like that and it's completely correct \*for a given
 value of \\(\sigma_r\\)\*.
 
 This leads to the concepts described in this section of the notes:
