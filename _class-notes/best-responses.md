@@ -24,8 +24,8 @@ Use [best responses]({{site.baseurl}}/assets/activities/best_responses/main.pdf)
 
     >>> import random
     >>> random.seed(0)  # Don't seed in class
-    >>> ["D", "C"][random.random() < 0.3]  # 30 chance of Cooperating
-    'D'
+    >>> ["r_2", "r_1"][random.random() < 0.8]  # 80 percent chance of r_2
+    'r_2'
 
 Discuss the definition of a best response. Identify best responses for
 the game considered:
