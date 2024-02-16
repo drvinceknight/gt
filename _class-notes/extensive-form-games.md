@@ -8,7 +8,7 @@ tag: extensive-form
 
 #### During the class
 
-Invite two students to play 4 level centipede game:
+Invite students to play the following game:
 
 - Player 1 can take or pass (if take: (2,0))
   - Player 2 can take or pass (if take: (1,3))
@@ -16,16 +16,20 @@ Invite two students to play 4 level centipede game:
       - Player 2 can take or pass (if take (3,5))
         - Leaf: (4,4)
 
-Give out chocolates based on what happened.
+Now ask for two students to play but they must submit their instructions. To me
+(written).
+
+Give out bribentives based on what happened.
+
+If necessary, write down my own strategy where I pass at first two nodes but
+take at last two.
+
+Give out bribentives.
 
 Now discuss notes:
 
 - Connection
 - Definitions of a strategy.
-
-Two same players must now play but write down a recipe for what they would do in each case.
-
-Play again: give out chocolates.
 
 Write down Normal Form Game for whole thing.
 
@@ -33,14 +37,6 @@ S1 = {PP, PT, TP, TT}
 S2 = {PP, PT, TP, TT}
 
 Game is:
-
-[4,4],[3,5],[1,3],[1,3]
-
-[4,2],[4,2],[1,3],[1,3]
-
-[2,0],[2,0],[2,0],[2,0]
-
-[2,0],[2,0],[2,0],[2,0]
 
 $$
 A = \begin{pmatrix}
