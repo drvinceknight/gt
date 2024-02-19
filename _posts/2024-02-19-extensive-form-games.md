@@ -14,7 +14,7 @@ In class I asked you to write down strategies for a play of the centipede game.
 This required writing down an action to take at _every_ possible node of the
 centipede game.
 
-You can see a pdf with the scans of ever strategy [here]({{site.baseurl}}/)
+You can see a pdf with the scans of every strategy [here]({{site.baseurl}}/assets/2023-2024/strategies-for-centipede-game.pdf). (Forgive the token effort of removing your names, if anyone would like me to take this down please let me know).
 
 There were essentially 3 strategies played:
 
