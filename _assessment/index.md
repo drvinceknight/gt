@@ -10,7 +10,7 @@ A mock coursework is available:
 
 The topics for the individual coursework for the past few years have been:
 
-- 2023-2024 [here]({{site.baseurl}}/assets/assessment/2023-2024/ind/assignment.ipynb):
+- 2023-2024 [here]({{site.baseurl}}/assets/assessment/2023-2024/ind/assignment.ipynb) [solution]({{site.baseurl}}/assets/assessment/2023-2024/ind/solution.ipynb):
   1. [Best responses]({{ site.baseurl }}/topics/best-responses.html)
   2. [Moran Process]({{ site.baseurl }}/topics/moran-processes.html)
   3. [Support enumeration]({{ site.baseurl }}/topics/support-enumeration.html)
