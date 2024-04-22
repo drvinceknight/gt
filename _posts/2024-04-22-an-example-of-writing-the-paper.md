@@ -29,4 +29,6 @@ Some of the main points discussed were:
 - Add some details about the graphics to ensure they're clear.
 - Adding more depth to the description of the graphics.
 
-After this, we put together
+After this, we put together a story board for the presentation. You can see that
+on the board
+[here]({{site.baseurl}}/assets/2023-2024/boards/the-evolution-of-the-two-thirds-of-the-average-game/main.pdf).
