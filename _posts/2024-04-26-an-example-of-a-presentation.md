@@ -1,10 +1,8 @@
---
+---
 layout: post
 title: "An example of the presentation"
 tags:
-
-- presentation
-
+  - presentation
 ---
 
 In class today I gave you another example presentation based on the two thirds
