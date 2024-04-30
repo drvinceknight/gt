@@ -58,6 +58,8 @@ collections:
     output: true
   class-notes:
     output: true
+  seminars:
+    output: true
 
 kramdown:
   syntax_highlighter_opts:
