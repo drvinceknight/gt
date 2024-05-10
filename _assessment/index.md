@@ -3,33 +3,23 @@ layout: default
 tag: assessment
 ---
 
-# Individual coursework (40%)
+# Continuous Individual coursework (20%)
 
-A mock coursework is available:
-[here]({{site.baseurl}}/assets/assessment/mock/ind/assignment.ipynb).
+On learning central there are 9 online quizzes available to you.
 
-The topics for the individual coursework for the past few years have been:
+You can submit as many times as you want.
 
-- 2023-2024 [here]({{site.baseurl}}/assets/assessment/2023-2024/ind/assignment.ipynb) [solution]({{site.baseurl}}/assets/assessment/2023-2024/ind/solution.ipynb):
-  1. [Best responses]({{ site.baseurl }}/topics/best-responses.html)
-  2. [Moran Process]({{ site.baseurl }}/topics/moran-processes.html)
-  3. [Support enumeration]({{ site.baseurl }}/topics/support-enumeration.html)
-  4. [Stochastic fictitious play](https://nashpy.readthedocs.io/en/stable/text-book/stochastic-fictitious-play.html)
-- 2022-2023 [here]({{site.baseurl}}/assets/assessment/2022-2023/ind/assignment.ipynb):
-  1. [Repeated games]({{ site.baseurl }}/topics/repeated-games.html)
-  2. [Replicator Dynamics]({{ site.baseurl }}/topics/replicator-dynamics.html)
-  3. [Support enumeration]({{ site.baseurl }}/topics/support-enumeration.html)
-  4. [Asymmetric replicator dynamics](https://nashpy.readthedocs.io/en/stable/text-book/asymmetric-replicator-dynamics.html)
-- 2021-2022:
-  1. [Moran Process]({{ site.baseurl }}/topics/moran-process.html)
-  2. [Replicator Dynamics]({{ site.baseurl }}/topics/replicator-dynamics.html)
-  3. [Support enumeration]({{ site.baseurl }}/topics/support-enumeration.html)
-  4. [Fictitious play](https://nashpy.readthedocs.io/en/stable/text-book/fictitious-play.html)
-- Mock:
-  1. [Support enumeration]({{ site.baseurl }}/topics/support-enumeration.html)
-  2. [Prisoners dilemma]({{ site.baseurl }}/topics/prisoners-dilemma.html)
-  3. [Repeated games]({{ site.baseurl }}/topics/repeated-games.html)
-  4. [Lemke Howson Algorithm](https://nashpy.readthedocs.io/en/stable/text-book/lemke-howson.html#the-lemke-howson-algorithm)
+# Teaching Resource (Individual coursework - 20%)
+
+Write a Jupyter notebook demonstrating your understanding of the use of Python
+for the study of the game theoretic topics covered in this module.
+
+The target audience: students on this course.
+
+Marking: The grades for this coursework will be marked on a **piecewise linear
+curve** to ensure approximately a third of the class have a grade above \\(70%\\) and resulting in a mean of \\(60\pm \frac{25}{\sqrt{n}}\\) (where \\(n\\) is the
+number of students in the class). For example, with a
+class of size \\(n=80\\) the mean mark will fall within the range \\(60 \pm 2.8\\).
 
 # Group project (60%)
 
@@ -68,6 +58,11 @@ Your final submission should include the following **3** files:
 - Presentation: Was the presentation format used appropriately? Were the visual aids appropriate? [10%]
 
 Examples of presentations are available at: [vknight.org/pop/](https://vknight.org/pop/)
+
+Marking: The grades for this coursework will be marked on a **piecewise linear
+curve** to ensure approximately a third of the class have a grade above \\(70%\\) and resulting in a mean of \\(60\pm \frac{25}{\sqrt{n}}\\) (where \\(n\\) is the
+number of students in the class). For example, with a
+class of size \\(n=80\\) the mean mark will fall within the range \\(60 \pm 2.8\\).
 
 ## [Past group projects](#past-group-projects)
 
