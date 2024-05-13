@@ -1,3 +1,28 @@
+- year: 2023-2024
+  titles:
+    - "Is Chess Dead? A Game Theoretic Investigation" # New Group 2 -- Incredible work. Ask for permission to share.
+    - "Using Replicator Dynamics to Model Seating Strategies in Abacws" # New Group 13
+    - "To Fish Or Not To Fish : Modelling Competition Between Fisheries" # New Group 4
+    - "Should I Stay? or Should I Go? The Game Theory of Divorce" # New Group 21
+    - "Connect 4: Is There a Strategy to Beat All Strategies?" # New Group 10
+    - "Size matter: Relating sizes to herbivores strategies in biosystem" # New Group 5
+    - "Evolutionary Stability of Fast Passes in Theme Parks" # New Group 7
+    - "Fight or Flight: Are the odds really in your favour?" # New Group 9
+    # First class line ---
+    - "The Optimal Strategy for Mastering Card-Jitsu" # New Group 17
+    - "The Study of Gossip using Evolutionary Game Theory" # New Group 1
+    - "Climate Conundrums: A Game Theoretic Approach to Global Climate Agreements" # New Group 20
+    - "The Art of War: Applying Game Theory to Risk" # New Group 3
+    - "Exploring Auction Theory" # New Group 15
+    - "Bats and their drinking habits: A study into the emergence of altruism" # New Group 6
+    - "Modelling Risk" # New Group 16
+    - "Is Makeup a Game That Can Be Played?" # New Group 12
+    - "Beyond Golden Balls" # New Group 8
+    - "Duopoly Price Wars" # New Group 19
+    - "Analysis of F1 Pit Stop Strategies" # New Group 11
+    - "How Shopping Trolleys Determine A Society?" # New Group 14  - Not uniform distribution
+    # Pass line
+    - "Hotel of Hazards: Spy Survival" # New group 18
 - year: 2022-2023
   titles:
     - "A game theoretic model for the spread of bird flu"
@@ -6,7 +31,7 @@
     - "Money Exchange Game"
     - "A game theoretical analysis of strategy steps"
     - "Should a Country Prioritize Military Spending at the Expense of Economic Growth?"
-    - "Using the Moran Process to Cast Dating Shows" 
+    - "Using the Moran Process to Cast Dating Shows"
     - "An exploration of University Project Strategies"
     - "How to survive the Werewolves"
     - "Global Co-Operation: Central to Addressing Climate Change"
