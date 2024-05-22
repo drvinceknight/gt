@@ -6,10 +6,10 @@ tags:
   - assessment
 ---
 
-In this post I will:
+In this post I will discuss the performance of the class:
 
 - Summarise the overall performance of the class (including [the performance on
-  the individual coursework]({{site.baseurl}}/2024/04/16/individual-coursework-feedback.html);
+  the individual coursework]({{site.baseurl}}/2024/04/16/individual-coursework-feedback.html));
 - Summarise the performance of the class on the group coursework
 
 **Note that at this point in time the marks are provisional and could be scaled
@@ -38,7 +38,7 @@ max      88
 ```
 
 The average is a bit above the University guidelines which are that the mean class mark
-should be within $62 \pm \frac{80}{\sqrt{n}}$ where $n$ is 82 in this class (the
+should be within \\(62 \pm \frac{80}{\sqrt{n}}\\) where \\(n\\) is 82 in this class (the
 number of students in the class).
 
 ## Group class performance
