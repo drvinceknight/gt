@@ -1,6 +1,6 @@
 - year: 2023-2024
   titles:
-    - "Is Chess Dead? A Game Theoretic Investigation" # New Group 2 -- Incredible work. Ask for permission to share.
+    - "Is Chess Dead? A Game Theoretic Investigation" # New Group 2
     - "Using Replicator Dynamics to Model Seating Strategies in Abacws" # New Group 13
     - "To Fish Or Not To Fish : Modelling Competition Between Fisheries" # New Group 4
     - "Should I Stay? or Should I Go? The Game Theory of Divorce" # New Group 21
@@ -8,7 +8,6 @@
     - "Size matter: Relating sizes to herbivores strategies in biosystem" # New Group 5
     - "Evolutionary Stability of Fast Passes in Theme Parks" # New Group 7
     - "Fight or Flight: Are the odds really in your favour?" # New Group 9
-    # First class line ---
     - "The Optimal Strategy for Mastering Card-Jitsu" # New Group 17
     - "The Study of Gossip using Evolutionary Game Theory" # New Group 1
     - "Climate Conundrums: A Game Theoretic Approach to Global Climate Agreements" # New Group 20
@@ -20,8 +19,7 @@
     - "Beyond Golden Balls" # New Group 8
     - "Duopoly Price Wars" # New Group 19
     - "Analysis of F1 Pit Stop Strategies" # New Group 11
-    - "How Shopping Trolleys Determine A Society?" # New Group 14  - Not uniform distribution
-    # Pass line
+    - "How Shopping Trolleys Determine A Society?" # New Group 14
     - "Hotel of Hazards: Spy Survival" # New group 18
 - year: 2022-2023
   titles:
