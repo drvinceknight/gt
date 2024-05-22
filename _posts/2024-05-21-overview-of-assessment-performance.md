@@ -37,6 +37,8 @@ min      37
 max      88
 ```
 
+![]({{site.baseurl}}/assets/2023-2024/overall_mark_distribution/main.svg)
+
 The average is a bit above the University guidelines which are that the mean class mark
 should be within \\(62 \pm \frac{80}{\sqrt{n}}\\) where \\(n\\) is 82 in this class (the
 number of students in the class).
@@ -58,6 +60,8 @@ min      35.00
 75%      55.00
 max      80
 ```
+
+![]({{site.baseurl}}/assets/2023-2024/group_mark_distribution/main.svg)
 
 This is similar to the marks from last year where the median was 53.
 
