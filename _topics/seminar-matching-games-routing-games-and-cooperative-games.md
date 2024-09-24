@@ -24,4 +24,4 @@ This final talk of the series will consider 3 further fields of game theory, tha
 
 ## Assets
 
-- [pdf]({{ site.baseurl }}/assets/matching-games-routing-games-cooperative-games/main.pdf)
+- [pdf]({{ site.baseurl }}/assets/seminars/matching-games-routing-games-cooperative-games/main.pdf)

@@ -25,5 +25,5 @@ The answer to this is yes: this was first demonstrated by a series of computer t
 
 ## Assets
 
-- [pdf]({{ site.baseurl }}/assets/cooperation/main.pdf)
-- [ipynb]({{ site.baseurl }}/assets/cooperation/main.ipynb)
+- [pdf]({{ site.baseurl }}/assets/seminars/cooperation/main.pdf)
+- [ipynb]({{ site.baseurl }}/assets/seminars/cooperation/main.ipynb)
