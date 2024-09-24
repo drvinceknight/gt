@@ -25,5 +25,5 @@ The answer to this is yes: it lies in the field of evolutionary game theory.
 
 ## Assets
 
-- [pdf]({{ site.baseurl }}/assets/evolutionary-game-theory/main.pdf)
-- [ipynb]({{ site.baseurl }}/assets/evolutionary-game-theory/main.ipynb)
+- [pdf]({{ site.baseurl }}/assets/seminars/evolutionary-game-theory/main.pdf)
+- [ipynb]({{ site.baseurl }}/assets/seminars/evolutionary-game-theory/main.ipynb)
