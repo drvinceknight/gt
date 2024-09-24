@@ -21,3 +21,7 @@ This final talk of the series will consider 3 further fields of game theory, tha
   This has applications in transport routing.
 - Cooperative games: how does a collection of agents share a common good?
   This has applications to market dynamics as well as machine learning.
+
+## Assets
+
+- [pdf]({{ site.baseurl }}/assets/matching-games-routing-games-cooperative-games/main.pdf)

@@ -22,3 +22,8 @@ of actions: Nash equilibrium. The second talk described a model to understand if
 emerge. Not all equilibrium that emerges is necessarily a social good, is it possible for cooperative behavior to emerge?
 
 The answer to this is yes: this was first demonstrated by a series of computer tournaments held in the 1970s by Robert Axelrod.
+
+## Assets
+
+- [pdf]({{ site.baseurl }}/assets/cooperation/main.pdf)
+- [ipynb]({{ site.baseurl }}/assets/cooperation/main.ipynb)
