@@ -22,3 +22,8 @@ of equilibrium but of actual emergence. Can we model mathematically if a given b
 actually emerge?
 
 The answer to this is yes: it lies in the field of evolutionary game theory.
+
+## Assets
+
+- [pdf]({{ site.baseurl }}/assets/evolutionary-game-theory/main.pdf)
+- [ipynb]({{ site.baseurl }}/assets/evolutionary-game-theory/main.ipynb)

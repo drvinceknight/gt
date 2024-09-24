@@ -27,3 +27,8 @@ be at an equilibrium with no incentive to change.
 The answer to this is yes: and it is called a Nash Equilibrium. This is named after
 the incredible work of John Nash, who won the Nobel prize in economics for his 25-page
 thesis in which he proved the equilibrium exists.
+
+## Assets
+
+- [pdf]({{ site.baseurl }}/assets/equilibrium-behaviour-of-rational-agents/main.pdf)
+- [ipynb]({{ site.baseurl }}/assets/equilibrium-behaviour-of-rational-agents/main.ipynb)
