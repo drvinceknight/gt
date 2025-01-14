@@ -30,5 +30,5 @@ thesis in which he proved the equilibrium exists.
 
 ## Assets
 
-- [pdf]({{ site.baseurl }}/assets/equilibrium-behaviour-of-rational-agents/main.pdf)
-- [ipynb]({{ site.baseurl }}/assets/equilibrium-behaviour-of-rational-agents/main.ipynb)
+- [pdf]({{ site.baseurl }}/assets/seminars/equilibrium-behavior-of-rational-agents/main.pdf)
+- [ipynb]({{ site.baseurl }}/assets/seminars/equilibrium-behavior-of-rational-agents/main.ipynb)
