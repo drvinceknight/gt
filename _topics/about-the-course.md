@@ -38,7 +38,7 @@ I will use a virtual board throughout class:
 
 ## In class activities
 
-In class we will not follow the class text: these are there for you to read on
+In class we will not follow the class texts: these are there for you to read on
 your own time. Instead we will use activities and other examples to illustrate
 the concepts. I have my own notes for those (which are also available to you).
 
@@ -52,6 +52,11 @@ clarifications**, all of the notes are hosted openly on github and if you're
 interested you can find a list of all changes here:
 [github.com/drvinceknight/gt/commits/main](https://github.com/drvinceknight/gt/commits/main)
 
+## In class seminars
+
+There are four seminars scheduled for this class: these are meant to spike your
+interest.
+
 ## Technology in class
 
 Please use whatever resources you need to be successful in this class. Let me
@@ -59,8 +64,8 @@ know if I can help with anything.
 
 ## Office hours
 
-I will hold 2-3 hours a week for office hours during which you may come and get
-help. Specific hours will be determined collaboratively as a class.
+I will not hold specific office hours. Please speak to me (face to face or via
+email) to arrange a time to meet.
 
 ## Kindness
 
@@ -93,9 +98,10 @@ Some examples of how this applies to me:
 
 ## Assessment
 
-There are two piece of assessment in this course:
+There are three pieces of assessment in this course:
 
-- Individual coursework (40%)
-- Group coursework (60%)
+- Individual ongoing assessment (20%)
+- Individual research project (20%)
+- Group research project (60%)
 
 More information about assessment: [here]({{ site.baseurl}}/assessment/)

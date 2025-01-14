@@ -2,9 +2,9 @@
   topics:
     - title: "About the course"
     - title: "Seminar: Equilibrium Behaviour of rational agents"
-    - title: Normal form games
 - title: Week 2
   topics:
+    - title: Normal form games
     - title: Strategies
     - title: Best responses
 - title: Week 3
@@ -12,24 +12,29 @@
     - title: Support enumeration
 - title: Week 4
   topics:
+    - title: Python refresher
     - title: Meetings
     - title: "Seminar: Evolutionary Game Theory"
-    - title: Replicator dynamics
 - title: Week 5
   topics:
+    - title: Replicator dynamics
     - title: Moran processes
-    - title: "Seminar: Cooperation"
-    - title: Extensive form games
 - title: Week 6
   topics:
+    - title: "Seminar: Cooperation"
+    - title: Extensive form games
     - title: Repeated games
-    - title: Prisoners Dilemma
 - title: Week 7
   topics:
+    - title: Prisoners Dilemma
     - title: "Seminar: Matching games, routing games and cooperative games"
-- title: "Week 8: Individual coursework deadline"
+- title: Week 8
+  topics:
+    - title: Writing mathematics
+    - title: Peer review of individual coursework
 - title: Week 9
   topics:
     - title: Presentation
 - title: Week 10
-- title: "Week 11: Group Presentation Deadline"
+- title: "Week 11: Individual research project deadline"
+- title: "Week 12: Group research project deadline"
