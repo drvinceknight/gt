@@ -1,0 +1,54 @@
+\documentclass{exam}
+\usepackage[overload]{exam-randomizechoices}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+\begin{questions}
+        
+    \question
+    Which statement best describes the support enumeration algorithm?
+
+    \begin{checkboxes}
+\choice The support enumeration algorithm is a method for finding mixed strategy Nash equilibria by iterating over all possible combinations of supports for players and checking feasibility conditions.
+\choice The support enumeration algorithm is used to find pure strategy Nash equilibria by iterating through all possible combinations of strategies and checking for mutual best responses.
+\choice The support enumeration algorithm identifies Nash equilibria by simulating repeated gameplay and observing which strategies survive over time.
+\choice The support enumeration algorithm calculates equilibria by directly solving a matrix of payoffs without considering the players’ strategy supports.
+    \end{checkboxes}
+
+
+\question
+    For a non-degenerate game \((A, B)\in{\left(\mathbb{R}^{4 \times 3}\right)}^2\) how many pairs of supports
+    will be checked using the support enumeration algorithm?
+
+    \begin{checkboxes}
+        \choice \(14\)
+        \choice \(7\)
+        \choice \(98\)
+        \choice \(105\)
+    \end{checkboxes}
+
+    \question Which following pair of strategies is a Nash equilibrium for the
+    following game:
+     \[
+     A=\begin{pmatrix}4 & 3\\ 0& 5\end{pmatrix}
+     \qquad
+     B=\begin{pmatrix}5 & 2\\ 3& 8\end{pmatrix}
+ \]
+    \begin{checkboxes}
+        \choice
+    \(
+    \sigma_r=(5/8, 3/8)\qquad\sigma_c = (1/2, 1/2)
+    \)
+        \choice
+    \(
+    \sigma_r=(5/8, 3/8)\qquad\sigma_c = (1/3, 2/3)
+    \)
+        \choice
+    \(
+    \sigma_r=(1/4, 3/4)\qquad\sigma_c = (1/2, 1/2)
+    \)
+\end{checkboxes}
+
+\end{questions}
+\end{document}

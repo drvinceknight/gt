@@ -1,0 +1,119 @@
+\documentclass{exam}
+
+\usepackage[overload]{exam-randomizechoices}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{questions}
+        
+    \question
+    Which statement best describes an Extensive Form Game?
+
+    \begin{checkboxes}
+        \choice An extensive form game represents a sequential game where players make decisions at different points, with the game tree showing all possible actions, outcomes, and information available to each player at each decision node.
+        \choice An extensive form game represents a game where players make decisions sequentially, with the game tree showing the outcomes and not the available actions at each decision node.            
+        \choice An extensive form game only applies to zero-sum games and represents the entire game using a matrix of payoffs.
+        \choice An extensive form game is a strategic model where players make decisions in a non-sequential, one-shot manner, with no future interactions between them.
+    \end{checkboxes}
+
+    \question Which statement best describes a strategy in an Extensive Form Game?
+
+    \begin{checkboxes}
+        \choice A strategy in an extensive form game is a complete plan of action for a player that specifies what actions to take at each decision node, given the information available at that point in the game. 
+        \choice A strategy in an extensive form game is the first action a player chooses, followed by a fixed set of actions for all subsequent decision nodes.
+        \choice A strategy in an extensive form game refers to the sequence of moves made by all players in the game, regardless of the order in which they are made.
+        \choice A strategy in an extensive form game is simply a player's choice of actions at the final decision node of the game, without considering earlier decisions.
+    \end{checkboxes}
+
+    \question Which Normal Form Game corresponds to the following Extensive Form
+    Game?
+
+    \begin{center}
+\begin{tikzpicture}
+    \node [draw, color=red] (A1) at (0, 0) {\(A_1\)};
+        \node [draw, color=blue] (B1) at ($(A1) + (-2.5, -2)$) {\(B_1\)};
+            \node [draw] (O1) at ($(B1) + (-1, -2)$) {\tiny{\(O_1\)}};
+            \node (SS) at ($(O1) + (0, -.5)$) {\((3, 2)\)};
+            \node [draw] (O2) at ($(B1) + (1, -2)$) {\tiny{\(O_2\)}};
+            \node (SC) at ($(O2) + (0, -.5)$) {\((3, 1)\)};
+        \node [draw, color=blue] (B2) at ($(A1) + (2.5, -2)$) {\(B_2\)};
+            \node [draw, color=red] (A2) at ($(B2) + (-1, -2)$) {\(A_2\)};
+                \node [draw] (O3) at ($(A2) + (-1, -2)$) {\tiny{\(O_3\)}};
+                \node (CS) at ($(O3) + (0, -.5)$) {\((2, 2)\)};
+                \node [draw] (O4) at ($(A2) + (1, -2)$) {\tiny{\(O_4\)}};
+                \node (CS) at ($(O4) + (0, -.5)$) {\((3, 2)\)};
+            \node [draw] (O5) at ($(B2) + (1, -2)$) {\tiny{\(O_5\)}};
+            \node (CC) at ($(O5) + (0, -.5)$) {\((-1, 8)\)};
+
+    \draw (A1) -- node[left=3mm] {X} (B1);
+    \draw (A1) -- node[right=3mm] {W} (B2);
+        \draw (B1)  -- node[left=3mm] {a} (O1);
+        \draw (B1) -- node[right=3mm] {b} (O2);
+        \draw (B2) -- node[left=3mm] {a} (A2);
+            \draw (A2) -- node[left=3mm] {Y} (O3);
+            \draw (A2) -- node[right=3mm] {Z} (O4);
+        \draw (B2) -- node[right=3mm] {b} (O5);
+
+\end{tikzpicture}
+    \end{center}
+
+    \begin{checkboxes}
+        \choice \(
+                    A = \begin{pmatrix}
+                            3 & 3 & 3 & 3\\
+                            3 & 3 & 3 & 3\\
+                            2 & -1 & 2 & -1\\
+                            3 & -1 & 3 & -1\\
+                        \end{pmatrix}
+                        \qquad
+                    B = \begin{pmatrix}
+                            2 & 2 & 1 & 1\\
+                            2 & 2 & 1 & 1\\
+                            2 & 8 & 2 & 8\\
+                            2 & 8 & 2 & 8\\
+                        \end{pmatrix}
+                \)
+        \choice \(
+                    A = \begin{pmatrix}
+                            3 & 3 & 3 & 3\\
+                            3 & 3 & 3 & 3\\
+                            2 & -1 & 2 & -1\\
+                            3 & -1 & 2 & -1\\
+                        \end{pmatrix}
+                        \qquad
+                    B = \begin{pmatrix}
+                            2 & 2 & 1 & 1\\
+                            2 & 2 & 1 & 1\\
+                            2 & 8 & 2 & 8\\
+                            2 & 8 & 2 & 8\\
+                        \end{pmatrix}
+                \)
+        \choice \(
+                    A = \begin{pmatrix}
+                            3 & 3 \\
+                            3 & 3 \\
+                        \end{pmatrix}
+                        \qquad
+                    B = \begin{pmatrix}
+                            2 & 2 \\
+                            2 & 2 \\
+                        \end{pmatrix}
+                \)
+        \choice \(
+                    A = \begin{pmatrix}
+                            3 & 3 & 3 & 3\\
+                            3 & -1 & 3 & 3\\
+                        \end{pmatrix}
+                        \qquad
+                    B = \begin{pmatrix}
+                            2 & 2 & 1 & 1\\
+                            2 & 8 & 1 & 1\\
+                        \end{pmatrix}
+                \)
+\end{checkboxes}
+
+\end{questions}
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass{exam}
+
+\usepackage[overload]{exam-randomizechoices}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+\begin{questions}
+        
+    \question
+    Which statement best describes the Moran process?
+
+    \begin{checkboxes}
+        \choice The Moran process models evolutionary dynamics in a finite population where individuals are chosen for reproduction proportional to their fitness, and the offspring replace a randomly selected individual.
+            \choice The Moran process describes the evolution of a population where all individuals reproduce simultaneously, and their offspring compete for a limited number of vacant spots.
+            \choice The Moran process assumes that individuals reproduce at rates inversely proportional to their fitness, leading to the eventual extinction of the fittest strategy.
+            \choice The Moran process models how a population evolves by replacing multiple individuals at each step based on a fitness-weighted lottery.
+    \end{checkboxes}
+
+    \question What is the probability of selection of each type in the Moran Process
+    with a population vector \(v=(3, 2, 4)\) for the following payoff matrix:
+
+    \[
+        \begin{pmatrix}
+            1 & 15 & 1\\
+            4 & 10 & 2\\
+            2 & 9  & 8
+        \end{pmatrix}
+    \]
+
+    \begin{checkboxes}
+        \choice First type: \(1/5\), second type: \(2/5\), third type: \(4/5\).
+        \choice First type: \(1/3\), second type: \(1/3\), third type: \(1/3\).
+        \choice First type: \(3/10\), second type: \(1/6\), third type: \(8/15\).
+        \choice First type: \(2/5\), second type: \(1/6\), third type: \(13/30\).
+    \end{checkboxes}
+
+    \question What is the probability of fixation \(x_1\) for the following
+    game:
+
+    \[
+        \begin{pmatrix}
+        1 & 9\\
+        4 & 8
+        \end{pmatrix}
+    \]
+
+    \begin{checkboxes}
+        \choice \(1/4\)
+        \choice \(1/5\)
+        \choice \(22/7\)
+        \choice \(12/43\)
+\end{checkboxes}
+
+\end{questions}
+\end{document}

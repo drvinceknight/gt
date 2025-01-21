@@ -7,8 +7,7 @@ tag: assessment
 
 On learning central there are 9 online quizzes available to you.
 
-You can complete each test when it is released. The deadline for completing all
-of them is at the end of the Spring Semester.
+The deadline for completing all of them is at the end of the Spring Semester.
 
 # Research projects
 

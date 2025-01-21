@@ -1,0 +1,63 @@
+\documentclass{exam}
+
+\usepackage[overload]{exam-randomizechoices}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{questions}
+        
+    \question
+    Which statement best describes a repeated game?
+
+    \begin{checkboxes}
+        \choice A repeated game is a strategic interaction where the same stage game is played multiple times, allowing players to condition their actions on past outcomes.
+        \choice A repeated game is a one-shot game where players make simultaneous decisions without any knowledge of past interactions or future consequences.            
+        \choice A repeated game is a game played over a single round but involves multiple players making sequential decisions.
+        \choice A repeated game is a strategic interaction in which players’ payoffs depend only on their final actions, regardless of the game's duration or history.
+    \end{checkboxes}
+
+    \question
+    Which statement best describes a strategy in a repeated game?
+
+    \begin{checkboxes}
+        \choice A strategy in a repeated game is a complete plan of action specifying a player's moves in each stage of the game, based on the history of previous actions by all players.
+        \choice A strategy in a repeated game is the choice of a single action to be repeated in every stage, regardless of the opponent's behavior.            
+        \choice A strategy in a repeated game is a plan that only determines a player's actions in the first stage of the game, leaving future stages unspecified.
+        \choice A strategy in a repeated game is a set of random actions chosen independently at each stage without considering past interactions.
+    \end{checkboxes}
+
+    \question
+    Consider the follow stage game:
+
+    \[
+        A = \begin{pmatrix}
+            12 & -3\\
+            -3 & 12
+            \end{pmatrix}
+            \qquad
+        B = -A
+    \]
+
+    What are the utilities to both players when the game is repeated 3 times
+    with the following strategies:
+
+    \begin{itemize}
+        \item For the row player: play row 1 first. If the column player played the
+    first column, play row 1 for the next two turns if not: play row 1 followed
+    by row 2.
+        \item For the column player: play column 1 first then play the action that would
+      be a best response to the last action picked by the row player.
+    \end{itemize}
+
+    \begin{checkboxes}
+        \choice  Utility to row player: \(6\), utility to column player: \(-6\).
+        \choice  Utility to row player: \(-6\), utility to column player: \(6\).
+        \choice  Utility to row player: \(-12\), utility to column player: \(-12\).
+        \choice  Utility to row player: \(0\), utility to column player: \(0\).
+    \end{checkboxes}
+
+\end{questions}
+\end{document}
