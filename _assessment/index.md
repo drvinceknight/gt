@@ -7,8 +7,7 @@ tag: assessment
 
 On learning central there are 9 online quizzes available to you.
 
-You can complete each test when it is released. The deadline for completing all
-of them is at the end of the Spring Semester.
+The deadline for completing all of them is at the end of the Spring Semester.
 
 # Research projects
 
@@ -46,7 +45,7 @@ you to delve further in to the investigation you choose.
 ### 55-64%%
 
 - Demonstrates a reasonable understanding of game theory with moderately developed ideas.
-- Key concepts, such as mixed strategies or utility theory, are mostly accurate but lack deeper exploration.
+- Key concepts, such as strategies or best responses, are mostly accurate but lack deeper exploration.
 - Writing is clear and organized, with occasional lapses in coherence.
 - Supporting evidence is relevant but may not fully support arguments.
 - The submission is competent but not particularly original or insightful.
@@ -56,7 +55,7 @@ you to delve further in to the investigation you choose.
 - Shows strong understanding of game theory with well-developed ideas and analysis.
 - Key concepts are applied accurately and effectively.
 - Writing is effective, with good organization and clear transitions.
-- Evidence and examples, such as real-world scenarios, are relevant and support the reseach well.
+- Evidence and examples, such as real-world scenarios or well chosen examples, are relevant and support the research well.
 - The submission is solid but may not achieve a high level of originality or insight.
 
 ### 70-74%
