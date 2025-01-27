@@ -21,7 +21,7 @@ The choice of topic is yours, two potential general subjects:
 - Prove and illustrate a theorem from the notes (or otherwise);
 - Model a real world scenario using game theory.
 
-You are encouraged to use code to tackling the numerical computations to allow
+You are encouraged to use code to tackle the numerical computations to allow
 you to delve further in to the investigation you choose.
 
 ## [Marking criteria](#marking-criteria)
@@ -37,7 +37,7 @@ you to delve further in to the investigation you choose.
 ### 45-54%
 
 - Some understanding of the topic is evident, but analysis is basic and lacks depth.
-- Concepts such as payoff matrices or dominance strategies are included but may be inaccurate or superficial.
+- Concepts such as payoff matrices or strategies are included but may be inaccurate or superficial.
 - Writing is somewhat clear but may lack precision or organization.
 - Evidence and examples, such as real-world applications, are limited or not well integrated.
 - The work shows effort but is underdeveloped.
@@ -93,7 +93,7 @@ you to delve further in to the investigation you choose.
 ### 90-94%
 
 - An extraordinary piece of work with groundbreaking analysis.
-- Unique perspectives and methods are applied to topics like incomplete information games or advanced equilibrium refinements.
+- Unique perspectives and methods are applied to theoretical topics at the boundaries of the taught content.
 - Writing is exceptional, with engaging and clear presentation.
 - Evidence and examples are original, such as innovative takes on classic problems or stochastic games.
 - The submission is of publishable quality and demonstrates critical and creative engagement.
@@ -157,8 +157,7 @@ You will evidence your work with 2 mediums:
 
 Your final submission should include the following **3** files:
 
-1. A `main.pdf` file: the pdf file for a 2 page paper written in [LaTeX](({{ site.baseurl }}/topics/latex.html)
-   ).
+1. A `main.pdf` file: the pdf file for a 2 page paper.
 2. A `presentation.mp4` (or similar file format): the video recording of [your 15 minute presentation]({{ site.baseurl }}/topics/presenting-mathematics.html)
 3. A `contribution.md` file: a file describing the contributions of every member of your group.
 
