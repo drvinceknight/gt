@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducing strategies with matching penniEs"
+title: "Introducing strategies with matching pennies"
 tags:
   - strategies
 ---
