@@ -13,7 +13,7 @@ You can see recordings [here](https://cardiff.cloud.panopto.eu/Panopto/Pages/Vie
 
 During the first hour we discussed meetings. The purpose of this is not necessarily to dictate a particular way of meeting but to give you things to consider
 You can find a link to a number of principles
-on meetings here: [{{site.baseurl}}/topics/meetings.html]({{site.baseurl}}/topics/meetings.html)
+on meetings [here]({{site.baseurl}}/topics/meetings.html).
 
 After this I gave a seminar on Evolutionary Game Theory. I specifically covered
 the replicator dynamics equation using the two thirds of the average game we
