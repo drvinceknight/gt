@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Hawks, Doves and Dice"
+tags:
+  - moran-process
+---
+
 In class today we looked at the [Moran
 Process](https://nashpy.readthedocs.io/en/stable/text-book/moran-process.html). We did this by
 considering the [Hawk Dove game](https://nashpy.readthedocs.io/en/stable/text-book/normal-form-games.html#hawk-dove-game).
