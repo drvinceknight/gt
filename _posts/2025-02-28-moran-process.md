@@ -2,8 +2,7 @@ In class today we looked at the [Moran
 Process](https://nashpy.readthedocs.io/en/stable/text-book/moran-process.html). We did this by
 considering the [Hawk Dove game](https://nashpy.readthedocs.io/en/stable/text-book/normal-form-games.html#hawk-dove-game).
 
-You can see a recording of this [here](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d36fae76-d9cd-4071-a01c-b28d0108a5ea)
-png).
+You can see a recording of this [here](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d36fae76-d9cd-4071-a01c-b28d0108a5ea).
 
 The Moran process is a game theoretic model of evolution. One of the differences
 from the [Replicator Dynamics equation]({{ site.baseurl
