@@ -36,7 +36,7 @@ that it will prove useful to you for your group project.
 to me to discuss your coursework please do get in touch.**
 
 If you're interested you can find a list of all the past projects at
-[the assessment page](<({{site.baseurl}}/_assessment/)>).
+[the assessment page]({{site.baseurl}}/assessment/).
 
 Thanks again for all the effort you put into this assessment. As always,
 there were a few standout projects this year that really impressed me—even
