@@ -161,7 +161,7 @@ Your final submission should include the following **3** files:
 2. A `presentation.mp4` (or similar file format): the video recording of [your 15 minute presentation]({{ site.baseurl }}/topics/presenting-mathematics.html)
 3. A `contribution.md` file: a file describing the contributions of every member of your group.
 
-## [Past group projects](#past-group-projects)
+## [Past projects](#past-group-projects)
 
 A list of titles of past projects:
 
