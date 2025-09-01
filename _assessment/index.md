@@ -3,25 +3,21 @@ layout: default
 tag: assessment
 ---
 
-# Continuous Individual coursework (20%)
+There are two piece of assessment in this course:
 
-On learning central there are 9 online quizzes available to you.
+- A 2 hour exam (80%)
+- A group research project (20%)
 
-The deadline for completing all of them is at the end of the Spring Semester.
+# Exam
 
-# Research projects
+# Research project
 
-There are two research projects to be carried out:
-
-1. An individual research project (20%)
-2. A group research project (60%)
-
-The choice of topic is yours, two potential general subjects:
+The choice of topic is yours, two potential general areas of investigation:
 
 - Prove and illustrate a theorem from the notes (or otherwise);
 - Model a real world scenario using game theory.
 
-You are encouraged to use code to tackle the numerical computations to allow
+You are able to use code to tackle the numerical computations to allow
 you to delve further in to the investigation you choose.
 
 ## [Marking criteria](#marking-criteria)
