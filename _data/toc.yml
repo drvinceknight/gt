@@ -1,40 +1,54 @@
 - title: Week 1
   topics:
     - title: "About the course"
-    - title: "Seminar: Equilibrium Behaviour of rational agents"
+    - title: Games
 - title: Week 2
   topics:
-    - title: Normal form games
-    - title: Strategies
-    - title: Best responses
+    - title: Rationalisation
+    - title: Integer Pivoting
+    - title: Zero Sum Games
 - title: Week 3
   topics:
-    - title: Support enumeration
+    - title: Nash Equilibrium
+    - title: Subgame Perfection
 - title: Week 4
   topics:
-    - title: Python refresher
+    - title: Repeated Games
     - title: Meetings
-    - title: "Seminar: Evolutionary Game Theory"
+    - title: Numerical Integration
 - title: Week 5
   topics:
-    - title: Replicator dynamics
-    - title: Moran processes
+    - title: Replicator Dynamics
+    - title: Absorbing Markov Chains
 - title: Week 6
   topics:
-    - title: "Seminar: Cooperation"
-    - title: Extensive form games
-    - title: Repeated games
+    - title: Moran Process
+    - title: Best Response Polytopes
+    - title: Karush-Kuhn-Tucker Conditions
 - title: Week 7
   topics:
-    - title: Prisoners Dilemma
-    - title: "Seminar: Matching games, routing games and cooperative games"
+    - title: Routing Games
+    - title: Matching Games
 - title: Week 8
   topics:
-    - title: Writing mathematics
-    - title: Peer review
+    - title: Auctions
+    - title: Social Choice
+    - title: Cooperative Games
 - title: Week 9
   topics:
-    - title: Presentation
+    - title: Writing Mathematics
+    - title: Topic Review 1
 - title: Week 10
-- title: "Week 11: Individual research project deadline"
-- title: "Week 12: Group research project deadline"
+  topics:
+    - title: Presenting Mathematics
+    - title: Topic Review 2
+    - title: Peer Review
+- title: Week 11
+  topics:
+    - title: Mock Exam
+    - title: Mock Exam
+- title: Week 12
+  topics:
+    - title: Topic Review 3
+    - title: Topic Review 4
+    - title: Topic Review 5

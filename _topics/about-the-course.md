@@ -6,11 +6,22 @@ tag: "about"
 
 # Game Theory: Introduction to the course
 
-This course will cover the following aspects of Game Theory:
+Game theory is the mathematics of strategy.
+It is a powerful framework for understanding how individuals and groups make decisions when their outcomes depend on others.
+This module introduces the foundational models of game theory and connects them to contemporary research and real-world behaviour.
 
-- Normal form games and Nash equilibrium
-- Evolutionary Game Theory
-- Some contemporary research
+The module covers a broad range of classic and modern topics, including discussions of notable research in the field.
+Most of the ideas are brought to life through interactive classroom experiments that mirror the games we study, encouraging discussion and reflection.
+
+There’s a strong emphasis on independent learning.
+While the lectures and activities build core understanding, you'll also be expected to explore the material in depth on your own.
+Assessment is split between an exam and a research project.
+The project gives you the chance to apply game theory authentically to a topic that interests you whether that’s sports,
+technology, social behaviour, or something else entirely.
+
+Along the way, you’ll see how game theory draws on a wide range of mathematical ideas, including integer pivoting, interior point methods,
+numerical integration of differential equations, and Markov chains.
+This makes this module a great option whether you’re looking to apply familiar techniques or encounter these topics for the first time.
 
 All course materials are available online at
 [vknight.org/gt/](http://vknight.org/gt/). You can also find all the source
@@ -19,22 +30,13 @@ files that create that website at
 
 ## Course content
 
-There are 3 components to the course content, all of which can be found at this
+There are 2 components to the course content, all of which can be found at this
 site.
 
-- The course notes we will use are the open source text book available here:
-  [nashpy.readthedocs.io/en/stable/text-book/index.html](https://nashpy.readthedocs.io/en/stable/text-book/index.html#)
-- Video explainers for every topic. A private link and a YouTube link are
-  available.
+- The course notes we will use is the open source text book available here:
+  [https://vknight.org/gtb/](https://vknight.org/gtb/)
 - Content we will generate in class: through our discussions and activities we
   will generate valuable information. I will capture these.
-
-## Virtual board
-
-I will use a virtual board throughout class:
-
-- This will allow you to see the board more clearly on the class recordings.
-- Private access will allow you to write on the board if you want to.
 
 ## In class activities
 
@@ -50,12 +52,7 @@ If you would like some information about the pedagogic approach:
 It is possible that the course notes will change: **for things like typos and
 clarifications**, all of the notes are hosted openly on github and if you're
 interested you can find a list of all changes here:
-[github.com/drvinceknight/gt/commits/main](https://github.com/drvinceknight/gt/commits/main)
-
-## In class seminars
-
-There are four seminars scheduled for this class: these are meant to spike your
-interest.
+[github.com/drvinceknight/gtb/commits/main](https://github.com/drvinceknight/gtb/commits/main)
 
 ## Technology in class
 
@@ -100,8 +97,7 @@ Some examples of how this applies to me:
 
 There are three pieces of assessment in this course:
 
-- Individual ongoing assessment (20%)
-- Individual research project (20%)
-- Group research project (60%)
+- Group research project (20%)
+- Exam (60%)
 
 More information about assessment: [here]({{ site.baseurl}}/assessment/)
