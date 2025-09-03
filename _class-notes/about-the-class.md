@@ -1,9 +1,9 @@
 ---
 layout: class-notes
-title: "About the class and Normal Form Games"
+title: "About the class"
 tags:
   - about
-  - normal-form-games
+  - auctions
 ---
 
 ## Pre class email
@@ -16,11 +16,8 @@ Send the following email before class::
 
     This is a brief email before our first class <>
 
-    All of the course materials (including short videos) are available at
+    All of the course materials are available at
     https://vknight.org/gt/.
-
-    During the class I will use a virtual whiteboard, if you want to you can
-    access the whiteboard on your own device here: <link>.
 
     I will be using the School discord server to duplicate class communication.
     If you have not joined the School discord server and would like to here is
@@ -35,11 +32,6 @@ Send the following email before class::
     Please get in touch if I can assist with anything,
     Vince
 
-### Corresponding chapters
-
-- `Introduction to the course <https://vknight.org/gt/topics/about-the-course.html>`\_
-- `Normal form games <https://vknight.org/gt/topics/normal-form-games.html>`\_
-
 **Duration**: 50 minutes
 
 ## Objectives
@@ -52,7 +44,17 @@ Send the following email before class::
   content)
 - Introduce games.
 
-## Notes
+## Activity (20 minutes)
+
+Play the dollar auction game (with £5).
+
+> Top two bidders pay, winner gets to keep the £5.
+
+Talk about strategy (briefly!), detail that we will do things like this every
+class: first 20 minutes will be an activity and the second will be a discussion
+of theory. Sometimes we will not finish the discussion.
+
+## Discussion (20 Minutes)
 
 Timetable and approach
 
@@ -62,7 +64,7 @@ Discuss timetable
 
 **I will not lecture**
 
-This course is taught in a flipped learning environment. All notes, homework,
+This course is taught in an independent learning environment. All notes, homework,
 exercises are available to you.
 
 In class we will work in parallel to the notes but not directly following them.
@@ -89,33 +91,13 @@ Seeking assistance
 
 Details on website.
 
-Programming
-
 ---
-
-The first assessment is a coding exercise: this is to highlight that I am not
-interested in mathematical button pushing. I want you to become game theorists
-by doing this course.
 
 Kindness
 
 ---
 
 Highlight the kindness section.
-
-Introduction to games
-
----
-
-Use MentiMeter to play 2/3rds of the average game.
-
-1. Send <link> to first round
-2. Rationalise
-3. Send link to third round
-
-Discuss notes on Normal form games.
-
-After class communication
 
 ---
 

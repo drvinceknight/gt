@@ -8,9 +8,16 @@ There are two piece of assessment in this course:
 - A 2 hour exam (80%)
 - A group research project (20%)
 
-# Exam
+# Exam (80%)
 
-# Research project
+Work in progress: Example and mock exams to appear here.
+
+# Group research project (20%)
+
+Due date: end of the Spring Semester.
+
+Carry out a group research project using Game Theory for a chosen topic of your
+choice.
 
 The choice of topic is yours, two potential general areas of investigation:
 
@@ -19,6 +26,17 @@ The choice of topic is yours, two potential general areas of investigation:
 
 You are able to use code to tackle the numerical computations to allow
 you to delve further in to the investigation you choose.
+
+You will evidence your work with 2 mediums:
+
+1. A 2 page paper
+2. A 15 minute recorded presentation
+
+Your final submission should include the following **3** files:
+
+1. A `main.pdf` file: the pdf file for a 2 page paper.
+2. A `presentation.mp4` (or similar file format): the video recording of [your 15 minute presentation]({{ site.baseurl }}/topics/presenting-mathematics.html)
+3. A `contribution.md` file: a file describing the contributions of every member of your group.
 
 ## [Marking criteria](#marking-criteria)
 
@@ -130,32 +148,6 @@ you to delve further in to the investigation you choose.
 - Uses evidence effectively to build ideas.
 - Incorporates computational tools to replace repetitive calculations and enable deeper analysis.
 - Addresses counterarguments where relevant.
-
-# Individual research project (20%)
-
-Due date: approximately end of week 11.
-
-Write a 3 page paper applying Game Theory to a chosen topic of your choice.
-
-Your final submission should include a **single** pdf file.
-
-# Group research project (60%)
-
-Due date: end of the Spring Semester.
-
-Carry out a group research project using Game Theory for a chosen topic of your
-choice.
-
-You will evidence your work with 2 mediums:
-
-1. A 2 page paper
-2. A 15 minute recorded presentation
-
-Your final submission should include the following **3** files:
-
-1. A `main.pdf` file: the pdf file for a 2 page paper.
-2. A `presentation.mp4` (or similar file format): the video recording of [your 15 minute presentation]({{ site.baseurl }}/topics/presenting-mathematics.html)
-3. A `contribution.md` file: a file describing the contributions of every member of your group.
 
 ## [Past projects](#past-group-projects)
 
