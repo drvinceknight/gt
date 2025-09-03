@@ -1,106 +1,40 @@
 ---
 layout: class-notes
-title: "Repeated games"
+title: "Repeated Games"
 tag: repeated-games
 ---
 
-### Playing repeated games in pairs
+## Activity (20 minutes)
 
-- Explain that we are about to play a game twice.
-- Explain that this has to be done **SILENTLY**
+Watch video of golden balls.
 
-In groups we are going to play:
-
-$$
-A =
-\begin{pmatrix}
-\underline{12} & 6\\
-0 & \underline{24}\\
-\underline{12} & 23\\
-\end{pmatrix}
-\qquad
-B =
-\begin{pmatrix}
-\underline{2} & 1\\
-\underline{5} & 4\\
-\underline{0} & 0\\
-\end{pmatrix}
-$$
-
-In pairs:
-
-- Decide on row/column player (recall you don't care about your opponents
-  reward).
-- We are going to play the game TWICE and write down both players _cumulative_
-  scores.
-- Define a strategy and ask players to write down a strategy that must describe
-  what they do in both stages by answering the following question:
-  - What should the player do in the first stage?
-  - What should the player do in the second stage given knowledge of what both
-    players did in the first period?
-- SILENTLY, after having written down a strategy: show each other your
-  strategies and SILENTLY agree on the pair of utilities. If you are unable to
-  agree on a utility this indicates that the strategies were not descriptive
-  enough. SILENTLY start again :)
-
-As a challenge: repeat this (so repeatedly play a repeated game, repeatedly
-write down a new strategy) and make a note
-when you arrive at an equilibria (where no one has a reason to write a different
-strategy down)
-
-**If anyone arrives at an equilibria where the row player scores more than 24
-and the column player more than 4 stand up as a pair.**
-
-Following this, assuming a pair has arrived at such an equilibrium discuss this.
-
-Then work through the notes:
-
-- Definition of a repeated game;
-- Definition of a strategy;
-- Theorem of sequence of stage Nash (relate this back to the utilities of our
-  game):
-
-  - $(r_1r_1, c_1c_1)$ with utility: (24, 4).
-  - $(r_1r_3, c_1c_1)$ with utility: (24, 2).
-  - $(r_3r_1, c_1c_1)$ with utility: (24, 2).
-  - $(r_3r_3, c_1c_1)$ with utility: (24, 0).
-
-Now discuss the potential of a different equilibrium:
-
-1. For the row player:
+Tell students to create four teams and that we will play an IPD tournament:
 
 $$
-(\emptyset, \emptyset) \to r_2
-(r_2, c_1) \to r_3
-(r_2, c_2) \to r_1
+   A =
+   \begin{pmatrix}
+       3 & 0\\
+       5 & 1
+   \end{pmatrix}\qquad
+   B =
+   \begin{pmatrix}
+       3 & 5\\
+       0 & 1
+   \end{pmatrix}
 $$
 
-2. For the column player:
+## Discussion (20 minutes)
 
-$$
-(\emptyset, \emptyset) \to c_2
-(r_1, c_2) \to c_1
-(r_2, c_2) \to c_1
-(r_3, c_2) \to c_1
-$$
+Discuss repeated games chapter
 
-This corresponds to the following scenario:
+Discussion Point: **After definition of strategy, ask what a strategy looks like
+for the IPD?**
 
-> Play $(r_2, c_2)$ in first stage and $(r_1,c_1)$ in second stage
-> unless the column player does not cooperate in which case play $(r_3,
-c_1)$
+Discussion Point: **After infinitely repeated games definition, ask how that
+differs/applies to the IPD?**
 
-This gives a utility of $(36, 6)$. Is this an equilibrium?
+Discussion Point: **After the folk theorem, ask what that means for the IPD and
+cooperation in general?**
 
-1. If the row player deviates, they would do so in the first round and gain no
-   utility.
-2. If the column player deviates, they would only be rational to do so in the
-   first stage, if they did they would gain 1 but lose 2 in the second round.
-
-Thus this is Nash equilibrium.
-
-- Discuss how to identify such an equilibria: which player has an incentive to
-  build a reputation? (The column player want to prove to be trustworthy to gain
-  2 in the final round).
-- Mention how this shows how game theory studies the emergence of unexpected
-  behaviour.
+Discussion Point: **After the Axelrod tournament section, discuss how the
+strategies played differ/are similar**

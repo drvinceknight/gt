@@ -1,12 +1,10 @@
 ---
 layout: class-notes
-title: "Extensive form games"
-tag: extensive-form
+title: "Subgame Perfection"
+tag: subgame-perfection
 ---
 
-## Typical Programming Exercises
-
-#### During the class
+## Activity (20 minutes)
 
 Invite students to play the following game:
 
@@ -26,33 +24,12 @@ take at last two.
 
 Give out bribentives.
 
-Now discuss notes:
+## Discussion (20 minutes)
 
-- Connection
-- Definitions of a strategy.
+Discuss subgame perfection chapter.
 
-Write down Normal Form Game for whole thing.
+Discussion point: **After definition of backwards induction ask what this would
+lead to for the centipede game?**
 
-S1 = {PP, PT, TP, TT}
-S2 = {PP, PT, TP, TT}
-
-Game is:
-
-$$
-A = \begin{pmatrix}
-4 & 3 & 1 & 1\\
-4 & 4 & 1 & 1\\
-2 & 2 & 2 & 2\\
-2 & 2 & 2 & 2\\
-\end{pmatrix}
-\qquad
-
-B = \begin{pmatrix}
-4 & 5 & 3 & 3\\
-2 & 2 & 3 & 3\\
-0 & 0 & 0 & 0\\
-0 & 0 & 0 & 0\\
-\end{pmatrix}
-$$
-
-Have bottom right quadrant as NE (pairs of best responses).
+Discussion point: **After subgame perfection definition ask which equilibria is
+subgame perfect? Or perhaps more realistically what are other NE?**
