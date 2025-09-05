@@ -1,7 +1,7 @@
 ---
 layout: class-notes
-title: "integer-pivoting"
-tag: integer-pivoting
+title: "Numerical Integration"
+tag: numerical-integration
 ---
 
 ## Activity (20 minutes)

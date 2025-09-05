@@ -1,23 +1,16 @@
 ---
 layout: class-notes
-title: "Rationalisation"
-tag: rationalisation
+title: "Nash equilibrium"
+tag: nash-equilibrium
 ---
 
 ## Activity (20 minutes)
 
-Write the coordination game on the board:
+Play a "divisional" class round robin tournament of Rock Paper Scissors Lizard
+Spock. Ask students to play in groups of four, then ask winners to stand up and
+keep playing against left with a single class champion.
 
-https://vknight.org/gtb/main-1/#AfgtZmtbfU
-
-Tell students they are going to be "speed dating" the play of this game.
-
-Get two groups of students that like different types of movies (can be the same
-as for the coordination game). Ask them to pair up and write down their choices.
-
-Quickly compute overall utility by counting numbers.
-
-Repeat this a few times making a note.
+They play me for a briebentive.
 
 ## Discussion (20 minutes)
 
