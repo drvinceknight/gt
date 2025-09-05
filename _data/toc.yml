@@ -20,35 +20,34 @@
   topics:
     - title: Absorbing Markov Chains
     - title: Moran Process
-    - title: Karush-Kuhn-Tucker Conditions
 - title: Week 6
   topics:
+    - title: Karush-Kuhn-Tucker Conditions
     - title: Routing Games
     - title: Matching Games
 - title: Week 7
   topics:
     - title: Auctions
     - title: Social Choice
-    - title: Cooperative Games
 - title: Week 8
   topics:
+    - title: Cooperative Games
     - title: Writing Mathematics
-    - title: Topic Review 1
+    - title: Topic Review
 - title: Week 9
   topics:
     - title: Presenting Mathematics
-    - title: Topic Review 2
-    - title: Peer Review
+    - title: Topic Review
 - title: Week 10
   topics:
-    - title: Mock Exam
+    - title: Peer Review
     - title: Mock Exam
 - title: Week 11
   topics:
-    - title: Topic Review 3
-    - title: Topic Review 4
-    - title: Topic Review 5
+    - title: Mock Exam
+    - title: Topic Review
+    - title: Topic Review
 - title: Week 12
   topics:
-    - title: Topic Review 6
-    - title: Topic Review 7
+    - title: Topic Review
+    - title: Topic Review

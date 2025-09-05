@@ -28,8 +28,6 @@ layout: default
 
 ## [Assessment]({{ site.baseurl}}/assessment/)
 
-## [Seminar series]({{ site.baseurl}}/seminars/)
-
 ## [Log](#blog)
 
 ([RRS feed]({{ site.baseurl }}/feed.xml))
