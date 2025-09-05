@@ -5,50 +5,50 @@
 - title: Week 2
   topics:
     - title: Rationalisation
-    - title: Integer Pivoting
-    - title: Zero Sum Games
-- title: Week 3
-  topics:
     - title: Nash Equilibrium
     - title: Subgame Perfection
-- title: Week 4
+- title: Week 3
   topics:
     - title: Repeated Games
     - title: Meetings
+- title: Week 4
+  topics:
+    - title: Python Refresher
     - title: Numerical Integration
+    - title: Replicator Dynamics
 - title: Week 5
   topics:
-    - title: Replicator Dynamics
     - title: Absorbing Markov Chains
-- title: Week 6
-  topics:
     - title: Moran Process
-    - title: Best Response Polytopes
     - title: Karush-Kuhn-Tucker Conditions
-- title: Week 7
+- title: Week 6
   topics:
     - title: Routing Games
     - title: Matching Games
-- title: Week 8
+- title: Week 7
   topics:
     - title: Auctions
     - title: Social Choice
     - title: Cooperative Games
-- title: Week 9
+- title: Week 8
   topics:
     - title: Writing Mathematics
     - title: Topic Review 1
-- title: Week 10
+- title: Week 9
   topics:
     - title: Presenting Mathematics
     - title: Topic Review 2
     - title: Peer Review
-- title: Week 11
+- title: Week 10
   topics:
     - title: Mock Exam
     - title: Mock Exam
-- title: Week 12
+- title: Week 11
   topics:
     - title: Topic Review 3
     - title: Topic Review 4
     - title: Topic Review 5
+- title: Week 12
+  topics:
+    - title: Topic Review 6
+    - title: Topic Review 7
