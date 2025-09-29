@@ -14,7 +14,7 @@ Work in progress: Example and mock exams to appear here.
 
 # Group research project (20%)
 
-Due date: end of the Spring Semester.
+Due date: end of the Autumn Semester.
 
 Carry out a group research project using Game Theory for a chosen topic of your
 choice.
