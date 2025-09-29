@@ -9,6 +9,8 @@ tags:
 In today's class I auctioned a five pound note and discussed how the class
 works.
 
+You can find the recording of the class [here](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=24e3c72d-1fd3-4b75-9ca6-b3620094dc40).
+
 After getting the School's attendance QR code thing to work (please get in touch
 if you have any trouble!) I auctioned a five pound note with the following
 caveat:
