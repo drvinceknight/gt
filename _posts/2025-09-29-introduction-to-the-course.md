@@ -40,8 +40,9 @@ get his due!) but the point I wanted to make here is what Game Theory tries to
 do which is **to understand the emergent outcomes when individuals do what is
 best for themselves**.
 
-You can find a picture of the board
-[here]({{site.baseurl}}/assets/2025-2026/boards/2029-09-2029/main.jph)
+Here is the picture I took of the board:
+
+![]({{site.baseurl}}/assets/2025-2026/boards/2029-09-29/main.jpg)
 
 At the end of class Tom, Felix and I had a chat and Tom explained that he had
 actually intended to bid £4.99 **first**. This explains his (awesome)
