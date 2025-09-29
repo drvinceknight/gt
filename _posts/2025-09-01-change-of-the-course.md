@@ -20,7 +20,7 @@ find online [here](https://vknight.org/Year_3_game_theory_course/).
 
 ### Why am I doing this?
 
-Over the more recent years I do not feel the spare amount of content and open
+Over the more recent years I do not feel the sparse amount of content and open
 ended research projects have yielded the pedagogic outcomes I was hoping for. In
 fact they have tended (not for all students) to result in narrow focus and actually
 _not_ independent work.
