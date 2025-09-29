@@ -5,8 +5,8 @@ tag: assessment
 
 There are two piece of assessment in this course:
 
-- A 2 hour exam (80%)
-- A group research project (20%)
+- A 2 hour exam (75%)
+- A group research project (25%)
 
 # Exam (80%)
 

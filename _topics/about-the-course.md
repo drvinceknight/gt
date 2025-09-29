@@ -97,7 +97,7 @@ Some examples of how this applies to me:
 
 There are three pieces of assessment in this course:
 
-- Group research project (20%)
-- Exam (80%)
+- Group research project (25%)
+- Exam (75%)
 
 More information about assessment: [here]({{ site.baseurl}}/assessment/)
