@@ -2,49 +2,50 @@
   topics:
     - title: "About the course"
     - title: Games
+    - title: Rationalisation
 - title: Week 2
   topics:
-    - title: Rationalisation
     - title: Nash Equilibrium
     - title: Subgame Perfection
 - title: Week 3
   topics:
     - title: Repeated Games
     - title: Meetings
+    - title: Python Refresher
 - title: Week 4
   topics:
-    - title: Python Refresher
     - title: Numerical Integration
     - title: Replicator Dynamics
 - title: Week 5
   topics:
     - title: Absorbing Markov Chains
     - title: Moran Process
+    - title: Karush-Kuhn-Tucker Conditions
 - title: Week 6
   topics:
-    - title: Karush-Kuhn-Tucker Conditions
     - title: Routing Games
     - title: Matching Games
 - title: Week 7
   topics:
     - title: Auctions
     - title: Social Choice
+    - title: Cooperative Games
 - title: Week 8
   topics:
-    - title: Cooperative Games
     - title: Writing Mathematics
     - title: Slack
 - title: Week 9
   topics:
     - title: Presenting Mathematics
     - title: Slack
+    - title: Peer Review
 - title: Week 10
   topics:
-    - title: Peer Review
+    - title: Mock Exam
     - title: Mock Exam
 - title: Week 11
   topics:
-    - title: Mock Exam
+    - title: Slack
     - title: Slack
     - title: Slack
 - title: Week 12
