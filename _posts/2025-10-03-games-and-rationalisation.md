@@ -58,3 +58,10 @@ We talked about "the best way of playing" against each strategy.
 This last point is in fact directly related to the first theorem of the course
 which you can find [here](https://vknight.org/gtb/main-2/#thrm-best-response-condition). That chapter defines many important
 notions such as dominance and best responses.
+
+You can see the basic idea for calculating expected utilities I wrote on the
+board here:
+
+![]({{site.baseurl}}/assets/2025-2026/boards/2029-10-03/main_1.jpg)
+
+This calculation is covered towards the end of [this section in the Games chapter](https://vknight.org/gtb/main-1/#definition-strategy-in-normal-form-games).
