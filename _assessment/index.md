@@ -8,11 +8,11 @@ There are two piece of assessment in this course:
 - A 2 hour exam (75%)
 - A group research project (25%)
 
-# Exam (80%)
+# Exam (75%)
 
 Work in progress: Example and mock exams to appear here.
 
-# Group research project (20%)
+# Group research project (25%)
 
 Due date: end of the Autumn Semester.
 
