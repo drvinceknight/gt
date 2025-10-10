@@ -10,7 +10,8 @@ There are two piece of assessment in this course:
 
 # Exam (75%)
 
-Work in progress: Example and mock exams to appear here.
+You can find an [example exam
+here]({{site.baseurl}}/assets/assessment/example-exam/main.pdf).
 
 # Group research project (25%)
 
