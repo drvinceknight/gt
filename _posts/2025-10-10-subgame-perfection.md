@@ -51,7 +51,7 @@ A = \begin{pmatrix}
     \underline{2} & 2 & 2 & \underline{2}\\
     \end{pmatrix}
 B = \begin{pmatrix}
-    \unsderline{0} & \underline{0} & \underline{0} & \underline{0}\\
+    \underline{0} & \underline{0} & \underline{0} & \underline{0}\\
     3 & 4 & \underline{5} & 3\\
     \underline{3} & 2 & 2 & \underline{3}\\
     \underline{0} & \underline{0} & \underline{0} & \underline{0}\\
