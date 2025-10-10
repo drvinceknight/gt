@@ -1,0 +1,311 @@
+
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usetikzlibrary{shapes, arrows, positioning}
+
+\usepackage{amsmath,amssymb,mdframed}
+\setcounter{page}{2}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.5in}
+\setlength{\headsep}{1cm}
+\setlength{\textheight}{9.0in}
+
+\usepackage{environ}
+\newif\ifshowsolutions
+
+\NewEnviron{solution}{%
+  \ifshowsolutions
+  \hrule
+  \vspace{.5cm}
+    \par\noindent\textbf{Solution:} 
+
+    \BODY
+  \vspace{.5cm}
+    \hrule
+  \fi
+}
+
+% \showsolutionstrue
+
+\makeatletter
+\renewcommand{\@oddhead}{\hfill MA3600/example}
+\renewcommand{\@oddfoot}{\hfil \arabic{page} \hfil}
+\makeatother
+
+\renewcommand{\labelenumi}{\arabic{enumi}}
+\renewcommand{\labelenumii}{(\alph{enumii})}
+\renewcommand{\labelenumiii}{(\roman{enumiii})}
+
+\begin{document}
+\begin{enumerate}
+
+\renewcommand\labelenumi{\bfseries\theenumi.}
+
+\item
+    \begin{enumerate}
+        \item Provide definitions for the following terms:
+            \begin{itemize}
+                \item Normal form game.
+
+                    \begin{solution}
+                        Book Work. \hfill{[1]}
+                    \end{solution}
+
+                \item Strictly dominated strategy.
+
+                    \begin{solution}
+                        Book Work. \hfill{[1]}
+                    \end{solution}
+
+                \item Weakly dominated strategy.
+
+                    \begin{solution}
+                        Book Work. \hfill{[1]}
+                    \end{solution}
+
+                \item Best response strategy.
+
+                    \begin{solution}
+                        Book Work. \hfill{[1]}
+                    \end{solution}
+
+                \item Mixed strategy Nash equilibrium.
+
+                    \begin{solution}
+                        Book Work. \hfill{[1]}
+                    \end{solution}
+            \end{itemize}
+            ~\hfill{[5]}
+
+        \item State and prove a theorem giving a condition for which a strategy
+            of the row player
+            is a best response to a given strategy of the column player.
+            ~\hfill{[8]}
+
+        \item Consider the following Normal Form Game defined by:
+
+            \[
+                M_r=
+\begin{pmatrix}
+4 & -2 \\
+-1 & 3 \\
+\end{pmatrix}
+\qquad
+            M_c=
+\begin{pmatrix}
+2 & -2 \\
+-3 & 2 \\
+\end{pmatrix}
+\]
+
+        State and justify which pairs of strategies are best responses to each
+            other:
+            \begin{enumerate}
+                \item \(\sigma_r=(1, 0)\) and \(\sigma_c=(0, 1)\)
+                \item \(\sigma_r=(1/5, 4/5)\) and \(\sigma_c=(0, 1)\)
+                \item \(\sigma_r=(1/5, 4/5)\) and \(\sigma_c=(1/2, 1/2)\)
+            \end{enumerate}
+            ~\hfill{[9]}
+
+
+        \item Using your answer to (iii) or otherwise, find all Nash equilibria
+            for the game.
+            ~\hfill{[4]}
+        
+    \end{enumerate}
+
+\newpage
+
+\item
+    Consider the donation game defined by:
+
+    \[
+        M_r = 
+        \begin{pmatrix}    
+            b + c & c\\
+            b + 2 c    & 2 c
+        \end{pmatrix}
+        \qquad
+        M_c = 
+        \begin{pmatrix}    
+            b + c & b + 2c\\
+            c    & 2 c
+        \end{pmatrix}
+    \]
+
+
+    \begin{enumerate}
+        \item Show that if \(b>c>0\) then this game is a Prisoner's Dilemma.
+            ~\hfill{[3]}
+    \item Obtain all Nash equilibrium for this game assuming the constraints of
+        (i).
+            ~\hfill{[2]}
+
+        \item Consider a Moran Process on this game. Obtain an expression for
+            the fixation probability of \(i\) mutants: playing the first strategy in
+            a population of with \(N\) as a function of \(b, c\) and \(N\).
+
+            You may use the following expression for the fixation probability in the general two type Moran
+            process:
+            \[
+\rho_i=\frac{1+\sum_{j=1}^{i-1}\prod_{k=1}^j\gamma_k}{1+\sum_{j=1}^{N-1}\prod_{k=1}^j\gamma_k}
+\]
+
+where:
+
+            \[
+\gamma_k = \frac{f_R(i)}{f_M(i)}
+\]
+            Where \(f_R(i)\) and \(f_M(i)\) is the fitness of a resident/mutant
+            respectively in a population with \(i\) mutants.
+            ~\hfill{[8]}
+        \item Obtain the probability of a single mutant taking over for
+            \(N\in\{2, 3, 4\}\).
+            ~\hfill{[6]}
+        \item For \(N=4\) consider the limit as \(b\to \infty\) and as \(b\to
+            c\). Comment on the implications of these results.
+            ~\hfill{[6]}
+    \end{enumerate}
+
+\newpage
+\item
+
+    \begin{enumerate}
+        \item Define a characteristic function game \(G=(N,v)\).
+
+        \hfill{[2]}
+
+        \item Define the Shapley value.
+
+        \hfill{[2]}
+
+        \item Obtain the Shapley value for the following characteristic function games:
+
+            \[
+                v_1(c) = \begin{cases}
+                    0,& \text{if }c=\emptyset\\
+                    8,& \text{if }c=\{1\}\\
+                    5,& \text{if } c=\{2\}\\
+                    9,& \text{if } c=\{3\}\\
+                    10,& \text{if } c=\{1,2\}\\
+                    11,& \text{if } c=\{2,3\}\\
+                    18,& \text{if } c=\{1,3\}\\
+                    30,& \text{if } c=\{1,2,3\}\\
+                \end{cases}
+                \qquad
+                v_2(c) = \begin{cases}
+                    0,& \text{if }c=\emptyset\\
+                    80,& \text{if }c=\{1\}\\
+                    10,& \text{if } c=\{2\}\\
+                    12,& \text{if } c=\{3\}\\
+                    80,& \text{if } c=\{1,2\}\\
+                    12,& \text{if } c=\{2,3\}\\
+                    80,& \text{if } c=\{1,3\}\\
+                    80,& \text{if } c=\{1,2,3\}\\
+                \end{cases}
+            \]
+
+        \hfill{[8]}
+
+        \item 
+Given a game $G = (N, v)$, a payoff vector $\lambda$ satisfies the symmetry property if, for any pair of players $i, j$:
+
+If $v(C \cup i) = v(C \cup j)$ for all coalitions $C \subseteq \Omega \setminus \{i, j\}$, then:
+
+$$
+\lambda_i = \lambda_j
+$$
+
+            Prove that the Shapley value is efficient.
+
+        \hfill{[6]}
+
+        \item The additivity property is:
+
+        Given two games \(G_1 = (N, v_1)\) and \(G_2 = (N, v_2)\), define their sum \(G^+ = (N, v^+)\) by:
+
+        \[
+        v^+(C) = v_1(C) + v_2(C) \quad \text{for all } C \subseteq \Omega
+        \]
+
+        A payoff vector \(\lambda\) satisfies the additivity property if:
+
+        \[
+        \lambda_i^{(G^+)} = \lambda_i^{(G_1)} + \lambda_i^{(G_2)}
+        \]
+
+        Using the two games from part (c), demonstrate that the Shapley value has
+        the additivity property.
+
+        \hfill{[7]}
+     
+    \end{enumerate}
+
+\newpage
+\item
+
+    \begin{enumerate}
+        \item Define a \textbf{social welfare function}.
+
+        \hfill{[2]}
+
+        \item State \textbf{Arrow’s Impossibility Theorem}.
+        Briefly discuss the implications of this theorem and ways in which the \textbf{Borda} or
+        \textbf{Condorcet} methods respond to this impossibility.
+
+        \hfill{[5]}
+
+        \item Consider the following preference profile over the set of
+        alternatives $X = \{A, B, C\}$:
+
+        \[
+        \begin{array}{c|ccc}
+        \text{Number of voters} & \text{1st choice} & \text{2nd choice} & \text{3rd choice} \\
+        \hline
+        4 & A & B & C \\
+        3 & B & C & A \\
+        2 & C & A & B \\
+        \end{array}
+        \]
+
+        \begin{enumerate}
+            \item Construct the pairwise majority contests among the three
+            alternatives.
+            \item Determine if there is a \textbf{Condorcet winner}.
+            \item Explain whether the collective preference relation is transitive.
+        \end{enumerate}
+
+        \hfill{[8]}
+
+        \item Apply the \textbf{Borda count} method to the same profile.
+
+        \begin{enumerate}
+            \item Compute the Borda scores for each alternative.
+            \item Identify the Borda winner.
+            \item Does the Borda method select the same outcome as the
+            Condorcet method?
+        \end{enumerate}
+
+        \hfill{[7]}
+
+        \item Define what it means for a voting rule to satisfy the
+        \textbf{Independence of Irrelevant Alternatives (IIA)} property.  
+        Then, using the Borda count, give an example or explanation of how IIA
+        may fail.
+
+        \hfill{[3]}
+    \end{enumerate}
+\end{enumerate}
+
+\makeatletter
+\renewcommand{\@oddfoot}{\hfil \arabic{page}X \hfil}
+\makeatother
+
+\end{document}
