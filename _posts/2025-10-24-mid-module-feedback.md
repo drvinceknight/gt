@@ -30,6 +30,8 @@ Again: thank you for the kind words.
 
 ## Things I can do better.
 
+**Worried about being prepared for the exam.**
+
 There are around 20 comments that want more solutions to problems. This one
 specifically stood out to me:
 
@@ -61,12 +63,24 @@ are asking for when you ask for solutions but hopefully it is somewhat helpful.
 sure we use our class time appropriately towards the end of the Semester to
 prepare for the exam.**
 
+**Pdf version of the notes**
+
 A few of you asked for pdf versions of the notes, I can actually generate these
 although they're relatively broken (references don't work etc) and they will be
 immediately out of date (thanks to those of you who have been pointing out typos).
 So I'll add a set of notes to learning central but
 please do use them with caution and I'd recommend using the online version
 (even if you print the web page to a pdf which most browsers can do).
+
+**Programming**
+
+A few of you mentioned being not remembering much programming. I completely
+understand. First: you did not need to do any programming for the exam. For your
+group project, I am more than happy to be accommodating and give guidance.
+Depending on what your project is you might not even need much programming but
+I'd hope that this module is an opportunity to re-engage with programming (even
+if only to have something regarding programming on your CV) and so I really
+would like to help you do that.
 
 ## Other things.
 
