@@ -33,7 +33,7 @@ they'd need to interact with everyone else in the population:
 
 You can see the various calculations here:
 
-![]({{site.baseurl}}/assets/2025-2026/boards/2025-10-25/main.jpg)
+![]({{site.baseurl}}/assets/2025-2026/boards/2025-10-24/main.jpg)
 
 Following this we discussed how the types with low fitness would change their
 type. In this case: the Rocks want to change to be Paper.
