@@ -10,7 +10,7 @@ Write down the derivative from the
 [motivating example of the numerical integration appendix](https://vknight.org/gtb/main-15/#motivating-example-air-resistance-of-a-sky-diver).
 
 $$
-\frac{dy}{dt}=-gt^2/2+v_0t+y_0
+y(t)=-gt^0/2+v_0t+y_0
 $$
 
 Pick some random values and slowly step through what the value of the derivative
