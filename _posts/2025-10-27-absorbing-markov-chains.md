@@ -71,7 +71,7 @@ B=\begin{pmatrix}
 0.00000000 & 1.00000000 \\
 0.15000000 & 0.85000000 \\
 0.10526316 & 0.89473684
-\end{bmatrix}
+\end{pmatrix}
 $$
 
 The first row of that matrix tells us that 54% of first years end up exiting
