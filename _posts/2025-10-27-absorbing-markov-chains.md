@@ -31,12 +31,12 @@ state to the next:
 ![]({{site.baseurl}}/assets/2025-2026/boards/2025-10-27/main.jpg)
 
 These arrows only show possible connections but do not represent how probable
-any given route is. We use a transition matrix for this: $P_{ij}$ gives the
-probability of going from state $i$ to state $j$. In our case we came up with
-a transition matrix $P$.
+any given route is. We use a transition matrix for this: \\(P\_{ij}\\) gives the
+probability of going from state \\(i\\) to state \\(j\\). In our case we came up with
+a transition matrix \\(P\\).
 
 On the photo of the board you can see the general form of an absorbing Markov
-chain which must have at least one $1$ in the diagonal which indicates that the
+chain which must have at least one \\(1\\) in the diagonal which indicates that the
 corresponding state will never be exited once reached.
 
 $$
