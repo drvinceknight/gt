@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Routing Games: Pigou's example"
+title: "Matching games and auctions"
 tags:
   - matching-games
   - auctions
