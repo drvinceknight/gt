@@ -59,5 +59,5 @@ Tom suggested a change to the characteristic function that would ensure it is
 super additive that would ensure this.
 
 You can find a Jupyter notebook
-[here]({{site.baseurl}}/assets/2025-2026/nbs/shapley-value.ipnb) with code to
+[here]({{site.baseurl}}/assets/2025-2026/nbs/shapley-value.ipynb) with code to
 carry out the calculations for each other these scenarios.
