@@ -1,0 +1,622 @@
+\documentclass[12pt,a4paper,twoside]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usetikzlibrary{shapes, arrows, positioning}
+
+
+\usepackage{amsmath,amssymb,mdframed}            % AMS package gives better equation layouts
+
+
+\usepackage{amsmath,amssymb,fancyhdr,graphicx,enumitem}
+\setlength{\oddsidemargin}{-0.25in}     % set left margin
+\setlength{\textwidth}{6.5in}           % set text width
+\setlength{\topmargin}{-0.5in}          % controls layout at
+\setlength{\headsep}{1cm}             % top of page
+\setlength{\textheight}{9.0in}          % set text length
+
+\usepackage{environ} % for custom environments
+\newif\ifshowsolutions
+
+\NewEnviron{solution}{%
+  \ifshowsolutions
+  \hrule
+  \vspace{.5cm}
+    \par\noindent\textbf{Solution:} 
+
+    \BODY
+  \vspace{.5cm}
+    \hrule
+  \fi
+}
+
+%\showsolutionstrue
+
+
+
+\makeatletter
+\renewcommand{\@oddhead}{\hfill MA3604/MOCK}  % sets header
+\renewcommand{\@oddfoot}{\hfil \arabic{page} \hfil}    % sets page footer
+\makeatother
+
+\renewcommand{\labelenumi}{\arabic{enumi}} % Sets the first level of enumerate to be arabic (normal) numbers
+\renewcommand{\labelenumii}{(\alph{enumii})} %Sets the second level of enumerate to be (a), (b), (c), .....
+\renewcommand{\labelenumiii}{(\roman{enumiii})} % Sets the third level of enumerate to be (i), (ii), (iii), ....
+
+
+\setlength{\marginparwidth}{0in}        % remove 'twoside' margins
+\setlength{\marginparpush}{0in}         % remove 'twoside' margins
+\setlength{\oddsidemargin}{-0.25in}     % set left margin
+\setlength{\evensidemargin}{-0.25in}    % set left margin
+\setlength{\textwidth}{6.5in}           % set text width
+\setlength{\topmargin}{-0.5in}          % controls layout at
+\setlength{\headsep}{0.5in}             % top of page
+\setlength{\textheight}{9.0in}          % set text length
+
+\pagestyle{fancy}                       % use following options
+\fancyhead[R]{MA3604/MOCK}                % set header
+\renewcommand{\headrulewidth}{0pt}      % replace ruled line at head
+\setlength{\headheight}{-25pt}           % by whitespace
+
+\fancyfoot[C]{-\,\arabic{page}\,-}      % set footer
+\fancyfoot[RO]{Please turn over}        % add PTO to odd pages
+% \fancyfoot[RO]{Trowch drosodd}        % add PTO to odd pages
+\fancyfoot[RE]{}   
+
+
+\begin{document}
+
+\thispagestyle{plain}
+
+\renewcommand{\familydefault}{\sfdefault}
+\sffamily
+
+\begin{minipage}[t]{25mm}
+\vspace{0pt}
+\includegraphics[width=21mm]{CUident_Black.pdf}
+\end{minipage}%
+\begin{minipage}[t]{130mm}
+\vspace{0pt}
+{\large \bf Do not turn this page over until instructed to do so by the Invigilation Supervisor}
+% {\large \bf Peidiwch \^a throi'r dudalen hon nes i'r Arolygydd Goruchwylio roi caniat\^ad i chi}
+\end{minipage}
+
+\bigskip
+{\bf Academic Year:} MOCK
+% {\bf Blwyddyn Academaidd:} 2019/20
+
+\medskip
+{\bf Examination Period:} Autumn
+% {\bf Cyfnod Arholiad:} Hydref
+
+\medskip
+{\bf Module Code:} MA3604
+% {\bf Côd y Modiwl:} MAXXXX
+
+\medskip
+{\bf Examination Paper Title:} Game Theory
+% {\bf Teitl y Papur Arholiad:} Enw'r modiwl
+
+\medskip
+{\bf Duration:} 2 hours
+% {\bf Hyd:} 2/3 awr
+
+\bigskip\bigskip
+{\bf Please read the following information carefully:}
+% {\bf Darllenwch y wybodaeth ganlynol yn ofalus:}
+
+\bigskip\medskip
+{\bf Structure of Examination Paper:}
+% {\bf Strwythur y Papur Arholiad:}
+
+\begin{itemize}[itemsep=-3pt]
+\item There are $7$ pages including this page.  % specify the total number of pages (including the rubric page), written as a numeral, e.g. 7
+% \item Mae $X$ tudalen, gan gynnwys hon.
+
+\item There are {\bf 4} questions in total.     % specify the total number of questions, written in upper case letters, e.g. ELEVEN
+% \item Mae {\bf X} o gwestiynau i gyd.
+
+\item There are no appendices.                  % delete this or the previous item depending on whether or not there are appendices
+% \item Nid oes unrhyw atodiadau.
+
+\item The maximum mark for the examination paper is $75$ and the mark obtainable for a question or part of a question is shown in brackets alongside the question.
+                                                % specify the total number of marks available (100 for 10-credit module, 150 for 20-credit module)
+% \item $X$ yw'r marc uchaf ar gyfer y papur arholi a dangosir y marc sydd ar gael ar gyfer pob cwestiwn neu ran o gwestiwn mewn cromfachau ochr yn ochr â'r cwestiwn.
+\end{itemize}
+
+\bigskip
+{\bf Instructions for completing the examination:}
+% {\bf Cyfarwyddiadau ar gyfer llenwi'r arholiad:}
+
+\begin{itemize}[itemsep=-3pt]
+\item Complete the front cover of any answer books used.
+% \item Llenwch dudalen flaen unrhyw lyfrynnau ateb a ddefnyddir.
+
+\item This examination paper must be submitted to an Invigilator at the end of the examination. 
+% \item Rhaid cyflwyno’r papur arholiad hwn i Oruchwyliwr ar ddiwedd yr arholiad.
+
+\item Answer {\bf THREE} questions.
+                                                % specify the number of questions to be answered from Section B, written in upper case letters, e.g TWO
+% \item Atebwch {\bf BOB} cwestiwn o {\bf Adran A}, a {\bf THRI} chwestiwn o {\bf Adran B}.
+
+\item Each question should be answered on a separate page.
+% \item Dylid ateb bob cwestiwn ar dudalen wahanol.
+\end{itemize}
+
+\bigskip
+{\bf You will be provided with / or allowed:}
+% {\bf Byddwch yn cael / neu’n cael defnyddio:}
+
+\begin{itemize}[itemsep=-3pt]
+\item {\bf ONE} answer book.
+% \item {\bf UN} llyfryn ateb.
+
+\item The {\bf use of calculators} is {\bf permitted} in this examination.
+% \item {\bf Ni chaniateir defnyddio cyfrifiannell} yn yr arholiad hwn.
+
+\item The use of a translation dictionary between English or Welsh and another language, provided that it bears an appropriate departmental stamp, is permitted in this examination.
+% \item Caniateir defnyddio geiriadur yn yr arholiad hwn i gyfieithu rhwng y Saesneg neu'r Gymraeg ac iaith arall, ar yr amod ei fod wedi cael stamp gan yr adran berthnasol.
+
+\end{itemize}
+
+\newpage
+
+\renewcommand{\headrulewidth}{0pt}      % replace ruled line at head
+\setlength{\headheight}{15pt}           % by whitespace
+
+\renewcommand{\familydefault}{\rmdefault}
+\rmfamily
+
+\newpage
+\begin{enumerate}
+
+\renewcommand\labelenumi{\bfseries\theenumi.}
+
+\item
+
+    \begin{enumerate}
+        \item Provide definitions for the following terms:
+            \begin{itemize}
+                \item Normal form game.
+
+                    \begin{solution}
+                        Book Work. \hfill{[1]}
+                    \end{solution}
+
+                \item Strictly dominated strategy.
+
+                    \begin{solution}
+                        Book Work. \hfill{[1]}
+                    \end{solution}
+
+
+                \item Weakly dominated strategy.
+
+                    \begin{solution}
+                        Book Work. \hfill{[1]}
+                    \end{solution}
+
+                \item Best response strategy.
+
+                    \begin{solution}
+                        Book Work. \hfill{[1]}
+                    \end{solution}
+
+                \item Nash equilibrium.
+
+                    \begin{solution}
+                        Book Work. \hfill{[1]}
+                    \end{solution}
+
+
+            \end{itemize}
+                    ~\hfill{[5]}
+
+        \item Consider the following Normal Form Game defined by:
+
+            \[
+                M_r=
+\begin{pmatrix}
+2 & 1 \\
+1 & 3 \\
+\end{pmatrix}
+\qquad
+            M_c=
+\begin{pmatrix}
+3 & 4 \\
+3 & 2 \\
+\end{pmatrix}
+\]
+
+            Where \(M_r\) corresponds to the payoffs of the row player and
+            \(M_c\) corresponds to the payoffs of the column player.
+
+            \begin{enumerate}
+            \item Obtain all (if any) pure Nash equilibria (where each player chooses a single action with certainty).
+            ~\hfill{[5]}
+
+                \begin{solution}
+                    Identifying the pure action best responses:
+
+            \[
+                M_r=
+\begin{pmatrix}
+    \underline{1} & 1 \\
+    1 & \underline{3} \\
+\end{pmatrix}
+\qquad
+M_c=
+\begin{pmatrix}
+    3 & \underline{4} \\
+    \underline{3} & 2 \\
+\end{pmatrix}
+\]
+                    \hfill{[4]}
+
+
+                    There are no pure Nash equilibrium.
+                    \hfill{[1]}
+                \end{solution}
+
+
+            \item Sketch the expected utilities to player 1 (the row player) of
+                each action, assuming that the 2nd player (the column player) plays a strategy: 
+                  $\sigma_2 = (y,1-y)$.
+            ~\hfill{[4]}
+
+                    \begin{solution}
+                        We have:
+
+                        % \[
+                        %     u_1(r_1, (y, 1 - y)) = 7y
+                        %     \qquad
+                        %     u_1(r_2, (y, 1 - y)) = 2y+6-6y=6-4y
+                        % \]
+                        \hfill{[2]}
+
+                        \begin{center}
+% \begin{tikzpicture}[x=5cm]
+%     % Axes
+%     \draw[->] (0,0) -- (1,0) node[right] {$y$};
+%     \draw[->] (0,0) -- (0,8) node[above] {$u_1$};
+%
+%     \draw[thick, blue, domain=0:1] plot(\x, {7*\x}) node[right] {$u_1(r_1, (y, 1 - y))$};
+%
+%     \draw[thick, red, domain=0:1] plot(\x, {6 - 4*\x}) node[right] {$u_1(r_2, (y, 1 - y))$};
+%
+%     % Intersection point
+%     \filldraw[black] (6/11,42/11) circle (2pt) node[above right] {$(6/11,42/11)$};
+% \end{tikzpicture}
+                        \hfill{[2]}
+                        \end{center}
+
+                    \end{solution}
+
+
+            \item Sketch the expected utilities to player 2 (the column player)
+                of each action, assuming that the 1st player (the row player) plays a strategy: 
+                 $\sigma_1 = (x,1-x)$.
+
+            \hfill{[4]}
+
+                    \begin{solution}
+                        We have:
+
+                        \[
+                            u_2((x, 1 - x), c_1) = 3x
+                            \qquad
+                            u_2((x, 1 - x), c_2) = 2
+                        \]
+                        \hfill{[2]}
+
+                        \begin{center}
+% \begin{tikzpicture}[x=5cm]
+%     % Axes
+%     \draw[->] (0,0) -- (1,0) node[right] {$x$};
+%     \draw[->] (0,0) -- (0,4) node[above] {$u_2$};
+%
+%     \draw[thick, blue, domain=0:1] plot(\x, {3*\x}) node[right] {$u_2((x, 1 - x), c_1)$};
+%
+%     \draw[thick, red, domain=0:1] plot(\x, {2}) node[right] {$u_2((x, 1 - x), c_2)$};
+%
+%     % Intersection point
+%     \filldraw[black] (2/3,2) circle (2pt) node[above right] {$(2/3,2)$};
+% \end{tikzpicture}
+                        \hfill{[2]}
+                        \end{center}
+
+                    \end{solution}
+
+
+            \item State and prove the best response condition theorem. Using this or
+                otherwise
+                obtain all Nash equilibria for the game. Confirm this using your
+                    answers to question (ii) and (iii).
+
+            ~\hfill{[7]}
+
+            \begin{solution}
+                State and prove theorem is bookwork. \hfill{[3]}
+
+                % Using the theorem corresponds to the support enumeration
+                % algorithm. We have found all NE with support size 1 (the pure
+                % NE).
+                % Now for support size 2.
+                %
+                % For $\sigma_2$:
+                %
+                % \[7y = 6 - 4 y\]
+                % gives:
+                %
+                % \[y=6/11\]
+                %
+                % so $\sigma_1=(6/11, 5/11)$, as there are only two actions there is
+                % no further support to explore.
+                % \hfill{[1]}
+                % 
+                % For $\sigma_1$:
+                %
+                % \[3x=2\]
+                % gives:
+                % \[x=2/3\]
+                %
+                % so $\sigma_2=(2/3, 1/3)$
+                % \hfill{[1]}
+                %
+                % From the plots from previous questions we have:
+                %
+                % \[
+                %     \sigma_1^{*}
+                %     \begin{cases}
+                %             (0, 1)& y < 6/11\\
+                %             (1, 0)& y > 6/11\\
+                %             \text{indifferent}& y = 6/11\\
+                %     \end{cases}
+                %     \qquad
+                %     \sigma_2^{*}
+                %     \begin{cases}
+                %             (0, 1)& x < 2/3\\
+                %             (1, 0)& x > 1/3\\
+                %             \text{indifferent}& x = 2/3\\
+                %     \end{cases}
+                % \]
+                %
+                %     \hfill{[1]}
+                %
+                % We see 3 pairs of best responses:
+                %
+                %     \[
+                %         \{((1,0), (1, 0)), ((0,1), (0,1)), ((2/3, 1/3), (6/11, 5/11))\}
+                %     \]
+                %     \hfill{[1]}
+                %
+            \end{solution}
+
+        \end{enumerate}
+    \end{enumerate}
+
+\newpage
+\item
+
+At a local \textbf{indie game convention}, two groups interact: \textbf{developers}
+and \textbf{reviewers}.  
+
+\begin{itemize}
+  \item Each \textbf{developer} chooses whether to \textbf{Polish} their demo
+  (\(P\)) or \textbf{Rush} to release it quickly (\(R\)).
+  \item Each \textbf{reviewer} decides whether to \textbf{Highlight Indies}
+  (\(H\)) or \textbf{Focus on Big Titles} (\(B\)).
+\end{itemize}
+
+If a developer polishes their demo and a reviewer highlights indies, both gain:
+the developer earns attention, and the reviewer builds a reputation for
+discovering quality games. If the reviewer focuses on big titles, a polished
+indie receives less benefit, while rushed games may still get lucky exposure.
+Reviewers, however, gain more visibility by covering popular titles — even if
+the games themselves are weaker.
+
+The interaction can be represented by two payoff matrices, one for each group.
+
+\[
+M_r =
+\begin{pmatrix}
+3 & 1 \\
+2 & 2
+\end{pmatrix},
+\qquad
+M_c =
+\begin{pmatrix}
+3 & 4 \\
+5 & 1
+\end{pmatrix},
+\]
+
+where \(M_r\) gives the payoffs to the \textbf{developers} (rows) and \(M_c\)
+gives the payoffs to the \textbf{reviewers} (columns).
+
+Let:
+\begin{itemize}
+  \item \(x_P\) and \(x_R = 1 - x_P\) denote the proportions of polishing and
+  rushing developers;
+  \item \(y_H\) and \(y_B = 1 - y_H\) denote the proportions of reviewers who
+  highlight indies or focus on big titles.
+\end{itemize}
+
+\begin{enumerate}
+    \item Compute the expected payoff of each strategy for both developers and
+reviewers.
+
+        \hfill{[2]}
+
+\item Hence show that this interaction is modelled by the
+\textbf{asymmetric replicator dynamics:}
+
+\[
+\begin{aligned}
+    \frac{dx_P}{dt} &= - 2 x_{P}^{2} y_{H} + x_{P}^{2} + 2 x_{P} y_{H} - x_{P}\\
+    \frac{dy_H}{dt} &= 5 x_{P} y_{H}^{2} - 5 x_{P} y_{H} - 4 y_{H}^{2} + 4 y_{H}
+\end{aligned}
+\]
+
+        \hfill{[7]}
+
+    \item Confirm that \(\{\sigma_r=(4/5, 1/5), \sigma_c=(1/2, 1/2))\}\) is a Nash equilibrium for
+        the game defined by the payoff matrices.
+        \hfill{[4]}
+
+    \item Confirm that this Nash equilibrium corresponds to a stable population.
+
+    \item For the asymmetric replicator dynamics equation for a pair of
+        population vectors \((x, y)\), some \(\epsilon_x >0\), \(\epsilon_y>0\) and a pair of strategies \(\tilde x,
+        \tilde y)\) a post entry population pair is given by:
+
+        \[x_{\epsilon}=x+\epsilon_x(\tilde x - x)\qquad y_{\epsilon}=y+\epsilon_y(\tilde y - y)\]
+        \hfill{[2]}
+
+        Using this, propose a definition for an evolutionary stable strategy
+        pair for the asymmetric replicator dynamics equation.\hfill{[6]}
+
+    \item Discuss how you would use an appropriate numerical integration technique to
+        explore the stability of points near the initial population. \textbf{You
+        are not expected to carry out any calculations.}\hfill{[4]}
+
+        
+\end{enumerate}
+
+\newpage
+\item
+
+        Consider the stage game defined by:
+
+        \[
+            M_r=
+        \begin{pmatrix}
+        2 & 5\\
+        0 & 4\\
+        \end{pmatrix}
+        \qquad
+            M_c=
+        \begin{pmatrix}
+        2 & 0\\
+        5 & 4\\
+        \end{pmatrix}
+        \]
+
+        The first action for both players will be referred to as `Cooperate'
+            (\(C\)) and the second action will be referred to as `Defect' (\(D\)). \textbf{Players aim to minimise their payoffs.}
+
+        Consider the following strategies for the infinitely repeated game with
+            the above stage game.
+
+            \begin{itemize}
+                \item \(s_C\): Always cooperate;
+                \item \(s_D\): Always defect;
+                \item \(s_G\): Start by cooperating until your opponent defects at which point defect in all future stages.
+            \end{itemize}
+
+        Assume $A_1=A_2=\{s_C,s_D,s_G\}$.
+
+    \begin{enumerate}
+
+            \item Assuming a discounting factor of \(\delta\), obtain the
+                utility to both players if the action pair \((s_C,s_C)\) is played.
+
+            \hfill[2]
+
+            \item Assuming a discounting factor of \(\delta\), obtain the
+                utility to both players if the action pair \((s_D,s_D)\) is played.
+
+            \hfill[2]
+
+            \item For what values of \(\delta\) is \((s_G, s_G)\) a Nash equilibrium? \textbf{Recall that players aim to minimise their payoffs.}
+
+            \hfill[5]
+
+            \item Define the average payoff in an infinitely repeated game.
+
+            \hfill[1]
+
+            \item Plot the feasible average payoffs and the individually
+                rational payoffs for the game. \textbf{Recall that players aim to minimise their payoffs.}
+
+            \hfill[4]
+
+            \item Prove the following theorem (\textbf{for games where players aim to minimise their payoffs}):
+
+            ``Let \(u_1^*, u_2^*\) be a pair of Nash equilibrium payoffs for a stage game. For every individually rational pair \(v_1, v_2\) there exists \(\bar\delta\) such that for all \(1>\delta>\bar\delta>0\) there is a subgame perfect Nash equilibrium with payoffs \(v_1, v_2\).''
+
+            \hfill[11]
+    \end{enumerate}
+
+\newpage
+\item
+    \begin{enumerate}
+        \item Define a routing game \((G,r,c)\).
+
+        \hfill{[2]}
+
+        \item Define a Nash flow and using this definition obtain the Nash flow for the following game:
+
+        \begin{center}
+            \includegraphics[width=.5\textwidth]{images/img01.pdf}
+        \end{center}
+
+        \hfill{[3]}
+
+        \item Define an optimal flow and using this definition obtain the optimal flow for the above game.
+
+        \hfill{[3]}
+
+        \item State the theorem connecting the following function \(\Phi\) to the Nash flow of a routing game:
+
+        \[\Phi(f)=\sum_{e\in E}\int_{0}^{f_e}c_e(x)dx\]
+
+        \hfill{[2]}
+
+        \item Using the theorem from (d) confirm the Nash flow previously found in (b).
+
+        \hfill{[2]}
+
+        \item State the theorem connecting the marginal cost \(c^*(x)=\frac{d(xc(x))}{dx}\) to the optimal flow of a routing game.
+
+        \hfill{[2]}
+
+        \item Using the theorem from (f) confirm the optimal flow previously found in (c) .
+
+        \hfill{[2]}
+
+        \item The expected time spent in an \(M/M/1\) queue at steady state is given by:
+
+        $$W_q=\frac{\lambda}{\mu(\mu-\lambda)}$$
+
+        where \(\mu,\lambda\) are the mean service and inter arrival rates and \(\lambda < \mu\) respectively. Explain how a system with two \(M/M/1\) queues and players choosing which queue to join can be studied using the following routing game:
+
+        \begin{center}
+            \includegraphics[width=.5\textwidth]{images/img02.pdf}
+        \end{center}
+
+        \hfill{[2]}
+
+        \item Obtain the Nash and Optimal flows for the game in (h) with \(\mu_1=4,\mu_2=3\) and \(\lambda=2\).
+
+        You might find it useful to know that the equation:
+
+        \[x^4-2x^3+x^2-420x+324=0\]
+
+        has a single solution in the range $0\leq x<2$ given by $x\approx 0.7715$.
+
+        \hfill{[7]}
+
+    \end{enumerate}
+
+\end{enumerate}
+
+\makeatletter
+\renewcommand{\@oddfoot}{\hfil \arabic{page}X \hfil}    % sets last page footer
+\makeatother
+
+\end{document}
