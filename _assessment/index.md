@@ -13,6 +13,24 @@ There are two piece of assessment in this course:
 You can find an [example exam
 here]({{site.baseurl}}/assets/assessment/example-exam/main.pdf).
 
+## List of examinable theorems and proofs
+
+1. [Best Response condition](https://vknight.org/gtb/main-2/#thrm-best-response-condition) and
+   proof.
+2. [Existence of Nash equilibrium in games of perfect information](https://vknight.org/gtb/main-5/#theorem-of-existence-of-nash-equilibrium-in-games-of-perfect-information) and proof.
+3. [Subgame perfection of sequence of stage Nash equilibrium](https://vknight.org/gtb/main-6/#theorem-subgame-perfection-of-sequence-of-stage-nash-profiles) and proof.
+4. [Folk Theorem](https://vknight.org/gtb/main-6/#theorem-folk-theorem) and
+   proof.
+5. [Characterisation of ESS in two player games](https://vknight.org/gtb/main-7/#theorem-characterisation-of-ess-in-two-player-games) and proof.
+6. [The fixation probabilities in populations of two types](https://vknight.org/gtb/main-8/#theorem-the-fixation-probabilities-in-populations-of-two-types) and proof.
+7. [Nash Flow minimises the potential function](https://vknight.org/gtb/main-10/#thrm-nash-flow-minimises-the-potential-function)
+8. [Optimal Flow is a Nash Flow for Marginal Costs](https://vknight.org/gtb/main-10/#thrm-optimal-flow-is-a-nash-for-for-marginal-costs)
+9. [Unique matching as output of the Gale Shapley algorithm](https://vknight.org/gtb/main-11/#theorem-unique-matching-as-output-of-the-gale-shapley-algorithm) and proof.
+10. [Reviewer sub optimality of the Gale Shapley Algorithm](https://vknight.org/gtb/main-11/#theorem-reviewer-sub-optimality-of-the-gale-shapley-algorithm) and proof.
+11. [Bayesian Nash Equilibrium for Second Pay Auction](https://vknight.org/gtb/main-12/#theorem-bayesian-nash-equilibrium-for-second-pay-auction) and proof.
+12. [Bayesian Nash equilibrium in a first-price auction with uniform values](https://vknight.org/gtb/main-12/#theorem-bayesian-ne-for-first-price-auction) and proof.
+
+
 # Group research project (25%)
 
 Due date: end of the Autumn Semester.
