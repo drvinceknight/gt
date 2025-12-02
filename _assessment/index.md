@@ -29,6 +29,7 @@ here]({{site.baseurl}}/assets/assessment/example-exam/main.pdf).
 10. [Reviewer sub optimality of the Gale Shapley Algorithm](https://vknight.org/gtb/main-11/#theorem-reviewer-sub-optimality-of-the-gale-shapley-algorithm) and proof.
 11. [Bayesian Nash Equilibrium for Second Pay Auction](https://vknight.org/gtb/main-12/#theorem-bayesian-nash-equilibrium-for-second-pay-auction) and proof.
 12. [Bayesian Nash equilibrium in a first-price auction with uniform values](https://vknight.org/gtb/main-12/#theorem-bayesian-ne-for-first-price-auction) and proof.
+13. [Arrow’s Impossibility Theorem](https://vknight.org/gtb/main-13/#theorem-arrows-impossibility-theorem)
 
 
 # Group research project (25%)
