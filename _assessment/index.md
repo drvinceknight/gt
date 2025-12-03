@@ -11,7 +11,8 @@ There are two piece of assessment in this course:
 # Exam (75%)
 
 You can find an [example exam
-here]({{site.baseurl}}/assets/assessment/example-exam/main.pdf).
+here]({{site.baseurl}}/assets/assessment/example-exam/main.pdf) with [solutions
+here]({{site.baseurl}}/assets/assessment/example-exam/solutions.html).
 
 ## List of examinable theorems and proofs
 
