@@ -7516,7 +7516,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Solutions-to-Mock-Exam">Solutions to Mock Exam<a class="anchor-link" href="#Solutions-to-Mock-Exam">¶</a></h1><p>This document contains the solution to the mock exam for Game Theory.</p>
+<h1 id="Solutions-to-Example-Exam">Solutions to Example Exam<a class="anchor-link" href="#Solutions-to-Example-Exam">¶</a></h1><p>This document contains the solution to the example exam for Game Theory.</p>
 <p>It also includes some uses of <code>python</code> code to confirm hand calculations and/or draw plots (although in the exam the plots would be expected to be done by hand).</p>
 </div>
 </div>
@@ -8254,7 +8254,67 @@ $$</p>
 <p>$$
 \Delta_\pi^G(i)=v(S_{\pi}(i)\cup \{i\})-v(S_{\pi}(i))
 $$</p>
-<h3 id="(c)">(c)<a class="anchor-link" href="#(c)">¶</a></h3><p>Below are the results of the calculations (I plan on updating these solutions with the calculations done by hand):</p>
+<h3 id="(c)">(c)<a class="anchor-link" href="#(c)">¶</a></h3><p>For $v_1$ we have:</p>
+<table>
+<thead>
+<tr>
+<th>Permutation</th>
+<th>Marginal Contribution of 1</th>
+<th>Marginal Contribution of 2</th>
+<th>Marginal Contribution of 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1, 2, 3)</td>
+<td>8</td>
+<td>2</td>
+<td>20</td>
+</tr>
+<tr>
+<td>(1, 3, 2)</td>
+<td>8</td>
+<td>12</td>
+<td>10</td>
+</tr>
+<tr>
+<td>(2, 1, 3)</td>
+<td>5</td>
+<td>5</td>
+<td>20</td>
+</tr>
+<tr>
+<td>(2, 3, 1)</td>
+<td>19</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td>(3, 1, 2)</td>
+<td>9</td>
+<td>12</td>
+<td>9</td>
+</tr>
+<tr>
+<td>(3, 2, 1)</td>
+<td>19</td>
+<td>2</td>
+<td>9</td>
+</tr>
+<tr>
+<td>$\Sigma$</td>
+<td>68</td>
+<td>38</td>
+<td>74</td>
+</tr>
+<tr>
+<td>$\phi$</td>
+<td>$68/6\approx 11.333$</td>
+<td>$38/6\approx 6.333$</td>
+<td>$74/6\approx 12.333$</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -8274,8 +8334,8 @@ $$</p>
     <span class="p">(</span><span class="mi">2</span><span class="p">,):</span> <span class="mi">5</span><span class="p">,</span>
     <span class="p">(</span><span class="mi">3</span><span class="p">,):</span> <span class="mi">9</span><span class="p">,</span>
     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">11</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">18</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">18</span><span class="p">,</span>
     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">30</span><span class="p">,</span>
 <span class="p">}</span>
 
@@ -8295,8 +8355,93 @@ $$</p>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([ 7.83333333,  9.83333333, 12.33333333])</pre>
+<pre>array([11.33333333,  6.33333333, 12.33333333])</pre>
 </div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=146c0e8f-e015-47f1-9104-2fd6a65533b0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=746a0fd0-5859-4c44-b9ec-03afeb7acaf1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>For $v_2$ we have:</p>
+<table>
+<thead>
+<tr>
+<th>Permutation</th>
+<th>Marginal Contribution of 1</th>
+<th>Marginal Contribution of 2</th>
+<th>Marginal Contribution of 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1, 2, 3)</td>
+<td>80</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>(1, 3, 2)</td>
+<td>80</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>(2, 1, 3)</td>
+<td>70</td>
+<td>10</td>
+<td>0</td>
+</tr>
+<tr>
+<td>(2, 3, 1)</td>
+<td>68</td>
+<td>10</td>
+<td>2</td>
+</tr>
+<tr>
+<td>(3, 1, 2)</td>
+<td>68</td>
+<td>0</td>
+<td>12</td>
+</tr>
+<tr>
+<td>(3, 2, 1)</td>
+<td>68</td>
+<td>0</td>
+<td>12</td>
+</tr>
+<tr>
+<td>$\Sigma$</td>
+<td>434</td>
+<td>20</td>
+<td>26</td>
+</tr>
+<tr>
+<td>$\phi$</td>
+<td>$434/6\approx 72.333$</td>
+<td>$20/6\approx 3.333$</td>
+<td>$26/6\approx 4.333$</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -8314,8 +8459,8 @@ $$</p>
     <span class="p">(</span><span class="mi">2</span><span class="p">,):</span> <span class="mi">10</span><span class="p">,</span>
     <span class="p">(</span><span class="mi">3</span><span class="p">,):</span> <span class="mi">12</span><span class="p">,</span>
     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">80</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">80</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">80</span><span class="p">,</span>
     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">80</span><span class="p">,</span>
 <span class="p">}</span>
 
@@ -8335,7 +8480,7 @@ $$</p>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([38.33333333, 37.33333333,  4.33333333])</pre>
+<pre>array([72.33333333,  3.33333333,  4.33333333])</pre>
 </div>
 </div>
 </div>
@@ -8371,7 +8516,91 @@ $$</p>
 <p>Thus, for every permutation $\pi$, the contribution of $i$ in $\pi$ matches the contribution of $j$ in the swapped permutation $\pi'$.<br/>
 Because the Shapley value is the average over all permutations, these equal contributions imply that the Shapley value satisfies the symmetry property.</p>
 <h3 id="(e)">(e)<a class="anchor-link" href="#(e)">¶</a></h3><p>We need to show that $\lambda^{+} = \lambda^{G_1} + \lambda^{G_2}$ for the two games of part (a).</p>
-<p>Calculations are done below using code (I plan on updating these solutions with calculations done by hand).</p>
+<p>First let us compute the new characteristic function game:</p>
+<p>$$
+v^+(c)
+\begin{cases}
+0&amp;\text{ if }c=\emptyset\\
+88&amp;\text{ if }c=\{1\}\\
+15&amp;\text{ if }c=\{2\}\\
+21&amp;\text{ if }c=\{3\}\\
+90&amp;\text{ if }c=\{1, 2\}\\
+23&amp;\text{ if }c=\{2, 3\}\\
+98&amp;\text{ if }c=\{1, 3\}\\
+110&amp;\text{ if }c=\{1, 2, 3\}
+\end{cases}
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e761aa52-1b50-4891-997e-85b67f963660">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>For $v^+$ we have:</p>
+<table>
+<thead>
+<tr>
+<th>Permutation</th>
+<th>Marginal Contribution of 1</th>
+<th>Marginal Contribution of 2</th>
+<th>Marginal Contribution of 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1, 2, 3)</td>
+<td>88</td>
+<td>2</td>
+<td>20</td>
+</tr>
+<tr>
+<td>(1, 3, 2)</td>
+<td>88</td>
+<td>12</td>
+<td>10</td>
+</tr>
+<tr>
+<td>(2, 1, 3)</td>
+<td>75</td>
+<td>15</td>
+<td>20</td>
+</tr>
+<tr>
+<td>(2, 3, 1)</td>
+<td>87</td>
+<td>15</td>
+<td>8</td>
+</tr>
+<tr>
+<td>(3, 1, 2)</td>
+<td>77</td>
+<td>12</td>
+<td>21</td>
+</tr>
+<tr>
+<td>(3, 2, 1)</td>
+<td>87</td>
+<td>2</td>
+<td>21</td>
+</tr>
+<tr>
+<td>$\Sigma$</td>
+<td>502</td>
+<td>58</td>
+<td>100</td>
+</tr>
+<tr>
+<td>$\phi$</td>
+<td>$502/6\approx 83.667$</td>
+<td>$58/6\approx 9.667$</td>
+<td>$26/6\approx 16.667$</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -8389,8 +8618,8 @@ Because the Shapley value is the average over all permutations, these equal cont
     <span class="p">(</span><span class="mi">2</span><span class="p">,):</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span>
     <span class="p">(</span><span class="mi">3</span><span class="p">,):</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">12</span><span class="p">,</span>
     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">80</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">11</span> <span class="o">+</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">18</span> <span class="o">+</span> <span class="mi">80</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">11</span> <span class="o">+</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">18</span> <span class="o">+</span> <span class="mi">80</span><span class="p">,</span>
     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span> <span class="mi">30</span> <span class="o">+</span> <span class="mi">80</span><span class="p">,</span>
 <span class="p">}</span>
 
@@ -8410,7 +8639,7 @@ Because the Shapley value is the average over all permutations, these equal cont
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([46.16666667, 47.16666667, 16.66666667])</pre>
+<pre>array([83.66666667,  9.66666667, 16.66666667])</pre>
 </div>
 </div>
 </div>
@@ -8436,7 +8665,7 @@ Because the Shapley value is the average over all permutations, these equal cont
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([46.16666667, 47.16666667, 16.66666667])</pre>
+<pre>array([83.66666667,  9.66666667, 16.66666667])</pre>
 </div>
 </div>
 </div>
