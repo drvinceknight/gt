@@ -10,9 +10,10 @@ There are two piece of assessment in this course:
 
 # Exam (75%)
 
-You can find an [example exam
-here]({{site.baseurl}}/assets/assessment/example-exam/main.pdf) with [solutions
-here]({{site.baseurl}}/assets/assessment/example-exam/solutions.html).
+You can find:
+
+- an [example exam here]({{site.baseurl}}/assets/assessment/example-exam/main.pdf) with [solutions here]({{site.baseurl}}/assets/assessment/example-exam/solutions.html).
+- a [mock exam (that we will work through in class) here]({{site.baseurl}}/assets/assessment/mock-exam/main.pdf) with [solutions here]({{site.baseurl}}/assets/assessment/mock-exam/solutions.html).
 
 ## List of examinable theorems and proofs
 
