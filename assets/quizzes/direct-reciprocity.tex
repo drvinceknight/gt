@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Direct reciprocity}
+\begin{enumerate}[itemsep=6pt]
+  \item A reactive strategy \((p, q)\) in the Prisoner's Dilemma means ...
+  \begin{enumerate}
+    \item cooperate with probability \(p\) after the opponent cooperated, and \(q\) after they defected
+    \item always cooperate with probability \(p + q\)
+    \item play \(p\) against cooperators and \(q\) against everyone else
+    \item cooperate on the first \(p\) rounds, then defect
+  \end{enumerate}
+  \item Tit For Tat is the reactive strategy ...
+  \begin{enumerate}
+    \item \((0, 0)\)
+    \item \((1/2, 1/2)\)
+    \item \((1, 0)\)
+    \item \((1, 1)\)
+  \end{enumerate}
+  \item When two reactive strategies play, the pair of actions each round forms ...
+  \begin{enumerate}
+    \item a Markov chain on the states \((CC, CD, DC, DD)\)
+    \item a zero sum game
+    \item a single fixed outcome
+    \item an extensive form game
+  \end{enumerate}
+  \item The stationary distribution of this Markov chain gives ...
+  \begin{enumerate}
+    \item the Nash equilibrium of the stage game
+    \item each player's first move
+    \item the long-run fraction of rounds spent in each state, used to find average payoffs
+    \item the number of rounds the game lasts
+  \end{enumerate}
+  \item Why does Tit For Tat need care with the stationary-distribution method?
+  \begin{enumerate}
+    \item its values \((1, 0)\) lie on the boundary, so the chain may not be ergodic
+    \item it is not a reactive strategy
+    \item it always cooperates
+    \item it has more than two actions
+  \end{enumerate}
+  \item A Markov chain is ergodic if it is ...
+  \begin{enumerate}
+    \item zero sum
+    \item irreducible and aperiodic, so it has a unique stationary distribution
+    \item finite
+    \item symmetric
+  \end{enumerate}
+  \item A reactive strategy conditions its move on ...
+  \begin{enumerate}
+    \item the opponent's action in the previous round only
+    \item its own first move
+    \item the round number
+    \item the entire history of play
+  \end{enumerate}
+  \item In the state labelling \((CC, CD, DC, DD)\), the state \(CD\) means ...
+  \begin{enumerate}
+    \item player 1 defected and player 2 cooperated
+    \item both players cooperated
+    \item both players defected
+    \item player 1 cooperated and player 2 defected
+  \end{enumerate}
+  \item A player's long-run average payoff is computed as ...
+  \begin{enumerate}
+    \item the payoff in the first round
+    \item the number of cooperative rounds
+    \item the stationary distribution weighted by that player's stage payoffs
+    \item the largest stage payoff
+  \end{enumerate}
+  \item Reactive strategies are a subclass of ...
+  \begin{enumerate}
+    \item zero-determinant strategies only
+    \item pure strategies only
+    \item memory-one strategies
+    \item dominant strategies
+  \end{enumerate}
+  \item Generous Tit For Tat is the reactive strategy ...
+  \begin{enumerate}
+    \item \((0, 1)\)
+    \item \((1, 1)\)
+    \item \((0, 0)\)
+    \item \((1, \epsilon)\) for a small \(\epsilon > 0\)
+  \end{enumerate}
+  \item The stationary distribution \(\pi\) of a transition matrix \(M\) satisfies ...
+  \begin{enumerate}
+    \item \(\pi M = \pi\)
+    \item \(\pi = M\)
+    \item \(\pi M = 0\)
+    \item \(M \pi = M\)
+  \end{enumerate}
+  \item When Tit For Tat meets Always Defect (both starting by cooperating), play settles at ...
+  \begin{enumerate}
+    \item mutual defection
+    \item mutual cooperation
+    \item alternating cooperation and defection forever
+    \item Tit For Tat always winning
+  \end{enumerate}
+  \item The first move of a reactive strategy is ...
+  \begin{enumerate}
+    \item always defection
+    \item irrelevant to the long run
+    \item set separately, since there is no previous round to react to
+    \item determined by \(q\)
+  \end{enumerate}
+  \item Tit For Tat does well in tournaments because it is ...
+  \begin{enumerate}
+    \item purely random
+    \item never willing to cooperate
+    \item always the first to defect
+    \item nice, retaliatory and forgiving
+  \end{enumerate}
+  \item In a reactive strategy \((p, q)\), the value \(p\) is the probability of cooperating when the opponent ...
+  \begin{enumerate}
+    \item has never moved
+    \item defected on the previous round
+    \item cooperates on the current round
+    \item cooperated on the previous round
+  \end{enumerate}
+  \item Always Defect is the reactive strategy ...
+  \begin{enumerate}
+    \item \((0, 0)\)
+    \item \((1, 1)\)
+    \item \((1, 0)\)
+    \item \((1/2, 1/2)\)
+  \end{enumerate}
+  \item The Markov chain of two reactive strategies has state space ...
+  \begin{enumerate}
+    \item \(\{0, 1\}\)
+    \item \(\{C, D\}\)
+    \item \(\{CC, CD, DC, DD\}\)
+    \item \(\{CC, DD\}\)
+  \end{enumerate}
+  \item In the closed-form stationary distribution, the quantity \(r_1\) is defined as ...
+  \begin{enumerate}
+    \item \(pq\)
+    \item \(p / q\)
+    \item \(p - q\)
+    \item \(p + q\)
+  \end{enumerate}
+  \item Zero-determinant strategies are memory-one strategies that ...
+  \begin{enumerate}
+    \item are not reactive (they condition on the full previous outcome)
+    \item ignore all history
+    \item are the same as Tit For Tat
+    \item cooperate with probability 1
+  \end{enumerate}
+\end{enumerate}
+\end{document}

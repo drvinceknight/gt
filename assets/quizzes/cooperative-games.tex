@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Cooperative games}
+\begin{enumerate}[itemsep=6pt]
+  \item A characteristic function game \((N, v)\) assigns ...
+  \begin{enumerate}
+    \item to each coalition of players a worth \(v\)
+    \item to each player a single action
+    \item a probability to each outcome
+    \item to each player a payoff matrix
+  \end{enumerate}
+  \item The Shapley value of a player is ...
+  \begin{enumerate}
+    \item their average marginal contribution over all orderings of the players
+    \item their payoff in the worst coalition
+    \item the worth of the grand coalition divided equally
+    \item the largest coalition they belong to
+  \end{enumerate}
+  \item The efficiency property of the Shapley value says that ...
+  \begin{enumerate}
+    \item the players' payoffs sum to the worth of the grand coalition
+    \item every player receives the same amount
+    \item the strongest player gets everything
+    \item payoffs are always non-negative
+  \end{enumerate}
+  \item A null player is one who ...
+  \begin{enumerate}
+    \item adds nothing to any coalition they join, and so receives a Shapley value of \(0\)
+    \item has the highest marginal contribution
+    \item always receives the most
+    \item is in no coalition
+  \end{enumerate}
+  \item The symmetry property says that two players who ...
+  \begin{enumerate}
+    \item join last always tie
+    \item have the same name receive equal payoffs
+    \item are both null players receive everything
+    \item contribute equally to every coalition receive equal Shapley values
+  \end{enumerate}
+  \item The marginal contribution of player \(i\) to a coalition \(S\) is ...
+  \begin{enumerate}
+    \item \(v(S) / |S|\)
+    \item \(v(\{i\})\)
+    \item \(v(S \cup \{i\}) - v(S)\)
+    \item \(v(S \cup \{i\})\)
+  \end{enumerate}
+  \item The grand coalition is ...
+  \begin{enumerate}
+    \item the coalition of all the players
+    \item the empty coalition
+    \item the strongest single player
+    \item any coalition of size two
+  \end{enumerate}
+  \item A payoff vector must satisfy ...
+  \begin{enumerate}
+    \item \(\sum_i \lambda_i = 0\)
+    \item \(\lambda_i = 1\) for all \(i\)
+    \item \(\lambda_i = v(\{i\})\)
+    \item \(\sum_i \lambda_i = v(N)\), sharing out the grand coalition's worth
+  \end{enumerate}
+  \item The additivity property of the Shapley value says that ...
+  \begin{enumerate}
+    \item marginal contributions are ignored
+    \item all players receive equal payoffs
+    \item the grand coalition gets nothing
+    \item the value of a sum of two games is the sum of the separate Shapley values
+  \end{enumerate}
+  \item The Shapley value is given by the formula ...
+  \begin{enumerate}
+    \item \(\phi_i = \frac{1}{N!} \sum_{\pi} \Delta_\pi(i)\)
+    \item \(\phi_i = v(N) / N\)
+    \item \(\phi_i = v(\{i\})\)
+    \item \(\phi_i = \max_S v(S)\)
+  \end{enumerate}
+  \item By convention, the worth of the empty coalition is ...
+  \begin{enumerate}
+    \item undefined
+    \item \(v(\emptyset) = 0\)
+    \item \(v(\emptyset) = 1\)
+    \item \(v(\emptyset) = v(N)\)
+  \end{enumerate}
+  \item The number of orderings of \(N\) players, over which the Shapley value averages, is ...
+  \begin{enumerate}
+    \item \(N\)
+    \item \(N^2\)
+    \item \(2^N\)
+    \item \(N!\)
+  \end{enumerate}
+  \item Two players who contribute equally to every coalition ...
+  \begin{enumerate}
+    \item split the whole worth between them
+    \item receive nothing
+    \item are both null players
+    \item receive equal Shapley values (symmetry)
+  \end{enumerate}
+  \item The Shapley value is the unique allocation satisfying ...
+  \begin{enumerate}
+    \item no particular axioms
+    \item efficiency alone
+    \item symmetry alone
+    \item efficiency, the null player property, symmetry and additivity
+  \end{enumerate}
+  \item The characteristic function \(v(S)\) gives ...
+  \begin{enumerate}
+    \item the Shapley value of \(S\)
+    \item the worth that coalition \(S\) can secure on its own
+    \item the payoff to a single player
+    \item the number of players in \(S\)
+  \end{enumerate}
+  \item The set of predecessors \(S_\pi(i)\) of player \(i\) in an ordering \(\pi\) is ...
+  \begin{enumerate}
+    \item the grand coalition
+    \item the players who appear before \(i\) in \(\pi\)
+    \item all players other than \(i\)
+    \item the players who appear after \(i\) in \(\pi\)
+  \end{enumerate}
+  \item A characteristic function game is superadditive if, for disjoint coalitions \(S\) and \(T\), ...
+  \begin{enumerate}
+    \item \(v(S \cup T) \ge v(S) + v(T)\)
+    \item \(v(S \cup T) \le v(S) + v(T)\)
+    \item \(v(S) = v(T)\)
+    \item \(v(S \cup T) = 0\)
+  \end{enumerate}
+  \item A characteristic function game is monotone if ...
+  \begin{enumerate}
+    \item \(v(S) = |S|\) for all \(S\)
+    \item \(v(S) \ge v(T)\) whenever \(S \subseteq T\)
+    \item \(v(\emptyset) = 1\)
+    \item \(v(S) \le v(T)\) whenever \(S \subseteq T\)
+  \end{enumerate}
+  \item Written as a sum over coalitions, the Shapley value weights the marginal contribution of \(i\) over \(S\) by ...
+  \begin{enumerate}
+    \item \(\frac{|S|}{N}\)
+    \item \(\frac{1}{N}\)
+    \item \(\frac{|S|!\,(N-|S|-1)!}{N!}\)
+    \item \(\frac{1}{N!}\)
+  \end{enumerate}
+  \item The Shapley value is the unique payoff vector satisfying efficiency, symmetry, additivity and ...
+  \begin{enumerate}
+    \item superadditivity
+    \item the null player property
+    \item monotonicity
+    \item individual rationality
+  \end{enumerate}
+\end{enumerate}
+\end{document}

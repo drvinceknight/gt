@@ -39,6 +39,10 @@ questions below. They are reshuffled each time, so you can keep retrying.</p>
 <p><strong><a href="{{ baseurl }}/solutions/{{ solution.title | slugify }}.html">Worked solutions to the example questions &rarr;</a></strong></p>
 {% endif %}
 
+{% if quiz %}
+<p><strong><a href="{{ baseurl }}/assets/quizzes/{{ page.tag }}.pdf">Download the full quiz as a PDF (all questions, no solutions) &rarr;</a></strong></p>
+{% endif %}
+
 {% if class_notes %}
 <p><small><code><a href="{{ baseurl }}/{{ notes_dir }}/{{ class_notes.title | slugify }}.html">Facilitator notes: {{ class_notes.title }}</a></code></small></p>
 {% endif %}

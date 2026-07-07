@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Repeated games}
+\begin{enumerate}[itemsep=6pt]
+  \item In an infinitely repeated game, the discount factor \(\delta\) can be read as ...
+  \begin{enumerate}
+    \item the probability that the game continues to another round
+    \item the number of rounds already played
+    \item the number of players
+    \item the payoff from defecting
+  \end{enumerate}
+  \item The Grudger strategy ...
+  \begin{enumerate}
+    \item copies the opponent's last move
+    \item always defects
+    \item cooperates until the opponent defects, then defects for ever
+    \item cooperates with probability \(1/2\)
+  \end{enumerate}
+  \item The Folk Theorem says that, for patient enough players, ...
+  \begin{enumerate}
+    \item cooperation is impossible
+    \item any individually rational payoff pair can be sustained in a subgame perfect equilibrium
+    \item the game must be zero sum
+    \item only the stage Nash equilibrium can occur
+  \end{enumerate}
+  \item In the finitely repeated Prisoner's Dilemma with a known last round, ...
+  \begin{enumerate}
+    \item cooperation is sustained throughout
+    \item the players cooperate only in the last round
+    \item there is no subgame perfect equilibrium
+    \item backward induction forces defection in every round
+  \end{enumerate}
+  \item The individually rational payoff of a player is ...
+  \begin{enumerate}
+    \item the largest payoff in the game
+    \item the most they can guarantee themselves whatever the opponent does (their minimax value)
+    \item always zero
+    \item the payoff from mutual cooperation
+  \end{enumerate}
+  \item As the temptation payoff \(T\) increases, the discount factor needed to sustain cooperation ...
+  \begin{enumerate}
+    \item stays the same
+    \item decreases
+    \item becomes negative
+    \item increases (players must be more patient)
+  \end{enumerate}
+  \item A strategy in a repeated game is ...
+  \begin{enumerate}
+    \item the payoff matrix
+    \item the discount factor
+    \item a single action played every round
+    \item a mapping from the history of play to an action in the stage game
+  \end{enumerate}
+  \item The discounted value of receiving a payoff \(c\) every round is ...
+  \begin{enumerate}
+    \item \(c \delta\)
+    \item \(c / \delta\)
+    \item \(c / (1 - \delta)\)
+    \item \(c (1 - \delta)\)
+  \end{enumerate}
+  \item The average utility of a payoff stream is defined as ...
+  \begin{enumerate}
+    \item \((1 - \delta)\) times the discounted total
+    \item the largest stage payoff
+    \item the discounted total
+    \item the payoff in the first round
+  \end{enumerate}
+  \item Playing a Nash equilibrium of the stage game in every round is ...
+  \begin{enumerate}
+    \item always a subgame perfect equilibrium of the repeated game
+    \item impossible to compute
+    \item never an equilibrium
+    \item only a Nash equilibrium if the game is finite
+  \end{enumerate}
+  \item Cooperation can be sustained in the infinitely repeated Prisoner's Dilemma because ...
+  \begin{enumerate}
+    \item the stage game has no Nash equilibrium
+    \item players cannot remember the past
+    \item defection is impossible
+    \item there is no last round, so future punishment can deter defection
+  \end{enumerate}
+  \item The expected number of rounds when \(\delta\) is the continuation probability is ...
+  \begin{enumerate}
+    \item infinite for any \(\delta\)
+    \item \(1 - \delta\)
+    \item \(1 / (1 - \delta)\)
+    \item \(\delta\)
+  \end{enumerate}
+  \item In Grudger, the punishment phase consists of ...
+  \begin{enumerate}
+    \item returning to cooperation after one round
+    \item alternating cooperation and defection
+    \item both players playing the stage Nash equilibrium (mutual defection) for ever
+    \item ending the game immediately
+  \end{enumerate}
+  \item For cooperation to be sustainable, the cooperative payoff must exceed ...
+  \begin{enumerate}
+    \item the number of rounds
+    \item the gain from a one-off defection followed by punishment
+    \item the discount factor
+    \item the total of all stage payoffs
+  \end{enumerate}
+  \item A larger discount factor \(\delta\) means ...
+  \begin{enumerate}
+    \item the future matters less
+    \item the future matters more, making cooperation easier to sustain
+    \item the game is shorter
+    \item defection is always best
+  \end{enumerate}
+  \item The utility of an infinitely repeated game with discount factor \(\delta\) is ...
+  \begin{enumerate}
+    \item \(\max_i u(s_r(i), s_c(i))\)
+    \item \(\sum_{i=0}^{\infty} \delta^i u(s_r(i), s_c(i))\)
+    \item \(\sum_{i=0}^{\infty} u(s_r(i), s_c(i))\)
+    \item \(\delta \, u(s_r(0), s_c(0))\)
+  \end{enumerate}
+  \item An individually rational payoff pair is one that ...
+  \begin{enumerate}
+    \item equals the temptation payoff
+    \item gives one player everything
+    \item minimises both players' payoffs
+    \item exceeds the stage-game Nash equilibrium payoffs for both players
+  \end{enumerate}
+  \item For a patient enough population the Folk Theorem constructs a subgame perfect equilibrium achieving ...
+  \begin{enumerate}
+    \item any feasible individually rational payoff pair
+    \item no payoff at all
+    \item only the stage Nash payoff
+    \item only the cooperative payoff
+  \end{enumerate}
+  \item In the Folk Theorem's trigger strategy, a deviation is punished by ...
+  \begin{enumerate}
+    \item leaving the game
+    \item forgiving after one round
+    \item raising the discount factor
+    \item reverting to the stage-game Nash equilibrium for all future rounds
+  \end{enumerate}
+  \item Against a trigger strategy, the most tempting time to deviate is ...
+  \begin{enumerate}
+    \item a randomly chosen stage
+    \item the first stage, since later gains are discounted more heavily
+    \item never, deviation always pays
+    \item the last stage
+  \end{enumerate}
+\end{enumerate}
+\end{document}

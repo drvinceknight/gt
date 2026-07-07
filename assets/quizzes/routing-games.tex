@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Routing games}
+\begin{enumerate}[itemsep=6pt]
+  \item A Nash flow is a flow in which ...
+  \begin{enumerate}
+    \item the total cost is minimised
+    \item every path carries equal flow
+    \item all traffic uses a single path
+    \item no individual can reduce their own cost by switching to another path
+  \end{enumerate}
+  \item An optimal flow is the flow that ...
+  \begin{enumerate}
+    \item equals the Nash flow in every game
+    \item uses the most paths
+    \item no driver can improve on individually
+    \item minimises the total cost across all traffic
+  \end{enumerate}
+  \item The price of anarchy measures ...
+  \begin{enumerate}
+    \item the number of paths in the network
+    \item the cost of the cheapest path
+    \item the ratio of the Nash flow cost to the optimal flow cost
+    \item how many drivers there are
+  \end{enumerate}
+  \item Braess's paradox is the observation that ...
+  \begin{enumerate}
+    \item the Nash flow always equals the optimal flow
+    \item removing a road always helps
+    \item adding a new road can make every driver's commute worse
+    \item drivers never reach an equilibrium
+  \end{enumerate}
+  \item A feasible flow that minimises the potential function \(\Phi\) is ...
+  \begin{enumerate}
+    \item the optimal flow
+    \item a flow that uses no congested edges
+    \item never an equilibrium
+    \item a Nash flow
+  \end{enumerate}
+  \item The optimal flow of a routing game equals the Nash flow of the game with ...
+  \begin{enumerate}
+    \item all costs set to zero
+    \item the costs doubled
+    \item each cost function replaced by its marginal cost
+    \item a single combined path
+  \end{enumerate}
+  \item A feasible flow is one in which ...
+  \begin{enumerate}
+    \item the total cost is minimised
+    \item the flow on the paths of each commodity sums to its demand
+    \item no path is used
+    \item all flow uses a single path
+  \end{enumerate}
+  \item Edge cost (latency) functions in a routing game are assumed to be ...
+  \begin{enumerate}
+    \item negative
+    \item constant
+    \item non-negative, continuous and non-decreasing in the flow
+    \item decreasing in the flow
+  \end{enumerate}
+  \item The price of anarchy is always ...
+  \begin{enumerate}
+    \item at least 1
+    \item negative
+    \item exactly 1
+    \item at most 1
+  \end{enumerate}
+  \item In Pigou's example (one fixed-cost route and one congestible route) the price of anarchy is ...
+  \begin{enumerate}
+    \item \(1\)
+    \item \(4/3\)
+    \item \(8/7\)
+    \item \(2\)
+  \end{enumerate}
+  \item Braess's paradox arises because each driver ...
+  \begin{enumerate}
+    \item cannot find the shortest path
+    \item is forced onto a single route
+    \item pays a toll
+    \item ignores the extra congestion they impose on others (an externality)
+  \end{enumerate}
+  \item At a Nash flow, all paths a commodity actually uses ...
+  \begin{enumerate}
+    \item are the cheapest in the whole network
+    \item carry equal flow
+    \item have different costs
+    \item have equal (and minimal) cost
+  \end{enumerate}
+  \item The total cost of a flow is ...
+  \begin{enumerate}
+    \item \(\sum_{e} c_e(f_e) f_e\), summed over the edges
+    \item the cost of the cheapest edge
+    \item the price of anarchy
+    \item the number of paths used
+  \end{enumerate}
+  \item The optimal flow is found by ...
+  \begin{enumerate}
+    \item maximising the total cost
+    \item letting each driver choose selfishly
+    \item using only one path
+    \item minimising the total cost over all feasible flows
+  \end{enumerate}
+  \item Marginal-cost pricing aligns the selfish and social outcomes because ...
+  \begin{enumerate}
+    \item it sets all costs to zero
+    \item it forbids the use of congested edges
+    \item it removes all congestion
+    \item it makes each driver internalise the congestion they cause
+  \end{enumerate}
+  \item A routing game is written \(( G, r, c)\), where \(r\) denotes the ...
+  \begin{enumerate}
+    \item number of edges in the network
+    \item price of anarchy
+    \item reciprocal of the cost
+    \item amount of traffic (demand) each source-sink commodity must route
+  \end{enumerate}
+  \item The potential function of a routing game is ...
+  \begin{enumerate}
+    \item \(\Phi(f) = \sum_{e} \int_0^{f_e} c_e(x)\,dx\)
+    \item \(\Phi(f) = \sum_e f_e\)
+    \item \(\Phi(f) = \max_e c_e(f_e)\)
+    \item \(\Phi(f) = \sum_{e} c_e(f_e) f_e\)
+  \end{enumerate}
+  \item The marginal cost of an edge with cost function \(c\) is ...
+  \begin{enumerate}
+    \item \(c^*(x) = \int_0^x c(t)\,dt\)
+    \item \(c^*(x) = c(x)/x\)
+    \item \(c^*(x) = \frac{d}{dx}\big(x\,c(x)\big)\)
+    \item \(c^*(x) = c'(x)\)
+  \end{enumerate}
+  \item The cost of a path \(P\) at flow \(x\) is ...
+  \begin{enumerate}
+    \item the number of edges it contains
+    \item the sum of the edge costs along it, \(c_P(x) = \sum_{e \in P} c_e(x)\)
+    \item the cost of its cheapest edge
+    \item the cost of its most expensive edge
+  \end{enumerate}
+  \item In Braess's paradox, adding a zero-cost road changes the Nash flow so that its cost ...
+  \begin{enumerate}
+    \item rises, even though a new option was added
+    \item becomes zero
+    \item always falls
+    \item stays exactly the same
+  \end{enumerate}
+\end{enumerate}
+\end{document}

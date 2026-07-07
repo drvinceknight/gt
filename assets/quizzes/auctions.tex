@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Auctions}
+\begin{enumerate}[itemsep=6pt]
+  \item In a second-price (Vickrey) auction, the winner ...
+  \begin{enumerate}
+    \item pays the average of all bids
+    \item is the highest bidder and pays the second-highest bid
+    \item is chosen at random
+    \item is the highest bidder and pays their own bid
+  \end{enumerate}
+  \item In a second-price auction, bidding your true value is ...
+  \begin{enumerate}
+    \item the same as bidding zero
+    \item a weakly dominant strategy
+    \item never optimal
+    \item only optimal if you know the others' values
+  \end{enumerate}
+  \item A Bayesian Nash equilibrium is a strategy profile in which ...
+  \begin{enumerate}
+    \item the seller chooses the winner
+    \item all players bid the same amount
+    \item each player maximises expected utility given their type and correct beliefs about others
+    \item every player knows everyone else's value
+  \end{enumerate}
+  \item In a first-price auction, a rational bidder usually ...
+  \begin{enumerate}
+    \item shades their bid below their true value
+    \item always bids zero
+    \item bids their true value
+    \item bids above their true value
+  \end{enumerate}
+  \item The revenue equivalence theorem says that ...
+  \begin{enumerate}
+    \item first-price and second-price auctions raise the same expected revenue (under its conditions)
+    \item the winner always pays the same as the loser
+    \item the seller always prefers a first-price auction
+    \item revenue is always zero
+  \end{enumerate}
+  \item Because truthful bidding is dominant, the second-price auction is ...
+  \begin{enumerate}
+    \item always more profitable for the seller
+    \item impossible to run with sealed bids
+    \item only suitable for two bidders
+    \item efficient: the highest-value bidder wins
+  \end{enumerate}
+  \item An auction game is specified by ...
+  \begin{enumerate}
+    \item a single payoff matrix
+    \item a discount factor
+    \item the bidders' value distributions, an allocation rule and a payment rule
+    \item a list of stable matchings
+  \end{enumerate}
+  \item In a first-price auction, the winner pays ...
+  \begin{enumerate}
+    \item nothing
+    \item the average bid
+    \item their own bid
+    \item the second-highest bid
+  \end{enumerate}
+  \item A bidder's type in an auction is ...
+  \begin{enumerate}
+    \item their private value for the item
+    \item their bid
+    \item the reserve price
+    \item the number of other bidders
+  \end{enumerate}
+  \item In a first-price auction with \(N\) bidders whose values are uniform on \([0,1]\), the equilibrium bid is ...
+  \begin{enumerate}
+    \item \(v/2\) for all \(N\)
+    \item \(\frac{N-1}{N} v\)
+    \item \(v\)
+    \item \(0\)
+  \end{enumerate}
+  \item A bidder's utility in an auction is ...
+  \begin{enumerate}
+    \item always zero
+    \item \(v_i q_i - p_i\): value times allocation, minus payment
+    \item their bid
+    \item the seller's revenue
+  \end{enumerate}
+  \item Revenue equivalence requires that the auction ...
+  \begin{enumerate}
+    \item always gives the item to the highest-value bidder and gives a zero-value bidder zero surplus
+    \item has exactly two bidders
+    \item charges a reserve price
+    \item uses sealed bids
+  \end{enumerate}
+  \item In a second-price auction the winner's surplus is ...
+  \begin{enumerate}
+    \item the second-highest value
+    \item zero
+    \item their value minus their own bid
+    \item their value minus the second-highest value
+  \end{enumerate}
+  \item Truthful bidding being a dominant strategy means that in a second-price auction ...
+  \begin{enumerate}
+    \item impossible to run sealed-bid
+    \item bidders need not guess others' values to bid optimally
+    \item only suitable for one bidder
+    \item more profitable than any other auction
+  \end{enumerate}
+  \item The second-price auction is efficient because ...
+  \begin{enumerate}
+    \item the seller earns the most
+    \item no one ever wins
+    \item everyone pays the same
+    \item the bidder who values the item most wins it
+  \end{enumerate}
+  \item For \(N\) values drawn independently and uniformly on \([0,1]\), the expected maximum is ...
+  \begin{enumerate}
+    \item \(\frac{1}{N}\)
+    \item \(\frac{1}{2}\)
+    \item \(\frac{N-1}{N+1}\)
+    \item \(\frac{N}{N+1}\)
+  \end{enumerate}
+  \item In a first-price auction with \(N\) uniform bidders bidding \(\frac{N-1}{N} v\), the seller's expected revenue is ...
+  \begin{enumerate}
+    \item \(\frac{N-1}{N+1}\)
+    \item \(\frac{N}{N+1}\)
+    \item \(\frac{1}{N}\)
+    \item \(\frac{1}{2}\)
+  \end{enumerate}
+  \item In a second-price auction with \(N\) uniform bidders, the seller's expected revenue equals ...
+  \begin{enumerate}
+    \item the expected second-highest value, \(\frac{N-1}{N+1}\)
+    \item the expected highest value, \(\frac{N}{N+1}\)
+    \item \(\frac{1}{2}\)
+    \item zero
+  \end{enumerate}
+  \item A bidding strategy in an auction game is a map \(b_i: V_i \to B_i\) that sends ...
+  \begin{enumerate}
+    \item a bid to a payment
+    \item a valuation to a payment
+    \item a bidder's valuation to a bid
+    \item a bid to an allocation
+  \end{enumerate}
+  \item The allocation rule \(q\) of an auction maps the profile of bids to ...
+  \begin{enumerate}
+    \item the probability with which each bidder receives the good
+    \item the amount each bidder pays
+    \item each bidder's private valuation
+    \item the seller's reserve price
+  \end{enumerate}
+\end{enumerate}
+\end{document}
