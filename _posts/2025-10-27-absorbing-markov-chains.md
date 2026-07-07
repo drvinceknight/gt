@@ -59,7 +59,7 @@ $$B=NR$$
 The main computationally challenging part of this calculation is inverting a
 matrix.
 You can find the notebook I used to do all this [here]({{site.baseurl}}/assets/2025/2026/nbs/degree-pathways.ipynb)
-and also an algorithm for doing this by hand [here](https://vknight.org/gtb/main-16/#sec-gauss-jordan).
+and also an algorithm for doing this by hand [here](https://vknight.org/gtb/appendices/absorbing-markov-chains/).
 
 We obtained:
 

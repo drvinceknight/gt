@@ -56,13 +56,13 @@ likely to play Rock first).
 
 ### The Support Enumeration Algorithm
 
-I talked over the [Support Enumeration algorithm in the Nash equilibrium chapter](https://vknight.org/gtb/main-4/#def-support-enumeration-algorithm).
+I talked over the [Support Enumeration algorithm in the Nash equilibrium chapter](https://vknight.org/gtb/chapters/nash-equilibrium/).
 This is an algorithm that uses the [Best Response Condition from the previous
-chapter](https://vknight.org/gtb/main-2/#thrm-best-response-condition) to
+chapter](https://vknight.org/gtb/chapters/rationalisation/) to
 systematically check all places a Nash equilibrium **could be**.
 
 The first step of the algorithm is to consider all potential pairs of
-[supports](https://vknight.org/gtb/main-2/#sec-rock-paper-scissors-lizard-spock)
+[supports](https://vknight.org/gtb/chapters/rationalisation/)
 of a strategy: this corresponds to considering all possible allow actions.
 
 In the case of Rock Paper Scissors where there are 3 actions overall this gives:

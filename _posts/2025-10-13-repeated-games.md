@@ -26,7 +26,7 @@ During the game, Lucas at one point declared: "We will cooperate until you defec
 will defect forever". This is exactly what a strategy is from a Mathematical
 point of view.
 
-I mentioned [Robert Axelrod's Tournaments](https://vknight.org/gtb/main-6/#sec-axelrods-tournaments) which are a widely cited body of
+I mentioned [Robert Axelrod's Tournaments](https://vknight.org/gtb/chapters/repeated-games/) which are a widely cited body of
 work that is essentially akin to the tournament we played in class today (on a bigger scale).
 
 On Friday we will spend a bit more time looking at some of the theory in the

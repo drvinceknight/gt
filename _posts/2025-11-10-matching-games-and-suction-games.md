@@ -6,8 +6,8 @@ tags:
   - auctions
 ---
 
-In class on Friday we looked at [matching-games](https://vknight.org/gtb/main-11/) and today we looked at
-[auctions](https://vknight.org/gtb/main-12/).
+In class on Friday we looked at [matching-games](https://vknight.org/gtb/chapters/matching-games/) and today we looked at
+[auctions](https://vknight.org/gtb/chapters/auction-games/).
 
 You can see a recording of this:
 

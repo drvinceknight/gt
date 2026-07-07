@@ -7,7 +7,7 @@ tag: karush-kuhn-tucker
 ## Activity (20 minutes)
 
 Write the optimisation problem from the motivating example
-<https://vknight.org/gtb/main-17/#sec-motivating-example-kkt-doughnuts>.
+<https://vknight.org/gtb/appendices/interior-point-optimisation/
 
 Draw the space and talk intuitively about where the equilibria will be.
 

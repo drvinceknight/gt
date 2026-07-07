@@ -6,8 +6,8 @@ tags:
   - cooperative-games
 ---
 
-In class today we looked at [social choice](https://vknight.org/gtb/main-13/) and 
-[cooperative games](https://vknight.org/gtb/main-14/).
+In class today we looked at [social choice](https://vknight.org/gtb/chapters/social-choice/) and 
+[cooperative games](https://vknight.org/gtb/chapters/cooperative-games/).
 
 You can see a recording of this [here](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8ff7852e-a0f2-46bd-9da3-b392010b098b).
 
@@ -36,7 +36,7 @@ Following this I discussed the chapter on social choice highlighting:
 I then asked for 3 volunteers to try and land paper plans in a target.
 
 You can find the results of this in the blue and red part of the so called
-[characteristic function game](https://vknight.org/gtb/main-14/#definition-characteristic-function-game).
+[characteristic function game](https://vknight.org/gtb/chapters/cooperative-games/).
 
 You can find the calculations we made on the board here:
 
@@ -52,7 +52,7 @@ game Tom asked an excellent question:
 
 **I made a mistake here, saying that something must be wrong.**
 
-In fact the game is not [super additive](https://vknight.org/gtb/main-14/#sec-definition-of-superadditive-characteristic-function) and so the 
+In fact the game is not [super additive](https://vknight.org/gtb/chapters/cooperative-games/) and so the 
 Shapley value here does not guarantee so called individual rationality.
 
 Tom suggested a change to the characteristic function that would ensure it is

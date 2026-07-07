@@ -7,8 +7,8 @@ tags:
 
 In class today we looked at the [Moran
 Process](https://nashpy.readthedocs.io/en/stable/text-book/moran-process.html) and the 
-[Karush-Kuhn-Tucker conditions](https://vknight.org/gtb/main-17/). We did this by
-considering the [Hawk Dove game](https://vknight.org/gtb/main-8/#inknuM1ypp).
+[Karush-Kuhn-Tucker conditions](https://vknight.org/gtb/appendices/interior-point-optimisation/). We did this by
+considering the [Hawk Dove game](https://vknight.org/gtb/chapters/moran-process/).
 
 You can see a recording of this [here](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=724c904c-da51-40e8-a34b-b38200d6c839).
 
@@ -53,7 +53,7 @@ probabilities.
 
 **KKT Conditions**
 
-After that we spoke about the [Karush-Kuhn-Tucker Condition](https://vknight.org/gtb/main-17/) which I described
+After that we spoke about the [Karush-Kuhn-Tucker Condition](https://vknight.org/gtb/appendices/interior-point-optimisation/) which I described
 as a rigorous mathematical set of rules for a simple idea of where optima might
 be on a constrained region.
 

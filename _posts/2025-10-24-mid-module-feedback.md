@@ -97,10 +97,10 @@ It commented:
 
 Now. First of all, I don't think it's the funniest comment and I don't pretend
 to know the intent with which it was written **BUT** the chapter we recently
-looked at on [Repeated Games](https://vknight.org/gtb/main-6/) is actually one
+looked at on [Repeated Games](https://vknight.org/gtb/chapters/repeated-games/) is actually one
 of hope!
 
-Coupled with what we just saw today ([Replicator Dynamics](https://vknight.org/gtb/main-7/)) we can actually use
+Coupled with what we just saw today ([Replicator Dynamics](https://vknight.org/gtb/chapters/replicator-dynamics/)) we can actually use
 game theory to show that selfishness (cooperation) can be completely rational
 and evolutionarily beneficial. This is one aspect of this subject that I love:
 being completely rational and acting with self interest leads to selflessness.

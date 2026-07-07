@@ -3,5 +3,5 @@ layout: topic
 title: "Moran Process"
 tag: "moran-process"
 note_urls:
-  - "https://vknight.org/gtb/main-8/"
+  - "https://vknight.org/gtb/chapters/moran-process/"
 ---
