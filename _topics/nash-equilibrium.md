@@ -3,5 +3,5 @@ layout: topic
 title: "Nash Equilibrium"
 tag: nash-equilibrium
 note_urls:
-  - "https://vknight.org/gtb/main-4/"
+  - "https://vknight.org/gtb/chapters/nash-equilibrium/"
 ---

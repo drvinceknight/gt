@@ -23,11 +23,11 @@ here:
 
 ![]({{site.baseurl}}/assets/2025-2026/boards/2029-10-03/main.jpg)
 
-I then went on to discuss the [Game Chapter](https://vknight.org/gtb/main-1/):
+I then went on to discuss the [Game Chapter](https://vknight.org/gtb/chapters/games/):
 
-- I talked about the definition of [An Extensive Form Game](https://vknight.org/gtb/main-1/#definition-extensive-form-game) and how this did not apply to our case.
-- We talked about the definition of [A Normal Form Game](https://vknight.org/gtb/main-1/#sec-normal-form-games) and how **this did** apply to the two thirds of the average game.
-- We talked about what actions were (in the case of the 2 thirds of the average game this is the choice of integers from 0 to 100) and what the definition of a [Strategy](https://vknight.org/gtb/main-1/#sec-normal-form-games) was.
+- I talked about the definition of [An Extensive Form Game](https://vknight.org/gtb/chapters/games/) and how this did not apply to our case.
+- We talked about the definition of [A Normal Form Game](https://vknight.org/gtb/chapters/games/) and how **this did** apply to the two thirds of the average game.
+- We talked about what actions were (in the case of the 2 thirds of the average game this is the choice of integers from 0 to 100) and what the definition of a [Strategy](https://vknight.org/gtb/chapters/games/) was.
 
 ---
 
@@ -56,7 +56,7 @@ We talked about "the best way of playing" against each strategy.
   us irrelevant.
 
 This last point is in fact directly related to the first theorem of the course
-which you can find [here](https://vknight.org/gtb/main-2/#thrm-best-response-condition). That chapter defines many important
+which you can find [here](https://vknight.org/gtb/chapters/rationalisation/). That chapter defines many important
 notions such as dominance and best responses.
 
 You can see the basic idea for calculating expected utilities I wrote on the
@@ -64,4 +64,4 @@ board here:
 
 ![]({{site.baseurl}}/assets/2025-2026/boards/2029-10-03/main_1.jpg)
 
-This calculation is covered towards the end of [this section in the Games chapter](https://vknight.org/gtb/main-1/#definition-strategy-in-normal-form-games).
+This calculation is covered towards the end of [this section in the Games chapter](https://vknight.org/gtb/chapters/games/).

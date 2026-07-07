@@ -3,5 +3,5 @@ layout: topic
 title: "Integer Pivoting"
 tag: integer-pivoting
 note_urls:
-  - "https://vknight.org/gtb/main-18/"
+  - "https://vknight.org/gtb/appendices/integer-pivoting/"
 ---

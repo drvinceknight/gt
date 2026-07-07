@@ -7,7 +7,7 @@ tag: integer-pivoting
 ## Activity (20 minutes)
 
 Draw the Polytope from the [motivating example of the integer pivoting
-appendix](https://vknight.org/gtb/main-18/#sec-motivating-example-two-views-of-a-polytope) as an intersection of halfspaces:
+appendix](https://vknight.org/gtb/appendices/integer-pivoting/) as an intersection of halfspaces:
 
 $$
 \begin{align*}

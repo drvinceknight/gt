@@ -17,16 +17,16 @@ course:
 
 We have seen:
 
-- Different types of [Games](https://vknight.org/gtb/main-1/):
+- Different types of [Games](https://vknight.org/gtb/chapters/games/):
   - Normal Form Games
   - Extensive Form Games
-  - [Repeated Games](https://vknight.org/gtb/main-6/)
-- [Dominated Strategies](https://vknight.org/gtb/main-2/) which is when a
+  - [Repeated Games](https://vknight.org/gtb/chapters/repeated-games/)
+- [Dominated Strategies](https://vknight.org/gtb/chapters/rationalisation/) which is when a
   strategy is never rationally played. We did not specifically list it but also in
   this category is the notion of a best response.
-- [Nash Equilibium](https://vknight.org/gtb/main-4/) and the [Support
-  Enumeration Algorithm](https://vknight.org/gtb/main-4/#def-support-enumeration-algorithm).
-- Reputation and the [Iterated Prisoner's Dilemma](https://vknight.org/gtb/main-6/#definition-prisoners-dilemma)
+- [Nash Equilibium](https://vknight.org/gtb/chapters/nash-equilibrium/) and the [Support
+  Enumeration Algorithm](https://vknight.org/gtb/chapters/nash-equilibrium/).
+- Reputation and the [Iterated Prisoner's Dilemma](https://vknight.org/gtb/chapters/repeated-games/)
 
 Now whilst that summary is not exhaustive of everything covered in the chapters
 seen so far it is a good list to scaffold your independent study.
@@ -64,7 +64,7 @@ $$
 $$
 
 This is not an equation we can find a closed form solution for which leads us to
-the topic of [this chapter](https://vknight.org/gtb/main-15/): Numerical
+the topic of [this chapter](https://vknight.org/gtb/appendices/numerical-integration/): Numerical
 Integration.
 
 In practice when solving differential equations numerically we can use a variety

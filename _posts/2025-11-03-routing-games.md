@@ -5,7 +5,7 @@ tags:
   - routing-games
 ---
 
-In class today we looked at the [Routing Games](https://vknight.org/gtb/main-10/). 
+In class today we looked at the [Routing Games](https://vknight.org/gtb/chapters/routing-games/). 
 We did this by considering Pigou's Example.
 
 You can see a recording of this [here](https://cardiff.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=f0229828-d3d4-4566-b468-b38500a54ea6).

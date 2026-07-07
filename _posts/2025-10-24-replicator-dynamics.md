@@ -62,7 +62,7 @@ $$
 f_i < \phi
 $$
 
-This leads to the [Replicator Dynamics Equation](https://vknight.org/gtb/main-7/#Ce6E2Tc7ex) which in our case is in fact 3 differential equations.
+This leads to the [Replicator Dynamics Equation](https://vknight.org/gtb/chapters/replicator-dynamics/) which in our case is in fact 3 differential equations.
 One for each of the types.
 
 We talked briefly about stability and I discussed what is called Evolutionary

@@ -3,5 +3,5 @@ layout: topic
 title: "Games"
 tag: games
 note_urls:
-  - "https://vknight.org/gtb/main-1/"
+  - "https://vknight.org/gtb/chapters/games/"
 ---

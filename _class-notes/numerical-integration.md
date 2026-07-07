@@ -7,7 +7,7 @@ tag: numerical-integration
 ## Activity (20 minutes)
 
 Write down the derivative from the
-[motivating example of the numerical integration appendix](https://vknight.org/gtb/main-15/#motivating-example-air-resistance-of-a-sky-diver).
+[motivating example of the numerical integration appendix](https://vknight.org/gtb/appendices/numerical-integration/).
 
 $$
 y(t)=-gt^0/2+v_0t+y_0
