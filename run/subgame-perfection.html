@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subgame Perfection (facilitator notes) — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="facilitator-notes">
+
+<div class="facilitator-banner">
+  <strong>Facilitator notes: not student-facing.</strong>
+  These notes are for planning and running classes.
+  Student resources are at <a href="/">vknight.org/gt/</a>.
+</div>
+
+<h1>Subgame Perfection</h1>
+
+<p>This topic runs over <strong>two classes</strong>. The first class is the Traitors activity
+and its debrief; the second class is the formal discussion of the chapter and
+the worked exam question. The activity is the spine of both, so we set it out in
+full.</p>
+<h2 id="activity-the-traitors-one-class">Activity: the Traitors (one class)</h2>
+<p><strong>Goal.</strong> Show that a plan of action can look like an equilibrium at the start of
+a game yet stop being optimal once a particular subgame is reached. This is the
+gap between a Nash equilibrium of the whole game and one that is optimal in every
+subgame, and it motivates subgame perfection.</p>
+<p>We play the game three times: first with no guidance, then with a prescribed
+voting rule, and finally with the rule in place but players free to break it for
+fun. The contrast between the runs is the whole point, so leave time for all
+three.</p>
+<p><strong>Setup and numbers.</strong> Deal a hidden role to every student: a small number are
+Traitors, the rest are Faithful. Only the Traitors learn who the other Traitors
+are. Seat the group in a fixed circle and keep that ordering for the whole game.
+A clean default is <strong>ten players with two Traitors</strong>. The reason for this
+particular count is worth knowing. Each round removes two players, one banished
+by the day vote and one murdered at night, so the state <span class="arithmatex">\((n, m)\)</span> (with <span class="arithmatex">\(n\)</span>
+players and <span class="arithmatex">\(m\)</span> Traitors) loses two players a round. The Traitors win the moment
+they reach parity, <span class="arithmatex">\(2m \ge n\)</span>; the Faithful win once every Traitor has been
+banished. Starting from <span class="arithmatex">\((10, 2)\)</span> the game runs</p>
+<div class="arithmatex">\[
+(10, 2) \to (8, 2) \to (6, 2) \to (4, 2),
+\]</div>
+<p>reaching parity in <strong>three rounds</strong> if no Traitor is banished along the way, and
+on average a little under four rounds once the random tie-break is taken into
+account. That is short enough to play twice in a class. For a larger room, keep
+two compliance rounds before the endgame by choosing <span class="arithmatex">\(n \approx 2m + 6\)</span>, so
+three Traitors wants twelve players and four Traitors wants fourteen. This uses
+more Traitors per head than the television show, which is deliberate: with the
+show's ratio the interesting endgame is never reached inside a class.</p>
+<p>Each round has two phases:</p>
+<ul>
+<li><em>Night:</em> the Traitors silently agree on one Faithful to remove.</li>
+<li><em>Day:</em> the group votes, and the most-voted player is banished, with ties broken
+  at random and the banished player's role revealed.</li>
+</ul>
+<p><strong>First game: no instruction.</strong> Deal the roles, explain only the two phases and
+the win conditions, and say nothing about how to vote. Let the group vote however
+it likes. With free voting the Traitors collude covertly, and that collusion is
+statistically indistinguishable from ordinary disagreement, so it usually goes
+unpunished and the Traitors tend to win. Keep this run short, one or two rounds
+is enough to make the point: the Faithful have no way to detect coordination.</p>
+<p><strong>Second game: the Vote-Left rule.</strong> Reset and deal fresh roles. Now prescribe a
+rule: every player votes for the next surviving player to their left in the
+circle. Two properties are worth drawing out by hand.</p>
+<ul>
+<li><em>It is as fair as random voting.</em> Under full compliance every player receives
+  exactly one vote, so the banishment is uniform, exactly the <span class="arithmatex">\(1/n\)</span> chance a
+  random vote would give.</li>
+<li><em>It makes deviation visible.</em> Because each prescribed vote is a fixed function
+  of public information, any departure from it is immediately and publicly
+  identifiable. If a Traitor concentrates their vote, one player receives two
+  votes and another receives none, and everyone can see who broke the rule.</li>
+</ul>
+<p>Pair the rule with a punishment: a player seen to deviate is banished next.
+While there are enough Faithful to carry out that punishment, complying with
+Vote-Left is a best response for everyone, Faithful and Traitor alike, since a
+detected deviation leads to certain banishment and a winning probability of zero.</p>
+<p><strong>The endgame, and the deviation.</strong> Play the second game on towards its end and
+watch for the state <span class="arithmatex">\((6, 2)\)</span>, where <span class="arithmatex">\(n = 2m + 2\)</span>. From here a Traitor who
+deviates is detected, but after the following night murder there are no longer
+enough Faithful to outvote and banish them. The punishment threat has stopped
+being credible, and the Traitors' best response flips: they should now collude
+openly, banish a Faithful, and reach parity. This is the moment to pause. The
+Traitors' colluding move is the optimal action <em>in that subgame</em>, and it is a
+well-defined best response there whether or not any particular game actually
+reaches it. That is exactly what subgame perfection asks of a strategy: it must
+prescribe an optimal action at every subgame, including ones never reached in a
+given play.</p>
+<p><strong>Third game: when you are not sure.</strong> Reset once more and keep the Vote-Left
+rule, but now tell the group that anyone may break it now and then for fun, with
+no warning. Reintroducing this noise undoes what Vote-Left bought us. A vote that
+breaks the rule no longer points to a Traitor, since a Faithful might simply be
+playing around, so the Faithful can no longer be sure who, if anyone, is
+colluding. Let <span class="arithmatex">\(q\)</span> be the Faithful's belief that a flagged suspect really is the Traitor.
+Banishing a suspect becomes a gamble: with probability <span class="arithmatex">\(q\)</span> it removes the
+Traitor, and with probability <span class="arithmatex">\(1 - q\)</span> it removes one of their own. When <span class="arithmatex">\(q\)</span> is
+low the threat to banish on suspicion is empty, because carrying it out is as
+likely to cost the Faithful a friend as to catch a Traitor, and the Traitors
+exploit exactly this. This is the game written up as the marked exam question
+below, where the threshold on <span class="arithmatex">\(q\)</span> is worked out in full.</p>
+<p><strong>Debrief.</strong> Three threads to pull together.</p>
+<p>First, a rule that makes deviation visible is what turns the Faithful's threat
+into a credible one. With free voting the Traitors' collusion is indistinguishable
+from disagreement, so the threat to punish is empty; under Vote-Left a deviation
+is unmistakable, so the threat bites and the Traitors comply.</p>
+<p>Second, even Vote-Left has a limit. The punishment is credible early and not
+credible late: with many Faithful left, "deviate and you will be banished" is a
+real deterrent, but in the endgame the Faithful can no longer carry it out. Draw
+the partial game tree for the last couple of rounds and circle the subgame at
+<span class="arithmatex">\((6, 2)\)</span> where the Traitors' best response changes.</p>
+<p>Third, the rule's bite depends on being sure. Once players break Vote-Left for
+fun, a flagged suspect is the Traitor only with some probability <span class="arithmatex">\(q\)</span>, and a
+threat to banish on suspicion is non-credible when <span class="arithmatex">\(q\)</span> is low. This is the same
+picture as the marked exam question below: a plan can be a Nash equilibrium of the
+whole game while relying on an action, banishing a suspect, that is not a best
+response once its subgame is reached.</p>
+<p><strong>A note for the curious.</strong> The Vote-Left rule, the threshold <span class="arithmatex">\(n &gt; 2m + 2\)</span> for
+its credibility, and the Traitors' optimal endgame deviation are worked out in
+full in Knight, <em>The Vote-Left Equilibrium: A Deterministic Coordination Strategy
+for the Faithful in The Traitors</em>, <a href="https://arxiv.org/abs/2605.10233">arXiv:2605.10233</a>.
+The paper shows that Vote-Left is a Perfect Bayesian Equilibrium for every state
+with <span class="arithmatex">\(n &gt; 2m + 2\)</span>, and that it roughly triples the Faithful's winning
+probability over random voting when the Traitors collude. None of this is
+examinable; it is here for anyone who wants to see where the activity comes from.</p>
+<h2 id="discussion-and-worked-question-one-class">Discussion and worked question (one class)</h2>
+<p>The second class formalises the activity. Discuss the <strong>Subgame Perfection</strong>
+chapter.</p>
+<p>Work through the centipede game as the formal worked example of backwards
+induction:</p>
+<ul>
+<li>Player 1 can take or pass (if take: (2, 0))<ul>
+<li>Player 2 can take or pass (if take: (1, 3))<ul>
+<li>Player 1 can take or pass (if take: (4, 2))<ul>
+<li>Player 2 can take or pass (if take: (3, 5))<ul>
+<li>Leaf: (4, 4)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Solve it by backwards induction, then contrast the subgame perfect equilibrium
+with the strategy that passes at the first two nodes and takes at the last two.</p>
+<p>Discussion point: <strong>After the definition of backwards induction, ask what it
+leads to for the centipede game.</strong></p>
+<p>Discussion point: <strong>After the subgame perfection definition, ask which
+equilibrium is subgame perfect, and relate it to the Traitors punishment threat
+that was credible early and failed in the endgame subgame.</strong></p>
+<h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
+<p>The third game above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="/topics/subgame-perfection.html">Subgame Perfection</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
+
+
+<h2>Communications</h2>
+
+<p>General email templates to send before and after this class. Fill in the
+bracketed placeholders before sending.</p>
+
+<h3>Before class</h3>
+
+<pre><code>Hi all,
+
+A reminder that our next Game Theory class covers Subgame Perfection.
+
+All of the course materials, including the relevant chapter, are available
+at https://vknight.org/gt/. It is worth skimming the chapter beforehand.
+
+See you in class,
+Vince
+</code></pre>
+
+<h3>After class</h3>
+
+<pre><code>Dear all,
+
+Thanks for your work in today's class on Subgame Perfection.
+
+A recording is available here [RECORDING LINK] and on Learning Central.
+
+All class resources are available at https://vknight.org/gt/.
+
+Thanks,
+Vince
+</code></pre>
+
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

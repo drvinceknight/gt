@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subgame Perfection solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/subgame-perfection.html">&larr; Back to Subgame Perfection</a></small></p>
+
+<h1 id="subgame-perfection-worked-solutions">Subgame Perfection: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/subgame-perfection.html">Subgame Perfection</a> page. Each question is worth
+25 marks.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) Extensive form.</strong> [3]</p>
+<pre><code>            Traitor
+           /        \
+       comply       deviate
+        (1, 2)        |
+                  Faithful
+                  /        \
+              banish      carry on
+             (-1, -1)      (3, 0)
+</code></pre>
+<p><strong>(b) Subgame perfect equilibrium.</strong> [5]</p>
+<p>By backward induction, at the Faithful's node banish gives <span class="arithmatex">\(-1\)</span> and carry on
+gives <span class="arithmatex">\(0\)</span>, so the Faithful carry on: on an even chance, banishing the suspect is
+as likely to remove a Faithful as the Traitor, and is not worth the risk. The
+Traitor then compares deviate <span class="arithmatex">\(\to (3, 0)\)</span>, worth <span class="arithmatex">\(3\)</span>, with comply <span class="arithmatex">\(\to 1\)</span>,
+and deviates. The subgame perfect equilibrium is (deviate, carry on) with payoffs
+<span class="arithmatex">\((3, 0)\)</span>.</p>
+<p><strong>(c) A Nash equilibrium.</strong> [7]</p>
+<p>Consider (comply, banish). Given that the Faithful will banish, the Traitor's
+payoff is deviate <span class="arithmatex">\(\to -1\)</span> versus comply <span class="arithmatex">\(\to 1\)</span>, so comply is a best response.
+Given that the Traitor complies, the Faithful node is off the path of play, so any
+action, including banish, is a best response. Hence (comply, banish) is a Nash
+equilibrium with payoffs <span class="arithmatex">\((1, 2)\)</span>.</p>
+<p><strong>(d) Not subgame perfect.</strong> [6]</p>
+<p>It is not subgame perfect because in the subgame after deviate, banish gives the
+Faithful <span class="arithmatex">\(-1\)</span> while carry on gives <span class="arithmatex">\(0\)</span>: banish is not optimal there, so it is a
+non-credible threat. The Traitor complies only because of that threat. This is the
+third game in the activity: once players break Vote-Left for fun, the Faithful
+cannot be sure a flagged suspect is the colluding Traitor, so a threat to banish on
+suspicion does not survive contact with the decision, since acting on a hunch is as
+likely to remove a friend as the Traitor.</p>
+<p><strong>(e) How the uncertainty changes things.</strong> [4]</p>
+<p>Write <span class="arithmatex">\(q\)</span> for the Faithful's belief that the suspect is the Traitor. Banishing
+yields <span class="arithmatex">\((-5, 3)\)</span>
+if the suspect is the Traitor and <span class="arithmatex">\((3, -5)\)</span> if it is a Faithful, so its expected
+payoffs are <span class="arithmatex">\((3 - 8q,\ 8q - 5)\)</span>. Two thresholds follow.</p>
+<ul>
+<li>The threat deters the Traitor, that is comply is a best response to banish, iff
+  <span class="arithmatex">\(1 \ge 3 - 8q\)</span>, i.e. <span class="arithmatex">\(q \ge \tfrac{1}{4}\)</span>.</li>
+<li>The threat is credible, that is banish is the Faithful's best response in the
+  subgame, iff <span class="arithmatex">\(8q - 5 \ge 0\)</span>, i.e. <span class="arithmatex">\(q \ge \tfrac{5}{8}\)</span>.</li>
+</ul>
+<p>Hence for <span class="arithmatex">\(q &lt; \tfrac{1}{4}\)</span> the Traitor deviates even under the threat, and the
+only equilibrium is (deviate, carry on). For <span class="arithmatex">\(\tfrac{1}{4} \le q &lt; \tfrac{5}{8}\)</span>
+the threat deters but is not credible, so (comply, banish) is a Nash equilibrium
+that is not subgame perfect, while the subgame perfect prediction remains (deviate,
+carry on). For <span class="arithmatex">\(q \ge \tfrac{5}{8}\)</span> banishing is credible and (comply, banish) is
+subgame perfect. The threat sustains compliance as a non-subgame-perfect Nash
+equilibrium exactly on <span class="arithmatex">\(\tfrac{1}{4} \le q &lt; \tfrac{5}{8}\)</span>, and Vote-Left's value
+is that it drives <span class="arithmatex">\(q\)</span> towards one, where the threat finally bites.</p>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [5]</p>
+<ul>
+<li>An <span class="arithmatex">\(N\)</span>-player <strong>extensive form game</strong> with complete information consists of a
+  finite set of players <span class="arithmatex">\(\mathcal{N}\)</span> with <span class="arithmatex">\(|\mathcal{N}| = N\)</span>; a tree
+  <span class="arithmatex">\(G = (V, E, x^0)\)</span> with vertex set <span class="arithmatex">\(V\)</span>, edge set <span class="arithmatex">\(E\)</span>, and root
+  <span class="arithmatex">\(x^0 \in V\)</span>; a partition <span class="arithmatex">\((V_i)_{i \in \mathcal{N}}\)</span> of the non-terminal
+  vertices that assigns each decision node to a player; a set <span class="arithmatex">\(O\)</span> of outcomes;
+  and a function <span class="arithmatex">\(u\)</span> mapping each terminal node (leaf) of <span class="arithmatex">\(G\)</span> to an element of
+  <span class="arithmatex">\(O\)</span>.</li>
+<li>A node <span class="arithmatex">\(x\)</span> <strong>initiates a subgame</strong> if and only if <span class="arithmatex">\(x\)</span> and all successors of
+  <span class="arithmatex">\(x\)</span> lie in information sets containing only successors of <span class="arithmatex">\(x\)</span>.</li>
+<li><strong>Backward induction</strong> is the process of analysing a game from back to front:
+  at each information set we remove the strategies that are dominated.</li>
+<li>A <strong>subgame perfect equilibrium</strong> is a Nash equilibrium in which the strategy
+  profile specifies a Nash equilibrium for every subgame of the game, including
+  subgames that might not be reached during play.</li>
+</ul>
+<p><strong>(b)(i) Extensive form.</strong> [2]</p>
+<pre><code>            entrant
+           /        \
+      stay out      enter
+       (0, 2)         |
+                  incumbent
+                  /        \
+               fight    accommodate
+              (-1,-1)      (1, 1)
+</code></pre>
+<p><strong>(b)(ii) Subgame perfect equilibrium.</strong> [3]</p>
+<p>The incumbent accommodates (<span class="arithmatex">\(1 &gt; -1\)</span>). Anticipating this, the entrant enters
+(<span class="arithmatex">\(1 &gt; 0\)</span>). The subgame perfect equilibrium is (enter, accommodate) with
+payoffs <span class="arithmatex">\((1, 1)\)</span>.</p>
+<p><strong>(b)(iii) A Nash equilibrium that is not subgame perfect.</strong> [5]</p>
+<p>(stay out, fight) is a Nash equilibrium: given the threat to fight, the entrant
+prefers staying out (<span class="arithmatex">\(0 &gt; -1\)</span>); given the entrant stays out, the incumbent's
+node is unreached so fight is a best response. It is not subgame perfect because
+fight is not optimal in the subgame after entry (<span class="arithmatex">\(-1 &lt; 1\)</span>); it is a
+non-credible threat.</p>
+<p><strong>(b)(iv) Normal form.</strong> [3]</p>
+<p>With the entrant as the row player and the incumbent as the column player:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>fight</th>
+<th>accommodate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stay out</td>
+<td><span class="arithmatex">\((0, 2)\)</span></td>
+<td><span class="arithmatex">\((0, 2)\)</span></td>
+</tr>
+<tr>
+<td>enter</td>
+<td><span class="arithmatex">\((-1, -1)\)</span></td>
+<td><span class="arithmatex">\((1, 1)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Checking best responses, the pure Nash equilibria are (stay out, fight) and
+(enter, accommodate), confirming part (iii): the former is the non-subgame-perfect
+one.</p>
+<p><strong>(c) Nash versus subgame perfect.</strong> [3]</p>
+<p>A Nash equilibrium only requires each strategy to be optimal given the others
+along the path of play, so it can rely on non-credible threats off the path. A
+subgame perfect equilibrium additionally requires optimality in every subgame,
+ruling such threats out.</p>
+<p><strong>(d) Existence theorem.</strong> (Bookwork.) [4]</p>
+<p>Every finite game with perfect information has a Nash equilibrium in pure
+strategies, and backward induction identifies one. In games with perfect
+information the equilibrium obtained through backward induction is moreover
+subgame perfect.</p>
+<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
+<p><strong>(a) Sequential rationality.</strong> (Bookwork.) [2]</p>
+<p><strong>Sequential rationality</strong> requires that an optimal strategy for a player
+maximises that player's expected payoff, conditional on every information set at
+which that player has a decision, whether or not it is reached in equilibrium.</p>
+<p><strong>(b)(i) Backward induction.</strong> [3]</p>
+<p>After <span class="arithmatex">\(L\)</span>, player 2 chooses <span class="arithmatex">\(\ell\)</span> (<span class="arithmatex">\(1 &gt; 0\)</span>); after <span class="arithmatex">\(R\)</span>, player 2
+chooses <span class="arithmatex">\(r\)</span> (<span class="arithmatex">\(3 &gt; 2\)</span>). Player 1 then compares <span class="arithmatex">\(L \to (3, 1)\)</span> with
+<span class="arithmatex">\(R \to (1, 3)\)</span> and chooses <span class="arithmatex">\(L\)</span>. The subgame perfect equilibrium is <span class="arithmatex">\(L\)</span>,
+with player 2 playing <span class="arithmatex">\(\ell\)</span> after <span class="arithmatex">\(L\)</span> and <span class="arithmatex">\(r\)</span> after <span class="arithmatex">\(R\)</span>; payoffs
+<span class="arithmatex">\((3, 1)\)</span>.</p>
+<p><strong>(b)(ii) Normal form.</strong> [4]</p>
+<p>Player 2 strategies are (action after <span class="arithmatex">\(L\)</span>, action after <span class="arithmatex">\(R\)</span>):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><span class="arithmatex">\((\ell, \ell)\)</span></th>
+<th><span class="arithmatex">\((\ell, r)\)</span></th>
+<th><span class="arithmatex">\((r, \ell)\)</span></th>
+<th><span class="arithmatex">\((r, r)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(L\)</span></td>
+<td><span class="arithmatex">\((3, 1)\)</span></td>
+<td><span class="arithmatex">\((3, 1)\)</span></td>
+<td><span class="arithmatex">\((0, 0)\)</span></td>
+<td><span class="arithmatex">\((0, 0)\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(R\)</span></td>
+<td><span class="arithmatex">\((2, 2)\)</span></td>
+<td><span class="arithmatex">\((1, 3)\)</span></td>
+<td><span class="arithmatex">\((2, 2)\)</span></td>
+<td><span class="arithmatex">\((1, 3)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>(b)(iii) Pure Nash equilibria.</strong> [4]</p>
+<p>Checking best responses gives <span class="arithmatex">\((L, (\ell, \ell))\)</span>, <span class="arithmatex">\((L, (\ell, r))\)</span> and
+<span class="arithmatex">\((R, (r, r))\)</span>.</p>
+<p><strong>(b)(iv) Subgame perfection.</strong> [4]</p>
+<p>Only <span class="arithmatex">\((L, (\ell, r))\)</span> is subgame perfect: it is the only equilibrium in which
+player 2 acts optimally in both subgames, playing <span class="arithmatex">\(\ell\)</span> after <span class="arithmatex">\(L\)</span> and <span class="arithmatex">\(r\)</span>
+after <span class="arithmatex">\(R\)</span>. Each of the other two specifies a suboptimal action in an unreached
+subgame, but they fail subgame perfection for different reasons.</p>
+<p>In <span class="arithmatex">\((R, (r, r))\)</span>, player 2 plays <span class="arithmatex">\(r\)</span> after <span class="arithmatex">\(L\)</span>, worth <span class="arithmatex">\(0\)</span> rather than the
+optimal <span class="arithmatex">\(\ell\)</span> worth <span class="arithmatex">\(1\)</span>. This is a non-credible threat that does real work:
+it leaves player 1 with <span class="arithmatex">\(0\)</span> from <span class="arithmatex">\(L\)</span> against <span class="arithmatex">\(1\)</span> from <span class="arithmatex">\(R\)</span>, so it deters
+player 1 from <span class="arithmatex">\(L\)</span> and sustains the choice of <span class="arithmatex">\(R\)</span>. Were player 2 to play the
+credible <span class="arithmatex">\(\ell\)</span>, player 1 would get <span class="arithmatex">\(3\)</span> from <span class="arithmatex">\(L\)</span> and switch.</p>
+<p>In <span class="arithmatex">\((L, (\ell, \ell))\)</span>, player 2 plays <span class="arithmatex">\(\ell\)</span> after <span class="arithmatex">\(R\)</span>, worth <span class="arithmatex">\(2\)</span> rather
+than the optimal <span class="arithmatex">\(r\)</span> worth <span class="arithmatex">\(3\)</span>. Here the suboptimal action sustains nothing:
+player 1 prefers <span class="arithmatex">\(L\)</span> regardless of what is specified after <span class="arithmatex">\(R\)</span>, exactly as in
+the subgame perfect equilibrium. The profile survives only because the <span class="arithmatex">\(R\)</span>
+subgame is off the path, so player 2 is indifferent to what is specified there.</p>
+<p><strong>(c)(i) Centipede by backward induction.</strong> [5]</p>
+<ul>
+<li>At the final decision, player 1 compares take <span class="arithmatex">\((4, 2)\)</span> with pass <span class="arithmatex">\((3, 5)\)</span>
+  and takes (<span class="arithmatex">\(4 &gt; 3\)</span>).</li>
+<li>At the middle decision, player 2 compares take <span class="arithmatex">\((1, 3)\)</span> with passing into
+  <span class="arithmatex">\((4, 2)\)</span>, worth <span class="arithmatex">\(2\)</span>, and takes (<span class="arithmatex">\(3 &gt; 2\)</span>).</li>
+<li>At the first decision, player 1 compares take <span class="arithmatex">\((2, 0)\)</span> with passing into
+  <span class="arithmatex">\((1, 3)\)</span>, worth <span class="arithmatex">\(1\)</span>, and takes (<span class="arithmatex">\(2 &gt; 1\)</span>).</li>
+</ul>
+<p><strong>(c)(ii) Subgame perfect outcome.</strong> [3]</p>
+<p>Player 1 takes at the first decision, so the subgame perfect outcome is to stop
+immediately with payoffs <span class="arithmatex">\((2, 0)\)</span>. The prediction is striking because both
+players would do better at the final leaf <span class="arithmatex">\((3, 5)\)</span>: backward induction unravels
+all cooperation from the end, even though passing throughout would leave both
+better off. This tension between the subgame perfect prediction and mutual
+benefit is exactly what makes the centipede game famous.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) Subgame perfection with continuous actions.</strong> [3]</p>
+<p>A subgame perfect equilibrium is a strategy for each firm that induces a Nash
+equilibrium in every subgame. Here the relevant subgames are the leader's choice
+at the root and the follower's choice after each possible <span class="arithmatex">\(q_1\)</span>. Subgame
+perfection requires the follower to choose optimally after every <span class="arithmatex">\(q_1\)</span>, not only
+on the equilibrium path, and the leader to choose optimally anticipating that
+response.</p>
+<p><strong>(b) The follower's best response.</strong> [6]</p>
+<p>After observing <span class="arithmatex">\(q_1\)</span>, the follower solves</p>
+<div class="arithmatex">\[
+\max_{q_2}\ q_2\bigl(a - q_1 - q_2\bigr).
+\]</div>
+<p>The first-order condition is <span class="arithmatex">\(a - q_1 - 2 q_2 = 0\)</span>, giving</p>
+<div class="arithmatex">\[
+q_2(q_1) = \frac{a - q_1}{2}.
+\]</div>
+<p><strong>(c) The leader's choice.</strong> [8]</p>
+<p>The leader anticipates <span class="arithmatex">\(q_2(q_1)\)</span> and solves</p>
+<div class="arithmatex">\[
+\max_{q_1}\ q_1\bigl(a - q_1 - q_2(q_1)\bigr)
+= q_1\left(a - q_1 - \frac{a - q_1}{2}\right)
+= \frac{q_1(a - q_1)}{2}.
+\]</div>
+<p>The first-order condition <span class="arithmatex">\(a - 2 q_1 = 0\)</span> gives <span class="arithmatex">\(q_1 = \dfrac{a}{2}\)</span>, and hence</p>
+<div class="arithmatex">\[
+q_2 = \frac{a - a/2}{2} = \frac{a}{4},
+\qquad Q = \frac{3a}{4},
+\qquad P = a - \frac{3a}{4} = \frac{a}{4}.
+\]</div>
+<p>The profits are</p>
+<div class="arithmatex">\[
+\pi_1 = q_1 P = \frac{a}{2}\cdot\frac{a}{4} = \frac{a^2}{8},
+\qquad
+\pi_2 = q_2 P = \frac{a}{4}\cdot\frac{a}{4} = \frac{a^2}{16}.
+\]</div>
+<p><strong>(d) First-mover advantage.</strong> [8]</p>
+<p>At the Cournot equilibrium each firm produces <span class="arithmatex">\(a/3\)</span> and earns
+<span class="arithmatex">\(\dfrac{a}{3}\bigl(a - \tfrac{2a}{3}\bigr) = \dfrac{a^2}{9}\)</span>. The leader does
+strictly better as first mover, <span class="arithmatex">\(\dfrac{a^2}{8} &gt; \dfrac{a^2}{9}\)</span>, while the
+follower does worse, <span class="arithmatex">\(\dfrac{a^2}{16} &lt; \dfrac{a^2}{9}\)</span>.</p>
+<p>The advantage comes from commitment. By moving first the leader fixes <span class="arithmatex">\(q_1 = a/2\)</span>
+irreversibly, and the follower's best response is to cut back to <span class="arithmatex">\(q_2 = a/4\)</span>.
+The leader cannot gain this way in the simultaneous game, where a plan to produce
+<span class="arithmatex">\(a/2\)</span> is not credible: given the rival also at <span class="arithmatex">\(a/2\)</span>, each would want to
+deviate. Observability is precisely what gives the commitment its bite; the
+follower, seeing the large quantity, rationally accommodates it, and the leader
+captures the larger share.</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

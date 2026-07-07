@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Assessment — {{ site_title }}{% endblock %}
+
+{% block content %}
+
+{{ page.content_html }}
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+{% endblock %}

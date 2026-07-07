@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rationalisation (facilitator notes) — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="facilitator-notes">
+
+<div class="facilitator-banner">
+  <strong>Facilitator notes: not student-facing.</strong>
+  These notes are for planning and running classes.
+  Student resources are at <a href="/">vknight.org/gt/</a>.
+</div>
+
+<h1>Rationalisation</h1>
+
+<h2 id="activity-20-minutes">Activity (20 minutes)</h2>
+<p><strong>Goal.</strong> Let students feel the best response logic before we formalise it.</p>
+<p>Use <a href="/assets/activities/best_responses/main.pdf">best responses</a> and have
+students play against a mixed strategy. Before revealing how the opponent
+plays, ask each pair to guess the opponent's mix and to commit to a response.
+Then play against the actual mixed strategy:</p>
+<pre><code>&gt;&gt;&gt; import random
+&gt;&gt;&gt; random.seed(0)  # Don't seed in class
+&gt;&gt;&gt; ["r_2", "r_1"][random.random() &lt; 0.8]  # 80 percent chance of r_2
+'r_2'
+</code></pre>
+<p>Compare the responses students committed to with the best response to the
+revealed mix.</p>
+<h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
+<p>Discuss the <strong>Rationalisation</strong> chapter.</p>
+<p>Discussion Point: <strong>After the definition of dominance, ask why dominance is not
+relevant to the game we played.</strong></p>
+<p>Discussion Point: <strong>How does the best response condition apply to the matching
+pennies game we played in class?</strong></p>
+<h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
+<p>This activity feeds into the Nash equilibrium material. Use <strong>Question 1 (the in-class activity)</strong> on the <a href="/topics/nash-equilibrium.html">Nash Equilibrium</a> page to show students how the ideas here become a full-mark exam answer.</p>
+
+
+<h2>Communications</h2>
+
+<p>General email templates to send before and after this class. Fill in the
+bracketed placeholders before sending.</p>
+
+<h3>Before class</h3>
+
+<pre><code>Hi all,
+
+A reminder that our next Game Theory class covers Rationalisation.
+
+All of the course materials, including the relevant chapter, are available
+at https://vknight.org/gt/. It is worth skimming the chapter beforehand.
+
+See you in class,
+Vince
+</code></pre>
+
+<h3>After class</h3>
+
+<pre><code>Dear all,
+
+Thanks for your work in today's class on Rationalisation.
+
+A recording is available here [RECORDING LINK] and on Learning Central.
+
+All class resources are available at https://vknight.org/gt/.
+
+Thanks,
+Vince
+</code></pre>
+
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

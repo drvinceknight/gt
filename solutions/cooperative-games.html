@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cooperative Games solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/cooperative-games.html">&larr; Back to Cooperative Games</a></small></p>
+
+<h1 id="cooperative-games-worked-solutions">Cooperative Games: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/cooperative-games.html">Cooperative Games</a> page. Each question is worth
+25 marks.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [5]</p>
+<p>A <strong>characteristic function game</strong> <span class="arithmatex">\(G = (N, v)\)</span> is a set of players <span class="arithmatex">\(N\)</span> with a
+function <span class="arithmatex">\(v : 2^N \to \mathbb{R}\)</span> giving each coalition a worth. The <strong>Shapley
+value</strong> of player <span class="arithmatex">\(i\)</span> is <span class="arithmatex">\(\phi_i = \frac{1}{N!}\sum_{\pi} \Delta_\pi(i)\)</span>, the
+average over all orderings <span class="arithmatex">\(\pi\)</span> of the marginal contribution
+<span class="arithmatex">\(\Delta_\pi(i) = v(S_\pi(i) \cup \{i\}) - v(S_\pi(i))\)</span>, where <span class="arithmatex">\(S_\pi(i)\)</span> is the
+set of players preceding <span class="arithmatex">\(i\)</span> in <span class="arithmatex">\(\pi\)</span>.</p>
+<p><strong>(b) Marginal contribution vectors.</strong> [8]</p>
+<div class="arithmatex">\[
+\begin{aligned}
+(1, 2, 3) &amp;: (2, 3, 5) &amp; (1, 3, 2) &amp;: (2, 4, 4) \\
+(2, 1, 3) &amp;: (4, 1, 5) &amp; (2, 3, 1) &amp;: (6, 1, 3) \\
+(3, 1, 2) &amp;: (4, 4, 2) &amp; (3, 2, 1) &amp;: (6, 2, 2)
+\end{aligned}
+\]</div>
+<p><strong>(c) Shapley value.</strong> [6]</p>
+<div class="arithmatex">\[
+\phi_1 = \frac{2 + 2 + 4 + 6 + 4 + 6}{6} = \frac{24}{6} = 4,
+\quad
+\phi_2 = \frac{3 + 4 + 1 + 1 + 4 + 2}{6} = \frac{15}{6} = \frac{5}{2},
+\quad
+\phi_3 = \frac{5 + 4 + 5 + 3 + 2 + 2}{6} = \frac{21}{6} = \frac{7}{2}.
+\]</div>
+<p>So <span class="arithmatex">\(\phi = \left(4, \tfrac{5}{2}, \tfrac{7}{2}\right)\)</span>.</p>
+<p><strong>(d) Efficiency and interpretation.</strong> [6]</p>
+<p><span class="arithmatex">\(4 + \tfrac{5}{2} + \tfrac{7}{2} = 4 + 6 = 10 = v(N)\)</span>, so the allocation is
+efficient. The three parts are worth only <span class="arithmatex">\(2 + 1 + 2 = 5\)</span> on their own, half of
+<span class="arithmatex">\(v(N) = 10\)</span>, so half of the aid's value comes from the parts reinforcing one
+another. The Shapley value shares this synergy by averaging each part's marginal
+contribution over all six orders. The maths forms the strongest pairs
+(<span class="arithmatex">\(v(\{1, 3\}) = 6\)</span> with the story and <span class="arithmatex">\(v(\{1, 2\}) = 5\)</span> with the picture), so
+the Theorist receives the most, <span class="arithmatex">\(4\)</span>, double the <span class="arithmatex">\(2\)</span> the maths scores alone.
+The picture is weakest both alone (<span class="arithmatex">\(1\)</span>) and in its pairs, so the Artist
+receives the least, <span class="arithmatex">\(\tfrac{5}{2}\)</span>, and the Storyteller receives
+<span class="arithmatex">\(\tfrac{7}{2}\)</span>. The Shapley value is therefore a fair division of the ten: it
+rewards each student by the average value their part adds, not by what it is
+worth in isolation.</p>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [5]</p>
+<ul>
+<li>A <strong>characteristic function game</strong> <span class="arithmatex">\(G = (N, v)\)</span> is given by a set of players
+  <span class="arithmatex">\(N\)</span> and a <strong>characteristic function</strong> <span class="arithmatex">\(v : 2^N \to \mathbb{R}\)</span> mapping every
+  coalition (subset of <span class="arithmatex">\(N\)</span>) to a payoff.</li>
+<li>A <strong>payoff vector</strong> <span class="arithmatex">\(\lambda \in \mathbb{R}_{\ge 0}^N\)</span> allocates the value of
+  the grand coalition among the players, with <span class="arithmatex">\(\sum_{i} \lambda_i = v(N)\)</span>.</li>
+<li>Given a permutation <span class="arithmatex">\(\pi\)</span> of the players, the <strong>marginal contribution</strong> of
+  player <span class="arithmatex">\(i\)</span> is <span class="arithmatex">\(\Delta_\pi^G(i) = v(S_\pi(i) \cup \{i\}) - v(S_\pi(i))\)</span>,
+  where <span class="arithmatex">\(S_\pi(i)\)</span> is the set of players preceding <span class="arithmatex">\(i\)</span> in <span class="arithmatex">\(\pi\)</span>.</li>
+<li>The <strong>Shapley value</strong> of player <span class="arithmatex">\(i\)</span> is
+  <span class="arithmatex">\(\phi_i(G) = \frac{1}{N!} \sum_{\pi} \Delta_\pi^G(i)\)</span>, the average marginal
+  contribution over all <span class="arithmatex">\(N!\)</span> orderings of the players.</li>
+</ul>
+<p><strong>(b)(i) Marginal contribution vectors.</strong> [5]</p>
+<div class="arithmatex">\[
+\begin{aligned}
+(1, 2, 3) &amp;: (0, 90, 30) &amp; (1, 3, 2) &amp;: (0, 40, 80) \\
+(2, 1, 3) &amp;: (90, 0, 30) &amp; (2, 3, 1) &amp;: (50, 0, 70) \\
+(3, 1, 2) &amp;: (80, 40, 0) &amp; (3, 2, 1) &amp;: (50, 70, 0)
+\end{aligned}
+\]</div>
+<p><strong>(b)(ii) Shapley value.</strong> [6]</p>
+<div class="arithmatex">\[
+\phi_1 = \frac{270}{6} = 45, \qquad \phi_2 = \frac{240}{6} = 40, \qquad \phi_3 = \frac{210}{6} = 35.
+\]</div>
+<p>So <span class="arithmatex">\(\phi = (45, 40, 35)\)</span>.</p>
+<p><strong>(b)(iii) Efficiency.</strong> [3]</p>
+<p><span class="arithmatex">\(45 + 40 + 35 = 120 = v(\{1, 2, 3\})\)</span>, so the Shapley value is efficient.</p>
+<p><strong>(c) Interpretation.</strong> [6]</p>
+<p>The Shapley value is the fair allocation of the grand coalition's worth obtained
+by averaging each player's marginal contribution over every order in which the
+coalition could form. It rewards a player according to how much they add, on
+average, to the coalitions they join. It is regarded as fair because of the
+properties it uniquely satisfies: <strong>efficiency</strong> (the whole worth <span class="arithmatex">\(v(N)\)</span> is
+shared out), <strong>symmetry</strong> (players who contribute equally to every coalition get
+equal shares), the <strong>null player</strong> property (a player who never adds value gets
+nothing) and <strong>additivity</strong> (the value of two combined games is the sum of the
+separate values). Together these axioms pin the Shapley value down as the unique
+fair allocation.</p>
+<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
+<p><strong>(a) Properties.</strong> (Bookwork.) [6]</p>
+<ul>
+<li><strong>Efficiency:</strong> <span class="arithmatex">\(\sum_i \phi_i = v(N)\)</span>, the value of the grand coalition.</li>
+<li><strong>Null player:</strong> if <span class="arithmatex">\(v(C \cup \{i\}) = v(C)\)</span> for all coalitions <span class="arithmatex">\(C\)</span>, then
+  <span class="arithmatex">\(\phi_i = 0\)</span>.</li>
+<li><strong>Symmetry:</strong> if <span class="arithmatex">\(v(C \cup \{i\}) = v(C \cup \{j\})\)</span> for all coalitions <span class="arithmatex">\(C\)</span>
+  containing neither <span class="arithmatex">\(i\)</span> nor <span class="arithmatex">\(j\)</span>, then <span class="arithmatex">\(\phi_i = \phi_j\)</span>.</li>
+<li><strong>Additivity:</strong> for two games <span class="arithmatex">\((N, v_1)\)</span> and <span class="arithmatex">\((N, v_2)\)</span>, the Shapley value
+  of their sum is the sum of the Shapley values.</li>
+</ul>
+<p><strong>(b)(i) Shapley value.</strong> [4]</p>
+<p>All players are interchangeable, so by symmetry and efficiency
+(<span class="arithmatex">\(\sum \phi_i = v(N) = 1\)</span>),</p>
+<div class="arithmatex">\[
+\phi = \left(\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3}\right).
+\]</div>
+<p><strong>(b)(ii) Null players.</strong> [2]</p>
+<p>None: each player <span class="arithmatex">\(i\)</span> has <span class="arithmatex">\(v(\{i, j\}) - v(\{j\}) = 1 \neq 0\)</span>, so adding any
+player can change a coalition's worth.</p>
+<p><strong>(c)(i) Null player.</strong> [3]</p>
+<p>Player 3 is a null player: <span class="arithmatex">\(v(S \cup \{3\}) = v(S)\)</span> for every coalition <span class="arithmatex">\(S\)</span>,
+since the worth depends only on whether <span class="arithmatex">\(\{1, 2\} \subseteq S\)</span>.</p>
+<p><strong>(c)(ii) Shapley value.</strong> [5]</p>
+<p>The marginal contribution vectors are</p>
+<div class="arithmatex">\[
+\begin{aligned}
+(1, 2, 3) &amp;: (0, 4, 0) &amp; (1, 3, 2) &amp;: (0, 4, 0) \\
+(2, 1, 3) &amp;: (4, 0, 0) &amp; (2, 3, 1) &amp;: (4, 0, 0) \\
+(3, 1, 2) &amp;: (0, 4, 0) &amp; (3, 2, 1) &amp;: (4, 0, 0)
+\end{aligned}
+\]</div>
+<p>giving <span class="arithmatex">\(\phi_1 = \tfrac{12}{6} = 2\)</span>, <span class="arithmatex">\(\phi_2 = \tfrac{12}{6} = 2\)</span>,
+<span class="arithmatex">\(\phi_3 = 0\)</span>. So <span class="arithmatex">\(\phi = (2, 2, 0)\)</span>.</p>
+<p><strong>(c)(iii) Efficiency, symmetry and interpretation.</strong> [5]</p>
+<p><span class="arithmatex">\(2 + 2 + 0 = 4 = v(N)\)</span>, so the allocation is efficient. Players 1 and 2 are
+symmetric: for any coalition <span class="arithmatex">\(C\)</span> containing neither, <span class="arithmatex">\(\{1, 2\} \not\subseteq C\)</span>
+and <span class="arithmatex">\(\{1, 2\} \not\subseteq C \cup \{1\}\)</span> and likewise for <span class="arithmatex">\(2\)</span>, so
+<span class="arithmatex">\(v(C \cup \{1\}) = v(C \cup \{2\}) = 0\)</span>; by symmetry they receive equal payoffs,
+and indeed <span class="arithmatex">\(\phi_1 = \phi_2 = 2\)</span>. The null player 3 receives nothing, exactly as
+the null player property requires. So the two essential players split the worth
+equally and the player who contributes nothing gets nothing: the Shapley value
+allocates fairly.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) Additivity.</strong> [4]</p>
+<p>The Shapley value <span class="arithmatex">\(\phi\)</span> is additive: for any two games <span class="arithmatex">\(v\)</span> and <span class="arithmatex">\(w\)</span> on the
+same player set, <span class="arithmatex">\(\phi(v + w) = \phi(v) + \phi(w)\)</span>. The game <span class="arithmatex">\(v + w\)</span> is the
+characteristic function game whose worth for each coalition <span class="arithmatex">\(S\)</span> is
+<span class="arithmatex">\((v + w)(S) = v(S) + w(S)\)</span>. Additivity says that if a game splits into a sum of
+simpler games, its Shapley value is the sum of the Shapley values of the parts.</p>
+<p><strong>(b) The unanimity game.</strong> [6]</p>
+<p>In <span class="arithmatex">\(u_T\)</span> a coalition is worth <span class="arithmatex">\(1\)</span> exactly when it contains every member of
+<span class="arithmatex">\(T\)</span>. Any player <span class="arithmatex">\(i \notin T\)</span> is a null player: adding them to a coalition never
+changes whether <span class="arithmatex">\(T\)</span> is contained, so their marginal contribution is always
+<span class="arithmatex">\(0\)</span>, and the null player property gives them <span class="arithmatex">\(0\)</span>. The members of <span class="arithmatex">\(T\)</span> are
+symmetric: interchanging any two of them leaves the game unchanged, so the
+symmetry property gives them equal shares. By efficiency the shares sum to
+<span class="arithmatex">\(u_T(N) = 1\)</span>, so each of the <span class="arithmatex">\(|T|\)</span> members of <span class="arithmatex">\(T\)</span> receives <span class="arithmatex">\(1/|T|\)</span>:</p>
+<div class="arithmatex">\[
+\phi_i(u_T) = \begin{cases} 1/|T| &amp; i \in T, \\ 0 &amp; i \notin T. \end{cases}
+\]</div>
+<p><strong>(c) Applying additivity.</strong> [9]</p>
+<p>Writing out <span class="arithmatex">\(v = 2\, u_{\{1,2\}} + 3\, u_{\{1,2,3\}}\)</span>,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+v(\emptyset) &amp;= 0, &amp; v(\{1\}) = v(\{2\}) = v(\{3\}) &amp;= 0, \\
+v(\{1,2\}) &amp;= 2, &amp; v(\{1,3\}) = v(\{2,3\}) &amp;= 0, \\
+v(\{1,2,3\}) &amp;= 2 + 3 = 5.
+\end{aligned}
+\]</div>
+<p>By part (b), <span class="arithmatex">\(\phi(u_{\{1,2\}}) = \bigl(\tfrac{1}{2}, \tfrac{1}{2}, 0\bigr)\)</span> and
+<span class="arithmatex">\(\phi(u_{\{1,2,3\}}) = \bigl(\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3}\bigr)\)</span>.
+Additivity gives</p>
+<div class="arithmatex">\[
+\phi(v) = 2\left(\tfrac{1}{2}, \tfrac{1}{2}, 0\right)
++ 3\left(\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3}\right)
+= (1, 1, 0) + (1, 1, 1) = (2, 2, 1).
+\]</div>
+<p>The shares sum to <span class="arithmatex">\(5 = v(\{1,2,3\})\)</span>, so the Shapley value is efficient.</p>
+<p><strong>(d) Interpretation.</strong> [6]</p>
+<p>The decomposition reads off each player's share as a sum of contributions, one
+from each unanimity game in the decomposition. Players 1 and 2 each draw
+<span class="arithmatex">\(1\)</span> from the <span class="arithmatex">\(2\, u_{\{1,2\}}\)</span> part, the value that only their pair can unlock,
+and a further <span class="arithmatex">\(1\)</span> from the grand-coalition part <span class="arithmatex">\(3\, u_{\{1,2,3\}}\)</span>; player 3
+draws only from the grand-coalition part. Additivity turns a sum over all six
+orderings into the addition of two known answers. More generally every game can be
+written as a combination of unanimity games, so the Shapley value of any game
+follows from the simple formula in part (b) together with additivity, avoiding the
+<span class="arithmatex">\(n!\)</span> orderings entirely.</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

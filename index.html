@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="textbook-note">
+  <strong>About the textbook.</strong> This course follows the open-source
+  textbook at <a href="https://vknight.org/gtb/">vknight.org/gtb</a>, which
+  contains every topic we cover, together with exercises, worked solutions and
+  the programming material. Not every chapter of the textbook is on the course:
+  the schedule below lists what is examinable, but you are very welcome to read
+  the other chapters too.
+</div>
+
+<h2>Schedule</h2>
+
+
+<div class="week-block">
+  <h3>Week 1 (3 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/about-the-course.html">About the course</a></li>
+    
+    
+    
+    <li><a href="/topics/games.html">Games</a></li>
+    
+    
+    
+    <li><a href="/topics/rationalisation.html">Rationalisation</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 2 (2 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/nash-equilibrium.html">Nash Equilibrium</a></li>
+    
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Normal form games</li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 3 (3 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/subgame-perfection.html">Subgame Perfection</a> <small>(first of two classes)</small></li>
+    
+    
+    
+    <li><a href="/topics/subgame-perfection.html">Subgame Perfection</a> <small>(second of two classes)</small></li>
+    
+    
+    
+    <li><a href="/topics/repeated-games.html">Repeated Games</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 4 (2 classes)</h3>
+  <ul>
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Extensive form and repeated games</li>
+    
+    
+    
+    <li><a href="/topics/direct-reciprocity.html">Direct Reciprocity</a> <small>(first of two classes)</small></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 5 (3 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/direct-reciprocity.html">Direct Reciprocity</a> <small>(second of two classes)</small></li>
+    
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Reciprocity and evolutionary stability</li>
+    
+    
+    
+    <li><a href="/topics/replicator-dynamics.html">Replicator Dynamics</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 6 (2 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/moran-process.html">Moran Process</a> <small>(first of two classes)</small></li>
+    
+    
+    
+    <li><a href="/topics/moran-process.html">Moran Process</a> <small>(second of two classes)</small></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 7 (3 classes)</h3>
+  <ul>
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Evolutionary dynamics (Replicator and Moran)</li>
+    
+    
+    
+    <li><a href="/topics/routing-games.html">Routing Games</a></li>
+    
+    
+    
+    <li><a href="/topics/matching-games.html">Matching Games</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 8 (2 classes)</h3>
+  <ul>
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Routing and matching games</li>
+    
+    
+    
+    <li><a href="/topics/auctions.html">Auctions</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 9 (3 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/social-choice.html">Social Choice</a></li>
+    
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Auctions and social choice</li>
+    
+    
+    
+    <li><a href="/topics/cooperative-games.html">Cooperative Games</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 10 (2 classes)</h3>
+  <ul>
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Cooperative games</li>
+    
+    
+    
+    <li><a href="/topics/mock-exam.html">Mock Exam</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 11 (3 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/mock-exam.html">Mock Exam</a></li>
+    
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Mock Exam</li>
+    
+    
+    
+    <li><a href="/topics/slack.html">Slack</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 12 (2 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/slack.html">Slack</a></li>
+    
+    
+    
+    <li><a href="/topics/slack.html">Slack</a></li>
+    
+    
+  </ul>
+</div>
+
+
+<hr>
+
+<h2>FAQs</h2>
+
+
+<h3>Can I succeed in this course even if I am unsure about my programming ability?</h3>
+<p>Yes. There is no programming required for this course and none of it is assessed.
+The textbook includes optional Python for those who want to explore the ideas
+computationally, but you do not need to write or run any code to do well.</p>
+
+<h3>I see a lot of Python in the textbook. Is it needed for this course?</h3>
+<p>No. There is no programming required for this module: it is not assessed and you
+do not need to write or run any code to do well. The Python in the textbook is
+entirely optional. It is there so you can explore the ideas computationally and
+check your working if you would like to, but you are welcome to ignore it.</p>
+<p>If you do want to try it and are not familiar with Python, these chapters of
+Python For Mathematics on
+<a href="https://vknight.org/pfm/tools-for-mathematics/01-using-notebooks/introduction/main.html">installing and using Python</a>
+and
+<a href="https://vknight.org/pfm/further-information/04-pip-installing/introduction/main.html">installing and using other libraries</a>
+are a good place to start.</p>
+
+<h3>What is a bribentive?</h3>
+<p>A <em>bribentive</em> is a word we use in class for the small rewards handed out during
+some activities. It is a blend of <em>bribe</em> and <em>incentive</em>: the reward is usually
+just a sweet or a chocolate bar, so it is not really a good incentive, more a
+small bribe for engagement. The games still work without it, but it adds a bit
+of fun to the competition.</p>
+
+
+<hr>
+
+<h2><a href="/assessment/">Assessment</a></h2>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

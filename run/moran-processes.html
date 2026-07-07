@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moran Processes (facilitator notes) — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="facilitator-notes">
+
+<div class="facilitator-banner">
+  <strong>Facilitator notes: not student-facing.</strong>
+  These notes are for planning and running classes.
+  Student resources are at <a href="/">vknight.org/gt/</a>.
+</div>
+
+<h1>Moran Processes</h1>
+
+<h2 id="activity-approximately-60-minutes">Activity (approximately 60 minutes)</h2>
+<p><strong>Goal.</strong> Reproduce a Moran process by hand so the birth-death dynamics and
+fixation are felt before they are formalised. This activity is deliberately
+longer than the usual 20 minutes.</p>
+<p>Use <a href="/assets/activities/moran_process/main.pdf">moran process form</a> and have
+students play in pairs.</p>
+<p><strong>Also requires use of dice, allowing for multiples of 4 and 6.</strong> For example:</p>
+<ul>
+<li>1 d12 (12-sided dice), or  </li>
+<li>1 d6 and 1 d4 (the example used in this page), or  </li>
+<li>1 d6 and 1 d8.</li>
+</ul>
+<p><strong>Virtual modification:</strong> use breakout rooms of 4. For dice, show how to use the
+Python <code>random</code> library.</p>
+<p>Explain that we will aim to reproduce a Moran process with <span class="arithmatex">\(n=3\)</span>.</p>
+<p><img alt="" src="/assets/activities/moran_process/moran_process.png" /></p>
+<p>We will do this with the Hawk–Dove game:</p>
+<div class="arithmatex">\[
+A = \begin{pmatrix}
+   0 &amp; 3\\
+   1 &amp; 2
+\end{pmatrix}
+\]</div>
+<p>Recall, this corresponds to sharing of 4 resources:</p>
+<ul>
+<li>two hawks both get nothing;</li>
+<li>a hawk meeting a dove gets 3 out of 4;</li>
+<li>a dove meeting a hawk gets 1 out of 4;</li>
+<li>a dove meeting a dove gets 2 out of 4.</li>
+</ul>
+<p>Give students 5 minutes to write out the fitnesses of each type in each possible
+situation.</p>
+<p>Confirm:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><span class="arithmatex">\(f(\text{hawk})\)</span></th>
+<th><span class="arithmatex">\(f(\text{dove})\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 hawk, 2 doves</td>
+<td><span class="arithmatex">\(0\times0 + 2\times3 = 6\)</span></td>
+<td><span class="arithmatex">\(1\times1 + 1\times2 = 3\)</span></td>
+</tr>
+<tr>
+<td>2 hawks, 1 dove</td>
+<td><span class="arithmatex">\(1\times0 + 1\times3 = 3\)</span></td>
+<td><span class="arithmatex">\(2\times1 + 0\times2 = 2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Give students 5 minutes to write out the probabilities of selection of each type
+in each possible situation.</p>
+<p>Confirm:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Select</th>
+<th>Selection: birth</th>
+<th>Selection: death</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 hawk, 2 doves</td>
+<td>hawk</td>
+<td><span class="arithmatex">\(\frac{6}{6 + 2\times3}\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{3}\)</span></td>
+</tr>
+<tr>
+<td>1 hawk, 2 doves</td>
+<td>dove</td>
+<td><span class="arithmatex">\(\frac{2\times3}{6 + 2\times3}\)</span></td>
+<td><span class="arithmatex">\(\frac{2}{3}\)</span></td>
+</tr>
+<tr>
+<td>2 hawks, 1 dove</td>
+<td>hawk</td>
+<td><span class="arithmatex">\(\frac{2\times3}{2\times3 + 2}\)</span></td>
+<td><span class="arithmatex">\(\frac{2}{3}\)</span></td>
+</tr>
+<tr>
+<td>2 hawks, 1 dove</td>
+<td>dove</td>
+<td><span class="arithmatex">\(\frac{2}{2\times3 + 2}\)</span></td>
+<td><span class="arithmatex">\(\frac{1}{3}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Let students simulate.</strong></p>
+<p>Count from groups to obtain mean fixation rate of a hawk.</p>
+<p>Show the following code that allows us to simulate the simulation undertaken by
+the students (this is not the same code as in the notes):</p>
+<pre><code class="language-python">import collections
+import matplotlib.pyplot as plt
+import numpy as np
+import tqdm
+
+def roll_n_sided_dice(n=6):
+    &quot;&quot;&quot;Roll a dice with n sides.&quot;&quot;&quot;
+    return np.random.randint(1, n + 1)
+
+class MoranProcess:
+    &quot;&quot;&quot;
+    A class for a Moran process with a population of size n=3 using the
+    standard hawk-dove game:
+
+        A = [[0, 3],
+             [1, 2]]
+
+    Note that this is a simulation corresponding to an in-class activity
+    where students roll dice.
+    &quot;&quot;&quot;
+    def __init__(self, number_of_hawks=1, seed=None):
+        if seed is not None:
+            np.random.seed(seed)
+
+        self.number_of_hawks = number_of_hawks
+        self.number_of_doves = 3 - number_of_hawks
+
+        self.dice_and_values_for_hawk_birth = {1: (6, {1, 2, 3}), 2: (4, {1, 2, 3})}
+        self.dice_and_values_for_hawk_death = {1: (6, {1, 2}), 2: (6, {1, 2, 3, 4})}
+
+        self.history = [(self.number_of_hawks, self.number_of_doves)]
+
+    def step(self):
+        &quot;&quot;&quot;Select a hawk or a dove for birth and death, then update.&quot;&quot;&quot;
+        birth_dice, birth_values = self.dice_and_values_for_hawk_birth[self.number_of_hawks]
+        death_dice, death_values = self.dice_and_values_for_hawk_death[self.number_of_hawks]
+
+        select_hawk_for_birth = self.roll_dice_for_selection(dice=birth_dice, values=birth_values)
+        select_hawk_for_death = self.roll_dice_for_selection(dice=death_dice, values=death_values)
+
+        if select_hawk_for_birth:
+            self.number_of_hawks += 1
+        else:
+            self.number_of_doves += 1
+
+        if select_hawk_for_death:
+            self.number_of_hawks -= 1
+        else:
+            self.number_of_doves -= 1
+
+        self.history.append((self.number_of_hawks, self.number_of_doves))
+
+    def roll_dice_for_selection(self, dice, values):
+        &quot;&quot;&quot;Return True if the roll is in the target set.&quot;&quot;&quot;
+        return roll_n_sided_dice(n=dice) in values
+
+    def simulate(self):
+        &quot;&quot;&quot;Run the simulation until the number of hawks is 0 or 3.&quot;&quot;&quot;
+        while self.number_of_hawks in [1, 2]:
+            self.step()
+        return self.number_of_hawks
+
+    def __len__(self):
+        return len(self.history)
+</code></pre>
+<p>This carries out the simulations:</p>
+<pre><code class="language-python">repetitions = 10 ** 5
+end_states = []
+path_lengths = []
+
+for seed in range(repetitions):
+    mp = MoranProcess(seed=seed)
+    end_states.append(mp.simulate())
+    path_lengths.append(len(mp))
+
+counts = collections.Counter(end_states)
+counts[3] / repetitions
+# ≈ 0.54666
+</code></pre>
+<p>Discuss obtaining theoretic probabilities of changing state:</p>
+<div class="arithmatex">\[
+p_{10}=\frac{6}{12}\frac{1}{3}=\frac{1}{6}\qquad
+p_{12}=\frac{6}{12}\frac{2}{3}=\frac{1}{3}\qquad
+p_{21}=\frac{2}{8}\frac{2}{3}=\frac{1}{6}\qquad
+p_{23}=\frac{6}{8}\frac{1}{3}=\frac{1}{4}
+\]</div>
+<p><strong>Now work through the notes, culminating in the proof of the theorem for the
+absorption probabilities of a birth–death process.</strong></p>
+<p>Discuss and use code from the chapter to show the fixation with the hawk–dove
+game:</p>
+<pre><code class="language-python">a = np.array([[0, 3], [1, 2]])
+</code></pre>
+<p>Calculate theoretic value using the formula from the theorem:</p>
+<div class="arithmatex">\[
+\begin{align*}
+f_{1i} &amp;= \frac{3(n-i)}{n - 1} = 3\frac{n-i}{n-1} \\
+f_{2i} &amp;= \frac{i + 2(n - i -1)}{n - 1} = \frac{2n - 2 - i}{n - 1}
+\end{align*}
+\]</div>
+<p>This gives (for <span class="arithmatex">\(n=3\)</span>):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><span class="arithmatex">\(i=1\)</span></th>
+<th><span class="arithmatex">\(i=2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(f_{1i}\)</span></td>
+<td>3</td>
+<td>3/2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(f_{2i}\)</span></td>
+<td>3/2</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\gamma_i\)</span></td>
+<td>1/2</td>
+<td>2/3</td>
+</tr>
+</tbody>
+</table>
+<p>Thus:</p>
+<div class="arithmatex">\[
+x_1 = \frac{1}{1 + 1/2 + 1/2\times2/3} = \frac{1}{11/6} \approx 0.545455
+\]</div>
+<h2 id="discussion">Discussion</h2>
+<p>Work through the Moran Process chapter.</p>
+<p>Discussion Point: After the definition of the moran process, ask how this differs from our example?</p>
+<p>Discussion Point: After the definition of fixation probability, ask what the fixation probability of a hawk is based on our simulation?</p>
+<p>Discussion Point: After the theoretic fixation in two types ask how this could be used for our example? Leave this as an exercise.</p>
+<h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
+<p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="/topics/moran-process.html">Moran Process</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
+
+
+<h2>Communications</h2>
+
+<p>General email templates to send before and after this class. Fill in the
+bracketed placeholders before sending.</p>
+
+<h3>Before class</h3>
+
+<pre><code>Hi all,
+
+A reminder that our next Game Theory class covers Moran Processes.
+
+All of the course materials, including the relevant chapter, are available
+at https://vknight.org/gt/. It is worth skimming the chapter beforehand.
+
+See you in class,
+Vince
+</code></pre>
+
+<h3>After class</h3>
+
+<pre><code>Dear all,
+
+Thanks for your work in today's class on Moran Processes.
+
+A recording is available here [RECORDING LINK] and on Learning Central.
+
+All class resources are available at https://vknight.org/gt/.
+
+Thanks,
+Vince
+</code></pre>
+
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

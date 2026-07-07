@@ -1,17 +1,42 @@
-_site
-docs/_build/
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
+# Python
+__pycache__/
+.venv/
+env/
+
+# macOS
+.DS_Store
 *DS_Store
+
+# Old Jekyll artefacts
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+Gemfile.lock
+
+# Jupyter
 */.ipynb_checkpoints/*
+**checkpoint**
+
+# Assessment files
 assets/assessment/**/*.xlsx
 assets/assessment/**/*.numbers
 assets/assessment/**/submissions/
+
+# Student marks (grade data must stay out of the repo)
+assets/**/marks/
+
+# LaTeX build artefacts
 *.aux
+*.bcf
 *.fdb_latexmk
 *.fls
 *.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
 *.xdv
-**checkpoint**

@@ -1,0 +1,182 @@
+title: Direct reciprocity
+pick: 5
+questions:
+  - q: "A reactive strategy \\((p, q)\\) in the Prisoner's Dilemma means ..."
+    options:
+      - text: "cooperate with probability \\(p\\) after the opponent cooperated, and \\(q\\) after they defected"
+        correct: true
+      - text: "cooperate on the first \\(p\\) rounds, then defect"
+      - text: "play \\(p\\) against cooperators and \\(q\\) against everyone else"
+      - text: "always cooperate with probability \\(p + q\\)"
+    explain: "A reactive strategy conditions only on the opponent's last action."
+
+  - q: "Tit For Tat is the reactive strategy ..."
+    options:
+      - text: "\\((1, 0)\\)"
+        correct: true
+      - text: "\\((0, 0)\\)"
+      - text: "\\((1, 1)\\)"
+      - text: "\\((1/2, 1/2)\\)"
+    explain: "Tit For Tat cooperates after cooperation (\\(p=1\\)) and defects after defection (\\(q=0\\))."
+
+  - q: "When two reactive strategies play, the pair of actions each round forms ..."
+    options:
+      - text: "a Markov chain on the states \\((CC, CD, DC, DD)\\)"
+        correct: true
+      - text: "a zero sum game"
+      - text: "an extensive form game"
+      - text: "a single fixed outcome"
+    explain: "The next state depends only on the current one, so the play is a Markov chain."
+
+  - q: "The stationary distribution of this Markov chain gives ..."
+    options:
+      - text: "the long-run fraction of rounds spent in each state, used to find average payoffs"
+        correct: true
+      - text: "the number of rounds the game lasts"
+      - text: "each player's first move"
+      - text: "the Nash equilibrium of the stage game"
+    explain: "Averaging stage payoffs against the stationary distribution gives long-run payoffs."
+
+  - q: "Why does Tit For Tat need care with the stationary-distribution method?"
+    options:
+      - text: "its values \\((1, 0)\\) lie on the boundary, so the chain may not be ergodic"
+        correct: true
+      - text: "it has more than two actions"
+      - text: "it is not a reactive strategy"
+      - text: "it always cooperates"
+    explain: "Boundary values can make the chain periodic or reducible, so no unique stationary distribution need exist."
+
+  - q: "A Markov chain is ergodic if it is ..."
+    options:
+      - text: "irreducible and aperiodic, so it has a unique stationary distribution"
+        correct: true
+      - text: "zero sum"
+      - text: "symmetric"
+      - text: "finite"
+    explain: "Ergodicity (irreducible and aperiodic) guarantees convergence to a unique stationary distribution."
+
+  - q: "A reactive strategy conditions its move on ..."
+    options:
+      - text: "the opponent's action in the previous round only"
+        correct: true
+      - text: "the entire history of play"
+      - text: "the round number"
+      - text: "its own first move"
+    explain: "Reactive strategies look only at the opponent's last action."
+
+  - q: "In the state labelling \\((CC, CD, DC, DD)\\), the state \\(CD\\) means ..."
+    options:
+      - text: "player 1 cooperated and player 2 defected"
+        correct: true
+      - text: "both players cooperated"
+      - text: "both players defected"
+      - text: "player 1 defected and player 2 cooperated"
+    explain: "The first letter is player 1's action, the second is player 2's."
+
+  - q: "A player's long-run average payoff is computed as ..."
+    options:
+      - text: "the stationary distribution weighted by that player's stage payoffs"
+        correct: true
+      - text: "the payoff in the first round"
+      - text: "the largest stage payoff"
+      - text: "the number of cooperative rounds"
+    explain: "Averaging the stage payoffs against the stationary distribution gives the long-run payoff."
+
+  - q: "Reactive strategies are a subclass of ..."
+    options:
+      - text: "memory-one strategies"
+        correct: true
+      - text: "dominant strategies"
+      - text: "zero-determinant strategies only"
+      - text: "pure strategies only"
+    explain: "Memory-one strategies condition on the full last outcome; reactive ones use only the opponent's move."
+
+  - q: "Generous Tit For Tat is the reactive strategy ..."
+    options:
+      - text: "\\((1, \\epsilon)\\) for a small \\(\\epsilon > 0\\)"
+        correct: true
+      - text: "\\((0, 0)\\)"
+      - text: "\\((1, 1)\\)"
+      - text: "\\((0, 1)\\)"
+    explain: "It plays Tit For Tat but occasionally forgives a defection."
+
+  - q: "The stationary distribution \\(\\pi\\) of a transition matrix \\(M\\) satisfies ..."
+    options:
+      - text: "\\(\\pi M = \\pi\\)"
+        correct: true
+      - text: "\\(\\pi M = 0\\)"
+      - text: "\\(M \\pi = M\\)"
+      - text: "\\(\\pi = M\\)"
+    explain: "A stationary distribution is unchanged by one step of the chain."
+
+  - q: "When Tit For Tat meets Always Defect (both starting by cooperating), play settles at ..."
+    options:
+      - text: "mutual defection"
+        correct: true
+      - text: "mutual cooperation"
+      - text: "alternating cooperation and defection forever"
+      - text: "Tit For Tat always winning"
+    explain: "After one exploited round the play reaches the absorbing state \\(DD\\)."
+
+  - q: "The first move of a reactive strategy is ..."
+    options:
+      - text: "set separately, since there is no previous round to react to"
+        correct: true
+      - text: "always defection"
+      - text: "determined by \\(q\\)"
+      - text: "irrelevant to the long run"
+    explain: "With no history yet, the opening move must be specified on its own."
+
+  - q: "Tit For Tat does well in tournaments because it is ..."
+    options:
+      - text: "nice, retaliatory and forgiving"
+        correct: true
+      - text: "always the first to defect"
+      - text: "never willing to cooperate"
+      - text: "purely random"
+    explain: "These three traits let it cooperate with cooperators while resisting exploitation."
+
+  - q: "In a reactive strategy \\((p, q)\\), the value \\(p\\) is the probability of cooperating when the opponent ..."
+    options:
+      - text: "cooperated on the previous round"
+        correct: true
+      - text: "defected on the previous round"
+      - text: "has never moved"
+      - text: "cooperates on the current round"
+    explain: "\\(q\\) is the corresponding probability of cooperating after the opponent defected."
+
+  - q: "Always Defect is the reactive strategy ..."
+    options:
+      - text: "\\((0, 0)\\)"
+        correct: true
+      - text: "\\((1, 1)\\)"
+      - text: "\\((1, 0)\\)"
+      - text: "\\((1/2, 1/2)\\)"
+    explain: "It cooperates with probability 0 whatever the opponent did; Always Cooperate is \\((1,1)\\)."
+
+  - q: "The Markov chain of two reactive strategies has state space ..."
+    options:
+      - text: "\\(\\{CC, CD, DC, DD\\}\\)"
+        correct: true
+      - text: "\\(\\{C, D\\}\\)"
+      - text: "\\(\\{0, 1\\}\\)"
+      - text: "\\(\\{CC, DD\\}\\)"
+    explain: "Each state records the pair of actions played by the two players in a round."
+
+  - q: "In the closed-form stationary distribution, the quantity \\(r_1\\) is defined as ..."
+    options:
+      - text: "\\(p - q\\)"
+        correct: true
+      - text: "\\(p + q\\)"
+      - text: "\\(pq\\)"
+      - text: "\\(p / q\\)"
+    explain: "With \\(r_1 = p - q\\) and \\(r_2 = p' - q'\\) the steady-state cooperation rates have a closed form."
+
+  - q: "Zero-determinant strategies are memory-one strategies that ..."
+    options:
+      - text: "are not reactive (they condition on the full previous outcome)"
+        correct: true
+      - text: "ignore all history"
+      - text: "are the same as Tit For Tat"
+      - text: "cooperate with probability 1"
+    explain: "Reactive strategies condition only on the opponent's last move; memory-one is the broader class."

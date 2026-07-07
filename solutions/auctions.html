@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auctions solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/auctions.html">&larr; Back to Auctions</a></small></p>
+
+<h1 id="auctions-worked-solutions">Auctions: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/auctions.html">Auctions</a> page. Each question is worth 25 marks.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) Second-price auction.</strong> [3]</p>
+<p>In a second-price (Vickrey) auction each bidder submits one sealed bid; the
+highest bidder wins and pays the second-highest bid, not their own.</p>
+<p><strong>(b) Truthful outcome.</strong> [4]</p>
+<p>With truthful bids <span class="arithmatex">\(10, 7, 4\)</span>, bidder 1 wins (highest bid) and pays the
+second-highest bid <span class="arithmatex">\(7\)</span>, for a payoff of <span class="arithmatex">\(10 - 7 = 3\)</span>.</p>
+<p><strong>(c) Truthful bidding is weakly dominant.</strong> [9]</p>
+<p>Fix the others' bids and let <span class="arithmatex">\(m\)</span> be the highest of them. Bidding the true value
+<span class="arithmatex">\(10\)</span>: when <span class="arithmatex">\(10 &gt; m\)</span> bidder 1 wins and pays <span class="arithmatex">\(m\)</span> for payoff <span class="arithmatex">\(10 - m \ge 0\)</span>;
+when <span class="arithmatex">\(10 &lt; m\)</span> they lose, for payoff <span class="arithmatex">\(0\)</span>. Compare other bids:</p>
+<ul>
+<li>Bidding above <span class="arithmatex">\(10\)</span> only changes the outcome when <span class="arithmatex">\(m\)</span> lies between <span class="arithmatex">\(10\)</span> and
+  the higher bid, in which case they win but pay <span class="arithmatex">\(m &gt; 10\)</span>, a negative payoff;
+  otherwise nothing changes. Never better.</li>
+<li>Bidding below <span class="arithmatex">\(10\)</span> only changes the outcome when <span class="arithmatex">\(m\)</span> lies between the lower
+  bid and <span class="arithmatex">\(10\)</span>, in which case they now lose (<span class="arithmatex">\(0\)</span>) instead of winning for
+  <span class="arithmatex">\(10 - m &gt; 0\)</span>; otherwise nothing changes. Never better.</li>
+</ul>
+<p>So bidding <span class="arithmatex">\(10\)</span> is at least as good as any other bid, whatever the others do: it
+is weakly dominant.</p>
+<p><strong>(d) Why this matters.</strong> [7]</p>
+<p>Because truthful bidding is weakly dominant, a bidder need not know or guess the
+others' values or bids to bid optimally, so bidding is simple. Since the
+highest-value bidder wins, the outcome is also efficient.</p>
+<p><strong>(e) First-price.</strong> [2]</p>
+<p>No. In a first-price auction the winner pays their own bid, so bidding the true
+value <span class="arithmatex">\(10\)</span> and winning gives payoff <span class="arithmatex">\(10 - 10 = 0\)</span>. A bidder does strictly
+better by shading their bid below their value, and the best amount to shade
+depends on the other bidders' behaviour, so truthful bidding is neither dominant
+nor optimal.</p>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [3]</p>
+<ul>
+<li>An <strong>auction game</strong> with <span class="arithmatex">\(N\)</span> bidders consists of private valuations <span class="arithmatex">\(v_i\)</span>
+  drawn from random variables <span class="arithmatex">\(V_i\)</span>, bids <span class="arithmatex">\(b_i\)</span> from bidding strategies
+  <span class="arithmatex">\(b_i : V_i \to B_i\)</span>, an allocation rule <span class="arithmatex">\(q\)</span> and a payment rule <span class="arithmatex">\(p\)</span>; the
+  utility of bidder <span class="arithmatex">\(i\)</span> is <span class="arithmatex">\(u_i = v_i q_i - p_i\)</span>.</li>
+<li>A <strong>Bayesian Nash equilibrium</strong> is a strategy profile in a game of incomplete
+  information such that, given their own type, each player's strategy maximises
+  their expected utility, assuming the other players' strategies are fixed and
+  beliefs about types are correct.</li>
+<li>A <strong>weakly dominant strategy</strong> is at least as good as any other strategy
+  against every opponent profile, and strictly better against at least one.</li>
+</ul>
+<p><strong>(b)(i) Truthful bidding is weakly dominant.</strong> [7]</p>
+<p>Fix the others' bids and let <span class="arithmatex">\(m\)</span> be the highest. Bidding <span class="arithmatex">\(b\)</span> wins when
+<span class="arithmatex">\(b &gt; m\)</span>, paying <span class="arithmatex">\(m\)</span>, for payoff <span class="arithmatex">\(v - m\)</span>, else <span class="arithmatex">\(0\)</span>.</p>
+<ul>
+<li>If <span class="arithmatex">\(v &gt; m\)</span>: bidding <span class="arithmatex">\(v\)</span> wins for <span class="arithmatex">\(v - m \ge 0\)</span>; any <span class="arithmatex">\(b &gt; m\)</span> gives the
+  same, any <span class="arithmatex">\(b \le m\)</span> gives <span class="arithmatex">\(0 \le v - m\)</span>.</li>
+<li>If <span class="arithmatex">\(v &lt; m\)</span>: bidding <span class="arithmatex">\(v\)</span> gives <span class="arithmatex">\(0\)</span>; any <span class="arithmatex">\(b &gt; m\)</span> gives <span class="arithmatex">\(v - m &lt; 0\)</span>, any
+  <span class="arithmatex">\(b \le m\)</span> gives <span class="arithmatex">\(0\)</span>.</li>
+<li>If <span class="arithmatex">\(v = m\)</span>: every bid gives <span class="arithmatex">\(0\)</span>.</li>
+</ul>
+<p>So bidding <span class="arithmatex">\(v\)</span> is always at least as good, hence weakly dominant.</p>
+<p><strong>(b)(ii) Equilibrium.</strong> [2]</p>
+<p>Every bidder bidding their own value, <span class="arithmatex">\(b(v) = v\)</span>, is a Bayesian Nash
+equilibrium.</p>
+<p><strong>(c)(i) Expected revenue.</strong> [5]</p>
+<p>The winner pays the second-highest value <span class="arithmatex">\(\min(v_1, v_2)\)</span>, so</p>
+<div class="arithmatex">\[
+R = \mathbb{E}[\min(v_1, v_2)] = \tfrac{1}{3}.
+\]</div>
+<p><strong>(c)(ii) Winner's expected payoff.</strong> [5]</p>
+<p>The winner has value <span class="arithmatex">\(\max(v_1, v_2)\)</span> and pays <span class="arithmatex">\(\min(v_1, v_2)\)</span>, so the
+expected payoff is</p>
+<div class="arithmatex">\[
+\mathbb{E}[\max(v_1, v_2) - \min(v_1, v_2)] = \mathbb{E}|v_1 - v_2| = \tfrac{1}{3}.
+\]</div>
+<p><strong>(c)(iii) Revenue equivalence.</strong> [3]</p>
+<p>By the revenue equivalence theorem, the first-price auction for the same two
+uniform bidders raises the <em>same</em> expected revenue, <span class="arithmatex">\(\tfrac{1}{3}\)</span>, even though
+the winner pays their own (shaded) bid rather than the second value.</p>
+<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
+<p><strong>(a) Equilibrium bid.</strong> (Bookwork.) [3]</p>
+<div class="arithmatex">\[
+b(v) = \frac{N - 1}{N}\, v, \qquad \text{which for } N = 2 \text{ gives } b(v) = v/2.
+\]</div>
+<p><strong>(b)(i) Expected revenue.</strong> [5]</p>
+<p>The winner pays <span class="arithmatex">\(\max(v_1, v_2)/2\)</span>, so</p>
+<div class="arithmatex">\[
+R = \tfrac{1}{2}\,\mathbb{E}[\max(v_1, v_2)] = \tfrac{1}{2}\times\tfrac{2}{3} = \tfrac{1}{3}.
+\]</div>
+<p><strong>(b)(ii) Interim expected payoff.</strong> [5]</p>
+<p>A bidder with value <span class="arithmatex">\(v\)</span> wins when the other's value is below <span class="arithmatex">\(v\)</span>, which has
+probability <span class="arithmatex">\(v\)</span>, and then pays <span class="arithmatex">\(v/2\)</span>:</p>
+<div class="arithmatex">\[
+(v - \tfrac{v}{2})\cdot v = \frac{v^2}{2}.
+\]</div>
+<p><strong>(b)(iii) Second-price revenue.</strong> [4]</p>
+<p>The second-price auction raises <span class="arithmatex">\(\mathbb{E}[\min(v_1, v_2)] = \tfrac{1}{3}\)</span>, the
+same as the first-price auction. This is the revenue equivalence theorem: the two
+formats raise equal expected revenue.</p>
+<p><strong>(c) Intuition.</strong> [5]</p>
+<p>Both auctions award the item to the highest-value bidder and give a bidder with
+value <span class="arithmatex">\(0\)</span> zero expected surplus. Under these conditions a bidder's expected
+payment is pinned down by their value alone, so the expected payments, and hence
+the seller's revenue, coincide across the two formats.</p>
+<p><strong>(d) Conditions.</strong> [3]</p>
+<p>Revenue equivalence requires that the two auctions (i) always allocate the item to
+the bidder with the highest value, and (ii) give a bidder with the lowest possible
+value (here <span class="arithmatex">\(v = 0\)</span>) zero expected surplus. Both hold here: each format awards
+the item to the highest bidder, and a bidder with value <span class="arithmatex">\(0\)</span> never profits in
+either, so the theorem applies and the revenues coincide.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) Winning probability and expected payoff.</strong> [6]</p>
+<p>Because <span class="arithmatex">\(b\)</span> is strictly increasing, bidder 1's bid <span class="arithmatex">\(b(z)\)</span> beats another
+bidder's bid <span class="arithmatex">\(b(v_j)\)</span> precisely when <span class="arithmatex">\(z &gt; v_j\)</span>. The <span class="arithmatex">\(N - 1\)</span> other values are
+independent and uniform on <span class="arithmatex">\([0, 1]\)</span>, so</p>
+<div class="arithmatex">\[
+\mathbb{P}(\text{win}) = \mathbb{P}(v_j &lt; z \text{ for all } j \neq 1) = z^{N-1},
+\]</div>
+<p>ties having probability zero. Winning yields a surplus <span class="arithmatex">\(v - b(z)\)</span> and the bidder
+pays only on winning, while losing yields zero, so</p>
+<div class="arithmatex">\[
+U(z) = z^{N-1}\bigl(v - b(z)\bigr).
+\]</div>
+<p><strong>(b) The equilibrium bid.</strong> [10]</p>
+<p>Differentiating,</p>
+<div class="arithmatex">\[
+U'(z) = (N-1) z^{N-2}\bigl(v - b(z)\bigr) - z^{N-1} b'(z).
+\]</div>
+<p>Optimality at <span class="arithmatex">\(z = v\)</span> requires <span class="arithmatex">\(U'(v) = 0\)</span>:</p>
+<div class="arithmatex">\[
+(N-1) v^{N-2}\bigl(v - b(v)\bigr) - v^{N-1} b'(v) = 0.
+\]</div>
+<p>Expanding and rearranging,</p>
+<div class="arithmatex">\[
+(N-1) v^{N-1}
+= (N-1) v^{N-2} b(v) + v^{N-1} b'(v)
+= \frac{d}{dv}\bigl[v^{N-1} b(v)\bigr].
+\]</div>
+<p>Integrating from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(v\)</span> and using <span class="arithmatex">\(b(0) = 0\)</span>,</p>
+<div class="arithmatex">\[
+v^{N-1} b(v) = (N-1) \int_0^v t^{N-1}\, dt = (N-1)\frac{v^N}{N},
+\qquad \text{so} \qquad
+b(v) = \frac{N-1}{N}\, v.
+\]</div>
+<p>A bidder shades their bid below their value, and the shading shrinks as <span class="arithmatex">\(N\)</span>
+grows: more competition pushes bids towards the value.</p>
+<p><strong>(c) Expected revenue.</strong> [5]</p>
+<p>The seller receives the winning bid, <span class="arithmatex">\(b\)</span> evaluated at the largest value:</p>
+<div class="arithmatex">\[
+\mathbb{E}[\text{revenue}]
+= \mathbb{E}\!\left[b\Bigl(\max_i v_i\Bigr)\right]
+= \frac{N-1}{N}\, \mathbb{E}\!\left[\max_i v_i\right].
+\]</div>
+<p>For <span class="arithmatex">\(N\)</span> independent uniform values <span class="arithmatex">\(\mathbb{E}[\max_i v_i] = \dfrac{N}{N+1}\)</span>,
+so the expected revenue is
+<span class="arithmatex">\(\dfrac{N-1}{N} \cdot \dfrac{N}{N+1} = \dfrac{N-1}{N+1}\)</span>.</p>
+<p><strong>(d) Revenue equivalence.</strong> [4]</p>
+<p>The revenue equivalence theorem states that, when values are independent and
+identically distributed, any two auctions that always award the item to the
+highest-value bidder and give a bidder with the lowest possible value zero
+expected surplus raise the same expected revenue for the seller. In the
+second-price auction the winner pays the second-highest value, so the expected
+revenue is the expected second-highest of <span class="arithmatex">\(N\)</span> uniform values,
+<span class="arithmatex">\(\dfrac{N-1}{N+1}\)</span>, the same as in part (c).</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

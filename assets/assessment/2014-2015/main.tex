@@ -1,0 +1,208 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usetikzlibrary{shapes, arrows, positioning}
+
+
+\usepackage{amsmath,amssymb,mdframed}            % AMS package gives better equation layouts
+\setcounter{page}{2}                    % sets first page number to 2
+\setlength{\oddsidemargin}{-0.25in}     % set left margin
+\setlength{\textwidth}{6.5in}           % set text width
+\setlength{\topmargin}{-0.5in}          % controls layout at
+\setlength{\headsep}{1cm}             % top of page
+\setlength{\textheight}{9.0in}          % set text length
+
+
+
+\makeatletter
+\renewcommand{\@oddhead}{\hfill MA3600/15}  % sets header
+\renewcommand{\@oddfoot}{\hfil \arabic{page} \hfil}    % sets page footer
+\makeatother
+
+\renewcommand{\labelenumi}{\arabic{enumi}} % Sets the first level of enumerate to be arabic (normal) numbers
+\renewcommand{\labelenumii}{(\alph{enumii})} %Sets the second level of enumerate to be (a), (b), (c), .....
+\renewcommand{\labelenumiii}{(\roman{enumiii})} % Sets the third level of enumerate to be (i), (ii), (iii), ....
+
+
+
+\begin{document}
+\begin{enumerate}
+\setcounter{enumi}{3}
+
+\renewcommand\labelenumi{\bfseries\theenumi.}
+
+\item
+
+    \begin{enumerate}
+        \item Provide definitions for the following terms:
+            \begin{itemize}
+                \item Normal form game.
+
+                \item Strictly dominated strategy.
+
+                \item Weakly dominated strategy.
+
+                \item Best response strategy.
+
+                \item Nash equilibrium.
+
+                    ~\hfill{[5]}
+            \end{itemize}
+
+        \item     Consider the following game:
+
+            \[\begin{pmatrix}
+            (7,3) & (0,2)\\
+            (2,0) & (6,2)\\
+            \end{pmatrix}\]
+
+            \begin{enumerate}
+            \item By clearly stating the techniques used, obtain all (if any) pure Nash equilibria.
+
+            ~\hfill{[4]}
+
+            \item Sketch the utilities to player 1 (the row player) assuming that the 2nd player (the column player) plays a mixed strategy: $\sigma_2 = (y,1-y)$.
+
+            ~\hfill{[2]}
+
+            \item Sketch the utilities to player 2 (the column player) assuming that the 1st player (the row player) plays a mixed strategy: $\sigma_1 = (x,1-x)$.
+
+            ~\hfill{[2]}
+
+            \item State, prove and use the Equality of Payoffs theorem to obtain all Nash equilibria for the game.
+
+            ~\hfill{[6]}
+
+            \item Consider the same game with an extra strategy for the row player:
+
+                \[\begin{pmatrix}
+                (7,3) & (0,2)\\
+                (3,1) & (3,1)\\
+                (2,0) & (6,2)\\
+                \end{pmatrix}\]
+
+                By directly calculating the set of best response strategies \(B_1\) for the row player, obtain all Nash equilibria for this new game.
+                State any theorem(s) used.
+
+            ~\hfill{[6]}
+
+        \end{enumerate}
+    \end{enumerate}
+
+\newpage
+\item
+    This question considers evolutionary population games.
+    Throughout, the following game is considered:
+
+    Road users in a given country can choose to drive on either the left (\(L\)) side or the right (\(R\)) side of the road.
+    The strategy set in this game is \(S=\{L, R\}\).
+
+    If all users drive on the same side of the road then no accidents will occur.
+    If users drive on the opposite side and meet each other then they may have an accident.
+
+    Considering a population vertor \(\chi=(x,1-x)\) where \(x\) is the proportion of the population using strategy \(L\), the utilities are given by:
+
+    \[u(L,\chi)=1+x\]
+    and
+    \[u(R,\chi)=1+(1-x)\]
+
+
+    \begin{enumerate}
+
+            \item Define a stable strategy in a population game.
+
+            \hfill[2]
+
+            \item State and prove a theorem giving a necessary condition for stable strategies.
+                Use this theorem to obtain all potential evolutionary stable strategies in the described game.
+
+            \hfill[6]
+
+            \item Define a post entry population.
+
+            \hfill[2]
+
+            \item Define an evolutionary stable strategy.
+
+            \hfill[2]
+
+
+            \item Obtain all evolutionary stable strategies for the described game.
+
+            \hfill[12]
+
+            \item Offer an interpretation for the answer to question (e).
+
+            \hfill[1]
+    \end{enumerate}
+
+\newpage
+\item
+
+    \begin{enumerate}
+        \item Define a characteristic function game \(G=(N,v)\).
+
+        \hfill{[2]}
+
+        \item Define the Shapley value.
+
+        \hfill{[2]}
+
+        \item Obtain the Shapley value for the following characteristic function games:
+
+            \[
+                v_1(c) = \begin{cases}
+                    6,& \text{if }c=\{1\}\\
+                    6,& \text{if } c=\{2\}\\
+                    7,& \text{if } c=\{3\}\\
+                    7,& \text{if } c=\{1,2\}\\
+                    7,& \text{if } c=\{2,3\}\\
+                    20,& \text{if } c=\{1,3\}\\
+                    40,& \text{if } c=\{1,2,3\}\\
+                \end{cases}
+            \]
+
+            \[
+                v_2(c) = \begin{cases}
+                    100,& \text{if }c=\{1\}\\
+                    6,& \text{if } c=\{2\}\\
+                    7,& \text{if } c=\{3\}\\
+                    100,& \text{if } c=\{1,2\}\\
+                    7,& \text{if } c=\{2,3\}\\
+                    100,& \text{if } c=\{1,3\}\\
+                    100,& \text{if } c=\{1,2,3\}\\
+                \end{cases}
+            \]
+
+        \hfill{[8]}
+
+        \item  For a given characteristic function game \(G=(N,v)\) a payoff vector \(\lambda\) is efficient if:
+
+            \[\sum_{i=1}^{N}\lambda_i=v(\Omega)\]
+
+            Prove that the Shapley value is efficient.
+
+        \hfill{[6]}
+
+        \item For \(G(N,v)\) a payoff vector \(\lambda\) is symmetric if the following holds:
+
+        If \(v(C\cup i)=v(C\cup j)\) for all \(C\in 2^{\Omega}\setminus\{i,j\}\) then \(x_i=x_j\).
+
+        Prove that the Shapley value is symmetric.
+
+        \hfill{[7]}
+
+    \end{enumerate}
+
+
+\end{enumerate}
+
+\makeatletter
+\renewcommand{\@oddfoot}{\hfil \arabic{page}X \hfil}    % sets last page footer
+\makeatother
+
+\end{document}

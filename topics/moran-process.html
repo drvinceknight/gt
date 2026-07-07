@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moran Process — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<h1>Moran Process</h1>
+
+
+<h3>Notes</h3>
+<ul>
+  
+  <li><a href="https://vknight.org/gtb/chapters/moran-process/">Moran Process: course textbook chapter</a></li>
+  
+</ul>
+
+
+
+
+
+<h2>Quick quiz</h2>
+<p>A few questions to warm up and check the basics, before the exam-type
+questions below. They are reshuffled each time, so you can keep retrying.</p>
+<div class="quiz" data-quiz>
+  <script type="application/json">{"title": "Moran process", "pick": 5, "questions": [{"q": "At each step of a Moran process ...", "options": [{"text": "one individual reproduces (proportional to fitness) and one is chosen uniformly to die", "correct": true}, {"text": "every individual reproduces once"}, {"text": "the least fit individual always dies"}, {"text": "the population size grows by one"}], "explain": "Selection by fitness for birth, uniform choice for death, keeps the population size fixed."}, {"q": "The fixation probability of a type is ...", "options": [{"text": "the probability the population eventually consists entirely of that type", "correct": true}, {"text": "the probability the type dies out"}, {"text": "the fraction of the population it starts with"}, {"text": "its fitness divided by the average fitness"}], "explain": "Fixation means the type takes over the whole population."}, {"q": "Under neutral drift (a mutant of the same fitness as residents), a single mutant fixes with probability ...", "options": [{"text": "\\(1/N\\)", "correct": true}, {"text": "\\(1\\)"}, {"text": "\\(0\\)"}, {"text": "\\(1/2\\)"}], "explain": "With no fitness difference, each of the \\(N\\) individuals is equally likely to be the ancestor."}, {"q": "A Moran process with two types has ...", "options": [{"text": "two absorbing states: all of one type or all of the other", "correct": true}, {"text": "no absorbing states"}, {"text": "exactly one absorbing state"}, {"text": "an absorbing state at every population split"}], "explain": "Once a single type remains there is nothing to change, so those states absorb."}, {"q": "For an advantageous mutant with relative fitness \\(r \u003e 1\\), as \\(N \\to \\infty\\) the fixation probability tends to ...", "options": [{"text": "\\(1 - 1/r\\), which is bounded away from 1", "correct": true}, {"text": "\\(1\\)"}, {"text": "\\(0\\)"}, {"text": "\\(1/N\\)"}], "explain": "Even a beneficial mutant is often lost while still rare, so fixation is not certain."}, {"q": "The relative fitness \\(r\\) of a mutant is ...", "options": [{"text": "its fitness divided by the resident fitness", "correct": true}, {"text": "the number of mutants"}, {"text": "the probability it dies"}, {"text": "the size of the population"}], "explain": "\\(r\\) compares the mutant's fitness to that of the residents."}, {"q": "In a game-based Moran process, the fitness of an individual depends on ...", "options": [{"text": "the composition of the whole population (its payoff in the current state)", "correct": true}, {"text": "only its own type"}, {"text": "the round number"}, {"text": "nothing; all fitnesses are equal"}], "explain": "Fitness is computed from the game against the current population."}, {"q": "Selection in the Moran process acts through ...", "options": [{"text": "the birth step: fitter individuals are more likely to reproduce", "correct": true}, {"text": "the death step: fitter individuals are more likely to die"}, {"text": "neither step"}, {"text": "the population size"}], "explain": "Reproduction is proportional to fitness; death is uniform."}, {"q": "The death step of the Moran process chooses an individual ...", "options": [{"text": "uniformly at random", "correct": true}, {"text": "proportional to fitness"}, {"text": "with the lowest fitness"}, {"text": "that just reproduced"}], "explain": "Death is uniform, which keeps the population size fixed."}, {"q": "The two-type fixation formula uses the ratios \\(\\gamma_i\\) defined as ...", "options": [{"text": "\\(p_{i,i-1} / p_{i,i+1}\\), the down-step over up-step probabilities", "correct": true}, {"text": "the fitness of type 1"}, {"text": "the population size"}, {"text": "\\(1/N\\)"}], "explain": "\\(\\gamma_i\\) compares the chance of losing versus gaining a mutant from state \\(i\\)."}, {"q": "Under strong selection (\\(w = 1\\)) ...", "options": [{"text": "fitness equals the raw payoff, so payoff differences act at full strength", "correct": true}, {"text": "all fitnesses are equal"}, {"text": "the process never fixes"}, {"text": "the population grows"}], "explain": "With \\(w = 1\\) the payoff is the fitness directly."}, {"q": "The boundary conditions for the fixation probability are ...", "options": [{"text": "\\(\\rho_0 = 0\\) and \\(\\rho_N = 1\\)", "correct": true}, {"text": "\\(\\rho_0 = 1\\) and \\(\\rho_N = 0\\)"}, {"text": "\\(\\rho_0 = \\rho_N = 1/2\\)"}, {"text": "\\(\\rho_0 = \\rho_N = 1/N\\)"}], "explain": "With no mutants fixation is impossible; with all mutants it is certain."}, {"q": "A single mutant is favoured by selection when its fixation probability satisfies ...", "options": [{"text": "\\(\\rho_1 \u003e 1/N\\)", "correct": true}, {"text": "\\(\\rho_1 \u003c 1/N\\)"}, {"text": "\\(\\rho_1 = 0\\)"}, {"text": "\\(\\rho_1 = 1\\)"}], "explain": "Beating the neutral value \\(1/N\\) means selection helps the mutant spread."}, {"q": "The Moran process is repeated until ...", "options": [{"text": "only one type remains in the population", "correct": true}, {"text": "a fixed number of steps have passed"}, {"text": "the population doubles"}, {"text": "every individual has reproduced once"}], "explain": "Absorption occurs when a single type takes over."}, {"q": "A disadvantageous mutant (\\(r \u003c 1\\)) has a fixation probability that is ...", "options": [{"text": "below the neutral value \\(1/N\\)", "correct": true}, {"text": "above the neutral value \\(1/N\\)"}, {"text": "exactly \\(1\\)"}, {"text": "exactly \\(1/2\\)"}], "explain": "Selection works against it, so it fixes less often than under drift."}, {"q": "The two-type fixation probability is \\(\\rho_i = \\dfrac{1 + \\sum_{j=1}^{i-1}\\prod_{k=1}^{j}\\gamma_k}{1 + \\sum_{j=1}^{N-1}\\prod_{k=1}^{j}\\gamma_k}\\), where \\(\\gamma_k\\) equals ...", "options": [{"text": "\\(f_R(k)/f_M(k)\\), the resident-to-mutant fitness ratio", "correct": true}, {"text": "\\(f_M(k)/f_R(k)\\)"}, {"text": "\\(1/N\\)"}, {"text": "the mutant fitness alone"}], "explain": "The ratio \\(\\gamma_k = p_{k,k-1}/p_{k,k+1}\\) simplifies to \\(f_R(k)/f_M(k)\\)."}, {"q": "In a constant-fitness process with mutant fitness \\(r\\) and resident fitness 1, the ratio \\(\\gamma_k\\) is ...", "options": [{"text": "\\(r^{-1}\\) for every state \\(k\\)", "correct": true}, {"text": "\\(r\\) for every state \\(k\\)"}, {"text": "different in every state"}, {"text": "equal to \\(1/N\\)"}], "explain": "Because fitness does not depend on the population composition, the ratio is the same in every state."}, {"q": "Weak selection in the Moran process corresponds to a selection intensity \\(w\\) that is ...", "options": [{"text": "close to 0", "correct": true}, {"text": "close to 1"}, {"text": "negative"}, {"text": "greater than \\(N\\)"}], "explain": "Small \\(w\\) makes fitness differences slight, so dynamics are close to neutral drift; \\(w = 1\\) is strong selection."}, {"q": "Throughout a Moran process the total population size ...", "options": [{"text": "stays constant at \\(N\\), since each birth replaces a death", "correct": true}, {"text": "grows by one each step"}, {"text": "shrinks over time"}, {"text": "fluctuates randomly"}], "explain": "One individual reproduces and one is removed at each step, keeping \\(N\\) fixed."}, {"q": "Neutral drift is the special case of the Moran process in which the relative fitness is ...", "options": [{"text": "\\(r = 1\\)", "correct": true}, {"text": "\\(r \u003e 1\\)"}, {"text": "\\(r \u003c 1\\)"}, {"text": "\\(r = 0\\)"}], "explain": "With equal fitness a single mutant fixes with probability \\(1/N\\)."}]}</script>
+</div>
+
+
+<h2 id="example-questions">Example questions</h2>
+<p>The following are exam-type questions in the style of the examination paper.
+<strong>Each question is worth 25 marks.</strong> Attempt them in full before reading the
+worked solutions.</p>
+<h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
+<p>In class we simulated a Moran process for the Hawk-Dove game with payoff matrix</p>
+<div class="arithmatex">\[
+A = \begin{pmatrix} 0 &amp; 3 \\ 1 &amp; 2 \end{pmatrix}
+\]</div>
+<p>(rows and columns ordered Hawk, Dove), where the fitness of a type in a state
+with <span class="arithmatex">\(v_H\)</span> Hawks and <span class="arithmatex">\(v_D\)</span> Doves is
+<span class="arithmatex">\(f_i = (v_i - 1)A_{ii} + \sum_{j \neq i} v_j A_{ij}\)</span>.</p>
+<p>(a) Describe the two random choices made at each step of a Moran process. [3]</p>
+<p>(b) In a population of size <span class="arithmatex">\(N = 4\)</span> with two Hawks and two Doves, compute the
+fitness of a Hawk and of a Dove. [6]</p>
+<p>(c) Compute the probability that, at the next step, the number of Hawks increases
+by one. [7]</p>
+<p>(d) Define the fixation probability, and explain why this process has exactly two
+absorbing states. [5]</p>
+<p>(e) Compute the probability that the number of Hawks decreases by one, and hence
+the ratio <span class="arithmatex">\(\gamma = P(\text{decrease})/P(\text{increase})\)</span>. What does the value
+of <span class="arithmatex">\(\gamma\)</span> tell you about the direction in which the process tends to drift
+from this state? [4]</p>
+<h3 id="question-2">Question 2</h3>
+<p>(a) Provide definitions for the following terms:</p>
+<ul>
+<li>the Moran process;</li>
+<li>the fixation probability of a mutant;</li>
+<li>neutral drift;</li>
+<li>the relative fitness of a mutant. [4]</li>
+</ul>
+<p>(b) A single mutant of constant relative fitness <span class="arithmatex">\(r\)</span>, whose fitness does not
+depend on the composition of the population, is placed among <span class="arithmatex">\(N - 1\)</span> residents
+of fitness <span class="arithmatex">\(1\)</span>. Its fixation probability is
+<span class="arithmatex">\(\rho = \dfrac{1 - r^{-1}}{1 - r^{-N}}\)</span>.</p>
+<p>(i) State the value under neutral drift and explain it. [3]</p>
+<p>(ii) Compute <span class="arithmatex">\(\rho\)</span> when <span class="arithmatex">\(N = 4\)</span> and <span class="arithmatex">\(r = 2\)</span>. [3]</p>
+<p>(iii) Compute <span class="arithmatex">\(\rho\)</span> when <span class="arithmatex">\(N = 4\)</span> and <span class="arithmatex">\(r = \tfrac{1}{2}\)</span>. [3]</p>
+<p>(iv) Comment on the comparison of the three values, and explain why even a
+   strongly advantageous mutant is far from certain to take over when it starts
+   as a single individual. [5]</p>
+<p>(c) Show that as <span class="arithmatex">\(N \to \infty\)</span> with <span class="arithmatex">\(r &gt; 1\)</span>, <span class="arithmatex">\(\rho \to 1 - r^{-1}\)</span>. [4]</p>
+<p>(d) Interpret this limit. [3]</p>
+<h3 id="question-3">Question 3</h3>
+<p>(a) State the formula for the fixation probability <span class="arithmatex">\(\rho_i\)</span> of a birth-death
+process, in terms of the ratios <span class="arithmatex">\(\gamma_i = p_{i, i-1}/p_{i, i+1}\)</span>. [4]</p>
+<p>(b) A Moran process of size <span class="arithmatex">\(N = 3\)</span> uses the Hawk-Dove game
+<span class="arithmatex">\(A = \begin{pmatrix} 0 &amp; 3 \\ 1 &amp; 2 \end{pmatrix}\)</span> (first type Hawk). In state
+<span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(f_H(i) = (i - 1)A_{11} + (N - i)A_{12}\)</span>,
+<span class="arithmatex">\(f_D(i) = i A_{21} + (N - i - 1)A_{22}\)</span> and <span class="arithmatex">\(\gamma_i = f_D(i)/f_H(i)\)</span>.</p>
+<p>(i) Compute <span class="arithmatex">\(f_H\)</span> and <span class="arithmatex">\(f_D\)</span> for <span class="arithmatex">\(i = 1\)</span> and <span class="arithmatex">\(i = 2\)</span>. [5]</p>
+<p>(ii) Compute <span class="arithmatex">\(\gamma_1\)</span> and <span class="arithmatex">\(\gamma_2\)</span>. [4]</p>
+<p>(iii) Compute the fixation probability <span class="arithmatex">\(\rho_1\)</span> of a single Hawk. [4]</p>
+<p>(iv) Compute the fixation probability <span class="arithmatex">\(\rho_2\)</span> starting from two Hawks. [4]</p>
+<p>(c) Interpret the two fixation probabilities, and using the criterion
+<span class="arithmatex">\(\rho_1 &gt; 1/N\)</span> determine whether Hawks are favoured by selection. [4]</p>
+<h3 id="question-4-hard">Question 4 (<strong>hard</strong>)</h3>
+<p>Consider a constant-fitness Moran process: a population of <span class="arithmatex">\(N\)</span> individuals
+contains a number of a mutant type, of fitness <span class="arithmatex">\(f_M = r\)</span> with <span class="arithmatex">\(r &gt; 0\)</span>, among
+residents of fitness <span class="arithmatex">\(f_R = 1\)</span>. Let <span class="arithmatex">\(\rho_i\)</span> be the fixation probability of
+the mutant type starting from <span class="arithmatex">\(i\)</span> mutants.</p>
+<p>(a) In state <span class="arithmatex">\(i\)</span>, write down the transition probabilities <span class="arithmatex">\(P_{i \to i+1}\)</span> and
+<span class="arithmatex">\(P_{i \to i-1}\)</span>, and hence show that <span class="arithmatex">\(\gamma_i = P_{i \to i-1}/P_{i \to i+1} =
+r^{-1}\)</span> for every <span class="arithmatex">\(i\)</span>, so the ratio does not depend on the state. [4]</p>
+<p>(b) Using the general fixation formula, show that the fixation probability of a
+single mutant is <span class="arithmatex">\(\rho_1 = \dfrac{1 - r^{-1}}{1 - r^{-N}}\)</span> for <span class="arithmatex">\(r \neq 1\)</span>, and
+<span class="arithmatex">\(\rho_1 = 1/N\)</span> for <span class="arithmatex">\(r = 1\)</span>. [6]</p>
+<p>(c) A mutant is favoured by selection if <span class="arithmatex">\(\rho_1 &gt; 1/N\)</span>. Writing
+<span class="arithmatex">\(\gamma = r^{-1}\)</span>, prove that <span class="arithmatex">\(\rho_1 &gt; 1/N\)</span> if and only if <span class="arithmatex">\(r &gt; 1\)</span>. You may
+find it helpful to consider <span class="arithmatex">\(g(\gamma) = 1 - \gamma^N - N(1 - \gamma)\)</span>. [10]</p>
+<p>(d) Deduce <span class="arithmatex">\(\lim_{N \to \infty} \rho_1\)</span> for <span class="arithmatex">\(r &gt; 1\)</span>, and explain what it shows
+about the fate of a single advantageous mutant in a large population, contrasting
+the role of selection with that of drift. [5]</p>
+<h2 id="optional-further-reading">Optional further reading</h2>
+<p>You do not need any of this to follow the topic, but the following chapters of
+the textbook may help if you would like more background:</p>
+<ul>
+<li><a href="https://vknight.org/gtb/chapters/evolutionary-biology/">Evolutionary Biology</a>,
+  which gives the biological background to evolutionary game theory.</li>
+<li><a href="https://vknight.org/gtb/appendices/absorbing-markov-chains/">Absorbing Markov Chains</a>, which underpins
+  the calculation of fixation probabilities.</li>
+<li><a href="https://vknight.org/gtb/chapters/graph-dynamics/">Evolutionary Dynamics on Graphs</a>,
+  which extends the process to structured, non-well-mixed populations.</li>
+<li><a href="https://vknight.org/gtb/chapters/further-learning-dynamics/">Learning and Evolutionary Dynamics</a>,
+  which places the process within a broader family of update rules.</li>
+</ul>
+
+
+<p><strong><a href="/solutions/moran-process.html">Worked solutions to the example questions &rarr;</a></strong></p>
+
+
+
+<p><small><code><a href="/run/moran-processes.html">Facilitator notes: Moran Processes</a></code></small></p>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} solutions — {{ site_title }}{% endblock %}
+
+{% block content %}
+
+<p><small><a href="{{ baseurl }}/topics/{{ page.title | slugify }}.html">&larr; Back to {{ page.title }}</a></small></p>
+
+{{ page.content_html }}
+
+{% endblock %}

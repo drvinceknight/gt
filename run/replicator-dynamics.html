@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Replicator Dynamics (facilitator notes) — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="facilitator-notes">
+
+<div class="facilitator-banner">
+  <strong>Facilitator notes: not student-facing.</strong>
+  These notes are for planning and running classes.
+  Student resources are at <a href="/">vknight.org/gt/</a>.
+</div>
+
+<h1>Replicator Dynamics</h1>
+
+<h2 id="activity-20-minutes">Activity (20 minutes)</h2>
+<p><strong>Goal.</strong> Build the replicator equation from a physical process and watch a
+population converge to a stable rest point, so that frequency-dependent
+selection is felt before the equation is written down.</p>
+<p><strong>The room is a population.</strong> Each student is one individual playing the
+<strong>snowdrift game</strong>: two drivers meet at a snowdrift blocking the road and each
+chooses to <strong>Dig</strong> or <strong>Stay</strong>. Clearing the drift is worth 4 to each driver;
+digging costs 2, shared if both dig. With actions ordered (Dig, Stay) the row
+player's payoffs are</p>
+<div class="arithmatex">\[
+A = \begin{pmatrix} 3 &amp; 2 \\ 4 &amp; 0 \end{pmatrix}
+\]</div>
+<p>so two diggers get 3 each, a lone digger gets 2 while the stayer free-rides for
+4, and two stayers get 0.</p>
+<p>Run it as follows:</p>
+<ol>
+<li>Every student picks Dig or Stay and stands on the corresponding side of the
+   room. Record the fraction <span class="arithmatex">\(x\)</span> on the Dig side.</li>
+<li>With the current split, compute each side's fitness:
+   <span class="arithmatex">\(f_D = 3x + 2(1 - x)\)</span> and <span class="arithmatex">\(f_S = 4x\)</span>. Read off which side is doing better.</li>
+<li><strong>Evolutionary step.</strong> Lob a few small bribentives to the higher-fitness
+   side, then move a small fixed number of students (say two or three) from the
+   lower-fitness side to the higher-fitness side. Record the new <span class="arithmatex">\(x\)</span>.</li>
+<li>Repeat for several rounds, plotting <span class="arithmatex">\(x\)</span> against the round on the board.</li>
+</ol>
+<p>Rewarding the fitter side each round makes the pull towards it tangible and
+gives students a reason to switch. Whatever the starting split, the population
+settles near <span class="arithmatex">\(x = 2/3\)</span>, where <span class="arithmatex">\(f_D = f_S\)</span>.</p>
+<p><strong>Debrief.</strong> Draw out the equation from what they saw:</p>
+<ul>
+<li>A strategy that is doing well but is <strong>rare</strong> grows only slowly, because few
+  individuals play it to begin with; a strategy that is doing well and is
+  <strong>common</strong> grows fast. The number that switch is proportional to how many
+  already play it (<span class="arithmatex">\(x\)</span>) times how far above average its fitness is
+  (<span class="arithmatex">\(f - \phi\)</span>). That is exactly <span class="arithmatex">\(\dot{x} = x(f - \phi)\)</span>.</li>
+<li>Each round, with a small step, is one step of <strong>Euler's method</strong> on the
+  replicator equation; shrinking the step traces the continuous trajectory.
+  This is the link to the numerical integration reading.</li>
+<li>Contrast briefly with Rock-Paper-Scissors, where the same dynamics never
+  settle but cycle: a useful caution that a rest point is not always reached.</li>
+</ul>
+<h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
+<p>Work through the Replicator Dynamics chapter.</p>
+<p>Discussion Point: <strong>After the definition of the replicator dynamics equation,
+ask how this differs from our example?</strong></p>
+<p>Discussion Point: <strong>After the definition of an ESS, ask whether the rest point
+<span class="arithmatex">\(x = 2/3\)</span> from our snowdrift game is an ESS, and contrast it with the
+Rock-Paper-Scissors equilibrium, which is not.</strong></p>
+<p>Discussion Point: <strong>After the characterisation of the ESS theorem ask how we
+could use this to find the ESS for the replicator dynamics equation?</strong></p>
+<h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
+<p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="/topics/replicator-dynamics.html">Replicator Dynamics</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
+
+
+<h2>Communications</h2>
+
+<p>General email templates to send before and after this class. Fill in the
+bracketed placeholders before sending.</p>
+
+<h3>Before class</h3>
+
+<pre><code>Hi all,
+
+A reminder that our next Game Theory class covers Replicator Dynamics.
+
+All of the course materials, including the relevant chapter, are available
+at https://vknight.org/gt/. It is worth skimming the chapter beforehand.
+
+See you in class,
+Vince
+</code></pre>
+
+<h3>After class</h3>
+
+<pre><code>Dear all,
+
+Thanks for your work in today's class on Replicator Dynamics.
+
+A recording is available here [RECORDING LINK] and on Learning Central.
+
+All class resources are available at https://vknight.org/gt/.
+
+Thanks,
+Vince
+</code></pre>
+
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

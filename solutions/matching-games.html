@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matching Games solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/matching-games.html">&larr; Back to Matching Games</a></small></p>
+
+<h1 id="matching-games-worked-solutions">Matching Games: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/matching-games.html">Matching Games</a> page. Each question is worth 25
+marks.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> [3]</p>
+<p>A pair <span class="arithmatex">\((m, p)\)</span> that is not matched together is a <strong>blocking pair</strong> if <span class="arithmatex">\(m\)</span>
+prefers <span class="arithmatex">\(p\)</span> to their current partner and <span class="arithmatex">\(p\)</span> prefers <span class="arithmatex">\(m\)</span> to theirs. A
+<strong>stable matching</strong> is a matching with no blocking pair.</p>
+<p><strong>(b) Gale-Shapley (mathematicians proposing).</strong> [7]</p>
+<ul>
+<li>Round 1: <span class="arithmatex">\(G \to C\)</span>, <span class="arithmatex">\(N \to C\)</span>, <span class="arithmatex">\(T \to E\)</span>. <span class="arithmatex">\(C\)</span> holds <span class="arithmatex">\(G\)</span> (since
+  <span class="arithmatex">\(G \succ N\)</span>) and rejects <span class="arithmatex">\(N\)</span>; <span class="arithmatex">\(E\)</span> holds <span class="arithmatex">\(T\)</span>.</li>
+<li>Round 2: <span class="arithmatex">\(N \to W\)</span> (next on <span class="arithmatex">\(N\)</span>'s list). <span class="arithmatex">\(W\)</span> holds <span class="arithmatex">\(N\)</span>.</li>
+</ul>
+<p>No free proposers remain.</p>
+<p><strong>(c) Matching.</strong> [3]</p>
+<p><span class="arithmatex">\(\{G\text{-}C,\; N\text{-}W,\; T\text{-}E\}\)</span>.</p>
+<p><strong>(d) Stability.</strong> [6]</p>
+<p><span class="arithmatex">\(G\)</span> has <span class="arithmatex">\(C\)</span> (first choice) and <span class="arithmatex">\(T\)</span> has <span class="arithmatex">\(E\)</span> (first choice), so neither is in
+a blocking pair. <span class="arithmatex">\(N\)</span> has <span class="arithmatex">\(W\)</span> and would prefer <span class="arithmatex">\(C\)</span>, but <span class="arithmatex">\(C\)</span> prefers its
+partner <span class="arithmatex">\(G\)</span> to <span class="arithmatex">\(N\)</span>, so <span class="arithmatex">\((N, C)\)</span> does not block. There is no blocking pair, so
+the matching is stable.</p>
+<p><strong>(e) Optimality.</strong> [6]</p>
+<p>The mathematicians propose, so the matching is <strong>mathematician-optimal</strong>:
+proposer-optimality means each proposer is matched to the best partner they could
+have in <em>any</em> stable matching. The proposing side can never do better than this: in
+Gale-Shapley a proposer is only rejected by a reviewer who has a partner they
+prefer, and one can show by induction that no reviewer ever rejects a proposer
+who could be matched to them in some stable matching. So no proposer is ever
+denied a partner that a stable matching could have given them, and this matching
+is the best stable one for the proposers.</p>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>
+<ul>
+<li>A <strong>matching game</strong> of size <span class="arithmatex">\(N\)</span> consists of two disjoint sets, proposers
+  <span class="arithmatex">\(S\)</span> and reviewers <span class="arithmatex">\(R\)</span> each of size <span class="arithmatex">\(N\)</span>, with preference maps
+  <span class="arithmatex">\(f : S \to R^N\)</span> and <span class="arithmatex">\(g : R \to S^N\)</span>. A <strong>matching</strong> <span class="arithmatex">\(M\)</span> is a bijection
+  between <span class="arithmatex">\(S\)</span> and <span class="arithmatex">\(R\)</span>.</li>
+<li>A pair <span class="arithmatex">\((s, r)\)</span> is a <strong>blocking pair</strong> of a matching <span class="arithmatex">\(M\)</span> if
+  <span class="arithmatex">\(M(s) \neq r\)</span> but <span class="arithmatex">\(s\)</span> prefers <span class="arithmatex">\(r\)</span> to <span class="arithmatex">\(M(s)\)</span> and <span class="arithmatex">\(r\)</span> prefers <span class="arithmatex">\(s\)</span> to
+  <span class="arithmatex">\(M^{-1}(r)\)</span>.</li>
+<li>A <strong>stable matching</strong> is a matching with no blocking pair.</li>
+<li>The <strong>Gale-Shapley algorithm</strong> repeatedly takes an unmatched proposer and has
+  them propose to the next reviewer on their preference list; the reviewer keeps
+  whichever proposer they prefer and rejects the other, removing them from that
+  proposer's list, until everyone is matched. It returns a stable matching.</li>
+</ul>
+<p><strong>(b)(i) Applicant-proposing.</strong> [6]</p>
+<ul>
+<li>Round 1: <span class="arithmatex">\(A \to X\)</span>, <span class="arithmatex">\(B \to Y\)</span>, <span class="arithmatex">\(C \to X\)</span>. <span class="arithmatex">\(X\)</span> keeps <span class="arithmatex">\(A\)</span> (since
+  <span class="arithmatex">\(B \succ A \succ C\)</span>) and rejects <span class="arithmatex">\(C\)</span>; <span class="arithmatex">\(Y\)</span> holds <span class="arithmatex">\(B\)</span>.</li>
+<li>Round 2: <span class="arithmatex">\(C \to Y\)</span>. <span class="arithmatex">\(Y\)</span> keeps <span class="arithmatex">\(B\)</span> (since <span class="arithmatex">\(A \succ B \succ C\)</span>) and
+  rejects <span class="arithmatex">\(C\)</span>.</li>
+<li>Round 3: <span class="arithmatex">\(C \to Z\)</span>, accepted.</li>
+</ul>
+<p><strong>(b)(ii) Matching.</strong> [2]</p>
+<p><span class="arithmatex">\(\{A\text{-}X, B\text{-}Y, C\text{-}Z\}\)</span>.</p>
+<p><strong>(b)(iii) Optimality.</strong> [3]</p>
+<p>This matching is <strong>applicant-optimal</strong>: each applicant gets the best role it can
+have in any stable matching.</p>
+<p><strong>(c) Role-proposing.</strong> [8]</p>
+<ul>
+<li>Round 1: <span class="arithmatex">\(X \to B\)</span>, <span class="arithmatex">\(Y \to A\)</span>, <span class="arithmatex">\(Z \to A\)</span>. <span class="arithmatex">\(A\)</span> keeps <span class="arithmatex">\(Y\)</span> (since
+  <span class="arithmatex">\(X \succ Y \succ Z\)</span>) and rejects <span class="arithmatex">\(Z\)</span>; <span class="arithmatex">\(B\)</span> holds <span class="arithmatex">\(X\)</span>.</li>
+<li>Round 2: <span class="arithmatex">\(Z \to B\)</span>. <span class="arithmatex">\(B\)</span> keeps <span class="arithmatex">\(X\)</span> (since <span class="arithmatex">\(Y \succ X \succ Z\)</span>) and
+  rejects <span class="arithmatex">\(Z\)</span>.</li>
+<li>Round 3: <span class="arithmatex">\(Z \to C\)</span>, accepted.</li>
+</ul>
+<p>The resulting matching is <span class="arithmatex">\(\{A\text{-}Y, B\text{-}X, C\text{-}Z\}\)</span>, which
+differs from the applicant-proposing outcome: it is role-optimal.</p>
+<p><strong>(d) Who benefits from proposing.</strong> [2]</p>
+<p>The two matchings differ (<span class="arithmatex">\(A\)</span> gets <span class="arithmatex">\(X\)</span> when applicants propose but <span class="arithmatex">\(Y\)</span> when
+roles propose, and likewise for <span class="arithmatex">\(B\)</span>). This shows that whichever side proposes
+does better: proposing secures the proposer-optimal stable matching, so being the
+proposing side is an advantage.</p>
+<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
+<p><strong>(a) Theorems.</strong> (Bookwork.) [5]</p>
+<p>The Gale-Shapley algorithm always terminates and returns a stable matching, so a
+stable matching exists. All executions yield the same matching, and in it every
+proposer has the best partner they could have in any stable matching
+(proposer-optimality).</p>
+<p><strong>(b)(i) Stability of <span class="arithmatex">\(\{A\text{-}Z, B\text{-}Y, C\text{-}X\}\)</span>.</strong> [4]</p>
+<p>Applicant <span class="arithmatex">\(A\)</span> holds its least preferred role <span class="arithmatex">\(Z\)</span>, so we look for a preferred
+role that also prefers <span class="arithmatex">\(A\)</span>; the matching is not stable.</p>
+<p><strong>(b)(ii) Blocking pair.</strong> [4]</p>
+<p><span class="arithmatex">\((A, X)\)</span>: <span class="arithmatex">\(A\)</span> prefers <span class="arithmatex">\(X\)</span> to <span class="arithmatex">\(Z\)</span>, and <span class="arithmatex">\(X\)</span> prefers <span class="arithmatex">\(A\)</span> to its assigned
+<span class="arithmatex">\(C\)</span> (since <span class="arithmatex">\(B \succ A \succ C\)</span>). Both prefer each other, so <span class="arithmatex">\((A, X)\)</span> blocks
+the matching.</p>
+<p><strong>(c)(i) Stability of <span class="arithmatex">\(\{A\text{-}X, B\text{-}Y, C\text{-}Z\}\)</span>.</strong> [7]</p>
+<ul>
+<li><span class="arithmatex">\(A\)</span> has <span class="arithmatex">\(X\)</span>, its first choice, so <span class="arithmatex">\(A\)</span> is in no blocking pair.</li>
+<li><span class="arithmatex">\(B\)</span> has <span class="arithmatex">\(Y\)</span>, its first choice, so <span class="arithmatex">\(B\)</span> is in no blocking pair.</li>
+<li><span class="arithmatex">\(C\)</span> has <span class="arithmatex">\(Z\)</span> and would prefer <span class="arithmatex">\(X\)</span> or <span class="arithmatex">\(Y\)</span>; but <span class="arithmatex">\(X\)</span> prefers its partner
+  <span class="arithmatex">\(A\)</span> to <span class="arithmatex">\(C\)</span> (<span class="arithmatex">\(B \succ A \succ C\)</span>), and <span class="arithmatex">\(Y\)</span> prefers its partner <span class="arithmatex">\(B\)</span> to
+  <span class="arithmatex">\(C\)</span> (<span class="arithmatex">\(A \succ B \succ C\)</span>), so neither will switch.</li>
+</ul>
+<p>No blocking pair exists, so the matching is stable.</p>
+<p><strong>(c)(ii) Why it is returned.</strong> [5]</p>
+<p>Applicants <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> both receive their first choice, which no stable
+matching can improve on. The applicant-proposing algorithm returns the
+<strong>applicant-optimal</strong> stable matching: each applicant is matched to the best role
+it could have in <em>any</em> stable matching. Since <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> already hold their
+top roles and <span class="arithmatex">\(C\)</span> takes the only role left, this matching gives every applicant
+the best it could possibly get, so it is exactly the one the algorithm
+produces.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> [4]</p>
+<p>A role <span class="arithmatex">\(r\)</span> is an achievable partner for an applicant <span class="arithmatex">\(a\)</span> if there is at least
+one stable matching in which <span class="arithmatex">\(a\)</span> is matched to <span class="arithmatex">\(r\)</span>. A stable matching is
+applicant-optimal if every applicant is matched to their most preferred achievable
+partner; that is, no applicant could be matched to a role they prefer in any
+stable matching.</p>
+<p><strong>(b) No applicant is rejected by an achievable partner.</strong> [11]</p>
+<p>We argue by induction on the rounds of the algorithm. The inductive claim is that
+up to the current round no applicant has been rejected by an achievable partner.
+This holds vacuously before the first rejection.</p>
+<p>Suppose, for contradiction, that the claim first fails when role <span class="arithmatex">\(r\)</span> rejects
+applicant <span class="arithmatex">\(a\)</span>, and that <span class="arithmatex">\(r\)</span> is achievable for <span class="arithmatex">\(a\)</span>: some stable matching <span class="arithmatex">\(M\)</span>
+pairs <span class="arithmatex">\(a\)</span> with <span class="arithmatex">\(r\)</span>. The rejection means <span class="arithmatex">\(r\)</span> holds a proposal from an
+applicant <span class="arithmatex">\(a'\)</span> whom it strictly prefers to <span class="arithmatex">\(a\)</span>. Because this is the first time
+an achievable partner does any rejecting, <span class="arithmatex">\(a'\)</span> has not yet been rejected by any
+achievable partner, so <span class="arithmatex">\(r\)</span> is at least as good for <span class="arithmatex">\(a'\)</span> as every achievable
+partner of <span class="arithmatex">\(a'\)</span>; in particular <span class="arithmatex">\(a'\)</span> weakly prefers <span class="arithmatex">\(r\)</span> to its partner in
+<span class="arithmatex">\(M\)</span>.</p>
+<p>Now consider <span class="arithmatex">\(M\)</span>. In <span class="arithmatex">\(M\)</span>, applicant <span class="arithmatex">\(a\)</span> is matched to <span class="arithmatex">\(r\)</span>, and <span class="arithmatex">\(a'\)</span> is
+matched to some role it likes no better than <span class="arithmatex">\(r\)</span>. So <span class="arithmatex">\(a'\)</span> prefers <span class="arithmatex">\(r\)</span> to its
+<span class="arithmatex">\(M\)</span>-partner, and <span class="arithmatex">\(r\)</span> prefers <span class="arithmatex">\(a'\)</span> to <span class="arithmatex">\(a\)</span>, its <span class="arithmatex">\(M\)</span>-partner. The pair
+<span class="arithmatex">\((a', r)\)</span> therefore blocks <span class="arithmatex">\(M\)</span>, contradicting the stability of <span class="arithmatex">\(M\)</span>. Hence no
+achievable partner ever rejects, and the claim holds throughout.</p>
+<p><strong>(c) Applicant-optimality.</strong> [5]</p>
+<p>During the algorithm each applicant proposes down their preference list, and by
+part (b) they are never rejected by an achievable partner. So when the algorithm
+ends, each applicant is matched to the most preferred role that did not reject
+them, which is their most preferred achievable partner. Every applicant
+simultaneously attains their best achievable partner, so the matching returned is
+applicant-optimal.</p>
+<p><strong>(d) The other side, and an illustration.</strong> [5]</p>
+<p>The symmetric argument with the roles proposing shows the role-proposing algorithm
+returns the role-optimal stable matching; and the applicant-optimal matching is
+simultaneously role-pessimal, giving each role its worst achievable partner. The
+two one-sided algorithms therefore need not agree. For the instance on the
+matching games page, with applicants <span class="arithmatex">\(A, B, C\)</span> and roles <span class="arithmatex">\(X, Y, Z\)</span>, the
+applicant-proposing algorithm pairs <span class="arithmatex">\(A\)</span>-<span class="arithmatex">\(X\)</span>, <span class="arithmatex">\(B\)</span>-<span class="arithmatex">\(Y\)</span>, <span class="arithmatex">\(C\)</span>-<span class="arithmatex">\(Z\)</span>, whereas
+the role-proposing algorithm pairs the better-placed applicants with the roles
+that most want them: <span class="arithmatex">\(B\)</span>-<span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(A\)</span>-<span class="arithmatex">\(Y\)</span>, with <span class="arithmatex">\(C\)</span>-<span class="arithmatex">\(Z\)</span>. The proposing
+side does at least as well in its own run, which is why the two matchings can
+differ.</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

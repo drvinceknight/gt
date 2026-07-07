@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repeated games — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<h1>Repeated games</h1>
+
+
+<h3>Notes</h3>
+<ul>
+  
+  <li><a href="https://vknight.org/gtb/chapters/repeated-games/">Repeated games: course textbook chapter</a></li>
+  
+</ul>
+
+
+
+
+
+<h2>Quick quiz</h2>
+<p>A few questions to warm up and check the basics, before the exam-type
+questions below. They are reshuffled each time, so you can keep retrying.</p>
+<div class="quiz" data-quiz>
+  <script type="application/json">{"title": "Repeated games", "pick": 5, "questions": [{"q": "In an infinitely repeated game, the discount factor \\(\\delta\\) can be read as ...", "options": [{"text": "the probability that the game continues to another round", "correct": true}, {"text": "the number of players"}, {"text": "the payoff from defecting"}, {"text": "the number of rounds already played"}], "explain": "Reading \\(\\delta\\) as a continuation probability gives an expected length \\(1/(1-\\delta)\\)."}, {"q": "The Grudger strategy ...", "options": [{"text": "cooperates until the opponent defects, then defects for ever", "correct": true}, {"text": "always defects"}, {"text": "copies the opponent's last move"}, {"text": "cooperates with probability \\(1/2\\)"}], "explain": "A single defection triggers permanent punishment."}, {"q": "The Folk Theorem says that, for patient enough players, ...", "options": [{"text": "any individually rational payoff pair can be sustained in a subgame perfect equilibrium", "correct": true}, {"text": "cooperation is impossible"}, {"text": "only the stage Nash equilibrium can occur"}, {"text": "the game must be zero sum"}], "explain": "As \\(\\delta\\) approaches 1, a wide range of outcomes becomes sustainable."}, {"q": "In the finitely repeated Prisoner's Dilemma with a known last round, ...", "options": [{"text": "backward induction forces defection in every round", "correct": true}, {"text": "cooperation is sustained throughout"}, {"text": "the players cooperate only in the last round"}, {"text": "there is no subgame perfect equilibrium"}], "explain": "The last round is the one-shot game, and defection unravels back to the first round."}, {"q": "The individually rational payoff of a player is ...", "options": [{"text": "the most they can guarantee themselves whatever the opponent does (their minimax value)", "correct": true}, {"text": "the payoff from mutual cooperation"}, {"text": "the largest payoff in the game"}, {"text": "always zero"}], "explain": "It is the payoff a player can secure for themselves regardless of the opponent."}, {"q": "As the temptation payoff \\(T\\) increases, the discount factor needed to sustain cooperation ...", "options": [{"text": "increases (players must be more patient)", "correct": true}, {"text": "decreases"}, {"text": "stays the same"}, {"text": "becomes negative"}], "explain": "A larger one-off gain from defecting requires a longer shadow of the future to deter it."}, {"q": "A strategy in a repeated game is ...", "options": [{"text": "a mapping from the history of play to an action in the stage game", "correct": true}, {"text": "a single action played every round"}, {"text": "the payoff matrix"}, {"text": "the discount factor"}], "explain": "Repeated-game strategies can condition on everything that has happened."}, {"q": "The discounted value of receiving a payoff \\(c\\) every round is ...", "options": [{"text": "\\(c / (1 - \\delta)\\)", "correct": true}, {"text": "\\(c \\delta\\)"}, {"text": "\\(c (1 - \\delta)\\)"}, {"text": "\\(c / \\delta\\)"}], "explain": "Summing the geometric series \\(c(1 + \\delta + \\delta^2 + \\cdots)\\) gives \\(c/(1-\\delta)\\)."}, {"q": "The average utility of a payoff stream is defined as ...", "options": [{"text": "\\((1 - \\delta)\\) times the discounted total", "correct": true}, {"text": "the discounted total"}, {"text": "the payoff in the first round"}, {"text": "the largest stage payoff"}], "explain": "Multiplying by \\((1-\\delta)\\) gives the per-stage average."}, {"q": "Playing a Nash equilibrium of the stage game in every round is ...", "options": [{"text": "always a subgame perfect equilibrium of the repeated game", "correct": true}, {"text": "never an equilibrium"}, {"text": "only a Nash equilibrium if the game is finite"}, {"text": "impossible to compute"}], "explain": "Any sequence of stage Nash profiles is subgame perfect."}, {"q": "Cooperation can be sustained in the infinitely repeated Prisoner's Dilemma because ...", "options": [{"text": "there is no last round, so future punishment can deter defection", "correct": true}, {"text": "defection is impossible"}, {"text": "the stage game has no Nash equilibrium"}, {"text": "players cannot remember the past"}], "explain": "Without a known final round, backward induction does not unravel cooperation."}, {"q": "The expected number of rounds when \\(\\delta\\) is the continuation probability is ...", "options": [{"text": "\\(1 / (1 - \\delta)\\)", "correct": true}, {"text": "\\(\\delta\\)"}, {"text": "\\(1 - \\delta\\)"}, {"text": "infinite for any \\(\\delta\\)"}], "explain": "The number of rounds is geometric with mean \\(1/(1-\\delta)\\)."}, {"q": "In Grudger, the punishment phase consists of ...", "options": [{"text": "both players playing the stage Nash equilibrium (mutual defection) for ever", "correct": true}, {"text": "alternating cooperation and defection"}, {"text": "returning to cooperation after one round"}, {"text": "ending the game immediately"}], "explain": "The threat is permanent reversion to the stage equilibrium."}, {"q": "For cooperation to be sustainable, the cooperative payoff must exceed ...", "options": [{"text": "the gain from a one-off defection followed by punishment", "correct": true}, {"text": "the total of all stage payoffs"}, {"text": "the discount factor"}, {"text": "the number of rounds"}], "explain": "Cooperation holds when deviating is not worth the lost future cooperation."}, {"q": "A larger discount factor \\(\\delta\\) means ...", "options": [{"text": "the future matters more, making cooperation easier to sustain", "correct": true}, {"text": "the future matters less"}, {"text": "the game is shorter"}, {"text": "defection is always best"}], "explain": "Patient players value future cooperation highly, so threats bite harder."}, {"q": "The utility of an infinitely repeated game with discount factor \\(\\delta\\) is ...", "options": [{"text": "\\(\\sum_{i=0}^{\\infty} \\delta^i u(s_r(i), s_c(i))\\)", "correct": true}, {"text": "\\(\\sum_{i=0}^{\\infty} u(s_r(i), s_c(i))\\)"}, {"text": "\\(\\max_i u(s_r(i), s_c(i))\\)"}, {"text": "\\(\\delta \\, u(s_r(0), s_c(0))\\)"}], "explain": "Each stage payoff is discounted by \\(\\delta^i\\), with earlier rounds weighted more heavily."}, {"q": "An individually rational payoff pair is one that ...", "options": [{"text": "exceeds the stage-game Nash equilibrium payoffs for both players", "correct": true}, {"text": "minimises both players' payoffs"}, {"text": "equals the temptation payoff"}, {"text": "gives one player everything"}], "explain": "The Folk Theorem sustains any feasible individually rational pair as a subgame perfect equilibrium."}, {"q": "For a patient enough population the Folk Theorem constructs a subgame perfect equilibrium achieving ...", "options": [{"text": "any feasible individually rational payoff pair", "correct": true}, {"text": "only the stage Nash payoff"}, {"text": "only the cooperative payoff"}, {"text": "no payoff at all"}], "explain": "There is a threshold \\(\\bar\\delta\\) above which the trigger strategy supports the target payoffs."}, {"q": "In the Folk Theorem's trigger strategy, a deviation is punished by ...", "options": [{"text": "reverting to the stage-game Nash equilibrium for all future rounds", "correct": true}, {"text": "forgiving after one round"}, {"text": "leaving the game"}, {"text": "raising the discount factor"}], "explain": "The permanent punishment removes any long-run gain from a one-off deviation."}, {"q": "Against a trigger strategy, the most tempting time to deviate is ...", "options": [{"text": "the first stage, since later gains are discounted more heavily", "correct": true}, {"text": "the last stage"}, {"text": "a randomly chosen stage"}, {"text": "never, deviation always pays"}], "explain": "Checking the first-stage deviation is enough to find the threshold discount factor."}]}</script>
+</div>
+
+
+<h2 id="example-questions">Example questions</h2>
+<p>The following are exam-type questions in the style of the examination paper.
+<strong>Each question is worth 25 marks.</strong> Attempt them in full before reading the
+worked solutions.</p>
+<h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
+<p>In class we played "Will it end?": pairs played the contractor stage game</p>
+<div class="arithmatex">\[
+A = \begin{pmatrix} 3 &amp; 0 \\ 5 &amp; 1 \end{pmatrix}
+\]</div>
+<p>(first action High, second action Low), and after each round rolled a die,
+continuing unless a 1 was rolled, so the game continued with probability
+<span class="arithmatex">\(\delta = 5/6\)</span>.</p>
+<p>(a) Interpret <span class="arithmatex">\(\delta = 5/6\)</span> and state the expected number of rounds. [3]</p>
+<p>(b) Both players use the Grudger strategy (play High until the opponent
+plays Low, then Low for ever). Holding the opponent's Grudger fixed, write down
+the discounted payoff to a player who conforms and plays High in every round,
+and to one who deviates to Low in the first round. [6]</p>
+<p>(c) Determine whether mutual cooperation is sustained at <span class="arithmatex">\(\delta = 5/6\)</span>. [4]</p>
+<p>(d) Find the smallest <span class="arithmatex">\(\delta\)</span> for which cooperation is sustained, and hence
+say whether our die made cooperation easy or hard to sustain. [5]</p>
+<p>(e) Suppose the players replace Grudger with a forgiving trigger: a single Low
+is punished by mutual Low for two rounds, after which both return to High.
+Holding the opponent to this strategy, determine whether cooperation is
+sustained with our die (<span class="arithmatex">\(\delta = 5/6\)</span>). Find the smallest <span class="arithmatex">\(\delta\)</span> for which
+it is sustained, and compare with the Grudger threshold of part (d). [7]</p>
+<h3 id="question-2">Question 2</h3>
+<p>(a) Provide definitions for the following terms:</p>
+<ul>
+<li>an infinitely repeated game with discounting;</li>
+<li>a strategy in a repeated game;</li>
+<li>the Grudger strategy;</li>
+<li>the average utility. [4]</li>
+</ul>
+<p>(b) Two players repeatedly play the Prisoner's Dilemma with row-player stage
+payoffs</p>
+<div class="arithmatex">\[
+\begin{pmatrix}
+3 &amp; 0 \\
+5 &amp; 1
+\end{pmatrix},
+\]</div>
+<p>cooperate first, defect second, infinitely repeated and discounted by
+<span class="arithmatex">\(\delta \in (0, 1)\)</span>. Both use the Grudger strategy.</p>
+<p>(i) Holding the opponent's Grudger fixed, write down the discounted payoff to
+a player who conforms and cooperates in every round, and to one who defects in
+the first round. [3]</p>
+<p>(ii) Hence find the smallest <span class="arithmatex">\(\delta\)</span> for which cooperation is sustained.
+[3]</p>
+<p>(iii) Show that Grudger is a subgame perfect equilibrium for <span class="arithmatex">\(\delta\)</span>
+above this threshold, by checking that no player can gain by deviating either
+on the cooperative path or in the punishment phase. [5]</p>
+<p>(c) State the Folk Theorem. [3]</p>
+<p>(d) Define the individually rational payoff and state its value for this
+Prisoner's Dilemma. [3]</p>
+<p>(e) Explain what the Folk Theorem implies for cooperation in this game. [4]</p>
+<h3 id="question-3">Question 3</h3>
+<p>(a) Define a subgame perfect equilibrium of a repeated game. [2]</p>
+<p>(b) The Prisoner's Dilemma above is now repeated a finite and commonly known
+number of times <span class="arithmatex">\(N\)</span>.</p>
+<p>(i) Use backward induction to determine the subgame perfect equilibrium. [4]</p>
+<p>(ii) Explain why cooperation cannot be sustained in any subgame perfect
+equilibrium. [4]</p>
+<p>(c) Explain why the backward-induction argument from part (b) does not apply
+to an infinitely repeated Prisoner's Dilemma. [3]</p>
+<p>(d) Return to the infinitely repeated game with Grudger, but with temptation
+payoff <span class="arithmatex">\(T = 4\)</span> in place of <span class="arithmatex">\(5\)</span>. Recompute the smallest <span class="arithmatex">\(\delta\)</span> for which
+cooperation is sustained. [4]</p>
+<p>(e) Comment on how the threshold for <span class="arithmatex">\(\delta\)</span> changes with the temptation
+payoff. [3]</p>
+<p>(f) With stage payoffs <span class="arithmatex">\(R = 3\)</span>, <span class="arithmatex">\(P = 1\)</span>, <span class="arithmatex">\(S = 0\)</span> and general temptation
+<span class="arithmatex">\(T\)</span>, show that the threshold is <span class="arithmatex">\(\delta^{*} = \dfrac{T - 3}{T - 1}\)</span>, and
+state what happens to it as <span class="arithmatex">\(T\)</span> grows. [5]</p>
+<h3 id="question-4-hard">Question 4 (<strong>hard</strong>)</h3>
+<p>Two players repeatedly play the Prisoner's Dilemma with stage payoffs <span class="arithmatex">\(R = 3\)</span>
+for mutual cooperation, <span class="arithmatex">\(T = 5\)</span> for a unilateral defection, <span class="arithmatex">\(P = 1\)</span> for mutual
+defection and <span class="arithmatex">\(S = 0\)</span> for being defected against, discounted by
+<span class="arithmatex">\(\delta \in (0, 1)\)</span>. They use a forgiving trigger of length <span class="arithmatex">\(T\)</span>: both
+cooperate until someone defects in a cooperative round, then both defect for
+exactly <span class="arithmatex">\(T\)</span> rounds, after which they return to cooperation and ignore the
+deviation.</p>
+<p>(a) Holding the opponent to this strategy, write down the discounted payoff to a
+player who conforms and cooperates in every round, and to one who defects once in
+the first round and is then punished. [4]</p>
+<p>(b) Show that cooperation is sustained if and only if
+<span class="arithmatex">\(2\delta - \delta^{\,T+1} \ge 1\)</span>. [8]</p>
+<p>(c) Show that the resulting threshold <span class="arithmatex">\(\delta^{*}(T)\)</span> is decreasing in <span class="arithmatex">\(T\)</span>, and
+that as <span class="arithmatex">\(T \to \infty\)</span> it tends to <span class="arithmatex">\(\tfrac{1}{2}\)</span>, the grim-trigger
+threshold. [6]</p>
+<p>(d) Prove that, for <span class="arithmatex">\(\delta\)</span> above the threshold, the forgiving trigger is a
+subgame perfect equilibrium, by checking with the one-shot deviation principle
+that no player can gain from a single deviation on the cooperative path or during
+the punishment phase. [7]</p>
+<h2 id="optional-further-reading">Optional further reading</h2>
+<p>You do not need any of this to follow the topic, but the following chapters of
+the textbook may help if you would like more background:</p>
+<ul>
+<li><a href="https://vknight.org/gtb/chapters/direct-reciprocity/">Direct Reciprocity</a>,
+  which applies repeated play to the iterated Prisoner's Dilemma and reactive
+  strategies.</li>
+<li><a href="https://vknight.org/gtb/chapters/subgame-perfection/">Subgame Perfection</a>,
+  which refines the equilibria that survive in a repeated interaction.</li>
+</ul>
+
+
+<p><strong><a href="/solutions/repeated-games.html">Worked solutions to the example questions &rarr;</a></strong></p>
+
+
+
+<p><small><code><a href="/run/repeated-games.html">Facilitator notes: Repeated Games</a></code></small></p>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+title: Routing games
+pick: 5
+questions:
+  - q: "A Nash flow is a flow in which ..."
+    options:
+      - text: "no individual can reduce their own cost by switching to another path"
+        correct: true
+      - text: "the total cost is minimised"
+      - text: "all traffic uses a single path"
+      - text: "every path carries equal flow"
+    explain: "At a Nash flow every used path has minimal cost, so no one wants to switch."
+
+  - q: "An optimal flow is the flow that ..."
+    options:
+      - text: "minimises the total cost across all traffic"
+        correct: true
+      - text: "no driver can improve on individually"
+      - text: "uses the most paths"
+      - text: "equals the Nash flow in every game"
+    explain: "The optimal flow is the social optimum, which a Nash flow need not achieve."
+
+  - q: "The price of anarchy measures ..."
+    options:
+      - text: "the ratio of the Nash flow cost to the optimal flow cost"
+        correct: true
+      - text: "the number of paths in the network"
+      - text: "the cost of the cheapest path"
+      - text: "how many drivers there are"
+    explain: "It quantifies how much worse selfish routing is than the social optimum."
+
+  - q: "Braess's paradox is the observation that ..."
+    options:
+      - text: "adding a new road can make every driver's commute worse"
+        correct: true
+      - text: "removing a road always helps"
+      - text: "the Nash flow always equals the optimal flow"
+      - text: "drivers never reach an equilibrium"
+    explain: "A new shortcut can tempt everyone onto congested edges, raising the equilibrium cost."
+
+  - q: "A feasible flow that minimises the potential function \\(\\Phi\\) is ..."
+    options:
+      - text: "a Nash flow"
+        correct: true
+      - text: "the optimal flow"
+      - text: "never an equilibrium"
+      - text: "a flow that uses no congested edges"
+    explain: "A flow is a Nash flow if and only if it minimises the potential function."
+
+  - q: "The optimal flow of a routing game equals the Nash flow of the game with ..."
+    options:
+      - text: "each cost function replaced by its marginal cost"
+        correct: true
+      - text: "all costs set to zero"
+      - text: "the costs doubled"
+      - text: "a single combined path"
+    explain: "Marginal-cost pricing makes selfish routing coincide with the social optimum."
+
+  - q: "A feasible flow is one in which ..."
+    options:
+      - text: "the flow on the paths of each commodity sums to its demand"
+        correct: true
+      - text: "all flow uses a single path"
+      - text: "the total cost is minimised"
+      - text: "no path is used"
+    explain: "Feasibility means each commodity's demand is routed."
+
+  - q: "Edge cost (latency) functions in a routing game are assumed to be ..."
+    options:
+      - text: "non-negative, continuous and non-decreasing in the flow"
+        correct: true
+      - text: "constant"
+      - text: "decreasing in the flow"
+      - text: "negative"
+    explain: "Costs rise (or stay level) as more traffic uses an edge."
+
+  - q: "The price of anarchy is always ..."
+    options:
+      - text: "at least 1"
+        correct: true
+      - text: "at most 1"
+      - text: "exactly 1"
+      - text: "negative"
+    explain: "The Nash flow can never cost less than the optimal flow, so the ratio is \\(\\ge 1\\)."
+
+  - q: "In Pigou's example (one fixed-cost route and one congestible route) the price of anarchy is ..."
+    options:
+      - text: "\\(4/3\\)"
+        correct: true
+      - text: "\\(1\\)"
+      - text: "\\(2\\)"
+      - text: "\\(8/7\\)"
+    explain: "Selfish routing costs \\(4/3\\) of the social optimum in Pigou's example."
+
+  - q: "Braess's paradox arises because each driver ..."
+    options:
+      - text: "ignores the extra congestion they impose on others (an externality)"
+        correct: true
+      - text: "cannot find the shortest path"
+      - text: "is forced onto a single route"
+      - text: "pays a toll"
+    explain: "Self-interested routing does not account for the cost imposed on everyone else."
+
+  - q: "At a Nash flow, all paths a commodity actually uses ..."
+    options:
+      - text: "have equal (and minimal) cost"
+        correct: true
+      - text: "have different costs"
+      - text: "carry equal flow"
+      - text: "are the cheapest in the whole network"
+    explain: "If a used path were more expensive, traffic would switch away from it."
+
+  - q: "The total cost of a flow is ..."
+    options:
+      - text: "\\(\\sum_{e} c_e(f_e) f_e\\), summed over the edges"
+        correct: true
+      - text: "the cost of the cheapest edge"
+      - text: "the number of paths used"
+      - text: "the price of anarchy"
+    explain: "Each edge contributes its cost times the flow it carries."
+
+  - q: "The optimal flow is found by ..."
+    options:
+      - text: "minimising the total cost over all feasible flows"
+        correct: true
+      - text: "letting each driver choose selfishly"
+      - text: "maximising the total cost"
+      - text: "using only one path"
+    explain: "The optimal (social) flow minimises total travel cost."
+
+  - q: "Marginal-cost pricing aligns the selfish and social outcomes because ..."
+    options:
+      - text: "it makes each driver internalise the congestion they cause"
+        correct: true
+      - text: "it removes all congestion"
+      - text: "it sets all costs to zero"
+      - text: "it forbids the use of congested edges"
+    explain: "Charging the marginal cost makes the Nash flow coincide with the optimal flow."
+
+  - q: "A routing game is written \\(( G, r, c)\\), where \\(r\\) denotes the ..."
+    options:
+      - text: "amount of traffic (demand) each source-sink commodity must route"
+        correct: true
+      - text: "number of edges in the network"
+      - text: "price of anarchy"
+      - text: "reciprocal of the cost"
+    explain: "Each source-sink pair carries a commodity \\(r_i\\) of traffic across the graph \\(G\\) with edge costs \\(c\\)."
+
+  - q: "The potential function of a routing game is ..."
+    options:
+      - text: "\\(\\Phi(f) = \\sum_{e} \\int_0^{f_e} c_e(x)\\,dx\\)"
+        correct: true
+      - text: "\\(\\Phi(f) = \\sum_{e} c_e(f_e) f_e\\)"
+      - text: "\\(\\Phi(f) = \\max_e c_e(f_e)\\)"
+      - text: "\\(\\Phi(f) = \\sum_e f_e\\)"
+    explain: "The potential integrates each edge cost up to its flow; its minimiser is the Nash flow."
+
+  - q: "The marginal cost of an edge with cost function \\(c\\) is ..."
+    options:
+      - text: "\\(c^*(x) = \\frac{d}{dx}\\big(x\\,c(x)\\big)\\)"
+        correct: true
+      - text: "\\(c^*(x) = c(x)/x\\)"
+      - text: "\\(c^*(x) = \\int_0^x c(t)\\,dt\\)"
+      - text: "\\(c^*(x) = c'(x)\\)"
+    explain: "The optimal flow of \\((G,r,c)\\) is the Nash flow of the game with each cost replaced by its marginal cost \\(c^*\\)."
+
+  - q: "The cost of a path \\(P\\) at flow \\(x\\) is ..."
+    options:
+      - text: "the sum of the edge costs along it, \\(c_P(x) = \\sum_{e \\in P} c_e(x)\\)"
+        correct: true
+      - text: "the cost of its most expensive edge"
+      - text: "the cost of its cheapest edge"
+      - text: "the number of edges it contains"
+    explain: "A path's cost adds up the latencies of the edges that make it up."
+
+  - q: "In Braess's paradox, adding a zero-cost road changes the Nash flow so that its cost ..."
+    options:
+      - text: "rises, even though a new option was added"
+        correct: true
+      - text: "always falls"
+      - text: "stays exactly the same"
+      - text: "becomes zero"
+    explain: "The shortcut tempts every driver onto the two congestible edges, raising the equilibrium travel cost."

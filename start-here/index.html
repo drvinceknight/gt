@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Start here — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<h1 id="start-here">Start here</h1>
+<p>Whoever you are, this course is designed to be predictable. There is a single
+two-hour exam worth 100% of the mark, a fixed
+<a href="/assessment/">list of examinable theorems</a>, and every topic on the
+<a href="/">schedule</a> carries worked, exam-type questions with full solutions. This page
+is the quickest way in.</p>
+<p>The five students below are caricatures, but most of us are a mix of them. Find
+the one closest to you and follow the signposts.</p>
+<figure class="persona-figure">
+  <img src="/assets/img/personas/main.png"
+       alt="The five student personas, a typical week, and where each student finds help">
+</figure>
+
+<h2 id="the-minimum-to-pass">The minimum to pass</h2>
+<p>If you do nothing else, do this, in order:</p>
+<ol>
+<li>Read the <a href="/assessment/">Assessment</a> page so you know the format: a single
+   two-hour exam, 100% of the mark.</li>
+<li>Work through the <a href="/assessment/">list of examinable theorems and proofs</a>. Be
+   able to state each one, and to prove the ones marked "and proof".</li>
+<li>For every topic on the <a href="/">schedule</a>, start with the <strong>quick quiz</strong> to check
+   the basics, then attempt the exam-type questions (the activity-based one
+   first), and check the worked solutions.</li>
+<li>Sit the mock exam and the example exam, both linked from the
+   <a href="/assessment/">Assessment</a> page, under timed conditions. We work through the
+   mock together in class.</li>
+<li>For anything you got stuck on, watch the solution-walkthrough recording.</li>
+</ol>
+<p>That is the whole target. It is finite, and it does not change much from year to
+year.</p>
+<h2 id="if-you-are-aiming-for-the-top-mark">If you are aiming for the top mark</h2>
+<p>Going beyond the minimum:</p>
+<ul>
+<li>Treat the <strong>example classes</strong> as the most valuable hour of the week: that is
+  where we build a full-mark answer live.</li>
+<li>Use the <strong>activity-based question</strong> on each topic page as a memory hook; the
+  game you played is meant to pull the method back.</li>
+<li>Learn the <strong>examinable proofs</strong> properly. Each entry on the
+  <a href="/assessment/">Assessment</a> page links straight to the proof in the textbook.</li>
+<li>Work the <strong>textbook exercises</strong> for each chapter, which give more practice with
+  solutions well beyond the questions here.</li>
+</ul>
+<h2 id="if-exams-are-hard-for-you">If exams are hard for you</h2>
+<p>The activities are there to make each idea click before any algebra. To turn
+that understanding into marks:</p>
+<ul>
+<li>Use each topic's <strong>quick quiz</strong> to confirm the basics have stuck before the
+  harder questions; it reshuffles, so there is no harm in repeating it.</li>
+<li>A topic's questions are easier while the activity is <strong>still fresh</strong>, so it can
+  help to revisit a topic before too long; there is no need to rush.</li>
+<li>Read the worked solutions in full: they are written as sentences so you can
+  follow the reasoning, not just the answer.</li>
+<li>Lean on the <strong>solution-walkthrough recordings</strong> to see an answer built step by
+  step.</li>
+</ul>
+<h2 id="if-the-exam-worries-you">If the exam worries you</h2>
+<p>A single exam can feel daunting, so lean on how predictable it is:</p>
+<ul>
+<li>The examinable content is a fixed list and the format does not change much from
+  year to year.</li>
+<li>Treat the mock exam as a low-stakes dry run, and sit the example exam under
+  timed conditions to get used to the clock.</li>
+<li>Use the solution-walkthrough recordings to check your method against a full
+  answer.</li>
+</ul>
+<h2 id="if-you-are-short-on-time">If you are short on time</h2>
+<p>If you are juggling the course with everything else:</p>
+<ul>
+<li>Use the minimum-to-pass list above to prioritise, and the recordings to catch
+  up on any class you miss.</li>
+<li>The <strong>quick quiz</strong> on each topic is the fastest way to test yourself when you
+  only have a few minutes.</li>
+<li>When time is short, do the activity-based question first: it is the quickest
+  way back into a topic.</li>
+<li>Focus your revision on the mock exam and the examinable-theorems list.</li>
+</ul>
+<h2 id="a-note-on-recordings">A note on recordings</h2>
+<p>The class recordings capture the live activities, which are good for being in the
+room but less useful for last-minute revision. There are also recordings of me
+working through the solutions to the exam-type questions; if you are catching up
+late, those are the recordings to watch.</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

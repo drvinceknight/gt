@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — {{ site_title }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ page.title }}</h1>
+
+{% if page.note_urls %}
+<h3>Notes</h3>
+<ul>
+  {% for url in page.note_urls %}
+  <li><a href="{{ url }}">{{ url | note_label(page.title) }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if page.video_urls %}
+<h3>Videos</h3>
+<ol>
+  {% for url in page.video_urls %}
+  <li><a href="{{ url }}">{{ url }}</a></li>
+  {% endfor %}
+</ol>
+{% endif %}
+
+{% if quiz %}
+<h2>Quick quiz</h2>
+<p>A few questions to warm up and check the basics, before the exam-type
+questions below. They are reshuffled each time, so you can keep retrying.</p>
+<div class="quiz" data-quiz>
+  <script type="application/json">{{ quiz | quiz_json }}</script>
+</div>
+{% endif %}
+
+{{ page.content_html }}
+
+{% if solution %}
+<p><strong><a href="{{ baseurl }}/solutions/{{ solution.title | slugify }}.html">Worked solutions to the example questions &rarr;</a></strong></p>
+{% endif %}
+
+{% if class_notes %}
+<p><small><code><a href="{{ baseurl }}/{{ notes_dir }}/{{ class_notes.title | slugify }}.html">Facilitator notes: {{ class_notes.title }}</a></code></small></p>
+{% endif %}
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+{% endblock %}

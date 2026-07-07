@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Direct Reciprocity — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<h1>Direct Reciprocity</h1>
+
+
+<h3>Notes</h3>
+<ul>
+  
+  <li><a href="https://vknight.org/gtb/chapters/direct-reciprocity/">Direct Reciprocity: course textbook chapter</a></li>
+  
+</ul>
+
+
+
+
+
+<h2>Quick quiz</h2>
+<p>A few questions to warm up and check the basics, before the exam-type
+questions below. They are reshuffled each time, so you can keep retrying.</p>
+<div class="quiz" data-quiz>
+  <script type="application/json">{"title": "Direct reciprocity", "pick": 5, "questions": [{"q": "A reactive strategy \\((p, q)\\) in the Prisoner's Dilemma means ...", "options": [{"text": "cooperate with probability \\(p\\) after the opponent cooperated, and \\(q\\) after they defected", "correct": true}, {"text": "cooperate on the first \\(p\\) rounds, then defect"}, {"text": "play \\(p\\) against cooperators and \\(q\\) against everyone else"}, {"text": "always cooperate with probability \\(p + q\\)"}], "explain": "A reactive strategy conditions only on the opponent's last action."}, {"q": "Tit For Tat is the reactive strategy ...", "options": [{"text": "\\((1, 0)\\)", "correct": true}, {"text": "\\((0, 0)\\)"}, {"text": "\\((1, 1)\\)"}, {"text": "\\((1/2, 1/2)\\)"}], "explain": "Tit For Tat cooperates after cooperation (\\(p=1\\)) and defects after defection (\\(q=0\\))."}, {"q": "When two reactive strategies play, the pair of actions each round forms ...", "options": [{"text": "a Markov chain on the states \\((CC, CD, DC, DD)\\)", "correct": true}, {"text": "a zero sum game"}, {"text": "an extensive form game"}, {"text": "a single fixed outcome"}], "explain": "The next state depends only on the current one, so the play is a Markov chain."}, {"q": "The stationary distribution of this Markov chain gives ...", "options": [{"text": "the long-run fraction of rounds spent in each state, used to find average payoffs", "correct": true}, {"text": "the number of rounds the game lasts"}, {"text": "each player's first move"}, {"text": "the Nash equilibrium of the stage game"}], "explain": "Averaging stage payoffs against the stationary distribution gives long-run payoffs."}, {"q": "Why does Tit For Tat need care with the stationary-distribution method?", "options": [{"text": "its values \\((1, 0)\\) lie on the boundary, so the chain may not be ergodic", "correct": true}, {"text": "it has more than two actions"}, {"text": "it is not a reactive strategy"}, {"text": "it always cooperates"}], "explain": "Boundary values can make the chain periodic or reducible, so no unique stationary distribution need exist."}, {"q": "A Markov chain is ergodic if it is ...", "options": [{"text": "irreducible and aperiodic, so it has a unique stationary distribution", "correct": true}, {"text": "zero sum"}, {"text": "symmetric"}, {"text": "finite"}], "explain": "Ergodicity (irreducible and aperiodic) guarantees convergence to a unique stationary distribution."}, {"q": "A reactive strategy conditions its move on ...", "options": [{"text": "the opponent's action in the previous round only", "correct": true}, {"text": "the entire history of play"}, {"text": "the round number"}, {"text": "its own first move"}], "explain": "Reactive strategies look only at the opponent's last action."}, {"q": "In the state labelling \\((CC, CD, DC, DD)\\), the state \\(CD\\) means ...", "options": [{"text": "player 1 cooperated and player 2 defected", "correct": true}, {"text": "both players cooperated"}, {"text": "both players defected"}, {"text": "player 1 defected and player 2 cooperated"}], "explain": "The first letter is player 1's action, the second is player 2's."}, {"q": "A player's long-run average payoff is computed as ...", "options": [{"text": "the stationary distribution weighted by that player's stage payoffs", "correct": true}, {"text": "the payoff in the first round"}, {"text": "the largest stage payoff"}, {"text": "the number of cooperative rounds"}], "explain": "Averaging the stage payoffs against the stationary distribution gives the long-run payoff."}, {"q": "Reactive strategies are a subclass of ...", "options": [{"text": "memory-one strategies", "correct": true}, {"text": "dominant strategies"}, {"text": "zero-determinant strategies only"}, {"text": "pure strategies only"}], "explain": "Memory-one strategies condition on the full last outcome; reactive ones use only the opponent's move."}, {"q": "Generous Tit For Tat is the reactive strategy ...", "options": [{"text": "\\((1, \\epsilon)\\) for a small \\(\\epsilon \u003e 0\\)", "correct": true}, {"text": "\\((0, 0)\\)"}, {"text": "\\((1, 1)\\)"}, {"text": "\\((0, 1)\\)"}], "explain": "It plays Tit For Tat but occasionally forgives a defection."}, {"q": "The stationary distribution \\(\\pi\\) of a transition matrix \\(M\\) satisfies ...", "options": [{"text": "\\(\\pi M = \\pi\\)", "correct": true}, {"text": "\\(\\pi M = 0\\)"}, {"text": "\\(M \\pi = M\\)"}, {"text": "\\(\\pi = M\\)"}], "explain": "A stationary distribution is unchanged by one step of the chain."}, {"q": "When Tit For Tat meets Always Defect (both starting by cooperating), play settles at ...", "options": [{"text": "mutual defection", "correct": true}, {"text": "mutual cooperation"}, {"text": "alternating cooperation and defection forever"}, {"text": "Tit For Tat always winning"}], "explain": "After one exploited round the play reaches the absorbing state \\(DD\\)."}, {"q": "The first move of a reactive strategy is ...", "options": [{"text": "set separately, since there is no previous round to react to", "correct": true}, {"text": "always defection"}, {"text": "determined by \\(q\\)"}, {"text": "irrelevant to the long run"}], "explain": "With no history yet, the opening move must be specified on its own."}, {"q": "Tit For Tat does well in tournaments because it is ...", "options": [{"text": "nice, retaliatory and forgiving", "correct": true}, {"text": "always the first to defect"}, {"text": "never willing to cooperate"}, {"text": "purely random"}], "explain": "These three traits let it cooperate with cooperators while resisting exploitation."}, {"q": "In a reactive strategy \\((p, q)\\), the value \\(p\\) is the probability of cooperating when the opponent ...", "options": [{"text": "cooperated on the previous round", "correct": true}, {"text": "defected on the previous round"}, {"text": "has never moved"}, {"text": "cooperates on the current round"}], "explain": "\\(q\\) is the corresponding probability of cooperating after the opponent defected."}, {"q": "Always Defect is the reactive strategy ...", "options": [{"text": "\\((0, 0)\\)", "correct": true}, {"text": "\\((1, 1)\\)"}, {"text": "\\((1, 0)\\)"}, {"text": "\\((1/2, 1/2)\\)"}], "explain": "It cooperates with probability 0 whatever the opponent did; Always Cooperate is \\((1,1)\\)."}, {"q": "The Markov chain of two reactive strategies has state space ...", "options": [{"text": "\\(\\{CC, CD, DC, DD\\}\\)", "correct": true}, {"text": "\\(\\{C, D\\}\\)"}, {"text": "\\(\\{0, 1\\}\\)"}, {"text": "\\(\\{CC, DD\\}\\)"}], "explain": "Each state records the pair of actions played by the two players in a round."}, {"q": "In the closed-form stationary distribution, the quantity \\(r_1\\) is defined as ...", "options": [{"text": "\\(p - q\\)", "correct": true}, {"text": "\\(p + q\\)"}, {"text": "\\(pq\\)"}, {"text": "\\(p / q\\)"}], "explain": "With \\(r_1 = p - q\\) and \\(r_2 = p' - q'\\) the steady-state cooperation rates have a closed form."}, {"q": "Zero-determinant strategies are memory-one strategies that ...", "options": [{"text": "are not reactive (they condition on the full previous outcome)", "correct": true}, {"text": "ignore all history"}, {"text": "are the same as Tit For Tat"}, {"text": "cooperate with probability 1"}], "explain": "Reactive strategies condition only on the opponent's last move; memory-one is the broader class."}]}</script>
+</div>
+
+
+<h2 id="example-questions">Example questions</h2>
+<p>The following are exam-type questions in the style of the examination paper.
+<strong>Each question is worth 25 marks.</strong> Attempt them in full before reading the
+worked solutions.</p>
+<h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
+<p>In class we ran an iterated Prisoner's Dilemma tournament and then wrote each
+team's strategy as a reactive strategy <span class="arithmatex">\((p, q)\)</span>, where <span class="arithmatex">\(p\)</span> is the probability
+of cooperating after the opponent cooperated and <span class="arithmatex">\(q\)</span> after they defected. Two
+teams played <span class="arithmatex">\((p, q) = (4/5, 1/5)\)</span> and <span class="arithmatex">\((p', q') = (3/5, 1/10)\)</span> in an
+infinitely repeated game.</p>
+<p>(a) Name the reactive strategies <span class="arithmatex">\((1, 1)\)</span>, <span class="arithmatex">\((0, 0)\)</span>, <span class="arithmatex">\((1, 0)\)</span> and
+<span class="arithmatex">\(\left(\tfrac{1}{2}, \tfrac{1}{2}\right)\)</span>. [3]</p>
+<p>(b) With the state space ordered <span class="arithmatex">\((CC, CD, DC, DD)\)</span>, write down the full
+<span class="arithmatex">\(4 \times 4\)</span> Markov chain transition matrix for the two strategies above. [7]</p>
+<p>(c) Confirm that</p>
+<div class="arithmatex">\[
+\pi = \tfrac{1}{245}\left(26, \; 65, \; 44, \; 110\right)
+\]</div>
+<p>is the stationary distribution of this Markov chain, and use it to obtain each
+player's long-run average payoff (with <span class="arithmatex">\(R = 3\)</span>, <span class="arithmatex">\(P = 1\)</span>, <span class="arithmatex">\(T = 5\)</span>,
+<span class="arithmatex">\(S = 0\)</span>). [7]</p>
+<p>(d) Explain why a strategy such as Tit For Tat, <span class="arithmatex">\((1, 0)\)</span>, needs care when this
+Markov-chain method is applied. [8]</p>
+<h3 id="question-2">Question 2</h3>
+<p>(a) Define a reactive strategy for the Prisoner's Dilemma, and give the
+<span class="arithmatex">\((p, q)\)</span> representation of Always Cooperate, Always Defect, Tit For Tat and
+Random. [5]</p>
+<p>(b) Two players use the reactive strategies <span class="arithmatex">\((p, q) = (4/5, 2/5)\)</span> and
+<span class="arithmatex">\((p', q') = (3/5, 1/10)\)</span>. With <span class="arithmatex">\(r_1 = p - q\)</span>, <span class="arithmatex">\(r_2 = p' - q'\)</span>,</p>
+<div class="arithmatex">\[
+s_1 = \frac{q' r_1 + q}{1 - r_1 r_2}, \quad s_2 = \frac{q r_2 + q'}{1 - r_1 r_2},
+\quad
+\pi = \bigl(s_1 s_2, s_1(1 - s_2), (1 - s_1)s_2, (1 - s_1)(1 - s_2)\bigr).
+\]</div>
+<p>(i) Compute <span class="arithmatex">\(r_1, r_2, s_1, s_2\)</span>. [4]</p>
+<p>(ii) Compute the stationary distribution <span class="arithmatex">\(\pi\)</span>. [4]</p>
+<p>(iii) Using <span class="arithmatex">\(R = 3\)</span>, <span class="arithmatex">\(P = 1\)</span>, <span class="arithmatex">\(T = 5\)</span>, <span class="arithmatex">\(S = 0\)</span>, compute the long-run
+average payoff to each player. [5]</p>
+<p>(iv) State which player does better in the long run, and explain why in terms
+of the two reactive strategies. [2]</p>
+<p>(c) Explain why a pure strategy such as Tit For Tat <span class="arithmatex">\((1, 0)\)</span> must be treated
+separately when computing a stationary distribution. [3]</p>
+<p>(d) Define an ergodic Markov chain. [2]</p>
+<h3 id="question-3">Question 3</h3>
+<p>(a) For two reactive strategies <span class="arithmatex">\((p, q)\)</span> and <span class="arithmatex">\((p', q')\)</span>, write down the
+transition matrix of the Markov chain on the states <span class="arithmatex">\((CC, CD, DC, DD)\)</span>. [5]</p>
+<p>(b) Player 1 uses Tit For Tat and player 2 uses Always Defect, both cooperating
+in the first round.</p>
+<p>(i) Write the transition matrix for this pair. [4]</p>
+<p>(ii) Starting from <span class="arithmatex">\(CC\)</span>, find the sequence of states, the long-run outcome
+and the long-run payoff to each player. [4]</p>
+<p>(c) Player 1 uses Tit For Tat and player 2 uses Always Cooperate.</p>
+<p>(i) Write the transition matrix for this pair. [4]</p>
+<p>(ii) Starting from <span class="arithmatex">\(CC\)</span>, find the long-run outcome and the long-run payoff
+to each player. [4]</p>
+<p>(d) Comment on how Tit For Tat fares against a cooperator compared with a
+defector, and what this suggests about why Tit For Tat performed well in
+Axelrod's tournaments. [4]</p>
+<h3 id="question-4-hard">Question 4 (<strong>hard</strong>)</h3>
+<p>Two players use reactive strategies <span class="arithmatex">\((p, q)\)</span> and <span class="arithmatex">\((p', q')\)</span> in the infinitely
+repeated Prisoner's Dilemma, with stage payoffs <span class="arithmatex">\(R = 3\)</span>, <span class="arithmatex">\(P = 1\)</span>, <span class="arithmatex">\(T = 5\)</span>,
+<span class="arithmatex">\(S = 0\)</span>. Write <span class="arithmatex">\(r_1 = p - q\)</span> and <span class="arithmatex">\(r_2 = p' - q'\)</span>, and assume the opponent's
+strategy is not pure, so that the long-run cooperation probabilities are
+well defined.</p>
+<p>(a) Let <span class="arithmatex">\(c_t\)</span> and <span class="arithmatex">\(c'_t\)</span> be the two players' probabilities of cooperating in
+round <span class="arithmatex">\(t\)</span>. Explain why <span class="arithmatex">\(c_{t+1} = q + (p - q)\, c'_t\)</span>. [4]</p>
+<p>(b) Assuming <span class="arithmatex">\(c_t \to s_1\)</span> and <span class="arithmatex">\(c'_t \to s_2\)</span>, derive
+<span class="arithmatex">\(s_1 = \dfrac{q + r_1 q'}{1 - r_1 r_2}\)</span>. [6]</p>
+<p>(c) Show that if player 1 uses Tit For Tat, <span class="arithmatex">\((p, q) = (1, 0)\)</span>, then
+<span class="arithmatex">\(s_1 = s_2\)</span> whatever reactive strategy player 2 uses. [6]</p>
+<p>(d) Deduce that the two players earn equal long-run payoffs when player 1 uses Tit
+For Tat, and explain how this property accounts for Tit For Tat's success in
+Axelrod's tournaments. [9]</p>
+<h2 id="optional-further-reading">Optional further reading</h2>
+<p>You do not need any of this to follow the topic, but the following may help if
+you would like more background:</p>
+<ul>
+<li><a href="https://vknight.org/gtb/chapters/repeated-games/">Repeated Games</a>, which sets
+  out the infinitely repeated games that direct reciprocity builds on.</li>
+<li><a href="https://vknight.org/gtb/appendices/ergodic-markov-chains/">Ergodic Markov Chains and Stationary Distributions</a>,
+  which underpin the stationary-distribution calculations used here.</li>
+</ul>
+
+
+<p><strong><a href="/solutions/direct-reciprocity.html">Worked solutions to the example questions &rarr;</a></strong></p>
+
+
+
+<p><small><code><a href="/run/direct-reciprocity.html">Facilitator notes: Direct Reciprocity</a></code></small></p>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

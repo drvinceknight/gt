@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Routing Games (facilitator notes) — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="facilitator-notes">
+
+<div class="facilitator-banner">
+  <strong>Facilitator notes: not student-facing.</strong>
+  These notes are for planning and running classes.
+  Student resources are at <a href="/">vknight.org/gt/</a>.
+</div>
+
+<h1>Routing Games</h1>
+
+<h2 id="activity-20-minutes">Activity (20 minutes)</h2>
+<p><strong>Goal.</strong> Let students reach a Nash flow by selfish routing, compare it to the
+optimal flow, and experience Braess's paradox: adding a road can make everyone
+worse off.</p>
+<p><strong>The network.</strong> Drivers travel from Start (<span class="arithmatex">\(S\)</span>) to End (<span class="arithmatex">\(T\)</span>). Draw two routes
+on the board:</p>
+<ul>
+<li>A top route: <span class="arithmatex">\(S \to A\)</span> along a small road whose travel time in minutes equals
+  the number of cars on it, then <span class="arithmatex">\(A \to T\)</span> along a motorway fixed at 50 minutes.</li>
+<li>A bottom route: <span class="arithmatex">\(S \to B\)</span> along a motorway fixed at 50 minutes, then
+  <span class="arithmatex">\(B \to T\)</span> along a small road whose time equals the number of cars on it.</li>
+</ul>
+<p><strong>Phase 1 (no shortcut).</strong></p>
+<ol>
+<li>Each student picks the top or bottom route and stands on that side. The
+   number of students on a small road is its travel time.</li>
+<li>Announce the two route times and let students re-choose to lower their own
+   time, lobbing a few small bribentives to whichever route is currently faster.
+   Repeat until nobody wants to switch.</li>
+</ol>
+<p>With a class of 40 the split settles at 20 and 20, each route taking
+<span class="arithmatex">\(20 + 50 = 70\)</span> minutes. This is the Nash flow, and here it is also the optimal
+flow.</p>
+<p><strong>Phase 2 (add a shortcut).</strong></p>
+<ol>
+<li>Add a brand-new, instant road from <span class="arithmatex">\(A\)</span> to <span class="arithmatex">\(B\)</span> taking 0 minutes. There is now
+   a tempting route <span class="arithmatex">\(S \to A \to B \to T\)</span> that uses both small roads and skips
+   both motorways.</li>
+<li>Let students re-choose, again tossing a few small bribentives to whichever
+   route is currently faster. Everyone is drawn onto <span class="arithmatex">\(S \to A\)</span> and <span class="arithmatex">\(B \to T\)</span>, so
+   the class funnels onto the zig-zag: all 40 on each small road, taking
+   <span class="arithmatex">\(40 + 0 + 40 = 80\)</span> minutes.</li>
+<li>Point out that nobody can do better by switching back: the old routes now
+   cost <span class="arithmatex">\(40 + 50 = 90\)</span> minutes. The new road is a Nash flow that is worse for
+   everyone, 80 against 70.</li>
+</ol>
+<h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
+<p>Discuss the <strong>Routing Games</strong> chapter.</p>
+<p>Discussion Point: <strong>After the definitions of flow and cost, ask students to
+write down the flow and the costs in our network.</strong></p>
+<p>Discussion Point: <strong>After the definitions of Nash flow and optimal flow, ask
+which was which in each phase, and why they differed once the shortcut was
+added.</strong></p>
+<p>Discussion Point: <strong>After the potential function and marginal cost results, ask
+students how each driver ignoring the congestion they impose on others explains
+Braess's paradox.</strong></p>
+<h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
+<p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="/topics/routing-games.html">Routing Games</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
+
+
+<h2>Communications</h2>
+
+<p>General email templates to send before and after this class. Fill in the
+bracketed placeholders before sending.</p>
+
+<h3>Before class</h3>
+
+<pre><code>Hi all,
+
+A reminder that our next Game Theory class covers Routing Games.
+
+All of the course materials, including the relevant chapter, are available
+at https://vknight.org/gt/. It is worth skimming the chapter beforehand.
+
+See you in class,
+Vince
+</code></pre>
+
+<h3>After class</h3>
+
+<pre><code>Dear all,
+
+Thanks for your work in today's class on Routing Games.
+
+A recording is available here [RECORDING LINK] and on Learning Central.
+
+All class resources are available at https://vknight.org/gt/.
+
+Thanks,
+Vince
+</code></pre>
+
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

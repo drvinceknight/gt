@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nash Equilibrium solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/nash-equilibrium.html">&larr; Back to Nash Equilibrium</a></small></p>
+
+<h1 id="nash-equilibrium-worked-solutions">Nash Equilibrium: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/nash-equilibrium.html">Nash Equilibrium</a> page. Each question is worth 25
+marks.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) Symmetric zero-sum game.</strong> [3]</p>
+<p>The column player's matrix is
+<span class="arithmatex">\(M_c = -M = \begin{pmatrix} 0 &amp; 1 &amp; -1 \\ -1 &amp; 0 &amp; 1 \\ 1 &amp; -1 &amp; 0 \end{pmatrix}\)</span>.
+It is zero sum because <span class="arithmatex">\(M + M_c = 0\)</span>: one player's gain is exactly the other's
+loss. It is symmetric because <span class="arithmatex">\(M = -M^{\top}\)</span>, so interchanging the two players
+maps the game to itself while negating the payoffs.</p>
+<p><strong>(b) Utilities for the three strategy pairs.</strong> [3]</p>
+<p>The row player's utility is <span class="arithmatex">\(u_r = \sigma_r M \sigma_c^{\top}\)</span> and, as the game
+is zero sum, the column player's is <span class="arithmatex">\(u_c = -u_r\)</span>. For
+<span class="arithmatex">\(\sigma_c = (\tfrac{1}{2}, \tfrac{1}{2}, 0)\)</span> we have
+<span class="arithmatex">\(M \sigma_c^{\top} = (-\tfrac{1}{2}, \tfrac{1}{2}, 0)\)</span>.</p>
+<ol>
+<li><span class="arithmatex">\(\sigma_r = (\tfrac{1}{3}, 0, \tfrac{2}{3})\)</span>:
+   <span class="arithmatex">\(u_r = \tfrac{1}{3}(-\tfrac{1}{2}) + 0 + \tfrac{2}{3}(0) = -\tfrac{1}{6}\)</span>, so
+   <span class="arithmatex">\((u_r, u_c) = (-\tfrac{1}{6}, \tfrac{1}{6})\)</span>.</li>
+<li><span class="arithmatex">\(\sigma_r = (\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3})\)</span>:
+   <span class="arithmatex">\(u_r = \tfrac{1}{3}(-\tfrac{1}{2} + \tfrac{1}{2} + 0) = 0\)</span>, so
+   <span class="arithmatex">\((u_r, u_c) = (0, 0)\)</span>.</li>
+<li><span class="arithmatex">\(\sigma_r = \sigma_c = (\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3})\)</span>: here
+   <span class="arithmatex">\(M \sigma_c^{\top} = (0, 0, 0)\)</span>, so <span class="arithmatex">\(u_r = 0\)</span> and <span class="arithmatex">\((u_r, u_c) = (0, 0)\)</span>.</li>
+</ol>
+<p><strong>(c) The uniform strategy is a Nash equilibrium.</strong> [9]</p>
+<p>The best response condition states that <span class="arithmatex">\(\sigma_r\)</span> is a best response to
+<span class="arithmatex">\(\sigma_c\)</span> if and only if every action in its support yields the maximal
+expected payoff, that is <span class="arithmatex">\(\sigma_r(i) &gt; 0 \Rightarrow (M\sigma_c^{\top})_i =
+\max_k (M\sigma_c^{\top})_k\)</span>. Take both players uniform,
+<span class="arithmatex">\(\sigma = \left(\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3}\right)\)</span>. Against
+<span class="arithmatex">\(\sigma_c = \sigma\)</span>, the row player's expected payoffs are</p>
+<div class="arithmatex">\[
+\text{Rock}: \tfrac{0 - 1 + 1}{3} = 0, \quad
+\text{Paper}: \tfrac{1 + 0 - 1}{3} = 0, \quad
+\text{Scissors}: \tfrac{-1 + 1 + 0}{3} = 0.
+\]</div>
+<p>All three actions give the maximal payoff <span class="arithmatex">\(0\)</span>, so every action in the support
+of <span class="arithmatex">\(\sigma_r\)</span> is a best response: by the best response condition <span class="arithmatex">\(\sigma_r\)</span> is
+a best response. By the symmetry of the game the same holds for the column
+player, so <span class="arithmatex">\((\sigma, \sigma)\)</span> is a Nash equilibrium, with value <span class="arithmatex">\(0\)</span>.</p>
+<p><strong>(d) Uniqueness.</strong> [6]</p>
+<p>In Rock-Paper-Scissors every action is beaten by another, so no Nash equilibrium
+can place all weight on a proper subset of the actions: whatever the support of
+the opponent's strategy, a player can deviate to the action that beats the
+opponent's most likely choice. Hence in any equilibrium each player mixes over
+all three actions, and by the best response condition is indifferent between
+them. Writing <span class="arithmatex">\(\sigma_c = (a, b, c)\)</span> with <span class="arithmatex">\(a + b + c = 1\)</span>, the row player's
+payoffs are</p>
+<div class="arithmatex">\[
+\text{Rock}: c - b, \quad \text{Paper}: a - c, \quad \text{Scissors}: b - a.
+\]</div>
+<p>Setting them equal, <span class="arithmatex">\(c - b = a - c\)</span> gives <span class="arithmatex">\(2c = a + b\)</span>, and <span class="arithmatex">\(a - c = b - a\)</span>
+gives <span class="arithmatex">\(2a = b + c\)</span>; with <span class="arithmatex">\(a + b + c = 1\)</span> these force
+<span class="arithmatex">\(a = b = c = \tfrac{1}{3}\)</span>. By symmetry <span class="arithmatex">\(\sigma_r\)</span> is also uniform, so the
+equilibrium is unique.</p>
+<p><strong>(e) Rock-Paper-Scissors-Lizard-Spock.</strong> [4]</p>
+<p>By the same symmetry each action beats two others and loses to two, so against
+the uniform strategy each action earns <span class="arithmatex">\(\tfrac{2(+1) + 2(-1)}{5} = 0\)</span>: all five
+are best responses. As in part (d), no equilibrium can leave any action unused, so
+the unique Nash equilibrium is each player playing each of the five actions with
+probability <span class="arithmatex">\(\tfrac{1}{5}\)</span>, with value <span class="arithmatex">\(0\)</span>.</p>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [5]</p>
+<ul>
+<li>An <span class="arithmatex">\(N\)</span>-player <strong>normal form game</strong> consists of a finite set of <span class="arithmatex">\(N\)</span> players,
+  an action set <span class="arithmatex">\(\mathcal{A}_i\)</span> for each player, and a payoff function
+  <span class="arithmatex">\(u_i : \mathcal{A}_1 \times \dots \times \mathcal{A}_N \to \mathbb{R}\)</span> for
+  each player.</li>
+<li>An action <span class="arithmatex">\(a_i \in \mathcal{A}_i\)</span> is <strong>strictly dominated</strong> if there is a
+  strategy <span class="arithmatex">\(\sigma_i \in \Delta(\mathcal{A}_i)\)</span> with
+  <span class="arithmatex">\(u_i(\sigma_i, s_{-i}) &gt; u_i(a_i, s_{-i})\)</span> for all <span class="arithmatex">\(s_{-i} \in S_{-i}\)</span>.</li>
+<li>A strategy <span class="arithmatex">\(s^{*}\)</span> for player <span class="arithmatex">\(i\)</span> is a <strong>best response</strong> to <span class="arithmatex">\(s_{-i}\)</span> if
+  <span class="arithmatex">\(u_i(s^{*}, s_{-i}) \ge u_i(s, s_{-i})\)</span> for all <span class="arithmatex">\(s \in \Delta(\mathcal{A}_i)\)</span>.</li>
+<li>A strategy profile is a <strong>Nash equilibrium</strong> if each player's strategy is a best
+  response to the others'.</li>
+<li>The <strong>support</strong> of a strategy is the set of actions it plays with positive
+  probability.</li>
+</ul>
+<p><strong>(b)(i) Pure Nash equilibria.</strong> [4]</p>
+<p>Underlining best responses (each column for the row player in <span class="arithmatex">\(M_r\)</span>, each row
+for the column player in <span class="arithmatex">\(M_c\)</span>):</p>
+<div class="arithmatex">\[
+M_r =
+\begin{pmatrix}
+\underline{4} &amp; 1 \\
+0 &amp; \underline{3}
+\end{pmatrix}
+\qquad
+M_c =
+\begin{pmatrix}
+\underline{3} &amp; 0 \\
+1 &amp; \underline{4}
+\end{pmatrix}.
+\]</div>
+<p>Both payoffs are underlined in the top-left and bottom-right cells, giving the
+pure Nash equilibria <span class="arithmatex">\(\{((1, 0), (1, 0)), ((0, 1), (0, 1))\}\)</span>.</p>
+<p><strong>(b)(ii) Sketches and indifference.</strong> [4]</p>
+<p>Against <span class="arithmatex">\(\sigma_2 = (y, 1 - y)\)</span>:
+<span class="arithmatex">\(u_1(r_1) = 4y + (1 - y) = 1 + 3y\)</span> (from <span class="arithmatex">\((0,1)\)</span> to <span class="arithmatex">\((1,4)\)</span>) and
+<span class="arithmatex">\(u_1(r_2) = 3(1 - y) = 3 - 3y\)</span> (from <span class="arithmatex">\((0,3)\)</span> to <span class="arithmatex">\((1,0)\)</span>); they cross where
+<span class="arithmatex">\(1 + 3y = 3 - 3y\)</span>, i.e. <span class="arithmatex">\(y = \tfrac{1}{3}\)</span>. Against <span class="arithmatex">\(\sigma_1 = (x, 1 - x)\)</span>:
+<span class="arithmatex">\(u_2(c_1) = 3x + (1 - x) = 1 + 2x\)</span> and <span class="arithmatex">\(u_2(c_2) = 4(1 - x) = 4 - 4x\)</span>; they
+cross where <span class="arithmatex">\(1 + 2x = 4 - 4x\)</span>, i.e. <span class="arithmatex">\(x = \tfrac{1}{2}\)</span>.</p>
+<p><strong>(b)(iii) Mixed Nash equilibrium.</strong> [5]</p>
+<p>By the best response condition, writing the row player's matrix as <span class="arithmatex">\(A = M_r\)</span>, a
+strategy <span class="arithmatex">\(\sigma_r^{*}\)</span> is a best response to <span class="arithmatex">\(\sigma_c\)</span> if and only if</p>
+<div class="arithmatex">\[
+\sigma_{r^{*}}(i) &gt; 0 \quad \Rightarrow \quad
+(A \sigma_c^{\top})_i = \max_{k \in \mathcal{A}_1}(A \sigma_c^{\top})_k
+\quad \text{for all } i \in \mathcal{A}_1,
+\]</div>
+<p>that is, every action played with positive probability must earn the maximal
+expected payoff. For an equilibrium in which both supports have size two, every
+action lies in the support, so each player must be indifferent between their two
+actions and hence make the other indifferent. From part (ii) the column player is
+indifferent at <span class="arithmatex">\(x = \tfrac{1}{2}\)</span> and the row player at <span class="arithmatex">\(y = \tfrac{1}{3}\)</span>, so
+the mixed Nash equilibrium is
+<span class="arithmatex">\(\left(\left(\tfrac{1}{2}, \tfrac{1}{2}\right), \left(\tfrac{1}{3}, \tfrac{2}{3}\right)\right)\)</span>.</p>
+<p><strong>(b)(iv) Payoffs and comparison.</strong> [7]</p>
+<p>At the mixed equilibrium each player is indifferent, so the row player earns
+<span class="arithmatex">\(u_1(r_1) = 1 + 3 \cdot \tfrac{1}{3} = 2\)</span> and the column player earns
+<span class="arithmatex">\(u_2(c_1) = 1 + 2 \cdot \tfrac{1}{2} = 2\)</span>; the payoff profile is <span class="arithmatex">\((2, 2)\)</span>. The
+pure equilibria give <span class="arithmatex">\((4, 3)\)</span> at <span class="arithmatex">\(((1,0),(1,0))\)</span> and <span class="arithmatex">\((3, 4)\)</span> at
+<span class="arithmatex">\(((0,1),(0,1))\)</span>. Each player earns at least <span class="arithmatex">\(3\)</span> in either pure equilibrium,
+which exceeds the mixed payoff of <span class="arithmatex">\(2\)</span>, so both players would prefer either pure
+equilibrium to the mixed one: the mixed equilibrium is the worst of the three for
+both players.</p>
+<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [5]</p>
+<ul>
+<li>An action <span class="arithmatex">\(a_i \in \mathcal{A}_i\)</span> is <strong>strictly dominated</strong> if there is a
+  strategy <span class="arithmatex">\(\sigma_i \in \Delta(\mathcal{A}_i)\)</span> with
+  <span class="arithmatex">\(u_i(\sigma_i, s_{-i}) &gt; u_i(a_i, s_{-i})\)</span> for all <span class="arithmatex">\(s_{-i}\)</span>.</li>
+<li>It is <strong>weakly dominated</strong> if there is such a <span class="arithmatex">\(\sigma_i\)</span> with
+  <span class="arithmatex">\(u_i(\sigma_i, s_{-i}) \ge u_i(a_i, s_{-i})\)</span> for all <span class="arithmatex">\(s_{-i}\)</span> and strict
+  inequality for at least one <span class="arithmatex">\(s_{-i}\)</span>.</li>
+<li>Example: with row-player payoffs
+  <span class="arithmatex">\(\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}\)</span>, row 2 is weakly dominated by
+  row 1 (<span class="arithmatex">\(1 \ge 1\)</span> and <span class="arithmatex">\(1 &gt; 0\)</span>) but not strictly, since against the first
+  column both rows give <span class="arithmatex">\(1\)</span>.</li>
+</ul>
+<p><strong>(b)(i) Iterated elimination.</strong> [4]</p>
+<p>For the row player, row 2 strictly dominates row 1 (<span class="arithmatex">\(5 &gt; 3\)</span> and <span class="arithmatex">\(1 &gt; 0\)</span>), so
+row 1 is eliminated. With only row 2 remaining, the column player's payoffs are
+<span class="arithmatex">\(0\)</span> for column 1 and <span class="arithmatex">\(1\)</span> for column 2, so column 2 strictly dominates column
+1 and column 1 is eliminated. The single surviving profile is
+<span class="arithmatex">\(((0, 1), (0, 1))\)</span>, the Nash equilibrium, with payoffs <span class="arithmatex">\((1, 1)\)</span>.</p>
+<p><strong>(b)(ii) Interpretation.</strong> [4]</p>
+<p>The outcome in which each plays their first action gives <span class="arithmatex">\((3, 3)\)</span>, which both
+players prefer to the equilibrium <span class="arithmatex">\((1, 1)\)</span> since <span class="arithmatex">\(3 &gt; 1\)</span>. It cannot be
+sustained in a one-shot game: from <span class="arithmatex">\((3, 3)\)</span> either player can deviate to their
+second action and earn <span class="arithmatex">\(5 &gt; 3\)</span>, so it is not a Nash equilibrium. Strict
+dominance drives both players to their second action and hence to the inferior
+outcome <span class="arithmatex">\((1, 1)\)</span>.</p>
+<p><strong>(c)(i) Pure Nash equilibria.</strong> [3]</p>
+<div class="arithmatex">\[
+M_r =
+\begin{pmatrix}
+\underline{2} &amp; 0 \\
+0 &amp; \underline{1}
+\end{pmatrix}
+\qquad
+M_c =
+\begin{pmatrix}
+\underline{1} &amp; 0 \\
+0 &amp; \underline{2}
+\end{pmatrix}.
+\]</div>
+<p>The pure Nash equilibria are <span class="arithmatex">\(\{((1, 0), (1, 0)), ((0, 1), (0, 1))\}\)</span>, with
+payoffs <span class="arithmatex">\((2, 1)\)</span> and <span class="arithmatex">\((1, 2)\)</span>.</p>
+<p><strong>(c)(ii) Mixed Nash equilibrium.</strong> [6]</p>
+<p>By the best response condition each player makes the other indifferent. The row
+player makes the column player indifferent: <span class="arithmatex">\(u_2(c_1) = x\)</span> and
+<span class="arithmatex">\(u_2(c_2) = 2(1 - x)\)</span>, equal at <span class="arithmatex">\(x = 2 - 2x\)</span>, so <span class="arithmatex">\(x = \tfrac{2}{3}\)</span>. The
+column player makes the row player indifferent: <span class="arithmatex">\(u_1(r_1) = 2y\)</span> and
+<span class="arithmatex">\(u_1(r_2) = 1 - y\)</span>, equal at <span class="arithmatex">\(2y = 1 - y\)</span>, so <span class="arithmatex">\(y = \tfrac{1}{3}\)</span>. The mixed
+Nash equilibrium is
+<span class="arithmatex">\(\left(\left(\tfrac{2}{3}, \tfrac{1}{3}\right), \left(\tfrac{1}{3}, \tfrac{2}{3}\right)\right)\)</span>.</p>
+<p><strong>(c)(iii) Payoffs and inefficiency.</strong> [3]</p>
+<p>At the mixed equilibrium the row player earns <span class="arithmatex">\(u_1(r_1) = 2y = \tfrac{2}{3}\)</span> and
+the column player earns <span class="arithmatex">\(u_2(c_1) = x = \tfrac{2}{3}\)</span>. Each pure equilibrium
+gives the players <span class="arithmatex">\(2\)</span> and <span class="arithmatex">\(1\)</span> (in some order), and even the smaller of these,
+<span class="arithmatex">\(1\)</span>, exceeds <span class="arithmatex">\(\tfrac{2}{3}\)</span>. So the mixed equilibrium is worse for both
+players than either pure equilibrium: a failure to coordinate.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) Antisymmetry forces a zero diagonal value.</strong> [5]</p>
+<p>The quantity <span class="arithmatex">\(s = \sigma A \sigma^T\)</span> is a scalar, so it equals its own
+transpose. Using <span class="arithmatex">\(A^T = -A\)</span>,</p>
+<div class="arithmatex">\[
+s = \sigma A \sigma^T = \bigl(\sigma A \sigma^T\bigr)^T = \sigma A^T \sigma^T
+= -\sigma A \sigma^T = -s.
+\]</div>
+<p>Hence <span class="arithmatex">\(s = -s\)</span>, so <span class="arithmatex">\(s = 0\)</span>. A player who uses any strategy <span class="arithmatex">\(\sigma\)</span> against
+an opponent using the same <span class="arithmatex">\(\sigma\)</span> therefore earns an expected payoff of zero.</p>
+<p><strong>(b) Equilibrium condition and value.</strong> [6]</p>
+<p>By the best response condition, <span class="arithmatex">\(\sigma^*\)</span> is a best response to <span class="arithmatex">\(\sigma^*\)</span> if
+and only if every action in the support of <span class="arithmatex">\(\sigma^*\)</span> is itself a best response,
+and no action does strictly better. The payoff to playing pure action <span class="arithmatex">\(i\)</span>
+against <span class="arithmatex">\(\sigma^*\)</span> is <span class="arithmatex">\((A \sigma^{*T})_i\)</span>, while <span class="arithmatex">\(\sigma^*\)</span> itself earns
+<span class="arithmatex">\(\sigma^* A \sigma^{*T} = 0\)</span> by part (a). So <span class="arithmatex">\((\sigma^*, \sigma^*)\)</span> is a Nash
+equilibrium if and only if</p>
+<div class="arithmatex">\[
+(A \sigma^{*T})_i \le 0 \text{ for all } i,
+\qquad (A \sigma^{*T})_i = 0 \text{ for } i \text{ in the support of } \sigma^*.
+\]</div>
+<p>Playing <span class="arithmatex">\(\sigma^*\)</span> guarantees the row player an expected payoff of <span class="arithmatex">\(0\)</span> against
+any opponent strategy, and by symmetry the column player can likewise guarantee
+<span class="arithmatex">\(0\)</span>; since the game is zero-sum the two guarantees are consistent only if the
+value is exactly <span class="arithmatex">\(0\)</span>.</p>
+<p><strong>(c) The weighted equilibrium.</strong> [8]</p>
+<p>A full-support equilibrium has <span class="arithmatex">\(A \sigma^{*T} = 0\)</span>. Writing
+<span class="arithmatex">\(\sigma^* = (x, y, z)\)</span>,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+-y + \beta z &amp;= 0 \quad\Rightarrow\quad y = \beta z, \\
+x - \beta z &amp;= 0 \quad\Rightarrow\quad x = \beta z, \\
+-\beta x + \beta y &amp;= 0 \quad\Rightarrow\quad x = y,
+\end{aligned}
+\]</div>
+<p>which are consistent with <span class="arithmatex">\(x = y = \beta z\)</span>. The normalisation
+<span class="arithmatex">\(x + y + z = 1\)</span> gives <span class="arithmatex">\(z(2\beta + 1) = 1\)</span>, so</p>
+<div class="arithmatex">\[
+\sigma^* = \left(\frac{\beta}{2\beta + 1},\ \frac{\beta}{2\beta + 1},\ \frac{1}{2\beta + 1}\right).
+\]</div>
+<p>When <span class="arithmatex">\(\beta = 1\)</span> this is <span class="arithmatex">\(\bigl(\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3}\bigr)\)</span>,
+recovering standard Rock-Paper-Scissors.</p>
+<p><strong>(d) Interpretation.</strong> [6]</p>
+<p>As <span class="arithmatex">\(\beta\)</span> increases the equilibrium weight on Rock and Paper rises towards
+<span class="arithmatex">\(\tfrac{1}{2}\)</span> each while Scissors falls towards <span class="arithmatex">\(0\)</span>; as <span class="arithmatex">\(\beta \to 0\)</span> almost
+all the weight goes onto Scissors. The parameter <span class="arithmatex">\(\beta\)</span> scales the stakes of
+the contests that Scissors is involved in: a larger <span class="arithmatex">\(\beta\)</span> makes the swings
+around Scissors more severe, and in equilibrium the players protect themselves by
+playing Scissors less often and the other two actions more. The equilibrium
+always keeps every action a best response, so no action is ever abandoned for any
+finite <span class="arithmatex">\(\beta &gt; 0\)</span>, but the mixing tilts smoothly with the weight.</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

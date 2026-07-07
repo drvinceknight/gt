@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About the Course — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<h1>About the Course</h1>
+
+
+
+
+
+
+
+<h1 id="game-theory-introduction-to-the-course">Game Theory: Introduction to the course</h1>
+<p>Game theory is the mathematics of strategy.
+It is a powerful framework for understanding how individuals and groups make decisions when their outcomes depend on others.
+This module introduces the foundational models of game theory and connects them to contemporary research and real-world behaviour.</p>
+<p>The module covers a broad range of classic and modern topics, including discussions of notable research in the field.
+Most of the ideas are brought to life through interactive classroom experiments that mirror the games we study, encouraging discussion and reflection.</p>
+<p>There’s a strong emphasis on independent learning.
+The in-class activities and discussions build core understanding, but you'll also be expected to explore the material in depth on your own.
+This course is not lectured: in class we work in parallel to the notes through activities and discussion.
+Assessment is a single 2-hour examination at the end of the semester.</p>
+<p>Although independent learning is central to the course, you are not on your own.
+There is a lot of support: a quick self-check quiz and worked exam-type questions
+with solutions on every topic, the textbook's further examples and exercises, and
+regular example classes in which we work through exam questions together. The
+<a href="/start-here/">Start here</a> page sets out how to use it all, and the quickest
+route to a pass.</p>
+<p>Along the way, you’ll see how game theory draws on a wide range of mathematical ideas, including integer pivoting, interior point methods,
+numerical integration of differential equations, and Markov chains.
+This makes this module a great option whether you’re looking to apply familiar techniques or encounter these topics for the first time.</p>
+<p>All course materials are available online at
+<a href="http://vknight.org/gt/">vknight.org/gt/</a>. You can also find all the source
+files that create that website at
+<a href="https://github.com/drvinceknight/gt/">github.com/drvinceknight/gt/</a>.</p>
+<h2 id="course-content">Course content</h2>
+<p>There are 2 components to the course content, all of which can be found at this
+site.</p>
+<ul>
+<li>The course notes we will use is the open source text book available here:
+  <a href="https://vknight.org/gtb/">https://vknight.org/gtb/</a>. The textbook contains
+  every topic we cover, together with exercises, worked solutions and the
+  programming material. Note that not every chapter of the textbook is on the
+  course: the schedule lists what is examinable, but you are very welcome to read
+  the other chapters too.</li>
+<li>Content we will generate in class: through our discussions and activities we
+  will generate valuable information. I will capture these.</li>
+</ul>
+<p>Some topics also list optional further reading: related chapters of the textbook
+that may help, but that you do not need in order to follow the course.</p>
+<h2 id="in-class-activities">In class activities</h2>
+<p>In class we will not follow the class texts: these are there for you to read on
+your own time. Instead we will use activities and other examples to illustrate
+the concepts. I have my own notes for those (which are also available to you).</p>
+<p>If you would like some information about the pedagogic approach:</p>
+<ul>
+<li>You can find my "teaching philosophy" here: <a href="https://vknight.org/tch-phi/">vknight.org/tch-phi/</a></li>
+<li>Here is a paper describing some of the pedagogic rational for this approach: <a href="https://journals.gre.ac.uk/index.php/msor/article/view/254/254">journals.gre.ac.uk/index.php/msor/article/view/254/254</a></li>
+</ul>
+<p>It is possible that the course notes will change: <strong>for things like typos and
+clarifications</strong>, all of the notes are hosted openly on github and if you're
+interested you can find a list of all changes here:
+<a href="https://github.com/drvinceknight/gtb/commits/main">github.com/drvinceknight/gtb/commits/main</a></p>
+<h2 id="technology-in-class">Technology in class</h2>
+<p>Please use whatever resources you need to be successful in this class. Let me
+know if I can help with anything.</p>
+<h2 id="office-hours">Office hours</h2>
+<p>I will not hold specific office hours. Please speak to me (face to face or via
+email) to arrange a time to meet.</p>
+<h2 id="kindness">Kindness</h2>
+<p>In this course every participant (including myself) will be having many
+interactions with other participants. Some potential examples of this:</p>
+<ul>
+<li>Peer to peer discussions during classes;</li>
+<li>Me explaining a given topic.</li>
+</ul>
+<p>I expect <strong>every participant</strong> (including myself) to act with kindness
+during these interactions.</p>
+<p>Some examples of how this applies to me:</p>
+<ul>
+<li>When a student is late or absent at a class <strong>I</strong> will assume they
+  have good reasons. If this happens regularly</li>
+<li>I will first be concerned for their well-being.</li>
+<li>Ask how <strong>I</strong> can help them catch up.</li>
+<li>If a student asks for an explanation of a topic that has been
+  covered multiples times <strong>I</strong> will assume that some set of
+  circumstances has prevented them from seeing these explanations and:</li>
+<li>will explain the topic.</li>
+<li>also point them at the explanations in the course materials
+      and/or class recordings. If this is a regular occurrence I might
+      ask if there are any circumstances that I can help with.</li>
+<li>If <strong>I</strong> make a mistake in a class explanation and someone helpfully
+  points it out. <strong>I</strong> will listen and thank them for pointing it out
+  and either go over the mistake then and there or go over it again at
+  a future meeting.</li>
+</ul>
+<h2 id="assessment">Assessment</h2>
+<p>There is one piece of assessment in this course:</p>
+<ul>
+<li>2 hour exam (100%)</li>
+</ul>
+<p>More information about assessment: <a href="/assessment/">here</a></p>
+
+
+
+
+<p><small><code><a href="/run/about-the-class.html">Facilitator notes: About the class</a></code></small></p>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+title: Repeated games
+pick: 5
+questions:
+  - q: "In an infinitely repeated game, the discount factor \\(\\delta\\) can be read as ..."
+    options:
+      - text: "the probability that the game continues to another round"
+        correct: true
+      - text: "the number of players"
+      - text: "the payoff from defecting"
+      - text: "the number of rounds already played"
+    explain: "Reading \\(\\delta\\) as a continuation probability gives an expected length \\(1/(1-\\delta)\\)."
+
+  - q: "The Grudger strategy ..."
+    options:
+      - text: "cooperates until the opponent defects, then defects for ever"
+        correct: true
+      - text: "always defects"
+      - text: "copies the opponent's last move"
+      - text: "cooperates with probability \\(1/2\\)"
+    explain: "A single defection triggers permanent punishment."
+
+  - q: "The Folk Theorem says that, for patient enough players, ..."
+    options:
+      - text: "any individually rational payoff pair can be sustained in a subgame perfect equilibrium"
+        correct: true
+      - text: "cooperation is impossible"
+      - text: "only the stage Nash equilibrium can occur"
+      - text: "the game must be zero sum"
+    explain: "As \\(\\delta\\) approaches 1, a wide range of outcomes becomes sustainable."
+
+  - q: "In the finitely repeated Prisoner's Dilemma with a known last round, ..."
+    options:
+      - text: "backward induction forces defection in every round"
+        correct: true
+      - text: "cooperation is sustained throughout"
+      - text: "the players cooperate only in the last round"
+      - text: "there is no subgame perfect equilibrium"
+    explain: "The last round is the one-shot game, and defection unravels back to the first round."
+
+  - q: "The individually rational payoff of a player is ..."
+    options:
+      - text: "the most they can guarantee themselves whatever the opponent does (their minimax value)"
+        correct: true
+      - text: "the payoff from mutual cooperation"
+      - text: "the largest payoff in the game"
+      - text: "always zero"
+    explain: "It is the payoff a player can secure for themselves regardless of the opponent."
+
+  - q: "As the temptation payoff \\(T\\) increases, the discount factor needed to sustain cooperation ..."
+    options:
+      - text: "increases (players must be more patient)"
+        correct: true
+      - text: "decreases"
+      - text: "stays the same"
+      - text: "becomes negative"
+    explain: "A larger one-off gain from defecting requires a longer shadow of the future to deter it."
+
+  - q: "A strategy in a repeated game is ..."
+    options:
+      - text: "a mapping from the history of play to an action in the stage game"
+        correct: true
+      - text: "a single action played every round"
+      - text: "the payoff matrix"
+      - text: "the discount factor"
+    explain: "Repeated-game strategies can condition on everything that has happened."
+
+  - q: "The discounted value of receiving a payoff \\(c\\) every round is ..."
+    options:
+      - text: "\\(c / (1 - \\delta)\\)"
+        correct: true
+      - text: "\\(c \\delta\\)"
+      - text: "\\(c (1 - \\delta)\\)"
+      - text: "\\(c / \\delta\\)"
+    explain: "Summing the geometric series \\(c(1 + \\delta + \\delta^2 + \\cdots)\\) gives \\(c/(1-\\delta)\\)."
+
+  - q: "The average utility of a payoff stream is defined as ..."
+    options:
+      - text: "\\((1 - \\delta)\\) times the discounted total"
+        correct: true
+      - text: "the discounted total"
+      - text: "the payoff in the first round"
+      - text: "the largest stage payoff"
+    explain: "Multiplying by \\((1-\\delta)\\) gives the per-stage average."
+
+  - q: "Playing a Nash equilibrium of the stage game in every round is ..."
+    options:
+      - text: "always a subgame perfect equilibrium of the repeated game"
+        correct: true
+      - text: "never an equilibrium"
+      - text: "only a Nash equilibrium if the game is finite"
+      - text: "impossible to compute"
+    explain: "Any sequence of stage Nash profiles is subgame perfect."
+
+  - q: "Cooperation can be sustained in the infinitely repeated Prisoner's Dilemma because ..."
+    options:
+      - text: "there is no last round, so future punishment can deter defection"
+        correct: true
+      - text: "defection is impossible"
+      - text: "the stage game has no Nash equilibrium"
+      - text: "players cannot remember the past"
+    explain: "Without a known final round, backward induction does not unravel cooperation."
+
+  - q: "The expected number of rounds when \\(\\delta\\) is the continuation probability is ..."
+    options:
+      - text: "\\(1 / (1 - \\delta)\\)"
+        correct: true
+      - text: "\\(\\delta\\)"
+      - text: "\\(1 - \\delta\\)"
+      - text: "infinite for any \\(\\delta\\)"
+    explain: "The number of rounds is geometric with mean \\(1/(1-\\delta)\\)."
+
+  - q: "In Grudger, the punishment phase consists of ..."
+    options:
+      - text: "both players playing the stage Nash equilibrium (mutual defection) for ever"
+        correct: true
+      - text: "alternating cooperation and defection"
+      - text: "returning to cooperation after one round"
+      - text: "ending the game immediately"
+    explain: "The threat is permanent reversion to the stage equilibrium."
+
+  - q: "For cooperation to be sustainable, the cooperative payoff must exceed ..."
+    options:
+      - text: "the gain from a one-off defection followed by punishment"
+        correct: true
+      - text: "the total of all stage payoffs"
+      - text: "the discount factor"
+      - text: "the number of rounds"
+    explain: "Cooperation holds when deviating is not worth the lost future cooperation."
+
+  - q: "A larger discount factor \\(\\delta\\) means ..."
+    options:
+      - text: "the future matters more, making cooperation easier to sustain"
+        correct: true
+      - text: "the future matters less"
+      - text: "the game is shorter"
+      - text: "defection is always best"
+    explain: "Patient players value future cooperation highly, so threats bite harder."
+
+  - q: "The utility of an infinitely repeated game with discount factor \\(\\delta\\) is ..."
+    options:
+      - text: "\\(\\sum_{i=0}^{\\infty} \\delta^i u(s_r(i), s_c(i))\\)"
+        correct: true
+      - text: "\\(\\sum_{i=0}^{\\infty} u(s_r(i), s_c(i))\\)"
+      - text: "\\(\\max_i u(s_r(i), s_c(i))\\)"
+      - text: "\\(\\delta \\, u(s_r(0), s_c(0))\\)"
+    explain: "Each stage payoff is discounted by \\(\\delta^i\\), with earlier rounds weighted more heavily."
+
+  - q: "An individually rational payoff pair is one that ..."
+    options:
+      - text: "exceeds the stage-game Nash equilibrium payoffs for both players"
+        correct: true
+      - text: "minimises both players' payoffs"
+      - text: "equals the temptation payoff"
+      - text: "gives one player everything"
+    explain: "The Folk Theorem sustains any feasible individually rational pair as a subgame perfect equilibrium."
+
+  - q: "For a patient enough population the Folk Theorem constructs a subgame perfect equilibrium achieving ..."
+    options:
+      - text: "any feasible individually rational payoff pair"
+        correct: true
+      - text: "only the stage Nash payoff"
+      - text: "only the cooperative payoff"
+      - text: "no payoff at all"
+    explain: "There is a threshold \\(\\bar\\delta\\) above which the trigger strategy supports the target payoffs."
+
+  - q: "In the Folk Theorem's trigger strategy, a deviation is punished by ..."
+    options:
+      - text: "reverting to the stage-game Nash equilibrium for all future rounds"
+        correct: true
+      - text: "forgiving after one round"
+      - text: "leaving the game"
+      - text: "raising the discount factor"
+    explain: "The permanent punishment removes any long-run gain from a one-off deviation."
+
+  - q: "Against a trigger strategy, the most tempting time to deviate is ..."
+    options:
+      - text: "the first stage, since later gains are discounted more heavily"
+        correct: true
+      - text: "the last stage"
+      - text: "a randomly chosen stage"
+      - text: "never, deviation always pays"
+    explain: "Checking the first-stage deviation is enough to find the threshold discount factor."

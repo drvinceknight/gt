@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Direct Reciprocity (facilitator notes) — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="facilitator-notes">
+
+<div class="facilitator-banner">
+  <strong>Facilitator notes: not student-facing.</strong>
+  These notes are for planning and running classes.
+  Student resources are at <a href="/">vknight.org/gt/</a>.
+</div>
+
+<h1>Direct Reciprocity</h1>
+
+<h2 id="activity-two-classes-the-ipd-tournament-runs-long">Activity (two classes: the IPD tournament runs long)</h2>
+<p><strong>Goal.</strong> Surface the strategies students use when reciprocity is possible and
+let a class-wide iterated Prisoner's Dilemma tournament motivate reactive
+strategies. This activity is happy to run across two classes: the first to play
+the tournament, the second to analyse the results.</p>
+<p><strong>First class.</strong> Watch the Golden Balls video. Then split the class into four
+teams and run an iterated Prisoner's Dilemma tournament, each team submitting a
+strategy that is played against every other team:</p>
+<div class="arithmatex">\[
+A =
+\begin{pmatrix}
+3 &amp; 0 \\
+5 &amp; 1
+\end{pmatrix}
+\qquad
+B =
+\begin{pmatrix}
+3 &amp; 5 \\
+0 &amp; 1
+\end{pmatrix}
+\]</div>
+<p>Keep a running scoreboard and hand out a bribentive to the winning team.</p>
+<p><strong>Second class.</strong> Reveal the strategies each team played and rank them. Discuss
+which did well and why, drawing out reciprocity, retaliation and forgiveness.
+Ask each team to write their strategy as a reactive strategy <span class="arithmatex">\((p, q)\)</span>, where <span class="arithmatex">\(p\)</span>
+is the probability of cooperating after the opponent cooperated and <span class="arithmatex">\(q\)</span> after
+they defected.</p>
+<h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
+<p>Discuss the <strong>Direct Reciprocity</strong> chapter.</p>
+<p>Discussion Point: <strong>After the definition of a reactive strategy, ask students
+to express the strategy their team played as a pair <span class="arithmatex">\((p, q)\)</span>.</strong></p>
+<p>Discussion Point: <strong>After the Markov chain of two reactive strategies, ask how
+the long-run outcome of two teams' strategies could be computed.</strong></p>
+<p>Discussion Point: <strong>After discussing Tit For Tat, ask: the Folk Theorem tells
+us cooperation can be sustained; what does this chapter add to that?</strong></p>
+<h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
+<p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="/topics/direct-reciprocity.html">Direct Reciprocity</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
+
+
+<h2>Communications</h2>
+
+<p>General email templates to send before and after this class. Fill in the
+bracketed placeholders before sending.</p>
+
+<h3>Before class</h3>
+
+<pre><code>Hi all,
+
+A reminder that our next Game Theory class covers Direct Reciprocity.
+
+All of the course materials, including the relevant chapter, are available
+at https://vknight.org/gt/. It is worth skimming the chapter beforehand.
+
+See you in class,
+Vince
+</code></pre>
+
+<h3>After class</h3>
+
+<pre><code>Dear all,
+
+Thanks for your work in today's class on Direct Reciprocity.
+
+A recording is available here [RECORDING LINK] and on Learning Central.
+
+All class resources are available at https://vknight.org/gt/.
+
+Thanks,
+Vince
+</code></pre>
+
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

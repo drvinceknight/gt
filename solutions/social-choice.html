@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Social Choice solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/social-choice.html">&larr; Back to Social Choice</a></small></p>
+
+<h1 id="social-choice-worked-solutions">Social Choice: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/social-choice.html">Social Choice</a> page. Each question is worth 25
+marks.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) First choice votes.</strong> [3]</p>
+<p>First choice votes: <span class="arithmatex">\(A = 4\)</span>, <span class="arithmatex">\(B = 3\)</span>, <span class="arithmatex">\(C = 2\)</span>. The winner by first choice
+votes is <span class="arithmatex">\(A\)</span>.</p>
+<p><strong>(b) Borda.</strong> [7]</p>
+<p>With <span class="arithmatex">\(2, 1, 0\)</span> points,</p>
+<div class="arithmatex">\[
+A: 4(2) = 8, \qquad
+B: 4(1) + 3(2) + 2(1) = 12, \qquad
+C: 3(1) + 2(2) = 7.
+\]</div>
+<p>The Borda winner is <span class="arithmatex">\(B\)</span>.</p>
+<p><strong>(c) Condorcet winner.</strong> [7]</p>
+<ul>
+<li><span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(B\)</span>: <span class="arithmatex">\(A\)</span> preferred by <span class="arithmatex">\(4\)</span>, <span class="arithmatex">\(B\)</span> by <span class="arithmatex">\(3 + 2 = 5\)</span>; <span class="arithmatex">\(B\)</span> beats
+  <span class="arithmatex">\(A\)</span>.</li>
+<li><span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(C\)</span>: <span class="arithmatex">\(A\)</span> preferred by <span class="arithmatex">\(4\)</span>, <span class="arithmatex">\(C\)</span> by <span class="arithmatex">\(3 + 2 = 5\)</span>; <span class="arithmatex">\(C\)</span> beats
+  <span class="arithmatex">\(A\)</span>.</li>
+<li><span class="arithmatex">\(B\)</span> vs <span class="arithmatex">\(C\)</span>: <span class="arithmatex">\(B\)</span> preferred by <span class="arithmatex">\(4 + 3 = 7\)</span>, <span class="arithmatex">\(C\)</span> by <span class="arithmatex">\(2\)</span>; <span class="arithmatex">\(B\)</span> beats
+  <span class="arithmatex">\(C\)</span>.</li>
+</ul>
+<p><span class="arithmatex">\(B\)</span> beats both <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(C\)</span>, so <span class="arithmatex">\(B\)</span> is the Condorcet winner.</p>
+<p><strong>(d) Why the methods disagree, and a recommendation.</strong> [8]</p>
+<p>Counting first choice votes picks <span class="arithmatex">\(A\)</span> because it looks only at top choices, and
+<span class="arithmatex">\(A\)</span> has the most. But a majority (<span class="arithmatex">\(5\)</span> of <span class="arithmatex">\(9\)</span>) rank <span class="arithmatex">\(A\)</span> last, which the
+first choice count ignores. Borda and Condorcet use the full rankings, the lower
+preferences and the pairwise comparisons, and both select <span class="arithmatex">\(B\)</span>, who is preferred
+to each rival by a majority. The methods disagree because counting first choice
+votes discards everything except each voter's top choice. For the class vote,
+<span class="arithmatex">\(B\)</span> is the better outcome: it is the Condorcet winner, beating each alternative
+head-to-head, so it commands majority support against any rival, whereas <span class="arithmatex">\(A\)</span>,
+the winner on first choice votes, would lose a straight vote to either of the
+others. A Condorcet (or Borda) method is therefore preferable here, as it reflects
+the whole class's preferences rather than only first choices.</p>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>
+<ul>
+<li>A <strong>social welfare function</strong> maps every preference profile (a list of the
+  voters' individual strict preference orderings) to a collective strict linear
+  ordering of the alternatives.</li>
+<li><strong>Condorcet's method</strong> selects the <strong>Condorcet winner</strong>, the alternative that a
+  strict majority of voters prefers to every other alternative, when one exists.</li>
+<li><strong>Borda's method</strong> awards each alternative <span class="arithmatex">\(k\)</span> points from a voter who ranks
+  it above exactly <span class="arithmatex">\(k\)</span> other alternatives; the alternative with the highest
+  total score across all voters is the <strong>Borda winner</strong>.</li>
+<li><strong>Simple majority rule</strong> ranks alternative <span class="arithmatex">\(x\)</span> above <span class="arithmatex">\(y\)</span> if and only if a
+  strict majority of voters prefer <span class="arithmatex">\(x\)</span> to <span class="arithmatex">\(y\)</span>.</li>
+</ul>
+<p><strong>(b)(i) First choice votes.</strong> [3]</p>
+<p>First choice votes: <span class="arithmatex">\(A = 3\)</span>, <span class="arithmatex">\(B = 2\)</span>, <span class="arithmatex">\(C = 2\)</span>; the winner by first choice
+votes is <span class="arithmatex">\(A\)</span>.</p>
+<p><strong>(b)(ii) Borda.</strong> [4]</p>
+<div class="arithmatex">\[
+A: 3(2) = 6, \quad B: 3(1) + 2(2) + 2(1) = 9, \quad C: 2(1) + 2(2) = 6.
+\]</div>
+<p>The Borda winner is <span class="arithmatex">\(B\)</span>.</p>
+<p><strong>(b)(iii) Condorcet.</strong> [4]</p>
+<p><span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(B\)</span>: <span class="arithmatex">\(B\)</span> wins <span class="arithmatex">\(4\)</span>-<span class="arithmatex">\(3\)</span>. <span class="arithmatex">\(B\)</span> vs <span class="arithmatex">\(C\)</span>: <span class="arithmatex">\(B\)</span> wins <span class="arithmatex">\(5\)</span>-<span class="arithmatex">\(2\)</span>. So
+<span class="arithmatex">\(B\)</span> beats both and is the Condorcet winner.</p>
+<p><strong>(b)(iv) Comment.</strong> [3]</p>
+<p>Counting first choice votes elects <span class="arithmatex">\(A\)</span> on top choices alone, but <span class="arithmatex">\(A\)</span> loses to
+both <span class="arithmatex">\(B\)</span> and <span class="arithmatex">\(C\)</span> head-to-head. Borda and Condorcet both elect <span class="arithmatex">\(B\)</span>, which is
+preferred by a majority against each rival. The methods disagree because counting
+first choice votes ignores lower preferences.</p>
+<p><strong>(c) Condorcet winner.</strong> [7]</p>
+<p>A <strong>Condorcet winner</strong> beats every other candidate in pairwise majority votes. It
+may fail to exist because pairwise majorities can be cyclic, in which case no
+candidate beats all others. For this profile, however, a Condorcet winner does
+exist, namely <span class="arithmatex">\(B\)</span>: so for these seven voters majority rule is well behaved, the
+pairwise relation is transitive (<span class="arithmatex">\(B \succ A\)</span>, <span class="arithmatex">\(B \succ C\)</span>, and <span class="arithmatex">\(C \succ A\)</span>),
+and there is a single alternative that a majority prefers to every other. The
+existence of a Condorcet winner tells us there is no majority cycle here.</p>
+<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>
+<ul>
+<li>A <strong>Condorcet winner</strong> is an alternative that a strict majority of voters
+  prefers to every other alternative.</li>
+<li>A <strong>Borda winner</strong> is the alternative with the highest total Borda score,
+  where each voter awards an alternative <span class="arithmatex">\(k\)</span> points for ranking it above
+  exactly <span class="arithmatex">\(k\)</span> other alternatives.</li>
+</ul>
+<p><strong>(b)(i) Pairwise majorities.</strong> [5]</p>
+<ul>
+<li><span class="arithmatex">\(A\)</span> vs <span class="arithmatex">\(B\)</span>: preferred by voters 1 and 3, so <span class="arithmatex">\(A\)</span> beats <span class="arithmatex">\(B\)</span>.</li>
+<li><span class="arithmatex">\(B\)</span> vs <span class="arithmatex">\(C\)</span>: preferred by voters 1 and 2, so <span class="arithmatex">\(B\)</span> beats <span class="arithmatex">\(C\)</span>.</li>
+<li><span class="arithmatex">\(C\)</span> vs <span class="arithmatex">\(A\)</span>: preferred by voters 2 and 3, so <span class="arithmatex">\(C\)</span> beats <span class="arithmatex">\(A\)</span>.</li>
+</ul>
+<p><strong>(b)(ii) No Condorcet winner.</strong> [3]</p>
+<p>The majorities cycle <span class="arithmatex">\(A \succ B \succ C \succ A\)</span>, so no candidate beats all the
+others; there is no Condorcet winner.</p>
+<p><strong>(b)(iii) Condorcet cycle.</strong> [4]</p>
+<p>Every individual ranking is transitive, yet the collective majority relation is
+cyclic. This is a Condorcet cycle: aggregating transitive individual
+preferences by pairwise majority can produce an intransitive collective
+preference, so majority rule need not yield a consistent ranking.</p>
+<p><strong>(c) Borda's method.</strong> [9]</p>
+<p>Awarding 2, 1, 0 points for first, second and third place:</p>
+<div class="arithmatex">\[
+A: 2 + 0 + 1 = 3, \qquad B: 1 + 2 + 0 = 3, \qquad C: 0 + 1 + 2 = 3.
+\]</div>
+<p>All three alternatives score 3, so Borda's method returns a three-way tie.
+Crucially, Borda's method always produces a complete, transitive ranking and can
+never cycle, whereas pairwise majority did. The reason is the information each
+uses: pairwise majority looks only at <em>isolated head-to-head contests</em>, in each of
+which the losers' margins are discarded, so the separate verdicts can disagree and
+form a cycle. Borda instead uses <em>positional</em> information, each alternative's rank
+in every voter's full list, and sums a single number per alternative; summing
+numbers can never produce a cycle, so a ranking always results. For this perfectly
+symmetric profile that ranking happens to be a tie, reflecting the symmetry of the
+three voters, but the key point is that there is no intransitivity: Borda escapes
+the cycle precisely by giving up the pairwise (independence) viewpoint in favour
+of positional scores.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) Manipulability and strategy-proofness.</strong> [4]</p>
+<p>A voter <strong>manipulates</strong> a voting rule when, by submitting a ballot that does not
+reflect their true preferences, they obtain a collective outcome they strictly
+prefer to the one their sincere ballot would produce, with the other voters'
+ballots held fixed. A rule is <strong>manipulable</strong> if some preference profile admits
+such a voter, and <strong>strategy-proof</strong> if no voter can ever gain by voting
+insincerely, so that sincere voting is always a best response.</p>
+<p><strong>(b) Sincere Borda scores.</strong> [6]</p>
+<p>With 2, 1 and 0 points for first, second and third,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+A &amp;: 5(2) + 4(0) + 3(1) = 13, \\
+B &amp;: 5(1) + 4(2) + 3(0) = 13, \\
+C &amp;: 5(0) + 4(1) + 3(2) = 10.
+\end{aligned}
+\]</div>
+<p>So <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> tie on 13 points, ahead of <span class="arithmatex">\(C\)</span> on 10: the sincere outcome is
+a tie between <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>.</p>
+<p><strong>(c) A profitable manipulation.</strong> [9]</p>
+<p>Take one of the five voters whose sincere preference is <span class="arithmatex">\(A \succ B \succ C\)</span>.
+They rank <span class="arithmatex">\(A\)</span> first, so they would rather <span class="arithmatex">\(A\)</span> win outright than share first
+place with <span class="arithmatex">\(B\)</span>. Suppose this voter instead submits <span class="arithmatex">\(A \succ C \succ B\)</span>,
+keeping <span class="arithmatex">\(A\)</span> top but demoting <span class="arithmatex">\(B\)</span> below <span class="arithmatex">\(C\)</span>. Only their ballot changes: <span class="arithmatex">\(B\)</span>
+loses the point it received from this voter and <span class="arithmatex">\(C\)</span> gains one, while <span class="arithmatex">\(A\)</span> is
+unaffected. The profile becomes</p>
+<ul>
+<li>4 voters: <span class="arithmatex">\(A \succ B \succ C\)</span>;</li>
+<li>1 voter: <span class="arithmatex">\(A \succ C \succ B\)</span>;</li>
+<li>4 voters: <span class="arithmatex">\(B \succ C \succ A\)</span>;</li>
+<li>3 voters: <span class="arithmatex">\(C \succ A \succ B\)</span>,</li>
+</ul>
+<p>with scores</p>
+<div class="arithmatex">\[
+\begin{aligned}
+A &amp;: 4(2) + 1(2) + 4(0) + 3(1) = 13, \\
+B &amp;: 4(1) + 1(0) + 4(2) + 3(0) = 12, \\
+C &amp;: 4(0) + 1(1) + 4(1) + 3(2) = 11.
+\end{aligned}
+\]</div>
+<p>Now <span class="arithmatex">\(A\)</span> wins outright with 13 points. The manipulating voter, who ranks <span class="arithmatex">\(A\)</span>
+first, strictly prefers this to the sincere <span class="arithmatex">\(A\)</span>-<span class="arithmatex">\(B\)</span> tie, so the misreport is
+profitable and Borda's method is manipulable on this profile.</p>
+<p><strong>(d) Independence of irrelevant alternatives and Gibbard-Satterthwaite.</strong> [6]</p>
+<p>The voter changed only where <span class="arithmatex">\(C\)</span> sits relative to <span class="arithmatex">\(B\)</span>; they still rank <span class="arithmatex">\(A\)</span>
+above <span class="arithmatex">\(B\)</span>. Independence of irrelevant alternatives requires the collective
+ranking of <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> to depend only on how the voters rank <span class="arithmatex">\(A\)</span> against
+<span class="arithmatex">\(B\)</span>, so moving the irrelevant alternative <span class="arithmatex">\(C\)</span> should leave that verdict
+untouched. Under Borda it does not: promoting <span class="arithmatex">\(C\)</span> drains a point from <span class="arithmatex">\(B\)</span> and
+breaks the tie in <span class="arithmatex">\(A\)</span>'s favour. This failure of independence of irrelevant
+alternatives is exactly what makes the manipulation possible. The
+Gibbard-Satterthwaite theorem shows the phenomenon is unavoidable: every
+non-dictatorial voting rule over three or more alternatives is manipulable, so no
+reasonable rule, Borda included, can be strategy-proof.</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

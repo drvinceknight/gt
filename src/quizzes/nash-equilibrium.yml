@@ -1,0 +1,182 @@
+title: Nash equilibrium
+pick: 5
+questions:
+  - q: "A Nash equilibrium is a strategy profile in which ..."
+    options:
+      - text: "every player's strategy is a best response to the others' strategies"
+        correct: true
+      - text: "every player plays a strictly dominant strategy"
+      - text: "the sum of the players' payoffs is maximised"
+      - text: "no player ever randomises"
+    explain: "Each player must be best-responding; nothing is required about totals or dominance."
+
+  - q: "A strategy \\(s^*\\) for player \\(i\\) is a best response to the others if ..."
+    options:
+      - text: "it gives player \\(i\\) at least as high a payoff as any other strategy, given the others"
+        correct: true
+      - text: "it gives every player the same payoff"
+      - text: "it is the strategy with the largest support"
+      - text: "it strictly dominates every other strategy"
+    explain: "A best response maximises that player's own payoff against the fixed strategies of the others."
+
+  - q: "In Rock-Paper-Scissors, the unique Nash equilibrium is for each player to ..."
+    options:
+      - text: "play each action with probability \\(1/3\\)"
+        correct: true
+      - text: "always play Rock"
+      - text: "copy the opponent's last move"
+      - text: "there is no Nash equilibrium"
+    explain: "By symmetry each action must be a best response, which forces uniform mixing."
+
+  - q: "The support of a mixed strategy is ..."
+    options:
+      - text: "the set of actions played with positive probability"
+        correct: true
+      - text: "the action with the highest payoff"
+      - text: "the set of all of the player's actions"
+      - text: "the opponent's best response"
+    explain: "The support is exactly those actions assigned positive probability."
+
+  - q: "An action is strictly dominated if ..."
+    options:
+      - text: "some strategy gives a strictly higher payoff against every strategy of the opponents"
+        correct: true
+      - text: "it gives a lower payoff than some other action against at least one opponent strategy"
+      - text: "it is never a best response in a pure equilibrium"
+      - text: "the opponent also has a dominated action"
+    explain: "Strict dominance requires a strictly higher payoff against every opponent profile."
+
+  - q: "By the best response condition, a mixed strategy is a best response if and only if ..."
+    options:
+      - text: "every action in its support yields the maximal expected payoff"
+        correct: true
+      - text: "all actions are played with equal probability"
+      - text: "it places all weight on a single action"
+      - text: "the opponent is also indifferent"
+    explain: "Only actions that achieve the maximal expected payoff may receive positive weight."
+
+  - q: "A strictly dominant action for a player is one that ..."
+    options:
+      - text: "gives a strictly higher payoff than every other action, against every opponent profile"
+        correct: true
+      - text: "is a best response to at least one opponent strategy"
+      - text: "is played in some Nash equilibrium"
+      - text: "maximises the combined payoff of both players"
+    explain: "A strictly dominant action beats all of the player's other actions whatever the opponents do."
+
+  - q: "A pure strategy is a special case of a mixed strategy in which ..."
+    options:
+      - text: "all the probability is placed on a single action"
+        correct: true
+      - text: "every action is equally likely"
+      - text: "the player has only one action"
+      - text: "the opponent is indifferent"
+    explain: "A pure strategy puts probability 1 on one action."
+
+  - q: "Nash's theorem guarantees that every finite game has ..."
+    options:
+      - text: "at least one Nash equilibrium, possibly in mixed strategies"
+        correct: true
+      - text: "a unique Nash equilibrium"
+      - text: "a Nash equilibrium only if it is zero sum"
+      - text: "no Nash equilibrium unless there is a dominant strategy"
+    explain: "Existence is guaranteed; uniqueness and purity are not."
+
+  - q: "A coordination game (such as choosing the same side of the road) typically has ..."
+    options:
+      - text: "two pure equilibria and one mixed equilibrium"
+        correct: true
+      - text: "no Nash equilibrium"
+      - text: "a single dominant-strategy equilibrium"
+      - text: "infinitely many pure equilibria"
+    explain: "There are two ways to coordinate, plus an inefficient mixed equilibrium."
+
+  - q: "To find the mixed equilibrium of a 2x2 game you ..."
+    options:
+      - text: "choose each player's mix so the other player is indifferent between their actions"
+        correct: true
+      - text: "maximise each player's own payoff"
+      - text: "set both players to play uniformly"
+      - text: "eliminate the dominant strategy"
+    explain: "Indifference of the opponent is exactly the best response condition for a mixed strategy."
+
+  - q: "A two-player game is non-degenerate if ..."
+    options:
+      - text: "no strategy of support size \\(k\\) has more than \\(k\\) best response actions"
+        correct: true
+      - text: "every player has a strictly dominant strategy"
+      - text: "it has a unique Nash equilibrium"
+      - text: "the payoff matrices sum to zero"
+    explain: "Degeneracy is when some support of size \\(k\\) admits more than \\(k\\) best responses; this can make support enumeration fail."
+
+  - q: "An action that is weakly (but not strictly) dominated ..."
+    options:
+      - text: "can still be a best response against some opponent strategy"
+        correct: true
+      - text: "is never a best response"
+      - text: "is always played in equilibrium"
+      - text: "must be strictly dominated too"
+    explain: "Weak domination allows ties, so the action may tie as a best response somewhere."
+
+  - q: "The support enumeration algorithm finds Nash equilibria by ..."
+    options:
+      - text: "checking each possible pair of supports for the indifference and best response conditions"
+        correct: true
+      - text: "simulating the game many times"
+      - text: "removing all dominated actions"
+      - text: "computing the value of the game"
+    explain: "It searches over supports and solves the resulting indifference equations."
+
+  - q: "If a game has a strictly dominant strategy for each player, then ..."
+    options:
+      - text: "the profile of dominant strategies is the unique Nash equilibrium"
+        correct: true
+      - text: "there is no Nash equilibrium"
+      - text: "there are many Nash equilibria"
+      - text: "the equilibrium must be mixed"
+    explain: "Dominant strategies are best responses to everything, giving a unique equilibrium."
+
+  - q: "The existence of a Nash equilibrium in every finite game is proved using ..."
+    options:
+      - text: "Kakutani's fixed-point theorem applied to the best response correspondence"
+        correct: true
+      - text: "the fundamental theorem of algebra"
+      - text: "linear programming duality"
+      - text: "the central limit theorem"
+    explain: "Nash showed the best response correspondence has a fixed point, which is an equilibrium."
+
+  - q: "The map \\(\\beta_i(s_{-i}) = \\arg\\max_{\\sigma_i} u_i(\\sigma_i, s_{-i})\\) is called the ..."
+    options:
+      - text: "best response correspondence"
+        correct: true
+      - text: "payoff matrix"
+      - text: "support"
+      - text: "replicator equation"
+    explain: "A Nash equilibrium is a strategy profile that is a fixed point of the joint best response correspondence."
+
+  - q: "A mixed strategy for a player is ..."
+    options:
+      - text: "a probability distribution over that player's actions"
+        correct: true
+      - text: "a single chosen action"
+      - text: "a payoff value"
+      - text: "an ordering of the opponents"
+    explain: "The strategy space \\(\\Delta(\\mathcal{A}_i)\\) is the set of probability distributions over the actions \\(\\mathcal{A}_i\\)."
+
+  - q: "In the support enumeration algorithm, for a candidate pair of supports one solves equations making each player ..."
+    options:
+      - text: "indifferent between the actions in their own support"
+        correct: true
+      - text: "prefer their first action"
+      - text: "play a pure strategy"
+      - text: "minimise the opponent's payoff"
+    explain: "Equal expected payoffs across the support are exactly the best response condition for a mixed equilibrium."
+
+  - q: "Nash's theorem guarantees at least one equilibrium but ..."
+    options:
+      - text: "not necessarily a unique one"
+        correct: true
+      - text: "always exactly one"
+      - text: "never a mixed one"
+      - text: "only in zero-sum games"
+    explain: "A coordination game, for example, has several equilibria including a mixed one."

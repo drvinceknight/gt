@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repeated games solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/repeated-games.html">&larr; Back to Repeated games</a></small></p>
+
+<h1 id="repeated-games-worked-solutions">Repeated games: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/repeated-games.html">Repeated games</a> page. Each question is worth 25
+marks.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) Interpretation.</strong> [3]</p>
+<p><span class="arithmatex">\(\delta = 5/6\)</span> is the probability that the game continues after each round (the
+die not showing a 1). The expected number of rounds is
+<span class="arithmatex">\(\dfrac{1}{1 - \delta} = \dfrac{1}{1/6} = 6\)</span>.</p>
+<p><strong>(b) Discounted payoffs.</strong> [6]</p>
+<p>Hold the opponent's Grudger fixed and compare the focal player's two options. If
+the player conforms, the opponent is never triggered, so both play High in every
+round and the player earns 3 each round. If the player deviates to Low in the
+first round, they earn 5 that round against the opponent's High, but this trips
+the opponent's punishment, so both play Low for ever after, earning 1 each round.
+Hence</p>
+<div class="arithmatex">\[
+U_{\text{conform}} = \frac{3}{1 - \delta},
+\qquad
+U_{\text{deviate}} = 5 + \frac{\delta}{1 - \delta}.
+\]</div>
+<p><strong>(c) Cooperation at <span class="arithmatex">\(\delta = 5/6\)</span>.</strong> [4]</p>
+<div class="arithmatex">\[
+U_{\text{conform}} = \frac{3}{1/6} = 18,
+\qquad
+U_{\text{deviate}} = 5 + \frac{5/6}{1/6} = 5 + 5 = 10.
+\]</div>
+<p>Since <span class="arithmatex">\(18 &gt; 10\)</span>, no player gains by deviating, so mutual cooperation is
+sustained.</p>
+<p><strong>(d) Threshold.</strong> [5]</p>
+<div class="arithmatex">\[
+\frac{3}{1 - \delta} \ge 5 + \frac{\delta}{1 - \delta}
+\;\Longrightarrow\; 3 \ge 5 - 4\delta
+\;\Longrightarrow\; \delta \ge \tfrac{1}{2}.
+\]</div>
+<p>Our die gives <span class="arithmatex">\(\delta = 5/6\)</span>, well above <span class="arithmatex">\(\tfrac{1}{2}\)</span>, so it made
+cooperation easy to sustain: the future cast a long enough shadow.</p>
+<p><strong>(e) A forgiving trigger.</strong> [7]</p>
+<p>Now a one-off Low is punished by only two rounds of mutual Low before both
+return to High. A player who conforms still earns <span class="arithmatex">\(3\)</span> every round, so
+<span class="arithmatex">\(U_{\text{conform}} = \dfrac{3}{1 - \delta}\)</span>. A player who deviates to Low in
+the first round earns <span class="arithmatex">\(5\)</span> at once, then <span class="arithmatex">\(1\)</span> in each of the two punishment
+rounds, and <span class="arithmatex">\(3\)</span> for ever after:</p>
+<div class="arithmatex">\[
+U_{\text{deviate}} = 5 + \delta + \delta^{2} + \frac{3\delta^{3}}{1 - \delta}.
+\]</div>
+<p>Writing <span class="arithmatex">\(U_{\text{conform}} = 3 + 3\delta + 3\delta^{2} +
+\dfrac{3\delta^{3}}{1 - \delta}\)</span>, the tails cancel and</p>
+<div class="arithmatex">\[
+U_{\text{conform}} - U_{\text{deviate}}
+= (3 - 5) + (3 - 1)\delta + (3 - 1)\delta^{2}
+= 2\left(\delta^{2} + \delta - 1\right).
+\]</div>
+<p>Cooperation is sustained when this is non-negative, that is when
+<span class="arithmatex">\(\delta^{2} + \delta - 1 \ge 0\)</span>, i.e. <span class="arithmatex">\(\delta \ge \dfrac{\sqrt{5} - 1}{2}
+\approx 0.618\)</span>. At <span class="arithmatex">\(\delta = 5/6\)</span>,</p>
+<div class="arithmatex">\[
+\delta^{2} + \delta - 1 = \frac{25}{36} + \frac{30}{36} - \frac{36}{36}
+= \frac{19}{36} &gt; 0,
+\]</div>
+<p>so our die still sustains cooperation. The threshold has risen from
+<span class="arithmatex">\(\tfrac{1}{2}\)</span> under Grudger to <span class="arithmatex">\(\tfrac{\sqrt{5} - 1}{2} \approx 0.618\)</span>:
+shortening the punishment from a permanent grudge to two rounds weakens the
+deterrent, so the players must be more patient to keep cooperating.</p>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>
+<ul>
+<li>Given a two-player stage game <span class="arithmatex">\((A, B)\)</span>, an <strong>infinitely repeated game with
+  discounting</strong> factor <span class="arithmatex">\(\delta\)</span> plays that stage game infinitely often, giving
+  utility <span class="arithmatex">\(U(s*r, s_c) = \sum*{i = 0}^{\infty} \delta^{i} u(s_r(i), s_c(i))\)</span>.</li>
+<li>A <strong>strategy in a repeated game</strong> is a mapping from every possible history of
+  play to a probability distribution over the action set of the stage game.</li>
+<li>The <strong>Grudger strategy</strong> cooperates until the opponent defects, then defects
+  for ever.</li>
+<li>The <strong>average utility</strong> is <span class="arithmatex">\(\bar{U}\_i(r, c) = (1 - \delta) U_i(r, c)\)</span>, the
+  average payoff per stage when <span class="arithmatex">\(\delta\)</span> is read as the probability of the
+  game not ending.</li>
+</ul>
+<p><strong>(b)(i) Discounted payoffs.</strong> [3]</p>
+<p>Hold the opponent's Grudger fixed. Conforming keeps both on mutual cooperation at
+3 a round; defecting once earns 5 and then trips the opponent's punishment, after
+which both defect at 1 a round. Hence</p>
+<div class="arithmatex">\[
+U_{\text{conform}} = \frac{3}{1 - \delta},
+\qquad
+U_{\text{defect}} = 5 + \frac{\delta}{1 - \delta}.
+\]</div>
+<p><strong>(b)(ii) Smallest <span class="arithmatex">\(\delta\)</span>.</strong> [3]</p>
+<div class="arithmatex">\[
+\frac{3}{1 - \delta} \ge 5 + \frac{\delta}{1 - \delta}
+\;\Longrightarrow\;
+3 \ge 5 - 4\delta
+\;\Longrightarrow\;
+\delta \ge \tfrac{1}{2}.
+\]</div>
+<p><strong>(b)(iii) Subgame perfection.</strong> [5]</p>
+<p>Grudger is subgame perfect when no player can gain by deviating in <em>any</em>
+subgame. There are two kinds of subgame. On the cooperative path, the condition
+is exactly the no-deviation inequality of part (ii), so it holds for
+<span class="arithmatex">\(\delta \ge \tfrac{1}{2}\)</span>. In the punishment phase, both players defect for
+ever, which is the stage Nash equilibrium repeated; a one-off deviation to
+cooperate earns <span class="arithmatex">\(0\)</span> now and returns to mutual defection, so it cannot help.
+Hence for <span class="arithmatex">\(\delta \ge \tfrac{1}{2}\)</span> Grudger is a subgame perfect
+equilibrium.</p>
+<p><strong>(c) Folk Theorem.</strong> (Bookwork.) [3]</p>
+<p>Let <span class="arithmatex">\((u_1^{*}, u_2^{*})\)</span> be a pair of Nash equilibrium payoffs of the stage
+game. For every individually rational pair <span class="arithmatex">\((v_1, v_2)\)</span> there exists
+<span class="arithmatex">\(\bar{\delta}\)</span> such that for all <span class="arithmatex">\(1 &gt; \delta &gt; \bar{\delta} &gt; 0\)</span> there is a
+subgame perfect Nash equilibrium with payoffs <span class="arithmatex">\((v_1, v_2)\)</span>.</p>
+<p><strong>(d) Individually rational payoff.</strong> [3]</p>
+<p>The <strong>individually rational payoffs</strong> are the average payoff pairs that exceed
+the stage-game Nash equilibrium payoffs of both players. The stage game's unique
+Nash equilibrium is mutual defection, paying <span class="arithmatex">\(1\)</span> to each player, so a pair is
+individually rational when each player's average payoff exceeds this stage Nash
+value of <span class="arithmatex">\(1\)</span>.</p>
+<p><strong>(e) Interpretation.</strong> [4]</p>
+<p>Mutual cooperation gives each player <span class="arithmatex">\(3 &gt; 1\)</span>, so the pair <span class="arithmatex">\((3, 3)\)</span> exceeds the
+stage Nash payoff of <span class="arithmatex">\(1\)</span> and is individually rational. By the Folk Theorem it
+can therefore be sustained in a subgame perfect equilibrium when players are
+patient enough, which matches the threshold <span class="arithmatex">\(\delta \ge \tfrac{1}{2}\)</span> found
+above.</p>
+<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
+<p><strong>(a) Definition.</strong> (Bookwork.) [2]</p>
+<p>A strategy profile is a <strong>subgame perfect equilibrium</strong> of a repeated game if,
+after every history of play, the strategies restricted to the subgame that
+follows form a Nash equilibrium of that subgame. Equivalently, no player can gain
+by deviating in any subgame, not only on the equilibrium path.</p>
+<p><strong>(b)(i) Backward induction.</strong> [4]</p>
+<p>We argue by backward induction. In the last round <span class="arithmatex">\(N\)</span> the players face a single
+play of the stage game, whose unique Nash equilibrium is mutual defection, so any
+subgame perfect equilibrium defects in round <span class="arithmatex">\(N\)</span>. Working back, suppose every
+round after <span class="arithmatex">\(k\)</span> defects no matter what is played in round <span class="arithmatex">\(k\)</span>. Then the
+continuation payoff is fixed, so a player at round <span class="arithmatex">\(k\)</span> maximises only the
+current stage payoff, where defection strictly dominates; hence both defect in
+round <span class="arithmatex">\(k\)</span> as well. By induction the unique subgame perfect equilibrium defects
+in every round.</p>
+<p><strong>(b)(ii) Why cooperation cannot be sustained.</strong> [4]</p>
+<p>By part (b)(i) the unique subgame perfect equilibrium plays mutual defection in
+every round after every history, so its path contains no cooperation. A
+cooperative agreement cannot be propped up by the threat of future punishment
+because no such threat is credible: any punishment would have to be carried out
+in a later subgame, yet every later subgame has mutual defection as its only
+subgame perfect behaviour, fixed by the last-round argument. A player's
+continuation payoff is therefore the same whether or not they cooperated, so it
+can neither reward cooperation nor penalise defection. With the future fixed,
+defection strictly dominates in the current stage, and cooperation unravels from
+the final round back to the first.</p>
+<p><strong>(c) Why backward induction does not apply to the infinite game.</strong> [3]</p>
+<p>Backward induction relies on a final subgame to anchor the recursion: it pins
+down play in the last round, then in the round before, and so on. A finitely
+repeated game has such a final round <span class="arithmatex">\(N\)</span>, which is why the argument of part (b)
+succeeds. An infinitely repeated game has no final round, so the recursion has no
+base case and cannot begin; there is no last stage from which to reason
+backwards. This removes the unravelling argument, but does not by itself show
+that cooperation can be sustained. It only leaves room for strategies such as
+Grudger, whose threat of indefinite future punishment can deter a deviation when
+players are patient enough.</p>
+<p><strong>(d) Recomputed threshold with <span class="arithmatex">\(T = 4\)</span>.</strong> [4]</p>
+<p>Cooperation is sustained when conforming is at least as good as a one-shot
+deviation against Grudger, that is <span class="arithmatex">\(U_{\text{conform}} \ge U_{\text{deviate}}\)</span>.
+With temptation <span class="arithmatex">\(T = 4\)</span>,</p>
+<div class="arithmatex">\[
+\frac{3}{1 - \delta} \ge 4 + \frac{\delta}{1 - \delta}
+\;\Longrightarrow\;
+3 \ge 4 - 3\delta
+\;\Longrightarrow\;
+\delta \ge \tfrac{1}{3}.
+\]</div>
+<p><strong>(e) Comment.</strong> [3]</p>
+<p>Lowering the temptation from <span class="arithmatex">\(5\)</span> to <span class="arithmatex">\(4\)</span> lowers the threshold from
+<span class="arithmatex">\(\tfrac{1}{2}\)</span> to <span class="arithmatex">\(\tfrac{1}{3}\)</span>. A smaller temptation makes a one-shot
+defection less attractive relative to staying on the cooperative path, so
+cooperation survives for a wider range of discount factors. The dependence is
+monotone: the threshold rises with the temptation payoff <span class="arithmatex">\(T\)</span>, as part (f) makes
+precise.</p>
+<p><strong>(f) General threshold.</strong> [5]</p>
+<p>With <span class="arithmatex">\(R = 3\)</span>, <span class="arithmatex">\(P = 1\)</span>, <span class="arithmatex">\(S = 0\)</span> and general temptation <span class="arithmatex">\(T\)</span>, the
+no-deviation condition against Grudger is</p>
+<div class="arithmatex">\[
+\frac{3}{1 - \delta} \ge T + \frac{\delta}{1 - \delta}.
+\]</div>
+<p>Multiplying through by <span class="arithmatex">\(1 - \delta &gt; 0\)</span> preserves the inequality and gives
+<span class="arithmatex">\(3 \ge T(1 - \delta) + \delta = T - \delta(T - 1)\)</span>, hence
+<span class="arithmatex">\(\delta(T - 1) \ge T - 3\)</span>. Since <span class="arithmatex">\(T &gt; 1\)</span> we have <span class="arithmatex">\(T - 1 &gt; 0\)</span>, so dividing by
+<span class="arithmatex">\(T - 1\)</span> keeps the direction:</p>
+<div class="arithmatex">\[
+\delta \ge \frac{T - 3}{T - 1} = \delta^{*}.
+\]</div>
+<p>Writing <span class="arithmatex">\(\delta^{*} = 1 - \dfrac{2}{T - 1}\)</span> makes the behaviour transparent: as
+<span class="arithmatex">\(T\)</span> grows, <span class="arithmatex">\(\dfrac{2}{T - 1}\)</span> shrinks, so <span class="arithmatex">\(\delta^{*}\)</span> increases towards
+<span class="arithmatex">\(1\)</span>. The greater the temptation, the more patient the players must be to
+sustain cooperation. For <span class="arithmatex">\(T \le 3\)</span> we have <span class="arithmatex">\(\delta^{*} \le 0\)</span> and cooperation
+is sustained for every <span class="arithmatex">\(\delta \in (0, 1)\)</span>.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) Conform and deviate payoffs.</strong> [4]</p>
+<p>Conforming yields mutual cooperation for ever:</p>
+<div class="arithmatex">\[
+V_{\text{C}} = \frac{R}{1 - \delta} = \frac{3}{1 - \delta}.
+\]</div>
+<p>Defecting once earns the temptation payoff now, then <span class="arithmatex">\(T\)</span> rounds of mutual
+defection, then a return to cooperation:</p>
+<div class="arithmatex">\[
+V_{\text{D}} = T + P\sum_{k=1}^{T}\delta^k + R\,\frac{\delta^{\,T+1}}{1 - \delta}
+= 5 + \frac{\delta\bigl(1 - \delta^{T}\bigr)}{1 - \delta} + \frac{3\,\delta^{\,T+1}}{1 - \delta}.
+\]</div>
+<p><strong>(b) The sustaining condition.</strong> [8]</p>
+<p>Cooperation is sustained when <span class="arithmatex">\(V_{\text{C}} \ge V_{\text{D}}\)</span>. Multiplying
+through by <span class="arithmatex">\(1 - \delta\)</span>,</p>
+<div class="arithmatex">\[
+3 \ge 5(1 - \delta) + \delta\bigl(1 - \delta^{T}\bigr) + 3\,\delta^{\,T+1}.
+\]</div>
+<p>Expanding the right-hand side,</p>
+<div class="arithmatex">\[
+3 \ge 5 - 5\delta + \delta - \delta^{\,T+1} + 3\,\delta^{\,T+1}
+= 5 - 4\delta + 2\,\delta^{\,T+1}.
+\]</div>
+<p>Rearranging gives <span class="arithmatex">\(4\delta \ge 2 + 2\,\delta^{\,T+1}\)</span>, that is</p>
+<div class="arithmatex">\[
+2\delta - \delta^{\,T+1} \ge 1.
+\]</div>
+<p><strong>(c) Dependence on the punishment length.</strong> [6]</p>
+<p>Let <span class="arithmatex">\(\varphi_T(\delta) = 2\delta - \delta^{\,T+1}\)</span>; the threshold
+<span class="arithmatex">\(\delta^{*}(T)\)</span> solves <span class="arithmatex">\(\varphi_T(\delta) = 1\)</span>. For fixed <span class="arithmatex">\(\delta \in (0, 1)\)</span>
+the term <span class="arithmatex">\(\delta^{\,T+1}\)</span> decreases as <span class="arithmatex">\(T\)</span> increases, so <span class="arithmatex">\(\varphi_T(\delta)\)</span>
+increases with <span class="arithmatex">\(T\)</span>. A larger <span class="arithmatex">\(T\)</span> therefore satisfies the inequality at a
+smaller <span class="arithmatex">\(\delta\)</span>, so <span class="arithmatex">\(\delta^{*}(T)\)</span> is decreasing in <span class="arithmatex">\(T\)</span>. As
+<span class="arithmatex">\(T \to \infty\)</span>, <span class="arithmatex">\(\delta^{\,T+1} \to 0\)</span> and the condition becomes
+<span class="arithmatex">\(2\delta \ge 1\)</span>, giving <span class="arithmatex">\(\delta^{*} \to \tfrac{1}{2}\)</span>. This is exactly the
+grim-trigger threshold, in which the punishment lasts for ever.</p>
+<p><strong>(d) Subgame perfection.</strong> [7]</p>
+<p>By the one-shot deviation principle it suffices to rule out a profitable single
+deviation in each type of subgame, assuming conformity thereafter.</p>
+<p>On the cooperative path, a one-shot defection gives the payoff <span class="arithmatex">\(V_{\text{D}}\)</span> of
+part (a) against the continuation <span class="arithmatex">\(V_{\text{C}}\)</span>; the calculation of part (b)
+shows <span class="arithmatex">\(V_{\text{C}} \ge V_{\text{D}}\)</span> exactly when <span class="arithmatex">\(2\delta - \delta^{\,T+1}
+\ge 1\)</span>, so no such deviation pays above the threshold.</p>
+<p>During the punishment phase both players are due to defect. A one-shot deviation
+to cooperate earns <span class="arithmatex">\(S = 0\)</span> this round instead of <span class="arithmatex">\(P = 1\)</span>, and leaves the
+remaining count and all future play unchanged, since the strategy ignores
+behaviour within the punishment phase. The deviation loses <span class="arithmatex">\(1 - 0 = 1\)</span> now and
+gains nothing later, so it is never profitable.</p>
+<p>No profitable one-shot deviation exists in any subgame, so the forgiving trigger
+is subgame perfect for <span class="arithmatex">\(\delta \ge \delta^{*}(T)\)</span>.</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>
