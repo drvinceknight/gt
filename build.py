@@ -5,6 +5,10 @@ Reads content from src/, renders Jinja2 templates, and writes static HTML
 to the repo root so that `uv run python -m http.server` serves the site
 directly.
 
+Internal links are written relative to each page, so the site works wherever
+it is mounted: at the root of a local preview, and under /gt/ on
+vknight.org.
+
 Usage:
     uv run python build.py
 """
@@ -24,7 +28,11 @@ import yaml
 Post = dict[str, Any]
 
 SITE_TITLE = "Game Theory"
-BASEURL = ""
+
+# GitHub Pages serves 404.html at whatever path was requested, so that page
+# sits at an unknown depth and its links cannot be relative. It is the one
+# place where the mount point has to be named.
+SITE_ROOT = "/gt"
 
 # URL path (and output directory) for the facilitator notes. The source files
 # still live in src/class-notes/.
@@ -41,22 +49,46 @@ def slugify(text: str) -> str:
     return re.sub(r"-+", "-", text).strip("-")
 
 
+def baseurl_for(output_dir: pathlib.Path) -> str:
+    """Return the relative path from a page in ``output_dir`` to the site root.
+
+    A page at the root gets ``.`` and one a directory down gets ``..``, so that
+    links resolve wherever the site is mounted: at the root of a local preview,
+    and under /gt/ on vknight.org.
+    """
+    depth = len(output_dir.parts)
+    return "/".join([".."] * depth) if depth else "."
+
+
 def _strip_liquid(text: str) -> str:
-    """Replace Liquid site variables and remove remaining block/variable tags."""
-    text = text.replace("{{ site.baseurl}}", BASEURL)
-    text = text.replace("{{ site.baseurl }}", BASEURL)
+    """Drop Liquid site variables and remaining block/variable tags.
+
+    A leftover ``{{ site.baseurl }}`` becomes nothing, leaving a root-relative
+    link that :func:`_relativise` then rewrites like any other.
+    """
     text = re.sub(r"\{%.*?%\}", "", text, flags=re.DOTALL)
     text = re.sub(r"\{\{.*?\}\}", "", text, flags=re.DOTALL)
     return text
 
 
-def markdown_to_html(text: str) -> str:
+def _relativise(html: str, baseurl: str) -> str:
+    """Rewrite root-relative links and images to be relative to the page.
+
+    Content is written with links such as ``/assessment/`` so that the source
+    reads naturally and stays independent of where the site is mounted.
+    Protocol-relative URLs (``//example.com``) are left alone.
+    """
+    return re.sub(r'((?:href|src)=")/(?!/)', rf"\1{baseurl}/", html)
+
+
+def markdown_to_html(text: str, baseurl: str) -> str:
     text = _strip_liquid(text)
-    return md_module.markdown(
+    html = md_module.markdown(
         text,
         extensions=["extra", "toc", "pymdownx.arithmatex"],
         extension_configs={"pymdownx.arithmatex": {"generic": True}},
     )
+    return _relativise(html, baseurl)
 
 
 def note_label(url: str, page_title: str = "") -> str:
@@ -77,7 +109,7 @@ def note_label(url: str, page_title: str = "") -> str:
     return url
 
 
-def read_page(path: pathlib.Path) -> Post:
+def read_page(path: pathlib.Path, baseurl: str) -> Post:
     post = frontmatter.load(path)
     data: Post = dict(post.metadata)
     data["slug"] = path.stem
@@ -85,18 +117,20 @@ def read_page(path: pathlib.Path) -> Post:
         match = re.match(r"(\d{4}-\d{2}-\d{2})-", path.stem)
         if match:
             data["date"] = match.group(1)
-    data["content_html"] = markdown_to_html(post.content)
+    data["content_html"] = markdown_to_html(post.content, baseurl)
     m = re.search(r"<p>(.*?)</p>", data["content_html"], re.DOTALL)
     data["excerpt"] = f"<p>{m.group(1)}</p>" if m else ""
     return data
 
 
-def read_collection(path: pathlib.Path, pattern: str = "*.md") -> list[Post]:
+def read_collection(
+    path: pathlib.Path, baseurl: str, pattern: str = "*.md"
+) -> list[Post]:
     pages = []
     for p in sorted(path.glob(pattern)):
         if p.stem == "index":
             continue
-        pages.append(read_page(p))
+        pages.append(read_page(p, baseurl))
     return pages
 
 
@@ -145,13 +179,25 @@ def main() -> None:
     # Load data
     toc = yaml.safe_load((SRC / "data/toc.yml").read_text())
 
+    # Output directories, which fix how deep each page sits and hence the
+    # relative prefix its links need.
+    topics_dir = ROOT / "topics"
+    solutions_dir = ROOT / "solutions"
+    notes_dir = ROOT / NOTES_URL
+    assessment_dir = ROOT / "assessment"
+    start_here_dir = ROOT / "start-here"
+
     # Load collections
-    topics = read_collection(SRC / "topics")
-    class_notes = read_collection(SRC / "class-notes")
-    faqs = read_collection(SRC / "faqs")
+    topics = read_collection(SRC / "topics", baseurl_for(topics_dir))
+    class_notes = read_collection(SRC / "class-notes", baseurl_for(notes_dir))
+    faqs = read_collection(SRC / "faqs", baseurl_for(ROOT))
     faqs.sort(key=lambda faq: faq.get("order", 99))
-    assessment = read_page(SRC / "assessment/index.md")
-    solutions = read_collection(SRC / "solutions") if (SRC / "solutions").exists() else []
+    assessment = read_page(SRC / "assessment/index.md", baseurl_for(assessment_dir))
+    solutions = (
+        read_collection(SRC / "solutions", baseurl_for(solutions_dir))
+        if (SRC / "solutions").exists()
+        else []
+    )
     quizzes_by_tag = load_quizzes(SRC / "quizzes")
 
     # Tag indices for cross-referencing
@@ -175,34 +221,48 @@ def main() -> None:
         if css_path.exists()
         else "0"
     )
-    ctx = {
-        "site_title": SITE_TITLE,
-        "baseurl": BASEURL,
-        "css_version": css_version,
-        "notes_dir": NOTES_URL,
-    }
+
+    def render(
+        template: str,
+        output: pathlib.Path,
+        baseurl: str | None = None,
+        **kwargs: Any,
+    ) -> None:
+        """Render a template to ``output``, with links relative to it."""
+        html = env.get_template(template).render(
+            site_title=SITE_TITLE,
+            baseurl=baseurl if baseurl is not None else baseurl_for(output.parent),
+            css_version=css_version,
+            notes_dir=NOTES_URL,
+            **kwargs,
+        )
+        write_html(output, html)
 
     # --- Topic pages ---
     for topic in topics:
         tag = topic.get("tag")
-        html = env.get_template("topic.html").render(
-            **ctx,
+        render(
+            "topic.html",
+            topics_dir / f"{slugify(topic['title'])}.html",
             page=topic,
             class_notes=notes_by_tag.get(tag),
             solution=solutions_by_tag.get(tag),
             quiz=quizzes_by_tag.get(tag),
         )
-        write_html(ROOT / "topics" / f"{slugify(topic['title'])}.html", html)
 
     # --- Solution pages ---
     for sol in solutions:
-        html = env.get_template("solution.html").render(**ctx, page=sol)
-        write_html(ROOT / "solutions" / f"{slugify(sol['title'])}.html", html)
+        render(
+            "solution.html", solutions_dir / f"{slugify(sol['title'])}.html", page=sol
+        )
 
     # --- Class-notes pages ---
     for notes in class_notes:
-        html = env.get_template("class-notes.html").render(**ctx, page=notes)
-        write_html(ROOT / NOTES_URL / f"{slugify(notes['title'])}.html", html)
+        render(
+            "class-notes.html",
+            notes_dir / f"{slugify(notes['title'])}.html",
+            page=notes,
+        )
 
     # --- Class-notes index (ordered to follow the schedule) ---
     notes_by_slug = {slugify(n["title"]): n for n in class_notes}
@@ -218,24 +278,26 @@ def main() -> None:
         if slug in notes_by_slug and slug not in seen:
             ordered_notes.append(notes_by_slug[slug])
             seen.add(slug)
-    notes_index = read_page(SRC / "class-notes/index.md")
-    html = env.get_template("class-notes-index.html").render(
-        **ctx, page=notes_index, notes=ordered_notes
+    notes_index = read_page(SRC / "class-notes/index.md", baseurl_for(notes_dir))
+    render(
+        "class-notes-index.html",
+        notes_dir / "index.html",
+        page=notes_index,
+        notes=ordered_notes,
     )
-    write_html(ROOT / NOTES_URL / "index.html", html)
 
     # --- Assessment page ---
-    html = env.get_template("assessment.html").render(**ctx, page=assessment)
-    write_html(ROOT / "assessment" / "index.html", html)
+    render("assessment.html", assessment_dir / "index.html", page=assessment)
 
     # --- Start here page ---
-    start_here = read_page(SRC / "start-here/index.md")
-    html = env.get_template("page.html").render(**ctx, page=start_here)
-    write_html(ROOT / "start-here" / "index.html", html)
+    start_here = read_page(SRC / "start-here/index.md", baseurl_for(start_here_dir))
+    render("page.html", start_here_dir / "index.html", page=start_here)
 
     # --- Home / schedule page ---
-    html = env.get_template("index.html").render(**ctx, toc=toc, faqs=faqs)
-    write_html(ROOT / "index.html", html)
+    render("index.html", ROOT / "index.html", toc=toc, faqs=faqs)
+
+    # --- 404 page (absolute links; see SITE_ROOT) ---
+    render("404.html", ROOT / "404.html", baseurl=SITE_ROOT)
 
     print(
         f"Built {len(topics)} topics, {len(class_notes)} class-notes, "

@@ -163,7 +163,5 @@ the textbook may help if you would like more background:
   which gives the biological background to evolutionary game theory.
 - [Absorbing Markov Chains](https://vknight.org/gtb/appendices/absorbing-markov-chains/),
   which underpins the calculation of fixation probabilities.
-- [Evolutionary Dynamics on Graphs](https://vknight.org/gtb/chapters/graph-dynamics/),
-  which extends the process to structured, non-well-mixed populations.
 - [Learning and Evolutionary Dynamics](https://vknight.org/gtb/chapters/further-learning-dynamics/),
   which places the process within a broader family of update rules.
