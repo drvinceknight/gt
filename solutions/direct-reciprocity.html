@@ -163,11 +163,12 @@ r_1 = p - q = \tfrac{2}{5}, \quad r_2 = p' - q' = \tfrac{1}{2}, \quad
 1 - r_1 r_2 = \tfrac{4}{5}.
 \]</div>
 <div class="arithmatex">\[
-s_1 = \frac{\tfrac{1}{10}\cdot\tfrac{2}{5} + \tfrac{2}{5}}{\tfrac{4}{5}}
-= \frac{11/25}{4/5} = \frac{11}{20},
-\qquad
-s_2 = \frac{\tfrac{2}{5}\cdot\tfrac{1}{2} + \tfrac{1}{10}}{\tfrac{4}{5}}
+\begin{aligned}
+s_1 &amp;= \frac{\tfrac{1}{10}\cdot\tfrac{2}{5} + \tfrac{2}{5}}{\tfrac{4}{5}}
+= \frac{11/25}{4/5} = \frac{11}{20}, \\
+s_2 &amp;= \frac{\tfrac{2}{5}\cdot\tfrac{1}{2} + \tfrac{1}{10}}{\tfrac{4}{5}}
 = \frac{3/10}{4/5} = \frac{3}{8}.
+\end{aligned}
 \]</div>
 <p><strong>(b)(ii) Stationary distribution.</strong> [4]</p>
 <p>Substitute <span class="arithmatex">\(s_1 = \tfrac{11}{20}\)</span> and <span class="arithmatex">\(s_2 = \tfrac{3}{8}\)</span>, with
@@ -288,9 +289,10 @@ s_1 = \frac{q + r_1 q'}{1 - r_1 r_2}.
 <p>Tit For Tat is <span class="arithmatex">\((p, q) = (1, 0)\)</span>, so <span class="arithmatex">\(r_1 = p - q = 1\)</span> and <span class="arithmatex">\(q = 0\)</span>. Then
 <span class="arithmatex">\(1 - r_1 r_2 = 1 - r_2\)</span>, and</p>
 <div class="arithmatex">\[
-s_1 = \frac{0 + 1\cdot q'}{1 - r_2} = \frac{q'}{1 - r_2},
-\qquad
-s_2 = \frac{q' + r_2\cdot 0}{1 - r_2} = \frac{q'}{1 - r_2}.
+\begin{aligned}
+s_1 &amp;= \frac{0 + 1\cdot q'}{1 - r_2} = \frac{q'}{1 - r_2}, \\
+s_2 &amp;= \frac{q' + r_2\cdot 0}{1 - r_2} = \frac{q'}{1 - r_2}.
+\end{aligned}
 \]</div>
 <p>Hence <span class="arithmatex">\(s_1 = s_2\)</span>: Tit For Tat ends up cooperating at exactly the same long-run
 rate as its opponent, whatever reactive strategy the opponent uses.</p>
@@ -300,9 +302,10 @@ rate as its opponent, whatever reactive strategy the opponent uses.</p>
 <span class="arithmatex">\(\pi = \bigl(s^2,\ s(1 - s),\ (1 - s)s,\ (1 - s)^2\bigr)\)</span>, so the two off-diagonal
 states <span class="arithmatex">\(CD\)</span> and <span class="arithmatex">\(DC\)</span> are equally likely. The players' long-run payoffs are</p>
 <div class="arithmatex">\[
-u_1 = 3\pi_{CC} + 0\,\pi_{CD} + 5\,\pi_{DC} + 1\,\pi_{DD},
-\qquad
-u_2 = 3\pi_{CC} + 5\,\pi_{CD} + 0\,\pi_{DC} + 1\,\pi_{DD},
+\begin{aligned}
+u_1 &amp;= 3\pi_{CC} + 0\,\pi_{CD} + 5\,\pi_{DC} + 1\,\pi_{DD}, \\
+u_2 &amp;= 3\pi_{CC} + 5\,\pi_{CD} + 0\,\pi_{DC} + 1\,\pi_{DD},
+\end{aligned}
 \]</div>
 <p>and their difference is</p>
 <div class="arithmatex">\[
@@ -314,6 +317,42 @@ tournaments. Tit For Tat never beats any single opponent, yet it is never
 exploited either, and because the strategies that defect lose heavily against one
 another, Tit For Tat's habit of drawing every match left it with the highest total
 score.</p>
+<h2 id="marking-exercises">Marking exercises</h2>
+<p><strong>Marking exercise 1 (Question 2(b)(i)).</strong></p>
+<p>The intermediate quantities are right, and then the formula is misquoted:
+the numerator of <span class="arithmatex">\(s_1\)</span> is <span class="arithmatex">\(q' r_1 + q\)</span>, not <span class="arithmatex">\(q' r_1 + p\)</span>. With
+<span class="arithmatex">\(q = \tfrac{2}{5}\)</span>,</p>
+<div class="arithmatex">\[
+s_1 = \frac{\tfrac{1}{10}\cdot\tfrac{2}{5} + \tfrac{2}{5}}{\tfrac{4}{5}}
+= \frac{\tfrac{11}{25}}{\tfrac{4}{5}} = \frac{11}{20},
+\]</div>
+<p>as in the solution above.</p>
+<p>The larger failing is what happens next: <span class="arithmatex">\(s_1\)</span> is a probability, and the
+transcript computes <span class="arithmatex">\(1.05\)</span>, announces "105% of the time", and carries on.
+An impossible value is free error detection: the moment a probability leaves
+<span class="arithmatex">\([0, 1]\)</span>, something upstream is wrong, and a reader who accepts it has
+stopped checking. Expect an examiner, and be, the reader who stops. A fair
+mark is [1] of [4], for the correct <span class="arithmatex">\(r_1\)</span>, <span class="arithmatex">\(r_2\)</span> and
+<span class="arithmatex">\(1 - r_1 r_2\)</span>.</p>
+<p><strong>Marking exercise 2 (Question 3(d)).</strong></p>
+<p>Almost every substantive claim is wrong, and the correct account is the
+opposite one.</p>
+<ul>
+<li>Tit For Tat never defects first, so it can never earn more than its
+  opponent in a match: at best it draws, and against Always Defect it
+  <em>loses</em> the match by the value of the first-round sting (it is exploited
+  once, then both defect). Question 4(d) proves the general version: against
+  any reactive opponent its long-run payoff exactly equals its opponent's.</li>
+<li>"One step ahead" is backwards: copying the previous move keeps it one
+  step <em>behind</em>, echoing what was done to it.</li>
+<li>It wins tournaments on totals, not matches: it earns mutual cooperation
+  (<span class="arithmatex">\(3\)</span> per round) with every cooperative strategy while conceding almost
+  nothing to defectors, whereas exploitative strategies earn <span class="arithmatex">\(1\)</span> per round
+  against one another. Winning every battle is not required to win the war,
+  and Tit For Tat wins no battles at all.</li>
+</ul>
+<p>A fair mark is [1] of [4], for correctly describing the copying mechanism,
+from which every conclusion drawn is then wrong.</p>
 
 
   </div>

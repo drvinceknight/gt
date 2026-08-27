@@ -7,10 +7,9 @@ tag: subgame-perfection
 # Subgame Perfection: worked solutions
 
 Solutions to the example questions on the
-[Subgame Perfection](/topics/subgame-perfection.html) page. Each question is worth
-25 marks.
+[Subgame Perfection](/topics/subgame-perfection.html) page.
 
-## Question 1 [25 marks]
+## Question 1 [23 marks]
 
 **(a) Extensive form.** [3]
 
@@ -34,7 +33,7 @@ Traitor then compares deviate \(\to (3, 0)\), worth \(3\), with comply \(\to 1\)
 and deviates. The subgame perfect equilibrium is (deviate, carry on) with payoffs
 \((3, 0)\).
 
-**(c) A Nash equilibrium.** [7]
+**(c) A Nash equilibrium.** [5]
 
 Consider (comply, banish). Given that the Faithful will banish, the Traitor's
 payoff is deviate \(\to -1\) versus comply \(\to 1\), so comply is a best response.
@@ -251,17 +250,20 @@ The leader anticipates \(q_2(q_1)\) and solves
 The first-order condition \(a - 2 q_1 = 0\) gives \(q_1 = \dfrac{a}{2}\), and hence
 
 \[
-q_2 = \frac{a - a/2}{2} = \frac{a}{4},
-\qquad Q = \frac{3a}{4},
-\qquad P = a - \frac{3a}{4} = \frac{a}{4}.
+\begin{aligned}
+q_2 &= \frac{a - a/2}{2} = \frac{a}{4}, \\
+Q &= \frac{3a}{4}, \\
+P &= a - \frac{3a}{4} = \frac{a}{4}.
+\end{aligned}
 \]
 
 The profits are
 
 \[
-\pi_1 = q_1 P = \frac{a}{2}\cdot\frac{a}{4} = \frac{a^2}{8},
-\qquad
-\pi_2 = q_2 P = \frac{a}{4}\cdot\frac{a}{4} = \frac{a^2}{16}.
+\begin{aligned}
+\pi_1 &= q_1 P = \frac{a}{2}\cdot\frac{a}{4} = \frac{a^2}{8}, \\
+\pi_2 &= q_2 P = \frac{a}{4}\cdot\frac{a}{4} = \frac{a^2}{16}.
+\end{aligned}
 \]
 
 **(d) First-mover advantage.** [8]
@@ -278,3 +280,44 @@ The leader cannot gain this way in the simultaneous game, where a plan to produc
 deviate. Observability is precisely what gives the commitment its bite; the
 follower, seeing the large quantity, rationally accommodates it, and the leader
 captures the larger share.
+
+## Marking exercises
+
+**Marking exercise 1 (Question 2(b)(ii) and (iii)).**
+
+The backward induction in (ii) is correct: [3] of [3].
+
+Part (iii) fails at the first hurdle: (stay out, accommodate) is not a Nash
+equilibrium. Against an incumbent who accommodates, entering pays \(1\) and
+staying out pays \(0\), so the entrant deviates. The Nash equilibrium that
+is not subgame perfect is (stay out, **fight**): given the threat to fight,
+staying out is the entrant's best response, and given that the entrant stays
+out, fighting costs the incumbent nothing because it is never carried out.
+It fails subgame perfection because *the incumbent's* off-path action is not
+optimal in the entry subgame, where accommodating beats fighting: the threat
+is not credible. Note the transcript also locates the failure in the wrong
+player: the whole point of the example is that the non-credible move is the
+threat, not the response to it. A fair mark is [1] of [5], for the correct
+definition-shaped closing sentence.
+
+**Marking exercise 2 (Question 4(b) and (c)).**
+
+The transcript solves the wrong game: two simultaneous first-order
+conditions is the Cournot model, and the question is sequential. Backward
+induction requires the follower's condition to be used as a *reaction
+function*, \(q_2(q_1) = \frac{a - q_1}{2}\); the transcript writes exactly
+this equation but then treats it as one of a simultaneous pair. The leader
+maximises
+
+\[
+q_1\left(a - q_1 - \frac{a - q_1}{2}\right) = \frac{q_1(a - q_1)}{2},
+\]
+
+giving \(q_1 = \frac{a}{2}\), \(q_2 = \frac{a}{4}\), and profits
+\(\frac{a^2}{8}\) and \(\frac{a^2}{16}\), as in the solution above.
+
+"Moving first makes no difference" is the reverse of the truth that part
+(d) asks about: the leader earns \(\frac{a^2}{8} > \frac{a^2}{9}\), the
+first-mover advantage created by commitment. A fair mark is [2] of [6] for
+(b), where the follower's condition appears but is never used as a best
+response, and [1] of [8] for (c).

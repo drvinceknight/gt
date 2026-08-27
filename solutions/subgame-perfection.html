@@ -61,9 +61,8 @@
 
 <h1 id="subgame-perfection-worked-solutions">Subgame Perfection: worked solutions</h1>
 <p>Solutions to the example questions on the
-<a href="/topics/subgame-perfection.html">Subgame Perfection</a> page. Each question is worth
-25 marks.</p>
-<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<a href="/topics/subgame-perfection.html">Subgame Perfection</a> page.</p>
+<h2 id="question-1-23-marks">Question 1 [23 marks]</h2>
 <p><strong>(a) Extensive form.</strong> [3]</p>
 <pre><code>            Traitor
            /        \
@@ -81,7 +80,7 @@ as likely to remove a Faithful as the Traitor, and is not worth the risk. The
 Traitor then compares deviate <span class="arithmatex">\(\to (3, 0)\)</span>, worth <span class="arithmatex">\(3\)</span>, with comply <span class="arithmatex">\(\to 1\)</span>,
 and deviates. The subgame perfect equilibrium is (deviate, carry on) with payoffs
 <span class="arithmatex">\((3, 0)\)</span>.</p>
-<p><strong>(c) A Nash equilibrium.</strong> [7]</p>
+<p><strong>(c) A Nash equilibrium.</strong> [5]</p>
 <p>Consider (comply, banish). Given that the Faithful will banish, the Traitor's
 payoff is deviate <span class="arithmatex">\(\to -1\)</span> versus comply <span class="arithmatex">\(\to 1\)</span>, so comply is a best response.
 Given that the Traitor complies, the Faithful node is off the path of play, so any
@@ -288,15 +287,18 @@ q_2(q_1) = \frac{a - q_1}{2}.
 \]</div>
 <p>The first-order condition <span class="arithmatex">\(a - 2 q_1 = 0\)</span> gives <span class="arithmatex">\(q_1 = \dfrac{a}{2}\)</span>, and hence</p>
 <div class="arithmatex">\[
-q_2 = \frac{a - a/2}{2} = \frac{a}{4},
-\qquad Q = \frac{3a}{4},
-\qquad P = a - \frac{3a}{4} = \frac{a}{4}.
+\begin{aligned}
+q_2 &amp;= \frac{a - a/2}{2} = \frac{a}{4}, \\
+Q &amp;= \frac{3a}{4}, \\
+P &amp;= a - \frac{3a}{4} = \frac{a}{4}.
+\end{aligned}
 \]</div>
 <p>The profits are</p>
 <div class="arithmatex">\[
-\pi_1 = q_1 P = \frac{a}{2}\cdot\frac{a}{4} = \frac{a^2}{8},
-\qquad
-\pi_2 = q_2 P = \frac{a}{4}\cdot\frac{a}{4} = \frac{a^2}{16}.
+\begin{aligned}
+\pi_1 &amp;= q_1 P = \frac{a}{2}\cdot\frac{a}{4} = \frac{a^2}{8}, \\
+\pi_2 &amp;= q_2 P = \frac{a}{4}\cdot\frac{a}{4} = \frac{a^2}{16}.
+\end{aligned}
 \]</div>
 <p><strong>(d) First-mover advantage.</strong> [8]</p>
 <p>At the Cournot equilibrium each firm produces <span class="arithmatex">\(a/3\)</span> and earns
@@ -310,6 +312,38 @@ The leader cannot gain this way in the simultaneous game, where a plan to produc
 deviate. Observability is precisely what gives the commitment its bite; the
 follower, seeing the large quantity, rationally accommodates it, and the leader
 captures the larger share.</p>
+<h2 id="marking-exercises">Marking exercises</h2>
+<p><strong>Marking exercise 1 (Question 2(b)(ii) and (iii)).</strong></p>
+<p>The backward induction in (ii) is correct: [3] of [3].</p>
+<p>Part (iii) fails at the first hurdle: (stay out, accommodate) is not a Nash
+equilibrium. Against an incumbent who accommodates, entering pays <span class="arithmatex">\(1\)</span> and
+staying out pays <span class="arithmatex">\(0\)</span>, so the entrant deviates. The Nash equilibrium that
+is not subgame perfect is (stay out, <strong>fight</strong>): given the threat to fight,
+staying out is the entrant's best response, and given that the entrant stays
+out, fighting costs the incumbent nothing because it is never carried out.
+It fails subgame perfection because <em>the incumbent's</em> off-path action is not
+optimal in the entry subgame, where accommodating beats fighting: the threat
+is not credible. Note the transcript also locates the failure in the wrong
+player: the whole point of the example is that the non-credible move is the
+threat, not the response to it. A fair mark is [1] of [5], for the correct
+definition-shaped closing sentence.</p>
+<p><strong>Marking exercise 2 (Question 4(b) and (c)).</strong></p>
+<p>The transcript solves the wrong game: two simultaneous first-order
+conditions is the Cournot model, and the question is sequential. Backward
+induction requires the follower's condition to be used as a <em>reaction
+function</em>, <span class="arithmatex">\(q_2(q_1) = \frac{a - q_1}{2}\)</span>; the transcript writes exactly
+this equation but then treats it as one of a simultaneous pair. The leader
+maximises</p>
+<div class="arithmatex">\[
+q_1\left(a - q_1 - \frac{a - q_1}{2}\right) = \frac{q_1(a - q_1)}{2},
+\]</div>
+<p>giving <span class="arithmatex">\(q_1 = \frac{a}{2}\)</span>, <span class="arithmatex">\(q_2 = \frac{a}{4}\)</span>, and profits
+<span class="arithmatex">\(\frac{a^2}{8}\)</span> and <span class="arithmatex">\(\frac{a^2}{16}\)</span>, as in the solution above.</p>
+<p>"Moving first makes no difference" is the reverse of the truth that part
+(d) asks about: the leader earns <span class="arithmatex">\(\frac{a^2}{8} &gt; \frac{a^2}{9}\)</span>, the
+first-mover advantage created by commitment. A fair mark is [2] of [6] for
+(b), where the follower's condition appears but is never used as a best
+response, and [1] of [8] for (c).</p>
 
 
   </div>

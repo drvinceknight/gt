@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  What is a bribentive?
+order: 5
 ---
 
 A *bribentive* is a word we use in class for the small rewards handed out during

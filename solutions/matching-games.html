@@ -64,37 +64,52 @@
 <a href="/topics/matching-games.html">Matching Games</a> page. Each question is worth 25
 marks.</p>
 <h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
-<p><strong>(a) Definitions.</strong> [3]</p>
+<p><strong>(a) Definitions and notation.</strong> [5]</p>
 <p>A pair <span class="arithmatex">\((m, p)\)</span> that is not matched together is a <strong>blocking pair</strong> if <span class="arithmatex">\(m\)</span>
 prefers <span class="arithmatex">\(p\)</span> to their current partner and <span class="arithmatex">\(p\)</span> prefers <span class="arithmatex">\(m\)</span> to theirs. A
-<strong>stable matching</strong> is a matching with no blocking pair.</p>
+<strong>stable matching</strong> is a matching with no blocking pair. With
+<span class="arithmatex">\(S = \{G, N, T\}\)</span> and <span class="arithmatex">\(R = \{E, C, W\}\)</span>, the preferences are the maps</p>
+<div class="arithmatex">\[
+\begin{aligned}
+f(G) &amp;= (C, E, W) &amp; g(E) &amp;= (N, G, T) \\
+f(N) &amp;= (C, W, E) &amp; g(C) &amp;= (G, N, T) \\
+f(T) &amp;= (E, C, W) &amp; g(W) &amp;= (T, G, N).
+\end{aligned}
+\]</div>
 <p><strong>(b) Gale-Shapley (mathematicians proposing).</strong> [7]</p>
+<p>We assign every mathematician and physicist to be unmatched, then repeatedly
+pick an unmatched suitor.</p>
 <ul>
-<li>Round 1: <span class="arithmatex">\(G \to C\)</span>, <span class="arithmatex">\(N \to C\)</span>, <span class="arithmatex">\(T \to E\)</span>. <span class="arithmatex">\(C\)</span> holds <span class="arithmatex">\(G\)</span> (since
-  <span class="arithmatex">\(G \succ N\)</span>) and rejects <span class="arithmatex">\(N\)</span>; <span class="arithmatex">\(E\)</span> holds <span class="arithmatex">\(T\)</span>.</li>
-<li>Round 2: <span class="arithmatex">\(N \to W\)</span> (next on <span class="arithmatex">\(N\)</span>'s list). <span class="arithmatex">\(W\)</span> holds <span class="arithmatex">\(N\)</span>.</li>
+<li>Pick <span class="arithmatex">\(G\)</span>: the top of <span class="arithmatex">\(f(G)\)</span> is <span class="arithmatex">\(C\)</span>, who is unmatched, so <span class="arithmatex">\(M(G) = C\)</span>.</li>
+<li>Pick <span class="arithmatex">\(N\)</span>: the top of <span class="arithmatex">\(f(N)\)</span> is <span class="arithmatex">\(C\)</span>, who is matched; since
+  <span class="arithmatex">\(g(C) = (G, N, T)\)</span>, <span class="arithmatex">\(C\)</span> prefers their current partner <span class="arithmatex">\(G\)</span>, so <span class="arithmatex">\(N\)</span>
+  remains unmatched and we remove <span class="arithmatex">\(C\)</span> from <span class="arithmatex">\(N\)</span>'s list: <span class="arithmatex">\(f(N) = (W, E)\)</span>.</li>
+<li>Pick <span class="arithmatex">\(T\)</span>: the top of <span class="arithmatex">\(f(T)\)</span> is <span class="arithmatex">\(E\)</span>, who is unmatched, so <span class="arithmatex">\(M(T) = E\)</span>.</li>
+<li>Pick <span class="arithmatex">\(N\)</span>: the top of <span class="arithmatex">\(f(N)\)</span> is now <span class="arithmatex">\(W\)</span>, who is unmatched, so
+  <span class="arithmatex">\(M(N) = W\)</span>.</li>
 </ul>
-<p>No free proposers remain.</p>
+<p>All suitors are matched, so the algorithm terminates.</p>
 <p><strong>(c) Matching.</strong> [3]</p>
 <p><span class="arithmatex">\(\{G\text{-}C,\; N\text{-}W,\; T\text{-}E\}\)</span>.</p>
-<p><strong>(d) Stability.</strong> [6]</p>
+<p><strong>(d) Stability.</strong> [4]</p>
 <p><span class="arithmatex">\(G\)</span> has <span class="arithmatex">\(C\)</span> (first choice) and <span class="arithmatex">\(T\)</span> has <span class="arithmatex">\(E\)</span> (first choice), so neither is in
 a blocking pair. <span class="arithmatex">\(N\)</span> has <span class="arithmatex">\(W\)</span> and would prefer <span class="arithmatex">\(C\)</span>, but <span class="arithmatex">\(C\)</span> prefers its
 partner <span class="arithmatex">\(G\)</span> to <span class="arithmatex">\(N\)</span>, so <span class="arithmatex">\((N, C)\)</span> does not block. There is no blocking pair, so
 the matching is stable.</p>
 <p><strong>(e) Optimality.</strong> [6]</p>
-<p>The mathematicians propose, so the matching is <strong>mathematician-optimal</strong>:
-proposer-optimality means each proposer is matched to the best partner they could
-have in <em>any</em> stable matching. The proposing side can never do better than this: in
-Gale-Shapley a proposer is only rejected by a reviewer who has a partner they
-prefer, and one can show by induction that no reviewer ever rejects a proposer
-who could be matched to them in some stable matching. So no proposer is ever
-denied a partner that a stable matching could have given them, and this matching
-is the best stable one for the proposers.</p>
+<p>The mathematicians propose, so the matching is <strong>suitor-optimal</strong> for the
+mathematicians: suitor-optimality means each suitor is matched to the best
+stable partner they could have in <em>any</em> stable matching. The proposing side can
+never do better than this: in Gale-Shapley a suitor is only rejected by a
+reviewer who holds a proposal they prefer, and considering the first time a
+reviewer rejects a stable partner leads to a contradiction with stability, so
+no suitor is ever rejected by a stable partner. Since suitors work down their
+preference lists, each ends with the best stable partner available to them, and
+this matching is the best stable one for the suitors.</p>
 <h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
 <p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>
 <ul>
-<li>A <strong>matching game</strong> of size <span class="arithmatex">\(N\)</span> consists of two disjoint sets, proposers
+<li>A <strong>matching game</strong> of size <span class="arithmatex">\(N\)</span> consists of two disjoint sets, suitors
   <span class="arithmatex">\(S\)</span> and reviewers <span class="arithmatex">\(R\)</span> each of size <span class="arithmatex">\(N\)</span>, with preference maps
   <span class="arithmatex">\(f : S \to R^N\)</span> and <span class="arithmatex">\(g : R \to S^N\)</span>. A <strong>matching</strong> <span class="arithmatex">\(M\)</span> is a bijection
   between <span class="arithmatex">\(S\)</span> and <span class="arithmatex">\(R\)</span>.</li>
@@ -102,111 +117,241 @@ is the best stable one for the proposers.</p>
   <span class="arithmatex">\(M(s) \neq r\)</span> but <span class="arithmatex">\(s\)</span> prefers <span class="arithmatex">\(r\)</span> to <span class="arithmatex">\(M(s)\)</span> and <span class="arithmatex">\(r\)</span> prefers <span class="arithmatex">\(s\)</span> to
   <span class="arithmatex">\(M^{-1}(r)\)</span>.</li>
 <li>A <strong>stable matching</strong> is a matching with no blocking pair.</li>
-<li>The <strong>Gale-Shapley algorithm</strong> repeatedly takes an unmatched proposer and has
-  them propose to the next reviewer on their preference list; the reviewer keeps
-  whichever proposer they prefer and rejects the other, removing them from that
-  proposer's list, until everyone is matched. It returns a stable matching.</li>
+<li>
+<p>The <strong>Gale-Shapley algorithm</strong> is:</p>
+<ol>
+<li>Assign every <span class="arithmatex">\(s \in S\)</span> and <span class="arithmatex">\(r \in R\)</span> to be unmatched.</li>
+<li>Pick some unmatched <span class="arithmatex">\(s \in S\)</span> and let <span class="arithmatex">\(r\)</span> be the top of <span class="arithmatex">\(s\)</span>'s
+   preference list:<ul>
+<li>if <span class="arithmatex">\(r\)</span> is unmatched, set <span class="arithmatex">\(M(s) = r\)</span>;</li>
+<li>if <span class="arithmatex">\(r\)</span> is matched and prefers <span class="arithmatex">\(s\)</span> to <span class="arithmatex">\(M^{-1}(r)\)</span>, set
+  <span class="arithmatex">\(M(s) = r\)</span> and unmatch the previous partner;</li>
+<li>otherwise <span class="arithmatex">\(s\)</span> remains unmatched and <span class="arithmatex">\(r\)</span> is removed from <span class="arithmatex">\(s\)</span>'s
+  preference list.</li>
 </ul>
-<p><strong>(b)(i) Applicant-proposing.</strong> [6]</p>
+</li>
+<li>Repeat step 2 until every <span class="arithmatex">\(s \in S\)</span> is matched.</li>
+</ol>
+</li>
+</ul>
+<p>It returns a stable matching.</p>
+<p><strong>(b)(i) Suitors proposing.</strong> [4]</p>
 <ul>
-<li>Round 1: <span class="arithmatex">\(A \to X\)</span>, <span class="arithmatex">\(B \to Y\)</span>, <span class="arithmatex">\(C \to X\)</span>. <span class="arithmatex">\(X\)</span> keeps <span class="arithmatex">\(A\)</span> (since
-  <span class="arithmatex">\(B \succ A \succ C\)</span>) and rejects <span class="arithmatex">\(C\)</span>; <span class="arithmatex">\(Y\)</span> holds <span class="arithmatex">\(B\)</span>.</li>
-<li>Round 2: <span class="arithmatex">\(C \to Y\)</span>. <span class="arithmatex">\(Y\)</span> keeps <span class="arithmatex">\(B\)</span> (since <span class="arithmatex">\(A \succ B \succ C\)</span>) and
-  rejects <span class="arithmatex">\(C\)</span>.</li>
-<li>Round 3: <span class="arithmatex">\(C \to Z\)</span>, accepted.</li>
+<li>Pick <span class="arithmatex">\(A\)</span>: the top of <span class="arithmatex">\(f(A)\)</span> is <span class="arithmatex">\(X\)</span>, who is unmatched, so <span class="arithmatex">\(M(A) = X\)</span>.</li>
+<li>Pick <span class="arithmatex">\(B\)</span>: the top of <span class="arithmatex">\(f(B)\)</span> is <span class="arithmatex">\(Y\)</span>, who is unmatched, so <span class="arithmatex">\(M(B) = Y\)</span>.</li>
+<li>Pick <span class="arithmatex">\(C\)</span>: the top of <span class="arithmatex">\(f(C)\)</span> is <span class="arithmatex">\(Z\)</span>, who is unmatched, so <span class="arithmatex">\(M(C) = Z\)</span>.</li>
 </ul>
-<p><strong>(b)(ii) Matching.</strong> [2]</p>
-<p><span class="arithmatex">\(\{A\text{-}X, B\text{-}Y, C\text{-}Z\}\)</span>.</p>
-<p><strong>(b)(iii) Optimality.</strong> [3]</p>
-<p>This matching is <strong>applicant-optimal</strong>: each applicant gets the best role it can
-have in any stable matching.</p>
-<p><strong>(c) Role-proposing.</strong> [8]</p>
+<p>Every suitor proposes to a different reviewer, so no proposal is ever refused.
+The matching is <span class="arithmatex">\(M_S = \{A\text{-}X, B\text{-}Y, C\text{-}Z\}\)</span>: every suitor
+has their first choice.</p>
+<p><strong>(b)(ii) Reviewers proposing.</strong> [4]</p>
 <ul>
-<li>Round 1: <span class="arithmatex">\(X \to B\)</span>, <span class="arithmatex">\(Y \to A\)</span>, <span class="arithmatex">\(Z \to A\)</span>. <span class="arithmatex">\(A\)</span> keeps <span class="arithmatex">\(Y\)</span> (since
-  <span class="arithmatex">\(X \succ Y \succ Z\)</span>) and rejects <span class="arithmatex">\(Z\)</span>; <span class="arithmatex">\(B\)</span> holds <span class="arithmatex">\(X\)</span>.</li>
-<li>Round 2: <span class="arithmatex">\(Z \to B\)</span>. <span class="arithmatex">\(B\)</span> keeps <span class="arithmatex">\(X\)</span> (since <span class="arithmatex">\(Y \succ X \succ Z\)</span>) and
-  rejects <span class="arithmatex">\(Z\)</span>.</li>
-<li>Round 3: <span class="arithmatex">\(Z \to C\)</span>, accepted.</li>
+<li>Pick <span class="arithmatex">\(X\)</span>: the top of <span class="arithmatex">\(g(X)\)</span> is <span class="arithmatex">\(B\)</span>, who is unmatched, so <span class="arithmatex">\(X\)</span> is
+  matched to <span class="arithmatex">\(B\)</span>.</li>
+<li>Pick <span class="arithmatex">\(Y\)</span>: the top of <span class="arithmatex">\(g(Y)\)</span> is <span class="arithmatex">\(C\)</span>, who is unmatched, so <span class="arithmatex">\(Y\)</span> is
+  matched to <span class="arithmatex">\(C\)</span>.</li>
+<li>Pick <span class="arithmatex">\(Z\)</span>: the top of <span class="arithmatex">\(g(Z)\)</span> is <span class="arithmatex">\(A\)</span>, who is unmatched, so <span class="arithmatex">\(Z\)</span> is
+  matched to <span class="arithmatex">\(A\)</span>.</li>
 </ul>
-<p>The resulting matching is <span class="arithmatex">\(\{A\text{-}Y, B\text{-}X, C\text{-}Z\}\)</span>, which
-differs from the applicant-proposing outcome: it is role-optimal.</p>
-<p><strong>(d) Who benefits from proposing.</strong> [2]</p>
-<p>The two matchings differ (<span class="arithmatex">\(A\)</span> gets <span class="arithmatex">\(X\)</span> when applicants propose but <span class="arithmatex">\(Y\)</span> when
-roles propose, and likewise for <span class="arithmatex">\(B\)</span>). This shows that whichever side proposes
-does better: proposing secures the proposer-optimal stable matching, so being the
-proposing side is an advantage.</p>
+<p>Again no proposal is refused. The matching is
+<span class="arithmatex">\(M_R = \{A\text{-}Z, B\text{-}X, C\text{-}Y\}\)</span>: every reviewer has their
+first choice.</p>
+<p><strong>(c) A third stable matching.</strong> [6]</p>
+<p>Write <span class="arithmatex">\(M = \{A\text{-}Y, B\text{-}Z, C\text{-}X\}\)</span> and check every pair not
+matched by <span class="arithmatex">\(M\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\((A, X)\)</span>: <span class="arithmatex">\(A\)</span> prefers <span class="arithmatex">\(X\)</span> to <span class="arithmatex">\(Y\)</span>, but <span class="arithmatex">\(g(X) = (B, C, A)\)</span> ranks
+  <span class="arithmatex">\(A\)</span> last, so <span class="arithmatex">\(X\)</span> prefers its partner <span class="arithmatex">\(C\)</span>. Not blocking.</li>
+<li><span class="arithmatex">\((A, Z)\)</span>: <span class="arithmatex">\(A\)</span> prefers their partner <span class="arithmatex">\(Y\)</span> to <span class="arithmatex">\(Z\)</span>. Not blocking.</li>
+<li><span class="arithmatex">\((B, Y)\)</span>: <span class="arithmatex">\(B\)</span> prefers <span class="arithmatex">\(Y\)</span> to <span class="arithmatex">\(Z\)</span>, but <span class="arithmatex">\(g(Y) = (C, A, B)\)</span> ranks
+  <span class="arithmatex">\(B\)</span> last, so <span class="arithmatex">\(Y\)</span> prefers its partner <span class="arithmatex">\(A\)</span>. Not blocking.</li>
+<li><span class="arithmatex">\((B, X)\)</span>: <span class="arithmatex">\(B\)</span> prefers their partner <span class="arithmatex">\(Z\)</span> to <span class="arithmatex">\(X\)</span>. Not blocking.</li>
+<li><span class="arithmatex">\((C, Z)\)</span>: <span class="arithmatex">\(C\)</span> prefers <span class="arithmatex">\(Z\)</span> to <span class="arithmatex">\(X\)</span>, but <span class="arithmatex">\(g(Z) = (A, B, C)\)</span> ranks
+  <span class="arithmatex">\(C\)</span> last, so <span class="arithmatex">\(Z\)</span> prefers its partner <span class="arithmatex">\(B\)</span>. Not blocking.</li>
+<li><span class="arithmatex">\((C, Y)\)</span>: <span class="arithmatex">\(C\)</span> prefers their partner <span class="arithmatex">\(X\)</span> to <span class="arithmatex">\(Y\)</span>. Not blocking.</li>
+</ul>
+<p>There is no blocking pair, so <span class="arithmatex">\(M\)</span> is stable and the game has at least the
+three stable matchings <span class="arithmatex">\(M_S\)</span>, <span class="arithmatex">\(M\)</span> and <span class="arithmatex">\(M_R\)</span>.</p>
+<p><strong>(d) What the three matchings illustrate.</strong> [7]</p>
+<p>In <span class="arithmatex">\(M_S\)</span> every suitor has their <strong>first</strong> choice and every reviewer their
+<strong>third</strong>: <span class="arithmatex">\(X\)</span> receives <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(Y\)</span> receives <span class="arithmatex">\(B\)</span> and <span class="arithmatex">\(Z\)</span> receives
+<span class="arithmatex">\(C\)</span>, each bottom of the reviewer's list. In <span class="arithmatex">\(M\)</span> every suitor and every
+reviewer has their <strong>second</strong> choice. In <span class="arithmatex">\(M_R\)</span> every suitor has their
+<strong>third</strong> choice and every reviewer their <strong>first</strong>.</p>
+<p>This illustrates the two theorems. The run with the suitors proposing returns
+the <strong>suitor-optimal</strong> stable matching: no suitor does better in any stable
+matching (here each already has their first choice), and by
+<strong>reviewer-pessimality</strong> this same matching is the worst stable matching for
+every reviewer (here each has their last choice). Exchanging the roles of the
+two sides gives the mirror image <span class="arithmatex">\(M_R\)</span>. The stable matching <span class="arithmatex">\(M\)</span> sits
+strictly between the two extremes for everyone, and no run of the algorithm
+ever returns it: whichever side proposes secures the outcome that is best for
+that side across all stable matchings.</p>
 <h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
-<p><strong>(a) Theorems.</strong> (Bookwork.) [5]</p>
-<p>The Gale-Shapley algorithm always terminates and returns a stable matching, so a
-stable matching exists. All executions yield the same matching, and in it every
-proposer has the best partner they could have in any stable matching
-(proposer-optimality).</p>
-<p><strong>(b)(i) Stability of <span class="arithmatex">\(\{A\text{-}Z, B\text{-}Y, C\text{-}X\}\)</span>.</strong> [4]</p>
-<p>Applicant <span class="arithmatex">\(A\)</span> holds its least preferred role <span class="arithmatex">\(Z\)</span>, so we look for a preferred
-role that also prefers <span class="arithmatex">\(A\)</span>; the matching is not stable.</p>
-<p><strong>(b)(ii) Blocking pair.</strong> [4]</p>
-<p><span class="arithmatex">\((A, X)\)</span>: <span class="arithmatex">\(A\)</span> prefers <span class="arithmatex">\(X\)</span> to <span class="arithmatex">\(Z\)</span>, and <span class="arithmatex">\(X\)</span> prefers <span class="arithmatex">\(A\)</span> to its assigned
-<span class="arithmatex">\(C\)</span> (since <span class="arithmatex">\(B \succ A \succ C\)</span>). Both prefer each other, so <span class="arithmatex">\((A, X)\)</span> blocks
-the matching.</p>
-<p><strong>(c)(i) Stability of <span class="arithmatex">\(\{A\text{-}X, B\text{-}Y, C\text{-}Z\}\)</span>.</strong> [7]</p>
+<p><strong>(a) Proposed definitions.</strong> [5]</p>
+<p>We adapt the matching game definitions to allow a hospital to hold several
+residents. Any proposal capturing the same ideas earns the marks.</p>
 <ul>
-<li><span class="arithmatex">\(A\)</span> has <span class="arithmatex">\(X\)</span>, its first choice, so <span class="arithmatex">\(A\)</span> is in no blocking pair.</li>
-<li><span class="arithmatex">\(B\)</span> has <span class="arithmatex">\(Y\)</span>, its first choice, so <span class="arithmatex">\(B\)</span> is in no blocking pair.</li>
-<li><span class="arithmatex">\(C\)</span> has <span class="arithmatex">\(Z\)</span> and would prefer <span class="arithmatex">\(X\)</span> or <span class="arithmatex">\(Y\)</span>; but <span class="arithmatex">\(X\)</span> prefers its partner
-  <span class="arithmatex">\(A\)</span> to <span class="arithmatex">\(C\)</span> (<span class="arithmatex">\(B \succ A \succ C\)</span>), and <span class="arithmatex">\(Y\)</span> prefers its partner <span class="arithmatex">\(B\)</span> to
-  <span class="arithmatex">\(C\)</span> (<span class="arithmatex">\(A \succ B \succ C\)</span>), so neither will switch.</li>
+<li>An <strong>assignment</strong> allocates each resident to at most one hospital so that no
+  hospital <span class="arithmatex">\(h\)</span> receives more than <span class="arithmatex">\(c_h\)</span> residents.</li>
+<li>A pair <span class="arithmatex">\((r, h)\)</span> not assigned together is a <strong>blocking pair</strong> if <span class="arithmatex">\(r\)</span>
+  prefers <span class="arithmatex">\(h\)</span> to their current hospital (or <span class="arithmatex">\(r\)</span> is unassigned), and <span class="arithmatex">\(h\)</span>
+  either has a free place or prefers <span class="arithmatex">\(r\)</span> to at least one of the residents
+  assigned to it.</li>
+<li>A <strong>stable assignment</strong> is an assignment with no blocking pair.</li>
 </ul>
-<p>No blocking pair exists, so the matching is stable.</p>
-<p><strong>(c)(ii) Why it is returned.</strong> [5]</p>
-<p>Applicants <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> both receive their first choice, which no stable
-matching can improve on. The applicant-proposing algorithm returns the
-<strong>applicant-optimal</strong> stable matching: each applicant is matched to the best role
-it could have in <em>any</em> stable matching. Since <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> already hold their
-top roles and <span class="arithmatex">\(C\)</span> takes the only role left, this matching gives every applicant
-the best it could possibly get, so it is exactly the one the algorithm
-produces.</p>
+<p><strong>(b) The resident-proposing algorithm.</strong> [8]</p>
+<p>All residents have the list <span class="arithmatex">\((H_1, H_2)\)</span>, and <span class="arithmatex">\(H_1\)</span> ranks
+<span class="arithmatex">\(r_4 \succ r_3 \succ r_2 \succ r_1\)</span>. We repeatedly pick an unassigned
+resident.</p>
+<ul>
+<li>Pick <span class="arithmatex">\(r_1\)</span>: proposes to <span class="arithmatex">\(H_1\)</span>, which has a free place, so <span class="arithmatex">\(H_1\)</span> holds
+  <span class="arithmatex">\(\{r_1\}\)</span>.</li>
+<li>Pick <span class="arithmatex">\(r_2\)</span>: proposes to <span class="arithmatex">\(H_1\)</span>, which has a free place, so <span class="arithmatex">\(H_1\)</span> holds
+  <span class="arithmatex">\(\{r_1, r_2\}\)</span> and is now full.</li>
+<li>Pick <span class="arithmatex">\(r_3\)</span>: proposes to <span class="arithmatex">\(H_1\)</span>, which is full. Of <span class="arithmatex">\(\{r_1, r_2, r_3\}\)</span>
+  the two that <span class="arithmatex">\(H_1\)</span> prefers are <span class="arithmatex">\(r_3\)</span> and <span class="arithmatex">\(r_2\)</span>, so <span class="arithmatex">\(r_1\)</span> is rejected:
+  <span class="arithmatex">\(H_1\)</span> holds <span class="arithmatex">\(\{r_2, r_3\}\)</span> and <span class="arithmatex">\(r_1\)</span> removes <span class="arithmatex">\(H_1\)</span> from their list.</li>
+<li>Pick <span class="arithmatex">\(r_1\)</span>: proposes to <span class="arithmatex">\(H_2\)</span>, which has a free place, so <span class="arithmatex">\(H_2\)</span> holds
+  <span class="arithmatex">\(\{r_1\}\)</span>.</li>
+<li>Pick <span class="arithmatex">\(r_4\)</span>: proposes to <span class="arithmatex">\(H_1\)</span>, which is full. Of <span class="arithmatex">\(\{r_2, r_3, r_4\}\)</span>
+  the two that <span class="arithmatex">\(H_1\)</span> prefers are <span class="arithmatex">\(r_4\)</span> and <span class="arithmatex">\(r_3\)</span>, so <span class="arithmatex">\(r_2\)</span> is rejected:
+  <span class="arithmatex">\(H_1\)</span> holds <span class="arithmatex">\(\{r_3, r_4\}\)</span> and <span class="arithmatex">\(r_2\)</span> removes <span class="arithmatex">\(H_1\)</span> from their list.</li>
+<li>Pick <span class="arithmatex">\(r_2\)</span>: proposes to <span class="arithmatex">\(H_2\)</span>, which has a free place, so <span class="arithmatex">\(H_2\)</span> holds
+  <span class="arithmatex">\(\{r_1, r_2\}\)</span> and is full.</li>
+</ul>
+<p>All residents are assigned, so the algorithm terminates.</p>
+<p><strong>(c) The assignment and its stability.</strong> [6]</p>
+<p>The assignment is</p>
+<div class="arithmatex">\[
+H_1 \colon \{r_3, r_4\}, \qquad H_2 \colon \{r_1, r_2\}.
+\]</div>
+<p>Residents <span class="arithmatex">\(r_3\)</span> and <span class="arithmatex">\(r_4\)</span> hold their first choice, so neither is in a
+blocking pair. Residents <span class="arithmatex">\(r_1\)</span> and <span class="arithmatex">\(r_2\)</span> each prefer <span class="arithmatex">\(H_1\)</span> to their
+assigned <span class="arithmatex">\(H_2\)</span>, but <span class="arithmatex">\(H_1\)</span> is full and prefers both of its residents
+<span class="arithmatex">\(r_4\)</span> and <span class="arithmatex">\(r_3\)</span> to each of <span class="arithmatex">\(r_2\)</span> and <span class="arithmatex">\(r_1\)</span> (its list is
+<span class="arithmatex">\(r_4 \succ r_3 \succ r_2 \succ r_1\)</span>), so neither <span class="arithmatex">\((r_1, H_1)\)</span> nor
+<span class="arithmatex">\((r_2, H_1)\)</span> blocks. There is no blocking pair, so the assignment is stable.</p>
+<p><strong>(d) Reduction to a matching game.</strong> [6]</p>
+<p>Replace <span class="arithmatex">\(H_1\)</span> by two seats <span class="arithmatex">\(H_1^{(1)}, H_1^{(2)}\)</span> and <span class="arithmatex">\(H_2\)</span> by two seats
+<span class="arithmatex">\(H_2^{(1)}, H_2^{(2)}\)</span>. Each seat inherits its hospital's preference list
+over the residents, and each resident replaces every hospital in their list by
+that hospital's seats in a fixed order. This gives a matching game of size 4
+with the residents as suitors and the seats as reviewers, and a full hospital
+keeping its <span class="arithmatex">\(c_h\)</span> preferred residents is exactly its seats each holding
+their preferred proposal, so runs of the resident-proposing algorithm
+correspond to runs of the Gale-Shapley algorithm on this game.</p>
+<p>The theorems on the Gale-Shapley algorithm then tell us that the algorithm
+terminates with a stable assignment, that every execution (whatever order the
+residents are picked in) returns the <strong>same</strong> assignment, and that this
+assignment is suitor-optimal for the residents: each resident receives the
+best hospital they are assigned in any stable assignment, while by
+reviewer-pessimality the hospitals do as badly as they do in any stable
+assignment.</p>
 <h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
-<p><strong>(a) Definitions.</strong> [4]</p>
-<p>A role <span class="arithmatex">\(r\)</span> is an achievable partner for an applicant <span class="arithmatex">\(a\)</span> if there is at least
-one stable matching in which <span class="arithmatex">\(a\)</span> is matched to <span class="arithmatex">\(r\)</span>. A stable matching is
-applicant-optimal if every applicant is matched to their most preferred achievable
-partner; that is, no applicant could be matched to a role they prefer in any
-stable matching.</p>
-<p><strong>(b) No applicant is rejected by an achievable partner.</strong> [11]</p>
-<p>We argue by induction on the rounds of the algorithm. The inductive claim is that
-up to the current round no applicant has been rejected by an achievable partner.
-This holds vacuously before the first rejection.</p>
-<p>Suppose, for contradiction, that the claim first fails when role <span class="arithmatex">\(r\)</span> rejects
-applicant <span class="arithmatex">\(a\)</span>, and that <span class="arithmatex">\(r\)</span> is achievable for <span class="arithmatex">\(a\)</span>: some stable matching <span class="arithmatex">\(M\)</span>
-pairs <span class="arithmatex">\(a\)</span> with <span class="arithmatex">\(r\)</span>. The rejection means <span class="arithmatex">\(r\)</span> holds a proposal from an
-applicant <span class="arithmatex">\(a'\)</span> whom it strictly prefers to <span class="arithmatex">\(a\)</span>. Because this is the first time
-an achievable partner does any rejecting, <span class="arithmatex">\(a'\)</span> has not yet been rejected by any
-achievable partner, so <span class="arithmatex">\(r\)</span> is at least as good for <span class="arithmatex">\(a'\)</span> as every achievable
-partner of <span class="arithmatex">\(a'\)</span>; in particular <span class="arithmatex">\(a'\)</span> weakly prefers <span class="arithmatex">\(r\)</span> to its partner in
-<span class="arithmatex">\(M\)</span>.</p>
-<p>Now consider <span class="arithmatex">\(M\)</span>. In <span class="arithmatex">\(M\)</span>, applicant <span class="arithmatex">\(a\)</span> is matched to <span class="arithmatex">\(r\)</span>, and <span class="arithmatex">\(a'\)</span> is
-matched to some role it likes no better than <span class="arithmatex">\(r\)</span>. So <span class="arithmatex">\(a'\)</span> prefers <span class="arithmatex">\(r\)</span> to its
-<span class="arithmatex">\(M\)</span>-partner, and <span class="arithmatex">\(r\)</span> prefers <span class="arithmatex">\(a'\)</span> to <span class="arithmatex">\(a\)</span>, its <span class="arithmatex">\(M\)</span>-partner. The pair
-<span class="arithmatex">\((a', r)\)</span> therefore blocks <span class="arithmatex">\(M\)</span>, contradicting the stability of <span class="arithmatex">\(M\)</span>. Hence no
-achievable partner ever rejects, and the claim holds throughout.</p>
-<p><strong>(c) Applicant-optimality.</strong> [5]</p>
-<p>During the algorithm each applicant proposes down their preference list, and by
-part (b) they are never rejected by an achievable partner. So when the algorithm
-ends, each applicant is matched to the most preferred role that did not reject
-them, which is their most preferred achievable partner. Every applicant
-simultaneously attains their best achievable partner, so the matching returned is
-applicant-optimal.</p>
-<p><strong>(d) The other side, and an illustration.</strong> [5]</p>
-<p>The symmetric argument with the roles proposing shows the role-proposing algorithm
-returns the role-optimal stable matching; and the applicant-optimal matching is
-simultaneously role-pessimal, giving each role its worst achievable partner. The
-two one-sided algorithms therefore need not agree. For the instance on the
-matching games page, with applicants <span class="arithmatex">\(A, B, C\)</span> and roles <span class="arithmatex">\(X, Y, Z\)</span>, the
-applicant-proposing algorithm pairs <span class="arithmatex">\(A\)</span>-<span class="arithmatex">\(X\)</span>, <span class="arithmatex">\(B\)</span>-<span class="arithmatex">\(Y\)</span>, <span class="arithmatex">\(C\)</span>-<span class="arithmatex">\(Z\)</span>, whereas
-the role-proposing algorithm pairs the better-placed applicants with the roles
-that most want them: <span class="arithmatex">\(B\)</span>-<span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(A\)</span>-<span class="arithmatex">\(Y\)</span>, with <span class="arithmatex">\(C\)</span>-<span class="arithmatex">\(Z\)</span>. The proposing
-side does at least as well in its own run, which is why the two matchings can
-differ.</p>
+<p><strong>(a) Proposed definitions.</strong> [4]</p>
+<p>Any proposal capturing the following ideas earns the marks. A stable matching
+is <strong>suitor-optimal</strong> if every suitor is matched to their
+most preferred stable partner; that is, no suitor could be matched to a
+partner they prefer in any stable matching. A stable matching is
+<strong>reviewer-pessimal</strong> if every reviewer is matched to their least preferred
+stable partner; that is, no stable matching gives any reviewer a partner they
+like less.</p>
+<p><strong>(b) The two algorithms on the common-list instance.</strong> [7]</p>
+<p>Suitors proposing:</p>
+<ul>
+<li>Pick <span class="arithmatex">\(A\)</span>: the top of <span class="arithmatex">\(f(A)\)</span> is <span class="arithmatex">\(X\)</span>, who is unmatched, so <span class="arithmatex">\(M(A) = X\)</span>.</li>
+<li>Pick <span class="arithmatex">\(B\)</span>: the top of <span class="arithmatex">\(f(B)\)</span> is <span class="arithmatex">\(X\)</span>, who is matched; <span class="arithmatex">\(X\)</span> prefers
+  <span class="arithmatex">\(B\)</span> to its current partner <span class="arithmatex">\(A\)</span> (since <span class="arithmatex">\(g(X) = (B, A, C)\)</span>), so <span class="arithmatex">\(A\)</span> is
+  unmatched and <span class="arithmatex">\(M(B) = X\)</span>; <span class="arithmatex">\(X\)</span> is removed from <span class="arithmatex">\(A\)</span>'s list.</li>
+<li>Pick <span class="arithmatex">\(A\)</span>: the top of <span class="arithmatex">\(A\)</span>'s list is now <span class="arithmatex">\(Y\)</span>, who is unmatched, so
+  <span class="arithmatex">\(M(A) = Y\)</span>.</li>
+<li>Pick <span class="arithmatex">\(C\)</span>: the top of <span class="arithmatex">\(f(C)\)</span> is <span class="arithmatex">\(Y\)</span>, who is matched; <span class="arithmatex">\(Y\)</span> prefers
+  its current partner <span class="arithmatex">\(A\)</span> to <span class="arithmatex">\(C\)</span>, so <span class="arithmatex">\(Y\)</span> is removed from <span class="arithmatex">\(C\)</span>'s list.</li>
+<li>Pick <span class="arithmatex">\(C\)</span>: the top of <span class="arithmatex">\(C\)</span>'s list is now <span class="arithmatex">\(X\)</span>, who is matched; <span class="arithmatex">\(X\)</span>
+  prefers its current partner <span class="arithmatex">\(B\)</span> to <span class="arithmatex">\(C\)</span>, so <span class="arithmatex">\(X\)</span> is removed from <span class="arithmatex">\(C\)</span>'s
+  list.</li>
+<li>Pick <span class="arithmatex">\(C\)</span>: the top of <span class="arithmatex">\(C\)</span>'s list is now <span class="arithmatex">\(Z\)</span>, who is unmatched, so
+  <span class="arithmatex">\(M(C) = Z\)</span>.</li>
+</ul>
+<p>Reviewers proposing:</p>
+<ul>
+<li>Pick <span class="arithmatex">\(X\)</span>: the top of <span class="arithmatex">\(g(X)\)</span> is <span class="arithmatex">\(B\)</span>, who is unmatched, so <span class="arithmatex">\(X\)</span> is
+  matched to <span class="arithmatex">\(B\)</span>.</li>
+<li>Pick <span class="arithmatex">\(Y\)</span>: the top of <span class="arithmatex">\(g(Y)\)</span> is <span class="arithmatex">\(B\)</span>, who is matched; <span class="arithmatex">\(B\)</span> prefers
+  their current partner <span class="arithmatex">\(X\)</span> to <span class="arithmatex">\(Y\)</span>, so <span class="arithmatex">\(B\)</span> is removed from <span class="arithmatex">\(Y\)</span>'s list.</li>
+<li>Pick <span class="arithmatex">\(Y\)</span>: the top of <span class="arithmatex">\(Y\)</span>'s list is now <span class="arithmatex">\(A\)</span>, who is unmatched, so
+  <span class="arithmatex">\(Y\)</span> is matched to <span class="arithmatex">\(A\)</span>.</li>
+<li>Pick <span class="arithmatex">\(Z\)</span>: the top of <span class="arithmatex">\(g(Z)\)</span> is <span class="arithmatex">\(B\)</span>, who is matched; <span class="arithmatex">\(B\)</span> prefers
+  <span class="arithmatex">\(X\)</span> to <span class="arithmatex">\(Z\)</span>, so <span class="arithmatex">\(B\)</span> is removed from <span class="arithmatex">\(Z\)</span>'s list.</li>
+<li>Pick <span class="arithmatex">\(Z\)</span>: the top of <span class="arithmatex">\(Z\)</span>'s list is now <span class="arithmatex">\(A\)</span>, who is matched; <span class="arithmatex">\(A\)</span>
+  prefers their current partner <span class="arithmatex">\(Y\)</span> to <span class="arithmatex">\(Z\)</span>, so <span class="arithmatex">\(A\)</span> is removed from
+  <span class="arithmatex">\(Z\)</span>'s list.</li>
+<li>Pick <span class="arithmatex">\(Z\)</span>: the top of <span class="arithmatex">\(Z\)</span>'s list is now <span class="arithmatex">\(C\)</span>, who is unmatched, so
+  <span class="arithmatex">\(Z\)</span> is matched to <span class="arithmatex">\(C\)</span>.</li>
+</ul>
+<p>Both algorithms return the same matching,
+<span class="arithmatex">\(\{A\text{-}Y,\; B\text{-}X,\; C\text{-}Z\}\)</span>.</p>
+<p><strong>(c) Uniqueness with a common preference list.</strong> [10]</p>
+<p>Let all reviewers share the preference list
+<span class="arithmatex">\(s_{\sigma(1)} \succ s_{\sigma(2)} \succ \cdots \succ s_{\sigma(N)}\)</span> over the
+suitors. We prove by induction on <span class="arithmatex">\(N\)</span> that there is exactly one stable
+matching. The base case <span class="arithmatex">\(N = 1\)</span> is immediate.</p>
+<p>Consider the top-ranked suitor <span class="arithmatex">\(s_{\sigma(1)}\)</span>, whom every reviewer prefers
+to every other suitor, and let <span class="arithmatex">\(r^{\star}\)</span> be <span class="arithmatex">\(s_{\sigma(1)}\)</span>'s own most
+preferred reviewer. Every stable matching <span class="arithmatex">\(M\)</span> pairs <span class="arithmatex">\(s_{\sigma(1)}\)</span> with
+<span class="arithmatex">\(r^{\star}\)</span>: if not, then <span class="arithmatex">\(s_{\sigma(1)}\)</span> prefers <span class="arithmatex">\(r^{\star}\)</span> to
+<span class="arithmatex">\(M(s_{\sigma(1)})\)</span>, and <span class="arithmatex">\(r^{\star}\)</span>, like every reviewer, ranks
+<span class="arithmatex">\(s_{\sigma(1)}\)</span> first, so prefers <span class="arithmatex">\(s_{\sigma(1)}\)</span> to its own partner; the
+pair <span class="arithmatex">\((s_{\sigma(1)}, r^{\star})\)</span> blocks <span class="arithmatex">\(M\)</span>, a contradiction.</p>
+<p>Now remove <span class="arithmatex">\(s_{\sigma(1)}\)</span> and <span class="arithmatex">\(r^{\star}\)</span>. What remains is an instance
+with <span class="arithmatex">\(N - 1\)</span> suitors in which the reviewers still share a common list (the
+restriction of the original one). A matching of the full instance is stable if
+and only if it pairs <span class="arithmatex">\(s_{\sigma(1)}\)</span> with <span class="arithmatex">\(r^{\star}\)</span> and restricts to a
+stable matching of the smaller instance: no pair involving <span class="arithmatex">\(s_{\sigma(1)}\)</span> or
+<span class="arithmatex">\(r^{\star}\)</span> can block, since each holds their most preferred partner, and any
+other blocking pair blocks the smaller instance too, and conversely. By the
+induction hypothesis the smaller instance has a unique stable matching, so the
+full instance does as well.</p>
+<p><strong>(d) Why the proposer's advantage vanishes.</strong> [4]</p>
+<p>The run with the suitors proposing returns the suitor-optimal stable matching,
+which is simultaneously reviewer-pessimal, and symmetrically for the run with
+the reviewers proposing. The two outcomes differ exactly when there is more
+than one stable matching, as in Question 2, where each side's run selects its
+own extreme. When all reviewers agree, part (c) shows the set of stable
+matchings is a singleton, so best and worst stable partners coincide for
+everyone: there is only one stable matching for either run to return, and no
+advantage to proposing.</p>
+<h2 id="marking-exercises">Marking exercises</h2>
+<p><strong>Marking exercise 1 (Question 4(b)).</strong></p>
+<p>Round 1 breaks the algorithm: a reviewer holding a proposal always trades up
+when a preferred suitor proposes, and when several proposals arrive in the
+same round the reviewer keeps the best of them. Order of arrival is
+irrelevant. <span class="arithmatex">\(X\)</span>'s list is <span class="arithmatex">\(B \succ A \succ C\)</span>, so <span class="arithmatex">\(X\)</span> keeps <span class="arithmatex">\(B\)</span> and
+rejects <span class="arithmatex">\(A\)</span>; "first come, first served" is not the Gale-Shapley algorithm.
+The correct run, as in the solution above, ends in
+<span class="arithmatex">\(\{A\text{-}Y,\ B\text{-}X,\ C\text{-}Z\}\)</span>.</p>
+<p>The reported matching also fails the check the question itself suggests:
+<span class="arithmatex">\((B, X)\)</span> is a blocking pair, since <span class="arithmatex">\(B\)</span> ranks <span class="arithmatex">\(X\)</span> first, above the
+assigned <span class="arithmatex">\(Y\)</span>, and <span class="arithmatex">\(X\)</span> ranks <span class="arithmatex">\(B\)</span> above the assigned <span class="arithmatex">\(A\)</span>. So the
+transcript's "stable matching" is not stable, and the error was catchable by
+running the definition over the final answer, with no need to re-run the
+algorithm. A fair mark is [2] of [7]: rounds 2 and 3 apply the algorithm
+correctly to a state that should never have arisen.</p>
+<p><strong>Marking exercise 2 (Question 2(d)).</strong></p>
+<p>This is exactly backwards, and it is the direction the examinable theorems
+settle: the Gale-Shapley matching is <em>suitor-optimal</em> and
+<em>reviewer-pessimal</em>. Every suitor obtains their best stable partner and
+every reviewer their worst.</p>
+<p>The "compare every offer" intuition is seductive but wrong. A reviewer only
+ever chooses among the suitors who happen to propose to them, and each
+suitor starts at the top of their own list and stops at the best reviewer
+who will hold them; a reviewer's held partner only improves as far as the
+proposals arriving allow, which is to their worst stable partner. Question
+2's data shows it directly: the suitor-proposing run gives every suitor
+their first choice, and the reviewer-proposing run gives every reviewer
+theirs; whichever side proposes does better. A fair mark is [1] of [7], for
+correctly observing that the two sides are treated asymmetrically.</p>
 
 
   </div>

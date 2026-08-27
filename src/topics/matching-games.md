@@ -10,16 +10,7 @@ note_urls:
 
 The following are exam-type questions in the style of the examination paper.
 **Each question is worth 25 marks.** Attempt them in full before reading the
-worked solutions. Throughout, three applicants \(A, B, C\) are matched to three
-roles \(X, Y, Z\) with preferences
-
-\[
-\begin{aligned}
-A &: X \succ Y \succ Z & \qquad X &: B \succ A \succ C \\
-B &: Y \succ X \succ Z & \qquad Y &: A \succ B \succ C \\
-C &: X \succ Y \succ Z & \qquad Z &: A \succ B \succ C
-\end{aligned}
-\]
+worked solutions.
 
 ### Question 1 (based on the in-class activity)
 
@@ -35,20 +26,34 @@ T &: E \succ C \succ W & W &: T \succ G \succ N
 \end{aligned}
 \]
 
-(a) Define a blocking pair and a stable matching. [3]
+(a) Define a blocking pair and a stable matching, and write the preferences
+above as maps \(f : S \to R^3\) and \(g : R \to S^3\), where \(S\) is the set
+of mathematicians (the suitors) and \(R\) the set of physicists (the
+reviewers). [5]
 
 (b) Run the Gale-Shapley algorithm with the mathematicians proposing, showing
-each round. [7]
+each step. [7]
 
 (c) Write down the resulting matching. [3]
 
-(d) Verify that the matching is stable by checking there is no blocking pair. [6]
+(d) Verify that the matching is stable by checking there is no blocking pair. [4]
 
 (e) State whether the matching is optimal for the mathematicians or the
-physicists. Explain what proposer-optimality means, and argue briefly why the
+physicists. Explain what suitor-optimality means, and argue briefly why the
 proposing side can never do better in any stable matching. [6]
 
 ### Question 2
+
+Consider the matching game of size 3 with suitors \(S = \{A, B, C\}\) and
+reviewers \(R = \{X, Y, Z\}\) whose preference maps are
+
+\[
+\begin{aligned}
+f(A) &= (X, Y, Z) & \qquad g(X) &= (B, C, A) \\
+f(B) &= (Y, Z, X) & \qquad g(Y) &= (C, A, B) \\
+f(C) &= (Z, X, Y) & \qquad g(Z) &= (A, B, C)
+\end{aligned}
+\]
 
 (a) Provide definitions for the following terms:
 
@@ -57,54 +62,127 @@ proposing side can never do better in any stable matching. [6]
    - a stable matching;
    - the Gale-Shapley algorithm. [4]
 
-(b) (i) Apply the applicant-proposing Gale-Shapley algorithm, showing each round
-   of proposals and rejections. [6]
+(b) (i) Run the Gale-Shapley algorithm with the suitors proposing, showing each
+   step, and state the resulting matching. [4]
 
-   (ii) State the resulting matching. [2]
+   (ii) Run the Gale-Shapley algorithm with the reviewers proposing, showing
+   each step, and state the resulting matching. [4]
 
-   (iii) State which side of the market this matching is optimal for, naming the
-   relevant result. [3]
+(c) Show that \(\{A\text{-}Y, B\text{-}Z, C\text{-}X\}\) is also a stable
+matching, so that this game has at least three stable matchings. [6]
 
-(c) Apply the role-proposing Gale-Shapley algorithm to the same instance, showing
-your working, and state the resulting matching. [8]
-
-(d) State whether the two matchings differ, and comment on what this shows about
-who benefits from being the proposing side. [2]
+(d) For each of the three stable matchings found, state where each suitor and
+each reviewer ranks the partner they receive. Explain what this illustrates
+about suitor-optimality and reviewer-pessimality of the matching returned by
+the Gale-Shapley algorithm. [7]
 
 ### Question 3
 
-(a) State the theorem that the Gale-Shapley algorithm returns a stable matching,
-and the result on applicant-optimality and reviewer sub-optimality. [5]
+The hospital-resident problem generalises the matching game: residents are
+matched to hospitals, and each hospital \(h\) may take up to \(c_h\) residents.
+The resident-proposing algorithm generalises the Gale-Shapley algorithm: pick
+an unassigned resident, who proposes to the top hospital remaining on their
+list; a hospital with a free place accepts, while a full hospital compares the
+proposer with the residents it holds, keeping its \(c_h\) preferred residents
+and rejecting the other, who removes that hospital from their list.
 
-(b) Consider the proposed matching \(\{A\text{-}Z, B\text{-}Y, C\text{-}X\}\).
+Four residents \(r_1, r_2, r_3, r_4\) apply to two hospitals \(H_1, H_2\),
+each with capacity 2. Every resident prefers \(H_1\) to \(H_2\), and the
+hospitals rank the residents as follows:
 
-   (i) Determine whether it is stable. [4]
+\[
+\begin{aligned}
+H_1 &: r_4 \succ r_3 \succ r_2 \succ r_1 \\
+H_2 &: r_1 \succ r_2 \succ r_3 \succ r_4
+\end{aligned}
+\]
 
-   (ii) Identify a blocking pair and justify your answer. [4]
+(a) The definitions for matching games do not apply directly here. By adapting
+them, propose suitable definitions for the hospital-resident problem of: an
+assignment, a blocking pair, and a stable assignment. [5]
 
-(c) Consider the matching \(\{A\text{-}X, B\text{-}Y, C\text{-}Z\}\).
+(b) Run the resident-proposing algorithm, showing each step. [8]
 
-   (i) Verify that it is stable by checking that no blocking pair exists. [7]
+(c) State the resulting assignment and verify that it is stable by checking
+that no blocking pair exists. [6]
 
-   (ii) Explain why the applicant-proposing algorithm returns this particular
-   stable matching, and what it means for it to be applicant-optimal. [5]
+(d) Explain how the problem reduces to a matching game by replacing each
+hospital with capacity \(c\) by \(c\) copies of itself, and state what the
+theorems on the Gale-Shapley algorithm then tell us about the assignment
+returned in part (b). [6]
 
 ### Question 4 (**hard**)
 
-This question concerns why the applicant-proposing Gale-Shapley algorithm produces
-the matching it does. Call a role \(r\) an achievable partner for applicant
-\(a\) if some stable matching pairs \(a\) with \(r\).
+Call a reviewer \(r\) a **stable partner** of a suitor \(s\) if some stable
+matching pairs \(s\) with \(r\); likewise \(s\) is then a stable partner of
+\(r\).
 
-(a) Define an achievable partner and an applicant-optimal stable matching. [4]
+(a) Using the notion of a stable partner, propose definitions of a
+suitor-optimal stable matching and a reviewer-pessimal stable matching. [4]
 
-(b) Prove, by induction on the rounds of the applicant-proposing Gale-Shapley
-algorithm, that no applicant is ever rejected by an achievable partner. You may
-assume that a rejection occurs only when a role holds a proposal it strictly
-prefers. [11]
+(b) Consider the matching game of size 3 with suitors \(S = \{A, B, C\}\) and
+reviewers \(R = \{X, Y, Z\}\), where every reviewer has the same preference
+list \(B \succ A \succ C\), giving preference maps
 
-(c) Deduce that the applicant-proposing algorithm returns the applicant-optimal
-stable matching. [5]
+\[
+\begin{aligned}
+f(A) &= (X, Y, Z) & \qquad g(X) &= (B, A, C) \\
+f(B) &= (X, Y, Z) & \qquad g(Y) &= (B, A, C) \\
+f(C) &= (Y, X, Z) & \qquad g(Z) &= (B, A, C)
+\end{aligned}
+\]
 
-(d) State the corresponding result for the roles, and use the three-applicant
-instance at the head of this page to illustrate that the applicant-proposing and
-role-proposing algorithms can return different matchings. [5]
+Run the Gale-Shapley algorithm with the suitors proposing and again with the
+reviewers proposing, showing each step, and state both matchings. [7]
+
+(c) Prove that if all reviewers share the same preference list then the
+matching game has exactly one stable matching. [10]
+
+(d) For the game of Question 2 the two runs of the algorithm return different
+matchings, while in part (b) they coincide. Explain why the proposing side's
+advantage vanishes when the reviewers all agree, referring to suitor-optimality
+and reviewer-pessimality. [4]
+
+## Marking exercises (optional)
+
+These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.
+
+### Marking exercise 1 (on Question 4(b), worth [7])
+
+A student pastes the suitor-proposing half of Question 4(b) into a free AI
+chatbot, which replies:
+
+```text
+Round 1. A and B both propose to X; C proposes to Y. X received A's
+proposal first, so X keeps A and rejects B. Y accepts C.
+
+Round 2. B proposes to Y. Y compares B with C: the list is B > A > C,
+so Y rejects C and keeps B.
+
+Round 3. C proposes to X. X already holds A and A > C, so C is
+rejected. C proposes to Z, who accepts.
+
+Result: {A-X, B-Y, C-Z}, which is the suitor-optimal stable
+matching. ✅
+```
+
+### Marking exercise 2 (on Question 2(d), worth [7])
+
+A student pastes Question 2(d) into a free AI chatbot, which replies:
+
+```text
+The Gale-Shapley algorithm favours the reviewers. The reviewers receive
+all the proposals, so they can compare every offer and keep the best,
+trading up whenever someone better comes along; the suitors, by
+contrast, must work down their lists and take whatever they can get.
+The algorithm is therefore reviewer-optimal: each reviewer obtains
+their best stable partner, and each suitor obtains their worst.
+```

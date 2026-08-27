@@ -24,9 +24,10 @@ You can find:
    proof.
 5. [Characterisation of ESS in two player games](https://vknight.org/gtb/chapters/replicator-dynamics/#theorem-characterisation-of-ess-in-two-player-games) and proof.
 6. [The fixation probabilities in populations of two types](https://vknight.org/gtb/chapters/moran-process/#theorem-the-fixation-probabilities-in-populations-of-two-types) and proof.
-7. [Nash Flow minimises the potential function](https://vknight.org/gtb/chapters/routing-games/#thrm-nash-flow-minimises-the-potential-function)
-8. [Optimal Flow is a Nash Flow for Marginal Costs](https://vknight.org/gtb/chapters/routing-games/#thrm-optimal-flow-is-a-nash-for-for-marginal-costs)
+7. [Nash Flow minimises the potential function](https://vknight.org/gtb/chapters/routing-games/#thrm-nash-flow-minimises-the-potential-function) (statement only, the proof is not examinable).
+8. [Optimal Flow is a Nash Flow for Marginal Costs](https://vknight.org/gtb/chapters/routing-games/#thrm-optimal-flow-is-a-nash-for-for-marginal-costs) (statement only, the proof is not examinable).
 9. [Unique matching as output of the Gale Shapley algorithm](https://vknight.org/gtb/chapters/matching-games/#theorem-unique-matching-as-output-of-the-gale-shapley-algorithm) and proof.
 10. [Reviewer sub optimality of the Gale Shapley Algorithm](https://vknight.org/gtb/chapters/matching-games/#theorem-reviewer-sub-optimality-of-the-gale-shapley-algorithm) and proof.
 11. [Bayesian Nash Equilibrium for Second Pay Auction](https://vknight.org/gtb/chapters/auction-games/#theorem-bayesian-nash-equilibrium-for-second-pay-auction) and proof.
 12. [Bayesian Nash equilibrium in a first-price auction with uniform values](https://vknight.org/gtb/chapters/auction-games/#theorem-bayesian-ne-for-first-price-auction) and proof.
+13. [Revenue Equivalence](https://vknight.org/gtb/chapters/auction-games/#theorem-revenue-equivalence) (statement and conditions only, the proof is not examinable).

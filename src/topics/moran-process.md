@@ -8,9 +8,11 @@ note_urls:
 
 ## Example questions
 
-The following are exam-type questions in the style of the examination paper.
-**Each question is worth 25 marks.** Attempt them in full before reading the
-worked solutions.
+The following are exam-type questions in the style of the examination paper,
+with marks at the rates used in the papers. **A question totalling fewer than
+25 marks would, in the examination, be combined with further parts, often one
+of the examinable proofs, to make a full 25-mark question.** Attempt them in
+full before reading the worked solutions.
 
 ### Question 1 (based on the in-class activity)
 
@@ -78,7 +80,7 @@ process, in terms of the ratios \(\gamma_i = p_{i, i-1}/p_{i, i+1}\). [4]
 \(i\), \(f_H(i) = (i - 1)A_{11} + (N - i)A_{12}\),
 \(f_D(i) = i A_{21} + (N - i - 1)A_{22}\) and \(\gamma_i = f_D(i)/f_H(i)\).
 
-   (i) Compute \(f_H\) and \(f_D\) for \(i = 1\) and \(i = 2\). [5]
+   (i) Compute \(f_H\) and \(f_D\) for \(i = 1\) and \(i = 2\). [3]
 
    (ii) Compute \(\gamma_1\) and \(\gamma_2\). [4]
 
@@ -112,6 +114,46 @@ find it helpful to consider \(g(\gamma) = 1 - \gamma^N - N(1 - \gamma)\). [10]
 about the fate of a single advantageous mutant in a large population, contrasting
 the role of selection with that of drift. [5]
 
+## Marking exercises (optional)
+
+These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.
+
+### Marking exercise 1 (on Question 1(b) and (c), worth [6] and [7])
+
+A student pastes Question 1(b) and (c) into a free AI chatbot, which replies:
+
+```text
+Fitnesses: each individual interacts with everyone in the population.
+A Hawk meets 2 Hawks and 2 Doves, so f_H = 2(0) + 2(3) = 6; a Dove
+meets 2 Doves and 2 Hawks, so f_D = 2(2) + 2(1) = 6.
+
+Probability the Hawks increase: the two types are equally fit, so
+selection plays no role here: the process is neutral drift. The number
+of Hawks rises when a Hawk reproduces (probability 1/2) and a Dove dies
+(probability 2/4), giving (1/2)(1/2) = 1/4.
+```
+
+### Marking exercise 2 (on Question 3(b)(iii) and (iv), worth [4] and [4])
+
+A student pastes Question 3(b) into a free AI chatbot, which replies:
+
+```text
+Using γ1 = 1/2 and γ2 = 2/3, the fixation probabilities are
+
+    ρ1 = 1 / (1 + γ1 + γ2) = 1 / (1 + 1/2 + 2/3) = 6/13 ≈ 0.46
+    ρ2 = (1 + γ1) / (1 + γ1 + γ2) = 9/13 ≈ 0.69
+
+Both exceed 1/N = 1/3, so Hawks are favoured by selection. ✅
+```
+
 ## Optional further reading
 
 You do not need any of this to follow the topic, but the following chapters of
@@ -119,8 +161,8 @@ the textbook may help if you would like more background:
 
 - [Evolutionary Biology](https://vknight.org/gtb/chapters/evolutionary-biology/),
   which gives the biological background to evolutionary game theory.
-- [Absorbing Markov Chains](https://vknight.org/gtb/appendices/absorbing-markov-chains/), which underpins
-  the calculation of fixation probabilities.
+- [Absorbing Markov Chains](https://vknight.org/gtb/appendices/absorbing-markov-chains/),
+  which underpins the calculation of fixation probabilities.
 - [Evolutionary Dynamics on Graphs](https://vknight.org/gtb/chapters/graph-dynamics/),
   which extends the process to structured, non-well-mixed populations.
 - [Learning and Evolutionary Dynamics](https://vknight.org/gtb/chapters/further-learning-dynamics/),

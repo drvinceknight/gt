@@ -7,12 +7,11 @@ tag: repeated-games
 # Repeated games: worked solutions
 
 Solutions to the example questions on the
-[Repeated games](/topics/repeated-games.html) page. Each question is worth 25
-marks.
+[Repeated games](/topics/repeated-games.html) page.
 
-## Question 1 [25 marks]
+## Question 1 [24 marks]
 
-**(a) Interpretation.** [3]
+**(a) Interpretation.** [2]
 
 \(\delta = 5/6\) is the probability that the game continues after each round (the
 die not showing a 1). The expected number of rounds is
@@ -268,7 +267,8 @@ defection, then a return to cooperation:
 
 \[
 V_{\text{D}} = T + P\sum_{k=1}^{T}\delta^k + R\,\frac{\delta^{\,T+1}}{1 - \delta}
-= 5 + \frac{\delta\bigl(1 - \delta^{T}\bigr)}{1 - \delta} + \frac{3\,\delta^{\,T+1}}{1 - \delta}.
+= 5 + \frac{\delta\bigl(1 - \delta^{T}\bigr)}{1 - \delta}
++ \frac{3\,\delta^{\,T+1}}{1 - \delta}.
 \]
 
 **(b) The sustaining condition.** [8]
@@ -322,3 +322,39 @@ gains nothing later, so it is never profitable.
 
 No profitable one-shot deviation exists in any subgame, so the forgiving trigger
 is subgame perfect for \(\delta \ge \delta^{*}(T)\).
+
+## Marking exercises
+
+**Marking exercise 1 (Question 2(b)(i) and (ii)).**
+
+The deviator's payoff stream is wrong: after the deviation both players
+defect for ever, and mutual defection pays \(P = 1\) per round, not nothing.
+The deviating payoff is
+
+\[
+5 + \delta + \delta^2 + \dots = 5 + \frac{\delta}{1 - \delta},
+\]
+
+as in the solution above. The comparison then reads
+\(3 \ge 5(1 - \delta) + \delta\), giving the threshold
+\(\delta \ge \tfrac{1}{2}\), not \(\tfrac{2}{5}\). Dropping the punishment
+stream always understates the deviator's payoff and so understates the
+patience cooperation needs; the final \(\tfrac{2}{5}\) is confidently
+wrong. A fair mark is [1] of [3] for (i), where the conforming payoff is
+correct, and [1] of [3] for (ii), where the method of comparing the two
+streams is right but both the stream and the threshold are wrong.
+
+**Marking exercise 2 (Question 2(c) and (e)).**
+
+The statement drops both hypotheses of the Folk Theorem.
+
+- Not *any* payoff pair: the achievable payoffs are those that are feasible
+  and *individually rational*, lying above the punishment level each player
+  can guarantee themselves; nothing below \((1, 1)\) is sustainable here.
+- Not *any* discount factor: the theorem holds for \(\delta\) sufficiently
+  close to \(1\). Part (b)(ii) itself shows that Grudger sustains
+  cooperation only for \(\delta \ge \tfrac{1}{2}\): "however impatient the
+  players are" is contradicted two parts earlier in the same question.
+
+The closing flourish about real life inherits both errors. A fair mark is
+[1] of [3] for (c) and [1] of [4] for (e).

@@ -80,9 +80,11 @@ questions below. They are reshuffled each time, so you can keep retrying.</p>
 
 
 <h2 id="example-questions">Example questions</h2>
-<p>The following are exam-type questions in the style of the examination paper.
-<strong>Each question is worth 25 marks.</strong> Attempt them in full before reading the
-worked solutions.</p>
+<p>The following are exam-type questions in the style of the examination paper,
+with marks at the rates used in the papers. <strong>A question totalling fewer than
+25 marks would, in the examination, be combined with further parts, often one
+of the examinable proofs, to make a full 25-mark question.</strong> Attempt them in
+full before reading the worked solutions.</p>
 <h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
 <p>In the revision-aid activity, three students make a one-page aid for a game
 theory topic: the Theorist does the maths, the definitions and a worked example
@@ -93,45 +95,45 @@ for each combination of the parts on show, giving a
 characteristic function game on <span class="arithmatex">\(N = \{1, 2, 3\}\)</span> with <span class="arithmatex">\(v(\emptyset) = 0\)</span>,
 <span class="arithmatex">\(v(\{1\}) = 2\)</span>, <span class="arithmatex">\(v(\{2\}) = 1\)</span>, <span class="arithmatex">\(v(\{3\}) = 2\)</span>, <span class="arithmatex">\(v(\{1, 2\}) = 5\)</span>,
 <span class="arithmatex">\(v(\{1, 3\}) = 6\)</span>, <span class="arithmatex">\(v(\{2, 3\}) = 4\)</span> and <span class="arithmatex">\(v(\{1, 2, 3\}) = 10\)</span>.</p>
-<p>(a) Define a characteristic function game and the Shapley value. [5]</p>
+<p>(a) Define a characteristic function game and the Shapley value. [4]</p>
 <p>(b) Compute the marginal contribution of each player in each of the six
-orderings of the players. [8]</p>
-<p>(c) Hence compute the Shapley value. [6]</p>
+orderings of the players. [5]</p>
+<p>(c) Hence compute the Shapley value. [2]</p>
 <p>(d) Verify that the Shapley value is efficient, and interpret the result: the
 three parts are worth only <span class="arithmatex">\(2 + 1 + 2 = 5\)</span> on their own, so half of the aid's
 value comes from the parts reinforcing one another. Explain how the Shapley value
-shares this synergy. [6]</p>
+shares this synergy. [4]</p>
 <h3 id="question-2">Question 2</h3>
 <p>(a) Provide definitions for the following terms:</p>
 <ul>
 <li>a characteristic function game <span class="arithmatex">\(G = (N, v)\)</span>;</li>
 <li>a payoff vector;</li>
 <li>the marginal contribution of a player to a coalition;</li>
-<li>the Shapley value. [5]</li>
+<li>the Shapley value. [4]</li>
 </ul>
 <p>(b) Consider the game on <span class="arithmatex">\(N = \{1, 2, 3\}\)</span> with <span class="arithmatex">\(v(\emptyset) = 0\)</span>,
 <span class="arithmatex">\(v(\{1\}) = v(\{2\}) = v(\{3\}) = 0\)</span>, <span class="arithmatex">\(v(\{1, 2\}) = 90\)</span>,
 <span class="arithmatex">\(v(\{1, 3\}) = 80\)</span>, <span class="arithmatex">\(v(\{2, 3\}) = 70\)</span>, <span class="arithmatex">\(v(\{1, 2, 3\}) = 120\)</span>.</p>
 <p>(i) Compute the marginal contribution vector for each of the six orderings of
    the players. [5]</p>
-<p>(ii) Hence compute the Shapley value. [6]</p>
-<p>(iii) Verify that the Shapley value is efficient. [3]</p>
+<p>(ii) Hence compute the Shapley value. [2]</p>
+<p>(iii) Verify that the Shapley value is efficient. [2]</p>
 <p>(c) Explain what the Shapley value represents, and state which of its defining
 properties (efficiency, null player, symmetry, additivity) justify calling it a
-fair division. [6]</p>
+fair division. [4]</p>
 <h3 id="question-3">Question 3</h3>
 <p>(a) State the efficiency, null player, symmetry and additivity properties of the
-Shapley value. [6]</p>
+Shapley value. [4]</p>
 <p>(b) Consider the game on <span class="arithmatex">\(N = \{1, 2, 3\}\)</span> with <span class="arithmatex">\(v(S) = 1\)</span> if <span class="arithmatex">\(|S| \ge 2\)</span>
 and <span class="arithmatex">\(v(S) = 0\)</span> otherwise.</p>
-<p>(i) Using symmetry and efficiency, write down the Shapley value. [4]</p>
+<p>(i) Using symmetry and efficiency, write down the Shapley value. [3]</p>
 <p>(ii) State, with reason, whether any player is a null player. [2]</p>
 <p>(c) Consider the game on <span class="arithmatex">\(N = \{1, 2, 3\}\)</span> with <span class="arithmatex">\(v(S) = 4\)</span> if
 <span class="arithmatex">\(\{1, 2\} \subseteq S\)</span> and <span class="arithmatex">\(v(S) = 0\)</span> otherwise.</p>
-<p>(i) Identify the null player. [3]</p>
+<p>(i) Identify the null player. [2]</p>
 <p>(ii) Compute the Shapley value using the six orderings. [5]</p>
 <p>(iii) Verify efficiency, confirm that players 1 and 2 are symmetric and receive
-   equal payoffs, and interpret the result. [5]</p>
+   equal payoffs, and interpret the result. [4]</p>
 <h3 id="question-4-hard">Question 4 (<strong>hard</strong>)</h3>
 <p>This question uses the additivity of the Shapley value to compute it without
 summing over all orderings.</p>
@@ -149,6 +151,49 @@ Verify that it is efficient. [9]</p>
 <p>(d) Explain how the decomposition into unanimity games shows where each player's
 share comes from, and why additivity is a useful shortcut compared with summing
 marginal contributions over all <span class="arithmatex">\(n!\)</span> orderings. [6]</p>
+<h2 id="marking-exercises-optional">Marking exercises (optional)</h2>
+<p>These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.</p>
+<h3 id="marking-exercise-1-on-question-2b-worth-5-and-2">Marking exercise 1 (on Question 2(b), worth [5] and [2])</h3>
+<p>A student pastes Question 2(b) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">Step 1: Marginal contributions for each ordering.
+
+  (1, 2, 3): 1 adds 0, 2 adds 90, 3 adds 30          -&gt; (0, 90, 30)
+  (1, 3, 2): 1 adds 0, 3 adds 80, 2 adds 40          -&gt; (0, 40, 80)
+  (2, 1, 3): 2 adds 0, 1 adds 90, 3 adds 30          -&gt; (90, 0, 30)
+  (2, 3, 1): 2 adds 0, 3 adds 70, 1 adds 120-90 = 30 -&gt; (30, 0, 70)
+  (3, 1, 2): 3 adds 0, 1 adds 80, 2 adds 40          -&gt; (80, 40, 0)
+  (3, 2, 1): 3 adds 0, 2 adds 70, 1 adds 50          -&gt; (50, 70, 0)
+
+Step 2: Average over the six orderings.
+
+  phi_1 = (0 + 0 + 90 + 30 + 80 + 50) / 6 = 250/6 ≈ 41.67
+  phi_2 = 240/6 = 40
+  phi_3 = 210/6 = 35
+
+Step 3: Check efficiency.
+
+  41.67 + 40 + 35 = 116.67 ≈ 120 ✅
+  (small rounding differences are expected when averaging)
+</code></pre>
+<h3 id="marking-exercise-2-on-question-3b-worth-3-and-2">Marking exercise 2 (on Question 3(b), worth [3] and [2])</h3>
+<p>A student pastes Question 3(b) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">Player 3 is a null player, because v({3}) = 0: on their own they create
+no value. By the null player property, phi_3 = 0. Players 1 and 2 are
+symmetric, so by efficiency they share v(N) = 1 equally:
+
+    phi = (1/2, 1/2, 0)
+
+No player is left out: the value of the grand coalition is fully
+distributed, so this allocation is fair and efficient.
+</code></pre>
 <h2 id="optional-further-reading">Optional further reading</h2>
 <p>You do not need this to follow the topic, but the chapter on
 <a href="https://vknight.org/gtb/chapters/the-core/">The Core</a> may help if you would like

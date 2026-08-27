@@ -7,10 +7,9 @@ tag: nash-equilibrium
 # Nash Equilibrium: worked solutions
 
 Solutions to the example questions on the
-[Nash Equilibrium](/topics/nash-equilibrium.html) page. Each question is worth 25
-marks.
+[Nash Equilibrium](/topics/nash-equilibrium.html) page.
 
-## Question 1 [25 marks]
+## Question 1 [19 marks]
 
 **(a) Symmetric zero-sum game.** [3]
 
@@ -36,7 +35,7 @@ is zero sum, the column player's is \(u_c = -u_r\). For
 3. \(\sigma_r = \sigma_c = (\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3})\): here
    \(M \sigma_c^{\top} = (0, 0, 0)\), so \(u_r = 0\) and \((u_r, u_c) = (0, 0)\).
 
-**(c) The uniform strategy is a Nash equilibrium.** [9]
+**(c) The uniform strategy is a Nash equilibrium.** [5]
 
 The best response condition states that \(\sigma_r\) is a best response to
 \(\sigma_c\) if and only if every action in its support yields the maximal
@@ -56,7 +55,7 @@ of \(\sigma_r\) is a best response: by the best response condition \(\sigma_r\) 
 a best response. By the symmetry of the game the same holds for the column
 player, so \((\sigma, \sigma)\) is a Nash equilibrium, with value \(0\).
 
-**(d) Uniqueness.** [6]
+**(d) Uniqueness.** [5]
 
 In Rock-Paper-Scissors every action is beaten by another, so no Nash equilibrium
 can place all weight on a proper subset of the actions: whatever the support of
@@ -75,7 +74,7 @@ gives \(2a = b + c\); with \(a + b + c = 1\) these force
 \(a = b = c = \tfrac{1}{3}\). By symmetry \(\sigma_r\) is also uniform, so the
 equilibrium is unique.
 
-**(e) Rock-Paper-Scissors-Lizard-Spock.** [4]
+**(e) Rock-Paper-Scissors-Lizard-Spock.** [3]
 
 By the same symmetry each action beats two others and loses to two, so against
 the uniform strategy each action earns \(\tfrac{2(+1) + 2(-1)}{5} = 0\): all five
@@ -83,7 +82,7 @@ are best responses. As in part (d), no equilibrium can leave any action unused, 
 the unique Nash equilibrium is each player playing each of the five actions with
 probability \(\tfrac{1}{5}\), with value \(0\).
 
-## Question 2 [25 marks]
+## Question 2 [24 marks]
 
 **(a) Definitions.** (Bookwork.) [5]
 
@@ -123,7 +122,7 @@ M_c =
 Both payoffs are underlined in the top-left and bottom-right cells, giving the
 pure Nash equilibria \(\{((1, 0), (1, 0)), ((0, 1), (0, 1))\}\).
 
-**(b)(ii) Sketches and indifference.** [4]
+**(b)(ii) Sketches and indifference.** [6]
 
 Against \(\sigma_2 = (y, 1 - y)\):
 \(u_1(r_1) = 4y + (1 - y) = 1 + 3y\) (from \((0,1)\) to \((1,4)\)) and
@@ -149,9 +148,10 @@ action lies in the support, so each player must be indifferent between their two
 actions and hence make the other indifferent. From part (ii) the column player is
 indifferent at \(x = \tfrac{1}{2}\) and the row player at \(y = \tfrac{1}{3}\), so
 the mixed Nash equilibrium is
-\(\left(\left(\tfrac{1}{2}, \tfrac{1}{2}\right), \left(\tfrac{1}{3}, \tfrac{2}{3}\right)\right)\).
+\(\left(\left(\tfrac{1}{2}, \tfrac{1}{2}\right),
+\left(\tfrac{1}{3}, \tfrac{2}{3}\right)\right)\).
 
-**(b)(iv) Payoffs and comparison.** [7]
+**(b)(iv) Payoffs and comparison.** [4]
 
 At the mixed equilibrium each player is indifferent, so the row player earns
 \(u_1(r_1) = 1 + 3 \cdot \tfrac{1}{3} = 2\) and the column player earns
@@ -162,7 +162,7 @@ which exceeds the mixed payoff of \(2\), so both players would prefer either pur
 equilibrium to the mixed one: the mixed equilibrium is the worst of the three for
 both players.
 
-## Question 3 [25 marks]
+## Question 3 [23 marks]
 
 **(a) Definitions.** (Bookwork.) [5]
 
@@ -185,7 +185,7 @@ row 1 is eliminated. With only row 2 remaining, the column player's payoffs are
 1 and column 1 is eliminated. The single surviving profile is
 \(((0, 1), (0, 1))\), the Nash equilibrium, with payoffs \((1, 1)\).
 
-**(b)(ii) Interpretation.** [4]
+**(b)(ii) Interpretation.** [3]
 
 The outcome in which each plays their first action gives \((3, 3)\), which both
 players prefer to the equilibrium \((1, 1)\) since \(3 > 1\). It cannot be
@@ -213,7 +213,7 @@ M_c =
 The pure Nash equilibria are \(\{((1, 0), (1, 0)), ((0, 1), (0, 1))\}\), with
 payoffs \((2, 1)\) and \((1, 2)\).
 
-**(c)(ii) Mixed Nash equilibrium.** [6]
+**(c)(ii) Mixed Nash equilibrium.** [5]
 
 By the best response condition each player makes the other indifferent. The row
 player makes the column player indifferent: \(u_2(c_1) = x\) and
@@ -221,7 +221,8 @@ player makes the column player indifferent: \(u_2(c_1) = x\) and
 column player makes the row player indifferent: \(u_1(r_1) = 2y\) and
 \(u_1(r_2) = 1 - y\), equal at \(2y = 1 - y\), so \(y = \tfrac{1}{3}\). The mixed
 Nash equilibrium is
-\(\left(\left(\tfrac{2}{3}, \tfrac{1}{3}\right), \left(\tfrac{1}{3}, \tfrac{2}{3}\right)\right)\).
+\(\left(\left(\tfrac{2}{3}, \tfrac{1}{3}\right),
+\left(\tfrac{1}{3}, \tfrac{2}{3}\right)\right)\).
 
 **(c)(iii) Payoffs and inefficiency.** [3]
 
@@ -282,7 +283,8 @@ which are consistent with \(x = y = \beta z\). The normalisation
 \(x + y + z = 1\) gives \(z(2\beta + 1) = 1\), so
 
 \[
-\sigma^* = \left(\frac{\beta}{2\beta + 1},\ \frac{\beta}{2\beta + 1},\ \frac{1}{2\beta + 1}\right).
+\sigma^* = \left(\frac{\beta}{2\beta + 1},\ \frac{\beta}{2\beta + 1},\
+\frac{1}{2\beta + 1}\right).
 \]
 
 When \(\beta = 1\) this is \(\bigl(\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3}\bigr)\),
@@ -298,3 +300,50 @@ around Scissors more severe, and in equilibrium the players protect themselves b
 playing Scissors less often and the other two actions more. The equilibrium
 always keeps every action a best response, so no action is ever abandoned for any
 finite \(\beta > 0\), but the mixing tilts smoothly with the weight.
+
+## Marking exercises
+
+**Marking exercise 1 (Question 2(b)(iii)).**
+
+The transcript contains three errors.
+
+- The indifference conditions are applied to the wrong player. The row
+  player's probability \(x\) must be chosen to make the *column* player
+  indifferent, and the column player's probability \(y\) to make the *row*
+  player indifferent: a player mixes so as to keep their opponent willing to
+  mix. The transcript instead makes each player indifferent using their own
+  payoff matrix and their own probability.
+- The arithmetic in Steps 2 and 3 is correct, which is what makes the answer
+  dangerous: the values \(\tfrac{1}{3}\) and \(\tfrac{1}{2}\) are right but
+  attached to the wrong players. The correct mixed Nash equilibrium, as in
+  the solution to (b)(iii) above, is
+  \(\left(\left(\tfrac{1}{2}, \tfrac{1}{2}\right),
+  \left(\tfrac{1}{3}, \tfrac{2}{3}\right)\right)\).
+- The conclusion claims a *unique* Nash equilibrium. Part (b)(i) found two
+  pure Nash equilibria, so the game has three; the tick marks and the
+  emphatic final answer add confidence, not correctness.
+
+Step 1 is also looser than the best response condition: indifference is
+required across the actions *in the support* of the strategy. It does no harm
+here because the equilibrium has full support, but an examiner expects the
+condition stated precisely. A fair mark is [2] of [5]: the structure and the
+arithmetic earn credit, but the strategy pair reported is not an equilibrium
+of the game and the uniqueness claim is false.
+
+**Marking exercise 2 (Question 3(b)(i) and (ii)).**
+
+For part (i), the eliminations and the surviving cell are correct, but the
+domination is *strict*, not weak: \(5 > 3\) and \(1 > 0\) are strict
+inequalities in both comparisons. The distinction carries weight, since
+iterated elimination of strictly dominated strategies can never remove a
+Nash equilibrium, which is exactly why the argument identifies the
+equilibrium; a weakly dominated action can feature in an equilibrium. A fair
+mark is [3] of [4].
+
+For part (ii), the claim that \((1, 1)\) is Pareto efficient is false:
+\((3, 3)\) makes both players strictly better off, so \((1, 1)\) is Pareto
+*dominated*, and this inefficiency is the entire point of the Prisoner's
+Dilemma. The property the transcript describes, that no player gains by
+changing their own strategy alone, is the definition of a Nash equilibrium,
+not of Pareto efficiency: the two concepts have been swapped. The final
+sentence on the incentive to deviate is correct. A fair mark is [1] of [3].

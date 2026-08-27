@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  I see a lot of Python in the textbook. Is it needed for this course?
+order: 2
 ---
 
 No. There is no programming required for this module: it is not assessed and you

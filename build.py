@@ -149,6 +149,7 @@ def main() -> None:
     topics = read_collection(SRC / "topics")
     class_notes = read_collection(SRC / "class-notes")
     faqs = read_collection(SRC / "faqs")
+    faqs.sort(key=lambda faq: faq.get("order", 99))
     assessment = read_page(SRC / "assessment/index.md")
     solutions = read_collection(SRC / "solutions") if (SRC / "solutions").exists() else []
     quizzes_by_tag = load_quizzes(SRC / "quizzes")

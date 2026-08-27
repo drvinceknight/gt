@@ -8,9 +8,11 @@ note_urls:
 
 ## Example questions
 
-The following are exam-type questions in the style of the examination paper.
-**Each question is worth 25 marks.** Attempt them in full before reading the
-worked solutions.
+The following are exam-type questions in the style of the examination paper,
+with marks at the rates used in the papers. **A question totalling fewer than
+25 marks would, in the examination, be combined with further parts, often one
+of the examinable proofs, to make a full 25-mark question.** Attempt them in
+full before reading the worked solutions.
 
 ### Question 1 (based on the in-class activity)
 
@@ -24,7 +26,7 @@ A = \begin{pmatrix} 3 & 0 \\ 5 & 1 \end{pmatrix}
 continuing unless a 1 was rolled, so the game continued with probability
 \(\delta = 5/6\).
 
-(a) Interpret \(\delta = 5/6\) and state the expected number of rounds. [3]
+(a) Interpret \(\delta = 5/6\) and state the expected number of rounds. [2]
 
 (b) Both players use the Grudger strategy (play High until the opponent
 plays Low, then Low for ever). Holding the opponent's Grudger fixed, write down
@@ -133,6 +135,50 @@ threshold. [6]
 subgame perfect equilibrium, by checking with the one-shot deviation principle
 that no player can gain from a single deviation on the cooperative path or during
 the punishment phase. [7]
+
+## Marking exercises (optional)
+
+These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.
+
+### Marking exercise 1 (on Question 2(b)(i) and (ii), worth [3] and [3])
+
+A student pastes Question 2(b) into a free AI chatbot, which replies:
+
+```text
+Conforming: both players cooperate for ever, so the payoff is
+
+    3 + 3δ + 3δ² + ... = 3 / (1 - δ)
+
+Deviating: the deviator earns 5 in the first round; after that both
+players defect for ever, which yields nothing, so the payoff is 5.
+
+Threshold: cooperation is sustained when 3 / (1 - δ) >= 5, that is
+3 >= 5 - 5δ, giving
+
+    δ >= 2/5
+```
+
+### Marking exercise 2 (on Question 2(c) and (e), worth [3] and [4])
+
+A student pastes Question 2(c) and (e) into a free AI chatbot, which
+replies:
+
+```text
+The Folk Theorem states that in an infinitely repeated game, ANY payoff
+pair can be achieved in a subgame perfect equilibrium, for ANY discount
+factor δ > 0. In particular, cooperation (3, 3) is always an
+equilibrium outcome of the repeated Prisoner's Dilemma, however
+impatient the players are. This is why we see cooperation everywhere in
+real life! 🤝
+```
 
 ## Optional further reading
 

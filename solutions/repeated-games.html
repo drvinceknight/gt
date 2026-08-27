@@ -61,10 +61,9 @@
 
 <h1 id="repeated-games-worked-solutions">Repeated games: worked solutions</h1>
 <p>Solutions to the example questions on the
-<a href="/topics/repeated-games.html">Repeated games</a> page. Each question is worth 25
-marks.</p>
-<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
-<p><strong>(a) Interpretation.</strong> [3]</p>
+<a href="/topics/repeated-games.html">Repeated games</a> page.</p>
+<h2 id="question-1-24-marks">Question 1 [24 marks]</h2>
+<p><strong>(a) Interpretation.</strong> [2]</p>
 <p><span class="arithmatex">\(\delta = 5/6\)</span> is the probability that the game continues after each round (the
 die not showing a 1). The expected number of rounds is
 <span class="arithmatex">\(\dfrac{1}{1 - \delta} = \dfrac{1}{1/6} = 6\)</span>.</p>
@@ -262,7 +261,8 @@ V_{\text{C}} = \frac{R}{1 - \delta} = \frac{3}{1 - \delta}.
 defection, then a return to cooperation:</p>
 <div class="arithmatex">\[
 V_{\text{D}} = T + P\sum_{k=1}^{T}\delta^k + R\,\frac{\delta^{\,T+1}}{1 - \delta}
-= 5 + \frac{\delta\bigl(1 - \delta^{T}\bigr)}{1 - \delta} + \frac{3\,\delta^{\,T+1}}{1 - \delta}.
+= 5 + \frac{\delta\bigl(1 - \delta^{T}\bigr)}{1 - \delta}
++ \frac{3\,\delta^{\,T+1}}{1 - \delta}.
 \]</div>
 <p><strong>(b) The sustaining condition.</strong> [8]</p>
 <p>Cooperation is sustained when <span class="arithmatex">\(V_{\text{C}} \ge V_{\text{D}}\)</span>. Multiplying
@@ -302,6 +302,35 @@ behaviour within the punishment phase. The deviation loses <span class="arithmat
 gains nothing later, so it is never profitable.</p>
 <p>No profitable one-shot deviation exists in any subgame, so the forgiving trigger
 is subgame perfect for <span class="arithmatex">\(\delta \ge \delta^{*}(T)\)</span>.</p>
+<h2 id="marking-exercises">Marking exercises</h2>
+<p><strong>Marking exercise 1 (Question 2(b)(i) and (ii)).</strong></p>
+<p>The deviator's payoff stream is wrong: after the deviation both players
+defect for ever, and mutual defection pays <span class="arithmatex">\(P = 1\)</span> per round, not nothing.
+The deviating payoff is</p>
+<div class="arithmatex">\[
+5 + \delta + \delta^2 + \dots = 5 + \frac{\delta}{1 - \delta},
+\]</div>
+<p>as in the solution above. The comparison then reads
+<span class="arithmatex">\(3 \ge 5(1 - \delta) + \delta\)</span>, giving the threshold
+<span class="arithmatex">\(\delta \ge \tfrac{1}{2}\)</span>, not <span class="arithmatex">\(\tfrac{2}{5}\)</span>. Dropping the punishment
+stream always understates the deviator's payoff and so understates the
+patience cooperation needs; the final <span class="arithmatex">\(\tfrac{2}{5}\)</span> is confidently
+wrong. A fair mark is [1] of [3] for (i), where the conforming payoff is
+correct, and [1] of [3] for (ii), where the method of comparing the two
+streams is right but both the stream and the threshold are wrong.</p>
+<p><strong>Marking exercise 2 (Question 2(c) and (e)).</strong></p>
+<p>The statement drops both hypotheses of the Folk Theorem.</p>
+<ul>
+<li>Not <em>any</em> payoff pair: the achievable payoffs are those that are feasible
+  and <em>individually rational</em>, lying above the punishment level each player
+  can guarantee themselves; nothing below <span class="arithmatex">\((1, 1)\)</span> is sustainable here.</li>
+<li>Not <em>any</em> discount factor: the theorem holds for <span class="arithmatex">\(\delta\)</span> sufficiently
+  close to <span class="arithmatex">\(1\)</span>. Part (b)(ii) itself shows that Grudger sustains
+  cooperation only for <span class="arithmatex">\(\delta \ge \tfrac{1}{2}\)</span>: "however impatient the
+  players are" is contradicted two parts earlier in the same question.</li>
+</ul>
+<p>The closing flourish about real life inherits both errors. A fair mark is
+[1] of [3] for (c) and [1] of [4] for (e).</p>
 
 
   </div>

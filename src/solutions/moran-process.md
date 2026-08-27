@@ -7,8 +7,7 @@ tag: "moran-process"
 # Moran Process: worked solutions
 
 Solutions to the example questions on the
-[Moran Process](/topics/moran-process.html) page. Each question is worth 25
-marks.
+[Moran Process](/topics/moran-process.html) page.
 
 ## Question 1 [25 marks]
 
@@ -23,9 +22,10 @@ die. A copy of the reproducing individual replaces the one that dies.
 With \(v_H = 2\) Hawks and \(v_D = 2\) Doves,
 
 \[
-f_H = (2 - 1)A_{HH} + 2 A_{HD} = 1 \cdot 0 + 2 \cdot 3 = 6,
-\qquad
-f_D = (2 - 1)A_{DD} + 2 A_{DH} = 1 \cdot 2 + 2 \cdot 1 = 4.
+\begin{aligned}
+f_H &= (2 - 1)A_{HH} + 2 A_{HD} = 1 \cdot 0 + 2 \cdot 3 = 6, \\
+f_D &= (2 - 1)A_{DD} + 2 A_{DH} = 1 \cdot 2 + 2 \cdot 1 = 4.
+\end{aligned}
 \]
 
 **(c) Probability the number of Hawks increases.** [7]
@@ -105,7 +105,8 @@ When \(r = 1\) all individuals are equally likely ancestors, so
 **(b)(ii) \(N = 4\), \(r = 2\).** [3]
 
 \[
-\rho = \frac{1 - \tfrac{1}{2}}{1 - \tfrac{1}{16}} = \frac{\tfrac{1}{2}}{\tfrac{15}{16}} = \frac{8}{15} \approx 0.533.
+\rho = \frac{1 - \tfrac{1}{2}}{1 - \tfrac{1}{16}}
+= \frac{\tfrac{1}{2}}{\tfrac{15}{16}} = \frac{8}{15} \approx 0.533.
 \]
 
 **(b)(iii) \(N = 4\), \(r = \tfrac{1}{2}\).** [3]
@@ -139,43 +140,48 @@ Even in an arbitrarily large population an advantageous mutant fixes with
 probability only \(1 - 1/r\), bounded away from \(1\): a beneficial mutation is
 likely to be lost while still rare. For \(r = 2\) this limit is \(\tfrac{1}{2}\).
 
-## Question 3 [25 marks]
+## Question 3 [23 marks]
 
 **(a) Fixation formula.** (Bookwork.) [4]
 
 \[
-\rho_i = \frac{1 + \sum_{k=1}^{i-1} \prod_{j=1}^{k} \gamma_j}{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} \gamma_j},
+\rho_i = \frac{1 + \sum_{k=1}^{i-1} \prod_{j=1}^{k} \gamma_j}
+{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} \gamma_j},
 \qquad \gamma_i = \frac{p_{i, i-1}}{p_{i, i+1}}.
 \]
 
-**(b)(i) Fitnesses.** [5]
+**(b)(i) Fitnesses.** [3]
 
 \[
-f_H(1) = 0 + 2(3) = 6, \quad f_D(1) = 1 + 2 = 3,
-\qquad
-f_H(2) = 0 + 3 = 3, \quad f_D(2) = 2 + 0 = 2.
+\begin{aligned}
+f_H(1) &= 0 + 2(3) = 6, & f_D(1) &= 1 + 2 = 3, \\
+f_H(2) &= 0 + 3 = 3, & f_D(2) &= 2 + 0 = 2.
+\end{aligned}
 \]
 
 **(b)(ii) Ratios.** [4]
 
 \[
-\gamma_1 = \frac{f_D(1)}{f_H(1)} = \frac{3}{6} = \frac{1}{2},
-\qquad
-\gamma_2 = \frac{f_D(2)}{f_H(2)} = \frac{2}{3}.
+\begin{aligned}
+\gamma_1 &= \frac{f_D(1)}{f_H(1)} = \frac{3}{6} = \frac{1}{2}, \\
+\gamma_2 &= \frac{f_D(2)}{f_H(2)} = \frac{2}{3}.
+\end{aligned}
 \]
 
 **(b)(iii) Fixation from one Hawk.** [4]
 
 \[
 \rho_1 = \frac{1}{1 + \gamma_1 + \gamma_1 \gamma_2}
-= \frac{1}{1 + \tfrac{1}{2} + \tfrac{1}{3}} = \frac{1}{\tfrac{11}{6}} = \frac{6}{11} \approx 0.545.
+= \frac{1}{1 + \tfrac{1}{2} + \tfrac{1}{3}}
+= \frac{1}{\tfrac{11}{6}} = \frac{6}{11} \approx 0.545.
 \]
 
 **(b)(iv) Fixation from two Hawks.** [4]
 
 \[
 \rho_2 = \frac{1 + \gamma_1}{1 + \gamma_1 + \gamma_1 \gamma_2}
-= \frac{1 + \tfrac{1}{2}}{\tfrac{11}{6}} = \frac{\tfrac{3}{2}}{\tfrac{11}{6}} = \frac{9}{11} \approx 0.818.
+= \frac{1 + \tfrac{1}{2}}{\tfrac{11}{6}}
+= \frac{\tfrac{3}{2}}{\tfrac{11}{6}} = \frac{9}{11} \approx 0.818.
 \]
 
 **(c) Interpretation.** [4]
@@ -196,9 +202,10 @@ resident is removed, and falls by one when a resident is copied and a mutant is
 removed:
 
 \[
-P_{i \to i+1} = \frac{i f_M}{i f_M + (N - i) f_R} \cdot \frac{N - i}{N},
-\qquad
-P_{i \to i-1} = \frac{(N - i) f_R}{i f_M + (N - i) f_R} \cdot \frac{i}{N}.
+\begin{aligned}
+P_{i \to i+1} &= \frac{i f_M}{i f_M + (N - i) f_R} \cdot \frac{N - i}{N}, \\
+P_{i \to i-1} &= \frac{(N - i) f_R}{i f_M + (N - i) f_R} \cdot \frac{i}{N}.
+\end{aligned}
 \]
 
 Taking the ratio, the shared denominator and the factor \(i(N - i)/N\) cancel:
@@ -272,3 +279,53 @@ fixes the direction, a mutant being favoured exactly when \(r > 1\), for every
 \(N\); but it does not guarantee fixation. While the mutant is rare, drift can
 remove it before its fitness advantage takes effect, and it is lost with
 probability at least \(1/r\).
+
+## Marking exercises
+
+**Marking exercise 1 (Question 1(b) and (c)).**
+
+The fitnesses count self-interactions: an individual does not play itself,
+which is why the question's formula carries the \((v_i - 1)\) term for the
+own type. The Hawk value is accidentally unaffected, because
+\(A_{HH} = 0\) makes the self-term worthless:
+\(f_H = (2 - 1)(0) + 2(3) = 6\) either way. The Dove value is not:
+\(f_D = (2 - 1)(2) + 2(1) = 4\), not \(6\), as in the solution above. That
+coincidence is what makes the slip easy to miss, and is exactly why an
+examiner recomputes both.
+
+Everything after the fitnesses inherits the error: the types are not
+equally fit, this is not neutral drift, and the probability that the Hawks
+increase is
+
+\[
+\frac{2 f_H}{2 f_H + 2 f_D} \cdot \frac{2}{4}
+= \frac{12}{20} \cdot \frac{1}{2} = \frac{3}{10},
+\]
+
+not \(\tfrac{1}{4}\). A fair mark is [3] of [6] for (b), one fitness of two,
+and [2] of [7] for (c), where the structure of the product, reproduction
+probability times death probability, is right.
+
+**Marking exercise 2 (Question 3(b)(iii) and (iv)).**
+
+The formula is misremembered: the denominator of the fixation probability is
+\(1 + \sum_{k} \prod_{j \le k} \gamma_j\), a sum of *products* of
+consecutive ratios, not a sum of the ratios themselves. The second term must
+be \(\gamma_1 \gamma_2 = \tfrac{1}{3}\), not \(\gamma_2 = \tfrac{2}{3}\):
+walking down from two Hawks to zero requires both downward steps, and the
+product is what compounds them. The correct values, as in the solution
+above, are
+
+\[
+\rho_1 = \frac{1}{1 + \tfrac{1}{2} + \tfrac{1}{3}} = \frac{6}{11}
+\approx 0.545,
+\qquad
+\rho_2 = \frac{1 + \tfrac{1}{2}}{\tfrac{11}{6}} = \frac{9}{11}
+\approx 0.818.
+\]
+
+The conclusion that Hawks are favoured survives, but by luck: both reported
+numbers are wrong, and with other payoffs the mangled formula can land on
+the wrong side of \(1/N\). A fair mark is [1] of [4] for each part: the
+\(\gamma\) values are carried in correctly, but the formula being assessed
+is wrong in both.

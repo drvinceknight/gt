@@ -133,11 +133,12 @@ r_1 = p - q = \tfrac{2}{5}, \quad r_2 = p' - q' = \tfrac{1}{2}, \quad
 \]
 
 \[
-s_1 = \frac{\tfrac{1}{10}\cdot\tfrac{2}{5} + \tfrac{2}{5}}{\tfrac{4}{5}}
-= \frac{11/25}{4/5} = \frac{11}{20},
-\qquad
-s_2 = \frac{\tfrac{2}{5}\cdot\tfrac{1}{2} + \tfrac{1}{10}}{\tfrac{4}{5}}
+\begin{aligned}
+s_1 &= \frac{\tfrac{1}{10}\cdot\tfrac{2}{5} + \tfrac{2}{5}}{\tfrac{4}{5}}
+= \frac{11/25}{4/5} = \frac{11}{20}, \\
+s_2 &= \frac{\tfrac{2}{5}\cdot\tfrac{1}{2} + \tfrac{1}{10}}{\tfrac{4}{5}}
 = \frac{3/10}{4/5} = \frac{3}{8}.
+\end{aligned}
 \]
 
 **(b)(ii) Stationary distribution.** [4]
@@ -299,9 +300,10 @@ Tit For Tat is \((p, q) = (1, 0)\), so \(r_1 = p - q = 1\) and \(q = 0\). Then
 \(1 - r_1 r_2 = 1 - r_2\), and
 
 \[
-s_1 = \frac{0 + 1\cdot q'}{1 - r_2} = \frac{q'}{1 - r_2},
-\qquad
-s_2 = \frac{q' + r_2\cdot 0}{1 - r_2} = \frac{q'}{1 - r_2}.
+\begin{aligned}
+s_1 &= \frac{0 + 1\cdot q'}{1 - r_2} = \frac{q'}{1 - r_2}, \\
+s_2 &= \frac{q' + r_2\cdot 0}{1 - r_2} = \frac{q'}{1 - r_2}.
+\end{aligned}
 \]
 
 Hence \(s_1 = s_2\): Tit For Tat ends up cooperating at exactly the same long-run
@@ -315,9 +317,10 @@ Write \(s = s_1 = s_2\). The long-run distribution over
 states \(CD\) and \(DC\) are equally likely. The players' long-run payoffs are
 
 \[
-u_1 = 3\pi_{CC} + 0\,\pi_{CD} + 5\,\pi_{DC} + 1\,\pi_{DD},
-\qquad
-u_2 = 3\pi_{CC} + 5\,\pi_{CD} + 0\,\pi_{DC} + 1\,\pi_{DD},
+\begin{aligned}
+u_1 &= 3\pi_{CC} + 0\,\pi_{CD} + 5\,\pi_{DC} + 1\,\pi_{DD}, \\
+u_2 &= 3\pi_{CC} + 5\,\pi_{CD} + 0\,\pi_{DC} + 1\,\pi_{DD},
+\end{aligned}
 \]
 
 and their difference is
@@ -332,3 +335,47 @@ tournaments. Tit For Tat never beats any single opponent, yet it is never
 exploited either, and because the strategies that defect lose heavily against one
 another, Tit For Tat's habit of drawing every match left it with the highest total
 score.
+
+## Marking exercises
+
+**Marking exercise 1 (Question 2(b)(i)).**
+
+The intermediate quantities are right, and then the formula is misquoted:
+the numerator of \(s_1\) is \(q' r_1 + q\), not \(q' r_1 + p\). With
+\(q = \tfrac{2}{5}\),
+
+\[
+s_1 = \frac{\tfrac{1}{10}\cdot\tfrac{2}{5} + \tfrac{2}{5}}{\tfrac{4}{5}}
+= \frac{\tfrac{11}{25}}{\tfrac{4}{5}} = \frac{11}{20},
+\]
+
+as in the solution above.
+
+The larger failing is what happens next: \(s_1\) is a probability, and the
+transcript computes \(1.05\), announces "105% of the time", and carries on.
+An impossible value is free error detection: the moment a probability leaves
+\([0, 1]\), something upstream is wrong, and a reader who accepts it has
+stopped checking. Expect an examiner, and be, the reader who stops. A fair
+mark is [1] of [4], for the correct \(r_1\), \(r_2\) and
+\(1 - r_1 r_2\).
+
+**Marking exercise 2 (Question 3(d)).**
+
+Almost every substantive claim is wrong, and the correct account is the
+opposite one.
+
+- Tit For Tat never defects first, so it can never earn more than its
+  opponent in a match: at best it draws, and against Always Defect it
+  *loses* the match by the value of the first-round sting (it is exploited
+  once, then both defect). Question 4(d) proves the general version: against
+  any reactive opponent its long-run payoff exactly equals its opponent's.
+- "One step ahead" is backwards: copying the previous move keeps it one
+  step *behind*, echoing what was done to it.
+- It wins tournaments on totals, not matches: it earns mutual cooperation
+  (\(3\) per round) with every cooperative strategy while conceding almost
+  nothing to defectors, whereas exploitative strategies earn \(1\) per round
+  against one another. Winning every battle is not required to win the war,
+  and Tit For Tat wins no battles at all.
+
+A fair mark is [1] of [4], for correctly describing the copying mechanism,
+from which every conclusion drawn is then wrong.

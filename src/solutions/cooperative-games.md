@@ -7,12 +7,11 @@ tag: cooperative-games
 # Cooperative Games: worked solutions
 
 Solutions to the example questions on the
-[Cooperative Games](/topics/cooperative-games.html) page. Each question is worth
-25 marks.
+[Cooperative Games](/topics/cooperative-games.html) page.
 
-## Question 1 [25 marks]
+## Question 1 [15 marks]
 
-**(a) Definitions.** (Bookwork.) [5]
+**(a) Definitions.** (Bookwork.) [4]
 
 A **characteristic function game** \(G = (N, v)\) is a set of players \(N\) with a
 function \(v : 2^N \to \mathbb{R}\) giving each coalition a worth. The **Shapley
@@ -21,7 +20,7 @@ average over all orderings \(\pi\) of the marginal contribution
 \(\Delta_\pi(i) = v(S_\pi(i) \cup \{i\}) - v(S_\pi(i))\), where \(S_\pi(i)\) is the
 set of players preceding \(i\) in \(\pi\).
 
-**(b) Marginal contribution vectors.** [8]
+**(b) Marginal contribution vectors.** [5]
 
 \[
 \begin{aligned}
@@ -31,19 +30,19 @@ set of players preceding \(i\) in \(\pi\).
 \end{aligned}
 \]
 
-**(c) Shapley value.** [6]
+**(c) Shapley value.** [2]
 
 \[
-\phi_1 = \frac{2 + 2 + 4 + 6 + 4 + 6}{6} = \frac{24}{6} = 4,
-\quad
-\phi_2 = \frac{3 + 4 + 1 + 1 + 4 + 2}{6} = \frac{15}{6} = \frac{5}{2},
-\quad
-\phi_3 = \frac{5 + 4 + 5 + 3 + 2 + 2}{6} = \frac{21}{6} = \frac{7}{2}.
+\begin{aligned}
+\phi_1 &= \frac{2 + 2 + 4 + 6 + 4 + 6}{6} = \frac{24}{6} = 4, \\
+\phi_2 &= \frac{3 + 4 + 1 + 1 + 4 + 2}{6} = \frac{15}{6} = \frac{5}{2}, \\
+\phi_3 &= \frac{5 + 4 + 5 + 3 + 2 + 2}{6} = \frac{21}{6} = \frac{7}{2}.
+\end{aligned}
 \]
 
 So \(\phi = \left(4, \tfrac{5}{2}, \tfrac{7}{2}\right)\).
 
-**(d) Efficiency and interpretation.** [6]
+**(d) Efficiency and interpretation.** [4]
 
 \(4 + \tfrac{5}{2} + \tfrac{7}{2} = 4 + 6 = 10 = v(N)\), so the allocation is
 efficient. The three parts are worth only \(2 + 1 + 2 = 5\) on their own, half of
@@ -58,9 +57,9 @@ receives the least, \(\tfrac{5}{2}\), and the Storyteller receives
 rewards each student by the average value their part adds, not by what it is
 worth in isolation.
 
-## Question 2 [25 marks]
+## Question 2 [17 marks]
 
-**(a) Definitions.** (Bookwork.) [5]
+**(a) Definitions.** (Bookwork.) [4]
 
 - A **characteristic function game** \(G = (N, v)\) is given by a set of players
   \(N\) and a **characteristic function** \(v : 2^N \to \mathbb{R}\) mapping every
@@ -84,19 +83,23 @@ worth in isolation.
 \end{aligned}
 \]
 
-**(b)(ii) Shapley value.** [6]
+**(b)(ii) Shapley value.** [2]
 
 \[
-\phi_1 = \frac{270}{6} = 45, \qquad \phi_2 = \frac{240}{6} = 40, \qquad \phi_3 = \frac{210}{6} = 35.
+\begin{aligned}
+\phi_1 &= \frac{270}{6} = 45, \\
+\phi_2 &= \frac{240}{6} = 40, \\
+\phi_3 &= \frac{210}{6} = 35.
+\end{aligned}
 \]
 
 So \(\phi = (45, 40, 35)\).
 
-**(b)(iii) Efficiency.** [3]
+**(b)(iii) Efficiency.** [2]
 
 \(45 + 40 + 35 = 120 = v(\{1, 2, 3\})\), so the Shapley value is efficient.
 
-**(c) Interpretation.** [6]
+**(c) Interpretation.** [4]
 
 The Shapley value is the fair allocation of the grand coalition's worth obtained
 by averaging each player's marginal contribution over every order in which the
@@ -109,9 +112,9 @@ nothing) and **additivity** (the value of two combined games is the sum of the
 separate values). Together these axioms pin the Shapley value down as the unique
 fair allocation.
 
-## Question 3 [25 marks]
+## Question 3 [20 marks]
 
-**(a) Properties.** (Bookwork.) [6]
+**(a) Properties.** (Bookwork.) [4]
 
 - **Efficiency:** \(\sum_i \phi_i = v(N)\), the value of the grand coalition.
 - **Null player:** if \(v(C \cup \{i\}) = v(C)\) for all coalitions \(C\), then
@@ -121,7 +124,7 @@ fair allocation.
 - **Additivity:** for two games \((N, v_1)\) and \((N, v_2)\), the Shapley value
   of their sum is the sum of the Shapley values.
 
-**(b)(i) Shapley value.** [4]
+**(b)(i) Shapley value.** [3]
 
 All players are interchangeable, so by symmetry and efficiency
 (\(\sum \phi_i = v(N) = 1\)),
@@ -135,7 +138,7 @@ All players are interchangeable, so by symmetry and efficiency
 None: each player \(i\) has \(v(\{i, j\}) - v(\{j\}) = 1 \neq 0\), so adding any
 player can change a coalition's worth.
 
-**(c)(i) Null player.** [3]
+**(c)(i) Null player.** [2]
 
 Player 3 is a null player: \(v(S \cup \{3\}) = v(S)\) for every coalition \(S\),
 since the worth depends only on whether \(\{1, 2\} \subseteq S\).
@@ -155,7 +158,7 @@ The marginal contribution vectors are
 giving \(\phi_1 = \tfrac{12}{6} = 2\), \(\phi_2 = \tfrac{12}{6} = 2\),
 \(\phi_3 = 0\). So \(\phi = (2, 2, 0)\).
 
-**(c)(iii) Efficiency, symmetry and interpretation.** [5]
+**(c)(iii) Efficiency, symmetry and interpretation.** [4]
 
 \(2 + 2 + 0 = 4 = v(N)\), so the allocation is efficient. Players 1 and 2 are
 symmetric: for any coalition \(C\) containing neither, \(\{1, 2\} \not\subseteq C\)
@@ -225,3 +228,43 @@ orderings into the addition of two known answers. More generally every game can 
 written as a combination of unanimity games, so the Shapley value of any game
 follows from the simple formula in part (b) together with additivity, avoiding the
 \(n!\) orderings entirely.
+
+## Marking exercises
+
+**Marking exercise 1 (Question 2(b)).**
+
+- The ordering \((2, 3, 1)\) is wrong. When player 1 joins, the coalition
+  already formed is \(\{2, 3\}\), of worth \(70\), so player 1 adds
+  \(120 - 70 = 50\), not \(120 - 90 = 30\): the transcript subtracted the
+  worth of \(\{1, 2\}\), a coalition that never forms in this ordering. The
+  correct vector is \((50, 0, 70)\).
+- The error is detectable without recomputing anything: every marginal
+  contribution vector must sum to \(v(N) = 120\), and \((30, 0, 70)\) sums
+  to \(100\).
+- "Small rounding differences are expected" is false, and is the loudest
+  alarm in the transcript: the Shapley value is an exact average and is
+  exactly efficient. The correct value is \(\phi = (45, 40, 35)\), summing
+  to \(120\) precisely, as in the solution above. An efficiency check that
+  only "approximately" holds means an earlier step is wrong, and no amount
+  of confident presentation changes that.
+
+A fair mark is [3] of [5] for (b)(i), five of the six orderings being
+correct, and [1] of [2] for (b)(ii), where \(\phi_2\) and \(\phi_3\) are
+right but \(\phi_1\) is not and the failed efficiency check went unheeded.
+
+**Marking exercise 2 (Question 3(b)).**
+
+- The null player claim confuses \(v(\{i\}) = 0\) with being a null player.
+  A null player adds nothing to *any* coalition:
+  \(v(C \cup \{i\}) = v(C)\) for every \(C\). Here adding player 3 to
+  \(\{1\}\) raises the worth from \(0\) to \(1\), so player 3 is not null.
+  Indeed by the transcript's reasoning every player would be null, since
+  every singleton has worth \(0\), and the "fair" allocation would assign
+  nothing to anybody.
+- All three players are symmetric in this game, so symmetry and efficiency
+  give \(\phi = \left(\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3}\right)\), as
+  in the solution above.
+
+A fair mark is [1] of [3] for (b)(i), since the symmetry-and-efficiency
+structure of the argument is right but applied to the wrong set of players,
+and [0] of [2] for (b)(ii).

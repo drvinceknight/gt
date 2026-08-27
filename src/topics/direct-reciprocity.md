@@ -49,9 +49,11 @@ Random. [5]
 \((p', q') = (3/5, 1/10)\). With \(r_1 = p - q\), \(r_2 = p' - q'\),
 
 \[
-s_1 = \frac{q' r_1 + q}{1 - r_1 r_2}, \quad s_2 = \frac{q r_2 + q'}{1 - r_1 r_2},
-\quad
+\begin{gathered}
+s_1 = \frac{q' r_1 + q}{1 - r_1 r_2}, \qquad
+s_2 = \frac{q r_2 + q'}{1 - r_1 r_2}, \\
 \pi = \bigl(s_1 s_2, s_1(1 - s_2), (1 - s_1)s_2, (1 - s_1)(1 - s_2)\bigr).
+\end{gathered}
 \]
 
 (i) Compute \(r_1, r_2, s_1, s_2\). [4]
@@ -113,6 +115,48 @@ round \(t\). Explain why \(c_{t+1} = q + (p - q)\, c'_t\). [4]
 (d) Deduce that the two players earn equal long-run payoffs when player 1 uses Tit
 For Tat, and explain how this property accounts for Tit For Tat's success in
 Axelrod's tournaments. [9]
+
+## Marking exercises (optional)
+
+These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.
+
+### Marking exercise 1 (on Question 2(b)(i), worth [4])
+
+A student pastes Question 2(b)(i) into a free AI chatbot, which replies:
+
+```text
+First the intermediate quantities: r1 = p - q = 4/5 - 2/5 = 2/5 and
+r2 = p' - q' = 3/5 - 1/10 = 1/2, so 1 - r1 r2 = 1 - 1/5 = 4/5.
+
+Now the long-run cooperation rate of player 1:
+
+    s1 = (q' r1 + p) / (1 - r1 r2)
+       = ((1/10)(2/5) + 4/5) / (4/5)
+       = (21/25) / (4/5)
+       = 21/20 = 1.05
+
+so player 1 cooperates about 105% of the time in the long run, that is,
+essentially always. 🤝
+```
+
+### Marking exercise 2 (on Question 3(d), worth [4])
+
+A student pastes Question 3(d) into a free AI chatbot, which replies:
+
+```text
+Tit For Tat performed so well in Axelrod's tournaments because it is a
+ruthless exploiter: by copying the opponent's previous move it stays
+one step ahead, beating each opponent it meets and racking up the
+highest score in the round robin.
+```
 
 ## Optional further reading
 

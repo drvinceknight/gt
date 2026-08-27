@@ -80,9 +80,11 @@ questions below. They are reshuffled each time, so you can keep retrying.</p>
 
 
 <h2 id="example-questions">Example questions</h2>
-<p>The following are exam-type questions in the style of the examination paper.
-<strong>Each question is worth 25 marks.</strong> Attempt them in full before reading the
-worked solutions.</p>
+<p>The following are exam-type questions in the style of the examination paper,
+with marks at the rates used in the papers. <strong>A question totalling fewer than
+25 marks would, in the examination, be combined with further parts, often one
+of the examinable proofs, to make a full 25-mark question.</strong> Attempt them in
+full before reading the worked solutions.</p>
 <h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
 <p>In class we played "Will it end?": pairs played the contractor stage game</p>
 <div class="arithmatex">\[
@@ -91,7 +93,7 @@ A = \begin{pmatrix} 3 &amp; 0 \\ 5 &amp; 1 \end{pmatrix}
 <p>(first action High, second action Low), and after each round rolled a die,
 continuing unless a 1 was rolled, so the game continued with probability
 <span class="arithmatex">\(\delta = 5/6\)</span>.</p>
-<p>(a) Interpret <span class="arithmatex">\(\delta = 5/6\)</span> and state the expected number of rounds. [3]</p>
+<p>(a) Interpret <span class="arithmatex">\(\delta = 5/6\)</span> and state the expected number of rounds. [2]</p>
 <p>(b) Both players use the Grudger strategy (play High until the opponent
 plays Low, then Low for ever). Holding the opponent's Grudger fixed, write down
 the discounted payoff to a player who conforms and plays High in every round,
@@ -171,6 +173,40 @@ threshold. [6]</p>
 subgame perfect equilibrium, by checking with the one-shot deviation principle
 that no player can gain from a single deviation on the cooperative path or during
 the punishment phase. [7]</p>
+<h2 id="marking-exercises-optional">Marking exercises (optional)</h2>
+<p>These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.</p>
+<h3 id="marking-exercise-1-on-question-2bi-and-ii-worth-3-and-3">Marking exercise 1 (on Question 2(b)(i) and (ii), worth [3] and [3])</h3>
+<p>A student pastes Question 2(b) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">Conforming: both players cooperate for ever, so the payoff is
+
+    3 + 3δ + 3δ² + ... = 3 / (1 - δ)
+
+Deviating: the deviator earns 5 in the first round; after that both
+players defect for ever, which yields nothing, so the payoff is 5.
+
+Threshold: cooperation is sustained when 3 / (1 - δ) &gt;= 5, that is
+3 &gt;= 5 - 5δ, giving
+
+    δ &gt;= 2/5
+</code></pre>
+<h3 id="marking-exercise-2-on-question-2c-and-e-worth-3-and-4">Marking exercise 2 (on Question 2(c) and (e), worth [3] and [4])</h3>
+<p>A student pastes Question 2(c) and (e) into a free AI chatbot, which
+replies:</p>
+<pre><code class="language-text">The Folk Theorem states that in an infinitely repeated game, ANY payoff
+pair can be achieved in a subgame perfect equilibrium, for ANY discount
+factor δ &gt; 0. In particular, cooperation (3, 3) is always an
+equilibrium outcome of the repeated Prisoner's Dilemma, however
+impatient the players are. This is why we see cooperation everywhere in
+real life! 🤝
+</code></pre>
 <h2 id="optional-further-reading">Optional further reading</h2>
 <p>You do not need any of this to follow the topic, but the following chapters of
 the textbook may help if you would like more background:</p>

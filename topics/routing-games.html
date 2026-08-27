@@ -131,22 +131,68 @@ costs <span class="arithmatex">\(c_1(x) = 2x\)</span> and <span class="arithmate
 <p>(c) Explain what the Price of Anarchy measures, and state what it would equal if
 both routes had constant, flow-independent costs. [4]</p>
 <h3 id="question-4-hard">Question 4 (<strong>hard</strong>)</h3>
-<p>A unit of traffic travels from <span class="arithmatex">\(s\)</span> to <span class="arithmatex">\(t\)</span> on two parallel links. Link 1 has
-cost <span class="arithmatex">\(c_1(x) = x^p\)</span> with <span class="arithmatex">\(p \ge 1\)</span>, where <span class="arithmatex">\(x\)</span> is the flow on link 1, and
-link 2 has constant cost <span class="arithmatex">\(c_2(x) = 1\)</span>.</p>
-<p>(a) Define the price of anarchy of a routing game. [4]</p>
-<p>(b) Show that the Nash flow sends all traffic on link 1, and that its total travel
-cost is <span class="arithmatex">\(1\)</span>. [6]</p>
-<p>(c) Find the optimal flow by minimising the total travel cost
-<span class="arithmatex">\(C(x) = x \cdot x^p + (1 - x)\)</span>, and hence show that the price of anarchy is</p>
+<p>Two delivery companies send vans from their own warehouses to a shared depot
+<span class="arithmatex">\(t\)</span>. Company 1 must route <span class="arithmatex">\(r_1 = 1/2\)</span> units of traffic from <span class="arithmatex">\(s_1\)</span>, and
+company 2 must route <span class="arithmatex">\(r_2 = 1/2\)</span> units from <span class="arithmatex">\(s_2\)</span>. Each company has a
+dedicated road to the depot, and each can instead send vans through a junction
+<span class="arithmatex">\(a\)</span> onto a shared ring road. The network is <span class="arithmatex">\(G = (V, E)\)</span> with
+<span class="arithmatex">\(V = \{s_1, s_2, a, t\}\)</span> and</p>
 <div class="arithmatex">\[
-\text{PoA} = \frac{1}{1 - x^{*}\,\frac{p}{p + 1}},
-\qquad x^{*} = (p + 1)^{-1/p}.
+E = \{(s_1, t), (s_1, a), (s_2, t), (s_2, a), (a, t)\},
 \]</div>
-<p>[9]</p>
-<p>(d) Evaluate the price of anarchy at <span class="arithmatex">\(p = 1\)</span>, show that it tends to infinity as
-<span class="arithmatex">\(p \to \infty\)</span>, and interpret what this says about selfish routing when costs
-are steeply nonlinear, contrasting it with the affine case. [6]</p>
+<p>with cost functions</p>
+<div class="arithmatex">\[
+c_{s_1, t}(x) = x, \qquad
+c_{s_2, t}(x) = \frac{1}{2}, \qquad
+c_{s_1, a}(x) = c_{s_2, a}(x) = 0, \qquad
+c_{a, t}(x) = x,
+\]</div>
+<p>where on the ring road <span class="arithmatex">\(x\)</span> is the total flow from both companies.</p>
+<p>(a) Write down the sets of paths <span class="arithmatex">\(\mathcal{P}_1\)</span> and <span class="arithmatex">\(\mathcal{P}_2\)</span>.
+Writing <span class="arithmatex">\(\alpha\)</span> for the flow on <span class="arithmatex">\((s_1, t)\)</span> and <span class="arithmatex">\(\beta\)</span> for the flow on
+<span class="arithmatex">\((s_2, t)\)</span>, give the flow vector <span class="arithmatex">\(f\)</span>, state the conditions for <span class="arithmatex">\(f\)</span> to be
+feasible, and show that the total cost is</p>
+<div class="arithmatex">\[
+C(\alpha, \beta) = \alpha^2 + \frac{\beta}{2} + (1 - \alpha - \beta)^2.
+\]</div>
+<p>[7]</p>
+<p>(b) Find the Nash flow <span class="arithmatex">\(\tilde f\)</span> and its total cost, verifying that the
+Nash condition holds for both commodities. [7]</p>
+<p>(c) Find the optimal flow <span class="arithmatex">\(f^{*}\)</span> and its total cost. [7]</p>
+<p>(d) Compute the price of anarchy. Explain how the optimal flow treats company 2
+differently from the Nash flow, and relate the value you obtain to the price of
+anarchy of Pigou's example with affine costs. [4]</p>
+<h2 id="marking-exercises-optional">Marking exercises (optional)</h2>
+<p>These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.</p>
+<h3 id="marking-exercise-1-on-question-3bi-and-ii-worth-4-and-5">Marking exercise 1 (on Question 3(b)(i) and (ii), worth [4] and [5])</h3>
+<p>A student pastes Question 3(b) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">Nash flow: drivers switch routes until the costs are equal: 2x = 1
+gives x = 1/2, and each route then costs 1. ✅
+
+Optimal flow: the social planner also wants the two routes to cost the
+same, since otherwise some drivers are on a more expensive route and
+the allocation could be improved. So the optimal flow is also x = 1/2,
+with average cost 1. This network has no inefficiency, and its Price of
+Anarchy is 1.
+</code></pre>
+<h3 id="marking-exercise-2-on-question-2c-worth-8">Marking exercise 2 (on Question 2(c), worth [8])</h3>
+<p>A student pastes Question 2(c) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">The potential function of a routing game is the total cost of the flow:
+
+    Φ(x) = (1 - x)·1 + x·x = 1 - x + x²
+
+Minimising: Φ'(x) = -1 + 2x = 0 gives x = 1/2. This is the Nash flow,
+confirming the theorem that the Nash flow minimises the potential
+function. ✅
+</code></pre>
 <h2 id="optional-further-reading">Optional further reading</h2>
 <p>You do not need any of this to follow the topic, but the following may help if
 you would like more background:</p>

@@ -80,9 +80,11 @@ questions below. They are reshuffled each time, so you can keep retrying.</p>
 
 
 <h2 id="example-questions">Example questions</h2>
-<p>The following are exam-type questions in the style of the examination paper.
-<strong>Each question is worth 25 marks.</strong> Attempt them in full before reading the
-worked solutions.</p>
+<p>The following are exam-type questions in the style of the examination paper,
+with marks at the rates used in the papers. <strong>A question totalling fewer than
+25 marks would, in the examination, be combined with further parts, often one
+of the examinable proofs, to make a full 25-mark question.</strong> Attempt them in
+full before reading the worked solutions.</p>
 <h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
 <p>In class we simulated a Moran process for the Hawk-Dove game with payoff matrix</p>
 <div class="arithmatex">\[
@@ -129,7 +131,7 @@ process, in terms of the ratios <span class="arithmatex">\(\gamma_i = p_{i, i-1}
 <span class="arithmatex">\(A = \begin{pmatrix} 0 &amp; 3 \\ 1 &amp; 2 \end{pmatrix}\)</span> (first type Hawk). In state
 <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(f_H(i) = (i - 1)A_{11} + (N - i)A_{12}\)</span>,
 <span class="arithmatex">\(f_D(i) = i A_{21} + (N - i - 1)A_{22}\)</span> and <span class="arithmatex">\(\gamma_i = f_D(i)/f_H(i)\)</span>.</p>
-<p>(i) Compute <span class="arithmatex">\(f_H\)</span> and <span class="arithmatex">\(f_D\)</span> for <span class="arithmatex">\(i = 1\)</span> and <span class="arithmatex">\(i = 2\)</span>. [5]</p>
+<p>(i) Compute <span class="arithmatex">\(f_H\)</span> and <span class="arithmatex">\(f_D\)</span> for <span class="arithmatex">\(i = 1\)</span> and <span class="arithmatex">\(i = 2\)</span>. [3]</p>
 <p>(ii) Compute <span class="arithmatex">\(\gamma_1\)</span> and <span class="arithmatex">\(\gamma_2\)</span>. [4]</p>
 <p>(iii) Compute the fixation probability <span class="arithmatex">\(\rho_1\)</span> of a single Hawk. [4]</p>
 <p>(iv) Compute the fixation probability <span class="arithmatex">\(\rho_2\)</span> starting from two Hawks. [4]</p>
@@ -152,14 +154,44 @@ find it helpful to consider <span class="arithmatex">\(g(\gamma) = 1 - \gamma^N 
 <p>(d) Deduce <span class="arithmatex">\(\lim_{N \to \infty} \rho_1\)</span> for <span class="arithmatex">\(r &gt; 1\)</span>, and explain what it shows
 about the fate of a single advantageous mutant in a large population, contrasting
 the role of selection with that of drift. [5]</p>
+<h2 id="marking-exercises-optional">Marking exercises (optional)</h2>
+<p>These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.</p>
+<h3 id="marking-exercise-1-on-question-1b-and-c-worth-6-and-7">Marking exercise 1 (on Question 1(b) and (c), worth [6] and [7])</h3>
+<p>A student pastes Question 1(b) and (c) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">Fitnesses: each individual interacts with everyone in the population.
+A Hawk meets 2 Hawks and 2 Doves, so f_H = 2(0) + 2(3) = 6; a Dove
+meets 2 Doves and 2 Hawks, so f_D = 2(2) + 2(1) = 6.
+
+Probability the Hawks increase: the two types are equally fit, so
+selection plays no role here: the process is neutral drift. The number
+of Hawks rises when a Hawk reproduces (probability 1/2) and a Dove dies
+(probability 2/4), giving (1/2)(1/2) = 1/4.
+</code></pre>
+<h3 id="marking-exercise-2-on-question-3biii-and-iv-worth-4-and-4">Marking exercise 2 (on Question 3(b)(iii) and (iv), worth [4] and [4])</h3>
+<p>A student pastes Question 3(b) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">Using γ1 = 1/2 and γ2 = 2/3, the fixation probabilities are
+
+    ρ1 = 1 / (1 + γ1 + γ2) = 1 / (1 + 1/2 + 2/3) = 6/13 ≈ 0.46
+    ρ2 = (1 + γ1) / (1 + γ1 + γ2) = 9/13 ≈ 0.69
+
+Both exceed 1/N = 1/3, so Hawks are favoured by selection. ✅
+</code></pre>
 <h2 id="optional-further-reading">Optional further reading</h2>
 <p>You do not need any of this to follow the topic, but the following chapters of
 the textbook may help if you would like more background:</p>
 <ul>
 <li><a href="https://vknight.org/gtb/chapters/evolutionary-biology/">Evolutionary Biology</a>,
   which gives the biological background to evolutionary game theory.</li>
-<li><a href="https://vknight.org/gtb/appendices/absorbing-markov-chains/">Absorbing Markov Chains</a>, which underpins
-  the calculation of fixation probabilities.</li>
+<li><a href="https://vknight.org/gtb/appendices/absorbing-markov-chains/">Absorbing Markov Chains</a>,
+  which underpins the calculation of fixation probabilities.</li>
 <li><a href="https://vknight.org/gtb/chapters/graph-dynamics/">Evolutionary Dynamics on Graphs</a>,
   which extends the process to structured, non-well-mixed populations.</li>
 <li><a href="https://vknight.org/gtb/chapters/further-learning-dynamics/">Learning and Evolutionary Dynamics</a>,

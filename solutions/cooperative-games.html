@@ -61,17 +61,16 @@
 
 <h1 id="cooperative-games-worked-solutions">Cooperative Games: worked solutions</h1>
 <p>Solutions to the example questions on the
-<a href="/topics/cooperative-games.html">Cooperative Games</a> page. Each question is worth
-25 marks.</p>
-<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
-<p><strong>(a) Definitions.</strong> (Bookwork.) [5]</p>
+<a href="/topics/cooperative-games.html">Cooperative Games</a> page.</p>
+<h2 id="question-1-15-marks">Question 1 [15 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>
 <p>A <strong>characteristic function game</strong> <span class="arithmatex">\(G = (N, v)\)</span> is a set of players <span class="arithmatex">\(N\)</span> with a
 function <span class="arithmatex">\(v : 2^N \to \mathbb{R}\)</span> giving each coalition a worth. The <strong>Shapley
 value</strong> of player <span class="arithmatex">\(i\)</span> is <span class="arithmatex">\(\phi_i = \frac{1}{N!}\sum_{\pi} \Delta_\pi(i)\)</span>, the
 average over all orderings <span class="arithmatex">\(\pi\)</span> of the marginal contribution
 <span class="arithmatex">\(\Delta_\pi(i) = v(S_\pi(i) \cup \{i\}) - v(S_\pi(i))\)</span>, where <span class="arithmatex">\(S_\pi(i)\)</span> is the
 set of players preceding <span class="arithmatex">\(i\)</span> in <span class="arithmatex">\(\pi\)</span>.</p>
-<p><strong>(b) Marginal contribution vectors.</strong> [8]</p>
+<p><strong>(b) Marginal contribution vectors.</strong> [5]</p>
 <div class="arithmatex">\[
 \begin{aligned}
 (1, 2, 3) &amp;: (2, 3, 5) &amp; (1, 3, 2) &amp;: (2, 4, 4) \\
@@ -79,16 +78,16 @@ set of players preceding <span class="arithmatex">\(i\)</span> in <span class="a
 (3, 1, 2) &amp;: (4, 4, 2) &amp; (3, 2, 1) &amp;: (6, 2, 2)
 \end{aligned}
 \]</div>
-<p><strong>(c) Shapley value.</strong> [6]</p>
+<p><strong>(c) Shapley value.</strong> [2]</p>
 <div class="arithmatex">\[
-\phi_1 = \frac{2 + 2 + 4 + 6 + 4 + 6}{6} = \frac{24}{6} = 4,
-\quad
-\phi_2 = \frac{3 + 4 + 1 + 1 + 4 + 2}{6} = \frac{15}{6} = \frac{5}{2},
-\quad
-\phi_3 = \frac{5 + 4 + 5 + 3 + 2 + 2}{6} = \frac{21}{6} = \frac{7}{2}.
+\begin{aligned}
+\phi_1 &amp;= \frac{2 + 2 + 4 + 6 + 4 + 6}{6} = \frac{24}{6} = 4, \\
+\phi_2 &amp;= \frac{3 + 4 + 1 + 1 + 4 + 2}{6} = \frac{15}{6} = \frac{5}{2}, \\
+\phi_3 &amp;= \frac{5 + 4 + 5 + 3 + 2 + 2}{6} = \frac{21}{6} = \frac{7}{2}.
+\end{aligned}
 \]</div>
 <p>So <span class="arithmatex">\(\phi = \left(4, \tfrac{5}{2}, \tfrac{7}{2}\right)\)</span>.</p>
-<p><strong>(d) Efficiency and interpretation.</strong> [6]</p>
+<p><strong>(d) Efficiency and interpretation.</strong> [4]</p>
 <p><span class="arithmatex">\(4 + \tfrac{5}{2} + \tfrac{7}{2} = 4 + 6 = 10 = v(N)\)</span>, so the allocation is
 efficient. The three parts are worth only <span class="arithmatex">\(2 + 1 + 2 = 5\)</span> on their own, half of
 <span class="arithmatex">\(v(N) = 10\)</span>, so half of the aid's value comes from the parts reinforcing one
@@ -101,8 +100,8 @@ receives the least, <span class="arithmatex">\(\tfrac{5}{2}\)</span>, and the St
 <span class="arithmatex">\(\tfrac{7}{2}\)</span>. The Shapley value is therefore a fair division of the ten: it
 rewards each student by the average value their part adds, not by what it is
 worth in isolation.</p>
-<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
-<p><strong>(a) Definitions.</strong> (Bookwork.) [5]</p>
+<h2 id="question-2-17-marks">Question 2 [17 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>
 <ul>
 <li>A <strong>characteristic function game</strong> <span class="arithmatex">\(G = (N, v)\)</span> is given by a set of players
   <span class="arithmatex">\(N\)</span> and a <strong>characteristic function</strong> <span class="arithmatex">\(v : 2^N \to \mathbb{R}\)</span> mapping every
@@ -124,14 +123,18 @@ worth in isolation.</p>
 (3, 1, 2) &amp;: (80, 40, 0) &amp; (3, 2, 1) &amp;: (50, 70, 0)
 \end{aligned}
 \]</div>
-<p><strong>(b)(ii) Shapley value.</strong> [6]</p>
+<p><strong>(b)(ii) Shapley value.</strong> [2]</p>
 <div class="arithmatex">\[
-\phi_1 = \frac{270}{6} = 45, \qquad \phi_2 = \frac{240}{6} = 40, \qquad \phi_3 = \frac{210}{6} = 35.
+\begin{aligned}
+\phi_1 &amp;= \frac{270}{6} = 45, \\
+\phi_2 &amp;= \frac{240}{6} = 40, \\
+\phi_3 &amp;= \frac{210}{6} = 35.
+\end{aligned}
 \]</div>
 <p>So <span class="arithmatex">\(\phi = (45, 40, 35)\)</span>.</p>
-<p><strong>(b)(iii) Efficiency.</strong> [3]</p>
+<p><strong>(b)(iii) Efficiency.</strong> [2]</p>
 <p><span class="arithmatex">\(45 + 40 + 35 = 120 = v(\{1, 2, 3\})\)</span>, so the Shapley value is efficient.</p>
-<p><strong>(c) Interpretation.</strong> [6]</p>
+<p><strong>(c) Interpretation.</strong> [4]</p>
 <p>The Shapley value is the fair allocation of the grand coalition's worth obtained
 by averaging each player's marginal contribution over every order in which the
 coalition could form. It rewards a player according to how much they add, on
@@ -142,8 +145,8 @@ equal shares), the <strong>null player</strong> property (a player who never add
 nothing) and <strong>additivity</strong> (the value of two combined games is the sum of the
 separate values). Together these axioms pin the Shapley value down as the unique
 fair allocation.</p>
-<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
-<p><strong>(a) Properties.</strong> (Bookwork.) [6]</p>
+<h2 id="question-3-20-marks">Question 3 [20 marks]</h2>
+<p><strong>(a) Properties.</strong> (Bookwork.) [4]</p>
 <ul>
 <li><strong>Efficiency:</strong> <span class="arithmatex">\(\sum_i \phi_i = v(N)\)</span>, the value of the grand coalition.</li>
 <li><strong>Null player:</strong> if <span class="arithmatex">\(v(C \cup \{i\}) = v(C)\)</span> for all coalitions <span class="arithmatex">\(C\)</span>, then
@@ -153,7 +156,7 @@ fair allocation.</p>
 <li><strong>Additivity:</strong> for two games <span class="arithmatex">\((N, v_1)\)</span> and <span class="arithmatex">\((N, v_2)\)</span>, the Shapley value
   of their sum is the sum of the Shapley values.</li>
 </ul>
-<p><strong>(b)(i) Shapley value.</strong> [4]</p>
+<p><strong>(b)(i) Shapley value.</strong> [3]</p>
 <p>All players are interchangeable, so by symmetry and efficiency
 (<span class="arithmatex">\(\sum \phi_i = v(N) = 1\)</span>),</p>
 <div class="arithmatex">\[
@@ -162,7 +165,7 @@ fair allocation.</p>
 <p><strong>(b)(ii) Null players.</strong> [2]</p>
 <p>None: each player <span class="arithmatex">\(i\)</span> has <span class="arithmatex">\(v(\{i, j\}) - v(\{j\}) = 1 \neq 0\)</span>, so adding any
 player can change a coalition's worth.</p>
-<p><strong>(c)(i) Null player.</strong> [3]</p>
+<p><strong>(c)(i) Null player.</strong> [2]</p>
 <p>Player 3 is a null player: <span class="arithmatex">\(v(S \cup \{3\}) = v(S)\)</span> for every coalition <span class="arithmatex">\(S\)</span>,
 since the worth depends only on whether <span class="arithmatex">\(\{1, 2\} \subseteq S\)</span>.</p>
 <p><strong>(c)(ii) Shapley value.</strong> [5]</p>
@@ -176,7 +179,7 @@ since the worth depends only on whether <span class="arithmatex">\(\{1, 2\} \sub
 \]</div>
 <p>giving <span class="arithmatex">\(\phi_1 = \tfrac{12}{6} = 2\)</span>, <span class="arithmatex">\(\phi_2 = \tfrac{12}{6} = 2\)</span>,
 <span class="arithmatex">\(\phi_3 = 0\)</span>. So <span class="arithmatex">\(\phi = (2, 2, 0)\)</span>.</p>
-<p><strong>(c)(iii) Efficiency, symmetry and interpretation.</strong> [5]</p>
+<p><strong>(c)(iii) Efficiency, symmetry and interpretation.</strong> [4]</p>
 <p><span class="arithmatex">\(2 + 2 + 0 = 4 = v(N)\)</span>, so the allocation is efficient. Players 1 and 2 are
 symmetric: for any coalition <span class="arithmatex">\(C\)</span> containing neither, <span class="arithmatex">\(\{1, 2\} \not\subseteq C\)</span>
 and <span class="arithmatex">\(\{1, 2\} \not\subseteq C \cup \{1\}\)</span> and likewise for <span class="arithmatex">\(2\)</span>, so
@@ -231,6 +234,43 @@ orderings into the addition of two known answers. More generally every game can 
 written as a combination of unanimity games, so the Shapley value of any game
 follows from the simple formula in part (b) together with additivity, avoiding the
 <span class="arithmatex">\(n!\)</span> orderings entirely.</p>
+<h2 id="marking-exercises">Marking exercises</h2>
+<p><strong>Marking exercise 1 (Question 2(b)).</strong></p>
+<ul>
+<li>The ordering <span class="arithmatex">\((2, 3, 1)\)</span> is wrong. When player 1 joins, the coalition
+  already formed is <span class="arithmatex">\(\{2, 3\}\)</span>, of worth <span class="arithmatex">\(70\)</span>, so player 1 adds
+  <span class="arithmatex">\(120 - 70 = 50\)</span>, not <span class="arithmatex">\(120 - 90 = 30\)</span>: the transcript subtracted the
+  worth of <span class="arithmatex">\(\{1, 2\}\)</span>, a coalition that never forms in this ordering. The
+  correct vector is <span class="arithmatex">\((50, 0, 70)\)</span>.</li>
+<li>The error is detectable without recomputing anything: every marginal
+  contribution vector must sum to <span class="arithmatex">\(v(N) = 120\)</span>, and <span class="arithmatex">\((30, 0, 70)\)</span> sums
+  to <span class="arithmatex">\(100\)</span>.</li>
+<li>"Small rounding differences are expected" is false, and is the loudest
+  alarm in the transcript: the Shapley value is an exact average and is
+  exactly efficient. The correct value is <span class="arithmatex">\(\phi = (45, 40, 35)\)</span>, summing
+  to <span class="arithmatex">\(120\)</span> precisely, as in the solution above. An efficiency check that
+  only "approximately" holds means an earlier step is wrong, and no amount
+  of confident presentation changes that.</li>
+</ul>
+<p>A fair mark is [3] of [5] for (b)(i), five of the six orderings being
+correct, and [1] of [2] for (b)(ii), where <span class="arithmatex">\(\phi_2\)</span> and <span class="arithmatex">\(\phi_3\)</span> are
+right but <span class="arithmatex">\(\phi_1\)</span> is not and the failed efficiency check went unheeded.</p>
+<p><strong>Marking exercise 2 (Question 3(b)).</strong></p>
+<ul>
+<li>The null player claim confuses <span class="arithmatex">\(v(\{i\}) = 0\)</span> with being a null player.
+  A null player adds nothing to <em>any</em> coalition:
+  <span class="arithmatex">\(v(C \cup \{i\}) = v(C)\)</span> for every <span class="arithmatex">\(C\)</span>. Here adding player 3 to
+  <span class="arithmatex">\(\{1\}\)</span> raises the worth from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(1\)</span>, so player 3 is not null.
+  Indeed by the transcript's reasoning every player would be null, since
+  every singleton has worth <span class="arithmatex">\(0\)</span>, and the "fair" allocation would assign
+  nothing to anybody.</li>
+<li>All three players are symmetric in this game, so symmetry and efficiency
+  give <span class="arithmatex">\(\phi = \left(\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3}\right)\)</span>, as
+  in the solution above.</li>
+</ul>
+<p>A fair mark is [1] of [3] for (b)(i), since the symmetry-and-efficiency
+structure of the argument is right but applied to the wrong set of players,
+and [0] of [2] for (b)(ii).</p>
 
 
   </div>

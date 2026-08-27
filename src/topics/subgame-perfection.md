@@ -8,9 +8,11 @@ note_urls:
 
 ## Example questions
 
-The following are exam-type questions in the style of the examination paper.
-**Each question is worth 25 marks.** Attempt them in full before reading the
-worked solutions.
+The following are exam-type questions in the style of the examination paper,
+with marks at the rates used in the papers. **A question totalling fewer than
+25 marks would, in the examination, be combined with further parts, often one
+of the examinable proofs, to make a full 25-mark question.** Attempt them in
+full before reading the worked solutions.
 
 ### Question 1 (based on the in-class activity)
 
@@ -35,7 +37,7 @@ payoff to banishing is therefore \(\tfrac{1}{2}(-5, 3) + \tfrac{1}{2}(3, -5) =
 (b) Use backward induction to find the subgame perfect equilibrium and its
 payoffs. [5]
 
-(c) Show that (comply, banish) is a Nash equilibrium of the game. [7]
+(c) Show that (comply, banish) is a Nash equilibrium of the game. [5]
 
 (d) Explain why (comply, banish) is not subgame perfect, and how this mirrors the
 Traitors threat to banish a suspect that does not survive contact with the actual
@@ -124,6 +126,51 @@ the resulting profits. [8]
 \(q_1 = q_2 = a/3\), and explain the first-mover advantage in terms of
 commitment: why the leader gains by moving first even though the follower observes
 the choice. [8]
+
+## Marking exercises (optional)
+
+These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.
+
+### Marking exercise 1 (on Question 2(b)(ii) and (iii), worth [3] and [5])
+
+A student pastes Question 2(b) into a free AI chatbot, which replies:
+
+```text
+Backward induction: if the entrant enters, the incumbent compares
+fighting (-1) with accommodating (1) and accommodates. Anticipating
+this, the entrant compares staying out (0) with entering (1) and
+enters. The subgame perfect equilibrium is (enter, accommodate), with
+payoffs (1, 1). ✅
+
+A Nash equilibrium that is not subgame perfect: consider (stay out,
+accommodate): the entrant stays out, and the incumbent would
+accommodate if entered. This is a Nash equilibrium, but it is not
+subgame perfect, because the entrant's choice to stay out is not
+optimal in every subgame.
+```
+
+### Marking exercise 2 (on Question 4(b) and (c), worth [6] and [8])
+
+A student pastes Question 4 into a free AI chatbot, which replies:
+
+```text
+Each firm maximises q_i (a - q1 - q2). The first-order conditions are
+
+    a - 2 q1 - q2 = 0,    a - q1 - 2 q2 = 0
+
+Solving simultaneously gives q1 = q2 = a/3, with profits a²/9 each.
+Firm 1 moves first, so it simply commits to a/3, and firm 2 follows
+with a/3. Moving first makes no difference: both firms play the same
+equilibrium either way. ♟️
+```
 
 ## Optional further reading
 

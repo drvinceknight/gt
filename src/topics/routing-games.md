@@ -83,28 +83,88 @@ both routes had constant, flow-independent costs. [4]
 
 ### Question 4 (**hard**)
 
-A unit of traffic travels from \(s\) to \(t\) on two parallel links. Link 1 has
-cost \(c_1(x) = x^p\) with \(p \ge 1\), where \(x\) is the flow on link 1, and
-link 2 has constant cost \(c_2(x) = 1\).
-
-(a) Define the price of anarchy of a routing game. [4]
-
-(b) Show that the Nash flow sends all traffic on link 1, and that its total travel
-cost is \(1\). [6]
-
-(c) Find the optimal flow by minimising the total travel cost
-\(C(x) = x \cdot x^p + (1 - x)\), and hence show that the price of anarchy is
+Two delivery companies send vans from their own warehouses to a shared depot
+\(t\). Company 1 must route \(r_1 = 1/2\) units of traffic from \(s_1\), and
+company 2 must route \(r_2 = 1/2\) units from \(s_2\). Each company has a
+dedicated road to the depot, and each can instead send vans through a junction
+\(a\) onto a shared ring road. The network is \(G = (V, E)\) with
+\(V = \{s_1, s_2, a, t\}\) and
 
 \[
-\text{PoA} = \frac{1}{1 - x^{*}\,\frac{p}{p + 1}},
-\qquad x^{*} = (p + 1)^{-1/p}.
+E = \{(s_1, t), (s_1, a), (s_2, t), (s_2, a), (a, t)\},
 \]
 
-[9]
+with cost functions
 
-(d) Evaluate the price of anarchy at \(p = 1\), show that it tends to infinity as
-\(p \to \infty\), and interpret what this says about selfish routing when costs
-are steeply nonlinear, contrasting it with the affine case. [6]
+\[
+c_{s_1, t}(x) = x, \qquad
+c_{s_2, t}(x) = \frac{1}{2}, \qquad
+c_{s_1, a}(x) = c_{s_2, a}(x) = 0, \qquad
+c_{a, t}(x) = x,
+\]
+
+where on the ring road \(x\) is the total flow from both companies.
+
+(a) Write down the sets of paths \(\mathcal{P}_1\) and \(\mathcal{P}_2\).
+Writing \(\alpha\) for the flow on \((s_1, t)\) and \(\beta\) for the flow on
+\((s_2, t)\), give the flow vector \(f\), state the conditions for \(f\) to be
+feasible, and show that the total cost is
+
+\[
+C(\alpha, \beta) = \alpha^2 + \frac{\beta}{2} + (1 - \alpha - \beta)^2.
+\]
+
+[7]
+
+(b) Find the Nash flow \(\tilde f\) and its total cost, verifying that the
+Nash condition holds for both commodities. [7]
+
+(c) Find the optimal flow \(f^{*}\) and its total cost. [7]
+
+(d) Compute the price of anarchy. Explain how the optimal flow treats company 2
+differently from the Nash flow, and relate the value you obtain to the price of
+anarchy of Pigou's example with affine costs. [4]
+
+## Marking exercises (optional)
+
+These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.
+
+### Marking exercise 1 (on Question 3(b)(i) and (ii), worth [4] and [5])
+
+A student pastes Question 3(b) into a free AI chatbot, which replies:
+
+```text
+Nash flow: drivers switch routes until the costs are equal: 2x = 1
+gives x = 1/2, and each route then costs 1. ✅
+
+Optimal flow: the social planner also wants the two routes to cost the
+same, since otherwise some drivers are on a more expensive route and
+the allocation could be improved. So the optimal flow is also x = 1/2,
+with average cost 1. This network has no inefficiency, and its Price of
+Anarchy is 1.
+```
+
+### Marking exercise 2 (on Question 2(c), worth [8])
+
+A student pastes Question 2(c) into a free AI chatbot, which replies:
+
+```text
+The potential function of a routing game is the total cost of the flow:
+
+    Φ(x) = (1 - x)·1 + x·x = 1 - x + x²
+
+Minimising: Φ'(x) = -1 + 2x = 0 gives x = 1/2. This is the Nash flow,
+confirming the theorem that the Nash flow minimises the potential
+function. ✅
+```
 
 ## Optional further reading
 

@@ -98,7 +98,8 @@ The **potential function** is \(\Phi = \sum_e \int_0^{f_e} c_e(t)\,\mathrm{d}t\)
 For this network, with flow \(x\) on route 2 and \(1 - x\) on route 1,
 
 \[
-\Phi(x) = \int_0^{1 - x} 1\,\mathrm{d}t + \int_0^{x} t\,\mathrm{d}t = (1 - x) + \frac{x^2}{2}.
+\Phi(x) = \int_0^{1 - x} 1\,\mathrm{d}t + \int_0^{x} t\,\mathrm{d}t
+= (1 - x) + \frac{x^2}{2}.
 \]
 
 Then \(\Phi'(x) = -1 + x = 0\) gives \(x = 1\), and \(\Phi''(x) = 1 > 0\), so the
@@ -135,7 +136,9 @@ C(x) = x(2x) + (1 - x)(1) = 2x^2 - x + 1,
 \qquad C'(x) = 4x - 1 = 0 \Rightarrow x = \tfrac{1}{4}.
 \]
 
-The average cost is \(C\!\left(\tfrac{1}{4}\right) = 2\cdot\tfrac{1}{16} - \tfrac{1}{4} + 1 = \tfrac{7}{8}\).
+The average cost is
+\(C\!\left(\tfrac{1}{4}\right) = 2\cdot\tfrac{1}{16} - \tfrac{1}{4} + 1
+= \tfrac{7}{8}\).
 
 **(b)(iii) Marginal costs.** [5]
 
@@ -161,62 +164,154 @@ congestion, costs that rise with flow, that creates the gap.
 
 ## Question 4 [25 marks]
 
-**(a) Price of anarchy.** [4]
+**(a) Paths, flow vector and cost.** [7]
 
-The price of anarchy is the ratio of the total travel cost at the worst Nash flow
-to the total travel cost at the optimal flow:
-
-\[
-\text{PoA} = \frac{C(\text{Nash flow})}{C(\text{optimal flow})}.
-\]
-
-It measures how much worse selfish routing can be than a centrally optimal
-routing.
-
-**(b) The Nash flow.** [6]
-
-At a Nash flow no user can lower their cost by switching link. If a fraction
-\(x < 1\) used link 1, that link would cost \(x^p < 1\), below link 2's cost of
-\(1\), so every user on link 2 would switch: this is not an equilibrium. With all
-traffic on link 1 the cost there is \(1^p = 1\), equal to link 2's cost, so no
-user can do better. Hence the Nash flow puts all traffic on link 1, with total
-cost \(1 \cdot 1^p = 1\).
-
-**(c) The optimal flow.** [9]
-
-Routing a fraction \(x\) on link 1 gives total cost
+Each commodity can use its dedicated road or reach the depot through the
+junction:
 
 \[
-C(x) = x \cdot x^p + (1 - x) \cdot 1 = x^{p+1} + 1 - x.
+\mathcal{P}_1 = \{(s_1, t),\, (s_1, a, t)\},
+\qquad
+\mathcal{P}_2 = \{(s_2, t),\, (s_2, a, t)\}.
 \]
 
-Minimising, \(C'(x) = (p + 1)x^p - 1 = 0\), so \(x^{*} = (p + 1)^{-1/p}\). Since
-\(x^{*\,p+1} = x^{*}\cdot x^{*\,p} = x^{*}/(p + 1)\),
+With \(\alpha\) on \((s_1, t)\), feasibility for commodity 1 forces
+\(1/2 - \alpha\) on \((s_1, a, t)\), and similarly for commodity 2, so
 
 \[
-C(x^{*}) = \frac{x^{*}}{p + 1} + 1 - x^{*} = 1 - x^{*}\left(1 - \frac{1}{p + 1}\right)
-= 1 - x^{*}\,\frac{p}{p + 1}.
+f = \bigl(f_{(s_1, t)},\, f_{(s_1, a, t)},\, f_{(s_2, t)},\, f_{(s_2, a, t)}\bigr)
+= \left(\alpha,\, \tfrac{1}{2} - \alpha,\, \beta,\, \tfrac{1}{2} - \beta\right),
 \]
 
-The Nash cost is \(1\), so
+which is feasible when \(0 \le \alpha \le \tfrac{1}{2}\) and
+\(0 \le \beta \le \tfrac{1}{2}\). The ring road carries the traffic of both
+companies,
+\(f_{(a, t)} = (\tfrac{1}{2} - \alpha) + (\tfrac{1}{2} - \beta) = 1 - \alpha - \beta\).
+Summing \(c_e(f_e)\, f_e\) over the edges (the connectors cost nothing):
 
 \[
-\text{PoA} = \frac{1}{C(x^{*})} = \frac{1}{1 - x^{*}\,\frac{p}{p + 1}},
-\qquad x^{*} = (p + 1)^{-1/p}.
+C(\alpha, \beta) = \alpha \cdot \alpha + \frac{1}{2}\,\beta
++ (1 - \alpha - \beta)(1 - \alpha - \beta)
+= \alpha^2 + \frac{\beta}{2} + (1 - \alpha - \beta)^2.
 \]
 
-**(d) The two regimes.** [6]
+**(b) The Nash flow.** [7]
 
-At \(p = 1\) we have \(x^{*} = \tfrac{1}{2}\) and
-\(C(x^{*}) = 1 - \tfrac{1}{2}\cdot\tfrac{1}{2} = \tfrac{3}{4}\), so
-\(\text{PoA} = \tfrac{4}{3}\), the familiar affine bound. As \(p \to \infty\),
-\(\ln x^{*} = -\tfrac{1}{p}\ln(p + 1) \to 0\), so \(x^{*} \to 1\), and
-\(\tfrac{p}{p+1} \to 1\); hence \(C(x^{*}) \to 1 - 1 = 0\) and
-\(\text{PoA} \to \infty\).
+Write \(s = 1 - \alpha - \beta\) for the flow on the ring road, and suppose both
+commodities use both of their paths, so each commodity's two paths cost the
+same:
 
-With affine costs selfish routing is never worse than \(\tfrac{4}{3}\) times the
-optimum. With steeply nonlinear costs the picture is very different: a congestion
-cost that climbs sharply once a link fills up means selfish users pile onto link 1
-until it just matches link 2, whereas the optimum holds almost all of them back.
-The waste is then unbounded, and no constant bound on the price of anarchy can
-hold across all cost functions.
+\[
+\alpha = s \quad\text{(commodity 1)},
+\qquad
+\frac{1}{2} = s \quad\text{(commodity 2)}.
+\]
+
+These give \(\alpha = \tfrac{1}{2}\) and hence \(\beta = 0\): the solution sits
+on the boundary, with commodity 1 sending nothing through the junction and
+commodity 2 sending nothing on its dedicated road. We therefore verify the Nash
+condition at \(\tilde f = (\tfrac{1}{2}, 0, 0, \tfrac{1}{2})\) directly.
+Commodity 1 uses only \((s_1, t)\), at cost \(\tfrac{1}{2}\); its alternative
+\((s_1, a, t)\) costs \(0 + s = \tfrac{1}{2}\). Commodity 2 uses only
+\((s_2, a, t)\), at cost \(\tfrac{1}{2}\); its alternative \((s_2, t)\) costs
+\(\tfrac{1}{2}\). Every used path has minimal cost, so \(\tilde f\) is a Nash
+flow.
+
+This is in fact the only Nash flow. If \(s > \tfrac{1}{2}\) then commodity 2's
+ring path costs more than its dedicated road, so \(\beta = \tfrac{1}{2}\) and
+\(s = \tfrac{1}{2} - \alpha \le \tfrac{1}{2}\), a contradiction; if
+\(s < \tfrac{1}{2}\) then its dedicated road is the dearer, so \(\beta = 0\) and
+\(s = 1 - \alpha \ge \tfrac{1}{2}\), again a contradiction. Hence
+\(s = \tfrac{1}{2}\), and if commodity 1 used the ring path the Nash condition
+would force \(\tfrac{1}{2} \le \alpha\), so \(\alpha = \tfrac{1}{2}\) and
+\(\beta = 0\). The total cost is
+
+\[
+C(\tilde f) = \left(\frac{1}{2}\right)^2 + \frac{1}{2}\cdot 0
++ \left(\frac{1}{2}\right)^2 = \frac{1}{2}.
+\]
+
+**(c) The optimal flow.** [7]
+
+The cost \(C(\alpha, \beta)\) is strictly convex, so the stationary point is the
+minimiser provided it is feasible. Stationarity gives
+
+\[
+\begin{aligned}
+\frac{\partial C}{\partial \alpha} &= 2\alpha - 2(1 - \alpha - \beta) = 0, \\
+\frac{\partial C}{\partial \beta} &= \frac{1}{2} - 2(1 - \alpha - \beta) = 0.
+\end{aligned}
+\]
+
+The second equation gives ring-road flow \(1 - \alpha - \beta = \tfrac{1}{4}\),
+and then the first gives \(\alpha = \tfrac{1}{4}\), hence
+\(\beta = \tfrac{1}{2}\). Both lie in \([0, \tfrac{1}{2}]\), so
+
+\[
+f^{*} = \left(\frac{1}{4}, \frac{1}{4}, \frac{1}{2}, 0\right),
+\qquad
+C(f^{*}) = \frac{1}{16} + \frac{1}{4} + \frac{1}{16} = \frac{3}{8}.
+\]
+
+As a check, the marginal costs are \(2x\), \(\tfrac{1}{2}\) and \(2x\), and
+equalising them for each commodity gives \(2\alpha = 2(1 - \alpha - \beta)\) and
+\(\tfrac{1}{2} = 2(1 - \alpha - \beta)\): exactly the stationarity conditions,
+confirming that the optimal flow is the Nash flow for the marginal costs.
+
+**(d) The price of anarchy.** [4]
+
+\[
+\text{PoA} = \frac{C(\tilde f)}{C(f^{*})} = \frac{1/2}{3/8} = \frac{4}{3}.
+\]
+
+At the Nash flow company 2 has no incentive to use its dedicated road, since
+both of its options cost \(\tfrac{1}{2}\), so its vans fill half the ring road.
+The planner instead routes company 2 entirely on its dedicated road, which costs
+it nothing extra because that cost is flow-independent, and frees the ring road
+so that company 1 can split its traffic at a cost of \(\tfrac{1}{4}\) per path
+rather than \(\tfrac{1}{2}\). All of the saving comes from company 1, while
+company 2 is no worse off. The value \(\tfrac{4}{3}\) is exactly the price of
+anarchy of Pigou's example: all the cost functions here are affine, and this
+two-commodity network attains the same worst-case bound.
+
+## Marking exercises
+
+**Marking exercise 1 (Question 3(b)(i) and (ii)).**
+
+The Nash flow is correct: [4] of [4].
+
+The optimal flow is not found by equalising costs: equal costs on all used
+routes is precisely the *Nash* condition, so the transcript has simply
+computed the Nash flow twice. The optimal flow minimises the average cost
+\(C(x) = 2x^2 + (1 - x)\), giving \(C'(x) = 4x - 1 = 0\), \(x =
+\tfrac{1}{4}\) and average cost \(\tfrac{7}{8} < 1\), as in the solution
+above. The justification offered, that unequal costs mean "the allocation
+could be improved", is exactly wrong: an optimum deliberately leaves the
+\(\tfrac{1}{4}\) of drivers on the congestible route facing a *lower* cost
+than the rest, trading a few drivers' time for less congestion overall,
+which is what equalising *marginal* costs in part (iii) captures. The
+downstream claim that the Price of Anarchy is \(1\) falls with it: the
+correct value is \(\tfrac{8}{7}\). A fair mark is [0] of [5] for (ii).
+
+**Marking exercise 2 (Question 2(c)).**
+
+The potential function is not the total cost. Each edge contributes the
+*integral* of its cost function up to its flow,
+
+\[
+\Phi(x) = \int_0^{1 - x} 1 \, \mathrm{d}t + \int_0^{x} t \, \mathrm{d}t
+= (1 - x) + \frac{x^2}{2},
+\]
+
+whose minimum over \([0, 1]\) is at \(x = 1\): the Nash flow sends all the
+traffic down route 2, where both routes then cost \(1\), as in the solution
+above. What the transcript minimised, \(\sum_e x_e c_e(x_e)\), is the total
+cost, and its minimiser \(x = \tfrac{1}{2}\) is the *optimal* flow, not the
+Nash flow. The answer even fails its own check: at \(x = \tfrac{1}{2}\)
+route 2 costs \(\tfrac{1}{2}\) and route 1 costs \(1\), so every driver on
+route 1 would switch, which is not a Nash flow by definition. The
+distinction between \(\sum_e x_e c_e(x_e)\) and
+\(\sum_e \int_0^{x_e} c_e(t)\,\mathrm{d}t\) is exactly the distinction
+between the optimal and the Nash flow, which is why the two theorems in this
+topic are worth keeping apart. A fair mark is [2] of [8], for the shape of
+the definition and the calculus.

@@ -127,6 +127,42 @@ interior population is not an evolutionarily stable strategy. Explain why there 
 analogue of \(V\) is replaced by a conserved quantity \(H\) and the trajectories
 are closed orbits rather than converging to the centre. [5]
 
+## Marking exercises (optional)
+
+These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.
+
+### Marking exercise 1 (on Question 2(b)(ii) and (iii), worth [6] and [4])
+
+A student pastes Question 2(b) into a free AI chatbot, which replies:
+
+```text
+The replicator equation compares a strategy's fitness with its rival's:
+
+    dx/dt = x (f_L - f_R) = x ((1 + x) - (2 - x)) = x (2x - 1)
+
+Setting dx/dt = 0 gives the stable populations: x = 0 (nobody drives on
+the left) and x = 1/2 (half on each side). ✅
+```
+
+### Marking exercise 2 (on Question 1(e), worth [6])
+
+A student pastes Question 1(e) into a free AI chatbot, which replies:
+
+```text
+The interior fixed point solves f_D = f_S: here x + 2 = 4x, so
+x* = 2/3. The dynamics converge to x* from every interior starting
+point, and every stable fixed point of the replicator dynamics is an
+evolutionarily stable strategy, so x* = 2/3 is an ESS. ∎
+```
+
 ## Optional further reading
 
 You do not need any of this to follow the topic, but the following chapters of
@@ -134,8 +170,9 @@ the textbook may help if you would like more background:
 
 - [Evolutionary Biology](https://vknight.org/gtb/chapters/evolutionary-biology/),
   which gives the biological background to evolutionary game theory.
-- [Numerical Integration](https://vknight.org/gtb/appendices/numerical-integration/), which covers the
-  numerical methods behind solving the replicator dynamics equation.
+- [Numerical Integration](https://vknight.org/gtb/appendices/numerical-integration/),
+  which covers the numerical methods behind solving the replicator dynamics
+  equation.
 - [Evolutionary Dynamics on Graphs](https://vknight.org/gtb/chapters/graph-dynamics/),
   which extends the dynamics to structured, non-well-mixed populations.
 - [Learning and Evolutionary Dynamics](https://vknight.org/gtb/chapters/further-learning-dynamics/),

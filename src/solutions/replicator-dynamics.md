@@ -68,7 +68,8 @@ majority lowers the chance of a collision.
 **(b)(ii) Replicator equation.** [6]
 
 \[
-\dot{x} = x(1 - x)(f_L - f_R) = x(1 - x)\bigl((1 + x) - (2 - x)\bigr) = x(1 - x)(2x - 1).
+\dot{x} = x(1 - x)(f_L - f_R)
+= x(1 - x)\bigl((1 + x) - (2 - x)\bigr) = x(1 - x)(2x - 1).
 \]
 
 **(b)(iii) Stable populations.** [4]
@@ -128,9 +129,11 @@ With \(\phi = 0\), the replicator equation \(\dot{x}_i = x_i(f_i - \phi)\)
 reduces to
 
 \[
-\dot{x}_R = x_R(x_S - x_P), \qquad
-\dot{x}_P = x_P(x_R - x_S), \qquad
-\dot{x}_S = x_S(x_P - x_R).
+\begin{aligned}
+\dot{x}_R &= x_R(x_S - x_P), \\
+\dot{x}_P &= x_P(x_R - x_S), \\
+\dot{x}_S &= x_S(x_P - x_R).
+\end{aligned}
 \]
 
 **(c) Interior stable population.** [5]
@@ -245,3 +248,39 @@ Lyapunov function decreasing, the trajectories cannot approach the centre; they
 trace closed orbits around it. The decreasing \(V\) of an evolutionarily stable
 strategy gives convergence, whereas the conserved \(H\) of Rock-Paper-Scissors
 gives perpetual cycling.
+
+## Marking exercises
+
+**Marking exercise 1 (Question 2(b)(ii) and (iii)).**
+
+The replicator equation compares a strategy's fitness with the *average*
+fitness of the population, \(\phi = x f_L + (1 - x) f_R\), not with the
+rival's fitness:
+
+\[
+\dot{x} = x(f_L - \phi) = x(1 - x)(f_L - f_R) = x(1 - x)(2x - 1),
+\]
+
+as in the solution above. The missing factor \((1 - x)\) silently deletes
+the stable population \(x = 1\), and the transcript's list of stable
+populations, "nobody on the left" and "half and half", should be absurd on
+its face: in a symmetric coordination game, everyone driving on the left
+must be a stable population exactly as everyone driving on the right is.
+The wrong answer breaks the symmetry of the game, which is the kind of
+sense-check that catches this without any algebra. A fair mark is [2] of
+[6] for (ii), for the correct fitness difference, and [2] of [4] for
+(iii), for the two fixed points that survive.
+
+**Marking exercise 2 (Question 1(e)).**
+
+The final answer is right and the justification is not. The pivotal claim
+runs the implication backwards: an evolutionarily stable strategy is
+asymptotically stable under the replicator dynamics, but a stable population
+need not be an ESS: the interior population of the Rock-Paper-Scissors game
+in Question 3 is stable (trajectories stay nearby) yet is not an ESS. So
+stability alone cannot certify an ESS, and the question explicitly asks for
+the invasion argument: at \(x^{*} = \tfrac{2}{3}\) a small invading group of
+either pure strategy earns strictly less than the resident mixture, which is
+what makes \(x^{*}\) evolutionarily stable. An examiner gives method marks
+for \(x^{*}\) and withholds the rest: a right answer justified by a false
+theorem is not a right answer. A fair mark is [3] of [6].

@@ -35,7 +35,7 @@ questions:
       - text: "optimal for both sides"
       - text: "optimal for the receiving side"
       - text: "the same whoever proposes"
-    explain: "Proposer-optimality: each proposer gets the best partner possible in any stable matching."
+    explain: "Suitor-optimality: each proposer gets the best partner possible in any stable matching."
 
   - q: "A matching between two sets of equal size is ..."
     options:
@@ -89,7 +89,7 @@ questions:
       - text: "the proposing side"
       - text: "both sides equally"
       - text: "neither side"
-    explain: "Proposer-optimality is matched by reviewer sub-optimality."
+    explain: "Suitor-optimality is matched by reviewer sub-optimality."
 
   - q: "A matching game's stable matching ..."
     options:
@@ -152,7 +152,7 @@ questions:
       - text: "can return different stable matchings"
       - text: "may fail to terminate"
       - text: "return an unstable matching"
-    explain: "The proposer-proposing algorithm has a unique output: the proposer-optimal stable matching."
+    explain: "All executions return the same suitor-optimal stable matching."
 
   - q: "When a reviewer holding a proposal receives a new proposal they prefer, they ..."
     options:
@@ -163,20 +163,20 @@ questions:
       - text: "must accept both"
     explain: "Reviewers always hold their most preferred proposal seen so far, rejecting the rest."
 
-  - q: "The proof of proposer-optimality shows that no proposer is ever rejected by ..."
+  - q: "The proof of suitor-optimality shows that no proposer is ever rejected by ..."
     options:
-      - text: "a partner it could be matched to in some stable matching"
+      - text: "a stable partner: a reviewer it is matched to in some stable matching"
         correct: true
       - text: "the reviewer at the top of its list"
       - text: "any reviewer at all"
       - text: "more than one reviewer"
-    explain: "A rejection by such an achievable partner would create a blocking pair in that stable matching, a contradiction."
+    explain: "A rejection by a stable partner would create a blocking pair in that stable matching, a contradiction."
 
-  - q: "In the proposer-optimal stable matching, each reviewer receives ..."
+  - q: "In the suitor-optimal stable matching, each reviewer receives ..."
     options:
       - text: "the worst partner they could have in any stable matching"
         correct: true
       - text: "the best partner they could have in any stable matching"
       - text: "their first choice"
       - text: "a randomly chosen partner"
-    explain: "Proposer-optimality coincides with reviewer-pessimality: the two sides' interests are opposed."
+    explain: "Suitor-optimality coincides with reviewer-pessimality: the two sides' interests are opposed."
