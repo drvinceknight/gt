@@ -74,13 +74,20 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv run python build.py
 ```
 
-HTML is written directly to the repo root. To preview locally:
+HTML is written directly to the repo root. Internal links are relative to
+each page, so the site works both at the root of a local preview and under
+`/gt/` on vknight.org. To preview locally:
 
 ```
 uv run python -m http.server
 ```
 
 Then open `http://localhost:8000/` in a browser.
+
+The one exception is `404.html`: GitHub Pages serves it at whatever path was
+requested, so its depth is unknown and its links have to be absolute. They are
+built from the `SITE_ROOT` constant in `build.py`, which is the only place the
+mount point is named.
 
 ## Deployment
 

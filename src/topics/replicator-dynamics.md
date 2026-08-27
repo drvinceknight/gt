@@ -173,7 +173,5 @@ the textbook may help if you would like more background:
 - [Numerical Integration](https://vknight.org/gtb/appendices/numerical-integration/),
   which covers the numerical methods behind solving the replicator dynamics
   equation.
-- [Evolutionary Dynamics on Graphs](https://vknight.org/gtb/chapters/graph-dynamics/),
-  which extends the dynamics to structured, non-well-mixed populations.
 - [Learning and Evolutionary Dynamics](https://vknight.org/gtb/chapters/further-learning-dynamics/),
   which places the dynamics within a broader family of update rules.
