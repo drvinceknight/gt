@@ -1,0 +1,500 @@
+/* ============================================================
+   style.css - vknight.org/gt  (Game Theory)
+   Lavender accent on Catppuccin Mocha: the same foundation as
+   vknight.org (mauve) and cfm (sky), shifted to lavender with a
+   sky/teal secondary so the Game Theory site reads as its own.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ---- Custom properties (Catppuccin Mocha — dark) --------------- */
+:root {
+  --bg:           #1e1e2e;
+  --surface:      #313244;
+  --surface-2:    #45475a;
+  --border:       #585b70;
+  --text:         #cdd6f4;
+  --text-muted:   #a6adc8;
+  --accent:       #b4befe;   /* lavender (primary)                */
+  --accent-dim:   rgba(180, 190, 254, 0.12);
+  --accent-warm:  #fab387;   /* peach (code highlights)           */
+  --mauve:        #cba6f7;
+  --teal:         #89dceb;   /* sky/teal (secondary)              */
+  --green:        #a6e3a1;
+  --red:          #f38ba8;
+  --yellow:       #f9e2af;
+  --radius:       6px;
+  --nav-h:        54px;
+  --max-w:        750px;
+  --font:         'Inter', system-ui, -apple-system, sans-serif;
+  --mono:         'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --transition:   0.15s ease;
+}
+
+/* ---- Custom properties (Catppuccin Latte — light) -------------- */
+[data-theme="light"] {
+  --bg:           #eff1f5;
+  --surface:      #e6e9ef;
+  --surface-2:    #dce0e8;
+  --border:       #ccd0da;
+  --text:         #4c4f69;
+  --text-muted:   #8c8fa1;
+  --accent:       #7287fd;   /* lavender (primary)                */
+  --accent-dim:   rgba(114, 135, 253, 0.10);
+  --accent-warm:  #fe640b;
+  --mauve:        #8839ef;
+  --teal:         #04a5e5;   /* sky/teal (secondary)              */
+  --green:        #40a02b;
+  --red:          #d20f39;
+  --yellow:       #df8e1d;
+}
+
+/* ---- Reset ----------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+
+/* ---- Base ------------------------------------------------------ */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse at 80% 0%, rgba(180, 190, 254, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 80%, rgba(137, 220, 235, 0.05) 0%, transparent 50%);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[data-theme="light"] body,
+[data-theme="light"] {
+  background-image:
+    radial-gradient(ellipse at 80% 0%, rgba(114, 135, 253, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 80%, rgba(4, 165, 229, 0.04) 0%, transparent 50%);
+}
+
+/* ---- Layout ---------------------------------------------------- */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem;
+}
+
+/* ---- Nav ------------------------------------------------------- */
+header {
+  height: var(--nav-h);
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--accent), var(--teal), var(--green)) 1;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  gap: 1rem;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: opacity var(--transition);
+}
+
+.logo:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+nav a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* ---- Theme toggle --------------------------------------------- */
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.3rem 0.5rem;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+#theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+/* ---- Typography ------------------------------------------------ */
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+h2 {
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h3 { color: var(--teal); }
+
+h1 { font-size: 1.875rem; margin: 2rem 0 1rem; }
+h2 { font-size: 1.375rem; margin: 2.5rem 0 0.75rem; }
+h3 { font-size: 1.125rem; margin: 2rem 0 0.5rem; }
+h4, h5 { font-size: 1rem;   margin: 1.5rem 0 0.5rem; }
+
+p {
+  margin-bottom: 1.25rem;
+  color: var(--text);
+}
+
+small {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+}
+
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--teal), var(--green));
+  opacity: 0.5;
+  margin: 2.5rem 0;
+  border-radius: 999px;
+}
+
+/* ---- Links ----------------------------------------------------- */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+a:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- Lists ----------------------------------------------------- */
+ul, ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+/* ---- Code ------------------------------------------------------ */
+code {
+  font-family: var(--mono);
+  font-size: 0.8125em;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.125em 0.375em;
+  color: var(--accent-warm);
+}
+
+pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text);
+  font-size: inherit;
+}
+
+/* ---- Blockquote ------------------------------------------------ */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin: 1.5rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ---- Tables ---------------------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.9375rem;
+}
+
+th {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+/* Do not uppercase mathematics in headers: it turns action names such as
+   \(r\) into \(R\). The uppercase styling is intended for plain-text labels. */
+th .arithmatex {
+  text-transform: none;
+}
+
+td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+tr:last-child td { border-bottom: none; }
+
+/* ---- Facilitator-only banner ---------------------------------- */
+.facilitator-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--yellow);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.facilitator-banner strong { color: var(--yellow); }
+
+/* Wrap the whole facilitator page so it reads as something distinct. */
+.facilitator-notes {
+  border: 3px solid var(--text);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1rem;
+}
+
+/* ---- Week schedule -------------------------------------------- */
+.week-block {
+  margin-bottom: 1.5rem;
+}
+
+.week-block h3 {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0;
+}
+
+.week-block ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.week-block li {
+  position: relative;
+  padding-left: 1rem;
+  line-height: 1.4;
+}
+
+.week-block li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.week-block li small { color: var(--text-muted); }
+
+.week-block li.example-class { color: var(--text); }
+.week-block li.example-class strong { color: var(--teal); }
+.week-block li.example-class::before { background: var(--teal); }
+
+/* ---- Revision quizzes ----------------------------------------- */
+.quiz-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin: 1rem 0 2rem;
+}
+
+.quiz-progress {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin: 0 0 0.5rem;
+}
+
+.quiz-question {
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.quiz-option:hover {
+  border-color: var(--accent);
+}
+
+.quiz-option input {
+  accent-color: var(--accent);
+}
+
+.quiz-option.quiz-correct {
+  border-color: var(--green);
+  background: color-mix(in srgb, var(--green) 14%, transparent);
+}
+
+.quiz-option.quiz-incorrect {
+  border-color: var(--red);
+  background: color-mix(in srgb, var(--red) 14%, transparent);
+}
+
+.quiz-explain {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  border-left: 3px solid var(--border);
+  padding-left: 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.quiz-btn {
+  font: inherit;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+}
+
+.quiz-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.quiz-score {
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+/* ---- Framed inset figure (e.g. the personas diagram) ---------- */
+.persona-figure {
+  margin: 1.5rem 0;
+  padding: 0.75rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.persona-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius) - 2px);
+}
+
+/* ---- Textbook note (home page callout) ------------------------ */
+.textbook-note {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.9375rem;
+}
+
+.textbook-note strong { color: var(--accent); }
+
+/* ---- Responsive ----------------------------------------------- */
+@media (max-width: 600px) {
+  :root { --max-w: 100%; }
+  .container { padding: 1.5rem 1rem 3rem; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  header { padding: 0 1rem; }
+}

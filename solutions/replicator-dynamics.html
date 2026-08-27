@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Replicator Dynamics solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/replicator-dynamics.html">&larr; Back to Replicator Dynamics</a></small></p>
+
+<h1 id="replicator-dynamics-worked-solutions">Replicator Dynamics: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/replicator-dynamics.html">Replicator Dynamics</a> page. Each question is
+worth 25 marks.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) Fitnesses.</strong> [3]</p>
+<div class="arithmatex">\[
+f_D = 3x + 2(1 - x) = x + 2, \qquad f_S = 4x + 0(1 - x) = 4x.
+\]</div>
+<p><strong>(b) Replicator equation.</strong> [7]</p>
+<div class="arithmatex">\[
+\dot{x} = x(f_D - \phi) = x(1 - x)(f_D - f_S) = x(1 - x)\bigl((x + 2) - 4x\bigr)
+= x(1 - x)(2 - 3x).
+\]</div>
+<p><strong>(c) Stable populations.</strong> [3]</p>
+<p>Setting <span class="arithmatex">\(\dot{x} = 0\)</span> gives the stable populations <span class="arithmatex">\(x = 0\)</span>, <span class="arithmatex">\(x = 1\)</span> and
+<span class="arithmatex">\(x = \tfrac{2}{3}\)</span>.</p>
+<p><strong>(d) Which is approached.</strong> [6]</p>
+<p>For <span class="arithmatex">\(0 &lt; x &lt; \tfrac{2}{3}\)</span> the factor <span class="arithmatex">\((2 - 3x) &gt; 0\)</span>, so <span class="arithmatex">\(\dot{x} &gt; 0\)</span>; for
+<span class="arithmatex">\(\tfrac{2}{3} &lt; x &lt; 1\)</span> it is negative, so <span class="arithmatex">\(\dot{x} &lt; 0\)</span>. From any interior
+start the dynamics therefore approach <span class="arithmatex">\(x = \tfrac{2}{3}\)</span>, while <span class="arithmatex">\(x = 0\)</span> and
+<span class="arithmatex">\(x = 1\)</span> are repelling. This is exactly where the class settled: about
+two-thirds of the room playing Dig.</p>
+<p><strong>(e) ESS.</strong> [6]</p>
+<p>Yes, <span class="arithmatex">\(x = \tfrac{2}{3}\)</span> is an ESS. It is an interior stable population to which
+the dynamics return: from part (d), <span class="arithmatex">\(\dot{x} &gt; 0\)</span> for <span class="arithmatex">\(x &lt; \tfrac{2}{3}\)</span> and
+<span class="arithmatex">\(\dot{x} &lt; 0\)</span> for <span class="arithmatex">\(x &gt; \tfrac{2}{3}\)</span>, so the population returns to it after any
+small perturbation. Equivalently, by the invasion condition, at <span class="arithmatex">\(x = \tfrac{2}{3}\)</span>
+the two strategies are equally fit (<span class="arithmatex">\(f_D = f_S\)</span>). A small invasion that raises
+<span class="arithmatex">\(x\)</span> above <span class="arithmatex">\(\tfrac{2}{3}\)</span> makes <span class="arithmatex">\(f_D - f_S = 2 - 3x &lt; 0\)</span>, so the now more
+numerous Dig type earns less and is selected against; an invasion that lowers
+<span class="arithmatex">\(x\)</span> makes <span class="arithmatex">\(f_D &gt; f_S\)</span> and Dig recovers. Either way the invading mix earns a
+lower fitness than the resident, so it cannot spread: <span class="arithmatex">\(x = \tfrac{2}{3}\)</span> is
+evolutionarily stable.</p>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Replicator equation.</strong> (Bookwork.) [3]</p>
+<div class="arithmatex">\[
+\dot{x}_1 = x_1(f_1(x) - \phi), \qquad \phi = x_1 f_1(x) + x_2 f_2(x).
+\]</div>
+<p><strong>(b)(i) Interpretation.</strong> [2]</p>
+<p>Each fitness is a base value of <span class="arithmatex">\(1\)</span> (the payoff to not crashing) plus a term
+increasing in the proportion of others using the same side, since matching the
+majority lowers the chance of a collision.</p>
+<p><strong>(b)(ii) Replicator equation.</strong> [6]</p>
+<div class="arithmatex">\[
+\dot{x} = x(1 - x)(f_L - f_R)
+= x(1 - x)\bigl((1 + x) - (2 - x)\bigr) = x(1 - x)(2x - 1).
+\]</div>
+<p><strong>(b)(iii) Stable populations.</strong> [4]</p>
+<p>Setting <span class="arithmatex">\(\dot{x} = 0\)</span> gives the stable populations <span class="arithmatex">\(x = 0\)</span>, <span class="arithmatex">\(x = 1\)</span> and
+<span class="arithmatex">\(x = \tfrac{1}{2}\)</span>.</p>
+<p><strong>(b)(iv) Stability and ESS.</strong> [8]</p>
+<p>Examining the sign of <span class="arithmatex">\(\dot{x} = x(1 - x)(2x - 1)\)</span>:</p>
+<ul>
+<li>Near <span class="arithmatex">\(x = \tfrac{1}{2}\)</span>: for <span class="arithmatex">\(x &lt; \tfrac{1}{2}\)</span>, <span class="arithmatex">\((2x - 1) &lt; 0\)</span> so
+  <span class="arithmatex">\(\dot{x} &lt; 0\)</span>; for <span class="arithmatex">\(x &gt; \tfrac{1}{2}\)</span>, <span class="arithmatex">\(\dot{x} &gt; 0\)</span>. The dynamics move
+  <strong>away</strong> from <span class="arithmatex">\(x = \tfrac{1}{2}\)</span>, so it is repelling and not an ESS.</li>
+<li>Near <span class="arithmatex">\(x = 0\)</span>: <span class="arithmatex">\(\dot{x} &lt; 0\)</span> for small <span class="arithmatex">\(x &gt; 0\)</span>, so the population returns
+  to <span class="arithmatex">\(0\)</span>; it is approached.</li>
+<li>Near <span class="arithmatex">\(x = 1\)</span>: <span class="arithmatex">\(\dot{x} &gt; 0\)</span> for <span class="arithmatex">\(x\)</span> just below <span class="arithmatex">\(1\)</span>, so the population
+  returns to <span class="arithmatex">\(1\)</span>; it is approached.</li>
+</ul>
+<p>The stable populations <span class="arithmatex">\(x = 0\)</span> (everyone drives right) and <span class="arithmatex">\(x = 1\)</span> (everyone
+drives left) are approached and are the evolutionarily stable strategies; the
+mixed population <span class="arithmatex">\(x = \tfrac{1}{2}\)</span> is a stable population in the sense
+<span class="arithmatex">\(\dot{x} = 0\)</span> but is repelling, so it is not an ESS.</p>
+<p><strong>(b)(v) Two stable populations.</strong> [2]</p>
+<p>The game has two stable populations the dynamics can settle on, <span class="arithmatex">\(x = 0\)</span> and
+<span class="arithmatex">\(x = 1\)</span>, separated by the unstable population <span class="arithmatex">\(x = \tfrac{1}{2}\)</span>. Which side
+everyone ends up on is determined by history: whichever side starts in the
+majority is reinforced and takes over. Because <span class="arithmatex">\(x = \tfrac{1}{2}\)</span> is unstable,
+any tiny imbalance grows, so the symmetric mixed population is never observed: a
+population settles on a single convention, all driving left or all driving
+right.</p>
+<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
+<p><strong>(a) Fitnesses and average fitness.</strong> [5]</p>
+<p>Each fitness is the corresponding row of <span class="arithmatex">\(A x\)</span>:</p>
+<div class="arithmatex">\[
+f_R = x_S - x_P, \qquad f_P = x_R - x_S, \qquad f_S = x_P - x_R.
+\]</div>
+<p>The average fitness is</p>
+<div class="arithmatex">\[
+\phi = x_R f_R + x_P f_P + x_S f_S
+= x_R(x_S - x_P) + x_P(x_R - x_S) + x_S(x_P - x_R) = 0,
+\]</div>
+<p>since <span class="arithmatex">\(A\)</span> is antisymmetric and every term cancels in pairs.</p>
+<p><strong>(b) Replicator equations.</strong> [4]</p>
+<p>With <span class="arithmatex">\(\phi = 0\)</span>, the replicator equation <span class="arithmatex">\(\dot{x}_i = x_i(f_i - \phi)\)</span>
+reduces to</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\dot{x}_R &amp;= x_R(x_S - x_P), \\
+\dot{x}_P &amp;= x_P(x_R - x_S), \\
+\dot{x}_S &amp;= x_S(x_P - x_R).
+\end{aligned}
+\]</div>
+<p><strong>(c) Interior stable population.</strong> [5]</p>
+<p>At an interior stable population every proportion is positive and each
+<span class="arithmatex">\(\dot{x}_i = 0\)</span>, so we need <span class="arithmatex">\(f_R = f_P = f_S = 0\)</span>. From <span class="arithmatex">\(f_R = 0\)</span> we get
+<span class="arithmatex">\(x_S = x_P\)</span>, and from <span class="arithmatex">\(f_P = 0\)</span> we get <span class="arithmatex">\(x_R = x_S\)</span>. Hence
+<span class="arithmatex">\(x_R = x_P = x_S\)</span>, and with <span class="arithmatex">\(x_R + x_P + x_S = 1\)</span> this gives the unique
+interior stable population <span class="arithmatex">\(x_R = x_P = x_S = \tfrac{1}{3}\)</span>.</p>
+<p><strong>(d) A constant of motion.</strong> [7]</p>
+<p>Along any interior trajectory,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{d}{dt} \ln H
+&amp;= \frac{d}{dt}\bigl(\ln x_R + \ln x_P + \ln x_S\bigr) \\
+&amp;= \frac{\dot{x}_R}{x_R} + \frac{\dot{x}_P}{x_P} + \frac{\dot{x}_S}{x_S} \\
+&amp;= \frac{x_R f_R}{x_R} + \frac{x_P f_P}{x_P} + \frac{x_S f_S}{x_S} \\
+&amp;= f_R + f_P + f_S \\
+&amp;= (x_S - x_P) + (x_R - x_S) + (x_P - x_R) = 0.
+\end{aligned}
+\]</div>
+<p>Hence <span class="arithmatex">\(\ln H\)</span>, and so <span class="arithmatex">\(H = x_R x_P x_S\)</span> itself, keeps the same value all the
+way along a trajectory. We can use this to see how the dynamics behave. Suppose
+we start in the interior, so all three proportions are positive and <span class="arithmatex">\(H &gt; 0\)</span>. If
+one of the proportions ever dropped to zero, the product <span class="arithmatex">\(H = x_R x_P x_S\)</span>
+would be zero too; but <span class="arithmatex">\(H\)</span> cannot change, so this never happens and the
+trajectory stays away from the edges of the simplex. Equally, the dynamics cannot
+drift in to the centre and stop there, because the centre is the only fixed
+point and any other starting value of <span class="arithmatex">\(H\)</span> is different from its value there.</p>
+<p>The trajectory is therefore boxed in: it can never settle down (the only
+resting point is the centre, which it does not start at) and it can never reach
+the edges. With nowhere to go, it simply loops back on itself, tracing a closed
+curve around the centre <span class="arithmatex">\(\left(\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3}\right)\)</span>
+and repeating the same cycle forever. A small perturbation away from the centre
+neither grows nor shrinks; it just circulates. The interior population is
+therefore stable, in that nearby populations stay nearby, but not asymptotically
+stable, since the dynamics never return to it.</p>
+<p><strong>(e) Not an ESS.</strong> [4]</p>
+<p>An evolutionarily stable strategy must be asymptotically stable under the
+replicator dynamics. From part (d) the interior population is only stable, not
+asymptotically stable, so <span class="arithmatex">\(\left(\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{1}{3}\right)\)</span>
+is not an ESS. This reflects the cyclic structure of the game: Rock beats
+Scissors, Scissors beats Paper, and Paper beats Rock. Whenever one strategy
+becomes common the strategy that beats it gains, so the population chases its
+own tail through Rock, Paper and Scissors without ever settling.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) The function is non-negative.</strong> [5]</p>
+<p>Write <span class="arithmatex">\(V(x) = -\sum_i x^{*}_i \ln\!\dfrac{x_i}{x^{*}_i}\)</span>. Since <span class="arithmatex">\(\ln\)</span> is
+concave and the weights <span class="arithmatex">\(x^{*}_i\)</span> sum to one, Jensen's inequality gives</p>
+<div class="arithmatex">\[
+\sum_i x^{*}_i \ln\!\frac{x_i}{x^{*}_i}
+\le \ln\!\left(\sum_i x^{*}_i \frac{x_i}{x^{*}_i}\right)
+= \ln\!\left(\sum_i x_i\right) = \ln 1 = 0.
+\]</div>
+<p>Hence <span class="arithmatex">\(V(x) \ge 0\)</span>. Equality in Jensen's inequality holds only when the ratios
+<span class="arithmatex">\(x_i/x^{*}_i\)</span> are all equal; since both <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(x^{*}\)</span> sum to one this
+forces <span class="arithmatex">\(x = x^{*}\)</span>.</p>
+<p><strong>(b) Its rate of change.</strong> [9]</p>
+<p>Differentiating along a trajectory, and using <span class="arithmatex">\(\sum_i x^{*}_i = 1\)</span>,</p>
+<div class="arithmatex">\[
+\frac{d}{dt} V
+= -\sum_i x^{*}_i \frac{\dot{x}_i}{x_i}.
+\]</div>
+<p>The replicator dynamics give <span class="arithmatex">\(\dot{x}_i = x_i\bigl(f_i - \phi\bigr)\)</span>, with
+<span class="arithmatex">\(f_i = (A x)_i\)</span> the fitness of strategy <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(\phi = x A x\)</span> the average
+fitness, so <span class="arithmatex">\(\dot{x}_i / x_i = f_i - \phi\)</span>. Therefore</p>
+<div class="arithmatex">\[
+\frac{d}{dt} V
+= -\sum_i x^{*}_i\bigl(f_i - \phi\bigr)
+= -\left(\sum_i x^{*}_i f_i - \phi\right)
+= -\bigl(x^{*} A x - x A x\bigr),
+\]</div>
+<p>since <span class="arithmatex">\(\sum_i x^{*}_i f_i = x^{*} A x\)</span> and <span class="arithmatex">\(\phi = x A x\)</span>.</p>
+<p><strong>(c) Asymptotic stability.</strong> [6]</p>
+<p>For <span class="arithmatex">\(x \neq x^{*}\)</span> near <span class="arithmatex">\(x^{*}\)</span> the evolutionarily stable strategy condition
+gives <span class="arithmatex">\(x^{*} A x &gt; x A x\)</span>, so <span class="arithmatex">\(x^{*} A x - x A x &gt; 0\)</span> and hence
+<span class="arithmatex">\(\tfrac{d}{dt} V &lt; 0\)</span>. Together with part (a), <span class="arithmatex">\(V\)</span> is positive away from
+<span class="arithmatex">\(x^{*}\)</span>, zero at <span class="arithmatex">\(x^{*}\)</span>, and strictly decreasing along every nearby
+trajectory. It is therefore a Lyapunov function, and <span class="arithmatex">\(x^{*}\)</span> is asymptotically
+stable: nearby populations not only stay close but converge to <span class="arithmatex">\(x^{*}\)</span>.</p>
+<p><strong>(d) Contrast with Rock-Paper-Scissors.</strong> [5]</p>
+<p>In the Rock-Paper-Scissors game of Question 3 the interior population is only
+neutrally stable, not an evolutionarily stable strategy, so the inequality
+<span class="arithmatex">\(x^{*} A x &gt; x A x\)</span> fails: the antisymmetry of the payoff matrix makes
+<span class="arithmatex">\(x^{*} A x = x A x\)</span> for every <span class="arithmatex">\(x\)</span>. The same calculation then gives
+<span class="arithmatex">\(\tfrac{d}{dt} V = 0\)</span>, so the cross-entropy neither decreases nor increases. The
+natural conserved quantity there is <span class="arithmatex">\(H = x_R x_P x_S\)</span>, with
+<span class="arithmatex">\(\tfrac{d}{dt}\ln H = 0\)</span>. Because a constant of motion is preserved rather than a
+Lyapunov function decreasing, the trajectories cannot approach the centre; they
+trace closed orbits around it. The decreasing <span class="arithmatex">\(V\)</span> of an evolutionarily stable
+strategy gives convergence, whereas the conserved <span class="arithmatex">\(H\)</span> of Rock-Paper-Scissors
+gives perpetual cycling.</p>
+<h2 id="marking-exercises">Marking exercises</h2>
+<p><strong>Marking exercise 1 (Question 2(b)(ii) and (iii)).</strong></p>
+<p>The replicator equation compares a strategy's fitness with the <em>average</em>
+fitness of the population, <span class="arithmatex">\(\phi = x f_L + (1 - x) f_R\)</span>, not with the
+rival's fitness:</p>
+<div class="arithmatex">\[
+\dot{x} = x(f_L - \phi) = x(1 - x)(f_L - f_R) = x(1 - x)(2x - 1),
+\]</div>
+<p>as in the solution above. The missing factor <span class="arithmatex">\((1 - x)\)</span> silently deletes
+the stable population <span class="arithmatex">\(x = 1\)</span>, and the transcript's list of stable
+populations, "nobody on the left" and "half and half", should be absurd on
+its face: in a symmetric coordination game, everyone driving on the left
+must be a stable population exactly as everyone driving on the right is.
+The wrong answer breaks the symmetry of the game, which is the kind of
+sense-check that catches this without any algebra. A fair mark is [2] of
+[6] for (ii), for the correct fitness difference, and [2] of [4] for
+(iii), for the two fixed points that survive.</p>
+<p><strong>Marking exercise 2 (Question 1(e)).</strong></p>
+<p>The final answer is right and the justification is not. The pivotal claim
+runs the implication backwards: an evolutionarily stable strategy is
+asymptotically stable under the replicator dynamics, but a stable population
+need not be an ESS: the interior population of the Rock-Paper-Scissors game
+in Question 3 is stable (trajectories stay nearby) yet is not an ESS. So
+stability alone cannot certify an ESS, and the question explicitly asks for
+the invasion argument: at <span class="arithmatex">\(x^{*} = \tfrac{2}{3}\)</span> a small invading group of
+either pure strategy earns strictly less than the resident mixture, which is
+what makes <span class="arithmatex">\(x^{*}\)</span> evolutionarily stable. An examiner gives method marks
+for <span class="arithmatex">\(x^{*}\)</span> and withholds the rest: a right answer justified by a false
+theorem is not a right answer. A fair mark is [3] of [6].</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

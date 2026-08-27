@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subgame Perfection — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<h1>Subgame Perfection</h1>
+
+
+<h3>Notes</h3>
+<ul>
+  
+  <li><a href="https://vknight.org/gtb/chapters/subgame-perfection/">Subgame Perfection: course textbook chapter</a></li>
+  
+</ul>
+
+
+
+
+
+<h2>Quick quiz</h2>
+<p>A few questions to warm up and check the basics, before the exam-type
+questions below. They are reshuffled each time, so you can keep retrying.</p>
+<div class="quiz" data-quiz>
+  <script type="application/json">{"title": "Subgame perfection", "pick": 5, "questions": [{"q": "A subgame perfect equilibrium is a Nash equilibrium that ...", "options": [{"text": "induces a Nash equilibrium in every subgame, including unreached ones", "correct": true}, {"text": "maximises the sum of the players' payoffs"}, {"text": "uses only pure strategies"}, {"text": "reaches the last node of the tree"}], "explain": "Subgame perfection requires optimal play in every subgame, not just on the path."}, {"q": "Backward induction solves a perfect-information game by ...", "options": [{"text": "working from the final decisions back to the root, choosing optimally at each node", "correct": true}, {"text": "trying every strategy profile at random"}, {"text": "converting it to a zero sum game"}, {"text": "ignoring the players' payoffs"}], "explain": "It removes dominated choices from the back of the tree forwards to the start."}, {"q": "A non-credible threat is one that ...", "options": [{"text": "the threatening player would not actually want to carry out if the subgame were reached", "correct": true}, {"text": "is written down before the game begins"}, {"text": "always leads to the highest payoff"}, {"text": "both players agree to"}], "explain": "Subgame perfection rules out equilibria that rely on such threats off the path."}, {"q": "Which is true of Nash equilibria versus subgame perfect equilibria?", "options": [{"text": "every subgame perfect equilibrium is a Nash equilibrium, but not conversely", "correct": true}, {"text": "every Nash equilibrium is subgame perfect"}, {"text": "they are always the same"}, {"text": "subgame perfect equilibria need not be Nash equilibria"}], "explain": "Subgame perfection is a refinement: it is a stricter requirement than Nash."}, {"q": "Every finite game of perfect information has ...", "options": [{"text": "a Nash equilibrium in pure strategies, found by backward induction", "correct": true}, {"text": "no Nash equilibrium"}, {"text": "a unique mixed equilibrium only"}, {"text": "exactly two equilibria"}], "explain": "Backward induction always produces such an equilibrium, which is moreover subgame perfect."}, {"q": "In the centipede game, backward induction predicts that ...", "options": [{"text": "the first player takes immediately, even though both could do better by passing", "correct": true}, {"text": "both players pass to the final leaf"}, {"text": "the players alternate forever"}, {"text": "there is no subgame perfect equilibrium"}], "explain": "Cooperation unravels from the last node, so the predicted outcome is to stop at once."}, {"q": "A node initiates a subgame when ...", "options": [{"text": "it and all of its successors form a self-contained part of the tree", "correct": true}, {"text": "it is the root of the whole game"}, {"text": "it is a terminal node"}, {"text": "both players move there at once"}], "explain": "A subgame is a node together with everything that follows it, cutting no information set."}, {"q": "In a game of perfect information, every information set ...", "options": [{"text": "contains a single node", "correct": true}, {"text": "contains every node of the tree"}, {"text": "is empty"}, {"text": "belongs to both players"}], "explain": "Perfect information means each player always knows exactly where they are."}, {"q": "A strategy in an extensive form game specifies ...", "options": [{"text": "an action at every decision node of the player", "correct": true}, {"text": "only the first move"}, {"text": "a single action for the whole game"}, {"text": "the opponent's moves"}], "explain": "A strategy is a complete contingent plan, one action per decision node."}, {"q": "Subgame perfection rules out equilibria that rely on ...", "options": [{"text": "non-credible threats off the path of play", "correct": true}, {"text": "mixed strategies"}, {"text": "backward induction"}, {"text": "cooperation"}], "explain": "It requires optimal play in every subgame, so threats must be credible."}, {"q": "Backward induction at a decision node chooses the action that ...", "options": [{"text": "maximises that player's payoff given the optimal play that follows", "correct": true}, {"text": "maximises the other player's payoff"}, {"text": "is chosen at random"}, {"text": "minimises the total payoff"}], "explain": "Each player plays a best response to the already-solved continuation."}, {"q": "If player 2 has a binary choice after each of player 1's two moves, player 2 has ...", "options": [{"text": "four contingent strategies", "correct": true}, {"text": "two strategies"}, {"text": "one strategy"}, {"text": "eight strategies"}], "explain": "A strategy specifies a choice after L and after R, giving \\(2 \\times 2 = 4\\)."}, {"q": "Every subgame perfect equilibrium is ...", "options": [{"text": "a Nash equilibrium", "correct": true}, {"text": "in mixed strategies"}, {"text": "unique"}, {"text": "Pareto efficient"}], "explain": "Subgame perfection is a refinement of Nash equilibrium."}, {"q": "Sequential rationality requires that a player's strategy is optimal ...", "options": [{"text": "at every information set, whether or not it is reached", "correct": true}, {"text": "only on the equilibrium path"}, {"text": "only at the first move"}, {"text": "only when the player is winning"}], "explain": "Optimality must hold conditional on every decision point."}, {"q": "In games of perfect information, the equilibrium found by backward induction is ...", "options": [{"text": "subgame perfect", "correct": true}, {"text": "never a Nash equilibrium"}, {"text": "always mixed"}, {"text": "the worst outcome for both players"}], "explain": "Backward induction produces a subgame perfect equilibrium."}, {"q": "An extensive form game has perfect information when ...", "options": [{"text": "every information set contains a single node", "correct": true}, {"text": "every player has the same payoff"}, {"text": "players move simultaneously"}, {"text": "there are no chance moves"}], "explain": "With singleton information sets, every node initiates a subgame and backward induction applies."}, {"q": "Backward induction proceeds by removing, at each decision node, actions that are ...", "options": [{"text": "dominated for the player deciding there", "correct": true}, {"text": "chosen by chance"}, {"text": "played first"}, {"text": "on the equilibrium path"}], "explain": "Working from the final nodes back to the root, dominated actions are pruned to leave the equilibrium."}, {"q": "A subgame perfect equilibrium must induce a Nash equilibrium in ...", "options": [{"text": "every subgame, including those never reached in play", "correct": true}, {"text": "only the subgames on the equilibrium path"}, {"text": "only the whole game"}, {"text": "only the final subgame"}], "explain": "This is exactly what rules out non-credible threats sitting off the equilibrium path."}, {"q": "The requirement that a strategy be optimal at every information set where a player decides is called ...", "options": [{"text": "sequential rationality", "correct": true}, {"text": "Pareto efficiency"}, {"text": "the folk theorem"}, {"text": "additivity"}], "explain": "Sequential rationality is the principle behind backward induction and subgame perfection."}, {"q": "In every finite game of perfect information, backward induction produces ...", "options": [{"text": "a pure-strategy subgame perfect Nash equilibrium", "correct": true}, {"text": "a mixed equilibrium only"}, {"text": "no equilibrium in general"}, {"text": "a non-credible threat"}], "explain": "Such games always have a pure-strategy Nash equilibrium, and backward induction identifies one."}]}</script>
+</div>
+
+
+<h2 id="example-questions">Example questions</h2>
+<p>The following are exam-type questions in the style of the examination paper,
+with marks at the rates used in the papers. <strong>A question totalling fewer than
+25 marks would, in the examination, be combined with further parts, often one
+of the examinable proofs, to make a full 25-mark question.</strong> Attempt them in
+full before reading the worked solutions.</p>
+<h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
+<p>In the Traitors debrief we saw that the Faithful's threat to banish a deviator
+works only when they can be sure who deviated. Once players sometimes break
+Vote-Left for fun, a flagged suspect might be the colluding Traitor or merely a
+Faithful having fun, and the threat can lose its bite. We model this with a
+two-stage game. Let <span class="arithmatex">\(q\)</span> be the Faithful's belief, the probability they
+assign, that the suspect they are poised to banish is the Traitor rather than
+someone breaking Vote-Left for fun. The Traitor chooses to <strong>comply</strong> with
+Vote-Left or <strong>deviate</strong> (keep colluding); the Faithful then choose to <strong>banish</strong>
+the suspect or <strong>carry on</strong>. Complying gives payoffs (Traitor, Faithful) of
+<span class="arithmatex">\((1, 2)\)</span>, and carrying on after a deviation gives <span class="arithmatex">\((3, 0)\)</span>. Banishing the
+suspect is a gamble: it yields <span class="arithmatex">\((-5, 3)\)</span> if the suspect really is the Traitor,
+which happens with probability <span class="arithmatex">\(q\)</span>, and <span class="arithmatex">\((3, -5)\)</span> if the suspect is an innocent
+Faithful, with probability <span class="arithmatex">\(1 - q\)</span>. Taking <span class="arithmatex">\(q = \tfrac{1}{2}\)</span>, the expected
+payoff to banishing is therefore <span class="arithmatex">\(\tfrac{1}{2}(-5, 3) + \tfrac{1}{2}(3, -5) =
+(-1, -1)\)</span>.</p>
+<p>(a) Represent the game in extensive form (draw the tree). [3]</p>
+<p>(b) Use backward induction to find the subgame perfect equilibrium and its
+payoffs. [5]</p>
+<p>(c) Show that (comply, banish) is a Nash equilibrium of the game. [5]</p>
+<p>(d) Explain why (comply, banish) is not subgame perfect, and how this mirrors the
+Traitors threat to banish a suspect that does not survive contact with the actual
+decision once the Faithful are unsure who deviated. [6]</p>
+<p>(e) More generally, let the suspect be the Traitor with probability <span class="arithmatex">\(q\)</span>, so that
+banishing gives expected payoffs <span class="arithmatex">\((3 - 8q,\ 8q - 5)\)</span>. Determine the range of
+<span class="arithmatex">\(q\)</span> for which the threat deters the Traitor, the range for which it is credible,
+and hence the range for which (comply, banish) is a Nash equilibrium that is not
+subgame perfect. [4]</p>
+<h3 id="question-2">Question 2</h3>
+<p>(a) Provide definitions for the following terms:</p>
+<ul>
+<li>an extensive form game;</li>
+<li>a subgame;</li>
+<li>backward induction;</li>
+<li>a subgame perfect equilibrium. [5]</li>
+</ul>
+<p>(b) An entrant must decide whether to <strong>enter</strong> a market or <strong>stay out</strong>. If the
+entrant enters, the incumbent must decide whether to <strong>fight</strong> or
+<strong>accommodate</strong>. The payoffs (entrant, incumbent) are: stay out <span class="arithmatex">\((0, 2)\)</span>;
+enter then fight <span class="arithmatex">\((-1, -1)\)</span>; enter then accommodate <span class="arithmatex">\((1, 1)\)</span>.</p>
+<p>(i) Draw the game in extensive form. [2]</p>
+<p>(ii) Use backward induction to find the subgame perfect equilibrium and the
+   resulting payoffs. [3]</p>
+<p>(iii) Find a Nash equilibrium of the game that is not subgame perfect, and
+   explain why it is not. [5]</p>
+<p>(iv) Write the game in normal form and confirm the pure Nash equilibria. [3]</p>
+<p>(c) Explain the difference between a Nash equilibrium and a subgame perfect
+equilibrium. [3]</p>
+<p>(d) State the theorem on the existence of a subgame perfect equilibrium in finite
+games of perfect information. [4]</p>
+<h3 id="question-3">Question 3</h3>
+<p>(a) Define sequential rationality. [2]</p>
+<p>(b) Player 1 chooses <span class="arithmatex">\(L\)</span> or <span class="arithmatex">\(R\)</span>. After <span class="arithmatex">\(L\)</span>, player 2 chooses <span class="arithmatex">\(\ell\)</span>
+(payoffs <span class="arithmatex">\((3, 1)\)</span>) or <span class="arithmatex">\(r\)</span> (payoffs <span class="arithmatex">\((0, 0)\)</span>). After <span class="arithmatex">\(R\)</span>, player 2
+chooses <span class="arithmatex">\(\ell\)</span> (payoffs <span class="arithmatex">\((2, 2)\)</span>) or <span class="arithmatex">\(r\)</span> (payoffs <span class="arithmatex">\((1, 3)\)</span>).</p>
+<p>(i) Use backward induction to find the subgame perfect equilibrium and its
+   payoffs. [3]</p>
+<p>(ii) Write the game in normal form. [4]</p>
+<p>(iii) Obtain all pure Nash equilibria. [4]</p>
+<p>(iv) State which Nash equilibrium is subgame perfect, and for each of the
+   others identify the non-credible threat that makes it fail. [4]</p>
+<p>(c) Consider the centipede game: player 1 may take, giving <span class="arithmatex">\((2, 0)\)</span>, or pass;
+then player 2 may take, giving <span class="arithmatex">\((1, 3)\)</span>, or pass; then player 1 may take,
+giving <span class="arithmatex">\((4, 2)\)</span>, or pass, giving the leaf <span class="arithmatex">\((3, 5)\)</span>.</p>
+<p>(i) Solve the game by backward induction. [5]</p>
+<p>(ii) State the subgame perfect outcome and payoffs, and comment on why the
+   prediction is striking given that both players could do better. [3]</p>
+<h3 id="question-4-hard">Question 4 (<strong>hard</strong>)</h3>
+<p>Two firms compete by choosing quantities, one after the other. Inverse demand is
+<span class="arithmatex">\(P(Q) = a - Q\)</span>, where <span class="arithmatex">\(Q = q_1 + q_2\)</span> is total output and <span class="arithmatex">\(a &gt; 0\)</span>; marginal
+costs are zero, so firm <span class="arithmatex">\(i\)</span> earns profit <span class="arithmatex">\(q_i P(Q)\)</span>. Firm 1 (the leader)
+chooses <span class="arithmatex">\(q_1\)</span> first; firm 2 (the follower) observes <span class="arithmatex">\(q_1\)</span> and then chooses
+<span class="arithmatex">\(q_2\)</span>.</p>
+<p>(a) Explain what a subgame perfect equilibrium is for a game with continuous
+action sets. [3]</p>
+<p>(b) By backward induction, find the follower's best response <span class="arithmatex">\(q_2(q_1)\)</span>. [6]</p>
+<p>(c) Hence find the leader's subgame perfect quantity, the follower's quantity, and
+the resulting profits. [8]</p>
+<p>(d) Compare with the simultaneous-move (Cournot) equilibrium, in which
+<span class="arithmatex">\(q_1 = q_2 = a/3\)</span>, and explain the first-mover advantage in terms of
+commitment: why the leader gains by moving first even though the follower observes
+the choice. [8]</p>
+<h2 id="marking-exercises-optional">Marking exercises (optional)</h2>
+<p>These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.</p>
+<h3 id="marking-exercise-1-on-question-2bii-and-iii-worth-3-and-5">Marking exercise 1 (on Question 2(b)(ii) and (iii), worth [3] and [5])</h3>
+<p>A student pastes Question 2(b) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">Backward induction: if the entrant enters, the incumbent compares
+fighting (-1) with accommodating (1) and accommodates. Anticipating
+this, the entrant compares staying out (0) with entering (1) and
+enters. The subgame perfect equilibrium is (enter, accommodate), with
+payoffs (1, 1). ✅
+
+A Nash equilibrium that is not subgame perfect: consider (stay out,
+accommodate): the entrant stays out, and the incumbent would
+accommodate if entered. This is a Nash equilibrium, but it is not
+subgame perfect, because the entrant's choice to stay out is not
+optimal in every subgame.
+</code></pre>
+<h3 id="marking-exercise-2-on-question-4b-and-c-worth-6-and-8">Marking exercise 2 (on Question 4(b) and (c), worth [6] and [8])</h3>
+<p>A student pastes Question 4 into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">Each firm maximises q_i (a - q1 - q2). The first-order conditions are
+
+    a - 2 q1 - q2 = 0,    a - q1 - 2 q2 = 0
+
+Solving simultaneously gives q1 = q2 = a/3, with profits a²/9 each.
+Firm 1 moves first, so it simply commits to a/3, and firm 2 follows
+with a/3. Moving first makes no difference: both firms play the same
+equilibrium either way. ♟️
+</code></pre>
+<h2 id="optional-further-reading">Optional further reading</h2>
+<p>You do not need this to follow the topic, but the
+<a href="https://vknight.org/gtb/chapters/repeated-games/">Repeated Games</a> chapter of the
+textbook may help if you would like more background on subgame perfect
+equilibria over a long horizon.</p>
+
+
+<p><strong><a href="/solutions/subgame-perfection.html">Worked solutions to the example questions &rarr;</a></strong></p>
+
+
+
+<p><strong><a href="/assets/quizzes/subgame-perfection.pdf">Download the full quiz as a PDF (all questions, no solutions) &rarr;</a></strong></p>
+
+
+
+<p><small><code><a href="/run/subgame-perfection.html">Facilitator notes: Subgame Perfection</a></code></small></p>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

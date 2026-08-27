@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Routing Games solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/routing-games.html">&larr; Back to Routing Games</a></small></p>
+
+<h1 id="routing-games-worked-solutions">Routing Games: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/routing-games.html">Routing Games</a> page. Each question is worth 25
+marks.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) Nash flow.</strong> [3]</p>
+<p>A Nash flow is a way the drivers split across the routes such that no individual
+driver can reduce their own travel time by switching route; every route actually
+used has minimal cost.</p>
+<p><strong>(b) Nash flow before the shortcut.</strong> [5]</p>
+<p>Let <span class="arithmatex">\(x\)</span> drivers take the top route and <span class="arithmatex">\(40 - x\)</span> the bottom. The top route
+costs <span class="arithmatex">\(x + 50\)</span> and the bottom costs <span class="arithmatex">\(50 + (40 - x)\)</span>. At a Nash flow these are
+equal:</p>
+<div class="arithmatex">\[
+x + 50 = 50 + (40 - x) \;\Longrightarrow\; x = 20.
+\]</div>
+<p>So 20 drivers take each route, and every driver's travel time is
+<span class="arithmatex">\(20 + 50 = 70\)</span> minutes.</p>
+<p><strong>(c) Nash flow after the shortcut.</strong> [7]</p>
+<p>Suppose all 40 drivers take <span class="arithmatex">\(S \to A \to B \to T\)</span>. Then 40 cars are on
+<span class="arithmatex">\(S \to A\)</span> and 40 on <span class="arithmatex">\(B \to T\)</span>, giving a travel time of <span class="arithmatex">\(40 + 0 + 40 = 80\)</span>
+minutes. A driver who deviates to the old top route <span class="arithmatex">\(S \to A \to T\)</span> pays
+<span class="arithmatex">\(40 + 50 = 90\)</span> minutes, and one who deviates to <span class="arithmatex">\(S \to B \to T\)</span> pays
+<span class="arithmatex">\(50 + 40 = 90\)</span> minutes. Both are worse than 80, so no driver can improve by
+switching: the zig-zag flow is a Nash flow.</p>
+<p><strong>(d) Braess's paradox.</strong> [7]</p>
+<p>Before the road, every driver took 70 minutes; after it, every driver takes 80.
+Adding a road made everyone worse off. Each driver chooses the route that is best
+for them, ignoring the extra congestion they add to the small roads <span class="arithmatex">\(S \to A\)</span>
+and <span class="arithmatex">\(B \to T\)</span>. The free shortcut tempts everyone onto both congested edges at
+once, and the resulting Nash flow is more costly than the original. The selfish
+(Nash) outcome need not be the social optimum, and extra capacity can make the
+selfish outcome worse.</p>
+<p><strong>(e) Price of Anarchy with the shortcut.</strong> [3]</p>
+<p>The Nash flow with the shortcut costs each driver <span class="arithmatex">\(80\)</span> minutes, while the social
+optimum (routing 20 drivers each way) costs <span class="arithmatex">\(70\)</span>. The Price of Anarchy is</p>
+<div class="arithmatex">\[
+\frac{80}{70} = \frac{8}{7}.
+\]</div>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>
+<ul>
+<li>A <strong>routing game</strong> <span class="arithmatex">\((G, r, c)\)</span> is defined on a graph <span class="arithmatex">\(G = (V, E)\)</span> with
+  source-sink pairs, each carrying a commodity <span class="arithmatex">\(r_i\)</span> of traffic; every edge
+  <span class="arithmatex">\(e\)</span> has a non-negative, continuous and non-decreasing cost function
+  <span class="arithmatex">\(c_e\)</span>.</li>
+<li>A flow <span class="arithmatex">\(f\)</span>, a vector indexed by the paths, is a <strong>feasible flow</strong> if for
+  each commodity <span class="arithmatex">\(i\)</span> the flow on its paths sums to the demand,
+  <span class="arithmatex">\(\sum_{P \in \mathcal{P}_i} f_P = r_i\)</span>, with <span class="arithmatex">\(f_P \ge 0\)</span>.</li>
+<li>A <strong>Nash flow</strong> is a feasible flow <span class="arithmatex">\(\tilde{f}\)</span> such that for every commodity
+  <span class="arithmatex">\(i\)</span> and any two of its paths <span class="arithmatex">\(P_1, P_2\)</span> with <span class="arithmatex">\(f_{P_1} &gt; 0\)</span> we have
+  <span class="arithmatex">\(c_{P_1}(f) \le c_{P_2}(f)\)</span>; every used path has minimal cost.</li>
+<li>An <strong>optimal flow</strong> is a feasible flow minimising the total cost
+  <span class="arithmatex">\(C(f) = \sum_{e \in E} c_e(f_e) f_e\)</span>.</li>
+</ul>
+<p><strong>(b)(i) Nash flow.</strong> [3]</p>
+<p>Route 1 always costs <span class="arithmatex">\(1\)</span> and route 2 costs <span class="arithmatex">\(x \le 1\)</span>, so all traffic uses
+route 2: <span class="arithmatex">\(x = 1\)</span> with average cost <span class="arithmatex">\(1\)</span>.</p>
+<p><strong>(b)(ii) Optimal flow.</strong> [4]</p>
+<p><span class="arithmatex">\(C(x) = x^2 + (1 - x)\)</span>, minimised at <span class="arithmatex">\(C'(x) = 2x - 1 = 0\)</span>, so
+<span class="arithmatex">\(x = \tfrac{1}{2}\)</span> with average cost <span class="arithmatex">\(\tfrac{3}{4}\)</span>.</p>
+<p><strong>(b)(iii) Price of Anarchy.</strong> [3]</p>
+<div class="arithmatex">\[
+\frac{1}{3/4} = \frac{4}{3}.
+\]</div>
+<p><strong>(c) Potential function.</strong> [8]</p>
+<p>The <strong>potential function</strong> is <span class="arithmatex">\(\Phi = \sum_e \int_0^{f_e} c_e(t)\,\mathrm{d}t\)</span>.
+For this network, with flow <span class="arithmatex">\(x\)</span> on route 2 and <span class="arithmatex">\(1 - x\)</span> on route 1,</p>
+<div class="arithmatex">\[
+\Phi(x) = \int_0^{1 - x} 1\,\mathrm{d}t + \int_0^{x} t\,\mathrm{d}t
+= (1 - x) + \frac{x^2}{2}.
+\]</div>
+<p>Then <span class="arithmatex">\(\Phi'(x) = -1 + x = 0\)</span> gives <span class="arithmatex">\(x = 1\)</span>, and <span class="arithmatex">\(\Phi''(x) = 1 &gt; 0\)</span>, so the
+minimiser is <span class="arithmatex">\(x = 1\)</span>. This is the Nash flow of part (b)(i): minimising the
+potential function recovers the Nash flow, in contrast to minimising the total
+cost which gives the optimal flow <span class="arithmatex">\(x = \tfrac{1}{2}\)</span>.</p>
+<p><strong>(d) Theorem.</strong> (Bookwork.) [3]</p>
+<p>A feasible flow <span class="arithmatex">\(\tilde{f}\)</span> is a Nash flow of <span class="arithmatex">\((G, r, c)\)</span> if and only if it
+minimises the potential function <span class="arithmatex">\(\Phi\)</span>. This makes Nash flows easy to compute:
+rather than reasoning about every driver's incentive to switch, we just minimise
+a single function <span class="arithmatex">\(\Phi\)</span> by calculus, exactly as above.</p>
+<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
+<p><strong>(a) Marginal cost and theorem.</strong> (Bookwork.) [4]</p>
+<p>The <strong>marginal cost</strong> of a route with cost <span class="arithmatex">\(c_e\)</span> carrying flow <span class="arithmatex">\(f_e\)</span> is
+<span class="arithmatex">\(\dfrac{\mathrm{d}}{\mathrm{d} f_e}\bigl(f_e\, c_e(f_e)\bigr)\)</span>. The theorem
+states that the optimal flow of a routing game is the Nash flow of the game with
+each cost function replaced by its marginal cost.</p>
+<p><strong>(b)(i) Nash flow.</strong> [4]</p>
+<p>With flow <span class="arithmatex">\(x\)</span> on route 1, costs are <span class="arithmatex">\(2x\)</span> and <span class="arithmatex">\(1\)</span>. Equilibrium equalises
+them: <span class="arithmatex">\(2x = 1\)</span>, so <span class="arithmatex">\(x = \tfrac{1}{2}\)</span>. Each route then costs <span class="arithmatex">\(1\)</span>, giving
+average cost <span class="arithmatex">\(1\)</span>.</p>
+<p><strong>(b)(ii) Optimal flow.</strong> [5]</p>
+<div class="arithmatex">\[
+C(x) = x(2x) + (1 - x)(1) = 2x^2 - x + 1,
+\qquad C'(x) = 4x - 1 = 0 \Rightarrow x = \tfrac{1}{4}.
+\]</div>
+<p>The average cost is
+<span class="arithmatex">\(C\!\left(\tfrac{1}{4}\right) = 2\cdot\tfrac{1}{16} - \tfrac{1}{4} + 1
+= \tfrac{7}{8}\)</span>.</p>
+<p><strong>(b)(iii) Marginal costs.</strong> [5]</p>
+<p>The marginal costs are <span class="arithmatex">\(\tfrac{\mathrm{d}}{\mathrm{d}x}(x \cdot 2x) = 4x\)</span> on
+route 1 and <span class="arithmatex">\(\tfrac{\mathrm{d}}{\mathrm{d}x}(x \cdot 1) = 1\)</span> on route 2.
+Equalising them, <span class="arithmatex">\(4x = 1\)</span> gives <span class="arithmatex">\(x = \tfrac{1}{4}\)</span>, which is exactly the
+optimal flow, confirming the theorem.</p>
+<p><strong>(b)(iv) Price of Anarchy.</strong> [3]</p>
+<div class="arithmatex">\[
+\frac{1}{7/8} = \frac{8}{7}.
+\]</div>
+<p><strong>(c) Interpreting the Price of Anarchy.</strong> [4]</p>
+<p>The Price of Anarchy is the ratio of the cost of the selfish (Nash) flow to the
+cost of the optimal flow: it measures how much worse self-interested routing is
+than a coordinated social optimum. If both routes had constant, flow-independent
+costs, then no driver's choice would affect anyone else, the Nash flow would
+coincide with the optimal flow, and the Price of Anarchy would equal <span class="arithmatex">\(1\)</span>. It is
+congestion, costs that rise with flow, that creates the gap.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) Paths, flow vector and cost.</strong> [7]</p>
+<p>Each commodity can use its dedicated road or reach the depot through the
+junction:</p>
+<div class="arithmatex">\[
+\mathcal{P}_1 = \{(s_1, t),\, (s_1, a, t)\},
+\qquad
+\mathcal{P}_2 = \{(s_2, t),\, (s_2, a, t)\}.
+\]</div>
+<p>With <span class="arithmatex">\(\alpha\)</span> on <span class="arithmatex">\((s_1, t)\)</span>, feasibility for commodity 1 forces
+<span class="arithmatex">\(1/2 - \alpha\)</span> on <span class="arithmatex">\((s_1, a, t)\)</span>, and similarly for commodity 2, so</p>
+<div class="arithmatex">\[
+f = \bigl(f_{(s_1, t)},\, f_{(s_1, a, t)},\, f_{(s_2, t)},\, f_{(s_2, a, t)}\bigr)
+= \left(\alpha,\, \tfrac{1}{2} - \alpha,\, \beta,\, \tfrac{1}{2} - \beta\right),
+\]</div>
+<p>which is feasible when <span class="arithmatex">\(0 \le \alpha \le \tfrac{1}{2}\)</span> and
+<span class="arithmatex">\(0 \le \beta \le \tfrac{1}{2}\)</span>. The ring road carries the traffic of both
+companies,
+<span class="arithmatex">\(f_{(a, t)} = (\tfrac{1}{2} - \alpha) + (\tfrac{1}{2} - \beta) = 1 - \alpha - \beta\)</span>.
+Summing <span class="arithmatex">\(c_e(f_e)\, f_e\)</span> over the edges (the connectors cost nothing):</p>
+<div class="arithmatex">\[
+C(\alpha, \beta) = \alpha \cdot \alpha + \frac{1}{2}\,\beta
++ (1 - \alpha - \beta)(1 - \alpha - \beta)
+= \alpha^2 + \frac{\beta}{2} + (1 - \alpha - \beta)^2.
+\]</div>
+<p><strong>(b) The Nash flow.</strong> [7]</p>
+<p>Write <span class="arithmatex">\(s = 1 - \alpha - \beta\)</span> for the flow on the ring road, and suppose both
+commodities use both of their paths, so each commodity's two paths cost the
+same:</p>
+<div class="arithmatex">\[
+\alpha = s \quad\text{(commodity 1)},
+\qquad
+\frac{1}{2} = s \quad\text{(commodity 2)}.
+\]</div>
+<p>These give <span class="arithmatex">\(\alpha = \tfrac{1}{2}\)</span> and hence <span class="arithmatex">\(\beta = 0\)</span>: the solution sits
+on the boundary, with commodity 1 sending nothing through the junction and
+commodity 2 sending nothing on its dedicated road. We therefore verify the Nash
+condition at <span class="arithmatex">\(\tilde f = (\tfrac{1}{2}, 0, 0, \tfrac{1}{2})\)</span> directly.
+Commodity 1 uses only <span class="arithmatex">\((s_1, t)\)</span>, at cost <span class="arithmatex">\(\tfrac{1}{2}\)</span>; its alternative
+<span class="arithmatex">\((s_1, a, t)\)</span> costs <span class="arithmatex">\(0 + s = \tfrac{1}{2}\)</span>. Commodity 2 uses only
+<span class="arithmatex">\((s_2, a, t)\)</span>, at cost <span class="arithmatex">\(\tfrac{1}{2}\)</span>; its alternative <span class="arithmatex">\((s_2, t)\)</span> costs
+<span class="arithmatex">\(\tfrac{1}{2}\)</span>. Every used path has minimal cost, so <span class="arithmatex">\(\tilde f\)</span> is a Nash
+flow.</p>
+<p>This is in fact the only Nash flow. If <span class="arithmatex">\(s &gt; \tfrac{1}{2}\)</span> then commodity 2's
+ring path costs more than its dedicated road, so <span class="arithmatex">\(\beta = \tfrac{1}{2}\)</span> and
+<span class="arithmatex">\(s = \tfrac{1}{2} - \alpha \le \tfrac{1}{2}\)</span>, a contradiction; if
+<span class="arithmatex">\(s &lt; \tfrac{1}{2}\)</span> then its dedicated road is the dearer, so <span class="arithmatex">\(\beta = 0\)</span> and
+<span class="arithmatex">\(s = 1 - \alpha \ge \tfrac{1}{2}\)</span>, again a contradiction. Hence
+<span class="arithmatex">\(s = \tfrac{1}{2}\)</span>, and if commodity 1 used the ring path the Nash condition
+would force <span class="arithmatex">\(\tfrac{1}{2} \le \alpha\)</span>, so <span class="arithmatex">\(\alpha = \tfrac{1}{2}\)</span> and
+<span class="arithmatex">\(\beta = 0\)</span>. The total cost is</p>
+<div class="arithmatex">\[
+C(\tilde f) = \left(\frac{1}{2}\right)^2 + \frac{1}{2}\cdot 0
++ \left(\frac{1}{2}\right)^2 = \frac{1}{2}.
+\]</div>
+<p><strong>(c) The optimal flow.</strong> [7]</p>
+<p>The cost <span class="arithmatex">\(C(\alpha, \beta)\)</span> is strictly convex, so the stationary point is the
+minimiser provided it is feasible. Stationarity gives</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{\partial C}{\partial \alpha} &amp;= 2\alpha - 2(1 - \alpha - \beta) = 0, \\
+\frac{\partial C}{\partial \beta} &amp;= \frac{1}{2} - 2(1 - \alpha - \beta) = 0.
+\end{aligned}
+\]</div>
+<p>The second equation gives ring-road flow <span class="arithmatex">\(1 - \alpha - \beta = \tfrac{1}{4}\)</span>,
+and then the first gives <span class="arithmatex">\(\alpha = \tfrac{1}{4}\)</span>, hence
+<span class="arithmatex">\(\beta = \tfrac{1}{2}\)</span>. Both lie in <span class="arithmatex">\([0, \tfrac{1}{2}]\)</span>, so</p>
+<div class="arithmatex">\[
+f^{*} = \left(\frac{1}{4}, \frac{1}{4}, \frac{1}{2}, 0\right),
+\qquad
+C(f^{*}) = \frac{1}{16} + \frac{1}{4} + \frac{1}{16} = \frac{3}{8}.
+\]</div>
+<p>As a check, the marginal costs are <span class="arithmatex">\(2x\)</span>, <span class="arithmatex">\(\tfrac{1}{2}\)</span> and <span class="arithmatex">\(2x\)</span>, and
+equalising them for each commodity gives <span class="arithmatex">\(2\alpha = 2(1 - \alpha - \beta)\)</span> and
+<span class="arithmatex">\(\tfrac{1}{2} = 2(1 - \alpha - \beta)\)</span>: exactly the stationarity conditions,
+confirming that the optimal flow is the Nash flow for the marginal costs.</p>
+<p><strong>(d) The price of anarchy.</strong> [4]</p>
+<div class="arithmatex">\[
+\text{PoA} = \frac{C(\tilde f)}{C(f^{*})} = \frac{1/2}{3/8} = \frac{4}{3}.
+\]</div>
+<p>At the Nash flow company 2 has no incentive to use its dedicated road, since
+both of its options cost <span class="arithmatex">\(\tfrac{1}{2}\)</span>, so its vans fill half the ring road.
+The planner instead routes company 2 entirely on its dedicated road, which costs
+it nothing extra because that cost is flow-independent, and frees the ring road
+so that company 1 can split its traffic at a cost of <span class="arithmatex">\(\tfrac{1}{4}\)</span> per path
+rather than <span class="arithmatex">\(\tfrac{1}{2}\)</span>. All of the saving comes from company 1, while
+company 2 is no worse off. The value <span class="arithmatex">\(\tfrac{4}{3}\)</span> is exactly the price of
+anarchy of Pigou's example: all the cost functions here are affine, and this
+two-commodity network attains the same worst-case bound.</p>
+<h2 id="marking-exercises">Marking exercises</h2>
+<p><strong>Marking exercise 1 (Question 3(b)(i) and (ii)).</strong></p>
+<p>The Nash flow is correct: [4] of [4].</p>
+<p>The optimal flow is not found by equalising costs: equal costs on all used
+routes is precisely the <em>Nash</em> condition, so the transcript has simply
+computed the Nash flow twice. The optimal flow minimises the average cost
+<span class="arithmatex">\(C(x) = 2x^2 + (1 - x)\)</span>, giving <span class="arithmatex">\(C'(x) = 4x - 1 = 0\)</span>, <span class="arithmatex">\(x =
+\tfrac{1}{4}\)</span> and average cost <span class="arithmatex">\(\tfrac{7}{8} &lt; 1\)</span>, as in the solution
+above. The justification offered, that unequal costs mean "the allocation
+could be improved", is exactly wrong: an optimum deliberately leaves the
+<span class="arithmatex">\(\tfrac{1}{4}\)</span> of drivers on the congestible route facing a <em>lower</em> cost
+than the rest, trading a few drivers' time for less congestion overall,
+which is what equalising <em>marginal</em> costs in part (iii) captures. The
+downstream claim that the Price of Anarchy is <span class="arithmatex">\(1\)</span> falls with it: the
+correct value is <span class="arithmatex">\(\tfrac{8}{7}\)</span>. A fair mark is [0] of [5] for (ii).</p>
+<p><strong>Marking exercise 2 (Question 2(c)).</strong></p>
+<p>The potential function is not the total cost. Each edge contributes the
+<em>integral</em> of its cost function up to its flow,</p>
+<div class="arithmatex">\[
+\Phi(x) = \int_0^{1 - x} 1 \, \mathrm{d}t + \int_0^{x} t \, \mathrm{d}t
+= (1 - x) + \frac{x^2}{2},
+\]</div>
+<p>whose minimum over <span class="arithmatex">\([0, 1]\)</span> is at <span class="arithmatex">\(x = 1\)</span>: the Nash flow sends all the
+traffic down route 2, where both routes then cost <span class="arithmatex">\(1\)</span>, as in the solution
+above. What the transcript minimised, <span class="arithmatex">\(\sum_e x_e c_e(x_e)\)</span>, is the total
+cost, and its minimiser <span class="arithmatex">\(x = \tfrac{1}{2}\)</span> is the <em>optimal</em> flow, not the
+Nash flow. The answer even fails its own check: at <span class="arithmatex">\(x = \tfrac{1}{2}\)</span>
+route 2 costs <span class="arithmatex">\(\tfrac{1}{2}\)</span> and route 1 costs <span class="arithmatex">\(1\)</span>, so every driver on
+route 1 would switch, which is not a Nash flow by definition. The
+distinction between <span class="arithmatex">\(\sum_e x_e c_e(x_e)\)</span> and
+<span class="arithmatex">\(\sum_e \int_0^{x_e} c_e(t)\,\mathrm{d}t\)</span> is exactly the distinction
+between the optimal and the Nash flow, which is why the two theorems in this
+topic are worth keeping apart. A fair mark is [2] of [8], for the shape of
+the definition and the calculus.</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

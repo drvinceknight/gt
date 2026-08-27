@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Nash equilibrium}
+\begin{enumerate}[itemsep=6pt]
+  \item A Nash equilibrium is a strategy profile in which ...
+  \begin{enumerate}
+    \item no player ever randomises
+    \item every player's strategy is a best response to the others' strategies
+    \item every player plays a strictly dominant strategy
+    \item the sum of the players' payoffs is maximised
+  \end{enumerate}
+  \item A strategy \(s^*\) for player \(i\) is a best response to the others if ...
+  \begin{enumerate}
+    \item it gives every player the same payoff
+    \item it is the strategy with the largest support
+    \item it gives player \(i\) at least as high a payoff as any other strategy, given the others
+    \item it strictly dominates every other strategy
+  \end{enumerate}
+  \item In Rock-Paper-Scissors, the unique Nash equilibrium is for each player to ...
+  \begin{enumerate}
+    \item play each action with probability \(1/3\)
+    \item copy the opponent's last move
+    \item always play Rock
+    \item there is no Nash equilibrium
+  \end{enumerate}
+  \item The support of a mixed strategy is ...
+  \begin{enumerate}
+    \item the set of actions played with positive probability
+    \item the action with the highest payoff
+    \item the opponent's best response
+    \item the set of all of the player's actions
+  \end{enumerate}
+  \item An action is strictly dominated if ...
+  \begin{enumerate}
+    \item it is never a best response in a pure equilibrium
+    \item the opponent also has a dominated action
+    \item it gives a lower payoff than some other action against at least one opponent strategy
+    \item some strategy gives a strictly higher payoff against every strategy of the opponents
+  \end{enumerate}
+  \item By the best response condition, a mixed strategy is a best response if and only if ...
+  \begin{enumerate}
+    \item the opponent is also indifferent
+    \item all actions are played with equal probability
+    \item it places all weight on a single action
+    \item every action in its support yields the maximal expected payoff
+  \end{enumerate}
+  \item A strictly dominant action for a player is one that ...
+  \begin{enumerate}
+    \item is a best response to at least one opponent strategy
+    \item maximises the combined payoff of both players
+    \item gives a strictly higher payoff than every other action, against every opponent profile
+    \item is played in some Nash equilibrium
+  \end{enumerate}
+  \item A pure strategy is a special case of a mixed strategy in which ...
+  \begin{enumerate}
+    \item all the probability is placed on a single action
+    \item the player has only one action
+    \item the opponent is indifferent
+    \item every action is equally likely
+  \end{enumerate}
+  \item Nash's theorem guarantees that every finite game has ...
+  \begin{enumerate}
+    \item no Nash equilibrium unless there is a dominant strategy
+    \item a Nash equilibrium only if it is zero sum
+    \item a unique Nash equilibrium
+    \item at least one Nash equilibrium, possibly in mixed strategies
+  \end{enumerate}
+  \item A coordination game (such as choosing the same side of the road) typically has ...
+  \begin{enumerate}
+    \item infinitely many pure equilibria
+    \item no Nash equilibrium
+    \item a single dominant-strategy equilibrium
+    \item two pure equilibria and one mixed equilibrium
+  \end{enumerate}
+  \item To find the mixed equilibrium of a 2x2 game you ...
+  \begin{enumerate}
+    \item eliminate the dominant strategy
+    \item maximise each player's own payoff
+    \item set both players to play uniformly
+    \item choose each player's mix so the other player is indifferent between their actions
+  \end{enumerate}
+  \item A two-player game is non-degenerate if ...
+  \begin{enumerate}
+    \item the payoff matrices sum to zero
+    \item no strategy of support size \(k\) has more than \(k\) best response actions
+    \item every player has a strictly dominant strategy
+    \item it has a unique Nash equilibrium
+  \end{enumerate}
+  \item An action that is weakly (but not strictly) dominated ...
+  \begin{enumerate}
+    \item is never a best response
+    \item can still be a best response against some opponent strategy
+    \item is always played in equilibrium
+    \item must be strictly dominated too
+  \end{enumerate}
+  \item The support enumeration algorithm finds Nash equilibria by ...
+  \begin{enumerate}
+    \item removing all dominated actions
+    \item checking each possible pair of supports for the indifference and best response conditions
+    \item simulating the game many times
+    \item computing the value of the game
+  \end{enumerate}
+  \item If a game has a strictly dominant strategy for each player, then ...
+  \begin{enumerate}
+    \item there is no Nash equilibrium
+    \item the equilibrium must be mixed
+    \item the profile of dominant strategies is the unique Nash equilibrium
+    \item there are many Nash equilibria
+  \end{enumerate}
+  \item The existence of a Nash equilibrium in every finite game is proved using ...
+  \begin{enumerate}
+    \item the central limit theorem
+    \item the fundamental theorem of algebra
+    \item Kakutani's fixed-point theorem applied to the best response correspondence
+    \item linear programming duality
+  \end{enumerate}
+  \item The map \(\beta_i(s_{-i}) = \arg\max_{\sigma_i} u_i(\sigma_i, s_{-i})\) is called the ...
+  \begin{enumerate}
+    \item payoff matrix
+    \item best response correspondence
+    \item replicator equation
+    \item support
+  \end{enumerate}
+  \item A mixed strategy for a player is ...
+  \begin{enumerate}
+    \item a probability distribution over that player's actions
+    \item a payoff value
+    \item an ordering of the opponents
+    \item a single chosen action
+  \end{enumerate}
+  \item In the support enumeration algorithm, for a candidate pair of supports one solves equations making each player ...
+  \begin{enumerate}
+    \item prefer their first action
+    \item minimise the opponent's payoff
+    \item indifferent between the actions in their own support
+    \item play a pure strategy
+  \end{enumerate}
+  \item Nash's theorem guarantees at least one equilibrium but ...
+  \begin{enumerate}
+    \item never a mixed one
+    \item always exactly one
+    \item only in zero-sum games
+    \item not necessarily a unique one
+  \end{enumerate}
+\end{enumerate}
+\end{document}

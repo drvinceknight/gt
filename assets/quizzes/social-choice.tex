@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Social choice}
+\begin{enumerate}[itemsep=6pt]
+  \item A Condorcet winner is an alternative that ...
+  \begin{enumerate}
+    \item has the most first choice votes
+    \item is ranked last by no one
+    \item has the highest Borda score
+    \item beats every other alternative in a pairwise majority vote
+  \end{enumerate}
+  \item A Condorcet cycle is when ...
+  \begin{enumerate}
+    \item the Borda winner is always unique
+    \item pairwise majority preferences cycle even when every voter's ranking is transitive
+    \item simple majority rule always picks the Condorcet winner
+    \item voters cannot rank candidates
+  \end{enumerate}
+  \item Borda's method scores each alternative by ...
+  \begin{enumerate}
+    \item the number of alternatives it is ranked above, summed over all voters
+    \item whether it beats every rival head-to-head
+    \item a coin toss
+    \item the number of first choice votes only
+  \end{enumerate}
+  \item Arrow's impossibility theorem states that ...
+  \begin{enumerate}
+    \item simple majority rule is always transitive
+    \item Borda's method is the only fair voting rule
+    \item no social welfare function satisfies unrestricted domain, Pareto efficiency, independence of irrelevant alternatives and non-dictatorship together
+    \item every preference profile has a Condorcet winner
+  \end{enumerate}
+  \item Simple majority rule ranks \(x\) above \(y\) when ...
+  \begin{enumerate}
+    \item a strict majority of voters prefer \(x\) to \(y\)
+    \item \(x\) has a higher Borda score than \(y\)
+    \item any voter prefers \(x\) to \(y\)
+    \item \(x\) has more first choice votes than \(y\)
+  \end{enumerate}
+  \item A social welfare function maps ...
+  \begin{enumerate}
+    \item every preference profile to a collective ranking of the alternatives
+    \item candidates to vote totals only
+    \item payoffs to strategies
+    \item each voter to a single candidate
+  \end{enumerate}
+  \item A preference profile is ...
+  \begin{enumerate}
+    \item the list of every voter's ranking of the alternatives
+    \item the winning candidate
+    \item a single voter's top choice
+    \item a payoff matrix
+  \end{enumerate}
+  \item Each voter's preference is assumed to be ...
+  \begin{enumerate}
+    \item a transitive strict ranking of the alternatives
+    \item a probability distribution
+    \item a single favourite only
+    \item possibly cyclic
+  \end{enumerate}
+  \item Independence of irrelevant alternatives requires that the collective ranking of \(x\) and \(y\) ...
+  \begin{enumerate}
+    \item always matches the Borda ranking
+    \item is decided by a single voter
+    \item ignores how voters rank \(x\) and \(y\)
+    \item depends only on how voters rank \(x\) against \(y\), not on any third alternative
+  \end{enumerate}
+  \item When a Condorcet winner exists, it is ...
+  \begin{enumerate}
+    \item one of several
+    \item unique
+    \item never the Borda winner
+    \item always the Borda winner
+  \end{enumerate}
+  \item Borda's method always ...
+  \begin{enumerate}
+    \item produces a complete ranking and never cycles
+    \item fails when preferences differ
+    \item selects the Condorcet winner
+    \item ignores lower preferences
+  \end{enumerate}
+  \item The Borda winner ...
+  \begin{enumerate}
+    \item never exists
+    \item need not be the Condorcet winner, even when one exists
+    \item is always the simple majority winner
+    \item is always the Condorcet winner
+  \end{enumerate}
+  \item A Condorcet cycle has the form ...
+  \begin{enumerate}
+    \item \(A \succ B \succ C\) with no return
+    \item everyone ranking \(A\) first
+    \item \(A \succ B \succ C \succ A\) under pairwise majority
+    \item a tie between all candidates
+  \end{enumerate}
+  \item Condorcet's method can fail to select a winner because ...
+  \begin{enumerate}
+    \item voters cannot rank candidates
+    \item it always produces a tie
+    \item it ignores first choice votes
+    \item pairwise majorities may cycle, so no candidate beats all others
+  \end{enumerate}
+  \item Different voting methods applied to the same profile ...
+  \begin{enumerate}
+    \item can select different winners
+    \item are forbidden
+    \item always tie
+    \item always agree
+  \end{enumerate}
+  \item A voter's preference function is a strict linear order, meaning it is asymmetric, transitive and ...
+  \begin{enumerate}
+    \item reflexive
+    \item random
+    \item cyclic
+    \item complete (every pair of distinct alternatives is ranked)
+  \end{enumerate}
+  \item Arrow's impossibility theorem applies to sets of alternatives of size ...
+  \begin{enumerate}
+    \item exactly 2
+    \item at least 10
+    \item at least 3
+    \item any size, including 1
+  \end{enumerate}
+  \item Both Borda's method and Condorcet's method respond to Arrow's theorem by giving up which property?
+  \begin{enumerate}
+    \item independence of irrelevant alternatives
+    \item unrestricted domain
+    \item non-dictatorship
+    \item Pareto efficiency
+  \end{enumerate}
+  \item With three alternatives, Borda's method awards a voter's top choice ...
+  \begin{enumerate}
+    \item 2 points
+    \item 3 points
+    \item 1 point
+    \item 0 points
+  \end{enumerate}
+  \item A voting rule is open to strategic manipulation when a voter can gain by ...
+  \begin{enumerate}
+    \item adding a new candidate
+    \item abstaining from the vote
+    \item ranking alternatives honestly
+    \item misreporting their true preferences
+  \end{enumerate}
+\end{enumerate}
+\end{document}

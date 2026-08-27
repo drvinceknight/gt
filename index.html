@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="textbook-note">
+  <strong>About the textbook.</strong> This course follows the open-source
+  textbook at <a href="https://vknight.org/gtb/">vknight.org/gtb</a>, which
+  contains every topic we cover, together with exercises, worked solutions and
+  the programming material. Not every chapter of the textbook is on the course:
+  the schedule below lists what is examinable, but you are very welcome to read
+  the other chapters too.
+</div>
+
+<h2>Schedule</h2>
+
+
+<div class="week-block">
+  <h3>Week 1 (3 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/about-the-course.html">About the course</a></li>
+    
+    
+    
+    <li><a href="/topics/games.html">Games</a></li>
+    
+    
+    
+    <li><a href="/topics/rationalisation.html">Rationalisation</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 2 (2 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/nash-equilibrium.html">Nash Equilibrium</a></li>
+    
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Normal form games</li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 3 (3 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/subgame-perfection.html">Subgame Perfection</a> <small>(first of two classes)</small></li>
+    
+    
+    
+    <li><a href="/topics/subgame-perfection.html">Subgame Perfection</a> <small>(second of two classes)</small></li>
+    
+    
+    
+    <li><a href="/topics/repeated-games.html">Repeated Games</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 4 (2 classes)</h3>
+  <ul>
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Extensive form and repeated games</li>
+    
+    
+    
+    <li><a href="/topics/direct-reciprocity.html">Direct Reciprocity</a> <small>(first of two classes)</small></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 5 (3 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/direct-reciprocity.html">Direct Reciprocity</a> <small>(second of two classes)</small></li>
+    
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Reciprocity and evolutionary stability</li>
+    
+    
+    
+    <li><a href="/topics/replicator-dynamics.html">Replicator Dynamics</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 6 (2 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/moran-process.html">Moran Process</a> <small>(first of two classes)</small></li>
+    
+    
+    
+    <li><a href="/topics/moran-process.html">Moran Process</a> <small>(second of two classes)</small></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 7 (3 classes)</h3>
+  <ul>
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Evolutionary dynamics (Replicator and Moran)</li>
+    
+    
+    
+    <li><a href="/topics/routing-games.html">Routing Games</a></li>
+    
+    
+    
+    <li><a href="/topics/matching-games.html">Matching Games</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 8 (2 classes)</h3>
+  <ul>
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Routing and matching games</li>
+    
+    
+    
+    <li><a href="/topics/auctions.html">Auctions</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 9 (3 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/social-choice.html">Social Choice</a></li>
+    
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Auctions and social choice</li>
+    
+    
+    
+    <li><a href="/topics/cooperative-games.html">Cooperative Games</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 10 (2 classes)</h3>
+  <ul>
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Cooperative games</li>
+    
+    
+    
+    <li><a href="/topics/mock-exam.html">Mock Exam</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 11 (3 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/mock-exam.html">Mock Exam</a></li>
+    
+    
+    
+    <li class="example-class"><strong>Example class:</strong> Mock Exam</li>
+    
+    
+    
+    <li><a href="/topics/slack.html">Slack</a></li>
+    
+    
+  </ul>
+</div>
+
+<div class="week-block">
+  <h3>Week 12 (2 classes)</h3>
+  <ul>
+    
+    
+    <li><a href="/topics/slack.html">Slack</a></li>
+    
+    
+    
+    <li><a href="/topics/slack.html">Slack</a></li>
+    
+    
+  </ul>
+</div>
+
+
+<hr>
+
+<h2>FAQs</h2>
+
+
+<h3>Can I succeed in this course even if I am unsure about my programming ability?</h3>
+<p>Yes. There is no programming required for this course and none of it is assessed.
+The textbook includes optional Python for those who want to explore the ideas
+computationally, but you do not need to write or run any code to do well.</p>
+
+<h3>I see a lot of Python in the textbook. Is it needed for this course?</h3>
+<p>No. There is no programming required for this module: it is not assessed and you
+do not need to write or run any code to do well. The Python in the textbook is
+entirely optional. It is there so you can explore the ideas computationally and
+check your working if you would like to, but you are welcome to ignore it.</p>
+<p>If you do want to try it and are not familiar with Python, these chapters of
+Python For Mathematics on
+<a href="https://vknight.org/pfm/tools-for-mathematics/01-using-notebooks/introduction/main.html">installing and using Python</a>
+and
+<a href="https://vknight.org/pfm/further-information/04-pip-installing/introduction/main.html">installing and using other libraries</a>
+are a good place to start.</p>
+
+<h3>Can I use AI tools such as ChatGPT or Claude to help me study?</h3>
+<p>You may, but I encourage you to be deliberate about how. The assessment for
+this course is a closed-book examination with no generative AI allowed, so the
+only thing that matters on the day is what you can do yourself.</p>
+<p>The evidence so far is that these tools help or harm depending on how they are
+used. In a
+<a href="https://www.pnas.org/doi/10.1073/pnas.2422633122">field experiment with nearly a thousand mathematics students</a>
+published in PNAS, students with unrestricted access to GPT-4 did much better
+on practice problems, but once access was removed they did <em>worse</em> on the exam
+than students who had never used it. Notably, a version of the tutor
+constrained to give hints rather than answers removed most of that harm.</p>
+<p>So if you use an LLM, use it in ways that keep you doing the thinking: ask it
+to quiz you on the definitions, ask it for a hint rather than a solution, or
+show it an attempt you have already written and ask it to find the error. Do
+not ask it to answer an example question before you have attempted the
+question in full yourself. Otherwise you are practising for an examination
+that the AI sits, and not the one that you will.</p>
+
+<h3>Why is the assessment entirely exam based, with no generative AI allowed?</h3>
+<p>The aim of the course is that <em>you</em> can do game theory: state and prove the
+results, compute the equilibria and interpret what they mean. A closed-book
+examination is the most direct and fair way to assess exactly that, and it is
+a deliberate choice meant to protect your learning.</p>
+<p>Recent published research shows that passing your thinking on to an AI weakens
+the very abilities a course is meant to build. A
+<a href="https://www.pnas.org/doi/10.1073/pnas.2422633122">study in PNAS</a> found that
+students with access to GPT-4 improved on practice problems but performed
+worse than their peers once access was removed: the tool did the learning
+instead of them. A
+<a href="https://doi.org/10.3390/soc15010006">study of 666 participants</a> found that
+heavier AI use was associated with weaker critical thinking, explained by
+<em>cognitive offloading</em>, the habit of handing thinking to the tool rather than
+doing it. And a
+<a href="https://arxiv.org/abs/2506.08872">brain-imaging study at MIT</a> found that
+essay writers using an LLM showed the weakest neural connectivity and the
+poorest recall of their own work, an effect the authors call accumulating
+'cognitive debt'. None of this is entirely new: a
+<a href="https://doi.org/10.1207/s15326985ep4102_1">classic analysis by Kirschner, Sweller and Clark</a>
+argued two decades ago that learning is a change in long-term memory, and that
+teaching approaches fail when they leave the learner consulting a source
+instead of building knowledge of their own. In short, thinking works like a
+muscle: the skills you hand over, you lose.</p>
+<p>An examination with no generative AI means the work you put in during the
+course, attempting the example questions and reproducing the proofs yourself,
+is precisely the work that is rewarded. You will certainly use AI tools in
+your working life, but they are most valuable to people who understand the
+material well enough to direct them and to catch their mistakes; that
+understanding is what this course, and its examination, are for.</p>
+
+<h3>What is a bribentive?</h3>
+<p>A <em>bribentive</em> is a word we use in class for the small rewards handed out during
+some activities. It is a blend of <em>bribe</em> and <em>incentive</em>: the reward is usually
+just a sweet or a chocolate bar, so it is not really a good incentive, more a
+small bribe for engagement. The games still work without it, but it adds a bit
+of fun to the competition.</p>
+
+
+<hr>
+
+<h2><a href="/assessment/">Assessment</a></h2>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

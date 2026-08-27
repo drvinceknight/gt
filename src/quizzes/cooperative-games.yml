@@ -1,0 +1,182 @@
+title: Cooperative games
+pick: 5
+questions:
+  - q: "A characteristic function game \\((N, v)\\) assigns ..."
+    options:
+      - text: "to each coalition of players a worth \\(v\\)"
+        correct: true
+      - text: "to each player a single action"
+      - text: "to each player a payoff matrix"
+      - text: "a probability to each outcome"
+    explain: "\\(v\\) maps every subset of players to the value that coalition can secure."
+
+  - q: "The Shapley value of a player is ..."
+    options:
+      - text: "their average marginal contribution over all orderings of the players"
+        correct: true
+      - text: "the worth of the grand coalition divided equally"
+      - text: "the largest coalition they belong to"
+      - text: "their payoff in the worst coalition"
+    explain: "Averaging marginal contributions over every order gives the Shapley value."
+
+  - q: "The efficiency property of the Shapley value says that ..."
+    options:
+      - text: "the players' payoffs sum to the worth of the grand coalition"
+        correct: true
+      - text: "every player receives the same amount"
+      - text: "the strongest player gets everything"
+      - text: "payoffs are always non-negative"
+    explain: "Efficiency shares out exactly the value of the grand coalition."
+
+  - q: "A null player is one who ..."
+    options:
+      - text: "adds nothing to any coalition they join, and so receives a Shapley value of \\(0\\)"
+        correct: true
+      - text: "is in no coalition"
+      - text: "always receives the most"
+      - text: "has the highest marginal contribution"
+    explain: "If \\(v(C \\cup \\{i\\}) = v(C)\\) for every \\(C\\), the player gets nothing."
+
+  - q: "The symmetry property says that two players who ..."
+    options:
+      - text: "contribute equally to every coalition receive equal Shapley values"
+        correct: true
+      - text: "have the same name receive equal payoffs"
+      - text: "join last always tie"
+      - text: "are both null players receive everything"
+    explain: "Interchangeable players are treated identically by the Shapley value."
+
+  - q: "The marginal contribution of player \\(i\\) to a coalition \\(S\\) is ..."
+    options:
+      - text: "\\(v(S \\cup \\{i\\}) - v(S)\\)"
+        correct: true
+      - text: "\\(v(S) / |S|\\)"
+      - text: "\\(v(\\{i\\})\\)"
+      - text: "\\(v(S \\cup \\{i\\})\\)"
+    explain: "It is the extra worth player \\(i\\) brings when joining coalition \\(S\\)."
+
+  - q: "The grand coalition is ..."
+    options:
+      - text: "the coalition of all the players"
+        correct: true
+      - text: "the strongest single player"
+      - text: "the empty coalition"
+      - text: "any coalition of size two"
+    explain: "The grand coalition \\(N\\) contains every player."
+
+  - q: "A payoff vector must satisfy ..."
+    options:
+      - text: "\\(\\sum_i \\lambda_i = v(N)\\), sharing out the grand coalition's worth"
+        correct: true
+      - text: "\\(\\sum_i \\lambda_i = 0\\)"
+      - text: "\\(\\lambda_i = v(\\{i\\})\\)"
+      - text: "\\(\\lambda_i = 1\\) for all \\(i\\)"
+    explain: "Efficiency requires the payoffs to add up to the grand coalition's value."
+
+  - q: "The additivity property of the Shapley value says that ..."
+    options:
+      - text: "the value of a sum of two games is the sum of the separate Shapley values"
+        correct: true
+      - text: "all players receive equal payoffs"
+      - text: "the grand coalition gets nothing"
+      - text: "marginal contributions are ignored"
+    explain: "Shapley values add across games played together."
+
+  - q: "The Shapley value is given by the formula ..."
+    options:
+      - text: "\\(\\phi_i = \\frac{1}{N!} \\sum_{\\pi} \\Delta_\\pi(i)\\)"
+        correct: true
+      - text: "\\(\\phi_i = v(\\{i\\})\\)"
+      - text: "\\(\\phi_i = v(N) / N\\)"
+      - text: "\\(\\phi_i = \\max_S v(S)\\)"
+    explain: "It averages the marginal contribution over all \\(N!\\) orderings."
+
+  - q: "By convention, the worth of the empty coalition is ..."
+    options:
+      - text: "\\(v(\\emptyset) = 0\\)"
+        correct: true
+      - text: "\\(v(\\emptyset) = 1\\)"
+      - text: "\\(v(\\emptyset) = v(N)\\)"
+      - text: "undefined"
+    explain: "An empty coalition secures nothing."
+
+  - q: "The number of orderings of \\(N\\) players, over which the Shapley value averages, is ..."
+    options:
+      - text: "\\(N!\\)"
+        correct: true
+      - text: "\\(2^N\\)"
+      - text: "\\(N\\)"
+      - text: "\\(N^2\\)"
+    explain: "There are \\(N!\\) ways to order the players."
+
+  - q: "Two players who contribute equally to every coalition ..."
+    options:
+      - text: "receive equal Shapley values (symmetry)"
+        correct: true
+      - text: "receive nothing"
+      - text: "split the whole worth between them"
+      - text: "are both null players"
+    explain: "The symmetry axiom treats interchangeable players identically."
+
+  - q: "The Shapley value is the unique allocation satisfying ..."
+    options:
+      - text: "efficiency, the null player property, symmetry and additivity"
+        correct: true
+      - text: "efficiency alone"
+      - text: "symmetry alone"
+      - text: "no particular axioms"
+    explain: "These four axioms pin down the Shapley value uniquely."
+
+  - q: "The characteristic function \\(v(S)\\) gives ..."
+    options:
+      - text: "the worth that coalition \\(S\\) can secure on its own"
+        correct: true
+      - text: "the payoff to a single player"
+      - text: "the number of players in \\(S\\)"
+      - text: "the Shapley value of \\(S\\)"
+    explain: "\\(v(S)\\) is the value the coalition \\(S\\) can guarantee."
+
+  - q: "The set of predecessors \\(S_\\pi(i)\\) of player \\(i\\) in an ordering \\(\\pi\\) is ..."
+    options:
+      - text: "the players who appear before \\(i\\) in \\(\\pi\\)"
+        correct: true
+      - text: "the players who appear after \\(i\\) in \\(\\pi\\)"
+      - text: "all players other than \\(i\\)"
+      - text: "the grand coalition"
+    explain: "The marginal contribution of \\(i\\) is \\(v(S_\\pi(i)\\cup\\{i\\}) - v(S_\\pi(i))\\), using its predecessors."
+
+  - q: "A characteristic function game is superadditive if, for disjoint coalitions \\(S\\) and \\(T\\), ..."
+    options:
+      - text: "\\(v(S \\cup T) \\ge v(S) + v(T)\\)"
+        correct: true
+      - text: "\\(v(S \\cup T) \\le v(S) + v(T)\\)"
+      - text: "\\(v(S \\cup T) = 0\\)"
+      - text: "\\(v(S) = v(T)\\)"
+    explain: "Superadditivity means merging disjoint coalitions never lowers their combined worth."
+
+  - q: "A characteristic function game is monotone if ..."
+    options:
+      - text: "\\(v(S) \\le v(T)\\) whenever \\(S \\subseteq T\\)"
+        correct: true
+      - text: "\\(v(S) \\ge v(T)\\) whenever \\(S \\subseteq T\\)"
+      - text: "\\(v(S) = |S|\\) for all \\(S\\)"
+      - text: "\\(v(\\emptyset) = 1\\)"
+    explain: "In a monotone game a larger coalition is worth at least as much as any coalition it contains."
+
+  - q: "Written as a sum over coalitions, the Shapley value weights the marginal contribution of \\(i\\) over \\(S\\) by ..."
+    options:
+      - text: "\\(\\frac{|S|!\\,(N-|S|-1)!}{N!}\\)"
+        correct: true
+      - text: "\\(\\frac{1}{N}\\)"
+      - text: "\\(\\frac{1}{N!}\\)"
+      - text: "\\(\\frac{|S|}{N}\\)"
+    explain: "This weight counts the orderings in which exactly the players of \\(S\\) precede \\(i\\)."
+
+  - q: "The Shapley value is the unique payoff vector satisfying efficiency, symmetry, additivity and ..."
+    options:
+      - text: "the null player property"
+        correct: true
+      - text: "monotonicity"
+      - text: "superadditivity"
+      - text: "individual rationality"
+    explain: "These four axioms pin down the Shapley value uniquely."

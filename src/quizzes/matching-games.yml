@@ -1,0 +1,182 @@
+title: Matching games
+pick: 5
+questions:
+  - q: "A matching is stable if ..."
+    options:
+      - text: "it has no blocking pair"
+        correct: true
+      - text: "everyone gets their first choice"
+      - text: "the two sides have equal size"
+      - text: "it is produced by random assignment"
+    explain: "Stability means no pair would both rather be matched to each other than to their partners."
+
+  - q: "A pair \\((s, r)\\) blocks a matching if ..."
+    options:
+      - text: "they are not matched together but each prefers the other to their current partner"
+        correct: true
+      - text: "they are matched together"
+      - text: "they have the same preferences"
+      - text: "neither has a partner"
+    explain: "A blocking pair would both gain by abandoning their assigned partners."
+
+  - q: "The Gale-Shapley algorithm always ..."
+    options:
+      - text: "terminates and returns a stable matching"
+        correct: true
+      - text: "returns the matching that maximises total happiness"
+      - text: "fails when preferences differ"
+      - text: "returns every stable matching"
+    explain: "It is guaranteed to produce a stable matching for any preferences."
+
+  - q: "The matching returned by Gale-Shapley is ..."
+    options:
+      - text: "optimal for the proposing side and worst for the receiving side"
+        correct: true
+      - text: "optimal for both sides"
+      - text: "optimal for the receiving side"
+      - text: "the same whoever proposes"
+    explain: "Suitor-optimality: each proposer gets the best partner possible in any stable matching."
+
+  - q: "A matching between two sets of equal size is ..."
+    options:
+      - text: "a bijection pairing each member of one set with one member of the other"
+        correct: true
+      - text: "a ranking of all participants"
+      - text: "a payoff matrix"
+      - text: "a set of blocking pairs"
+    explain: "Each participant is matched to exactly one partner on the other side."
+
+  - q: "For any matching game, a stable matching ..."
+    options:
+      - text: "always exists"
+        correct: true
+      - text: "may fail to exist"
+      - text: "exists only with an even number of participants"
+      - text: "is always unique"
+    explain: "Gale-Shapley constructs one, so a stable matching always exists (though not always uniquely)."
+
+  - q: "The Gale-Shapley algorithm is guaranteed to ..."
+    options:
+      - text: "terminate after finitely many proposals"
+        correct: true
+      - text: "run forever for some preferences"
+      - text: "produce an unstable matching"
+      - text: "require a central planner"
+    explain: "Each proposer works down a finite list, so the process must end."
+
+  - q: "When a proposer is rejected, it ..."
+    options:
+      - text: "proposes to the next reviewer on its preference list"
+        correct: true
+      - text: "leaves the market unmatched"
+      - text: "proposes to its top choice again"
+      - text: "is matched at random"
+    explain: "Proposers move down their lists until accepted."
+
+  - q: "A reviewer in Gale-Shapley ..."
+    options:
+      - text: "tentatively holds the best proposer seen so far and rejects the rest"
+        correct: true
+      - text: "accepts the first proposer permanently"
+      - text: "accepts everyone"
+      - text: "proposes to suitors"
+    explain: "Reviewers keep their preferred current offer, allowing later better ones to replace it."
+
+  - q: "Gale-Shapley is worst for ..."
+    options:
+      - text: "the receiving (non-proposing) side"
+        correct: true
+      - text: "the proposing side"
+      - text: "both sides equally"
+      - text: "neither side"
+    explain: "Suitor-optimality is matched by reviewer sub-optimality."
+
+  - q: "A matching game's stable matching ..."
+    options:
+      - text: "always exists, but need not be unique"
+        correct: true
+      - text: "is always unique"
+      - text: "may not exist"
+      - text: "exists only with identical preferences"
+    explain: "Gale-Shapley constructs one; different proposing sides can give different stable matchings."
+
+  - q: "If every participant receives their first choice, the matching is ..."
+    options:
+      - text: "stable"
+        correct: true
+      - text: "unstable"
+      - text: "blocked by every pair"
+      - text: "impossible"
+    explain: "No one could prefer another partner, so there is no blocking pair."
+
+  - q: "In a matching game, each participant has ..."
+    options:
+      - text: "a strict preference ordering over the participants on the other side"
+        correct: true
+      - text: "a payoff matrix against every other participant"
+      - text: "a single fixed partner assigned in advance"
+      - text: "no information about the other side"
+    explain: "Each side ranks the other; stability and the Gale-Shapley algorithm are defined relative to these preference lists."
+
+  - q: "A matching pairs ..."
+    options:
+      - text: "each member of one set with exactly one member of the other set"
+        correct: true
+      - text: "members within the same set"
+      - text: "one member with several others"
+      - text: "some members, leaving others unmatched"
+    explain: "A matching is a one-to-one pairing (bijection) between the two sides."
+
+  - q: "Stability matters because an unstable matching ..."
+    options:
+      - text: "contains a pair who would both abandon their partners for each other"
+        correct: true
+      - text: "is impossible to compute"
+      - text: "always gives everyone their last choice"
+      - text: "uses more than two sets"
+    explain: "A blocking pair would undermine the assignment."
+
+  - q: "In a matching game of size \\(N\\), a proposer's preference is a map \\(f: S \\to R^N\\), that is ..."
+    options:
+      - text: "a full ordered list of all reviewers"
+        correct: true
+      - text: "a single most-preferred reviewer"
+      - text: "a probability distribution over reviewers"
+      - text: "a subset of acceptable reviewers"
+    explain: "Each proposer ranks every reviewer; reviewers likewise rank every proposer via \\(g: R \\to S^N\\)."
+
+  - q: "Different executions of the Gale-Shapley algorithm (proposing in a different order) ..."
+    options:
+      - text: "always return the same stable matching"
+        correct: true
+      - text: "can return different stable matchings"
+      - text: "may fail to terminate"
+      - text: "return an unstable matching"
+    explain: "All executions return the same suitor-optimal stable matching."
+
+  - q: "When a reviewer holding a proposal receives a new proposal they prefer, they ..."
+    options:
+      - text: "switch to the new proposer and reject the current one"
+        correct: true
+      - text: "keep the current proposer regardless"
+      - text: "reject both proposers"
+      - text: "must accept both"
+    explain: "Reviewers always hold their most preferred proposal seen so far, rejecting the rest."
+
+  - q: "The proof of suitor-optimality shows that no proposer is ever rejected by ..."
+    options:
+      - text: "a stable partner: a reviewer it is matched to in some stable matching"
+        correct: true
+      - text: "the reviewer at the top of its list"
+      - text: "any reviewer at all"
+      - text: "more than one reviewer"
+    explain: "A rejection by a stable partner would create a blocking pair in that stable matching, a contradiction."
+
+  - q: "In the suitor-optimal stable matching, each reviewer receives ..."
+    options:
+      - text: "the worst partner they could have in any stable matching"
+        correct: true
+      - text: "the best partner they could have in any stable matching"
+      - text: "their first choice"
+      - text: "a randomly chosen partner"
+    explain: "Suitor-optimality coincides with reviewer-pessimality: the two sides' interests are opposed."

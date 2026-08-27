@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Moran process}
+\begin{enumerate}[itemsep=6pt]
+  \item At each step of a Moran process ...
+  \begin{enumerate}
+    \item every individual reproduces once
+    \item the population size grows by one
+    \item the least fit individual always dies
+    \item one individual reproduces (proportional to fitness) and one is chosen uniformly to die
+  \end{enumerate}
+  \item The fixation probability of a type is ...
+  \begin{enumerate}
+    \item the probability the population eventually consists entirely of that type
+    \item the probability the type dies out
+    \item the fraction of the population it starts with
+    \item its fitness divided by the average fitness
+  \end{enumerate}
+  \item Under neutral drift (a mutant of the same fitness as residents), a single mutant fixes with probability ...
+  \begin{enumerate}
+    \item \(1/N\)
+    \item \(0\)
+    \item \(1/2\)
+    \item \(1\)
+  \end{enumerate}
+  \item A Moran process with two types has ...
+  \begin{enumerate}
+    \item two absorbing states: all of one type or all of the other
+    \item no absorbing states
+    \item an absorbing state at every population split
+    \item exactly one absorbing state
+  \end{enumerate}
+  \item For an advantageous mutant with relative fitness \(r > 1\), as \(N \to \infty\) the fixation probability tends to ...
+  \begin{enumerate}
+    \item \(1 - 1/r\), which is bounded away from 1
+    \item \(1\)
+    \item \(1/N\)
+    \item \(0\)
+  \end{enumerate}
+  \item The relative fitness \(r\) of a mutant is ...
+  \begin{enumerate}
+    \item the size of the population
+    \item the number of mutants
+    \item the probability it dies
+    \item its fitness divided by the resident fitness
+  \end{enumerate}
+  \item In a game-based Moran process, the fitness of an individual depends on ...
+  \begin{enumerate}
+    \item only its own type
+    \item the composition of the whole population (its payoff in the current state)
+    \item nothing; all fitnesses are equal
+    \item the round number
+  \end{enumerate}
+  \item Selection in the Moran process acts through ...
+  \begin{enumerate}
+    \item the population size
+    \item the birth step: fitter individuals are more likely to reproduce
+    \item neither step
+    \item the death step: fitter individuals are more likely to die
+  \end{enumerate}
+  \item The death step of the Moran process chooses an individual ...
+  \begin{enumerate}
+    \item that just reproduced
+    \item uniformly at random
+    \item with the lowest fitness
+    \item proportional to fitness
+  \end{enumerate}
+  \item The two-type fixation formula uses the ratios \(\gamma_i\) defined as ...
+  \begin{enumerate}
+    \item the fitness of type 1
+    \item the population size
+    \item \(p_{i,i-1} / p_{i,i+1}\), the down-step over up-step probabilities
+    \item \(1/N\)
+  \end{enumerate}
+  \item Under strong selection (\(w = 1\)) ...
+  \begin{enumerate}
+    \item the process never fixes
+    \item fitness equals the raw payoff, so payoff differences act at full strength
+    \item all fitnesses are equal
+    \item the population grows
+  \end{enumerate}
+  \item The boundary conditions for the fixation probability are ...
+  \begin{enumerate}
+    \item \(\rho_0 = \rho_N = 1/N\)
+    \item \(\rho_0 = 1\) and \(\rho_N = 0\)
+    \item \(\rho_0 = \rho_N = 1/2\)
+    \item \(\rho_0 = 0\) and \(\rho_N = 1\)
+  \end{enumerate}
+  \item A single mutant is favoured by selection when its fixation probability satisfies ...
+  \begin{enumerate}
+    \item \(\rho_1 > 1/N\)
+    \item \(\rho_1 = 0\)
+    \item \(\rho_1 = 1\)
+    \item \(\rho_1 < 1/N\)
+  \end{enumerate}
+  \item The Moran process is repeated until ...
+  \begin{enumerate}
+    \item a fixed number of steps have passed
+    \item the population doubles
+    \item every individual has reproduced once
+    \item only one type remains in the population
+  \end{enumerate}
+  \item A disadvantageous mutant (\(r < 1\)) has a fixation probability that is ...
+  \begin{enumerate}
+    \item exactly \(1\)
+    \item above the neutral value \(1/N\)
+    \item exactly \(1/2\)
+    \item below the neutral value \(1/N\)
+  \end{enumerate}
+  \item The two-type fixation probability is \(\rho_i = \dfrac{1 + \sum_{j=1}^{i-1}\prod_{k=1}^{j}\gamma_k}{1 + \sum_{j=1}^{N-1}\prod_{k=1}^{j}\gamma_k}\), where \(\gamma_k\) equals ...
+  \begin{enumerate}
+    \item the mutant fitness alone
+    \item \(1/N\)
+    \item \(f_R(k)/f_M(k)\), the resident-to-mutant fitness ratio
+    \item \(f_M(k)/f_R(k)\)
+  \end{enumerate}
+  \item In a constant-fitness process with mutant fitness \(r\) and resident fitness 1, the ratio \(\gamma_k\) is ...
+  \begin{enumerate}
+    \item \(r\) for every state \(k\)
+    \item different in every state
+    \item \(r^{-1}\) for every state \(k\)
+    \item equal to \(1/N\)
+  \end{enumerate}
+  \item Weak selection in the Moran process corresponds to a selection intensity \(w\) that is ...
+  \begin{enumerate}
+    \item close to 0
+    \item close to 1
+    \item negative
+    \item greater than \(N\)
+  \end{enumerate}
+  \item Throughout a Moran process the total population size ...
+  \begin{enumerate}
+    \item shrinks over time
+    \item grows by one each step
+    \item fluctuates randomly
+    \item stays constant at \(N\), since each birth replaces a death
+  \end{enumerate}
+  \item Neutral drift is the special case of the Moran process in which the relative fitness is ...
+  \begin{enumerate}
+    \item \(r > 1\)
+    \item \(r = 0\)
+    \item \(r < 1\)
+    \item \(r = 1\)
+  \end{enumerate}
+\end{enumerate}
+\end{document}

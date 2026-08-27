@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cooperative Games (facilitator notes) — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="facilitator-notes">
+
+<div class="facilitator-banner">
+  <strong>Facilitator notes: not student-facing.</strong>
+  These notes are for planning and running classes.
+  Student resources are at <a href="/">vknight.org/gt/</a>.
+</div>
+
+<h1>Cooperative Games</h1>
+
+<h2 id="activity-30-minutes">Activity (30 minutes)</h2>
+<p><strong>Goal.</strong> Motivate fair division and the question the Shapley value answers: a
+team produces one thing together, the parts reinforce each other, and we have to
+split the proceeds fairly when the parts did not contribute equally.</p>
+<p>Run "The revision aid". The whole room plays at once in teams of three (about
+twenty teams in a class of sixty). In roughly twelve minutes each team makes a
+one-page revision aid for a game theory topic, on a single poster with three
+clearly separated parts, one per student:</p>
+<ul>
+<li>the Theorist writes the maths: the key definitions and a worked example;</li>
+<li>the Artist draws the picture: a payoff matrix, a game tree or a plot;</li>
+<li>the Storyteller tells the story: the plain-English intuition or a memorable scenario.</li>
+</ul>
+<p>Set the same topic for a fair contest, or give each team a different topic so the
+gallery ends up covering the syllabus.</p>
+<p>Put every poster on the wall. The class is the market: each student walks the
+gallery and places one vote on the aid they would most want to revise from, but
+not their own. The aid with the most votes wins, and its team takes the
+bribentive. Photograph the winners and share them: they are real revision
+material for the class.</p>
+<p>Now the part that makes it a cooperative game. Take the winning aid and split its
+prize fairly among the three students by the Shapley value, with the
+characteristic function supplied live by the class. Cover the poster and reveal
+the parts in combination, asking the class to score what is on show out of ten:</p>
+<ul>
+<li>each part on its own (the maths; the picture; the story);</li>
+<li>each pair of parts;</li>
+<li>the whole aid, anchored at ten so the rest are judged against it.</li>
+</ul>
+<p>These seven numbers are the worth of each coalition of the three students, and
+they are not additive: a picture on its own is a cryptic diagram, but beside the
+maths and a plain-English story it makes the topic click. Write them on the
+board, compute the Shapley value, and hand out the bribentive in those shares.</p>
+<p><strong>Debrief.</strong> The three parts are worth only a few points on their own, yet the
+whole aid scores ten, so most of the value comes from the parts reinforcing one
+another. The Shapley value is what shares that synergy fairly: it pays each
+student the average value their part adds over every order in which the aid could
+come together, so the part that combines best with the others is rewarded most,
+above what it is worth alone. This is exactly Question 1, now with numbers the
+class produced.</p>
+<h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
+<p>Work through the Cooperative Games chapter.</p>
+<p>Discussion Point: <strong>After the definition of a characteristic function game, point
+out that the seven scores the class gave are exactly the characteristic
+function.</strong></p>
+<p>Discussion Point: <strong>After the definition of marginal contribution, ask how much
+the maths is worth on its own and how much it adds once the picture and story are
+already there; the same part contributes more in company.</strong></p>
+<p>Discussion Point: <strong>After the definition of the Shapley value, ask for the steps,
+then work through the six orderings for the winning aid.</strong></p>
+<h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
+<p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="/topics/cooperative-games.html">Cooperative Games</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
+
+
+<h2>Communications</h2>
+
+<p>General email templates to send before and after this class. Fill in the
+bracketed placeholders before sending.</p>
+
+<h3>Before class</h3>
+
+<pre><code>Hi all,
+
+A reminder that our next Game Theory class covers Cooperative Games.
+
+All of the course materials, including the relevant chapter, are available
+at https://vknight.org/gt/. It is worth skimming the chapter beforehand.
+
+See you in class,
+Vince
+</code></pre>
+
+<h3>After class</h3>
+
+<pre><code>Dear all,
+
+Thanks for your work in today's class on Cooperative Games.
+
+A recording is available here [RECORDING LINK] and on Learning Central.
+
+All class resources are available at https://vknight.org/gt/.
+
+Thanks,
+Vince
+</code></pre>
+
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Subgame perfection}
+\begin{enumerate}[itemsep=6pt]
+  \item A subgame perfect equilibrium is a Nash equilibrium that ...
+  \begin{enumerate}
+    \item induces a Nash equilibrium in every subgame, including unreached ones
+    \item reaches the last node of the tree
+    \item maximises the sum of the players' payoffs
+    \item uses only pure strategies
+  \end{enumerate}
+  \item Backward induction solves a perfect-information game by ...
+  \begin{enumerate}
+    \item converting it to a zero sum game
+    \item working from the final decisions back to the root, choosing optimally at each node
+    \item trying every strategy profile at random
+    \item ignoring the players' payoffs
+  \end{enumerate}
+  \item A non-credible threat is one that ...
+  \begin{enumerate}
+    \item is written down before the game begins
+    \item the threatening player would not actually want to carry out if the subgame were reached
+    \item both players agree to
+    \item always leads to the highest payoff
+  \end{enumerate}
+  \item Which is true of Nash equilibria versus subgame perfect equilibria?
+  \begin{enumerate}
+    \item subgame perfect equilibria need not be Nash equilibria
+    \item every Nash equilibrium is subgame perfect
+    \item they are always the same
+    \item every subgame perfect equilibrium is a Nash equilibrium, but not conversely
+  \end{enumerate}
+  \item Every finite game of perfect information has ...
+  \begin{enumerate}
+    \item exactly two equilibria
+    \item no Nash equilibrium
+    \item a Nash equilibrium in pure strategies, found by backward induction
+    \item a unique mixed equilibrium only
+  \end{enumerate}
+  \item In the centipede game, backward induction predicts that ...
+  \begin{enumerate}
+    \item both players pass to the final leaf
+    \item there is no subgame perfect equilibrium
+    \item the first player takes immediately, even though both could do better by passing
+    \item the players alternate forever
+  \end{enumerate}
+  \item A node initiates a subgame when ...
+  \begin{enumerate}
+    \item both players move there at once
+    \item it is the root of the whole game
+    \item it and all of its successors form a self-contained part of the tree
+    \item it is a terminal node
+  \end{enumerate}
+  \item In a game of perfect information, every information set ...
+  \begin{enumerate}
+    \item contains every node of the tree
+    \item contains a single node
+    \item is empty
+    \item belongs to both players
+  \end{enumerate}
+  \item A strategy in an extensive form game specifies ...
+  \begin{enumerate}
+    \item only the first move
+    \item the opponent's moves
+    \item a single action for the whole game
+    \item an action at every decision node of the player
+  \end{enumerate}
+  \item Subgame perfection rules out equilibria that rely on ...
+  \begin{enumerate}
+    \item cooperation
+    \item non-credible threats off the path of play
+    \item backward induction
+    \item mixed strategies
+  \end{enumerate}
+  \item Backward induction at a decision node chooses the action that ...
+  \begin{enumerate}
+    \item maximises the other player's payoff
+    \item minimises the total payoff
+    \item maximises that player's payoff given the optimal play that follows
+    \item is chosen at random
+  \end{enumerate}
+  \item If player 2 has a binary choice after each of player 1's two moves, player 2 has ...
+  \begin{enumerate}
+    \item two strategies
+    \item eight strategies
+    \item one strategy
+    \item four contingent strategies
+  \end{enumerate}
+  \item Every subgame perfect equilibrium is ...
+  \begin{enumerate}
+    \item Pareto efficient
+    \item unique
+    \item a Nash equilibrium
+    \item in mixed strategies
+  \end{enumerate}
+  \item Sequential rationality requires that a player's strategy is optimal ...
+  \begin{enumerate}
+    \item only at the first move
+    \item only when the player is winning
+    \item only on the equilibrium path
+    \item at every information set, whether or not it is reached
+  \end{enumerate}
+  \item In games of perfect information, the equilibrium found by backward induction is ...
+  \begin{enumerate}
+    \item always mixed
+    \item the worst outcome for both players
+    \item never a Nash equilibrium
+    \item subgame perfect
+  \end{enumerate}
+  \item An extensive form game has perfect information when ...
+  \begin{enumerate}
+    \item every information set contains a single node
+    \item every player has the same payoff
+    \item there are no chance moves
+    \item players move simultaneously
+  \end{enumerate}
+  \item Backward induction proceeds by removing, at each decision node, actions that are ...
+  \begin{enumerate}
+    \item played first
+    \item on the equilibrium path
+    \item dominated for the player deciding there
+    \item chosen by chance
+  \end{enumerate}
+  \item A subgame perfect equilibrium must induce a Nash equilibrium in ...
+  \begin{enumerate}
+    \item only the whole game
+    \item every subgame, including those never reached in play
+    \item only the final subgame
+    \item only the subgames on the equilibrium path
+  \end{enumerate}
+  \item The requirement that a strategy be optimal at every information set where a player decides is called ...
+  \begin{enumerate}
+    \item additivity
+    \item the folk theorem
+    \item Pareto efficiency
+    \item sequential rationality
+  \end{enumerate}
+  \item In every finite game of perfect information, backward induction produces ...
+  \begin{enumerate}
+    \item a non-credible threat
+    \item no equilibrium in general
+    \item a pure-strategy subgame perfect Nash equilibrium
+    \item a mixed equilibrium only
+  \end{enumerate}
+\end{enumerate}
+\end{document}

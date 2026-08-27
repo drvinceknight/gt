@@ -1,0 +1,182 @@
+title: Replicator dynamics
+pick: 5
+questions:
+  - q: "The replicator equation for the proportion \\(x_i\\) of type \\(i\\) is ..."
+    options:
+      - text: "\\(\\dot{x}_i = x_i(f_i(x) - \\phi)\\), where \\(\\phi\\) is the average fitness"
+        correct: true
+      - text: "\\(\\dot{x}_i = f_i(x)\\)"
+      - text: "\\(\\dot{x}_i = x_i \\phi\\)"
+      - text: "\\(\\dot{x}_i = \\phi - f_i(x)\\)"
+    explain: "A type grows when its fitness exceeds the population average."
+
+  - q: "A type's frequency increases under the replicator dynamics when ..."
+    options:
+      - text: "its fitness is above the population average"
+        correct: true
+      - text: "its fitness is below the population average"
+      - text: "it is rare"
+      - text: "the average fitness is zero"
+    explain: "The sign of \\(f_i - \\phi\\) determines whether the type grows or shrinks."
+
+  - q: "An evolutionarily stable strategy (ESS) is one that ..."
+    options:
+      - text: "cannot be invaded by a small group playing a different strategy"
+        correct: true
+      - text: "maximises the total payoff of the population"
+      - text: "is always a pure strategy"
+      - text: "every individual must play"
+    explain: "Residents at an ESS earn a higher fitness than any rare mutant, so the mutant dies out."
+
+  - q: "A rest point (stable population) of the replicator dynamics satisfies ..."
+    options:
+      - text: "\\(\\dot{x}_i = 0\\) for all \\(i\\)"
+        correct: true
+      - text: "\\(f_i(x) = 0\\) for all \\(i\\)"
+      - text: "\\(x_i = 1\\) for some \\(i\\)"
+      - text: "\\(\\phi = 1\\)"
+    explain: "At a rest point the proportions stop changing."
+
+  - q: "Every ESS is also ..."
+    options:
+      - text: "a symmetric Nash equilibrium"
+        correct: true
+      - text: "a strictly dominant strategy"
+      - text: "a zero sum outcome"
+      - text: "an unstable rest point"
+    explain: "Letting the invading fraction tend to zero gives the Nash condition; ESS is a refinement of it."
+
+  - q: "In the Hawk-Dove game with \\(V < C\\), the dynamics approach ..."
+    options:
+      - text: "an interior mix of Hawks and Doves (the ESS)"
+        correct: true
+      - text: "all Hawks"
+      - text: "all Doves"
+      - text: "no rest point"
+    explain: "When the cost exceeds the value, a stable polymorphic population is the ESS."
+
+  - q: "The average population fitness \\(\\phi\\) is ..."
+    options:
+      - text: "\\(\\sum_i x_i f_i(x)\\), the fitness-weighted average over types"
+        correct: true
+      - text: "the fitness of the fittest type"
+      - text: "always equal to 1"
+      - text: "the number of types"
+    explain: "\\(\\phi\\) is the mean fitness, weighting each type by its frequency."
+
+  - q: "Under the replicator dynamics, a rare but fit type grows ..."
+    options:
+      - text: "slowly, because growth is proportional to its current frequency \\(x_i\\)"
+        correct: true
+      - text: "instantly to fixation"
+      - text: "at the same rate as a common type"
+      - text: "only if it is the only type"
+    explain: "The factor \\(x_i\\) in \\(\\dot{x}_i = x_i(f_i - \\phi)\\) slows the growth of rare types."
+
+  - q: "In a pairwise interaction game with payoff matrix \\(M\\), the fitness of type \\(i\\) is ..."
+    options:
+      - text: "\\(f_i(x) = \\sum_j x_j M_{ij}\\)"
+        correct: true
+      - text: "\\(M_{ii}\\)"
+      - text: "the largest entry of \\(M\\)"
+      - text: "\\(\\sum_j M_{ij}\\)"
+    explain: "Each individual meets every type in proportion to its frequency."
+
+  - q: "The post-entry population after a fraction \\(\\epsilon\\) of mutants \\(y\\) invade residents \\(x\\) is ..."
+    options:
+      - text: "\\(x + \\epsilon(y - x)\\)"
+        correct: true
+      - text: "\\(x + y\\)"
+      - text: "\\(\\epsilon y\\)"
+      - text: "\\(x - y\\)"
+    explain: "A small fraction \\(\\epsilon\\) of the population is replaced by mutants."
+
+  - q: "In Rock-Paper-Scissors, the replicator dynamics ..."
+    options:
+      - text: "cycle around the interior equilibrium rather than converging to it"
+        correct: true
+      - text: "converge to all Rock"
+      - text: "converge to the uniform mix"
+      - text: "have no rest point"
+    explain: "The interior equilibrium of RPS is not an ESS; the dynamics orbit it."
+
+  - q: "A two-strategy coordination game (such as which side of the road to drive on) is ..."
+    options:
+      - text: "has two stable populations, each pure, with an unstable interior population between them"
+        correct: true
+      - text: "always convergent to a single mix"
+      - text: "without any stable population"
+      - text: "a zero sum game"
+    explain: "Two pure stable populations exist, separated by an unstable interior population."
+
+  - q: "An ESS is a refinement of Nash equilibrium because ..."
+    options:
+      - text: "every ESS is a symmetric Nash equilibrium, but not every Nash equilibrium is an ESS"
+        correct: true
+      - text: "every Nash equilibrium is an ESS"
+      - text: "an ESS need not be a Nash equilibrium"
+      - text: "they are unrelated"
+    explain: "ESS adds an uninvadability condition on top of the Nash condition."
+
+  - q: "The replicator dynamics keep the proportions \\(x_i\\) ..."
+    options:
+      - text: "summing to 1 (they remain a valid distribution)"
+        correct: true
+      - text: "summing to the number of types"
+      - text: "all equal"
+      - text: "constant over time"
+    explain: "The dynamics preserve \\(\\sum_i x_i = 1\\)."
+
+  - q: "A stable population that the dynamics actually move towards is ..."
+    options:
+      - text: "an asymptotically stable rest point (a small perturbation returns)"
+        correct: true
+      - text: "any rest point, even a repelling one"
+      - text: "the point of maximum fitness"
+      - text: "always \\(x = 1/2\\)"
+    explain: "Being a rest point (\\(\\dot{x}=0\\)) is necessary; stability decides whether it is approached."
+
+  - q: "For a strategy \\(\\sigma^*\\) with \\(f(\\sigma^*, \\sigma^*) = f(\\sigma, \\sigma^*)\\), the ESS condition additionally requires ..."
+    options:
+      - text: "\\(f(\\sigma^*, \\sigma) > f(\\sigma, \\sigma)\\)"
+        correct: true
+      - text: "\\(f(\\sigma^*, \\sigma) < f(\\sigma, \\sigma)\\)"
+      - text: "\\(f(\\sigma^*, \\sigma^*) > f(\\sigma, \\sigma^*)\\)"
+      - text: "nothing further"
+    explain: "When the first (Nash) inequality is an equality, the resident must do strictly better against the mutant."
+
+  - q: "Taking \\(\\epsilon \\to 0\\) in the ESS definition recovers ..."
+    options:
+      - text: "the symmetric Nash condition \\(f(\\sigma^*, \\sigma^*) \\ge f(\\sigma, \\sigma^*)\\)"
+        correct: true
+      - text: "the replicator equation"
+      - text: "the fixation probability"
+      - text: "a Condorcet cycle"
+    explain: "Every ESS is a symmetric Nash equilibrium; ESS is a strict refinement of Nash."
+
+  - q: "The replicator-mutator dynamics extend the replicator equation by adding ..."
+    options:
+      - text: "mutation between types"
+        correct: true
+      - text: "discounting of future payoffs"
+      - text: "a fixed population size"
+      - text: "pairwise proposals"
+    explain: "It combines selection (replication) with a mutation term that moves probability between types."
+
+  - q: "The asymmetric replicator dynamics model ..."
+    options:
+      - text: "two interacting populations with distinct roles and payoff matrices"
+        correct: true
+      - text: "a single population playing itself"
+      - text: "a finite population of fixed size"
+      - text: "a zero-sum game only"
+    explain: "Row and column populations evolve together, each against the other's current state."
+
+  - q: "In a pairwise interaction game with payoff matrix \\(M\\), the fitness of playing \\(\\sigma\\) against population state \\(x\\) is ..."
+    options:
+      - text: "\\(\\sigma M x\\) (linear in the population state)"
+        correct: true
+      - text: "\\(\\det(M)\\)"
+      - text: "\\(\\sigma + x\\)"
+      - text: "the largest entry of \\(M\\)"
+    explain: "Fitness is the expected payoff of \\(\\sigma\\) against a randomly drawn member of the population."

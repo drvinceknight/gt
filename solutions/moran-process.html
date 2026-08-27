@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moran Process solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/moran-process.html">&larr; Back to Moran Process</a></small></p>
+
+<h1 id="moran-process-worked-solutions">Moran Process: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/moran-process.html">Moran Process</a> page.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) The two random choices.</strong> [3]</p>
+<p>At each step one individual is selected to reproduce, with probability
+proportional to its fitness, and one individual is selected uniformly at random to
+die. A copy of the reproducing individual replaces the one that dies.</p>
+<p><strong>(b) Fitnesses.</strong> [6]</p>
+<p>With <span class="arithmatex">\(v_H = 2\)</span> Hawks and <span class="arithmatex">\(v_D = 2\)</span> Doves,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+f_H &amp;= (2 - 1)A_{HH} + 2 A_{HD} = 1 \cdot 0 + 2 \cdot 3 = 6, \\
+f_D &amp;= (2 - 1)A_{DD} + 2 A_{DH} = 1 \cdot 2 + 2 \cdot 1 = 4.
+\end{aligned}
+\]</div>
+<p><strong>(c) Probability the number of Hawks increases.</strong> [7]</p>
+<p>The number of Hawks rises by one when a Hawk reproduces and a Dove dies:</p>
+<div class="arithmatex">\[
+\frac{2 f_H}{2 f_H + 2 f_D} \cdot \frac{v_D}{N}
+= \frac{12}{12 + 8} \cdot \frac{2}{4}
+= \frac{3}{5} \cdot \frac{1}{2} = \frac{3}{10}.
+\]</div>
+<p><strong>(d) Fixation and absorbing states.</strong> [5]</p>
+<p>The fixation probability of a type is the probability that the population
+eventually becomes composed entirely of that type. The process has two absorbing
+states, all Hawks and all Doves: once only one type remains there is no other type
+to copy, so the state can no longer change.</p>
+<p><strong>(e) Direction of drift.</strong> [4]</p>
+<p>The number of Hawks falls by one when a Dove reproduces and a Hawk dies:</p>
+<div class="arithmatex">\[
+\frac{2 f_D}{2 f_H + 2 f_D} \cdot \frac{v_H}{N}
+= \frac{8}{20} \cdot \frac{2}{4} = \frac{2}{5} \cdot \frac{1}{2} = \frac{1}{5}.
+\]</div>
+<p>Hence <span class="arithmatex">\(\gamma = \dfrac{P(\text{decrease})}{P(\text{increase})} =
+\dfrac{1/5}{3/10} = \dfrac{2}{3} &lt; 1\)</span>. Since <span class="arithmatex">\(\gamma &lt; 1\)</span> the process is more
+likely to gain a Hawk than to lose one from this state, so it tends to drift
+towards more Hawks.</p>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>
+<ul>
+<li>The <strong>Moran process</strong> assumes a constant population of <span class="arithmatex">\(N\)</span> individuals of
+  <span class="arithmatex">\(m\)</span> types with a fitness function. At each step one individual is selected to
+  reproduce with probability proportional to its fitness, one individual is
+  selected uniformly at random to be removed, and a copy of the reproducing
+  individual replaces it. This repeats until a single type remains.</li>
+<li>The <strong>fixation probability</strong> of a type is the probability that the population
+  eventually becomes composed entirely of individuals of that type.</li>
+<li><strong>Neutral drift</strong> is the case where the mutant has the same fitness as the
+  residents (<span class="arithmatex">\(r = 1\)</span>, equivalently selection intensity <span class="arithmatex">\(w = 0\)</span>); a single
+  mutant then fixes with probability <span class="arithmatex">\(1/N\)</span>.</li>
+<li>The <strong>relative fitness</strong> <span class="arithmatex">\(r\)</span> of a mutant is its fitness divided by the
+  resident fitness.</li>
+</ul>
+<p>The formula quoted in the question follows from the general fixation result.
+Because the mutant has constant relative fitness, with <span class="arithmatex">\(f_M = r\)</span> and
+<span class="arithmatex">\(f_R = 1\)</span> every ratio is the same:</p>
+<div class="arithmatex">\[
+\gamma_k = \frac{f_R}{f_M} = \frac{1}{r} = r^{-1} \qquad \text{for all } k.
+\]</div>
+<p>The products in the general formula are therefore powers of <span class="arithmatex">\(r^{-1}\)</span>, so for a
+single mutant (<span class="arithmatex">\(i = 1\)</span>),</p>
+<div class="arithmatex">\[
+\rho = \frac{1}{1 + \sum_{k=1}^{N-1} (r^{-1})^k} = \frac{1}{\sum_{k=0}^{N-1} r^{-k}}.
+\]</div>
+<p>Summing the geometric series, valid for <span class="arithmatex">\(r \neq 1\)</span>, gives</p>
+<div class="arithmatex">\[
+\rho = \frac{1 - r^{-1}}{1 - r^{-N}}.
+\]</div>
+<p><strong>(b)(i) Neutral drift.</strong> [3]</p>
+<p>When <span class="arithmatex">\(r = 1\)</span> all individuals are equally likely ancestors, so
+<span class="arithmatex">\(\rho = 1/N\)</span>.</p>
+<p><strong>(b)(ii) <span class="arithmatex">\(N = 4\)</span>, <span class="arithmatex">\(r = 2\)</span>.</strong> [3]</p>
+<div class="arithmatex">\[
+\rho = \frac{1 - \tfrac{1}{2}}{1 - \tfrac{1}{16}}
+= \frac{\tfrac{1}{2}}{\tfrac{15}{16}} = \frac{8}{15} \approx 0.533.
+\]</div>
+<p><strong>(b)(iii) <span class="arithmatex">\(N = 4\)</span>, <span class="arithmatex">\(r = \tfrac{1}{2}\)</span>.</strong> [3]</p>
+<div class="arithmatex">\[
+\rho = \frac{1 - 2}{1 - 16} = \frac{-1}{-15} = \frac{1}{15} \approx 0.067.
+\]</div>
+<p><strong>(b)(iv) Comparison.</strong> [5]</p>
+<p>The neutral value is <span class="arithmatex">\(1/4 = 0.25\)</span>. An advantageous mutant (<span class="arithmatex">\(r = 2\)</span>) fixes more
+often (<span class="arithmatex">\(\tfrac{8}{15} \approx 0.53\)</span>), while a disadvantageous one
+(<span class="arithmatex">\(r = \tfrac{1}{2}\)</span>) fixes far less often (<span class="arithmatex">\(\tfrac{1}{15} \approx 0.07\)</span>); so
+selection raises or lowers fixation relative to drift. Even so, the strongly
+advantageous mutant fixes only about half the time: starting as a single
+individual it is very likely to be lost by chance in the first few steps, before
+its fitness advantage can act. Selection improves a rare mutant's odds but is far
+from guaranteeing that it takes over.</p>
+<p><strong>(c) Limit.</strong> [4]</p>
+<p>For <span class="arithmatex">\(r &gt; 1\)</span>, <span class="arithmatex">\(r^{-N} \to 0\)</span> as <span class="arithmatex">\(N \to \infty\)</span>, so</p>
+<div class="arithmatex">\[
+\rho = \frac{1 - r^{-1}}{1 - r^{-N}} \to \frac{1 - r^{-1}}{1} = 1 - r^{-1}.
+\]</div>
+<p><strong>(d) Interpretation.</strong> [3]</p>
+<p>Even in an arbitrarily large population an advantageous mutant fixes with
+probability only <span class="arithmatex">\(1 - 1/r\)</span>, bounded away from <span class="arithmatex">\(1\)</span>: a beneficial mutation is
+likely to be lost while still rare. For <span class="arithmatex">\(r = 2\)</span> this limit is <span class="arithmatex">\(\tfrac{1}{2}\)</span>.</p>
+<h2 id="question-3-23-marks">Question 3 [23 marks]</h2>
+<p><strong>(a) Fixation formula.</strong> (Bookwork.) [4]</p>
+<div class="arithmatex">\[
+\rho_i = \frac{1 + \sum_{k=1}^{i-1} \prod_{j=1}^{k} \gamma_j}
+{1 + \sum_{k=1}^{N-1} \prod_{j=1}^{k} \gamma_j},
+\qquad \gamma_i = \frac{p_{i, i-1}}{p_{i, i+1}}.
+\]</div>
+<p><strong>(b)(i) Fitnesses.</strong> [3]</p>
+<div class="arithmatex">\[
+\begin{aligned}
+f_H(1) &amp;= 0 + 2(3) = 6, &amp; f_D(1) &amp;= 1 + 2 = 3, \\
+f_H(2) &amp;= 0 + 3 = 3, &amp; f_D(2) &amp;= 2 + 0 = 2.
+\end{aligned}
+\]</div>
+<p><strong>(b)(ii) Ratios.</strong> [4]</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\gamma_1 &amp;= \frac{f_D(1)}{f_H(1)} = \frac{3}{6} = \frac{1}{2}, \\
+\gamma_2 &amp;= \frac{f_D(2)}{f_H(2)} = \frac{2}{3}.
+\end{aligned}
+\]</div>
+<p><strong>(b)(iii) Fixation from one Hawk.</strong> [4]</p>
+<div class="arithmatex">\[
+\rho_1 = \frac{1}{1 + \gamma_1 + \gamma_1 \gamma_2}
+= \frac{1}{1 + \tfrac{1}{2} + \tfrac{1}{3}}
+= \frac{1}{\tfrac{11}{6}} = \frac{6}{11} \approx 0.545.
+\]</div>
+<p><strong>(b)(iv) Fixation from two Hawks.</strong> [4]</p>
+<div class="arithmatex">\[
+\rho_2 = \frac{1 + \gamma_1}{1 + \gamma_1 + \gamma_1 \gamma_2}
+= \frac{1 + \tfrac{1}{2}}{\tfrac{11}{6}}
+= \frac{\tfrac{3}{2}}{\tfrac{11}{6}} = \frac{9}{11} \approx 0.818.
+\]</div>
+<p><strong>(c) Interpretation.</strong> [4]</p>
+<p>A single Hawk fixes with probability <span class="arithmatex">\(\tfrac{6}{11}\)</span>, and starting from two
+Hawks fixation is more likely still at <span class="arithmatex">\(\tfrac{9}{11}\)</span>: the more Hawks initially
+present, the more likely they take over. Applying the criterion, a single Hawk
+has <span class="arithmatex">\(\rho_1 = \tfrac{6}{11} \approx 0.545 &gt; \tfrac{1}{3} = 1/N\)</span>, so a single
+Hawk fixes more often than a neutral mutant would: Hawks are favoured by
+selection.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) The ratio is state-independent.</strong> [4]</p>
+<p>In state <span class="arithmatex">\(i\)</span> the number of mutants rises by one when a mutant is copied and a
+resident is removed, and falls by one when a resident is copied and a mutant is
+removed:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+P_{i \to i+1} &amp;= \frac{i f_M}{i f_M + (N - i) f_R} \cdot \frac{N - i}{N}, \\
+P_{i \to i-1} &amp;= \frac{(N - i) f_R}{i f_M + (N - i) f_R} \cdot \frac{i}{N}.
+\end{aligned}
+\]</div>
+<p>Taking the ratio, the shared denominator and the factor <span class="arithmatex">\(i(N - i)/N\)</span> cancel:</p>
+<div class="arithmatex">\[
+\gamma_i = \frac{P_{i \to i-1}}{P_{i \to i+1}}
+= \frac{(N - i) f_R \cdot i}{i f_M \cdot (N - i)}
+= \frac{f_R}{f_M} = \frac{1}{r} = r^{-1},
+\]</div>
+<p>which is independent of <span class="arithmatex">\(i\)</span>.</p>
+<p><strong>(b) Fixation of a single mutant.</strong> [6]</p>
+<p>With <span class="arithmatex">\(\gamma_k = \gamma = r^{-1}\)</span> for all <span class="arithmatex">\(k\)</span>, the products in the general
+formula are powers of <span class="arithmatex">\(\gamma\)</span>, so</p>
+<div class="arithmatex">\[
+\rho_1 = \frac{1}{1 + \sum_{k=1}^{N-1} \gamma^k} = \frac{1}{\sum_{k=0}^{N-1} \gamma^k}.
+\]</div>
+<p>For <span class="arithmatex">\(\gamma \neq 1\)</span> the geometric sum gives
+<span class="arithmatex">\(\sum_{k=0}^{N-1}\gamma^k = \dfrac{1 - \gamma^N}{1 - \gamma}\)</span>, hence</p>
+<div class="arithmatex">\[
+\rho_1 = \frac{1 - \gamma}{1 - \gamma^N} = \frac{1 - r^{-1}}{1 - r^{-N}}.
+\]</div>
+<p>For <span class="arithmatex">\(\gamma = 1\)</span>, that is <span class="arithmatex">\(r = 1\)</span>, the sum is <span class="arithmatex">\(N\)</span> and <span class="arithmatex">\(\rho_1 = 1/N\)</span>.</p>
+<p><strong>(c) The selection criterion.</strong> [10]</p>
+<p>Write <span class="arithmatex">\(\gamma = r^{-1}\)</span>, so <span class="arithmatex">\(r &gt; 1\)</span> is equivalent to <span class="arithmatex">\(\gamma &lt; 1\)</span>. A short
+calculation gives</p>
+<div class="arithmatex">\[
+\rho_1 - \frac{1}{N}
+= \frac{1 - \gamma}{1 - \gamma^N} - \frac{1}{N}
+= \frac{N(1 - \gamma) - (1 - \gamma^N)}{N(1 - \gamma^N)}
+= \frac{-g(\gamma)}{N(1 - \gamma^N)},
+\]</div>
+<p>where <span class="arithmatex">\(g(\gamma) = 1 - \gamma^N - N(1 - \gamma)\)</span>. We have <span class="arithmatex">\(g(1) = 0\)</span> and</p>
+<div class="arithmatex">\[
+g'(\gamma) = -N\gamma^{N-1} + N = N\bigl(1 - \gamma^{N-1}\bigr),
+\]</div>
+<p>which is positive for <span class="arithmatex">\(\gamma &lt; 1\)</span> and negative for <span class="arithmatex">\(\gamma &gt; 1\)</span>. So <span class="arithmatex">\(g\)</span> has
+a strict maximum at <span class="arithmatex">\(\gamma = 1\)</span>, where <span class="arithmatex">\(g(1) = 0\)</span>; hence <span class="arithmatex">\(g(\gamma) &lt; 0\)</span> for
+every <span class="arithmatex">\(\gamma &gt; 0\)</span> with <span class="arithmatex">\(\gamma \neq 1\)</span>. Therefore <span class="arithmatex">\(-g(\gamma) &gt; 0\)</span>, and the
+sign of <span class="arithmatex">\(\rho_1 - 1/N\)</span> is the sign of <span class="arithmatex">\(1 - \gamma^N\)</span>:</p>
+<ul>
+<li>if <span class="arithmatex">\(\gamma &lt; 1\)</span> then <span class="arithmatex">\(1 - \gamma^N &gt; 0\)</span>, so <span class="arithmatex">\(\rho_1 &gt; 1/N\)</span>;</li>
+<li>if <span class="arithmatex">\(\gamma &gt; 1\)</span> then <span class="arithmatex">\(1 - \gamma^N &lt; 0\)</span>, so <span class="arithmatex">\(\rho_1 &lt; 1/N\)</span>.</li>
+</ul>
+<p>Thus <span class="arithmatex">\(\rho_1 &gt; 1/N\)</span> if and only if <span class="arithmatex">\(\gamma &lt; 1\)</span>, that is if and only if
+<span class="arithmatex">\(r &gt; 1\)</span>.</p>
+<p><strong>(d) The large-population limit.</strong> [5]</p>
+<p>For <span class="arithmatex">\(r &gt; 1\)</span> we have <span class="arithmatex">\(r^{-N} \to 0\)</span> as <span class="arithmatex">\(N \to \infty\)</span>, so</p>
+<div class="arithmatex">\[
+\rho_1 \to \frac{1 - r^{-1}}{1} = 1 - \frac{1}{r}.
+\]</div>
+<p>Even in an arbitrarily large population an advantageous mutant fixes with
+probability only <span class="arithmatex">\(1 - 1/r\)</span>, bounded away from <span class="arithmatex">\(1\)</span>. From part (c) selection
+fixes the direction, a mutant being favoured exactly when <span class="arithmatex">\(r &gt; 1\)</span>, for every
+<span class="arithmatex">\(N\)</span>; but it does not guarantee fixation. While the mutant is rare, drift can
+remove it before its fitness advantage takes effect, and it is lost with
+probability at least <span class="arithmatex">\(1/r\)</span>.</p>
+<h2 id="marking-exercises">Marking exercises</h2>
+<p><strong>Marking exercise 1 (Question 1(b) and (c)).</strong></p>
+<p>The fitnesses count self-interactions: an individual does not play itself,
+which is why the question's formula carries the <span class="arithmatex">\((v_i - 1)\)</span> term for the
+own type. The Hawk value is accidentally unaffected, because
+<span class="arithmatex">\(A_{HH} = 0\)</span> makes the self-term worthless:
+<span class="arithmatex">\(f_H = (2 - 1)(0) + 2(3) = 6\)</span> either way. The Dove value is not:
+<span class="arithmatex">\(f_D = (2 - 1)(2) + 2(1) = 4\)</span>, not <span class="arithmatex">\(6\)</span>, as in the solution above. That
+coincidence is what makes the slip easy to miss, and is exactly why an
+examiner recomputes both.</p>
+<p>Everything after the fitnesses inherits the error: the types are not
+equally fit, this is not neutral drift, and the probability that the Hawks
+increase is</p>
+<div class="arithmatex">\[
+\frac{2 f_H}{2 f_H + 2 f_D} \cdot \frac{2}{4}
+= \frac{12}{20} \cdot \frac{1}{2} = \frac{3}{10},
+\]</div>
+<p>not <span class="arithmatex">\(\tfrac{1}{4}\)</span>. A fair mark is [3] of [6] for (b), one fitness of two,
+and [2] of [7] for (c), where the structure of the product, reproduction
+probability times death probability, is right.</p>
+<p><strong>Marking exercise 2 (Question 3(b)(iii) and (iv)).</strong></p>
+<p>The formula is misremembered: the denominator of the fixation probability is
+<span class="arithmatex">\(1 + \sum_{k} \prod_{j \le k} \gamma_j\)</span>, a sum of <em>products</em> of
+consecutive ratios, not a sum of the ratios themselves. The second term must
+be <span class="arithmatex">\(\gamma_1 \gamma_2 = \tfrac{1}{3}\)</span>, not <span class="arithmatex">\(\gamma_2 = \tfrac{2}{3}\)</span>:
+walking down from two Hawks to zero requires both downward steps, and the
+product is what compounds them. The correct values, as in the solution
+above, are</p>
+<div class="arithmatex">\[
+\rho_1 = \frac{1}{1 + \tfrac{1}{2} + \tfrac{1}{3}} = \frac{6}{11}
+\approx 0.545,
+\qquad
+\rho_2 = \frac{1 + \tfrac{1}{2}}{\tfrac{11}{6}} = \frac{9}{11}
+\approx 0.818.
+\]</div>
+<p>The conclusion that Hawks are favoured survives, but by luck: both reported
+numbers are wrong, and with other payoffs the mangled formula can land on
+the wrong side of <span class="arithmatex">\(1/N\)</span>. A fair mark is [1] of [4] for each part: the
+<span class="arithmatex">\(\gamma\)</span> values are carried in correctly, but the formula being assessed
+is wrong in both.</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

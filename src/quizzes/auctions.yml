@@ -1,0 +1,182 @@
+title: Auctions
+pick: 5
+questions:
+  - q: "In a second-price (Vickrey) auction, the winner ..."
+    options:
+      - text: "is the highest bidder and pays the second-highest bid"
+        correct: true
+      - text: "is the highest bidder and pays their own bid"
+      - text: "is chosen at random"
+      - text: "pays the average of all bids"
+    explain: "The winner pays the second-highest bid, not their own."
+
+  - q: "In a second-price auction, bidding your true value is ..."
+    options:
+      - text: "a weakly dominant strategy"
+        correct: true
+      - text: "never optimal"
+      - text: "only optimal if you know the others' values"
+      - text: "the same as bidding zero"
+    explain: "Bidding your value is at least as good as any other bid, whatever the others do."
+
+  - q: "A Bayesian Nash equilibrium is a strategy profile in which ..."
+    options:
+      - text: "each player maximises expected utility given their type and correct beliefs about others"
+        correct: true
+      - text: "every player knows everyone else's value"
+      - text: "all players bid the same amount"
+      - text: "the seller chooses the winner"
+    explain: "It is the equilibrium concept for games of incomplete information."
+
+  - q: "In a first-price auction, a rational bidder usually ..."
+    options:
+      - text: "shades their bid below their true value"
+        correct: true
+      - text: "bids their true value"
+      - text: "bids above their true value"
+      - text: "always bids zero"
+    explain: "Bidding your value would give zero surplus on winning, so you bid lower."
+
+  - q: "The revenue equivalence theorem says that ..."
+    options:
+      - text: "first-price and second-price auctions raise the same expected revenue (under its conditions)"
+        correct: true
+      - text: "the seller always prefers a first-price auction"
+      - text: "the winner always pays the same as the loser"
+      - text: "revenue is always zero"
+    explain: "When the item goes to the highest-value bidder and a zero-value bidder gets zero surplus, the formats yield equal expected revenue."
+
+  - q: "Because truthful bidding is dominant, the second-price auction is ..."
+    options:
+      - text: "efficient: the highest-value bidder wins"
+        correct: true
+      - text: "always more profitable for the seller"
+      - text: "impossible to run with sealed bids"
+      - text: "only suitable for two bidders"
+    explain: "Bidders need not guess others' values, and the item goes to whoever values it most."
+
+  - q: "An auction game is specified by ..."
+    options:
+      - text: "the bidders' value distributions, an allocation rule and a payment rule"
+        correct: true
+      - text: "a single payoff matrix"
+      - text: "a list of stable matchings"
+      - text: "a discount factor"
+    explain: "These components determine who wins and what they pay."
+
+  - q: "In a first-price auction, the winner pays ..."
+    options:
+      - text: "their own bid"
+        correct: true
+      - text: "the second-highest bid"
+      - text: "nothing"
+      - text: "the average bid"
+    explain: "First-price means you pay what you bid."
+
+  - q: "A bidder's type in an auction is ..."
+    options:
+      - text: "their private value for the item"
+        correct: true
+      - text: "their bid"
+      - text: "the number of other bidders"
+      - text: "the reserve price"
+    explain: "Each bidder privately knows their own valuation."
+
+  - q: "In a first-price auction with \\(N\\) bidders whose values are uniform on \\([0,1]\\), the equilibrium bid is ..."
+    options:
+      - text: "\\(\\frac{N-1}{N} v\\)"
+        correct: true
+      - text: "\\(v\\)"
+      - text: "\\(v/2\\) for all \\(N\\)"
+      - text: "\\(0\\)"
+    explain: "Bidders shade by a factor \\((n-1)/n\\), shading less as competition grows."
+
+  - q: "A bidder's utility in an auction is ..."
+    options:
+      - text: "\\(v_i q_i - p_i\\): value times allocation, minus payment"
+        correct: true
+      - text: "their bid"
+      - text: "the seller's revenue"
+      - text: "always zero"
+    explain: "Utility is the value obtained minus what is paid."
+
+  - q: "Revenue equivalence requires that the auction ..."
+    options:
+      - text: "always gives the item to the highest-value bidder and gives a zero-value bidder zero surplus"
+        correct: true
+      - text: "uses sealed bids"
+      - text: "has exactly two bidders"
+      - text: "charges a reserve price"
+    explain: "Under these conditions the expected revenue is the same across formats."
+
+  - q: "In a second-price auction the winner's surplus is ..."
+    options:
+      - text: "their value minus the second-highest value"
+        correct: true
+      - text: "zero"
+      - text: "their value minus their own bid"
+      - text: "the second-highest value"
+    explain: "They win the item (value) and pay the second price."
+
+  - q: "Truthful bidding being a dominant strategy means that in a second-price auction ..."
+    options:
+      - text: "bidders need not guess others' values to bid optimally"
+        correct: true
+      - text: "more profitable than any other auction"
+      - text: "only suitable for one bidder"
+      - text: "impossible to run sealed-bid"
+    explain: "A dominant strategy frees bidders from reasoning about others."
+
+  - q: "The second-price auction is efficient because ..."
+    options:
+      - text: "the bidder who values the item most wins it"
+        correct: true
+      - text: "the seller earns the most"
+      - text: "everyone pays the same"
+      - text: "no one ever wins"
+    explain: "Efficiency means the item goes to the highest-value bidder."
+
+  - q: "For \\(N\\) values drawn independently and uniformly on \\([0,1]\\), the expected maximum is ..."
+    options:
+      - text: "\\(\\frac{N}{N+1}\\)"
+        correct: true
+      - text: "\\(\\frac{1}{2}\\)"
+      - text: "\\(\\frac{N-1}{N+1}\\)"
+      - text: "\\(\\frac{1}{N}\\)"
+    explain: "The \\(k\\)-th smallest of \\(N\\) uniform values has expectation \\(k/(n+1)\\); the maximum is the \\(N\\)-th."
+
+  - q: "In a first-price auction with \\(N\\) uniform bidders bidding \\(\\frac{N-1}{N} v\\), the seller's expected revenue is ..."
+    options:
+      - text: "\\(\\frac{N-1}{N+1}\\)"
+        correct: true
+      - text: "\\(\\frac{N}{N+1}\\)"
+      - text: "\\(\\frac{1}{2}\\)"
+      - text: "\\(\\frac{1}{N}\\)"
+    explain: "Revenue is \\(\\frac{N-1}{N}\\,\\mathbb{E}[\\max_i v_i] = \\frac{N-1}{N}\\cdot\\frac{N}{N+1} = \\frac{N-1}{N+1}\\)."
+
+  - q: "In a second-price auction with \\(N\\) uniform bidders, the seller's expected revenue equals ..."
+    options:
+      - text: "the expected second-highest value, \\(\\frac{N-1}{N+1}\\)"
+        correct: true
+      - text: "the expected highest value, \\(\\frac{N}{N+1}\\)"
+      - text: "\\(\\frac{1}{2}\\)"
+      - text: "zero"
+    explain: "The winner pays the second-highest bid, which under truthful bidding is the second-highest value."
+
+  - q: "A bidding strategy in an auction game is a map \\(b_i: V_i \\to B_i\\) that sends ..."
+    options:
+      - text: "a bidder's valuation to a bid"
+        correct: true
+      - text: "a bid to a payment"
+      - text: "a valuation to a payment"
+      - text: "a bid to an allocation"
+    explain: "Bidders observe their private valuation and choose a bid; the allocation and payment rules act on the bids."
+
+  - q: "The allocation rule \\(q\\) of an auction maps the profile of bids to ..."
+    options:
+      - text: "the probability with which each bidder receives the good"
+        correct: true
+      - text: "the amount each bidder pays"
+      - text: "each bidder's private valuation"
+      - text: "the seller's reserve price"
+    explain: "In a standard auction \\(q\\) puts probability 1 on the highest bidder and 0 on the rest."

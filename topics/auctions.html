@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auctions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<h1>Auctions</h1>
+
+
+<h3>Notes</h3>
+<ul>
+  
+  <li><a href="https://vknight.org/gtb/chapters/auction-games/">Auctions: course textbook chapter</a></li>
+  
+</ul>
+
+
+
+
+
+<h2>Quick quiz</h2>
+<p>A few questions to warm up and check the basics, before the exam-type
+questions below. They are reshuffled each time, so you can keep retrying.</p>
+<div class="quiz" data-quiz>
+  <script type="application/json">{"title": "Auctions", "pick": 5, "questions": [{"q": "In a second-price (Vickrey) auction, the winner ...", "options": [{"text": "is the highest bidder and pays the second-highest bid", "correct": true}, {"text": "is the highest bidder and pays their own bid"}, {"text": "is chosen at random"}, {"text": "pays the average of all bids"}], "explain": "The winner pays the second-highest bid, not their own."}, {"q": "In a second-price auction, bidding your true value is ...", "options": [{"text": "a weakly dominant strategy", "correct": true}, {"text": "never optimal"}, {"text": "only optimal if you know the others' values"}, {"text": "the same as bidding zero"}], "explain": "Bidding your value is at least as good as any other bid, whatever the others do."}, {"q": "A Bayesian Nash equilibrium is a strategy profile in which ...", "options": [{"text": "each player maximises expected utility given their type and correct beliefs about others", "correct": true}, {"text": "every player knows everyone else's value"}, {"text": "all players bid the same amount"}, {"text": "the seller chooses the winner"}], "explain": "It is the equilibrium concept for games of incomplete information."}, {"q": "In a first-price auction, a rational bidder usually ...", "options": [{"text": "shades their bid below their true value", "correct": true}, {"text": "bids their true value"}, {"text": "bids above their true value"}, {"text": "always bids zero"}], "explain": "Bidding your value would give zero surplus on winning, so you bid lower."}, {"q": "The revenue equivalence theorem says that ...", "options": [{"text": "first-price and second-price auctions raise the same expected revenue (under its conditions)", "correct": true}, {"text": "the seller always prefers a first-price auction"}, {"text": "the winner always pays the same as the loser"}, {"text": "revenue is always zero"}], "explain": "When the item goes to the highest-value bidder and a zero-value bidder gets zero surplus, the formats yield equal expected revenue."}, {"q": "Because truthful bidding is dominant, the second-price auction is ...", "options": [{"text": "efficient: the highest-value bidder wins", "correct": true}, {"text": "always more profitable for the seller"}, {"text": "impossible to run with sealed bids"}, {"text": "only suitable for two bidders"}], "explain": "Bidders need not guess others' values, and the item goes to whoever values it most."}, {"q": "An auction game is specified by ...", "options": [{"text": "the bidders' value distributions, an allocation rule and a payment rule", "correct": true}, {"text": "a single payoff matrix"}, {"text": "a list of stable matchings"}, {"text": "a discount factor"}], "explain": "These components determine who wins and what they pay."}, {"q": "In a first-price auction, the winner pays ...", "options": [{"text": "their own bid", "correct": true}, {"text": "the second-highest bid"}, {"text": "nothing"}, {"text": "the average bid"}], "explain": "First-price means you pay what you bid."}, {"q": "A bidder's type in an auction is ...", "options": [{"text": "their private value for the item", "correct": true}, {"text": "their bid"}, {"text": "the number of other bidders"}, {"text": "the reserve price"}], "explain": "Each bidder privately knows their own valuation."}, {"q": "In a first-price auction with \\(N\\) bidders whose values are uniform on \\([0,1]\\), the equilibrium bid is ...", "options": [{"text": "\\(\\frac{N-1}{N} v\\)", "correct": true}, {"text": "\\(v\\)"}, {"text": "\\(v/2\\) for all \\(N\\)"}, {"text": "\\(0\\)"}], "explain": "Bidders shade by a factor \\((n-1)/n\\), shading less as competition grows."}, {"q": "A bidder's utility in an auction is ...", "options": [{"text": "\\(v_i q_i - p_i\\): value times allocation, minus payment", "correct": true}, {"text": "their bid"}, {"text": "the seller's revenue"}, {"text": "always zero"}], "explain": "Utility is the value obtained minus what is paid."}, {"q": "Revenue equivalence requires that the auction ...", "options": [{"text": "always gives the item to the highest-value bidder and gives a zero-value bidder zero surplus", "correct": true}, {"text": "uses sealed bids"}, {"text": "has exactly two bidders"}, {"text": "charges a reserve price"}], "explain": "Under these conditions the expected revenue is the same across formats."}, {"q": "In a second-price auction the winner's surplus is ...", "options": [{"text": "their value minus the second-highest value", "correct": true}, {"text": "zero"}, {"text": "their value minus their own bid"}, {"text": "the second-highest value"}], "explain": "They win the item (value) and pay the second price."}, {"q": "Truthful bidding being a dominant strategy means that in a second-price auction ...", "options": [{"text": "bidders need not guess others' values to bid optimally", "correct": true}, {"text": "more profitable than any other auction"}, {"text": "only suitable for one bidder"}, {"text": "impossible to run sealed-bid"}], "explain": "A dominant strategy frees bidders from reasoning about others."}, {"q": "The second-price auction is efficient because ...", "options": [{"text": "the bidder who values the item most wins it", "correct": true}, {"text": "the seller earns the most"}, {"text": "everyone pays the same"}, {"text": "no one ever wins"}], "explain": "Efficiency means the item goes to the highest-value bidder."}, {"q": "For \\(N\\) values drawn independently and uniformly on \\([0,1]\\), the expected maximum is ...", "options": [{"text": "\\(\\frac{N}{N+1}\\)", "correct": true}, {"text": "\\(\\frac{1}{2}\\)"}, {"text": "\\(\\frac{N-1}{N+1}\\)"}, {"text": "\\(\\frac{1}{N}\\)"}], "explain": "The \\(k\\)-th smallest of \\(N\\) uniform values has expectation \\(k/(n+1)\\); the maximum is the \\(N\\)-th."}, {"q": "In a first-price auction with \\(N\\) uniform bidders bidding \\(\\frac{N-1}{N} v\\), the seller's expected revenue is ...", "options": [{"text": "\\(\\frac{N-1}{N+1}\\)", "correct": true}, {"text": "\\(\\frac{N}{N+1}\\)"}, {"text": "\\(\\frac{1}{2}\\)"}, {"text": "\\(\\frac{1}{N}\\)"}], "explain": "Revenue is \\(\\frac{N-1}{N}\\,\\mathbb{E}[\\max_i v_i] = \\frac{N-1}{N}\\cdot\\frac{N}{N+1} = \\frac{N-1}{N+1}\\)."}, {"q": "In a second-price auction with \\(N\\) uniform bidders, the seller's expected revenue equals ...", "options": [{"text": "the expected second-highest value, \\(\\frac{N-1}{N+1}\\)", "correct": true}, {"text": "the expected highest value, \\(\\frac{N}{N+1}\\)"}, {"text": "\\(\\frac{1}{2}\\)"}, {"text": "zero"}], "explain": "The winner pays the second-highest bid, which under truthful bidding is the second-highest value."}, {"q": "A bidding strategy in an auction game is a map \\(b_i: V_i \\to B_i\\) that sends ...", "options": [{"text": "a bidder's valuation to a bid", "correct": true}, {"text": "a bid to a payment"}, {"text": "a valuation to a payment"}, {"text": "a bid to an allocation"}], "explain": "Bidders observe their private valuation and choose a bid; the allocation and payment rules act on the bids."}, {"q": "The allocation rule \\(q\\) of an auction maps the profile of bids to ...", "options": [{"text": "the probability with which each bidder receives the good", "correct": true}, {"text": "the amount each bidder pays"}, {"text": "each bidder's private valuation"}, {"text": "the seller's reserve price"}], "explain": "In a standard auction \\(q\\) puts probability 1 on the highest bidder and 0 on the rest."}]}</script>
+</div>
+
+
+<h2 id="example-questions">Example questions</h2>
+<p>The following are exam-type questions in the style of the examination paper,
+with marks at the rates used in the papers. <strong>A question totalling fewer than
+25 marks would, in the examination, be combined with further parts, often one
+of the examinable proofs, to make a full 25-mark question.</strong> Attempt them in
+full before reading the worked solutions. Some parts use expected values of
+ordered uniform samples; each question states the facts you may use, and their
+derivations are in the
+<a href="https://vknight.org/gtb/appendices/order-statistics/">order statistics appendix</a>
+of the textbook.</p>
+<h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
+<p>In class we ran a sealed-bid second-price auction. Suppose three bidders have
+private values <span class="arithmatex">\(v_1 = 10\)</span>, <span class="arithmatex">\(v_2 = 7\)</span> and <span class="arithmatex">\(v_3 = 4\)</span>; the highest bidder wins
+and pays the second-highest bid.</p>
+<p>(a) Explain the rules of a second-price (Vickrey) auction. [3]</p>
+<p>(b) If all bidders bid truthfully, determine the winner, the price paid and the
+winner's payoff. [3]</p>
+<p>(c) Show, for bidder 1, that bidding the true value <span class="arithmatex">\(v_1 = 10\)</span> is a weakly
+dominant strategy, by considering bids above and below 10 and showing neither
+can do better whatever the others bid. [7]</p>
+<p>(d) Explain why truthful bidding being a weakly dominant strategy is a desirable
+property of the second-price auction. [4]</p>
+<p>(e) If the auction were instead first-price (the winner pays their own bid),
+would bidding your true value still be weakly dominant? Briefly explain. [2]</p>
+<h3 id="question-2">Question 2</h3>
+<p>(a) Provide definitions for the following terms:</p>
+<ul>
+<li>an auction game;</li>
+<li>a Bayesian Nash equilibrium;</li>
+<li>a weakly dominant strategy. [3]</li>
+</ul>
+<p>(b) Consider a sealed-bid second-price (Vickrey) auction for a single item, where
+the highest bidder wins and pays the second-highest bid.</p>
+<p>(i) Show that bidding one's value <span class="arithmatex">\(b = v\)</span> is a weakly dominant strategy. [7]</p>
+<p>(ii) Hence state the Bayesian Nash equilibrium. [2]</p>
+<p>(c) Two bidders have values drawn independently from the uniform distribution on
+<span class="arithmatex">\([0, 1]\)</span> and bid truthfully. You may use that for two such values,
+<span class="arithmatex">\(\mathbb{E}[\min(v_1, v_2)] = \tfrac{1}{3}\)</span> and
+<span class="arithmatex">\(\mathbb{E}[\max(v_1, v_2)] = \tfrac{2}{3}\)</span>.</p>
+<p>(i) Compute the seller's expected revenue. [3]</p>
+<p>(ii) Compute the expected payoff to the winning bidder. [3]</p>
+<p>(iii) State, without further calculation, what the revenue equivalence theorem
+   says the seller's expected revenue would be in a first-price auction for these
+   bidders. [3]</p>
+<h3 id="question-3">Question 3</h3>
+<p>(a) State the symmetric Bayesian Nash equilibrium bidding function for <span class="arithmatex">\(N\)</span>
+bidders with values uniform on <span class="arithmatex">\([0, 1]\)</span> in a first-price auction. [3]</p>
+<p>(b) Take two such bidders, each bidding <span class="arithmatex">\(b(v) = v/2\)</span>. You may use that for two
+independent values <span class="arithmatex">\(v_1, v_2\)</span> uniform on <span class="arithmatex">\([0, 1]\)</span>,
+<span class="arithmatex">\(\mathbb{P}(v_1 \leq z) = z\)</span> for <span class="arithmatex">\(z \in [0, 1]\)</span>,
+<span class="arithmatex">\(\mathbb{E}[\min(v_1, v_2)] = \tfrac{1}{3}\)</span> and
+<span class="arithmatex">\(\mathbb{E}[\max(v_1, v_2)] = \tfrac{2}{3}\)</span>.</p>
+<p>(i) Compute the seller's expected revenue. [3]</p>
+<p>(ii) Compute the expected payoff of a bidder who knows their own value is
+   <span class="arithmatex">\(v\)</span>, taking the expectation over the other bidder's value. [4]</p>
+<p>(iii) Compute the seller's expected revenue in the corresponding second-price
+   auction and state the revenue equivalence result. [3]</p>
+<p>(c) Explain the intuition behind revenue equivalence. [5]</p>
+<p>(d) State the two conditions on the auctions that the revenue equivalence theorem
+requires, and confirm that they hold here. [3]</p>
+<h3 id="question-4-hard">Question 4 (<strong>hard</strong>)</h3>
+<p>A single item is sold by sealed-bid first-price auction to <span class="arithmatex">\(N\)</span> bidders. The
+values <span class="arithmatex">\(v_1, \dots, v_N\)</span> are independent, each uniform on <span class="arithmatex">\([0, 1]\)</span>. The
+highest bidder wins and pays their own bid. We look for a symmetric equilibrium in
+which every bidder uses the same strictly increasing, differentiable bidding
+function <span class="arithmatex">\(b\)</span> with <span class="arithmatex">\(b(0) = 0\)</span>. Throughout you may use that a value uniform on
+<span class="arithmatex">\([0, 1]\)</span> satisfies <span class="arithmatex">\(\mathbb{P}(v_i \leq z) = z\)</span> for <span class="arithmatex">\(z \in [0, 1]\)</span>, and that
+the expected value of the <span class="arithmatex">\(k\)</span>-th smallest of <span class="arithmatex">\(N\)</span> independent such values is
+<span class="arithmatex">\(\dfrac{k}{N + 1}\)</span>.</p>
+<p>(a) Suppose every bidder other than bidder 1 uses <span class="arithmatex">\(b\)</span>. If bidder 1 has value
+<span class="arithmatex">\(v\)</span> and submits the bid <span class="arithmatex">\(b(z)\)</span>, that is bids as though their value were
+<span class="arithmatex">\(z\)</span>, show that the probability they win is <span class="arithmatex">\(z^{N-1}\)</span>, and hence that their
+expected payoff is <span class="arithmatex">\(U(z) = z^{N-1}\bigl(v - b(z)\bigr)\)</span>. [6]</p>
+<p>(b) In equilibrium the optimal choice is <span class="arithmatex">\(z = v\)</span> for every <span class="arithmatex">\(v\)</span>. Use this to
+derive the differential equation
+<span class="arithmatex">\(\dfrac{d}{dv}\bigl[v^{N-1} b(v)\bigr] = (N-1) v^{N-1}\)</span>, and solve it with
+<span class="arithmatex">\(b(0) = 0\)</span> to obtain <span class="arithmatex">\(b(v) = \dfrac{N-1}{N}\, v\)</span>. [10]</p>
+<p>(c) Show that the seller's expected revenue is <span class="arithmatex">\(\dfrac{N-1}{N+1}\)</span>. [5]</p>
+<p>(d) State the revenue equivalence theorem, and verify it for these bidders by
+computing the seller's expected revenue in the corresponding second-price
+auction. [4]</p>
+<h2 id="marking-exercises-optional">Marking exercises (optional)</h2>
+<p>These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.</p>
+<h3 id="marking-exercise-1-on-question-1c-worth-7">Marking exercise 1 (on Question 1(c), worth [7])</h3>
+<p>A student pastes Question 1(c) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">Claim: bidding the true value v1 = 10 is a strictly dominant strategy.
+
+Suppose bidder 1 bids 12 instead. If the highest rival bid is 11,
+bidder 1 wins and pays 11, making a loss of 1. So bidding higher is
+worse.
+
+Suppose bidder 1 bids 8 instead. If the highest rival bid is 9, bidder
+1 loses and gets 0, whereas bidding 10 would have won for a profit of
+1. So bidding lower is worse.
+
+Since bidding higher is worse and bidding lower is worse, bidding
+exactly 10 is strictly dominant. ∎
+</code></pre>
+<h3 id="marking-exercise-2-on-question-3bi-and-iii-worth-3-and-3">Marking exercise 2 (on Question 3(b)(i) and (iii), worth [3] and [3])</h3>
+<p>A student pastes Question 3(b) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">First-price revenue: the winner is the bidder with the higher value and
+pays their own bid, so the seller's expected revenue is
+E[max(v1, v2)] = 2/3.
+
+Second-price revenue: the winner pays the second-highest value, so the
+expected revenue is E[min(v1, v2)] = 1/3.
+
+Conclusion: the first-price auction raises twice the revenue of the
+second-price auction, which is why sellers generally prefer first-price
+auctions. 💰
+</code></pre>
+<h2 id="optional-further-reading">Optional further reading</h2>
+<p>You do not need any of this to follow the topic, but the following may help if
+you would like more background:</p>
+<ul>
+<li><a href="https://vknight.org/gtb/appendices/order-statistics/">Order Statistics</a>,
+  which derives the expected values of ordered uniform samples that the
+  questions above state as given facts.</li>
+</ul>
+
+
+<p><strong><a href="/solutions/auctions.html">Worked solutions to the example questions &rarr;</a></strong></p>
+
+
+
+<p><strong><a href="/assets/quizzes/auctions.pdf">Download the full quiz as a PDF (all questions, no solutions) &rarr;</a></strong></p>
+
+
+
+<p><small><code><a href="/run/auctions.html">Facilitator notes: Auctions</a></code></small></p>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Replicator Dynamics — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<h1>Replicator Dynamics</h1>
+
+
+<h3>Notes</h3>
+<ul>
+  
+  <li><a href="https://vknight.org/gtb/chapters/replicator-dynamics/">Replicator Dynamics: course textbook chapter</a></li>
+  
+</ul>
+
+
+
+
+
+<h2>Quick quiz</h2>
+<p>A few questions to warm up and check the basics, before the exam-type
+questions below. They are reshuffled each time, so you can keep retrying.</p>
+<div class="quiz" data-quiz>
+  <script type="application/json">{"title": "Replicator dynamics", "pick": 5, "questions": [{"q": "The replicator equation for the proportion \\(x_i\\) of type \\(i\\) is ...", "options": [{"text": "\\(\\dot{x}_i = x_i(f_i(x) - \\phi)\\), where \\(\\phi\\) is the average fitness", "correct": true}, {"text": "\\(\\dot{x}_i = f_i(x)\\)"}, {"text": "\\(\\dot{x}_i = x_i \\phi\\)"}, {"text": "\\(\\dot{x}_i = \\phi - f_i(x)\\)"}], "explain": "A type grows when its fitness exceeds the population average."}, {"q": "A type's frequency increases under the replicator dynamics when ...", "options": [{"text": "its fitness is above the population average", "correct": true}, {"text": "its fitness is below the population average"}, {"text": "it is rare"}, {"text": "the average fitness is zero"}], "explain": "The sign of \\(f_i - \\phi\\) determines whether the type grows or shrinks."}, {"q": "An evolutionarily stable strategy (ESS) is one that ...", "options": [{"text": "cannot be invaded by a small group playing a different strategy", "correct": true}, {"text": "maximises the total payoff of the population"}, {"text": "is always a pure strategy"}, {"text": "every individual must play"}], "explain": "Residents at an ESS earn a higher fitness than any rare mutant, so the mutant dies out."}, {"q": "A rest point (stable population) of the replicator dynamics satisfies ...", "options": [{"text": "\\(\\dot{x}_i = 0\\) for all \\(i\\)", "correct": true}, {"text": "\\(f_i(x) = 0\\) for all \\(i\\)"}, {"text": "\\(x_i = 1\\) for some \\(i\\)"}, {"text": "\\(\\phi = 1\\)"}], "explain": "At a rest point the proportions stop changing."}, {"q": "Every ESS is also ...", "options": [{"text": "a symmetric Nash equilibrium", "correct": true}, {"text": "a strictly dominant strategy"}, {"text": "a zero sum outcome"}, {"text": "an unstable rest point"}], "explain": "Letting the invading fraction tend to zero gives the Nash condition; ESS is a refinement of it."}, {"q": "In the Hawk-Dove game with \\(V \u003c C\\), the dynamics approach ...", "options": [{"text": "an interior mix of Hawks and Doves (the ESS)", "correct": true}, {"text": "all Hawks"}, {"text": "all Doves"}, {"text": "no rest point"}], "explain": "When the cost exceeds the value, a stable polymorphic population is the ESS."}, {"q": "The average population fitness \\(\\phi\\) is ...", "options": [{"text": "\\(\\sum_i x_i f_i(x)\\), the fitness-weighted average over types", "correct": true}, {"text": "the fitness of the fittest type"}, {"text": "always equal to 1"}, {"text": "the number of types"}], "explain": "\\(\\phi\\) is the mean fitness, weighting each type by its frequency."}, {"q": "Under the replicator dynamics, a rare but fit type grows ...", "options": [{"text": "slowly, because growth is proportional to its current frequency \\(x_i\\)", "correct": true}, {"text": "instantly to fixation"}, {"text": "at the same rate as a common type"}, {"text": "only if it is the only type"}], "explain": "The factor \\(x_i\\) in \\(\\dot{x}_i = x_i(f_i - \\phi)\\) slows the growth of rare types."}, {"q": "In a pairwise interaction game with payoff matrix \\(M\\), the fitness of type \\(i\\) is ...", "options": [{"text": "\\(f_i(x) = \\sum_j x_j M_{ij}\\)", "correct": true}, {"text": "\\(M_{ii}\\)"}, {"text": "the largest entry of \\(M\\)"}, {"text": "\\(\\sum_j M_{ij}\\)"}], "explain": "Each individual meets every type in proportion to its frequency."}, {"q": "The post-entry population after a fraction \\(\\epsilon\\) of mutants \\(y\\) invade residents \\(x\\) is ...", "options": [{"text": "\\(x + \\epsilon(y - x)\\)", "correct": true}, {"text": "\\(x + y\\)"}, {"text": "\\(\\epsilon y\\)"}, {"text": "\\(x - y\\)"}], "explain": "A small fraction \\(\\epsilon\\) of the population is replaced by mutants."}, {"q": "In Rock-Paper-Scissors, the replicator dynamics ...", "options": [{"text": "cycle around the interior equilibrium rather than converging to it", "correct": true}, {"text": "converge to all Rock"}, {"text": "converge to the uniform mix"}, {"text": "have no rest point"}], "explain": "The interior equilibrium of RPS is not an ESS; the dynamics orbit it."}, {"q": "A two-strategy coordination game (such as which side of the road to drive on) is ...", "options": [{"text": "has two stable populations, each pure, with an unstable interior population between them", "correct": true}, {"text": "always convergent to a single mix"}, {"text": "without any stable population"}, {"text": "a zero sum game"}], "explain": "Two pure stable populations exist, separated by an unstable interior population."}, {"q": "An ESS is a refinement of Nash equilibrium because ...", "options": [{"text": "every ESS is a symmetric Nash equilibrium, but not every Nash equilibrium is an ESS", "correct": true}, {"text": "every Nash equilibrium is an ESS"}, {"text": "an ESS need not be a Nash equilibrium"}, {"text": "they are unrelated"}], "explain": "ESS adds an uninvadability condition on top of the Nash condition."}, {"q": "The replicator dynamics keep the proportions \\(x_i\\) ...", "options": [{"text": "summing to 1 (they remain a valid distribution)", "correct": true}, {"text": "summing to the number of types"}, {"text": "all equal"}, {"text": "constant over time"}], "explain": "The dynamics preserve \\(\\sum_i x_i = 1\\)."}, {"q": "A stable population that the dynamics actually move towards is ...", "options": [{"text": "an asymptotically stable rest point (a small perturbation returns)", "correct": true}, {"text": "any rest point, even a repelling one"}, {"text": "the point of maximum fitness"}, {"text": "always \\(x = 1/2\\)"}], "explain": "Being a rest point (\\(\\dot{x}=0\\)) is necessary; stability decides whether it is approached."}, {"q": "For a strategy \\(\\sigma^*\\) with \\(f(\\sigma^*, \\sigma^*) = f(\\sigma, \\sigma^*)\\), the ESS condition additionally requires ...", "options": [{"text": "\\(f(\\sigma^*, \\sigma) \u003e f(\\sigma, \\sigma)\\)", "correct": true}, {"text": "\\(f(\\sigma^*, \\sigma) \u003c f(\\sigma, \\sigma)\\)"}, {"text": "\\(f(\\sigma^*, \\sigma^*) \u003e f(\\sigma, \\sigma^*)\\)"}, {"text": "nothing further"}], "explain": "When the first (Nash) inequality is an equality, the resident must do strictly better against the mutant."}, {"q": "Taking \\(\\epsilon \\to 0\\) in the ESS definition recovers ...", "options": [{"text": "the symmetric Nash condition \\(f(\\sigma^*, \\sigma^*) \\ge f(\\sigma, \\sigma^*)\\)", "correct": true}, {"text": "the replicator equation"}, {"text": "the fixation probability"}, {"text": "a Condorcet cycle"}], "explain": "Every ESS is a symmetric Nash equilibrium; ESS is a strict refinement of Nash."}, {"q": "The replicator-mutator dynamics extend the replicator equation by adding ...", "options": [{"text": "mutation between types", "correct": true}, {"text": "discounting of future payoffs"}, {"text": "a fixed population size"}, {"text": "pairwise proposals"}], "explain": "It combines selection (replication) with a mutation term that moves probability between types."}, {"q": "The asymmetric replicator dynamics model ...", "options": [{"text": "two interacting populations with distinct roles and payoff matrices", "correct": true}, {"text": "a single population playing itself"}, {"text": "a finite population of fixed size"}, {"text": "a zero-sum game only"}], "explain": "Row and column populations evolve together, each against the other's current state."}, {"q": "In a pairwise interaction game with payoff matrix \\(M\\), the fitness of playing \\(\\sigma\\) against population state \\(x\\) is ...", "options": [{"text": "\\(\\sigma M x\\) (linear in the population state)", "correct": true}, {"text": "\\(\\det(M)\\)"}, {"text": "\\(\\sigma + x\\)"}, {"text": "the largest entry of \\(M\\)"}], "explain": "Fitness is the expected payoff of \\(\\sigma\\) against a randomly drawn member of the population."}]}</script>
+</div>
+
+
+<h2 id="example-questions">Example questions</h2>
+<p>The following are exam-type questions in the style of the examination paper.
+<strong>Each question is worth 25 marks.</strong> Attempt them in full before reading the
+worked solutions.</p>
+<h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
+<p>In class we played the snowdrift game: two drivers meet at a snowdrift and each
+chooses to Dig or Stay. With actions ordered (Dig, Stay), the row player's
+payoff matrix is</p>
+<div class="arithmatex">\[
+A = \begin{pmatrix} 3 &amp; 2 \\ 4 &amp; 0 \end{pmatrix}.
+\]</div>
+<p>Let <span class="arithmatex">\(x\)</span> be the proportion of the population that plays Dig.</p>
+<p>(a) Write down the fitness <span class="arithmatex">\(f_D\)</span> of Dig and <span class="arithmatex">\(f_S\)</span> of Stay as functions of
+<span class="arithmatex">\(x\)</span>. [3]</p>
+<p>(b) Write down the replicator equation for <span class="arithmatex">\(x\)</span> and simplify it to a product of
+factors. [7]</p>
+<p>(c) Find all stable populations of the dynamics. [3]</p>
+<p>(d) By examining the sign of <span class="arithmatex">\(\dot{x}\)</span>, determine which stable population the
+dynamics approach from any interior start, and relate this to where the class
+settled. [6]</p>
+<p>(e) Determine whether the interior stable population is an evolutionarily stable
+strategy, justifying your answer both from the stability of the population and
+from the requirement that a small invading group of the other strategy must earn
+a lower fitness than the residents. [6]</p>
+<h3 id="question-2">Question 2</h3>
+<p>(a) Write down the replicator dynamics equation for a two-type population with
+fitness functions <span class="arithmatex">\(f_1\)</span> and <span class="arithmatex">\(f_2\)</span>. [3]</p>
+<p>(b) Road users drive on the left <span class="arithmatex">\((L)\)</span> or the right <span class="arithmatex">\((R)\)</span>. With <span class="arithmatex">\(x\)</span> the
+proportion driving on the left, the fitness functions are <span class="arithmatex">\(f_L(x) = 1 + x\)</span> and
+<span class="arithmatex">\(f_R(x) = 1 + (1 - x)\)</span>.</p>
+<p>(i) Give an interpretation of the fitness functions. [2]</p>
+<p>(ii) Derive the replicator dynamics equation. [6]</p>
+<p>(iii) Obtain all stable populations. [4]</p>
+<p>(iv) By examining the sign of <span class="arithmatex">\(\dot{x}\)</span> near each stable population,
+   determine which are approached by the dynamics, and state which are
+   evolutionarily stable strategies. [8]</p>
+<p>(v) This game has two stable populations, everyone driving left and everyone
+   driving right. Explain what determines which side everyone ends up driving on,
+   and why the symmetric mixed population is never observed in practice. [2]</p>
+<h3 id="question-3">Question 3</h3>
+<p>Rock-Paper-Scissors is played in a large population. With actions ordered
+(Rock, Paper, Scissors), the focal-player payoff matrix is</p>
+<div class="arithmatex">\[
+A = \begin{pmatrix} 0 &amp; -1 &amp; 1 \\ 1 &amp; 0 &amp; -1 \\ -1 &amp; 1 &amp; 0 \end{pmatrix},
+\]</div>
+<p>where a win scores <span class="arithmatex">\(1\)</span>, a loss <span class="arithmatex">\(-1\)</span> and a tie <span class="arithmatex">\(0\)</span>. Let
+<span class="arithmatex">\(x = (x_R, x_P, x_S)\)</span> be the proportions playing each action, with
+<span class="arithmatex">\(x_R + x_P + x_S = 1\)</span>.</p>
+<p>(a) Write down the fitness <span class="arithmatex">\(f_R\)</span>, <span class="arithmatex">\(f_P\)</span> and <span class="arithmatex">\(f_S\)</span> of each strategy as
+functions of the population, and show that the average fitness <span class="arithmatex">\(\phi\)</span> is
+zero. [5]</p>
+<p>(b) Write down the replicator dynamics equations for <span class="arithmatex">\(\dot{x}_R\)</span>,
+<span class="arithmatex">\(\dot{x}_P\)</span> and <span class="arithmatex">\(\dot{x}_S\)</span>. [4]</p>
+<p>(c) Show that the only interior stable population, with all three strategies
+present, is <span class="arithmatex">\(x_R = x_P = x_S = \tfrac{1}{3}\)</span>. [5]</p>
+<p>(d) Let <span class="arithmatex">\(H(x) = x_R x_P x_S\)</span>. Show that <span class="arithmatex">\(\tfrac{d}{dt} \ln H = 0\)</span> along any
+interior trajectory, so that <span class="arithmatex">\(H\)</span> is constant. Hence describe the trajectories
+and explain why the interior population is stable but not asymptotically
+stable. [7]</p>
+<p>(e) Explain why the interior population is not an evolutionarily stable
+strategy, and interpret the dynamics in terms of the cyclic structure of the
+game. [4]</p>
+<h3 id="question-4-hard">Question 4 (<strong>hard</strong>)</h3>
+<p>Consider a symmetric game with payoff matrix <span class="arithmatex">\(A\)</span> and an interior evolutionarily
+stable strategy <span class="arithmatex">\(x^{*}\)</span>, so every component of <span class="arithmatex">\(x^{*}\)</span> is positive and
+<span class="arithmatex">\(x^{*} A x &gt; x A x\)</span> for every population <span class="arithmatex">\(x \neq x^{*}\)</span> in a neighbourhood of
+<span class="arithmatex">\(x^{*}\)</span>. Define</p>
+<div class="arithmatex">\[
+V(x) = \sum_i x^{*}_i \ln\!\frac{x^{*}_i}{x_i}.
+\]</div>
+<p>(a) Show that <span class="arithmatex">\(V(x) \ge 0\)</span> for every interior <span class="arithmatex">\(x\)</span>, with equality only at
+<span class="arithmatex">\(x = x^{*}\)</span>. You may use the concavity of <span class="arithmatex">\(\ln\)</span>. [5]</p>
+<p>(b) Show that along any interior trajectory of the replicator dynamics</p>
+<div class="arithmatex">\[
+\frac{d}{dt} V(x) = -\bigl(x^{*} A x - x A x\bigr).
+\]</div>
+<p>[9]</p>
+<p>(c) Use the evolutionarily stable strategy condition to deduce that
+<span class="arithmatex">\(\tfrac{d}{dt} V &lt; 0\)</span> for <span class="arithmatex">\(x \neq x^{*}\)</span> near <span class="arithmatex">\(x^{*}\)</span>, so that <span class="arithmatex">\(V\)</span> is a
+Lyapunov function and <span class="arithmatex">\(x^{*}\)</span> is asymptotically stable. [6]</p>
+<p>(d) Contrast this with the Rock-Paper-Scissors game of Question 3, where the
+interior population is not an evolutionarily stable strategy. Explain why there the
+analogue of <span class="arithmatex">\(V\)</span> is replaced by a conserved quantity <span class="arithmatex">\(H\)</span> and the trajectories
+are closed orbits rather than converging to the centre. [5]</p>
+<h2 id="marking-exercises-optional">Marking exercises (optional)</h2>
+<p>These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.</p>
+<h3 id="marking-exercise-1-on-question-2bii-and-iii-worth-6-and-4">Marking exercise 1 (on Question 2(b)(ii) and (iii), worth [6] and [4])</h3>
+<p>A student pastes Question 2(b) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">The replicator equation compares a strategy's fitness with its rival's:
+
+    dx/dt = x (f_L - f_R) = x ((1 + x) - (2 - x)) = x (2x - 1)
+
+Setting dx/dt = 0 gives the stable populations: x = 0 (nobody drives on
+the left) and x = 1/2 (half on each side). ✅
+</code></pre>
+<h3 id="marking-exercise-2-on-question-1e-worth-6">Marking exercise 2 (on Question 1(e), worth [6])</h3>
+<p>A student pastes Question 1(e) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">The interior fixed point solves f_D = f_S: here x + 2 = 4x, so
+x* = 2/3. The dynamics converge to x* from every interior starting
+point, and every stable fixed point of the replicator dynamics is an
+evolutionarily stable strategy, so x* = 2/3 is an ESS. ∎
+</code></pre>
+<h2 id="optional-further-reading">Optional further reading</h2>
+<p>You do not need any of this to follow the topic, but the following chapters of
+the textbook may help if you would like more background:</p>
+<ul>
+<li><a href="https://vknight.org/gtb/chapters/evolutionary-biology/">Evolutionary Biology</a>,
+  which gives the biological background to evolutionary game theory.</li>
+<li><a href="https://vknight.org/gtb/appendices/numerical-integration/">Numerical Integration</a>,
+  which covers the numerical methods behind solving the replicator dynamics
+  equation.</li>
+<li><a href="https://vknight.org/gtb/chapters/graph-dynamics/">Evolutionary Dynamics on Graphs</a>,
+  which extends the dynamics to structured, non-well-mixed populations.</li>
+<li><a href="https://vknight.org/gtb/chapters/further-learning-dynamics/">Learning and Evolutionary Dynamics</a>,
+  which places the dynamics within a broader family of update rules.</li>
+</ul>
+
+
+<p><strong><a href="/solutions/replicator-dynamics.html">Worked solutions to the example questions &rarr;</a></strong></p>
+
+
+
+<p><strong><a href="/assets/quizzes/replicator-dynamics.pdf">Download the full quiz as a PDF (all questions, no solutions) &rarr;</a></strong></p>
+
+
+
+<p><small><code><a href="/run/replicator-dynamics.html">Facilitator notes: Replicator Dynamics</a></code></small></p>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

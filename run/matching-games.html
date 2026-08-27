@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matching Games (facilitator notes) — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="facilitator-notes">
+
+<div class="facilitator-banner">
+  <strong>Facilitator notes: not student-facing.</strong>
+  These notes are for planning and running classes.
+  Student resources are at <a href="/">vknight.org/gt/</a>.
+</div>
+
+<h1>Matching Games</h1>
+
+<h2 id="activity-20-minutes">Activity (20 minutes)</h2>
+<p><strong>Goal.</strong> Elicit preferences and motivate the need for a stable matching.</p>
+<p>Use <a href="/assets/activities/matching-scientists/main.pdf">this preference sheet</a> and
+ask students to work in groups to identify preferences for each mathematician and
+physicist.</p>
+<p>Arrive at this:</p>
+<p><strong>Mathematicians</strong></p>
+<ul>
+<li>Gauss: Curie &gt; Newton &gt; Feynman &gt; Einstein</li>
+<li>Noether: Curie &gt; Feynman &gt; Einstein &gt; Newton</li>
+<li>Turing: Feynman &gt; Curie &gt; Einstein &gt; Newton</li>
+<li>Euler: Newton &gt; Curie &gt; Einstein &gt; Feynman</li>
+</ul>
+<p><strong>Physicists</strong></p>
+<ul>
+<li>Einstein: Noether &gt; Gauss &gt; Turing &gt; Euler</li>
+<li>Curie: Noether &gt; Euler &gt; Turing &gt; Gauss</li>
+<li>Newton: Gauss &gt; Euler &gt; Noether &gt; Turing</li>
+<li>Feynman: Turing &gt; Noether &gt; Gauss &gt; Euler</li>
+</ul>
+<p>The following will obtain a stable matching:</p>
+<pre><code class="language-python">
+import matching
+import matching.games
+
+mathematicians = [
+    matching.Player(&quot;Gauss&quot;),
+    matching.Player(&quot;Noether&quot;),
+    matching.Player(&quot;Turing&quot;),
+    matching.Player(&quot;Euler&quot;),
+]
+
+physicists = [
+    matching.Player(&quot;Einstein&quot;),
+    matching.Player(&quot;Curie&quot;),
+    matching.Player(&quot;Newton&quot;),
+    matching.Player(&quot;Feynman&quot;),
+]
+
+gauss, noether, turing, euler = mathematicians
+einstein, curie, newton, feynman = physicists
+
+gauss.set_prefs([curie, newton, feynman, einstein])
+noether.set_prefs([curie, feynman, einstein, newton])
+turing.set_prefs([feynman, curie, einstein, newton])
+euler.set_prefs([newton, curie, einstein, feynman])
+
+einstein.set_prefs([noether, gauss, turing, euler])
+curie.set_prefs([noether, euler, turing, gauss])
+newton.set_prefs([gauss, euler, noether, turing])
+feynman.set_prefs([turing, noether, gauss, euler])
+
+game = matching.games.StableMarriage(mathematicians, physicists)
+game.solve()
+
+</code></pre>
+<h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
+<p>Show students the notes, when you get to the algorithm work through the
+algorithm with the students.</p>
+<h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
+<p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="/topics/matching-games.html">Matching Games</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
+
+
+<h2>Communications</h2>
+
+<p>General email templates to send before and after this class. Fill in the
+bracketed placeholders before sending.</p>
+
+<h3>Before class</h3>
+
+<pre><code>Hi all,
+
+A reminder that our next Game Theory class covers Matching Games.
+
+All of the course materials, including the relevant chapter, are available
+at https://vknight.org/gt/. It is worth skimming the chapter beforehand.
+
+See you in class,
+Vince
+</code></pre>
+
+<h3>After class</h3>
+
+<pre><code>Dear all,
+
+Thanks for your work in today's class on Matching Games.
+
+A recording is available here [RECORDING LINK] and on Learning Central.
+
+All class resources are available at https://vknight.org/gt/.
+
+Thanks,
+Vince
+</code></pre>
+
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

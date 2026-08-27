@@ -1,0 +1,68 @@
+- title: "Week 1 (3 classes)"
+  topics:
+    - title: "About the course"
+    - title: Games
+    - title: Rationalisation
+- title: "Week 2 (2 classes)"
+  topics:
+    - title: Nash Equilibrium
+    - title: Normal form games
+      example: true
+- title: "Week 3 (3 classes)"
+  topics:
+    - title: Subgame Perfection
+      note: "first of two classes"
+    - title: Subgame Perfection
+      note: "second of two classes"
+    - title: Repeated Games
+- title: "Week 4 (2 classes)"
+  topics:
+    - title: Extensive form and repeated games
+      example: true
+    - title: Direct Reciprocity
+      note: "first of two classes"
+- title: "Week 5 (3 classes)"
+  topics:
+    - title: Direct Reciprocity
+      note: "second of two classes"
+    - title: Reciprocity and evolutionary stability
+      example: true
+    - title: Replicator Dynamics
+- title: "Week 6 (2 classes)"
+  topics:
+    - title: Moran Process
+      note: "first of two classes"
+    - title: Moran Process
+      note: "second of two classes"
+- title: "Week 7 (3 classes)"
+  topics:
+    - title: Evolutionary dynamics (Replicator and Moran)
+      example: true
+    - title: Routing Games
+    - title: Matching Games
+- title: "Week 8 (2 classes)"
+  topics:
+    - title: Routing and matching games
+      example: true
+    - title: Auctions
+- title: "Week 9 (3 classes)"
+  topics:
+    - title: Social Choice
+    - title: Auctions and social choice
+      example: true
+    - title: Cooperative Games
+- title: "Week 10 (2 classes)"
+  topics:
+    - title: Cooperative games
+      example: true
+    - title: Mock Exam
+- title: "Week 11 (3 classes)"
+  topics:
+    - title: Mock Exam
+    - title: Mock Exam
+      example: true
+    - title: Slack
+- title: "Week 12 (2 classes)"
+  topics:
+    - title: Slack
+    - title: Slack

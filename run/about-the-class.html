@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About the class (facilitator notes) — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<div class="facilitator-notes">
+
+<div class="facilitator-banner">
+  <strong>Facilitator notes: not student-facing.</strong>
+  These notes are for planning and running classes.
+  Student resources are at <a href="/">vknight.org/gt/</a>.
+</div>
+
+<h1>About the class</h1>
+
+<p><strong>Duration</strong>: 50 minutes</p>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>Outline timetable and approach to class.</li>
+<li>Discuss feedback from previous years.</li>
+<li>Make students aware of learning resources available to them.</li>
+<li>Make students aware of assessment criteria.</li>
+<li>Make students aware of the coding aspect of the course (both in assessment and
+  in content).</li>
+<li>Introduce games.</li>
+</ul>
+<h2 id="activity-20-minutes">Activity (20 minutes)</h2>
+<p><strong>Goal.</strong> Open with a memorable game that exposes escalation and sunk cost,
+and set the rhythm of activity-then-discussion for the course.</p>
+<p>Play the dollar auction game (with £5).</p>
+<blockquote>
+<p>Top two bidders pay, winner gets to keep the £5.</p>
+</blockquote>
+<p>Talk about strategy (briefly!), detail that we will do things like this every
+class: first 20 minutes will be an activity and the second will be a discussion
+of theory. Sometimes we will not finish the discussion.</p>
+<p><strong>A note on bribentives.</strong> Several later activities reward players with a
+<em>bribentive</em>. The word is a blend of <em>bribe</em> and <em>incentive</em>: the reward is
+usually just a sweet or a chocolate bar, so it is not really a good incentive,
+more a small bribe for engagement.</p>
+<h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
+<p>Timetable and approach</p>
+<hr />
+<p>Discuss timetable</p>
+<p><strong>I will not lecture</strong></p>
+<p>This course is taught in an independent learning environment. All notes, homework,
+exercises are available to you.</p>
+<p>In class we will work in parallel to the notes but not directly following them.
+You will be expected to play an active role in your learning:</p>
+<ul>
+<li>Activities that demonstrate concepts;</li>
+<li>Discussions</li>
+</ul>
+<p>Feedback</p>
+<hr />
+<p>Show feedback from previous year.</p>
+<p>Learning and assessment</p>
+<hr />
+<p>All resources can be found at http://vknight.org/gt/</p>
+<p>Assessment:</p>
+<ul>
+<li>2 hour exam (100%): held during the Autumn exam period.</li>
+</ul>
+<p>Seeking assistance</p>
+<hr />
+<p>Details on website.</p>
+<p>Kindness</p>
+<hr />
+<p>Highlight the kindness section.</p>
+<h2 id="communications">Communications</h2>
+<p>Email templates to send before and after the first class. Fill in the bracketed
+placeholders before sending.</p>
+<h3 id="before-class">Before class</h3>
+<pre><code>Hi all,
+
+I hope you are all well.
+
+This is a brief email before our first class.
+
+All of the course materials are available at
+https://vknight.org/gt/.
+
+I realise that some of you are no doubt still deciding whether or not you
+will choose Game Theory this Autumn Semester. During our first class I
+will hopefully answer any questions you have, but please don't hesitate to
+use the chat if there's anything you'd like to know as you choose your
+modules.
+
+Please get in touch if I can assist with anything,
+Vince
+</code></pre>
+<h3 id="after-class">After class</h3>
+<pre><code>Dear all,
+
+In class today we spoke about the way the class will be delivered.
+
+A recording is available here [RECORDING LINK] and on Learning Central.
+
+All class resources are available at: https://vknight.org/gt/
+
+Thanks,
+Vince
+</code></pre>
+
+
+
+</div>
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

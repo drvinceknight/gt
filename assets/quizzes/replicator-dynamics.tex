@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Replicator dynamics}
+\begin{enumerate}[itemsep=6pt]
+  \item The replicator equation for the proportion \(x_i\) of type \(i\) is ...
+  \begin{enumerate}
+    \item \(\dot{x}_i = \phi - f_i(x)\)
+    \item \(\dot{x}_i = x_i \phi\)
+    \item \(\dot{x}_i = x_i(f_i(x) - \phi)\), where \(\phi\) is the average fitness
+    \item \(\dot{x}_i = f_i(x)\)
+  \end{enumerate}
+  \item A type's frequency increases under the replicator dynamics when ...
+  \begin{enumerate}
+    \item it is rare
+    \item the average fitness is zero
+    \item its fitness is below the population average
+    \item its fitness is above the population average
+  \end{enumerate}
+  \item An evolutionarily stable strategy (ESS) is one that ...
+  \begin{enumerate}
+    \item every individual must play
+    \item maximises the total payoff of the population
+    \item cannot be invaded by a small group playing a different strategy
+    \item is always a pure strategy
+  \end{enumerate}
+  \item A rest point (stable population) of the replicator dynamics satisfies ...
+  \begin{enumerate}
+    \item \(f_i(x) = 0\) for all \(i\)
+    \item \(\phi = 1\)
+    \item \(\dot{x}_i = 0\) for all \(i\)
+    \item \(x_i = 1\) for some \(i\)
+  \end{enumerate}
+  \item Every ESS is also ...
+  \begin{enumerate}
+    \item a zero sum outcome
+    \item a strictly dominant strategy
+    \item a symmetric Nash equilibrium
+    \item an unstable rest point
+  \end{enumerate}
+  \item In the Hawk-Dove game with \(V < C\), the dynamics approach ...
+  \begin{enumerate}
+    \item all Doves
+    \item no rest point
+    \item an interior mix of Hawks and Doves (the ESS)
+    \item all Hawks
+  \end{enumerate}
+  \item The average population fitness \(\phi\) is ...
+  \begin{enumerate}
+    \item always equal to 1
+    \item \(\sum_i x_i f_i(x)\), the fitness-weighted average over types
+    \item the fitness of the fittest type
+    \item the number of types
+  \end{enumerate}
+  \item Under the replicator dynamics, a rare but fit type grows ...
+  \begin{enumerate}
+    \item only if it is the only type
+    \item at the same rate as a common type
+    \item instantly to fixation
+    \item slowly, because growth is proportional to its current frequency \(x_i\)
+  \end{enumerate}
+  \item In a pairwise interaction game with payoff matrix \(M\), the fitness of type \(i\) is ...
+  \begin{enumerate}
+    \item \(\sum_j M_{ij}\)
+    \item the largest entry of \(M\)
+    \item \(f_i(x) = \sum_j x_j M_{ij}\)
+    \item \(M_{ii}\)
+  \end{enumerate}
+  \item The post-entry population after a fraction \(\epsilon\) of mutants \(y\) invade residents \(x\) is ...
+  \begin{enumerate}
+    \item \(x + y\)
+    \item \(\epsilon y\)
+    \item \(x - y\)
+    \item \(x + \epsilon(y - x)\)
+  \end{enumerate}
+  \item In Rock-Paper-Scissors, the replicator dynamics ...
+  \begin{enumerate}
+    \item converge to the uniform mix
+    \item converge to all Rock
+    \item have no rest point
+    \item cycle around the interior equilibrium rather than converging to it
+  \end{enumerate}
+  \item A two-strategy coordination game (such as which side of the road to drive on) is ...
+  \begin{enumerate}
+    \item without any stable population
+    \item has two stable populations, each pure, with an unstable interior population between them
+    \item a zero sum game
+    \item always convergent to a single mix
+  \end{enumerate}
+  \item An ESS is a refinement of Nash equilibrium because ...
+  \begin{enumerate}
+    \item every ESS is a symmetric Nash equilibrium, but not every Nash equilibrium is an ESS
+    \item they are unrelated
+    \item every Nash equilibrium is an ESS
+    \item an ESS need not be a Nash equilibrium
+  \end{enumerate}
+  \item The replicator dynamics keep the proportions \(x_i\) ...
+  \begin{enumerate}
+    \item constant over time
+    \item summing to 1 (they remain a valid distribution)
+    \item summing to the number of types
+    \item all equal
+  \end{enumerate}
+  \item A stable population that the dynamics actually move towards is ...
+  \begin{enumerate}
+    \item the point of maximum fitness
+    \item any rest point, even a repelling one
+    \item an asymptotically stable rest point (a small perturbation returns)
+    \item always \(x = 1/2\)
+  \end{enumerate}
+  \item For a strategy \(\sigma^*\) with \(f(\sigma^*, \sigma^*) = f(\sigma, \sigma^*)\), the ESS condition additionally requires ...
+  \begin{enumerate}
+    \item \(f(\sigma^*, \sigma) > f(\sigma, \sigma)\)
+    \item \(f(\sigma^*, \sigma^*) > f(\sigma, \sigma^*)\)
+    \item \(f(\sigma^*, \sigma) < f(\sigma, \sigma)\)
+    \item nothing further
+  \end{enumerate}
+  \item Taking \(\epsilon \to 0\) in the ESS definition recovers ...
+  \begin{enumerate}
+    \item the fixation probability
+    \item a Condorcet cycle
+    \item the replicator equation
+    \item the symmetric Nash condition \(f(\sigma^*, \sigma^*) \ge f(\sigma, \sigma^*)\)
+  \end{enumerate}
+  \item The replicator-mutator dynamics extend the replicator equation by adding ...
+  \begin{enumerate}
+    \item pairwise proposals
+    \item a fixed population size
+    \item discounting of future payoffs
+    \item mutation between types
+  \end{enumerate}
+  \item The asymmetric replicator dynamics model ...
+  \begin{enumerate}
+    \item two interacting populations with distinct roles and payoff matrices
+    \item a finite population of fixed size
+    \item a zero-sum game only
+    \item a single population playing itself
+  \end{enumerate}
+  \item In a pairwise interaction game with payoff matrix \(M\), the fitness of playing \(\sigma\) against population state \(x\) is ...
+  \begin{enumerate}
+    \item \(\sigma + x\)
+    \item \(\det(M)\)
+    \item the largest entry of \(M\)
+    \item \(\sigma M x\) (linear in the population state)
+  \end{enumerate}
+\end{enumerate}
+\end{document}

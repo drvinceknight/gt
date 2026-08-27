@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="textbook-note">
+  <strong>About the textbook.</strong> This course follows the open-source
+  textbook at <a href="https://vknight.org/gtb/">vknight.org/gtb</a>, which
+  contains every topic we cover, together with exercises, worked solutions and
+  the programming material. Not every chapter of the textbook is on the course:
+  the schedule below lists what is examinable, but you are very welcome to read
+  the other chapters too.
+</div>
+
+<h2>Schedule</h2>
+
+{% for week in toc %}
+<div class="week-block">
+  <h3>{{ week.title }}</h3>
+  <ul>
+    {% for topic in week.topics %}
+    {% if topic.example %}
+    <li class="example-class"><strong>Example class:</strong> {{ topic.title }}</li>
+    {% else %}
+    <li><a href="{{ baseurl }}/topics/{{ topic.title | slugify }}.html">{{ topic.title }}</a>{% if topic.self_study %} <small>(self-study)</small>{% endif %}{% if topic.note %} <small>({{ topic.note }})</small>{% endif %}</li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+{% endfor %}
+
+<hr>
+
+<h2>FAQs</h2>
+
+{% for faq in faqs %}
+<h3>{{ faq.title }}</h3>
+{{ faq.content_html }}
+{% endfor %}
+
+<hr>
+
+<h2><a href="{{ baseurl }}/assessment/">Assessment</a></h2>
+
+{% endblock %}

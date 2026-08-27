@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Routing Games — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<h1>Routing Games</h1>
+
+
+<h3>Notes</h3>
+<ul>
+  
+  <li><a href="https://vknight.org/gtb/chapters/routing-games/">Routing Games: course textbook chapter</a></li>
+  
+</ul>
+
+
+
+
+
+<h2>Quick quiz</h2>
+<p>A few questions to warm up and check the basics, before the exam-type
+questions below. They are reshuffled each time, so you can keep retrying.</p>
+<div class="quiz" data-quiz>
+  <script type="application/json">{"title": "Routing games", "pick": 5, "questions": [{"q": "A Nash flow is a flow in which ...", "options": [{"text": "no individual can reduce their own cost by switching to another path", "correct": true}, {"text": "the total cost is minimised"}, {"text": "all traffic uses a single path"}, {"text": "every path carries equal flow"}], "explain": "At a Nash flow every used path has minimal cost, so no one wants to switch."}, {"q": "An optimal flow is the flow that ...", "options": [{"text": "minimises the total cost across all traffic", "correct": true}, {"text": "no driver can improve on individually"}, {"text": "uses the most paths"}, {"text": "equals the Nash flow in every game"}], "explain": "The optimal flow is the social optimum, which a Nash flow need not achieve."}, {"q": "The price of anarchy measures ...", "options": [{"text": "the ratio of the Nash flow cost to the optimal flow cost", "correct": true}, {"text": "the number of paths in the network"}, {"text": "the cost of the cheapest path"}, {"text": "how many drivers there are"}], "explain": "It quantifies how much worse selfish routing is than the social optimum."}, {"q": "Braess's paradox is the observation that ...", "options": [{"text": "adding a new road can make every driver's commute worse", "correct": true}, {"text": "removing a road always helps"}, {"text": "the Nash flow always equals the optimal flow"}, {"text": "drivers never reach an equilibrium"}], "explain": "A new shortcut can tempt everyone onto congested edges, raising the equilibrium cost."}, {"q": "A feasible flow that minimises the potential function \\(\\Phi\\) is ...", "options": [{"text": "a Nash flow", "correct": true}, {"text": "the optimal flow"}, {"text": "never an equilibrium"}, {"text": "a flow that uses no congested edges"}], "explain": "A flow is a Nash flow if and only if it minimises the potential function."}, {"q": "The optimal flow of a routing game equals the Nash flow of the game with ...", "options": [{"text": "each cost function replaced by its marginal cost", "correct": true}, {"text": "all costs set to zero"}, {"text": "the costs doubled"}, {"text": "a single combined path"}], "explain": "Marginal-cost pricing makes selfish routing coincide with the social optimum."}, {"q": "A feasible flow is one in which ...", "options": [{"text": "the flow on the paths of each commodity sums to its demand", "correct": true}, {"text": "all flow uses a single path"}, {"text": "the total cost is minimised"}, {"text": "no path is used"}], "explain": "Feasibility means each commodity's demand is routed."}, {"q": "Edge cost (latency) functions in a routing game are assumed to be ...", "options": [{"text": "non-negative, continuous and non-decreasing in the flow", "correct": true}, {"text": "constant"}, {"text": "decreasing in the flow"}, {"text": "negative"}], "explain": "Costs rise (or stay level) as more traffic uses an edge."}, {"q": "The price of anarchy is always ...", "options": [{"text": "at least 1", "correct": true}, {"text": "at most 1"}, {"text": "exactly 1"}, {"text": "negative"}], "explain": "The Nash flow can never cost less than the optimal flow, so the ratio is \\(\\ge 1\\)."}, {"q": "In Pigou's example (one fixed-cost route and one congestible route) the price of anarchy is ...", "options": [{"text": "\\(4/3\\)", "correct": true}, {"text": "\\(1\\)"}, {"text": "\\(2\\)"}, {"text": "\\(8/7\\)"}], "explain": "Selfish routing costs \\(4/3\\) of the social optimum in Pigou's example."}, {"q": "Braess's paradox arises because each driver ...", "options": [{"text": "ignores the extra congestion they impose on others (an externality)", "correct": true}, {"text": "cannot find the shortest path"}, {"text": "is forced onto a single route"}, {"text": "pays a toll"}], "explain": "Self-interested routing does not account for the cost imposed on everyone else."}, {"q": "At a Nash flow, all paths a commodity actually uses ...", "options": [{"text": "have equal (and minimal) cost", "correct": true}, {"text": "have different costs"}, {"text": "carry equal flow"}, {"text": "are the cheapest in the whole network"}], "explain": "If a used path were more expensive, traffic would switch away from it."}, {"q": "The total cost of a flow is ...", "options": [{"text": "\\(\\sum_{e} c_e(f_e) f_e\\), summed over the edges", "correct": true}, {"text": "the cost of the cheapest edge"}, {"text": "the number of paths used"}, {"text": "the price of anarchy"}], "explain": "Each edge contributes its cost times the flow it carries."}, {"q": "The optimal flow is found by ...", "options": [{"text": "minimising the total cost over all feasible flows", "correct": true}, {"text": "letting each driver choose selfishly"}, {"text": "maximising the total cost"}, {"text": "using only one path"}], "explain": "The optimal (social) flow minimises total travel cost."}, {"q": "Marginal-cost pricing aligns the selfish and social outcomes because ...", "options": [{"text": "it makes each driver internalise the congestion they cause", "correct": true}, {"text": "it removes all congestion"}, {"text": "it sets all costs to zero"}, {"text": "it forbids the use of congested edges"}], "explain": "Charging the marginal cost makes the Nash flow coincide with the optimal flow."}, {"q": "A routing game is written \\(( G, r, c)\\), where \\(r\\) denotes the ...", "options": [{"text": "amount of traffic (demand) each source-sink commodity must route", "correct": true}, {"text": "number of edges in the network"}, {"text": "price of anarchy"}, {"text": "reciprocal of the cost"}], "explain": "Each source-sink pair carries a commodity \\(r_i\\) of traffic across the graph \\(G\\) with edge costs \\(c\\)."}, {"q": "The potential function of a routing game is ...", "options": [{"text": "\\(\\Phi(f) = \\sum_{e} \\int_0^{f_e} c_e(x)\\,dx\\)", "correct": true}, {"text": "\\(\\Phi(f) = \\sum_{e} c_e(f_e) f_e\\)"}, {"text": "\\(\\Phi(f) = \\max_e c_e(f_e)\\)"}, {"text": "\\(\\Phi(f) = \\sum_e f_e\\)"}], "explain": "The potential integrates each edge cost up to its flow; its minimiser is the Nash flow."}, {"q": "The marginal cost of an edge with cost function \\(c\\) is ...", "options": [{"text": "\\(c^*(x) = \\frac{d}{dx}\\big(x\\,c(x)\\big)\\)", "correct": true}, {"text": "\\(c^*(x) = c(x)/x\\)"}, {"text": "\\(c^*(x) = \\int_0^x c(t)\\,dt\\)"}, {"text": "\\(c^*(x) = c'(x)\\)"}], "explain": "The optimal flow of \\((G,r,c)\\) is the Nash flow of the game with each cost replaced by its marginal cost \\(c^*\\)."}, {"q": "The cost of a path \\(P\\) at flow \\(x\\) is ...", "options": [{"text": "the sum of the edge costs along it, \\(c_P(x) = \\sum_{e \\in P} c_e(x)\\)", "correct": true}, {"text": "the cost of its most expensive edge"}, {"text": "the cost of its cheapest edge"}, {"text": "the number of edges it contains"}], "explain": "A path's cost adds up the latencies of the edges that make it up."}, {"q": "In Braess's paradox, adding a zero-cost road changes the Nash flow so that its cost ...", "options": [{"text": "rises, even though a new option was added", "correct": true}, {"text": "always falls"}, {"text": "stays exactly the same"}, {"text": "becomes zero"}], "explain": "The shortcut tempts every driver onto the two congestible edges, raising the equilibrium travel cost."}]}</script>
+</div>
+
+
+<h2 id="example-questions">Example questions</h2>
+<p>The following are exam-type questions in the style of the examination paper.
+<strong>Each question is worth 25 marks.</strong> Attempt them in full before reading the
+worked solutions.</p>
+<h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
+<p>In class we ran Braess's paradox. Forty drivers travel from <span class="arithmatex">\(S\)</span> to <span class="arithmatex">\(T\)</span>.
+Initially there are two routes: the top route is a small road <span class="arithmatex">\(S \to A\)</span> whose
+travel time in minutes equals the number of cars on it, followed by a motorway
+<span class="arithmatex">\(A \to T\)</span> fixed at 50 minutes; the bottom route is a motorway <span class="arithmatex">\(S \to B\)</span> fixed
+at 50 minutes followed by a small road <span class="arithmatex">\(B \to T\)</span> whose time equals the number
+of cars on it.</p>
+<p>(a) Explain what a Nash flow is in this setting. [3]</p>
+<p>(b) Find the Nash flow and the resulting travel time for each driver. [5]</p>
+<p>(c) A new road <span class="arithmatex">\(A \to B\)</span> taking 0 minutes is added. Show that all 40 drivers
+using the route <span class="arithmatex">\(S \to A \to B \to T\)</span> is now a Nash flow, and find the travel
+time. [7]</p>
+<p>(d) Compare the two travel times and explain, in terms of each driver ignoring
+the congestion they impose on others, why adding a road made everyone worse off.
+[7]</p>
+<p>(e) With the shortcut in place, a social planner could still route 20 drivers
+each way (ignoring the shortcut) for an average of 70 minutes. Compute the price
+of anarchy of the network with the shortcut. [3]</p>
+<h3 id="question-2">Question 2</h3>
+<p>(a) Provide definitions for the following terms:</p>
+<ul>
+<li>a routing game;</li>
+<li>a feasible flow;</li>
+<li>a Nash flow;</li>
+<li>an optimal flow. [4]</li>
+</ul>
+<p>(b) A unit of traffic travels from <span class="arithmatex">\(s\)</span> to <span class="arithmatex">\(t\)</span> on two parallel routes, with
+costs <span class="arithmatex">\(c_1(x) = 1\)</span> and <span class="arithmatex">\(c_2(x) = x\)</span> where <span class="arithmatex">\(x\)</span> is the flow on route 2.</p>
+<p>(i) Find the Nash flow and its average cost. [3]</p>
+<p>(ii) Find the optimal flow and its average cost. [4]</p>
+<p>(iii) Compute the Price of Anarchy. [3]</p>
+<p>(c) Define the potential function of a routing game, write down <span class="arithmatex">\(\Phi(x)\)</span> for
+this network, and show that minimising <span class="arithmatex">\(\Phi(x)\)</span> recovers the Nash flow. [8]</p>
+<p>(d) State the theorem relating the potential function to the Nash flow, and
+explain why it makes Nash flows straightforward to compute. [3]</p>
+<h3 id="question-3">Question 3</h3>
+<p>(a) Define the marginal cost of a route, and state the theorem relating the
+optimal flow to the Nash flow for the marginal cost functions. [4]</p>
+<p>(b) A unit of traffic travels from <span class="arithmatex">\(s\)</span> to <span class="arithmatex">\(t\)</span> on two parallel routes, with
+costs <span class="arithmatex">\(c_1(x) = 2x\)</span> and <span class="arithmatex">\(c_2(x) = 1\)</span>, where <span class="arithmatex">\(x\)</span> is the flow on route 1.</p>
+<p>(i) Find the Nash flow and its average cost. [4]</p>
+<p>(ii) Find the optimal flow and its average cost. [5]</p>
+<p>(iii) Write the marginal cost functions and verify that the optimal flow is
+   the Nash flow for the marginal costs. [5]</p>
+<p>(iv) Compute the Price of Anarchy. [3]</p>
+<p>(c) Explain what the Price of Anarchy measures, and state what it would equal if
+both routes had constant, flow-independent costs. [4]</p>
+<h3 id="question-4-hard">Question 4 (<strong>hard</strong>)</h3>
+<p>Two delivery companies send vans from their own warehouses to a shared depot
+<span class="arithmatex">\(t\)</span>. Company 1 must route <span class="arithmatex">\(r_1 = 1/2\)</span> units of traffic from <span class="arithmatex">\(s_1\)</span>, and
+company 2 must route <span class="arithmatex">\(r_2 = 1/2\)</span> units from <span class="arithmatex">\(s_2\)</span>. Each company has a
+dedicated road to the depot, and each can instead send vans through a junction
+<span class="arithmatex">\(a\)</span> onto a shared ring road. The network is <span class="arithmatex">\(G = (V, E)\)</span> with
+<span class="arithmatex">\(V = \{s_1, s_2, a, t\}\)</span> and</p>
+<div class="arithmatex">\[
+E = \{(s_1, t), (s_1, a), (s_2, t), (s_2, a), (a, t)\},
+\]</div>
+<p>with cost functions</p>
+<div class="arithmatex">\[
+c_{s_1, t}(x) = x, \qquad
+c_{s_2, t}(x) = \frac{1}{2}, \qquad
+c_{s_1, a}(x) = c_{s_2, a}(x) = 0, \qquad
+c_{a, t}(x) = x,
+\]</div>
+<p>where on the ring road <span class="arithmatex">\(x\)</span> is the total flow from both companies.</p>
+<p>(a) Write down the sets of paths <span class="arithmatex">\(\mathcal{P}_1\)</span> and <span class="arithmatex">\(\mathcal{P}_2\)</span>.
+Writing <span class="arithmatex">\(\alpha\)</span> for the flow on <span class="arithmatex">\((s_1, t)\)</span> and <span class="arithmatex">\(\beta\)</span> for the flow on
+<span class="arithmatex">\((s_2, t)\)</span>, give the flow vector <span class="arithmatex">\(f\)</span>, state the conditions for <span class="arithmatex">\(f\)</span> to be
+feasible, and show that the total cost is</p>
+<div class="arithmatex">\[
+C(\alpha, \beta) = \alpha^2 + \frac{\beta}{2} + (1 - \alpha - \beta)^2.
+\]</div>
+<p>[7]</p>
+<p>(b) Find the Nash flow <span class="arithmatex">\(\tilde f\)</span> and its total cost, verifying that the
+Nash condition holds for both commodities. [7]</p>
+<p>(c) Find the optimal flow <span class="arithmatex">\(f^{*}\)</span> and its total cost. [7]</p>
+<p>(d) Compute the price of anarchy. Explain how the optimal flow treats company 2
+differently from the Nash flow, and relate the value you obtain to the price of
+anarchy of Pigou's example with affine costs. [4]</p>
+<h2 id="marking-exercises-optional">Marking exercises (optional)</h2>
+<p>These exercises are entirely optional: they are extra practice, not extra
+content. The best way to use an AI assistant is to be its examiner, not its
+student: checking work is exactly the skill the examination rewards, and the
+skill you will need to use these tools well. Each exercise gives a transcript
+in the style of a widely used free AI chatbot answering one of the example
+questions above. Every transcript contains at least one error. Mark it as an
+examiner would: find each error, explain what goes wrong, and award a mark
+out of the marks of the original question. A marker's report for each
+transcript is on the solutions page.</p>
+<h3 id="marking-exercise-1-on-question-3bi-and-ii-worth-4-and-5">Marking exercise 1 (on Question 3(b)(i) and (ii), worth [4] and [5])</h3>
+<p>A student pastes Question 3(b) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">Nash flow: drivers switch routes until the costs are equal: 2x = 1
+gives x = 1/2, and each route then costs 1. ✅
+
+Optimal flow: the social planner also wants the two routes to cost the
+same, since otherwise some drivers are on a more expensive route and
+the allocation could be improved. So the optimal flow is also x = 1/2,
+with average cost 1. This network has no inefficiency, and its Price of
+Anarchy is 1.
+</code></pre>
+<h3 id="marking-exercise-2-on-question-2c-worth-8">Marking exercise 2 (on Question 2(c), worth [8])</h3>
+<p>A student pastes Question 2(c) into a free AI chatbot, which replies:</p>
+<pre><code class="language-text">The potential function of a routing game is the total cost of the flow:
+
+    Φ(x) = (1 - x)·1 + x·x = 1 - x + x²
+
+Minimising: Φ'(x) = -1 + 2x = 0 gives x = 1/2. This is the Nash flow,
+confirming the theorem that the Nash flow minimises the potential
+function. ✅
+</code></pre>
+<h2 id="optional-further-reading">Optional further reading</h2>
+<p>You do not need any of this to follow the topic, but the following may help if
+you would like more background:</p>
+<ul>
+<li><a href="https://vknight.org/gtb/chapters/nash-equilibrium/">Nash Equilibrium</a>, since a
+  Nash flow is the Nash equilibrium of the routing game.</li>
+<li><a href="https://vknight.org/gtb/appendices/interior-point-optimisation/">Karush-Kuhn-Tucker Conditions</a>,
+  which cover the constrained optimisation of flows.</li>
+</ul>
+
+
+<p><strong><a href="/solutions/routing-games.html">Worked solutions to the example questions &rarr;</a></strong></p>
+
+
+
+<p><strong><a href="/assets/quizzes/routing-games.pdf">Download the full quiz as a PDF (all questions, no solutions) &rarr;</a></strong></p>
+
+
+
+<p><small><code><a href="/run/routing-games.html">Facilitator notes: Routing Games</a></code></small></p>
+
+
+<script src="https://utteranc.es/client.js"
+        repo="drvinceknight/gt"
+        issue-term="pathname"
+        theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

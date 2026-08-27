@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Class notes (facilitator notes) — {{ site_title }}{% endblock %}
+
+{% block content %}
+
+<div class="facilitator-notes">
+
+<div class="facilitator-banner">
+  <strong>Facilitator notes: not student-facing.</strong>
+  These notes are for planning and running classes.
+  Student resources are at <a href="{{ baseurl }}/">vknight.org/gt/</a>.
+</div>
+
+{{ page.content_html }}
+
+<ul class="class-notes-list">
+  {% for notes in notes %}
+  <li><a href="{{ baseurl }}/{{ notes_dir }}/{{ notes.title | slugify }}.html">{{ notes.title }}</a></li>
+  {% endfor %}
+</ul>
+
+</div>
+
+{% endblock %}

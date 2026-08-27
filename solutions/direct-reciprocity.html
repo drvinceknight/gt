@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Direct Reciprocity solutions — Game Theory</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css?v=55825018">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="/start-here/">Start here</a></li>
+        <li><a href="/">Schedule</a></li>
+        <li><a href="/assessment/">Assessment</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<p><small><a href="/topics/direct-reciprocity.html">&larr; Back to Direct Reciprocity</a></small></p>
+
+<h1 id="direct-reciprocity-worked-solutions">Direct Reciprocity: worked solutions</h1>
+<p>Solutions to the example questions on the
+<a href="/topics/direct-reciprocity.html">Direct Reciprocity</a> page. Each question is worth
+25 marks.</p>
+<h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
+<p><strong>(a) Named strategies.</strong> [3]</p>
+<p><span class="arithmatex">\((1, 1)\)</span> is Always Cooperate (AllC), <span class="arithmatex">\((0, 0)\)</span> is Always Defect (AllD),
+<span class="arithmatex">\((1, 0)\)</span> is Tit For Tat (TFT) and <span class="arithmatex">\(\left(\tfrac{1}{2}, \tfrac{1}{2}\right)\)</span>
+is Random.</p>
+<p><strong>(b) Transition matrix.</strong> [7]</p>
+<p>The state records the previous round's actions as (player 1, player 2). Each
+player reacts to the opponent's last action, and it is convenient to write the
+reactive probabilities as fractions: <span class="arithmatex">\(p = \tfrac{4}{5}\)</span>, <span class="arithmatex">\(q = \tfrac{1}{5}\)</span>
+for player 1 and <span class="arithmatex">\(p' = \tfrac{3}{5}\)</span>, <span class="arithmatex">\(q' = \tfrac{1}{10}\)</span> for player 2. The
+two players choose independently, so each transition probability is a product of
+one factor from each. Working through the four starting states,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+CC &amp;\to \bigl(pp',\, p(1-p'),\, (1-p)p',\, (1-p)(1-p')\bigr)
+   = \left(\tfrac{12}{25}, \tfrac{8}{25}, \tfrac{3}{25}, \tfrac{2}{25}\right), \\
+CD &amp;\to \bigl(qp',\, q(1-p'),\, (1-q)p',\, (1-q)(1-p')\bigr)
+   = \left(\tfrac{3}{25}, \tfrac{2}{25}, \tfrac{12}{25}, \tfrac{8}{25}\right), \\
+DC &amp;\to \bigl(pq',\, p(1-q'),\, (1-p)q',\, (1-p)(1-q')\bigr)
+   = \left(\tfrac{2}{25}, \tfrac{18}{25}, \tfrac{1}{50}, \tfrac{9}{50}\right), \\
+DD &amp;\to \bigl(qq',\, q(1-q'),\, (1-q)q',\, (1-q)(1-q')\bigr)
+   = \left(\tfrac{1}{50}, \tfrac{9}{50}, \tfrac{2}{25}, \tfrac{18}{25}\right).
+\end{aligned}
+\]</div>
+<p>In state <span class="arithmatex">\(CD\)</span>, for instance, player 2 defected last round so player 1 uses
+<span class="arithmatex">\(q = \tfrac{1}{5}\)</span>, while player 1 cooperated so player 2 uses
+<span class="arithmatex">\(p' = \tfrac{3}{5}\)</span>; the row is
+<span class="arithmatex">\(\left(\tfrac{3}{25}, \tfrac{2}{25}, \tfrac{12}{25}, \tfrac{8}{25}\right)\)</span>.
+Collecting the rows, with both indices ordered <span class="arithmatex">\((CC, CD, DC, DD)\)</span>,</p>
+<div class="arithmatex">\[
+M =
+\begin{pmatrix}
+\frac{12}{25} &amp; \frac{8}{25} &amp; \frac{3}{25} &amp; \frac{2}{25} \\[6pt]
+\frac{3}{25} &amp; \frac{2}{25} &amp; \frac{12}{25} &amp; \frac{8}{25} \\[6pt]
+\frac{2}{25} &amp; \frac{18}{25} &amp; \frac{1}{50} &amp; \frac{9}{50} \\[6pt]
+\frac{1}{50} &amp; \frac{9}{50} &amp; \frac{2}{25} &amp; \frac{18}{25}
+\end{pmatrix}.
+\]</div>
+<p><strong>(c) Confirming the stationary distribution.</strong> [7]</p>
+<p>The stationary distribution <span class="arithmatex">\(\pi\)</span> gives the long-run fraction of rounds the
+play spends in each of the states <span class="arithmatex">\((CC, CD, DC, DD)\)</span>; it is the probability
+vector satisfying <span class="arithmatex">\(\pi M = \pi\)</span>. The proposed
+<span class="arithmatex">\(\pi = \tfrac{1}{245}\left(26, 65, 44, 110\right)\)</span> has non-negative entries
+summing to <span class="arithmatex">\(26 + 65 + 44 + 110 = 245\)</span> over <span class="arithmatex">\(245\)</span>, that is to 1.</p>
+<p>To check <span class="arithmatex">\(\pi M = \pi\)</span>, multiply <span class="arithmatex">\(\pi\)</span> by each column of <span class="arithmatex">\(M\)</span> in turn. The
+four columns are
+<span class="arithmatex">\(\left(\tfrac{12}{25}, \tfrac{3}{25}, \tfrac{2}{25}, \tfrac{1}{50}\right)\)</span>,
+<span class="arithmatex">\(\left(\tfrac{8}{25}, \tfrac{2}{25}, \tfrac{18}{25}, \tfrac{9}{50}\right)\)</span>,
+<span class="arithmatex">\(\left(\tfrac{3}{25}, \tfrac{12}{25}, \tfrac{1}{50}, \tfrac{2}{25}\right)\)</span> and
+<span class="arithmatex">\(\left(\tfrac{2}{25}, \tfrac{8}{25}, \tfrac{9}{50}, \tfrac{18}{25}\right)\)</span>, so</p>
+<div class="arithmatex">\[
+\begin{aligned}
+(\pi M)_{CC} &amp;= \tfrac{1}{245}\bigl(26 \cdot \tfrac{12}{25}
+  + 65 \cdot \tfrac{3}{25} + 44 \cdot \tfrac{2}{25}
+  + 110 \cdot \tfrac{1}{50}\bigr) = \tfrac{1}{245} \cdot 26 = \tfrac{26}{245}, \\
+(\pi M)_{CD} &amp;= \tfrac{1}{245}\bigl(26 \cdot \tfrac{8}{25}
+  + 65 \cdot \tfrac{2}{25} + 44 \cdot \tfrac{18}{25}
+  + 110 \cdot \tfrac{9}{50}\bigr) = \tfrac{1}{245} \cdot 65 = \tfrac{65}{245}, \\
+(\pi M)_{DC} &amp;= \tfrac{1}{245}\bigl(26 \cdot \tfrac{3}{25}
+  + 65 \cdot \tfrac{12}{25} + 44 \cdot \tfrac{1}{50}
+  + 110 \cdot \tfrac{2}{25}\bigr) = \tfrac{1}{245} \cdot 44 = \tfrac{44}{245}, \\
+(\pi M)_{DD} &amp;= \tfrac{1}{245}\bigl(26 \cdot \tfrac{2}{25}
+  + 65 \cdot \tfrac{8}{25} + 44 \cdot \tfrac{9}{50}
+  + 110 \cdot \tfrac{18}{25}\bigr) = \tfrac{1}{245} \cdot 110 = \tfrac{110}{245}.
+\end{aligned}
+\]</div>
+<p>Each bracket collapses to an integer, returning <span class="arithmatex">\(\pi\)</span> exactly, so <span class="arithmatex">\(\pi M =
+\pi\)</span> and <span class="arithmatex">\(\pi\)</span> is stationary. Each player's long-run average payoff is the
+expectation of their stage payoff under <span class="arithmatex">\(\pi\)</span>. Player 1 earns
+<span class="arithmatex">\((R, S, T, P) = (3, 0, 5, 1)\)</span> across <span class="arithmatex">\((CC, CD, DC, DD)\)</span> and player 2 earns
+<span class="arithmatex">\((3, 5, 0, 1)\)</span>, so</p>
+<div class="arithmatex">\[
+\bar{u}_1 = \frac{3(26) + 0(65) + 5(44) + 1(110)}{245}
+= \frac{78 + 220 + 110}{245} = \frac{408}{245} \approx 1.665,
+\]</div>
+<div class="arithmatex">\[
+\bar{u}_2 = \frac{3(26) + 5(65) + 0(44) + 1(110)}{245}
+= \frac{78 + 325 + 110}{245} = \frac{513}{245} \approx 2.094.
+\]</div>
+<p><strong>(d) Care with Tit For Tat.</strong> [8]</p>
+<p>Tit For Tat is <span class="arithmatex">\((p, q) = (1, 0)\)</span>, with both entries on the boundary
+<span class="arithmatex">\(\{0, 1\}\)</span>. The resulting Markov chain may be periodic or reducible rather than
+ergodic, so a unique stationary distribution need not exist. The long-run
+behaviour must then be read directly from the transition structure and the
+starting state rather than from a stationary distribution.</p>
+<h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
+<p><strong>(a) Reactive strategies.</strong> (Bookwork.) [5]</p>
+<p>A <strong>reactive strategy</strong> <span class="arithmatex">\((p, q)\)</span> cooperates with probability <span class="arithmatex">\(p\)</span> after the
+opponent cooperated and <span class="arithmatex">\(q\)</span> after the opponent defected. The named strategies
+are <span class="arithmatex">\(\text{AllC} = (1, 1)\)</span>, <span class="arithmatex">\(\text{AllD} = (0, 0)\)</span>,
+<span class="arithmatex">\(\text{TFT} = (1, 0)\)</span>, <span class="arithmatex">\(\text{Random} = (\tfrac{1}{2}, \tfrac{1}{2})\)</span>.</p>
+<p><strong>(b)(i) Intermediate quantities.</strong> [4]</p>
+<p>Writing the strategies as fractions,
+<span class="arithmatex">\((p, q) = \left(\tfrac{4}{5}, \tfrac{2}{5}\right)\)</span> and
+<span class="arithmatex">\((p', q') = \left(\tfrac{3}{5}, \tfrac{1}{10}\right)\)</span>, so</p>
+<div class="arithmatex">\[
+r_1 = p - q = \tfrac{2}{5}, \quad r_2 = p' - q' = \tfrac{1}{2}, \quad
+1 - r_1 r_2 = \tfrac{4}{5}.
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+s_1 &amp;= \frac{\tfrac{1}{10}\cdot\tfrac{2}{5} + \tfrac{2}{5}}{\tfrac{4}{5}}
+= \frac{11/25}{4/5} = \frac{11}{20}, \\
+s_2 &amp;= \frac{\tfrac{2}{5}\cdot\tfrac{1}{2} + \tfrac{1}{10}}{\tfrac{4}{5}}
+= \frac{3/10}{4/5} = \frac{3}{8}.
+\end{aligned}
+\]</div>
+<p><strong>(b)(ii) Stationary distribution.</strong> [4]</p>
+<p>Substitute <span class="arithmatex">\(s_1 = \tfrac{11}{20}\)</span> and <span class="arithmatex">\(s_2 = \tfrac{3}{8}\)</span>, with
+<span class="arithmatex">\(1 - s_1 = \tfrac{9}{20}\)</span> and <span class="arithmatex">\(1 - s_2 = \tfrac{5}{8}\)</span>, into
+<span class="arithmatex">\(\pi = \bigl(s_1 s_2, s_1(1 - s_2), (1 - s_1)s_2, (1 - s_1)(1 - s_2)\bigr)\)</span>:</p>
+<div class="arithmatex">\[
+\pi = \left(\tfrac{11}{20}\cdot\tfrac{3}{8},\ \tfrac{11}{20}\cdot\tfrac{5}{8},\
+\tfrac{9}{20}\cdot\tfrac{3}{8},\ \tfrac{9}{20}\cdot\tfrac{5}{8}\right)
+= \left(\tfrac{33}{160}, \tfrac{55}{160}, \tfrac{27}{160}, \tfrac{45}{160}\right).
+\]</div>
+<p><strong>(b)(iii) Long-run average payoffs.</strong> [5]</p>
+<p>Each player's long-run average payoff weights their stage payoff by <span class="arithmatex">\(\pi\)</span>.
+Player 1 earns <span class="arithmatex">\((R, S, T, P) = (3, 0, 5, 1)\)</span> across <span class="arithmatex">\((CC, CD, DC, DD)\)</span> and
+player 2 earns <span class="arithmatex">\((3, 5, 0, 1)\)</span>, so</p>
+<div class="arithmatex">\[
+\bar{u}_1 = \frac{3(33) + 0(55) + 5(27) + 1(45)}{160}
+= \frac{279}{160} \approx 1.744,
+\]</div>
+<div class="arithmatex">\[
+\bar{u}_2 = \frac{3(33) + 5(55) + 0(27) + 1(45)}{160}
+= \frac{419}{160} \approx 2.619.
+\]</div>
+<p><strong>(b)(iv) Who does better.</strong> [2]</p>
+<p>Player 2 does better,
+<span class="arithmatex">\(\bar{u}_2 = \tfrac{419}{160} \approx 2.619 &gt; \bar{u}_1 = \tfrac{279}{160}
+\approx 1.744\)</span>. Player 2's strategy <span class="arithmatex">\(\left(\tfrac{3}{5}, \tfrac{1}{10}\right)\)</span>
+cooperates less and forgives less than player 1's
+<span class="arithmatex">\(\left(\tfrac{4}{5}, \tfrac{2}{5}\right)\)</span>, so it exploits player 1's greater
+willingness to cooperate,
+spending more time in the <span class="arithmatex">\(CD\)</span> state (player 1 cooperating while player 2
+defects).</p>
+<p><strong>(c) Why pure strategies need care.</strong> [3]</p>
+<p>The closed form requires <span class="arithmatex">\(0 &lt; p, q, p', q' &lt; 1\)</span> so that the chain is ergodic
+with a unique stationary distribution. Tit For Tat has <span class="arithmatex">\(p = 1, q = 0\)</span> on the
+boundary, so the chain may be periodic or reducible; the stationary behaviour
+must then be found directly from the transition structure.</p>
+<p><strong>(d) Ergodic Markov chain.</strong> (Bookwork.) [2]</p>
+<p>A Markov chain is <strong>ergodic</strong> if it is irreducible and aperiodic, so that it has a
+unique stationary distribution to which it converges from any initial state.</p>
+<h2 id="question-3-25-marks">Question 3 [25 marks]</h2>
+<p><strong>(a) Transition matrix.</strong> (Bookwork.) [5]</p>
+<p>With rows and columns ordered <span class="arithmatex">\((CC, CD, DC, DD)\)</span>,</p>
+<div class="arithmatex">\[
+M =
+\begin{pmatrix}
+pp' &amp; p(1-p') &amp; (1-p)p' &amp; (1-p)(1-p') \\
+qp' &amp; q(1-p') &amp; (1-q)p' &amp; (1-q)(1-p') \\
+pq' &amp; p(1-q') &amp; (1-p)q' &amp; (1-p)(1-q') \\
+qq' &amp; q(1-q') &amp; (1-q)q' &amp; (1-q)(1-q')
+\end{pmatrix}.
+\]</div>
+<p><strong>(b)(i) Tit For Tat against Always Defect.</strong> [4]</p>
+<p>Substitute <span class="arithmatex">\((p, q) = (1, 0)\)</span> and <span class="arithmatex">\((p', q') = (0, 0)\)</span> into the matrix of part
+(a). Player 2 never cooperates, so its two factors are <span class="arithmatex">\(p' = q' = 0\)</span>, and
+player 1 simply copies player 2's last action. For example the <span class="arithmatex">\(CC\)</span> row is
+<span class="arithmatex">\(\bigl(pp', p(1-p'), (1-p)p', (1-p)(1-p')\bigr) = (0, 1, 0, 0)\)</span>. Hence</p>
+<div class="arithmatex">\[
+M =
+\begin{pmatrix}
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}.
+\]</div>
+<p><strong>(b)(ii) Long-run outcome.</strong> [4]</p>
+<p>From <span class="arithmatex">\(CC\)</span>: <span class="arithmatex">\(CC \to CD \to DD\)</span>, and <span class="arithmatex">\(DD\)</span> is absorbing. Tit For Tat is
+exploited once (the move to <span class="arithmatex">\(CD\)</span>) and play then settles at mutual defection.
+The long-run outcome is <span class="arithmatex">\(DD\)</span> with payoff <span class="arithmatex">\(1\)</span> to each player.</p>
+<p><strong>(c)(i) Tit For Tat against Always Cooperate.</strong> [4]</p>
+<p>Substitute <span class="arithmatex">\((p, q) = (1, 0)\)</span> and <span class="arithmatex">\((p', q') = (1, 1)\)</span> into the matrix of part
+(a). Player 2 always cooperates, so its two factors are <span class="arithmatex">\(p' = q' = 1\)</span>, and
+player 1 again copies player 2's last action. For example the <span class="arithmatex">\(CC\)</span> row is
+<span class="arithmatex">\(\bigl(pp', p(1-p'), (1-p)p', (1-p)(1-p')\bigr) = (1, 0, 0, 0)\)</span>. Hence</p>
+<div class="arithmatex">\[
+M =
+\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0
+\end{pmatrix}.
+\]</div>
+<p><strong>(c)(ii) Long-run outcome.</strong> [4]</p>
+<p>From <span class="arithmatex">\(CC\)</span> the state stays at <span class="arithmatex">\(CC\)</span> forever, so the long-run outcome is mutual
+cooperation with payoff <span class="arithmatex">\(R = 3\)</span> to each player.</p>
+<p><strong>(d) Comment.</strong> [4]</p>
+<p>Against a cooperator Tit For Tat cooperates and both earn the mutual cooperation
+payoff <span class="arithmatex">\(3\)</span>; against a defector it quickly switches to defection, conceding only
+a single round of exploitation before settling at <span class="arithmatex">\(1\)</span>. Tit For Tat reciprocates
+the opponent's behaviour, doing well against cooperators while avoiding sustained
+exploitation by defectors. This is exactly why it performed so well in Axelrod's
+tournaments: it is <em>nice</em> (never the first to defect), <em>retaliatory</em> (punishes
+defection at once) and <em>forgiving</em> (returns to cooperation as soon as the
+opponent does), so it scores highly against cooperative strategies without being
+exploited by aggressive ones.</p>
+<h2 id="question-4-25-marks">Question 4 [25 marks]</h2>
+<p><strong>(a) The reactive recurrence.</strong> [4]</p>
+<p>A reactive player cooperates with probability <span class="arithmatex">\(p\)</span> after the opponent cooperated
+and <span class="arithmatex">\(q\)</span> after the opponent defected. In round <span class="arithmatex">\(t\)</span> the opponent cooperated with
+probability <span class="arithmatex">\(c'_t\)</span>, so player 1's probability of cooperating in the next round
+is</p>
+<div class="arithmatex">\[
+c_{t+1} = p\, c'_t + q\,(1 - c'_t) = q + (p - q)\, c'_t.
+\]</div>
+<p><strong>(b) Long-run cooperation probabilities.</strong> [6]</p>
+<p>By symmetry player 2 satisfies <span class="arithmatex">\(c'_{t+1} = q' + r_2\, c_t\)</span>. At the fixed point
+<span class="arithmatex">\(s_1 = q + r_1 s_2\)</span> and <span class="arithmatex">\(s_2 = q' + r_2 s_1\)</span>. Substituting the second into the
+first,</p>
+<div class="arithmatex">\[
+s_1 = q + r_1\bigl(q' + r_2 s_1\bigr) = q + r_1 q' + r_1 r_2 s_1,
+\]</div>
+<p>so <span class="arithmatex">\(s_1(1 - r_1 r_2) = q + r_1 q'\)</span> and</p>
+<div class="arithmatex">\[
+s_1 = \frac{q + r_1 q'}{1 - r_1 r_2}.
+\]</div>
+<p><strong>(c) Tit For Tat matches the opponent.</strong> [6]</p>
+<p>Tit For Tat is <span class="arithmatex">\((p, q) = (1, 0)\)</span>, so <span class="arithmatex">\(r_1 = p - q = 1\)</span> and <span class="arithmatex">\(q = 0\)</span>. Then
+<span class="arithmatex">\(1 - r_1 r_2 = 1 - r_2\)</span>, and</p>
+<div class="arithmatex">\[
+\begin{aligned}
+s_1 &amp;= \frac{0 + 1\cdot q'}{1 - r_2} = \frac{q'}{1 - r_2}, \\
+s_2 &amp;= \frac{q' + r_2\cdot 0}{1 - r_2} = \frac{q'}{1 - r_2}.
+\end{aligned}
+\]</div>
+<p>Hence <span class="arithmatex">\(s_1 = s_2\)</span>: Tit For Tat ends up cooperating at exactly the same long-run
+rate as its opponent, whatever reactive strategy the opponent uses.</p>
+<p><strong>(d) Equal payoffs and tournament success.</strong> [9]</p>
+<p>Write <span class="arithmatex">\(s = s_1 = s_2\)</span>. The long-run distribution over
+<span class="arithmatex">\((CC, CD, DC, DD)\)</span> is
+<span class="arithmatex">\(\pi = \bigl(s^2,\ s(1 - s),\ (1 - s)s,\ (1 - s)^2\bigr)\)</span>, so the two off-diagonal
+states <span class="arithmatex">\(CD\)</span> and <span class="arithmatex">\(DC\)</span> are equally likely. The players' long-run payoffs are</p>
+<div class="arithmatex">\[
+\begin{aligned}
+u_1 &amp;= 3\pi_{CC} + 0\,\pi_{CD} + 5\,\pi_{DC} + 1\,\pi_{DD}, \\
+u_2 &amp;= 3\pi_{CC} + 5\,\pi_{CD} + 0\,\pi_{DC} + 1\,\pi_{DD},
+\end{aligned}
+\]</div>
+<p>and their difference is</p>
+<div class="arithmatex">\[
+u_1 - u_2 = 5\bigl(\pi_{DC} - \pi_{CD}\bigr) = 5\bigl(s(1 - s) - s(1 - s)\bigr) = 0.
+\]</div>
+<p>So Tit For Tat always earns exactly what its opponent earns: it never loses a
+head-to-head encounter. This is the property behind its success in Axelrod's
+tournaments. Tit For Tat never beats any single opponent, yet it is never
+exploited either, and because the strategies that defect lose heavily against one
+another, Tit For Tat's habit of drawing every match left it with the highest total
+score.</p>
+<h2 id="marking-exercises">Marking exercises</h2>
+<p><strong>Marking exercise 1 (Question 2(b)(i)).</strong></p>
+<p>The intermediate quantities are right, and then the formula is misquoted:
+the numerator of <span class="arithmatex">\(s_1\)</span> is <span class="arithmatex">\(q' r_1 + q\)</span>, not <span class="arithmatex">\(q' r_1 + p\)</span>. With
+<span class="arithmatex">\(q = \tfrac{2}{5}\)</span>,</p>
+<div class="arithmatex">\[
+s_1 = \frac{\tfrac{1}{10}\cdot\tfrac{2}{5} + \tfrac{2}{5}}{\tfrac{4}{5}}
+= \frac{\tfrac{11}{25}}{\tfrac{4}{5}} = \frac{11}{20},
+\]</div>
+<p>as in the solution above.</p>
+<p>The larger failing is what happens next: <span class="arithmatex">\(s_1\)</span> is a probability, and the
+transcript computes <span class="arithmatex">\(1.05\)</span>, announces "105% of the time", and carries on.
+An impossible value is free error detection: the moment a probability leaves
+<span class="arithmatex">\([0, 1]\)</span>, something upstream is wrong, and a reader who accepts it has
+stopped checking. Expect an examiner, and be, the reader who stops. A fair
+mark is [1] of [4], for the correct <span class="arithmatex">\(r_1\)</span>, <span class="arithmatex">\(r_2\)</span> and
+<span class="arithmatex">\(1 - r_1 r_2\)</span>.</p>
+<p><strong>Marking exercise 2 (Question 3(d)).</strong></p>
+<p>Almost every substantive claim is wrong, and the correct account is the
+opposite one.</p>
+<ul>
+<li>Tit For Tat never defects first, so it can never earn more than its
+  opponent in a match: at best it draws, and against Always Defect it
+  <em>loses</em> the match by the value of the first-round sting (it is exploited
+  once, then both defect). Question 4(d) proves the general version: against
+  any reactive opponent its long-run payoff exactly equals its opponent's.</li>
+<li>"One step ahead" is backwards: copying the previous move keeps it one
+  step <em>behind</em>, echoing what was done to it.</li>
+<li>It wins tournaments on totals, not matches: it earns mutual cooperation
+  (<span class="arithmatex">\(3\)</span> per round) with every cooperative strategy while conceding almost
+  nothing to defectors, whereas exploitative strategies earn <span class="arithmatex">\(1\)</span> per round
+  against one another. Winning every battle is not required to win the war,
+  and Tit For Tat wins no battles at all.</li>
+</ul>
+<p>A fair mark is [1] of [4], for correctly describing the copying mechanism,
+from which every conclusion drawn is then wrong.</p>
+
+
+  </div>
+
+  <script src="/assets/js/quiz.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{parskip}
+\setlist[enumerate,2]{label=(\alph*), itemsep=1pt, topsep=2pt}
+\setlength{\parindent}{0pt}
+\newcommand{\correct}[1]{\textbf{#1}\;$\checkmark$}
+\begin{document}
+\section*{Matching games}
+\begin{enumerate}[itemsep=6pt]
+  \item A matching is stable if ...
+  \begin{enumerate}
+    \item it is produced by random assignment
+    \item the two sides have equal size
+    \item everyone gets their first choice
+    \item it has no blocking pair
+  \end{enumerate}
+  \item A pair \((s, r)\) blocks a matching if ...
+  \begin{enumerate}
+    \item they are matched together
+    \item neither has a partner
+    \item they have the same preferences
+    \item they are not matched together but each prefers the other to their current partner
+  \end{enumerate}
+  \item The Gale-Shapley algorithm always ...
+  \begin{enumerate}
+    \item fails when preferences differ
+    \item returns every stable matching
+    \item returns the matching that maximises total happiness
+    \item terminates and returns a stable matching
+  \end{enumerate}
+  \item The matching returned by Gale-Shapley is ...
+  \begin{enumerate}
+    \item the same whoever proposes
+    \item optimal for the receiving side
+    \item optimal for the proposing side and worst for the receiving side
+    \item optimal for both sides
+  \end{enumerate}
+  \item A matching between two sets of equal size is ...
+  \begin{enumerate}
+    \item a bijection pairing each member of one set with one member of the other
+    \item a payoff matrix
+    \item a set of blocking pairs
+    \item a ranking of all participants
+  \end{enumerate}
+  \item For any matching game, a stable matching ...
+  \begin{enumerate}
+    \item exists only with an even number of participants
+    \item is always unique
+    \item may fail to exist
+    \item always exists
+  \end{enumerate}
+  \item The Gale-Shapley algorithm is guaranteed to ...
+  \begin{enumerate}
+    \item run forever for some preferences
+    \item produce an unstable matching
+    \item terminate after finitely many proposals
+    \item require a central planner
+  \end{enumerate}
+  \item When a proposer is rejected, it ...
+  \begin{enumerate}
+    \item is matched at random
+    \item proposes to its top choice again
+    \item leaves the market unmatched
+    \item proposes to the next reviewer on its preference list
+  \end{enumerate}
+  \item A reviewer in Gale-Shapley ...
+  \begin{enumerate}
+    \item tentatively holds the best proposer seen so far and rejects the rest
+    \item proposes to suitors
+    \item accepts the first proposer permanently
+    \item accepts everyone
+  \end{enumerate}
+  \item Gale-Shapley is worst for ...
+  \begin{enumerate}
+    \item the proposing side
+    \item neither side
+    \item both sides equally
+    \item the receiving (non-proposing) side
+  \end{enumerate}
+  \item A matching game's stable matching ...
+  \begin{enumerate}
+    \item always exists, but need not be unique
+    \item is always unique
+    \item exists only with identical preferences
+    \item may not exist
+  \end{enumerate}
+  \item If every participant receives their first choice, the matching is ...
+  \begin{enumerate}
+    \item stable
+    \item blocked by every pair
+    \item unstable
+    \item impossible
+  \end{enumerate}
+  \item In a matching game, each participant has ...
+  \begin{enumerate}
+    \item a strict preference ordering over the participants on the other side
+    \item no information about the other side
+    \item a payoff matrix against every other participant
+    \item a single fixed partner assigned in advance
+  \end{enumerate}
+  \item A matching pairs ...
+  \begin{enumerate}
+    \item members within the same set
+    \item each member of one set with exactly one member of the other set
+    \item some members, leaving others unmatched
+    \item one member with several others
+  \end{enumerate}
+  \item Stability matters because an unstable matching ...
+  \begin{enumerate}
+    \item contains a pair who would both abandon their partners for each other
+    \item always gives everyone their last choice
+    \item is impossible to compute
+    \item uses more than two sets
+  \end{enumerate}
+  \item In a matching game of size \(N\), a proposer's preference is a map \(f: S \to R^N\), that is ...
+  \begin{enumerate}
+    \item a subset of acceptable reviewers
+    \item a full ordered list of all reviewers
+    \item a single most-preferred reviewer
+    \item a probability distribution over reviewers
+  \end{enumerate}
+  \item Different executions of the Gale-Shapley algorithm (proposing in a different order) ...
+  \begin{enumerate}
+    \item can return different stable matchings
+    \item always return the same stable matching
+    \item return an unstable matching
+    \item may fail to terminate
+  \end{enumerate}
+  \item When a reviewer holding a proposal receives a new proposal they prefer, they ...
+  \begin{enumerate}
+    \item reject both proposers
+    \item must accept both
+    \item switch to the new proposer and reject the current one
+    \item keep the current proposer regardless
+  \end{enumerate}
+  \item The proof of suitor-optimality shows that no proposer is ever rejected by ...
+  \begin{enumerate}
+    \item a stable partner: a reviewer it is matched to in some stable matching
+    \item the reviewer at the top of its list
+    \item more than one reviewer
+    \item any reviewer at all
+  \end{enumerate}
+  \item In the suitor-optimal stable matching, each reviewer receives ...
+  \begin{enumerate}
+    \item a randomly chosen partner
+    \item the worst partner they could have in any stable matching
+    \item the best partner they could have in any stable matching
+    \item their first choice
+  \end{enumerate}
+\end{enumerate}
+\end{document}

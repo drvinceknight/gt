@@ -1,0 +1,182 @@
+title: Social choice
+pick: 5
+questions:
+  - q: "A Condorcet winner is an alternative that ..."
+    options:
+      - text: "beats every other alternative in a pairwise majority vote"
+        correct: true
+      - text: "has the most first choice votes"
+      - text: "has the highest Borda score"
+      - text: "is ranked last by no one"
+    explain: "A Condorcet winner wins every head-to-head majority contest."
+
+  - q: "A Condorcet cycle is when ..."
+    options:
+      - text: "pairwise majority preferences cycle even when every voter's ranking is transitive"
+        correct: true
+      - text: "the Borda winner is always unique"
+      - text: "simple majority rule always picks the Condorcet winner"
+      - text: "voters cannot rank candidates"
+    explain: "Majority rule can produce \\(A \\succ B \\succ C \\succ A\\), so no Condorcet winner exists."
+
+  - q: "Borda's method scores each alternative by ..."
+    options:
+      - text: "the number of alternatives it is ranked above, summed over all voters"
+        correct: true
+      - text: "the number of first choice votes only"
+      - text: "whether it beats every rival head-to-head"
+      - text: "a coin toss"
+    explain: "Each voter awards positional points, and the highest total wins."
+
+  - q: "Arrow's impossibility theorem states that ..."
+    options:
+      - text: "no social welfare function satisfies unrestricted domain, Pareto efficiency, independence of irrelevant alternatives and non-dictatorship together"
+        correct: true
+      - text: "every preference profile has a Condorcet winner"
+      - text: "Borda's method is the only fair voting rule"
+      - text: "simple majority rule is always transitive"
+    explain: "Arrow showed these four reasonable conditions are mutually incompatible with three or more alternatives."
+
+  - q: "Simple majority rule ranks \\(x\\) above \\(y\\) when ..."
+    options:
+      - text: "a strict majority of voters prefer \\(x\\) to \\(y\\)"
+        correct: true
+      - text: "\\(x\\) has more first choice votes than \\(y\\)"
+      - text: "\\(x\\) has a higher Borda score than \\(y\\)"
+      - text: "any voter prefers \\(x\\) to \\(y\\)"
+    explain: "Majority rule compares each pair by how many voters prefer one to the other."
+
+  - q: "A social welfare function maps ..."
+    options:
+      - text: "every preference profile to a collective ranking of the alternatives"
+        correct: true
+      - text: "each voter to a single candidate"
+      - text: "payoffs to strategies"
+      - text: "candidates to vote totals only"
+    explain: "It aggregates the individual rankings into one collective ordering."
+
+  - q: "A preference profile is ..."
+    options:
+      - text: "the list of every voter's ranking of the alternatives"
+        correct: true
+      - text: "a single voter's top choice"
+      - text: "the winning candidate"
+      - text: "a payoff matrix"
+    explain: "The profile collects all the individual rankings."
+
+  - q: "Each voter's preference is assumed to be ..."
+    options:
+      - text: "a transitive strict ranking of the alternatives"
+        correct: true
+      - text: "a single favourite only"
+      - text: "possibly cyclic"
+      - text: "a probability distribution"
+    explain: "Individual preferences are transitive linear orders."
+
+  - q: "Independence of irrelevant alternatives requires that the collective ranking of \\(x\\) and \\(y\\) ..."
+    options:
+      - text: "depends only on how voters rank \\(x\\) against \\(y\\), not on any third alternative"
+        correct: true
+      - text: "is decided by a single voter"
+      - text: "always matches the Borda ranking"
+      - text: "ignores how voters rank \\(x\\) and \\(y\\)"
+    explain: "Introducing or removing a third option must not flip the social ranking of \\(x\\) and \\(y\\)."
+
+  - q: "When a Condorcet winner exists, it is ..."
+    options:
+      - text: "unique"
+        correct: true
+      - text: "one of several"
+      - text: "always the Borda winner"
+      - text: "never the Borda winner"
+    explain: "At most one alternative can beat all the others pairwise."
+
+  - q: "Borda's method always ..."
+    options:
+      - text: "produces a complete ranking and never cycles"
+        correct: true
+      - text: "selects the Condorcet winner"
+      - text: "fails when preferences differ"
+      - text: "ignores lower preferences"
+    explain: "Summing positional scores cannot create a cycle."
+
+  - q: "The Borda winner ..."
+    options:
+      - text: "need not be the Condorcet winner, even when one exists"
+        correct: true
+      - text: "is always the Condorcet winner"
+      - text: "is always the simple majority winner"
+      - text: "never exists"
+    explain: "Borda and Condorcet can disagree."
+
+  - q: "A Condorcet cycle has the form ..."
+    options:
+      - text: "\\(A \\succ B \\succ C \\succ A\\) under pairwise majority"
+        correct: true
+      - text: "\\(A \\succ B \\succ C\\) with no return"
+      - text: "everyone ranking \\(A\\) first"
+      - text: "a tie between all candidates"
+    explain: "Pairwise majorities can cycle, leaving no Condorcet winner."
+
+  - q: "Condorcet's method can fail to select a winner because ..."
+    options:
+      - text: "pairwise majorities may cycle, so no candidate beats all others"
+        correct: true
+      - text: "it always produces a tie"
+      - text: "voters cannot rank candidates"
+      - text: "it ignores first choice votes"
+    explain: "A Condorcet cycle means a Condorcet winner need not exist."
+
+  - q: "Different voting methods applied to the same profile ..."
+    options:
+      - text: "can select different winners"
+        correct: true
+      - text: "always agree"
+      - text: "always tie"
+      - text: "are forbidden"
+    explain: "Simple majority rule, Borda and Condorcet can each pick a different candidate."
+
+  - q: "A voter's preference function is a strict linear order, meaning it is asymmetric, transitive and ..."
+    options:
+      - text: "complete (every pair of distinct alternatives is ranked)"
+        correct: true
+      - text: "cyclic"
+      - text: "reflexive"
+      - text: "random"
+    explain: "A strict linear order ranks every pair of distinct alternatives without ties or cycles."
+
+  - q: "Arrow's impossibility theorem applies to sets of alternatives of size ..."
+    options:
+      - text: "at least 3"
+        correct: true
+      - text: "exactly 2"
+      - text: "at least 10"
+      - text: "any size, including 1"
+    explain: "With \\(|X| \\ge 3\\) no social welfare function can satisfy all of Arrow's fairness axioms at once."
+
+  - q: "Both Borda's method and Condorcet's method respond to Arrow's theorem by giving up which property?"
+    options:
+      - text: "independence of irrelevant alternatives"
+        correct: true
+      - text: "Pareto efficiency"
+      - text: "non-dictatorship"
+      - text: "unrestricted domain"
+    explain: "They retain Pareto efficiency and non-dictatorship but violate independence of irrelevant alternatives."
+
+  - q: "With three alternatives, Borda's method awards a voter's top choice ..."
+    options:
+      - text: "2 points"
+        correct: true
+      - text: "3 points"
+      - text: "1 point"
+      - text: "0 points"
+    explain: "An alternative scores the number of rivals it is ranked above: 2, 1, 0 for first, second, third."
+
+  - q: "A voting rule is open to strategic manipulation when a voter can gain by ..."
+    options:
+      - text: "misreporting their true preferences"
+        correct: true
+      - text: "abstaining from the vote"
+      - text: "ranking alternatives honestly"
+      - text: "adding a new candidate"
+    explain: "Borda's method, for instance, can reward a voter who submits an insincere ranking."
