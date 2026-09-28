@@ -12,6 +12,8 @@ marks.
 
 ## Question 1 [25 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=tG9f5LpwDQM)
+
 **(a) Nash flow.** [3]
 
 A Nash flow is a way the drivers split across the routes such that no individual
@@ -60,6 +62,8 @@ optimum (routing 20 drivers each way) costs \(70\). The Price of Anarchy is
 \]
 
 ## Question 2 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=QZlxrhmdtBk)
 
 **(a) Definitions.** (Bookwork.) [4]
 
@@ -115,6 +119,8 @@ rather than reasoning about every driver's incentive to switch, we just minimise
 a single function \(\Phi\) by calculus, exactly as above.
 
 ## Question 3 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=VcGNRhe9yNE)
 
 **(a) Marginal cost and theorem.** (Bookwork.) [4]
 

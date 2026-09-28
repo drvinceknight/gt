@@ -95,6 +95,22 @@ Commit the generated HTML and push to `main`. The GitHub Actions workflow
 (`.github/workflows/deploy.yml`) deploys the repo root to GitHub Pages
 automatically — no build step runs in CI.
 
+## Class decks
+
+`decks/` holds the write-on decks used in class. Each deck is a 16:9 PDF meant
+to be projected and annotated live on a tablet: whatever takes time to draw is
+pre-drawn, and whatever the class produces is left blank. One directory per
+topic, each with a `main.tex` that pulls in the shared design from
+`decks/preamble.tex`. Build them all with
+
+```
+cd decks && make
+```
+
+or build a single deck with `pdflatex main.tex` from its own directory. The
+generated PDFs are committed, since the facilitator notes link to them and no
+build step runs in CI.
+
 ## Content
 
 | Directory | Purpose |
@@ -105,5 +121,6 @@ automatically — no build step runs in CI.
 | `src/faqs/` | Frequently asked questions (shown on home page) |
 | `src/assessment/` | Assessment information page |
 | `src/data/toc.yml` | Weekly schedule (drives the home page) |
+| `decks/` | Write-on class decks, one directory per topic |
 | `assets/` | PDFs, images, and other static files |
 | `templates/` | Jinja2 HTML templates |

@@ -70,6 +70,10 @@
 <h2 id="activity-20-minutes">Activity (20 minutes)</h2>
 <p><strong>Goal.</strong> Show that different voting rules can give different winners from the
 same preferences. This doubles as a revision-topic vote.</p>
+<p><strong>The deck.</strong> There is a write-on deck at
+<a href="../decks/social-choice/main.pdf">/decks/social-choice/main.pdf</a>: a ballot table
+for the rankings, then the same votes counted three ways side by side, so the
+disagreement is visible on one page.</p>
 <p>List all topics from the course on Menti and ask students to choose which one we
 revise in class.</p>
 <p>Now list them all on <a href="https://stablevoting.org">https://stablevoting.org</a> and discuss whether the approach
@@ -80,6 +84,22 @@ gives a different result.</p>
 the revision topic choice.</strong></p>
 <p>Discussion Point: <strong>After the condorcet method and the borda method definitions
 ask which one they feel was used by stablevoting.org?</strong></p>
+<h2 id="answers-for-the-deck">Answers for the deck</h2>
+<p>The topics come from the class. These are the answers for the example on the
+exam page: nine students rank three topics, with four saying
+<span class="arithmatex">\(A \succ B \succ C\)</span>, three saying <span class="arithmatex">\(B \succ C \succ A\)</span> and two saying
+<span class="arithmatex">\(C \succ B \succ A\)</span>.</p>
+<p><strong>First choices.</strong> <span class="arithmatex">\(A\)</span> has 4, <span class="arithmatex">\(B\)</span> has 3, <span class="arithmatex">\(C\)</span> has 2, so <span class="arithmatex">\(A\)</span> wins.</p>
+<p><strong>Borda</strong>, with 2 points for a first place, 1 for a second and 0 for a third:
+<span class="arithmatex">\(A\)</span> scores 8, <span class="arithmatex">\(B\)</span> scores 12 and <span class="arithmatex">\(C\)</span> scores 7, so <span class="arithmatex">\(B\)</span> wins.</p>
+<p><strong>Head to head.</strong> <span class="arithmatex">\(B\)</span> beats <span class="arithmatex">\(A\)</span> by 5 to 4, <span class="arithmatex">\(C\)</span> beats <span class="arithmatex">\(A\)</span> by 5 to 4, and
+<span class="arithmatex">\(B\)</span> beats <span class="arithmatex">\(C\)</span> by 7 to 2. So <span class="arithmatex">\(B\)</span> beats everyone and is the Condorcet
+winner.</p>
+<p><strong>Why they disagree.</strong> Counting first choices looks only at the top of each
+ballot and throws the rest away, so it cannot see that <span class="arithmatex">\(A\)</span> is <em>last</em> for five
+of the nine students. Borda and the head-to-head comparisons both use the whole
+ranking, and both pick <span class="arithmatex">\(B\)</span>, the topic that no group actively dislikes. That is
+the argument for recommending one of those two for the class vote.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/social-choice.html">Social Choice</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 

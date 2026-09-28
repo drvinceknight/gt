@@ -1,0 +1,194 @@
+% Direct reciprocity: the class IPD tournament, then reactive strategies.
+\input{../preamble.tex}
+
+\deckname{Direct reciprocity}
+
+\begin{document}
+
+\titleslide{Direct reciprocity}{Four teams, one tournament, and what
+ survived}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{First class}\\[0.25em]
+        Submit a strategy. Play everyone.}
+      \stepbox{s1}{6.9}{\textbf{Second class}\\[0.25em]
+        Reveal the strategies. Rank them.}
+      \stepbox{s2}{13.8}{\textbf{Then}\\[0.25em]
+        Write each one as a pair \((p, q)\).}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}
+
+    \vspace{2.4em}
+
+    {\large Winning team: \blank[4.4]}}
+
+\newpage
+\slidehead{The stage game, and the scoreboard}
+
+\vspace{0.2cm}
+
+\begin{minipage}[c]{0.42\linewidth}
+\begin{center}
+\payoffgrid{C, D}{%
+  \node at (1.35,-1) {\Large $3$};
+  \node at (4.05,-1) {\Large $0$};
+  \node at (1.35,-3) {\Large $5$};
+  \node at (4.05,-3) {\Large $1$};}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.54\linewidth}
+\begin{tikzpicture}[font=\small]
+  \foreach \lab/\col in {Team/0, vs 1/2.2, vs 2/4.3, vs 3/6.4, vs 4/8.5,
+                         Total/10.6}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (12.3,-0.36);
+  \foreach \row in {1,2,3,4}{%
+    \node[anchor=west, text=inkgrey] at (0,-1.05*\row) {\row};
+    \foreach \col in {2.2,4.3,6.4,8.5,10.6}{%
+      \draw[inkfaint, line width=0.7pt]
+        (\col,-1.05*\row-0.3) -- (\col+1.7,-1.05*\row-0.3);}}
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{0.4cm}
+
+{\small\color{inkgrey} Row player's payoff. \(R = 3\), \(S = 0\), \(T = 5\),
+\(P = 1\).}
+
+\newpage
+\slidehead{Every strategy as two numbers}
+
+\vspace{0.5cm}
+
+{\large A \emph{reactive} strategy is a pair \((p, q)\): cooperate with
+probability \(p\) after they cooperated, and \(q\) after they defected.}
+
+\vspace{0.9cm}
+
+\hspace{0.3cm}
+\begin{tikzpicture}[font=\small]
+  \foreach \lab/\col in {Team/0, What they submitted/3.4,
+                         {As \((p, q)\)}/14.4, Rank/19.6}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.6,-0.36);
+  \foreach \row in {1,2,3,4}{%
+    \node[anchor=west, font=\large] at (0,-1.5*\row) {\row};
+    \draw[inkfaint, line width=0.7pt]
+      (3.4,-1.5*\row-0.36) -- (13.6,-1.5*\row-0.36);
+    \node[anchor=west] at (14.4,-1.5*\row) {\blank[3.4]};
+    \node[anchor=west] at (19.6,-1.5*\row) {\blank[2]};}
+\end{tikzpicture}
+
+\newpage
+\slidehead{The ones with names}
+
+\vspace{1.1cm}
+
+\hspace{0.6cm}
+\begin{tikzpicture}[font=\large]
+  \node[anchor=west] at (0,0) {\((1, 1)\) is \blank[5]};
+  \node[anchor=west] at (11.4,0) {\((0, 0)\) is \blank[5]};
+  \node[anchor=west] at (0,-2.4) {\((1, 0)\) is \blank[5]};
+  \node[anchor=west] at (11.4,-2.4)
+    {\(\left(\tfrac{1}{2}, \tfrac{1}{2}\right)\) is \blank[5]};
+\end{tikzpicture}
+
+\vspace{1.6cm}
+
+{\large Which of the four did the teams actually submit? \blank[5]}
+
+\vspace{1cm}
+
+{\large Did the winner cooperate first? \blank[2] \hspace{2cm}
+Did it ever forgive? \blank[2]}
+
+\newpage
+\slidehead{Two strategies make a Markov chain}
+
+\vspace{0.2cm}
+
+\begin{minipage}[c]{0.58\linewidth}
+\begin{center}
+\payoffgrid{CC, CD, DC, DD}{}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.38\linewidth}
+\raggedright
+{\large Rows are where we are now, columns where we go next.}
+
+\vspace{1.2em}
+
+{\large Take \((p, q) = (4/5,\; 1/5)\) against
+\((p', q') = (3/5,\; 1/10)\).}
+
+\vspace{1.2em}
+
+{\large In state \(CD\) I cooperated and they defected, so next round I
+cooperate with probability \blank[1.6] and they cooperate with probability
+\blank[1.6].}
+\end{minipage}
+
+\vspace{0.3cm}
+
+{\small\color{inkgrey} Each row has to add to one, which is the check to make as
+we fill it in.}
+
+\newpage
+\slidehead{What happens in the long run}
+
+\vspace{0.7cm}
+
+{\large The chain settles at \(\pi = \tfrac{1}{245}\,(26,\; 65,\; 44,\; 110)\).
+Check one row of \(\pi P = \pi\):}
+
+\vspace{0.6cm}
+
+\begin{center}
+\workspace{22.6}{3.4}
+\end{center}
+
+\vspace{0.9cm}
+
+{\large My long-run payoff is \(\pi \cdot (R, S, T, P) =\) \blank[3.4], and
+theirs is \blank[3.4].}
+
+\vspace{0.8cm}
+
+{\large Mutual cooperation for ever would have paid \blank[1.8] each. What did
+the reciprocity cost? \blank[2.4]}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.5cm}
+
+{\large What we just did in the room is \textbf{Question 1} on the Direct
+Reciprocity page.}
+
+\vspace{0.9cm}
+
+\hspace{0.6cm}
+\begin{minipage}{0.92\linewidth}
+{\large
+\begin{tabbing}
+\hspace{1.2cm} \= \hspace{17cm} \= \kill
+\textbf{(a)} \> Name \((1,1)\), \((0,0)\), \((1,0)\) and
+  \(\left(\tfrac12, \tfrac12\right)\). \> [3]\\[0.55em]
+\textbf{(b)} \> Write the full \(4 \times 4\) transition matrix for the two
+  strategies. \> [7]\\[0.55em]
+\textbf{(c)} \> Confirm the stationary distribution and get each player's
+  long-run payoff. \> [7]\\[0.55em]
+\textbf{(d)} \> Why a strategy like Tit For Tat needs care with this
+  method. \> [8]
+\end{tabbing}}
+\end{minipage}
+
+\vspace{1.2cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/direct-reciprocity.html}
+\end{center}
+
+\end{document}

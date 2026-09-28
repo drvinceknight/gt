@@ -11,6 +11,8 @@ Solutions to the example questions on the
 
 ## Question 1 [19 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=EjlzLlvQsKg)
+
 **(a) Symmetric zero-sum game.** [3]
 
 The column player's matrix is
@@ -83,6 +85,8 @@ the unique Nash equilibrium is each player playing each of the five actions with
 probability \(\tfrac{1}{5}\), with value \(0\).
 
 ## Question 2 [24 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=1yI6yxW_Djg)
 
 **(a) Definitions.** (Bookwork.) [5]
 
@@ -163,6 +167,8 @@ equilibrium to the mixed one: the mixed equilibrium is the worst of the three fo
 both players.
 
 ## Question 3 [23 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=ocGvt2VRRxM)
 
 **(a) Definitions.** (Bookwork.) [5]
 

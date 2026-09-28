@@ -1,0 +1,173 @@
+% Auctions: the sealed second-price auction, against the open one from week one.
+\input{../preamble.tex}
+
+\deckname{Auctions}
+
+\begin{document}
+
+\titleslide{Auctions}{The same five pounds, sold a different way}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{Bid}\\[0.25em]
+        Write it down. Nobody sees it.}
+      \stepbox{s1}{6.9}{\textbf{Reveal}\\[0.25em]
+        Highest bid wins, pays the second.}
+      \stepbox{s2}{13.8}{\textbf{Compare}\\[0.25em]
+        Against the open auction in week one.}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}
+
+    \vspace{2.4em}
+
+    {\large On sale: a five pound note. What is it worth to you?}}
+
+\newpage
+\slidehead{The bids}
+
+\vspace{0.5cm}
+
+\hspace{0.3cm}
+\begin{tikzpicture}[font=\small]
+  \foreach \lab/\col in {Bidder/0, Bid/4.2, Bidder/11.8, Bid/16.0}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (10.6,-0.36);
+  \draw[inkfaint, line width=0.7pt] (11.8,-0.36) -- (22.4,-0.36);
+  \foreach \row in {1,2,3,4,5}{%
+    \foreach \shift in {0,11.8}{%
+      \draw[inkfaint, line width=0.7pt]
+        (\shift,-0.85*\row-0.3) -- (\shift+3.8,-0.85*\row-0.3);
+      \draw[inkfaint, line width=0.7pt]
+        (\shift+4.2,-0.85*\row-0.3) -- (\shift+10.6,-0.85*\row-0.3);}}
+\end{tikzpicture}
+
+\vspace{0.7cm}
+
+{\large Winner \blank[3.4] \hspace{1.4cm} Highest bid \blank[2.2]
+\hspace{1.4cm} Price paid \blank[2.2] \hspace{1.4cm} Their profit
+\blank[2.2]}
+
+\newpage
+\slidehead{What are the rules, exactly?}
+
+\vspace{1cm}
+
+{\large Everyone submits \underline{\hspace{4cm}}, without seeing anyone
+else's.}
+
+\vspace{1.1cm}
+
+{\large The item goes to \underline{\hspace{5cm}}.}
+
+\vspace{1.1cm}
+
+{\large The winner pays \underline{\hspace{5cm}}.}
+
+\vspace{1.4cm}
+
+{\large In week one we ran this open and ascending, and it went badly. Name one
+thing that changed when we sealed it:}
+
+\vspace{0.6cm}
+
+\hspace*{1cm}\blank[8]
+
+\newpage
+\slidehead{Should you bid what it is worth?}
+
+\vspace{0.5cm}
+
+{\large Your value is \(v\). Let \(b\) be the highest bid among everybody else.
+Compare bidding \(v\) with bidding something else.}
+
+\vspace{0.7cm}
+
+\begin{minipage}[t]{0.47\linewidth}
+\raggedright
+{\large\bfseries You bid above your value}
+
+\vspace{0.5em}
+
+{\large You only win extra times when \(b\) is between \blank[1.4] and
+\blank[1.4], and then you pay \blank[1.4] and make \blank[1.4].}
+
+\vspace{0.8em}
+
+\workspace{10.6}{3.4}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\raggedright
+{\large\bfseries You bid below your value}
+
+\vspace{0.5em}
+
+{\large You lose some auctions you would have won, and when you do still win
+you pay \blank[3.4].}
+
+\vspace{0.8em}
+
+\workspace{10.6}{3.4}
+\end{minipage}
+
+\vspace{0.6cm}
+
+{\large So bidding your true value is \underline{\hspace{5cm}}.}
+
+\newpage
+\slidehead{Why that matters}
+
+\vspace{1.1cm}
+
+{\large If truth is a weakly dominant strategy, then to bid well you need to
+know \underline{\hspace{5cm}} about the other bidders.}
+
+\vspace{1.3cm}
+
+{\large So the seller gets the item to the person who
+\underline{\hspace{5cm}}, which is not guaranteed otherwise.}
+
+\vspace{1.3cm}
+
+{\large Now change one rule: the winner pays their \emph{own} bid. Is truth
+still weakly dominant? \blank[2.2] \hspace{1.4cm} What should you do instead?
+\blank[5]}
+
+\vspace{1cm}
+
+\begin{center}
+\workspace{22.6}{2.4}
+\end{center}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.5cm}
+
+{\large What we just did in the room is \textbf{Question 1} on the Auctions
+page, with values \(v_1 = 10\), \(v_2 = 7\) and \(v_3 = 4\).}
+
+\vspace{0.9cm}
+
+\hspace{0.6cm}
+\begin{minipage}{0.92\linewidth}
+{\large
+\begin{tabbing}
+\hspace{1.2cm} \= \hspace{17cm} \= \kill
+\textbf{(a)} \> The rules of a second-price (Vickrey) auction. \> [3]\\[0.55em]
+\textbf{(b)} \> With truthful bids: the winner, the price and the
+  payoff. \> [3]\\[0.55em]
+\textbf{(c)} \> Show bidding \(v_1 = 10\) is weakly dominant, above and
+  below. \> [7]\\[0.55em]
+\textbf{(d)} \> Why that is a desirable property. \> [4]\\[0.55em]
+\textbf{(e)} \> Would truth still be weakly dominant in a first-price
+  auction? \> [2]
+\end{tabbing}}
+\end{minipage}
+
+\vspace{1.2cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/auctions.html}
+\end{center}
+
+\end{document}

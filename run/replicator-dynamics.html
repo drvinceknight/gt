@@ -71,6 +71,11 @@
 <p><strong>Goal.</strong> Build the replicator equation from a physical process and watch a
 population converge to a stable rest point, so that frequency-dependent
 selection is felt before the equation is written down.</p>
+<p><strong>The deck.</strong> There is a write-on deck at
+<a href="../decks/replicator-dynamics/main.pdf">/decks/replicator-dynamics/main.pdf</a>: the
+snowdrift payoffs printed, blank axes with <span class="arithmatex">\(x = 2/3\)</span> already marked so the
+trajectory can be plotted round by round, and the replicator equation assembled
+from what the room saw.</p>
 <p><strong>The room is a population.</strong> Each student is one individual playing the
 <strong>snowdrift game</strong>: two drivers meet at a snowdrift blocking the road and each
 chooses to <strong>Dig</strong> or <strong>Stay</strong>. Clearing the drift is worth 4 to each driver;
@@ -117,6 +122,27 @@ ask how this differs from our example?</strong></p>
 Rock-Paper-Scissors equilibrium, which is not.</strong></p>
 <p>Discussion Point: <strong>After the characterisation of the ESS theorem ask how we
 could use this to find the ESS for the replicator dynamics equation?</strong></p>
+<h2 id="answers-for-the-deck">Answers for the deck</h2>
+<p><strong>The payoffs.</strong> Two diggers get 3 each. A lone digger gets 2 while the stayer
+free-rides for 4, and two stayers get 0.</p>
+<p><strong>Fitnesses.</strong> <span class="arithmatex">\(f_D = 3x + 2(1 - x) = x + 2\)</span> and <span class="arithmatex">\(f_S = 4x\)</span>. They are equal
+at <span class="arithmatex">\(x = 2/3\)</span>, which is where the room settles whatever split it starts from.</p>
+<p><strong>The equation.</strong> A strategy grows in proportion to how far above the average
+<span class="arithmatex">\(\phi = x f_D + (1 - x) f_S\)</span> it is, and to how many already play it, giving
+<span class="arithmatex">\(\dot{x} = x(f_D - \phi)\)</span>. Here <span class="arithmatex">\(\phi = -3x^{2} + 6x\)</span>, so</p>
+<div class="arithmatex">\[
+\dot{x} = x\left(3x^{2} - 5x + 2\right) = x(3x - 2)(x - 1).
+\]</div>
+<p>Each round of the activity, with its small fixed step, is one step of Euler's
+method on this equation.</p>
+<p><strong>Rest points and direction.</strong> <span class="arithmatex">\(\dot{x} = 0\)</span> at <span class="arithmatex">\(x = 0\)</span>, <span class="arithmatex">\(x = 2/3\)</span> and
+<span class="arithmatex">\(x = 1\)</span>. For <span class="arithmatex">\(0 &lt; x &lt; 2/3\)</span> all three factors give <span class="arithmatex">\(\dot{x} &gt; 0\)</span>, and for
+<span class="arithmatex">\(2/3 &lt; x &lt; 1\)</span> they give <span class="arithmatex">\(\dot{x} &lt; 0\)</span>. So from any interior start the
+population moves to <span class="arithmatex">\(x = 2/3\)</span>.</p>
+<p><strong>Is it an ESS?</strong> Yes. It is stable under the dynamics, and a small group of
+Stayers invading a population at <span class="arithmatex">\(x = 2/3\)</span> earns less than the residents, so
+they cannot spread. Contrast Rock-Paper-Scissors, whose interior equilibrium is
+not an ESS: the same dynamics cycle around it instead of settling.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/replicator-dynamics.html">Replicator Dynamics</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 

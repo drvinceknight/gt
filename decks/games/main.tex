@@ -1,0 +1,189 @@
+% Games: two-thirds of the average, and what a strategy actually is.
+\input{../preamble.tex}
+
+% Blank axes for sketching the class's Menti distribution.
+\newcommand{\distribution}{%
+  \begin{tikzpicture}[scale=1.0, every node/.style={transform shape}]
+    \fill[white] (0,0) rectangle (14.5,6.6);
+    \foreach \x in {0,10,...,100}{%
+      \draw[inkfaint, line width=0.5pt] (\x*0.145,0) -- (\x*0.145,6.6);}
+    \foreach \y in {1,2,3,4,5,6}{%
+      \draw[inkfaint, line width=0.5pt] (0,\y*1.1) -- (14.5,\y*1.1);}
+    \draw[inkgrey, line width=1pt, -{Stealth[length=2.5mm]}] (0,0) -- (15.1,0);
+    \draw[inkgrey, line width=1pt, -{Stealth[length=2.5mm]}] (0,0) -- (0,6.9);
+    \foreach \x in {0,10,...,100}{%
+      \node[below, font=\small, text=inkgrey] at (\x*0.145,-0.1) {\x};}
+    \node[left, font=\small, text=inkgrey, rotate=90, anchor=south]
+      at (-0.5,3.3) {how many chose it};
+  \end{tikzpicture}}
+
+\deckname{Games}
+
+\begin{document}
+
+\titleslide{Games}{Two thirds of the average, twice}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{Round 1}\\[0.25em] Pick a number. No hints.}
+      \stepbox{s1}{6.9}{\textbf{Round 2}\\[0.25em] Pick again, knowing what happened.}
+      \stepbox{s2}{13.8}{\textbf{Then}\\[0.25em] What is a strategy here?}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}
+
+    \vspace{2.4em}
+
+    {\large Pick a whole number between 0 and 100. Closest to two thirds of
+   the average wins.}}
+
+\newpage
+\slidehead{Round 1}
+
+\vspace{0.1cm}
+
+\begin{minipage}[c]{0.71\linewidth}
+\distribution
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\linewidth}
+{\large
+Average\\[0.4em]
+\hspace*{0.3cm}\blank[2.4]\\[1.5em]
+Two thirds of it\\[0.4em]
+\hspace*{0.3cm}\blank[2.4]\\[1.5em]
+Winner\\[0.4em]
+\hspace*{0.3cm}\blank[2.4]}
+\end{minipage}
+
+\newpage
+\slidehead{Why would you go lower?}
+
+\vspace{0.9cm}
+
+\begin{center}
+\begin{tikzpicture}[font=\large,
+    rung/.style={draw=inkfaint, line width=0.7pt, rounded corners=3pt,
+                 minimum width=5.4cm, minimum height=1.6cm, align=center,
+                 font=\normalsize}]
+  \node[rung] (l0) at (0,0)
+    {Everyone picks at random\\[0.3em] average is \blank[1.3]};
+  \node[rung] (l1) at (5.6,-2.1)
+    {so I should pick\\[0.3em] \blank[1.3]};
+  \node[rung] (l2) at (11.2,-4.2)
+    {but if they all do that\\[0.3em] I pick \blank[1.3]};
+  \node[rung] (l3) at (16.8,-6.3)
+    {and so on, down to\\[0.3em] \blank[1.3]};
+  \draw[-{Stealth[length=3mm]}, inkgrey, line width=1.2pt] (l0) -- (l1);
+  \draw[-{Stealth[length=3mm]}, inkgrey, line width=1.2pt] (l1) -- (l2);
+  \draw[-{Stealth[length=3mm]}, inkgrey, line width=1.2pt] (l2) -- (l3);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+
+{\large How far down the ladder did the room actually go? \blank[2.4] steps.}
+
+\newpage
+\slidehead{Round 2}
+
+\vspace{0.1cm}
+
+\begin{minipage}[c]{0.71\linewidth}
+\distribution
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.25\linewidth}
+{\large
+Average\\[0.4em]
+\hspace*{0.3cm}\blank[2.4]\\[1.5em]
+Two thirds of it\\[0.4em]
+\hspace*{0.3cm}\blank[2.4]\\[1.5em]
+Winner\\[0.4em]
+\hspace*{0.3cm}\blank[2.4]}
+\end{minipage}
+
+\vspace{0.3cm}
+
+{\large Ask three people why their number changed:}
+\blank[5] \blank[5] \blank[5]
+
+\newpage
+\slidehead{Which kind of game is this?}
+
+\vspace{0.7cm}
+
+\begin{minipage}[t]{0.47\linewidth}
+{\large\bfseries Normal form}
+
+\vspace{0.5em}
+
+{\large Everyone chooses \underline{\hspace{3.5cm}}, and a payoff
+follows.}
+
+\vspace{0.8em}
+
+\workspace{10.6}{4.4}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+{\large\bfseries Extensive form}
+
+\vspace{0.5em}
+
+{\large Players move \underline{\hspace{3.5cm}}, and can see what has
+happened.}
+
+\vspace{0.8em}
+
+\workspace{10.6}{4.4}
+\end{minipage}
+
+\vspace{0.9cm}
+
+{\large Our game is \underline{\hspace{5cm}}, because
+\underline{\hspace{7cm}}.}
+
+\newpage
+\slidehead{So what is a strategy?}
+
+\vspace{0.8cm}
+
+{\large In the game we just played, a strategy is
+\underline{\hspace{9cm}}.}
+
+\vspace{1.1cm}
+
+{\large Now change the rules: you pick \emph{after} hearing what the person
+before you picked. Draw a couple of levels of that game.}
+
+\vspace{0.7cm}
+
+\begin{center}
+\workspace{22.6}{4.6}
+\end{center}
+
+\vspace{0.5cm}
+
+{\large In \emph{that} game, a strategy has to say \blank[6].}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.9cm}
+
+{\large This material is not examined on its own. Normal form, extensive form,
+strategies and best responses are examined together with \textbf{Nash
+Equilibrium}, so the natural follow-up is \textbf{Question 1} on that page.}
+
+\vspace{1.2cm}
+
+{\large The habit worth building now: whenever we play something, ask what the
+players, the actions and the payoffs are, and write them down before doing any
+algebra.}
+
+\vspace{1.6cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/nash-equilibrium.html}
+\end{center}
+
+\end{document}

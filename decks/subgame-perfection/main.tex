@@ -1,0 +1,264 @@
+% Subgame perfection: the Traitors, then backwards induction on the centipede.
+\input{../preamble.tex}
+
+\deckname{Subgame perfection}
+
+\begin{document}
+
+\titleslide{Subgame perfection}{A threat that stops being worth carrying out}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{Play}\\[0.25em] Three games of the Traitors.}
+      \stepbox{s1}{6.9}{\textbf{Find the moment}\\[0.25em]
+                          Where punishment stops working.}
+      \stepbox{s2}{13.8}{\textbf{Name it}\\[0.25em] Optimal in \emph{every} subgame.}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}
+
+    \vspace{2.4em}
+
+    {\large Players: \blank[2] \hspace{1.4cm} Traitors: \blank[2]
+   \hspace{1.4cm} Who won? \blank[3]}}
+
+\newpage
+\slidehead{Every round costs two players}
+
+\vspace{0.7cm}
+
+\begin{center}
+\begin{tikzpicture}[font=\large, scale=1.15,
+    every node/.style={transform shape},
+    state/.style={draw=inkblue, line width=1.1pt, rounded corners=4pt,
+                  fill=white, minimum width=3cm, minimum height=1.7cm,
+                  text=inkblue,
+                  font=\Large\bfseries}]
+  \foreach \lab [count=\i from 0] in {{$(10,2)$}, {$(8,2)$}, {$(6,2)$}, {$(4,2)$}}{%
+    \node[state] (s\i) at (\i*5.4,0) {\lab};
+    \node[below=0.5cm of s\i] {\blank[2.2]};
+    \node[below=1.7cm of s\i, font=\small, text=inkgrey]
+      {Faithful left};}
+  \foreach \i in {0,1,2}{%
+    \pgfmathtruncatemacro{\j}{\i+1}
+    \draw[-{Stealth[length=3.5mm]}, inkgrey, line width=1.3pt]
+      (s\i) -- node[above, font=\small, text=inkgrey] {$-2$} (s\j);}
+\end{tikzpicture}
+
+\vspace{0.5cm}
+
+{\small\color{inkgrey} Each round loses one player to the day vote and one to
+the night murder.}
+\end{center}
+
+\vspace{1.1cm}
+
+{\large The Traitors win the moment \(2m \ge n\), which first happens at
+\blank[2.4]. Reaching it takes \blank[1.6] rounds.}
+
+\newpage
+\slidehead{Vote-Left: everyone votes to their left}
+
+\vspace{0.7cm}
+
+\begin{minipage}[t]{0.47\linewidth}
+\raggedright
+{\large\bfseries It costs the Faithful nothing.}
+
+\vspace{0.5em}
+
+{\large Under full compliance each player receives exactly \blank[1.4] vote,
+so the chance of being banished is \blank[1.6], the same as voting at
+random.}
+
+\vspace{0.8em}
+
+\workspace{10.6}{3.6}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\raggedright
+{\large\bfseries It makes deviation visible.}
+
+\vspace{0.5em}
+
+{\large If a Traitor concentrates their vote, somebody gets \blank[1.4] votes
+and somebody gets \blank[1.4]. Everyone can see who broke the rule.}
+
+\vspace{0.8em}
+
+\workspace{10.6}{3.6}
+\end{minipage}
+
+\vspace{0.9cm}
+
+{\large So the punishment is: a player seen to deviate is
+\underline{\hspace{4.5cm}}.}
+
+\newpage
+\slidehead{Where the threat stops being credible}
+
+\vspace{0.9cm}
+
+{\large At \((6,2)\) a Traitor who deviates is still detected. But after the
+night murder, are there enough Faithful left to banish them? \blank[2.4]}
+
+\vspace{1.1cm}
+
+{\large So the threat bites exactly while}
+
+\vspace{0.6cm}
+
+\begin{center}
+{\Huge \(n \;\)\blank[1.6]\( \; 2m + 2\)}
+\end{center}
+
+\vspace{1.1cm}
+
+{\large Below that line the Traitors should stop hiding and collude in the open.
+That is their best response \emph{in that subgame}, whether or not any game we
+played actually reached it.}
+
+\newpage
+\slidehead{The centipede game}
+
+\vspace{0.4cm}
+
+\begin{center}
+\begin{tikzpicture}[font=\small, scale=1.15,
+    every node/.style={transform shape},
+    dec/.style={circle, draw=inkblue, line width=1.1pt, fill=white,
+                text=inkblue, minimum size=0.95cm, font=\bfseries,
+                inner sep=0pt},
+    leaf/.style={font=\normalsize}]
+  \foreach \who [count=\i from 0] in {1, 2, 1, 2}{%
+    \node[dec] (n\i) at (\i*4.6,0) {\who};
+    \node[above=0.75cm of n\i] {\blank[1.9]};}
+  \node[leaf] (end) at (18.4,0) {$(4,4)$};
+  \foreach \pay [count=\i from 0] in {{$(2,0)$}, {$(1,3)$}, {$(4,2)$}, {$(3,5)$}}{%
+    \draw[-{Stealth[length=3mm]}, inkred, line width=1.2pt]
+      (n\i) -- node[left, font=\small, text=inkred] {take} ++(0,-2.2);
+    \node[leaf] at (\i*4.6,-2.75) {\pay};}
+  \foreach \i in {0,1,2}{%
+    \pgfmathtruncatemacro{\j}{\i+1}
+    \draw[-{Stealth[length=3mm]}, inkteal, line width=1.2pt]
+      (n\i) -- node[above, font=\small, text=inkteal] {pass} (n\j);}
+  \draw[-{Stealth[length=3mm]}, inkteal, line width=1.2pt]
+    (n3) -- node[above, font=\small, text=inkteal] {pass} (end);
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+
+{\large\color{inkgrey} Work right to left. Write the value of each node in the
+box above it.}
+
+\newpage
+\slidehead{Nash, but not subgame perfect}
+
+\vspace{0.5cm}
+
+{\large Backwards induction gives: player 1 \blank[2.4], player 2
+\blank[2.4], with payoffs \blank[2.4].}
+
+\vspace{0.9cm}
+
+{\large Now take a different plan. Player 1 takes at both of their nodes.
+Player 2 takes at their first node, but \emph{passes} at their last.}
+
+\vspace{0.8cm}
+
+\hspace{1cm}
+\begin{tikzpicture}[font=\large]
+  \node[anchor=west] at (0,0) {Is it a Nash equilibrium? \blank[2]};
+  \node[anchor=west] at (10,0) {Is it subgame perfect? \blank[2]};
+  \node[anchor=west, text=inkgrey, font=\normalsize] at (0,-1.5)
+    {Which node is never reached, and why does that let the bad promise
+     survive?};
+\end{tikzpicture}
+
+\vspace{0.5cm}
+
+\begin{center}
+\workspace{22.6}{2.6}
+\end{center}
+
+\newpage
+\slidehead{Back to the Traitors, when nobody is sure}
+
+\vspace{0.5cm}
+
+{\large The Traitor complies or deviates; the Faithful then banish the suspect
+or carry on. The suspect is really the Traitor with probability \(q\).}
+
+\vspace{0.5cm}
+
+\begin{minipage}[c]{0.44\linewidth}
+{\large
+comply \hfill $(1, 2)$\\[1.0em]
+deviate, then carry on \hfill $(3, 0)$\\[1.0em]
+deviate, then banish \hfill $(3 - 8q,\; 8q - 5)$}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.52\linewidth}
+{\small\color{inkgrey} Draw the tree:}\\[0.3em]
+\workspace{12}{5.4}
+\end{minipage}
+
+\newpage
+\slidehead{How sure do the Faithful have to be?}
+
+\vspace{0.8cm}
+
+\hspace{0.8cm}
+\begin{tikzpicture}[font=\large]
+  \node[anchor=west] at (0,0)
+    {Banishing beats carrying on when \; \blank[2.2] \(>\) \blank[2.2],
+     that is \(q \;\)\blank[1.2]\( \;\) \blank[1.6]};
+  \node[anchor=west] at (0,-2)
+    {The threat deters the Traitor when \; \blank[2.2] \(<\) \blank[2.2],
+     that is \(q \;\)\blank[1.2]\( \;\) \blank[1.6]};
+\end{tikzpicture}
+
+\vspace{1.3cm}
+
+{\large So (comply, banish) is a Nash equilibrium that is \emph{not} subgame
+perfect exactly when \(q\) lies in \blank[4].}
+
+\vspace{0.8cm}
+
+\begin{center}
+\workspace{22.6}{2.8}
+\end{center}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.5cm}
+
+{\large What we just did in the room is \textbf{Question 1} on the Subgame
+Perfection page.}
+
+\vspace{0.9cm}
+
+\hspace{0.6cm}
+\begin{minipage}{0.92\linewidth}
+{\large
+\begin{tabbing}
+\hspace{1.2cm} \= \hspace{17cm} \= \kill
+\textbf{(a)} \> Draw the extensive form. \> [3]\\[0.55em]
+\textbf{(b)} \> Backward induction: the subgame perfect equilibrium and its
+  payoffs. \> [5]\\[0.55em]
+\textbf{(c)} \> Show (comply, banish) is a Nash equilibrium. \> [5]\\[0.55em]
+\textbf{(d)} \> Explain why it is not subgame perfect, and how that mirrors the
+  class game. \> [6]\\[0.55em]
+\textbf{(e)} \> For general \(q\), find where the threat deters and where it is
+  credible. \> [4]
+\end{tabbing}}
+\end{minipage}
+
+\vspace{1.2cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/subgame-perfection.html}
+\end{center}
+
+\end{document}

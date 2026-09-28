@@ -12,6 +12,8 @@ marks.
 
 ## Question 1 [25 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=UdY8mW7IKqg)
+
 **(a) Definitions and notation.** [5]
 
 A pair \((m, p)\) that is not matched together is a **blocking pair** if \(m\)
@@ -66,6 +68,8 @@ preference lists, each ends with the best stable partner available to them, and
 this matching is the best stable one for the suitors.
 
 ## Question 2 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=6o7yMe9z1jc)
 
 **(a) Definitions.** (Bookwork.) [4]
 
@@ -151,6 +155,8 @@ ever returns it: whichever side proposes secures the outcome that is best for
 that side across all stable matchings.
 
 ## Question 3 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=PXyWmMA8ln4)
 
 **(a) Proposed definitions.** [5]
 

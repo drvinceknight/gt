@@ -71,6 +71,10 @@
 <p><strong>Goal.</strong> Reproduce a Moran process by hand so the birth-death dynamics and
 fixation are felt before they are formalised. This activity is deliberately
 longer than the usual 20 minutes.</p>
+<p><strong>The deck.</strong> There is a write-on deck at
+<a href="../decks/moran-process/main.pdf">/decks/moran-process/main.pdf</a>: the Hawk-Dove
+payoffs printed, the birth-death chain with its transition probabilities blank,
+and tables for the fitnesses and the selection probabilities.</p>
 <p>Use <a href="../assets/activities/moran_process/main.pdf">moran process form</a> and have
 students play in pairs.</p>
 <p><strong>Also requires use of dice, allowing for multiples of 4 and 6.</strong> For example:</p>
@@ -299,6 +303,57 @@ x_1 = \frac{1}{1 + 1/2 + 1/2\times2/3} = \frac{1}{11/6} \approx 0.545455
 <p>Discussion Point: After the definition of the moran process, ask how this differs from our example?</p>
 <p>Discussion Point: After the definition of fixation probability, ask what the fixation probability of a hawk is based on our simulation?</p>
 <p>Discussion Point: After the theoretic fixation in two types ask how this could be used for our example? Leave this as an exercise.</p>
+<h2 id="answers-for-the-deck">Answers for the deck</h2>
+<p>Everything below is already derived in the activity above; this is the same
+material in the order the deck asks for it.</p>
+<p><strong>Fitnesses.</strong> With one hawk and two doves, <span class="arithmatex">\(f(\text{hawk}) = 6\)</span> and
+<span class="arithmatex">\(f(\text{dove}) = 3\)</span>. With two hawks and one dove, <span class="arithmatex">\(f(\text{hawk}) = 3\)</span> and
+<span class="arithmatex">\(f(\text{dove}) = 2\)</span>. So the hawk is fitter when hawks are rare and when they
+are common, but by a much smaller margin once they are common.</p>
+<p><strong>Selection.</strong> Birth is proportional to the total fitness of each type; death is
+uniform, so it is proportional to how many of that type there are.</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Born a hawk</th>
+<th>Dies a hawk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 hawk, 2 doves</td>
+<td><span class="arithmatex">\(6/12 = 1/2\)</span></td>
+<td><span class="arithmatex">\(1/3\)</span></td>
+</tr>
+<tr>
+<td>2 hawks, 1 dove</td>
+<td><span class="arithmatex">\(6/8 = 3/4\)</span></td>
+<td><span class="arithmatex">\(2/3\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transitions.</strong> The count only changes when the type born differs from the type
+that dies:</p>
+<div class="arithmatex">\[
+p_{10} = \tfrac{1}{2}\cdot\tfrac{1}{3} = \tfrac{1}{6}, \qquad
+p_{12} = \tfrac{1}{2}\cdot\tfrac{2}{3} = \tfrac{1}{3}, \qquad
+p_{21} = \tfrac{1}{4}\cdot\tfrac{2}{3} = \tfrac{1}{6}, \qquad
+p_{23} = \tfrac{3}{4}\cdot\tfrac{1}{3} = \tfrac{1}{4}.
+\]</div>
+<p>The remaining probability in each state is the chance of drawing the same type
+for birth and death, which leaves the state unchanged.</p>
+<p><strong>Fixation.</strong> With <span class="arithmatex">\(\gamma_i = p_{i,i-1}/p_{i,i+1}\)</span> we get
+<span class="arithmatex">\(\gamma_1 = 1/2\)</span> and <span class="arithmatex">\(\gamma_2 = 2/3\)</span>, so</p>
+<div class="arithmatex">\[
+x_1 = \frac{1}{1 + \gamma_1 + \gamma_1\gamma_2}
+    = \frac{1}{1 + \tfrac{1}{2} + \tfrac{1}{3}} = \frac{6}{11}
+    \approx 0.545.
+\]</div>
+<p>Simulating the students' dice gives about <span class="arithmatex">\(0.547\)</span>, so a class of twenty pairs
+should land somewhere near eleven hawk fixations out of twenty. That spread is
+worth naming: with twenty runs the standard error is about <span class="arithmatex">\(0.11\)</span>, so anything
+from roughly 8 to 14 is consistent with the theory.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/moran-process.html">Moran Process</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 

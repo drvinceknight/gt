@@ -11,6 +11,8 @@ Solutions to the example questions on the
 
 ## Question 1 [24 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=ZP6fLlnJlPE)
+
 **(a) Interpretation.** [2]
 
 \(\delta = 5/6\) is the probability that the game continues after each round (the
@@ -91,6 +93,8 @@ deterrent, so the players must be more patient to keep cooperating.
 
 ## Question 2 [25 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=szC_byz87Uw)
+
 **(a) Definitions.** (Bookwork.) [4]
 
 - Given a two-player stage game \((A, B)\), an **infinitely repeated game with
@@ -161,6 +165,8 @@ patient enough, which matches the threshold \(\delta \ge \tfrac{1}{2}\) found
 above.
 
 ## Question 3 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=AW6QO1f_6MU)
 
 **(a) Definition.** (Bookwork.) [2]
 

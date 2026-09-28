@@ -11,6 +11,8 @@ Solutions to the example questions on the
 
 ## Question 1 [15 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=dF21ipZ8Ay0)
+
 **(a) Definitions.** (Bookwork.) [4]
 
 A **characteristic function game** \(G = (N, v)\) is a set of players \(N\) with a
@@ -58,6 +60,8 @@ rewards each student by the average value their part adds, not by what it is
 worth in isolation.
 
 ## Question 2 [17 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=AQkj7rofeCM)
 
 **(a) Definitions.** (Bookwork.) [4]
 
@@ -113,6 +117,8 @@ separate values). Together these axioms pin the Shapley value down as the unique
 fair allocation.
 
 ## Question 3 [20 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=7uENuGieCA4)
 
 **(a) Properties.** (Bookwork.) [4]
 

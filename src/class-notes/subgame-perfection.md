@@ -11,6 +11,12 @@ full.
 
 ## Activity: the Traitors (one class)
 
+**The deck.** There is a write-on deck at
+[/decks/subgame-perfection/main.pdf](/decks/subgame-perfection/main.pdf),
+covering both classes: the \((n, m)\) ladder down to parity, the Vote-Left
+properties, the centipede tree with the payoffs printed and the node values
+blank, and the threshold on \(q\).
+
 **Goal.** Show that a plan of action can look like an equilibrium at the start of
 a game yet stop being optimal once a particular subgame is reached. This is the
 gap between a Nash equilibrium of the whole game and one that is optimal in every
@@ -142,7 +148,10 @@ induction:
                 - Leaf: (4, 4)
 
 Solve it by backwards induction, then contrast the subgame perfect equilibrium
-with the strategy that passes at the first two nodes and takes at the last two.
+with the strategy in which player 1 takes at both of their nodes while player 2
+takes at their first node and passes at their last. That one is a Nash
+equilibrium which is not subgame perfect, and it is worked through under
+[Answers for the deck](#answers-for-the-deck) below.
 
 Discussion point: **After the definition of backwards induction, ask what it
 leads to for the centipede game.**
@@ -150,6 +159,34 @@ leads to for the centipede game.**
 Discussion point: **After the subgame perfection definition, ask which
 equilibrium is subgame perfect, and relate it to the Traitors punishment threat
 that was credible early and failed in the endgame subgame.**
+
+## Answers for the deck
+
+Most of the boxes are answered by the activity above. These are the rest.
+
+**The ladder.** The Faithful remaining at each state are 8, 6, 4 and 2, and
+parity \(2m \ge n\) first arrives at \((4, 2)\), three rounds in.
+
+**The centipede.** Working right to left, player 2 takes at their last node
+because \(5 > 4\), so player 1 takes at their second because \(4 > 3\), so
+player 2 takes at their first because \(3 > 2\), so player 1 takes immediately
+because \(2 > 1\). The subgame perfect equilibrium is to take at every node, and
+the game ends at once with \((2, 0)\).
+
+**The contrast.** Take the plan in which player 1 takes at both of their nodes
+while player 2 takes at their first node but *passes* at their last. Play ends
+immediately at \((2, 0)\), so player 2's last node is never reached and player 2
+is indifferent about what they promised to do there: the plan is a Nash
+equilibrium. It is not subgame perfect, because passing at that last node gives
+player 2 \(4\) when taking gives \(5\). That is the same shape as the Traitors:
+a threat that is never tested on the path of play, and not worth carrying out if
+it ever were.
+
+**The belief.** Banishing beats carrying on when \(8q - 5 > 0\), that is
+\(q > 5/8\), so the threat is credible only above \(5/8\). The threat deters the
+Traitor when \(3 - 8q < 1\), that is \(q > 1/4\). So (comply, banish) is a Nash
+equilibrium that is *not* subgame perfect exactly when \(1/4 < q < 5/8\), and
+the \(q = 1/2\) of the exam question sits inside that range.
 
 ## From the activity to the exam answer
 

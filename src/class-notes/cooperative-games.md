@@ -10,6 +10,11 @@ tag: "cooperative-games"
 team produces one thing together, the parts reinforce each other, and we have to
 split the proceeds fairly when the parts did not contribute equally.
 
+**The deck.** There is a write-on deck at
+[/decks/cooperative-games/main.pdf](/decks/cooperative-games/main.pdf): the
+seven coalition scores as boxes to fill in as the class calls them out, then the
+six orderings as a table of marginal contributions.
+
 Run "The revision aid". The whole room plays at once in teams of three (about
 twenty teams in a class of sixty). In roughly twelve minutes each team makes a
 one-page revision aid for a game theory topic, on a single poster with three
@@ -64,6 +69,32 @@ already there; the same part contributes more in company.**
 
 Discussion Point: **After the definition of the Shapley value, ask for the steps,
 then work through the six orderings for the winning aid.**
+
+## Answers for the deck
+
+The seven scores come from the class. These are the answers for the example on
+the exam page, where \(v(\{1\}) = 2\), \(v(\{2\}) = 1\), \(v(\{3\}) = 2\),
+\(v(\{1,2\}) = 5\), \(v(\{1,3\}) = 6\), \(v(\{2,3\}) = 4\) and
+\(v(\{1,2,3\}) = 10\), with 1 the maths, 2 the picture and 3 the story.
+
+| Order | Maths adds | Picture adds | Story adds |
+|---|---|---|---|
+| maths, picture, story | 2 | 3 | 5 |
+| maths, story, picture | 2 | 4 | 4 |
+| picture, maths, story | 4 | 1 | 5 |
+| picture, story, maths | 6 | 1 | 3 |
+| story, maths, picture | 4 | 4 | 2 |
+| story, picture, maths | 6 | 2 | 2 |
+| **Average** | **4** | **5/2** | **7/2** |
+
+**The Shapley value** is therefore \((4, \; 5/2, \; 7/2)\). It adds to 10, the
+worth of the whole aid, which is efficiency.
+
+**The synergy.** The three parts are worth \(2 + 1 + 2 = 5\) on their own, so
+half of the aid's value comes from the parts reinforcing one another. Each
+student is paid more than their part alone: the maths gains 2, and the picture
+and the story gain \(3/2\) each. The maths gains most because it combines best
+with the other two, not because it scores highest by itself.
 
 ## From the activity to the exam answer
 

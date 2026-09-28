@@ -12,6 +12,8 @@ Solutions to the example questions on the
 
 ## Question 1 [25 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=wda2kZuKbBA)
+
 **(a) Named strategies.** [3]
 
 \((1, 1)\) is Always Cooperate (AllC), \((0, 0)\) is Always Defect (AllD),
@@ -114,6 +116,8 @@ starting state rather than from a stationary distribution.
 
 ## Question 2 [25 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=1HmRjt8BdzQ)
+
 **(a) Reactive strategies.** (Bookwork.) [5]
 
 A **reactive strategy** \((p, q)\) cooperates with probability \(p\) after the
@@ -193,6 +197,8 @@ A Markov chain is **ergodic** if it is irreducible and aperiodic, so that it has
 unique stationary distribution to which it converges from any initial state.
 
 ## Question 3 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=V9Ssb2nOKM0)
 
 **(a) Transition matrix.** (Bookwork.) [5]
 

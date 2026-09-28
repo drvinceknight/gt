@@ -71,6 +71,10 @@
 <p><strong>Goal.</strong> Motivate fair division and the question the Shapley value answers: a
 team produces one thing together, the parts reinforce each other, and we have to
 split the proceeds fairly when the parts did not contribute equally.</p>
+<p><strong>The deck.</strong> There is a write-on deck at
+<a href="../decks/cooperative-games/main.pdf">/decks/cooperative-games/main.pdf</a>: the
+seven coalition scores as boxes to fill in as the class calls them out, then the
+six orderings as a table of marginal contributions.</p>
 <p>Run "The revision aid". The whole room plays at once in teams of three (about
 twenty teams in a class of sixty). In roughly twelve minutes each team makes a
 one-page revision aid for a game theory topic, on a single poster with three
@@ -117,6 +121,72 @@ the maths is worth on its own and how much it adds once the picture and story ar
 already there; the same part contributes more in company.</strong></p>
 <p>Discussion Point: <strong>After the definition of the Shapley value, ask for the steps,
 then work through the six orderings for the winning aid.</strong></p>
+<h2 id="answers-for-the-deck">Answers for the deck</h2>
+<p>The seven scores come from the class. These are the answers for the example on
+the exam page, where <span class="arithmatex">\(v(\{1\}) = 2\)</span>, <span class="arithmatex">\(v(\{2\}) = 1\)</span>, <span class="arithmatex">\(v(\{3\}) = 2\)</span>,
+<span class="arithmatex">\(v(\{1,2\}) = 5\)</span>, <span class="arithmatex">\(v(\{1,3\}) = 6\)</span>, <span class="arithmatex">\(v(\{2,3\}) = 4\)</span> and
+<span class="arithmatex">\(v(\{1,2,3\}) = 10\)</span>, with 1 the maths, 2 the picture and 3 the story.</p>
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>Maths adds</th>
+<th>Picture adds</th>
+<th>Story adds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>maths, picture, story</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr>
+<td>maths, story, picture</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>picture, maths, story</td>
+<td>4</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>picture, story, maths</td>
+<td>6</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>story, maths, picture</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>story, picture, maths</td>
+<td>6</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Average</strong></td>
+<td><strong>4</strong></td>
+<td><strong>5/2</strong></td>
+<td><strong>7/2</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The Shapley value</strong> is therefore <span class="arithmatex">\((4, \; 5/2, \; 7/2)\)</span>. It adds to 10, the
+worth of the whole aid, which is efficiency.</p>
+<p><strong>The synergy.</strong> The three parts are worth <span class="arithmatex">\(2 + 1 + 2 = 5\)</span> on their own, so
+half of the aid's value comes from the parts reinforcing one another. Each
+student is paid more than their part alone: the maths gains 2, and the picture
+and the story gain <span class="arithmatex">\(3/2\)</span> each. The maths gains most because it combines best
+with the other two, not because it scores highest by itself.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/cooperative-games.html">Cooperative Games</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 

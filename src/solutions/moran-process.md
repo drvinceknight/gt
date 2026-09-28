@@ -11,6 +11,8 @@ Solutions to the example questions on the
 
 ## Question 1 [25 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=RYmqF3FmXds)
+
 **(a) The two random choices.** [3]
 
 At each step one individual is selected to reproduce, with probability
@@ -60,6 +62,8 @@ likely to gain a Hawk than to lose one from this state, so it tends to drift
 towards more Hawks.
 
 ## Question 2 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=QLJkRwFhGAo)
 
 **(a) Definitions.** (Bookwork.) [4]
 
@@ -141,6 +145,8 @@ probability only \(1 - 1/r\), bounded away from \(1\): a beneficial mutation is
 likely to be lost while still rare. For \(r = 2\) this limit is \(\tfrac{1}{2}\).
 
 ## Question 3 [23 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=P4Rimm0TSBI)
 
 **(a) Fixation formula.** (Bookwork.) [4]
 
