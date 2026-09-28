@@ -1,0 +1,157 @@
+% Cooperative games: the revision aid, and splitting the prize by Shapley value.
+\input{../preamble.tex}
+
+\deckname{Cooperative games}
+
+\begin{document}
+
+\titleslide{Cooperative games}{Three people made one thing. Now split the
+ prize.}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{Make}\\[0.25em]
+        Maths, picture, story. One poster.}
+      \stepbox{s1}{6.9}{\textbf{Vote}\\[0.25em]
+        Walk the gallery. One vote each.}
+      \stepbox{s2}{13.8}{\textbf{Split}\\[0.25em]
+        Score the parts. Share the prize.}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}
+
+    \vspace{2.4em}
+
+    {\large Winning team: \blank[4.4] \hspace{1.6cm} Votes: \blank[2.2]}}
+
+\newpage
+\slidehead{Score the parts, not the people}
+
+\vspace{0.4cm}
+
+{\large I will cover the poster and reveal the parts in combination. Score what
+is on show out of ten.}
+
+\vspace{0.7cm}
+
+\begin{center}
+\begin{tikzpicture}[font=\large,
+    part/.style={draw=inkfaint, line width=0.8pt, rounded corners=4pt,
+                 fill=white, minimum width=4.4cm, minimum height=1.5cm,
+                 align=center}]
+  \node[part] (a) at (0,0) {Maths\\[0.2em] \blank[1.6]};
+  \node[part] (b) at (5.2,0) {Picture\\[0.2em] \blank[1.6]};
+  \node[part] (c) at (10.4,0) {Story\\[0.2em] \blank[1.6]};
+  \node[part] (ab) at (0,-2.6) {Maths $+$ picture\\[0.2em] \blank[1.6]};
+  \node[part] (ac) at (5.2,-2.6) {Maths $+$ story\\[0.2em] \blank[1.6]};
+  \node[part] (bc) at (10.4,-2.6) {Picture $+$ story\\[0.2em] \blank[1.6]};
+  \node[part, draw=inkblue, line width=1.2pt, minimum width=5.6cm]
+    (all) at (16.4,-1.3) {The whole aid\\[0.2em] \Large\bfseries 10};
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+
+{\small\color{inkgrey} Those seven numbers are the characteristic function
+\(v\). Anchor the whole aid at ten and judge the rest against it.}
+
+\newpage
+\slidehead{Six ways the aid could have come together}
+
+\vspace{0.15cm}
+
+\hspace{0.3cm}
+\begin{tikzpicture}[font=\small]
+  \foreach \lab/\col in {Order/0, {Maths adds}/6.0, {Picture adds}/11.4,
+                         {Story adds}/16.8}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.2,-0.36);
+  \foreach \order [count=\row from 1] in
+    {{Maths, picture, story}, {Maths, story, picture},
+     {Picture, maths, story}, {Picture, story, maths},
+     {Story, maths, picture}, {Story, picture, maths}}{%
+    \node[anchor=west, font=\normalsize] at (0,-1.12*\row) {\order};
+    \foreach \col in {6.0,11.4,16.8}{%
+      \node[anchor=west] at (\col,-1.12*\row) {\blank[3]};}}
+  \draw[inkfaint, line width=0.7pt] (0,-7.5) -- (22.2,-7.5);
+  \node[anchor=west, font=\normalsize\bfseries] at (0,-8.2) {Average};
+  \foreach \col in {6.0,11.4,16.8}{%
+    \node[anchor=west] at (\col,-8.2) {\blank[3]};}
+\end{tikzpicture}
+
+\newpage
+\slidehead{The Shapley value}
+
+\vspace{1cm}
+
+\begin{center}
+{\Large Maths \blank[2.4] \hspace{1.8cm} Picture \blank[2.4]
+ \hspace{1.8cm} Story \blank[2.4]}
+\end{center}
+
+\vspace{1.4cm}
+
+{\large They should add to \blank[1.8], which is the whole value of the aid.
+That property is called \underline{\hspace{4.5cm}}.}
+
+\vspace{1.4cm}
+
+{\large The three parts on their own are worth \blank[1.6] $+$ \blank[1.6] $+$
+\blank[1.6] $=$ \blank[1.8], so \blank[1.8] of the aid's value came from the
+parts \underline{\hspace{5cm}}.}
+
+\newpage
+\slidehead{Who gained the most from the others?}
+
+\vspace{0.8cm}
+
+{\large For each person, how much more did the Shapley value give them than
+their part was worth alone?}
+
+\vspace{0.8cm}
+
+\begin{center}
+{\Large Maths \blank[2.2] \hspace{1.8cm} Picture \blank[2.2]
+ \hspace{1.8cm} Story \blank[2.2]}
+\end{center}
+
+\vspace{1.2cm}
+
+{\large The part that gains most is the one that
+\underline{\hspace{6cm}}, not the one that is best on its own.}
+
+\vspace{1cm}
+
+\begin{center}
+\workspace{22.6}{3}
+\end{center}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.5cm}
+
+{\large What we just did in the room is \textbf{Question 1} on the Cooperative
+Games page, with the class's scores replaced by fixed ones.}
+
+\vspace{0.9cm}
+
+\hspace{0.6cm}
+\begin{minipage}{0.92\linewidth}
+{\large
+\begin{tabbing}
+\hspace{1.2cm} \= \hspace{17cm} \= \kill
+\textbf{(a)} \> Define a characteristic function game and the Shapley
+  value. \> [4]\\[0.55em]
+\textbf{(b)} \> Marginal contributions in each of the six orderings. \> [5]\\[0.55em]
+\textbf{(c)} \> Hence the Shapley value. \> [2]\\[0.55em]
+\textbf{(d)} \> Verify efficiency, and explain how the synergy is
+  shared. \> [4]
+\end{tabbing}}
+\end{minipage}
+
+\vspace{1.2cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/cooperative-games.html}
+\end{center}
+
+\end{document}

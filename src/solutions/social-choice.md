@@ -11,6 +11,8 @@ Solutions to the example questions on the
 
 ## Question 1 [15 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=QfIYWjxTvj4)
+
 **(a) First choice votes.** [2]
 
 First choice votes: \(A = 4\), \(B = 3\), \(C = 2\). The winner by first choice
@@ -55,6 +57,8 @@ others. A Condorcet (or Borda) method is therefore preferable here, as it reflec
 the whole class's preferences rather than only first choices.
 
 ## Question 2 [18 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=bIvdIaGnsX4)
 
 **(a) Definitions.** (Bookwork.) [4]
 
@@ -105,6 +109,8 @@ and there is a single alternative that a majority prefers to every other. The
 existence of a Condorcet winner tells us there is no majority cycle here.
 
 ## Question 3 [19 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=t4BPTH2sh8I)
 
 **(a) Definitions.** (Bookwork.) [4]
 

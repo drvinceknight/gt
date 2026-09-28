@@ -1,0 +1,182 @@
+% Social choice: the revision-topic vote, counted three different ways.
+\input{../preamble.tex}
+
+\deckname{Social choice}
+
+\begin{document}
+
+\titleslide{Social choice}{One set of preferences, three winners}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{Vote}\\[0.25em]
+        Rank the topics you want revised.}
+      \stepbox{s1}{6.9}{\textbf{Count}\\[0.25em]
+        First choices, Borda, Condorcet.}
+      \stepbox{s2}{13.8}{\textbf{Argue}\\[0.25em]
+        Decide which count we live by.}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}
+
+    \vspace{2.4em}
+
+    {\large The prize is real: we revise the winner in class.}}
+
+\newpage
+\slidehead{The ballots}
+
+\vspace{0.4cm}
+
+{\large Three topics on the shortlist:}
+\hspace{0.8cm} \(A =\) \blank[4] \hspace{0.6cm} \(B =\) \blank[4]
+\hspace{0.6cm} \(C =\) \blank[4]
+
+\vspace{0.5cm}
+
+\hspace{0.3cm}
+\begin{tikzpicture}[font=\small]
+  \foreach \lab/\col in {How they ranked them/0, How many said it/9.0,
+                         First choice/14.0, Borda points/18.4}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.4,-0.36);
+  \foreach \row in {1,2,3,4,5,6}{%
+    \draw[inkfaint, line width=0.7pt]
+      (0,-1.08*\row-0.3) -- (8.2,-1.08*\row-0.3);
+    \node[anchor=west] at (9.0,-1.08*\row) {\blank[2.4]};
+    \node[anchor=west] at (14.0,-1.08*\row) {\blank[2.4]};
+    \node[anchor=west] at (18.4,-1.08*\row) {\blank[2.4]};}
+\end{tikzpicture}
+
+\vspace{0.3cm}
+
+{\small\color{inkgrey} Borda points for three topics: \(2\) for a first place,
+\(1\) for a second, \(0\) for a third.}
+
+\newpage
+\slidehead{Three ways to count the same ballots}
+
+\vspace{0.6cm}
+
+\begin{minipage}[t]{0.30\linewidth}
+\raggedright
+{\large\bfseries Most first choices}
+
+\vspace{0.6em}
+
+{\large \(A\) \blank[1.6] \\[0.7em] \(B\) \blank[1.6] \\[0.7em]
+\(C\) \blank[1.6]}
+
+\vspace{0.9em}
+
+{\large Winner \blank[2.4]}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.30\linewidth}
+\raggedright
+{\large\bfseries Borda score}
+
+\vspace{0.6em}
+
+{\large \(A\) \blank[1.6] \\[0.7em] \(B\) \blank[1.6] \\[0.7em]
+\(C\) \blank[1.6]}
+
+\vspace{0.9em}
+
+{\large Winner \blank[2.4]}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\raggedright
+{\large\bfseries Head to head}
+
+\vspace{0.6em}
+
+{\large \(A\) v \(B\) \blank[2.6] \\[0.7em] \(A\) v \(C\) \blank[2.6] \\[0.7em]
+\(B\) v \(C\) \blank[2.6]}
+
+\vspace{0.9em}
+
+{\large Condorcet winner \blank[2.4]}
+\end{minipage}
+
+\vspace{0.9cm}
+
+{\large Did all three agree? \blank[2.2]}
+
+\newpage
+\slidehead{Why they disagree}
+
+\vspace{0.9cm}
+
+{\large Counting first choices looks only at
+\underline{\hspace{5cm}}, and throws away
+\underline{\hspace{5cm}}.}
+
+\vspace{1.1cm}
+
+{\large Borda uses \underline{\hspace{6cm}}, so a topic that is
+everybody's second choice can beat one that half the room ranks last.}
+
+\vspace{1.1cm}
+
+{\large A Condorcet winner beats every other topic
+\underline{\hspace{4.5cm}}, and sometimes
+\underline{\hspace{4cm}}.}
+
+\vspace{1cm}
+
+\begin{center}
+\workspace{22.6}{2.6}
+\end{center}
+
+\newpage
+\slidehead{What the machine said}
+
+\vspace{0.9cm}
+
+{\large stablevoting.org gave \blank[4.4]. Which of our three counts does that
+match? \blank[4.4]}
+
+\vspace{1cm}
+
+{\large So which method should we use for the class vote, and why?}
+
+\vspace{0.7cm}
+
+\begin{center}
+\workspace{22.6}{3.6}
+\end{center}
+
+\vspace{0.7cm}
+
+{\large We are revising: \blank[6]}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.5cm}
+
+{\large What we just did in the room is \textbf{Question 1} on the Social
+Choice page, with nine students and three topics.}
+
+\vspace{0.9cm}
+
+\hspace{0.6cm}
+\begin{minipage}{0.92\linewidth}
+{\large
+\begin{tabbing}
+\hspace{1.2cm} \= \hspace{17cm} \= \kill
+\textbf{(a)} \> Rank by first choice votes and give the winner. \> [2]\\[0.55em]
+\textbf{(b)} \> The Borda scores and the Borda winner. \> [4]\\[0.55em]
+\textbf{(c)} \> Whether there is a Condorcet winner. \> [4]\\[0.55em]
+\textbf{(d)} \> Why the methods disagree, and which you would
+  recommend. \> [5]
+\end{tabbing}}
+\end{minipage}
+
+\vspace{1.2cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/social-choice.html}
+\end{center}
+
+\end{document}

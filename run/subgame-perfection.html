@@ -72,6 +72,11 @@ and its debrief; the second class is the formal discussion of the chapter and
 the worked exam question. The activity is the spine of both, so we set it out in
 full.</p>
 <h2 id="activity-the-traitors-one-class">Activity: the Traitors (one class)</h2>
+<p><strong>The deck.</strong> There is a write-on deck at
+<a href="../decks/subgame-perfection/main.pdf">/decks/subgame-perfection/main.pdf</a>,
+covering both classes: the <span class="arithmatex">\((n, m)\)</span> ladder down to parity, the Vote-Left
+properties, the centipede tree with the payoffs printed and the node values
+blank, and the threshold on <span class="arithmatex">\(q\)</span>.</p>
 <p><strong>Goal.</strong> Show that a plan of action can look like an equilibrium at the start of
 a game yet stop being optimal once a particular subgame is reached. This is the
 gap between a Nash equilibrium of the whole game and one that is optimal in every
@@ -195,12 +200,37 @@ induction:</p>
 </li>
 </ul>
 <p>Solve it by backwards induction, then contrast the subgame perfect equilibrium
-with the strategy that passes at the first two nodes and takes at the last two.</p>
+with the strategy in which player 1 takes at both of their nodes while player 2
+takes at their first node and passes at their last. That one is a Nash
+equilibrium which is not subgame perfect, and it is worked through under
+<a href="#answers-for-the-deck">Answers for the deck</a> below.</p>
 <p>Discussion point: <strong>After the definition of backwards induction, ask what it
 leads to for the centipede game.</strong></p>
 <p>Discussion point: <strong>After the subgame perfection definition, ask which
 equilibrium is subgame perfect, and relate it to the Traitors punishment threat
 that was credible early and failed in the endgame subgame.</strong></p>
+<h2 id="answers-for-the-deck">Answers for the deck</h2>
+<p>Most of the boxes are answered by the activity above. These are the rest.</p>
+<p><strong>The ladder.</strong> The Faithful remaining at each state are 8, 6, 4 and 2, and
+parity <span class="arithmatex">\(2m \ge n\)</span> first arrives at <span class="arithmatex">\((4, 2)\)</span>, three rounds in.</p>
+<p><strong>The centipede.</strong> Working right to left, player 2 takes at their last node
+because <span class="arithmatex">\(5 &gt; 4\)</span>, so player 1 takes at their second because <span class="arithmatex">\(4 &gt; 3\)</span>, so
+player 2 takes at their first because <span class="arithmatex">\(3 &gt; 2\)</span>, so player 1 takes immediately
+because <span class="arithmatex">\(2 &gt; 1\)</span>. The subgame perfect equilibrium is to take at every node, and
+the game ends at once with <span class="arithmatex">\((2, 0)\)</span>.</p>
+<p><strong>The contrast.</strong> Take the plan in which player 1 takes at both of their nodes
+while player 2 takes at their first node but <em>passes</em> at their last. Play ends
+immediately at <span class="arithmatex">\((2, 0)\)</span>, so player 2's last node is never reached and player 2
+is indifferent about what they promised to do there: the plan is a Nash
+equilibrium. It is not subgame perfect, because passing at that last node gives
+player 2 <span class="arithmatex">\(4\)</span> when taking gives <span class="arithmatex">\(5\)</span>. That is the same shape as the Traitors:
+a threat that is never tested on the path of play, and not worth carrying out if
+it ever were.</p>
+<p><strong>The belief.</strong> Banishing beats carrying on when <span class="arithmatex">\(8q - 5 &gt; 0\)</span>, that is
+<span class="arithmatex">\(q &gt; 5/8\)</span>, so the threat is credible only above <span class="arithmatex">\(5/8\)</span>. The threat deters the
+Traitor when <span class="arithmatex">\(3 - 8q &lt; 1\)</span>, that is <span class="arithmatex">\(q &gt; 1/4\)</span>. So (comply, banish) is a Nash
+equilibrium that is <em>not</em> subgame perfect exactly when <span class="arithmatex">\(1/4 &lt; q &lt; 5/8\)</span>, and
+the <span class="arithmatex">\(q = 1/2\)</span> of the exam question sits inside that range.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The third game above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/subgame-perfection.html">Subgame Perfection</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 

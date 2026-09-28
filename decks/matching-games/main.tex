@@ -1,0 +1,209 @@
+% Matching games: eliciting preferences, then running Gale-Shapley by hand.
+\input{../preamble.tex}
+
+% The two sides of the market, with #1 drawn afterwards so each round can add
+% its own proposals, holds and rejections.
+\newcommand{\bipartite}[1]{%
+  \begin{tikzpicture}[scale=1.5, every node/.style={transform shape},
+      person/.style={draw=inkblue, line width=0.9pt, fill=white, text=inkblue,
+                     rounded corners=3pt, minimum width=2.3cm,
+                     minimum height=0.72cm, font=\small\bfseries}]
+    \foreach \name [count=\i from 0] in {Gauss, Noether, Turing, Euler}{%
+      \node[person] (m\i) at (0,-\i*1.25) {\name};}
+    \foreach \name [count=\i from 0] in {Einstein, Curie, Newton, Feynman}{%
+      \node[person, draw=inkteal, text=inkteal] (p\i) at (4.7,-\i*1.25)
+        {\name};}
+    #1
+  \end{tikzpicture}}
+
+% One person's preference list, waiting to be filled in.
+\newcommand{\prefrow}[1]{%
+  \makebox[2.1cm][l]{#1}
+  \blank[2]\, \blank[2]\, \blank[2]\, \blank[2]}
+
+\deckname{Matching games}
+
+\begin{document}
+
+\titleslide{Matching games}{Four mathematicians, four physicists, one stable matching}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{Elicit}\\[0.25em] Read the sheet. Rank everyone.}
+      \stepbox{s1}{6.9}{\textbf{Break}\\[0.25em] Find a pair who would elope.}
+      \stepbox{s2}{13.8}{\textbf{Fix}\\[0.25em] Propose, hold, reject. Repeat.}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}}
+
+\newpage
+\slidehead{What the groups decided}
+
+\vspace{0.6cm}
+
+\begin{minipage}[t]{0.48\linewidth}
+{\large\bfseries\color{inkblue} Mathematicians}
+
+\vspace{0.8em}
+
+{\large
+\prefrow{Gauss}\\[1.1em]
+\prefrow{Noether}\\[1.1em]
+\prefrow{Turing}\\[1.1em]
+\prefrow{Euler}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+{\large\bfseries\color{inkteal} Physicists}
+
+\vspace{0.8em}
+
+{\large
+\prefrow{Einstein}\\[1.1em]
+\prefrow{Curie}\\[1.1em]
+\prefrow{Newton}\\[1.1em]
+\prefrow{Feynman}}
+\end{minipage}
+
+\vspace{1.4cm}
+
+{\small\color{inkgrey} Most preferred first. These come from the preference
+sheet, not from me.}
+
+\newpage
+\slidehead{When is a matching no good?}
+
+\vspace{0.6cm}
+
+{\large Pair everyone up however you like:}
+
+\vspace{0.5cm}
+
+\begin{center}
+{\large
+\blank[2.6] \; with \; \blank[2.6] \hspace{2.4cm}
+\blank[2.6] \; with \; \blank[2.6]\\[1.3em]
+\blank[2.6] \; with \; \blank[2.6] \hspace{2.4cm}
+\blank[2.6] \; with \; \blank[2.6]}
+\end{center}
+
+\vspace{1cm}
+
+{\large Now find two people who would both rather have each other. That pair
+is a \underline{\hspace{3.4cm}}, and the matching is
+\underline{\hspace{3cm}}.}
+
+\vspace{0.9cm}
+
+\begin{center}
+\workspace{22.6}{2.8}
+\end{center}
+
+\newpage
+\slidehead{Deferred acceptance: rounds 1 and 2}
+
+\vspace{0.2cm}
+
+\begin{minipage}[t]{0.48\linewidth}
+\begin{center}
+{\large\bfseries Round 1}\\[0.4em]
+\bipartite{}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\begin{center}
+{\large\bfseries Round 2}\\[0.4em]
+\bipartite{}
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+
+{\small\color{inkgrey} Draw each proposal as an arrow. Circle the one held, and
+cross out the rejections.}
+
+\newpage
+\slidehead{Deferred acceptance: rounds 3 and 4}
+
+\vspace{0.2cm}
+
+\begin{minipage}[t]{0.48\linewidth}
+\begin{center}
+{\large\bfseries Round 3}\\[0.4em]
+\bipartite{}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\begin{center}
+{\large\bfseries Round 4}\\[0.4em]
+\bipartite{}
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+
+{\small\color{inkgrey} Stop when nobody is left holding a proposal they have not
+accepted.}
+
+\newpage
+\slidehead{The matching, and why it holds}
+
+\vspace{0.7cm}
+
+\begin{center}
+{\large
+\blank[2.6] \; with \; \blank[2.6] \hspace{2.4cm}
+\blank[2.6] \; with \; \blank[2.6]\\[1.3em]
+\blank[2.6] \; with \; \blank[2.6] \hspace{2.4cm}
+\blank[2.6] \; with \; \blank[2.6]}
+\end{center}
+
+\vspace{1.1cm}
+
+{\large Check it: take any pair who are \emph{not} matched to each other, and
+show at least one of them prefers who they have.}
+
+\vspace{0.7cm}
+
+\begin{center}
+\workspace{22.6}{3.4}
+\end{center}
+
+\vspace{0.4cm}
+
+{\large Who does better out of this, the proposers or the proposed to?
+\blank[4]}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.5cm}
+
+{\large What we just did in the room is \textbf{Question 1} on the Matching
+Games page, with three on each side instead of four.}
+
+\vspace{0.9cm}
+
+\hspace{0.6cm}
+\begin{minipage}{0.92\linewidth}
+{\large
+\begin{tabbing}
+\hspace{1.2cm} \= \hspace{17cm} \= \kill
+\textbf{(a)} \> Define a blocking pair and a stable matching, and write the
+  preferences as maps. \> [5]\\[0.55em]
+\textbf{(b)} \> Run Gale-Shapley with the mathematicians proposing, showing
+  each step. \> [7]\\[0.55em]
+\textbf{(c)} \> Write down the resulting matching. \> [3]\\[0.55em]
+\textbf{(d)} \> Verify it is stable by checking for a blocking pair. \> [4]\\[0.55em]
+\textbf{(e)} \> Whose optimum is it, and why can the proposing side never do
+  better? \> [6]
+\end{tabbing}}
+\end{minipage}
+
+\vspace{1.2cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/matching-games.html}
+\end{center}
+
+\end{document}

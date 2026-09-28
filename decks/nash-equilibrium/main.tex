@@ -1,0 +1,239 @@
+% Nash equilibrium: the Rock Paper Scissors Lizard Spock tournament.
+\input{../preamble.tex}
+
+\deckname{Nash equilibrium}
+
+\begin{document}
+
+\titleslide{Nash equilibrium}{Rock Paper Scissors Lizard Spock, all the way down}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{Play}\\[0.25em]
+                          Round robin, until one champion is left.}
+      \stepbox{s1}{6.9}{\textbf{Shrink}\\[0.25em] Three actions instead of five.}
+      \stepbox{s2}{13.8}{\textbf{Solve}\\[0.25em] Find the mix nobody can beat.}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}
+
+    \vspace{2.4em}
+
+    {\large Class champion: \blank[4] \hspace{1.6cm} Did I beat them? \blank[2]}}
+
+\newpage
+\slidehead{The rules}
+
+\vspace{0.2cm}
+
+\begin{minipage}[t]{0.47\linewidth}
+\begin{center}
+{\large\bfseries\color{inkteal} Beat the one beside you}\\[0.5em]
+\rpslscycle{inkteal}{0.5}{Rock/Lizard/crushes, Lizard/Spock/poisons,
+  Spock/Scissors/smashes, Scissors/Paper/cuts, Paper/Rock/covers}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\begin{center}
+{\large\bfseries\color{inkred} Beat the one across from you}\\[0.5em]
+\rpslscycle{inkred}{0.24}{Rock/Scissors/crushes, Scissors/Lizard/decapitates,
+  Lizard/Paper/eats, Paper/Spock/disproves, Spock/Rock/vaporises}
+\end{center}
+\end{minipage}
+
+\vspace{0.4cm}
+
+{\large Each action wins \blank[1.3], loses \blank[1.3] and draws
+\blank[1.3]. So the game is \underline{\hspace{3.2cm}}, and every cell's
+payoffs add to \blank[1.3].}
+
+\newpage
+\slidehead{What the room actually played}
+
+\vspace{0.4cm}
+
+\hspace{0.3cm}
+\begin{tikzpicture}[font=\small]
+  \node[anchor=west, text=inkgrey] at (0,0) {Action};
+  \node[anchor=west, text=inkgrey] at (10.5,0) {Tally};
+  \node[anchor=west, text=inkgrey] at (17.5,0) {Count};
+  \node[anchor=west, text=inkgrey] at (20.6,0) {Share};
+  \draw[inkfaint, line width=0.6pt] (0,-0.34) -- (22.9,-0.34);
+  \foreach \name [count=\row from 1] in {Rock, Paper, Scissors, Lizard, Spock}{%
+    \node[anchor=west, font=\normalsize] at (0,-1.1*\row) {\name};
+    \draw[inkfaint, line width=0.6pt]
+      (3.4,-1.1*\row-0.34) -- (17.0,-1.1*\row-0.34);
+    \node[anchor=west] at (17.5,-1.1*\row) {\blank[1.5]};
+    \node[anchor=west] at (20.6,-1.1*\row) {\blank[1.5]};}
+\end{tikzpicture}
+
+\vspace{0.5cm}
+
+{\large If everyone had played the same action, what should you have played?
+\blank[3.5]}
+
+\newpage
+\slidehead{Three actions, so we can see it}
+
+\vspace{0.3cm}
+
+\begin{minipage}[c]{0.52\linewidth}
+\begin{center}
+\payoffgrid{Rock, Paper, Scissors}{}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.44\linewidth}
+{\large Fill in the \emph{row} player's payoff:}\\[0.8em]
+{\large \hspace*{0.6cm} win $= +1$, \quad draw $= 0$, \quad lose $= -1$.}\\[1.6em]
+{\large Then circle each player's best responses.}\\[1.6em]
+{\large The column player's matrix is \blank[3.5].}
+\end{minipage}
+
+\vspace{0.4cm}
+
+{\small\color{inkgrey} A cell with both players' best responses circled would be
+a pure Nash equilibrium.}
+
+\newpage
+\slidehead{So there is no pure equilibrium}
+
+\vspace{0.6cm}
+
+{\large Whatever the pair of actions, somebody wants to move:}
+
+\vspace{0.8cm}
+
+\hspace{1cm}
+\begin{tikzpicture}[font=\large]
+  \node[anchor=west] at (0,0)
+    {If they play Rock, I want \blank[2.6]};
+  \node[anchor=west] at (11,0)
+    {If they play Paper, I want \blank[2.6]};
+  \node[anchor=west] at (0,-1.6)
+    {If they play Scissors, I want \blank[2.6]};
+  \node[anchor=west] at (11,-1.6)
+    {\ldots\ and then they want to move too.};
+\end{tikzpicture}
+
+\vspace{0.9cm}
+
+{\large\bfseries So any equilibrium has to be
+\underline{\hspace{4.5cm}}.}
+
+\vspace{0.5cm}
+
+\begin{center}
+\workspace{22.6}{2.6}
+\end{center}
+
+\newpage
+\slidehead{The best response condition}
+
+\vspace{0.5cm}
+
+{\large A mixed strategy \(\sigma\) is a best response to \(\tau\) if and only
+if}
+
+\vspace{0.6cm}
+
+\begin{center}
+\workspace{21}{3.4}
+\end{center}
+
+\vspace{0.9cm}
+
+{\large In words: every action I actually use has to be
+\underline{\hspace{6cm}}.}
+
+\vspace{0.9cm}
+
+{\large So if I mix over all three actions, all three must give me the same
+expected payoff.}
+
+\newpage
+\slidehead{Making the other player indifferent}
+
+\vspace{0.3cm}
+
+{\large Suppose the column player uses
+\(\sigma_c = (x, y, 1 - x - y)\) over (Rock, Paper, Scissors).}
+
+\vspace{0.6cm}
+
+\begin{minipage}[t]{0.52\linewidth}
+{\large
+\begin{tabbing}
+\(u_r(\text{Scissors}, \sigma_c) \;=\;\) \= \kill
+\(u_r(\text{Rock}, \sigma_c) \;=\;\) \> \blank[5.4]\\[1.5em]
+\(u_r(\text{Paper}, \sigma_c) \;=\;\) \> \blank[5.4]\\[1.5em]
+\(u_r(\text{Scissors}, \sigma_c) \;=\;\) \> \blank[5.4]
+\end{tabbing}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.44\linewidth}
+{\small\color{inkgrey} Set them equal, and solve:}\\[0.4em]
+\workspace{10.2}{5.2}
+\end{minipage}
+
+\vspace{0.8cm}
+
+\begin{center}
+{\Large \(\sigma_c \;=\;\) \blank[6]}
+\end{center}
+
+\newpage
+\slidehead{How much work was that?}
+
+\vspace{0.5cm}
+
+{\large Support enumeration checks every pair of supports in turn.}
+
+\vspace{0.9cm}
+
+\hspace{1cm}
+\begin{tikzpicture}[font=\large]
+  \node[anchor=west] at (0,0)
+    {Non-empty supports for one player, out of 3 actions: \blank[2.2]};
+  \node[anchor=west] at (0,-1.7)
+    {Pairs of supports to check: \blank[2.2]};
+  \node[anchor=west] at (0,-3.4)
+    {And with 5 actions, as in the game we played: \blank[2.6]};
+\end{tikzpicture}
+
+\vspace{1.4cm}
+
+{\large\color{inkgrey} Which is why we want theorems, not enumeration.}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.5cm}
+
+{\large What we just did in the room is \textbf{Question 1} on the Nash
+Equilibrium page.}
+
+\vspace{0.9cm}
+
+\hspace{0.6cm}
+\begin{minipage}{0.92\linewidth}
+{\large
+\begin{tabbing}
+\hspace{1.2cm} \= \hspace{17cm} \= \kill
+\textbf{(a)} \> Why it is symmetric and zero sum, and the column player's
+  matrix. \> [3]\\[0.55em]
+\textbf{(b)} \> Utilities for three given pairs of mixed strategies. \> [3]\\[0.55em]
+\textbf{(c)} \> Use the best response condition to prove
+  \((\tfrac13,\tfrac13,\tfrac13)\) is an equilibrium. \> [5]\\[0.55em]
+\textbf{(d)} \> Prove it is the \emph{unique} equilibrium. \> [5]\\[0.55em]
+\textbf{(e)} \> State and justify the equilibrium for the five-action
+  game. \> [3]
+\end{tabbing}}
+\end{minipage}
+
+\vspace{1.2cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/nash-equilibrium.html}
+\end{center}
+
+\end{document}

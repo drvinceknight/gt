@@ -71,6 +71,10 @@
 <p><strong>Goal.</strong> Make the shadow of the future tangible: introduce repeated play and
 the discount factor as the probability that the game continues, before we
 formalise any of it.</p>
+<p><strong>The deck.</strong> There is a write-on deck at
+<a href="../decks/repeated-games/main.pdf">/decks/repeated-games/main.pdf</a>: the stage game
+printed, boxes for <span class="arithmatex">\(\delta\)</span> and the expected number of rounds under both
+dice, and the Grudger comparison built up to the threshold.</p>
 <p>Run "Will it end?". Students pair off. In each round both players secretly
 choose to bid <strong>High</strong> or <strong>Low</strong> for a contract, using the stage game</p>
 <div class="arithmatex">\[
@@ -90,12 +94,15 @@ highest average score per round, and ask:</p>
 <ul>
 <li>Did you play differently knowing the game might continue?</li>
 <li>Would you bid High in a round you knew for certain was the last?</li>
-<li>Now end the game on a 1 <strong>or</strong> a 2 (so <span class="arithmatex">\(\delta = 4/6\)</span>) and replay. Does a
-  shorter expected future change how willing you are to cooperate?</li>
+<li>Now carry on <strong>only</strong> on a 5 or a 6 (so <span class="arithmatex">\(\delta = 2/6 = 1/3\)</span>) and replay.
+  Does a shorter expected future change how willing you are to cooperate?</li>
 </ul>
 <p><strong>Debrief.</strong> Connect their experience to the chapter: <span class="arithmatex">\(\delta\)</span> is the
 probability the game does not end, the expected number of rounds is
 <span class="arithmatex">\(1/(1 - \delta)\)</span>, and cooperation is easier to sustain when <span class="arithmatex">\(\delta\)</span> is large.
+The two dice are chosen to sit either side of the threshold: the first sustains
+cooperation and the second does not, so the room should feel the difference
+rather than be told about it.
 Contrast this with a game of a fixed, commonly known length, where backward
 induction unravels cooperation from the last round.</p>
 <h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
@@ -108,6 +115,34 @@ discounting, ask how our die roll corresponds to <span class="arithmatex">\(\del
 in the contractor game and more generally.</strong></p>
 <p>Discussion Point: <strong>After the finite-horizon discussion, ask why backward
 induction kills cooperation when the number of rounds is known in advance.</strong></p>
+<h2 id="answers-for-the-deck">Answers for the deck</h2>
+<p><strong>The stage game.</strong> Low dominates High (<span class="arithmatex">\(5 &gt; 3\)</span> and <span class="arithmatex">\(1 &gt; 0\)</span>), so played once
+you both bid Low and get <span class="arithmatex">\(1\)</span> each, when mutual High would have paid <span class="arithmatex">\(3\)</span>.</p>
+<p><strong>The die.</strong> Our first die stops on a 1, so <span class="arithmatex">\(\delta = 5/6\)</span> and the expected
+number of rounds is <span class="arithmatex">\(1/(1 - \delta) = 6\)</span>. Carrying on only for a 5 or a 6
+gives <span class="arithmatex">\(\delta = 1/3\)</span> and one and a half rounds.</p>
+<p><strong>Grudger against Grudger.</strong> Conforming for ever pays
+<span class="arithmatex">\(3 + 3\delta + 3\delta^{2} + \cdots = 3/(1 - \delta)\)</span>. Deviating once pays
+<span class="arithmatex">\(5\)</span> now and then <span class="arithmatex">\(1\)</span> for ever, which is <span class="arithmatex">\(5 + \delta/(1 - \delta)\)</span>.</p>
+<p><strong>The threshold.</strong> Cooperation is worth it when</p>
+<div class="arithmatex">\[
+\frac{3}{1 - \delta} \;\ge\; 5 + \frac{\delta}{1 - \delta}
+\qquad \Longleftrightarrow \qquad \delta \ge \tfrac{1}{2}.
+\]</div>
+<p>At <span class="arithmatex">\(\delta = 5/6\)</span> conforming is worth <span class="arithmatex">\(18\)</span> against <span class="arithmatex">\(10\)</span> for deviating, so
+cooperation holds. At <span class="arithmatex">\(\delta = 1/3\)</span> it is <span class="arithmatex">\(9/2\)</span> against <span class="arithmatex">\(11/2\)</span>, so it does
+not. The two dice sit either side of <span class="arithmatex">\(\delta = 1/2\)</span> deliberately: this is the
+moment the activity is built around, and it is worth asking the room to predict
+which way the second run will go before playing it.</p>
+<p>Watch for a tempting near miss. Ending on a 1 or a 2 gives <span class="arithmatex">\(\delta = 2/3\)</span>,
+which still sustains cooperation (<span class="arithmatex">\(9\)</span> against <span class="arithmatex">\(7\)</span>), so a die that merely
+feels shorter is not enough. With a six-sided die anything above
+<span class="arithmatex">\(\delta = 1/2\)</span> holds, so the second run has to carry on for at most two of the
+six faces.</p>
+<p><strong>A known last round.</strong> In a round known to be the last the future is worth
+nothing, so both bid Low. Both of you know that, so the round before it is
+effectively last, and so on: cooperation unravels all the way back. The die was
+doing its work not by making the game long but by making the end uncertain.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/repeated-games.html">Repeated games</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 

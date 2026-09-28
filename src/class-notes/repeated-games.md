@@ -10,6 +10,11 @@ tag: repeated-games
 the discount factor as the probability that the game continues, before we
 formalise any of it.
 
+**The deck.** There is a write-on deck at
+[/decks/repeated-games/main.pdf](/decks/repeated-games/main.pdf): the stage game
+printed, boxes for \(\delta\) and the expected number of rounds under both
+dice, and the Grudger comparison built up to the threshold.
+
 Run "Will it end?". Students pair off. In each round both players secretly
 choose to bid **High** or **Low** for a contract, using the stage game
 
@@ -32,12 +37,15 @@ highest average score per round, and ask:
 
 - Did you play differently knowing the game might continue?
 - Would you bid High in a round you knew for certain was the last?
-- Now end the game on a 1 **or** a 2 (so $\delta = 4/6$) and replay. Does a
-  shorter expected future change how willing you are to cooperate?
+- Now carry on **only** on a 5 or a 6 (so $\delta = 2/6 = 1/3$) and replay.
+  Does a shorter expected future change how willing you are to cooperate?
 
 **Debrief.** Connect their experience to the chapter: $\delta$ is the
 probability the game does not end, the expected number of rounds is
 $1/(1 - \delta)$, and cooperation is easier to sustain when $\delta$ is large.
+The two dice are chosen to sit either side of the threshold: the first sustains
+cooperation and the second does not, so the room should feel the difference
+rather than be told about it.
 Contrast this with a game of a fixed, commonly known length, where backward
 induction unravels cooperation from the last round.
 
@@ -56,6 +64,43 @@ in the contractor game and more generally.**
 
 Discussion Point: **After the finite-horizon discussion, ask why backward
 induction kills cooperation when the number of rounds is known in advance.**
+
+## Answers for the deck
+
+**The stage game.** Low dominates High (\(5 > 3\) and \(1 > 0\)), so played once
+you both bid Low and get \(1\) each, when mutual High would have paid \(3\).
+
+**The die.** Our first die stops on a 1, so \(\delta = 5/6\) and the expected
+number of rounds is \(1/(1 - \delta) = 6\). Carrying on only for a 5 or a 6
+gives \(\delta = 1/3\) and one and a half rounds.
+
+**Grudger against Grudger.** Conforming for ever pays
+\(3 + 3\delta + 3\delta^{2} + \cdots = 3/(1 - \delta)\). Deviating once pays
+\(5\) now and then \(1\) for ever, which is \(5 + \delta/(1 - \delta)\).
+
+**The threshold.** Cooperation is worth it when
+
+\[
+\frac{3}{1 - \delta} \;\ge\; 5 + \frac{\delta}{1 - \delta}
+\qquad \Longleftrightarrow \qquad \delta \ge \tfrac{1}{2}.
+\]
+
+At \(\delta = 5/6\) conforming is worth \(18\) against \(10\) for deviating, so
+cooperation holds. At \(\delta = 1/3\) it is \(9/2\) against \(11/2\), so it does
+not. The two dice sit either side of \(\delta = 1/2\) deliberately: this is the
+moment the activity is built around, and it is worth asking the room to predict
+which way the second run will go before playing it.
+
+Watch for a tempting near miss. Ending on a 1 or a 2 gives \(\delta = 2/3\),
+which still sustains cooperation (\(9\) against \(7\)), so a die that merely
+feels shorter is not enough. With a six-sided die anything above
+\(\delta = 1/2\) holds, so the second run has to carry on for at most two of the
+six faces.
+
+**A known last round.** In a round known to be the last the future is worth
+nothing, so both bid Low. Both of you know that, so the round before it is
+effectively last, and so on: cooperation unravels all the way back. The die was
+doing its work not by making the game long but by making the end uncertain.
 
 ## From the activity to the exam answer
 

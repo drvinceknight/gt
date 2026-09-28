@@ -37,6 +37,9 @@ questions below. They are reshuffled each time, so you can keep retrying.</p>
 
 {% if solution %}
 <p><strong><a href="{{ baseurl }}/solutions/{{ solution.title | slugify }}.html">Worked solutions to the example questions &rarr;</a></strong></p>
+<p><a href="{{ playlist_url }}">All YouTube recordings &rarr;</a>
+<small>Or the same recordings on <a href="{{ panopto_url }}">Panopto</a>. Each
+is linked from the question it answers.</small></p>
 {% endif %}
 
 {% if quiz %}

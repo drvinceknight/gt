@@ -11,6 +11,8 @@ Solutions to the example questions on the
 
 ## Question 1 [23 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=XjtN6kxoBD8)
+
 **(a) Extensive form.** [3]
 
 ```
@@ -73,6 +75,8 @@ equilibrium exactly on \(\tfrac{1}{4} \le q < \tfrac{5}{8}\), and Vote-Left's va
 is that it drives \(q\) towards one, where the threat finally bites.
 
 ## Question 2 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=rFHHQr1-53Y)
 
 **(a) Definitions.** (Bookwork.) [5]
 
@@ -146,6 +150,8 @@ information the equilibrium obtained through backward induction is moreover
 subgame perfect.
 
 ## Question 3 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=KrjepEKi5EY)
 
 **(a) Sequential rationality.** (Bookwork.) [2]
 

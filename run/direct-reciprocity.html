@@ -72,6 +72,10 @@
 let a class-wide iterated Prisoner's Dilemma tournament motivate reactive
 strategies. This activity is happy to run across two classes: the first to play
 the tournament, the second to analyse the results.</p>
+<p><strong>The deck.</strong> There is a write-on deck at
+<a href="../decks/direct-reciprocity/main.pdf">/decks/direct-reciprocity/main.pdf</a>,
+covering both classes: a round-robin scoreboard, a row per team for its
+strategy as a pair <span class="arithmatex">\((p, q)\)</span>, and an empty <span class="arithmatex">\(4 \times 4\)</span> transition matrix.</p>
 <p><strong>First class.</strong> Watch the Golden Balls video. Then split the class into four
 teams and run an iterated Prisoner's Dilemma tournament, each team submitting a
 strategy that is played against every other team:</p>
@@ -102,6 +106,32 @@ to express the strategy their team played as a pair <span class="arithmatex">\((
 the long-run outcome of two teams' strategies could be computed.</strong></p>
 <p>Discussion Point: <strong>After discussing Tit For Tat, ask: the Folk Theorem tells
 us cooperation can be sustained; what does this chapter add to that?</strong></p>
+<h2 id="answers-for-the-deck">Answers for the deck</h2>
+<p><strong>The named strategies.</strong> <span class="arithmatex">\((1, 1)\)</span> is Always Cooperate, <span class="arithmatex">\((0, 0)\)</span> is Always
+Defect, <span class="arithmatex">\((1, 0)\)</span> is Tit For Tat, and
+<span class="arithmatex">\(\left(\tfrac{1}{2}, \tfrac{1}{2}\right)\)</span> is Random.</p>
+<p><strong>The Markov chain.</strong> With <span class="arithmatex">\((p, q) = (4/5, 1/5)\)</span> against
+<span class="arithmatex">\((p', q') = (3/5, 1/10)\)</span> and states ordered <span class="arithmatex">\((CC, CD, DC, DD)\)</span>, where the
+first letter is mine, my next move depends on their last and theirs on my last:</p>
+<div class="arithmatex">\[
+P = \begin{pmatrix}
+12/25 &amp; 8/25 &amp; 3/25 &amp; 2/25 \\
+3/25 &amp; 2/25 &amp; 12/25 &amp; 8/25 \\
+2/25 &amp; 18/25 &amp; 1/50 &amp; 9/50 \\
+1/50 &amp; 9/50 &amp; 2/25 &amp; 18/25
+\end{pmatrix}
+\]</div>
+<p>Every row adds to one, which is the check to make as the class fills it in.</p>
+<p><strong>The long run.</strong> <span class="arithmatex">\(\pi = \tfrac{1}{245}(26, 65, 44, 110)\)</span> satisfies
+<span class="arithmatex">\(\pi P = \pi\)</span>. My long-run average payoff is
+<span class="arithmatex">\(\pi \cdot (3, 0, 5, 1) = 408/245 \approx 1.67\)</span> and theirs is
+<span class="arithmatex">\(\pi \cdot (3, 5, 0, 1) = 513/245 \approx 2.09\)</span>. Mutual cooperation for ever
+would have paid <span class="arithmatex">\(3\)</span> each, so both teams lose by roughly a point a round to
+their own retaliation.</p>
+<p><strong>Why Tit For Tat needs care.</strong> It is deterministic, so the chain it induces is
+not ergodic: it can lock into a cycle and the stationary distribution is no
+longer unique or independent of where you start. The usual fix is to perturb it
+slightly, which is what a strategy like Generous Tit For Tat does.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/direct-reciprocity.html">Direct Reciprocity</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 

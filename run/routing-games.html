@@ -71,6 +71,11 @@
 <p><strong>Goal.</strong> Let students reach a Nash flow by selfish routing, compare it to the
 optimal flow, and experience Braess's paradox: adding a road can make everyone
 worse off.</p>
+<p><strong>The deck.</strong> There is a write-on deck at
+<a href="../decks/routing-games/main.pdf">/decks/routing-games/main.pdf</a>: one page per
+step, with the network already drawn and every number the class produces left
+blank. Project it and annotate it live on a tablet, so no class time goes on
+drawing the network and the finished pages can be shared afterwards.</p>
 <p><strong>The network.</strong> Drivers travel from Start (<span class="arithmatex">\(S\)</span>) to End (<span class="arithmatex">\(T\)</span>). Draw two routes
 on the board:</p>
 <ul>
@@ -113,6 +118,33 @@ added.</strong></p>
 <p>Discussion Point: <strong>After the potential function and marginal cost results, ask
 students how each driver ignoring the congestion they impose on others explains
 Braess's paradox.</strong></p>
+<h2 id="answers-for-the-deck">Answers for the deck</h2>
+<p>The counts in Phase 1 and Phase 2 come from the room. These are the rest.</p>
+<p><strong>Phase 1.</strong> The class settles at 20 and 20, so each route takes
+<span class="arithmatex">\(20 + 50 = 70\)</span> minutes. A driver who switches sides makes their new road carry
+21 cars, so their own time goes from <span class="arithmatex">\(70\)</span> to <span class="arithmatex">\(71\)</span>: nobody moves, and this is
+a Nash flow. Here it is also the optimal flow.</p>
+<p><strong>Phase 2.</strong> All 40 end up on <span class="arithmatex">\(S \to A \to B \to T\)</span>, taking
+<span class="arithmatex">\(40 + 0 + 40 = 80\)</span> minutes. Switching back to <span class="arithmatex">\(S \to A \to T\)</span> would cost
+<span class="arithmatex">\(40 + 50 = 90\)</span>, so nobody does.</p>
+<p><strong>Why it got worse.</strong> Joining a road that already carries <span class="arithmatex">\(x\)</span> cars, my own
+time is <span class="arithmatex">\(x + 1\)</span> minutes, and I add one minute to each of the <span class="arithmatex">\(x\)</span> drivers
+already there, so <span class="arithmatex">\(x\)</span> minutes to everyone else. I pay the first and ignore the
+second. The road's total time is <span class="arithmatex">\(x \, c(x) = x^{2}\)</span>, and one more car really
+adds <span class="arithmatex">\(\frac{\mathrm{d}}{\mathrm{d}x}(x \, c(x)) = 2x\)</span>, not <span class="arithmatex">\(1\)</span>.</p>
+<p><strong>Writing it down.</strong> With <span class="arithmatex">\(C(f) = \sum_{e} f_e c_e(f_e)\)</span>, before the new road</p>
+<div class="arithmatex">\[
+C(f) = 20 \times 20 + 20 \times 50 + 20 \times 50 + 20 \times 20 = 2800,
+\]</div>
+<p>which is <span class="arithmatex">\(70\)</span> minutes each, and after it</p>
+<div class="arithmatex">\[
+C(f) = 40 \times 40 + 40 \times 0 + 40 \times 40 = 3200,
+\]</div>
+<p>which is <span class="arithmatex">\(80\)</span> minutes each.</p>
+<p><strong>Price of anarchy.</strong> Left alone we take <span class="arithmatex">\(80\)</span> minutes each. A planner who
+ignored the new road and sent 20 each way would give us <span class="arithmatex">\(70\)</span>, so the price of
+anarchy is <span class="arithmatex">\(80/70 = 8/7 \approx 1.14\)</span>. This is the value asked for in
+Question 1(e).</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/routing-games.html">Routing Games</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 

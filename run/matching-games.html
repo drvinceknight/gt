@@ -69,6 +69,10 @@
 
 <h2 id="activity-20-minutes">Activity (20 minutes)</h2>
 <p><strong>Goal.</strong> Elicit preferences and motivate the need for a stable matching.</p>
+<p><strong>The deck.</strong> There is a write-on deck at
+<a href="../decks/matching-games/main.pdf">/decks/matching-games/main.pdf</a>: the
+preference lists waiting to be filled in, then four copies of the bipartite
+diagram so each round of proposals can be drawn on top of the last.</p>
 <p>Use <a href="../assets/activities/matching-scientists/main.pdf">this preference sheet</a> and
 ask students to work in groups to identify preferences for each mathematician and
 physicist.</p>
@@ -126,6 +130,29 @@ game.solve()
 <h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
 <p>Show students the notes, when you get to the algorithm work through the
 algorithm with the students.</p>
+<h2 id="answers-for-the-deck">Answers for the deck</h2>
+<p><strong>A blocking pair.</strong> Any pairing the class writes down will do, but if they need
+prompting: pair Gauss with Curie, Noether with Newton, Turing with Einstein and
+Euler with Feynman. Then Noether and Curie block it, since Noether has her worst
+physicist and prefers Curie, and Curie has her worst mathematician and prefers
+Noether.</p>
+<p><strong>Deferred acceptance, with the mathematicians proposing.</strong> It takes four
+rounds, which is why there are four diagrams:</p>
+<ol>
+<li>Gauss and Noether both propose to Curie, Turing to Feynman, Euler to Newton.
+   Curie holds Noether and rejects Gauss.</li>
+<li>Gauss proposes to Newton. Newton prefers Gauss, so holds Gauss and rejects
+   Euler.</li>
+<li>Euler proposes to Curie. Curie still prefers Noether, so rejects Euler.</li>
+<li>Euler proposes to Einstein, who holds him.</li>
+</ol>
+<p><strong>The matching.</strong> Gauss with Newton, Noether with Curie, Turing with Feynman,
+Euler with Einstein. It is stable: there is no blocking pair. Gauss would rather
+have Curie, but Curie has Noether and prefers her; Euler would rather have
+Newton or Curie, but both prefer who they already have.</p>
+<p><strong>Who does better.</strong> The proposers. Deferred acceptance returns the
+suitor-optimal stable matching, so every mathematician gets the best physicist
+they could have in <em>any</em> stable matching, and every physicist the worst.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/matching-games.html">Matching Games</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 

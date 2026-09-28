@@ -1,0 +1,225 @@
+% Moran process: Hawk-Dove with three individuals, run on dice.
+\input{../preamble.tex}
+
+% The birth-death chain on the number of hawks, with the transitions left
+% blank. Gains run along the top, losses along the bottom.
+\newcommand{\birthdeath}{%
+  \begin{tikzpicture}[scale=0.9, every node/.style={transform shape},
+      >={Stealth[length=2.6mm]},
+      state/.style={circle, draw=inkblue, line width=1.1pt, fill=white,
+                    text=inkblue, minimum size=1.5cm, font=\bfseries,
+                    inner sep=0pt},
+      absorb/.style={state, draw=inkred, text=inkred, line width=1.4pt},
+      gain/.style={->, line width=1.1pt, draw=inkteal},
+      loss/.style={->, line width=1.1pt, draw=inkred}]
+    \node[absorb] (s0) at (0,0) {$0$};
+    \node[state]  (s1) at (5.4,0) {$1$};
+    \node[state]  (s2) at (10.8,0) {$2$};
+    \node[absorb] (s3) at (16.2,0) {$3$};
+    \draw[gain] ([yshift=3.5mm]s1.east) --
+      node[above, font=\small] {\blank[1.6]} ([yshift=3.5mm]s2.west);
+    \draw[gain] ([yshift=3.5mm]s2.east) --
+      node[above, font=\small] {\blank[1.6]} ([yshift=3.5mm]s3.west);
+    \draw[loss] ([yshift=-3.5mm]s1.west) --
+      node[below, font=\small] {\blank[1.6]} ([yshift=-3.5mm]s0.east);
+    \draw[loss] ([yshift=-3.5mm]s2.west) --
+      node[below, font=\small] {\blank[1.6]} ([yshift=-3.5mm]s1.east);
+    \node[below=0.35cm of s0, font=\small, text=inkred] {all doves};
+    \node[below=0.35cm of s3, font=\small, text=inkred] {all hawks};
+  \end{tikzpicture}}
+
+\deckname{Moran process}
+
+\begin{document}
+
+\titleslide{Moran process}{Three individuals, two dice, one survivor}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{Set up}\\[0.25em]
+        Work out the fitnesses by hand.}
+      \stepbox{s1}{6.9}{\textbf{Roll}\\[0.25em]
+        One birth, one death, every step.}
+      \stepbox{s2}{13.8}{\textbf{Pool}\\[0.25em]
+        Count how often the hawk fixes.}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}
+
+    \vspace{2.4em}
+
+    {\large Pairs playing: \blank[2.2] \hspace{2cm}
+     Starting state: one hawk, two doves}}
+
+\newpage
+\slidehead{Hawk-Dove, and where it can end}
+
+
+\begin{minipage}[c]{0.34\linewidth}
+\begin{center}
+\payoffgrid{Hawk, Dove}{%
+  \node at (1.35,-1) {\Large $0$};
+  \node at (4.05,-1) {\Large $3$};
+  \node at (1.35,-3) {\Large $1$};
+  \node at (4.05,-3) {\Large $2$};}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.62\linewidth}
+\raggedright
+{\large Four resources to share. Two hawks get \blank[1.2] each; a hawk meeting
+a dove takes \blank[1.2] to the dove's \blank[1.2]; two doves split them
+\blank[1.2] each.}
+\end{minipage}
+
+\vspace{0.35cm}
+
+\begin{center}
+\birthdeath
+\end{center}
+
+\vspace{0.1cm}
+
+{\small\color{inkgrey} The number of hawks. Along the top a hawk is born; along
+the bottom one dies. The two ends are absorbing, so the process stops only once
+one type is gone.}
+
+\newpage
+\slidehead{How fit is each type?}
+
+\vspace{0.5cm}
+
+{\large A type's fitness counts what it scores against everyone \emph{else} in
+the population, so it never plays itself.}
+
+\vspace{0.7cm}
+
+\hspace{0.3cm}
+\begin{tikzpicture}[font=\small]
+  \foreach \lab/\col in {State/0, {$f(\text{hawk})$}/6.4,
+                         {$f(\text{dove})$}/14.4}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.4,-0.36);
+  \foreach \state [count=\row from 1] in
+    {{1 hawk, 2 doves}, {2 hawks, 1 dove}}{%
+    \node[anchor=west, font=\large] at (0,-1.9*\row) {\state};
+    \node[anchor=west] at (6.4,-1.9*\row) {\blank[6]};
+    \node[anchor=west] at (14.4,-1.9*\row) {\blank[6]};}
+\end{tikzpicture}
+
+\vspace{1cm}
+
+{\large Which type is fitter when hawks are rare? \blank[2.6]
+\hspace{1.6cm} And when they are common? \blank[2.6]}
+
+\newpage
+\slidehead{Who gets born, who dies}
+
+\vspace{0.4cm}
+
+{\large Birth is proportional to fitness. Death is uniform, so it is
+proportional to \underline{\hspace{4.5cm}}.}
+
+\vspace{0.7cm}
+
+\hspace{0.3cm}
+\begin{tikzpicture}[font=\small]
+  \foreach \lab/\col in {State/0, Type/5.4, {Chosen for birth}/8.6,
+                         {Chosen for death}/15.4}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.4,-0.36);
+  \foreach \state/\type [count=\row from 1] in
+    {{1 hawk, 2 doves}/hawk, {1 hawk, 2 doves}/dove,
+     {2 hawks, 1 dove}/hawk, {2 hawks, 1 dove}/dove}{%
+    \node[anchor=west] at (0,-1.5*\row) {\state};
+    \node[anchor=west] at (5.4,-1.5*\row) {\type};
+    \node[anchor=west] at (8.6,-1.5*\row) {\blank[5.4]};
+    \node[anchor=west] at (15.4,-1.5*\row) {\blank[5.4]};}
+\end{tikzpicture}
+
+\vspace{0.5cm}
+
+{\small\color{inkgrey} These are the numbers the dice have to reproduce, which
+is why we need a four and a six.}
+
+\newpage
+\slidehead{Moving between states}
+
+\vspace{0.9cm}
+
+{\large The number of hawks changes only when the type born differs from the
+type that dies.}
+
+\vspace{1.1cm}
+
+\begin{center}
+{\Large \(p_{10} =\) \blank[2.6] \hspace{1.4cm} \(p_{12} =\) \blank[2.6]
+ \hspace{1.4cm} \(p_{21} =\) \blank[2.6] \hspace{1.4cm}
+ \(p_{23} =\) \blank[2.6]}
+\end{center}
+
+\vspace{1.2cm}
+
+{\large Go back and write these on the chain. What happens with the remaining
+probability? \blank[4.4]}
+
+\vspace{0.9cm}
+
+\begin{center}
+\workspace{22.6}{2.6}
+\end{center}
+
+\newpage
+\slidehead{What the room found}
+
+\vspace{0.9cm}
+
+{\large Runs that ended with all hawks: \blank[2.2] out of \blank[2.2],
+so a fixation probability of about \blank[2.6].}
+
+\vspace{1.3cm}
+
+{\large The theory says \(x_1 = \dfrac{1}{1 + \gamma_1 + \gamma_1 \gamma_2}\)
+with \(\gamma_i = \) \blank[3.4], giving \blank[2.6].}
+
+\vspace{1.3cm}
+
+{\large Close enough? \blank[2.2] \hspace{1.6cm} How many runs would we need to
+be sure? \blank[3.4]}
+
+\vspace{1cm}
+
+\begin{center}
+\workspace{22.6}{2.4}
+\end{center}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.5cm}
+
+{\large What we just did in the room is \textbf{Question 1} on the Moran
+Process page, with a population of four instead of three.}
+
+\vspace{0.9cm}
+
+\hspace{0.6cm}
+\begin{minipage}{0.92\linewidth}
+{\large
+\begin{tabbing}
+\hspace{1.2cm} \= \hspace{17cm} \= \kill
+\textbf{(a)} \> The two random choices made at each step. \> [3]\\[0.55em]
+\textbf{(b)} \> Fitnesses with two hawks and two doves. \> [6]\\[0.55em]
+\textbf{(c)} \> The probability the number of hawks increases by one. \> [7]\\[0.55em]
+\textbf{(d)} \> Define fixation, and say why there are exactly two absorbing
+  states. \> [5]\\[0.55em]
+\textbf{(e)} \> The probability it decreases, the ratio \(\gamma\), and which
+  way it drifts. \> [4]
+\end{tabbing}}
+\end{minipage}
+
+\vspace{1.2cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/moran-process.html}
+\end{center}
+
+\end{document}

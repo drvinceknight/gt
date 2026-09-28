@@ -70,6 +70,12 @@
 <h2 id="activity-20-minutes">Activity (20 minutes)</h2>
 <p><strong>Goal.</strong> Build towards the Nash equilibrium of a symmetric zero-sum game
 through repeated play.</p>
+<p><strong>The deck.</strong> There is a write-on deck at
+<a href="../decks/nash-equilibrium/main.pdf">/decks/nash-equilibrium/main.pdf</a>: the
+rules of Rock Paper Scissors Lizard Spock as two diagrams, a tally of what the
+room played, an empty Rock-Paper-Scissors payoff grid to fill in and mark best
+responses on, and the indifference equations laid out with the working left
+blank.</p>
 <p>Play a "divisional" class round robin tournament of Rock Paper Scissors Lizard
 Spock. Ask students to play in groups of four, then ask the winners to stand up
 and keep playing until a single class champion remains.</p>
@@ -77,6 +83,36 @@ and keep playing until a single class champion remains.</p>
 <h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
 <p>Discuss the <strong>Nash equilibrium</strong> chapter.</p>
 <p>Discussion Point: <strong>After the definition of support enumeration algorithm, ask how many steps to obtain the Nash equilibrium for our game?</strong></p>
+<h2 id="answers-for-the-deck">Answers for the deck</h2>
+<p><strong>The rules.</strong> Each action wins <span class="arithmatex">\(2\)</span>, loses <span class="arithmatex">\(2\)</span> and draws <span class="arithmatex">\(1\)</span>. The game is
+symmetric and zero sum, and the two payoffs in any cell add to <span class="arithmatex">\(0\)</span>.</p>
+<p><strong>The payoff matrix.</strong> Ordering the actions (Rock, Paper, Scissors), the row
+player's matrix is</p>
+<div class="arithmatex">\[
+M = \begin{pmatrix} 0 &amp; -1 &amp; 1 \\ 1 &amp; 0 &amp; -1 \\ -1 &amp; 1 &amp; 0 \end{pmatrix},
+\]</div>
+<p>and the column player's is <span class="arithmatex">\(M^{T} = -M\)</span>. No cell has both players' best
+responses circled: against Rock I want Paper, against Paper I want Scissors,
+against Scissors I want Rock. So any equilibrium has to be <em>mixed</em>.</p>
+<p><strong>The best response condition.</strong> <span class="arithmatex">\(\sigma\)</span> is a best response to <span class="arithmatex">\(\tau\)</span> if
+and only if every action in the support of <span class="arithmatex">\(\sigma\)</span> maximises the expected
+payoff against <span class="arithmatex">\(\tau\)</span>. In words, every action I actually use has to be a best
+response, so all of them give me the same expected payoff.</p>
+<p><strong>The indifference equations.</strong> With <span class="arithmatex">\(\sigma_c = (x, y, 1 - x - y)\)</span>,</p>
+<div class="arithmatex">\[
+u_r(\text{Rock}, \sigma_c) = 1 - x - 2y, \qquad
+u_r(\text{Paper}, \sigma_c) = 2x + y - 1, \qquad
+u_r(\text{Scissors}, \sigma_c) = y - x.
+\]</div>
+<p>Setting the first equal to the third gives <span class="arithmatex">\(y = 1/3\)</span>, and the second equal to
+the third gives <span class="arithmatex">\(x = 1/3\)</span>, so <span class="arithmatex">\(\sigma_c = (1/3, 1/3, 1/3)\)</span> and all three
+expected payoffs are <span class="arithmatex">\(0\)</span>.</p>
+<p><strong>How much work.</strong> Three actions have <span class="arithmatex">\(2^3 - 1 = 7\)</span> non-empty supports each,
+so <span class="arithmatex">\(7 \times 7 = 49\)</span> pairs; five actions have <span class="arithmatex">\(31\)</span> each and <span class="arithmatex">\(961\)</span> pairs.
+This is the answer to the discussion point above. It is worth adding that for a
+non-degenerate game only pairs of <em>equal size</em> need checking, which is
+<span class="arithmatex">\(\sum_k \binom{3}{k}^2 = 19\)</span> pairs for three actions and <span class="arithmatex">\(251\)</span> for five.
+Either number makes the point that enumeration does not scale.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/nash-equilibrium.html">Nash Equilibrium</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 

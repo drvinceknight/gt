@@ -1,0 +1,194 @@
+% Repeated games: "Will it end?", and the shadow of the future.
+\input{../preamble.tex}
+
+\deckname{Repeated games}
+
+\begin{document}
+
+\titleslide{Repeated games}{Will it end?}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{Play}\\[0.25em]
+        Bid High or Low. Then roll the die.}
+      \stepbox{s1}{6.9}{\textbf{Shorten}\\[0.25em]
+        Carry on only for a 5 or 6. Play again.}
+      \stepbox{s2}{13.8}{\textbf{Explain}\\[0.25em]
+        Why the future changes today.}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}
+
+    \vspace{2.4em}
+
+    {\large Podium: \blank[3.4] \hspace{1.2cm} \blank[3.4]
+     \hspace{1.2cm} \blank[3.4]}}
+
+\newpage
+\slidehead{The stage game}
+
+\vspace{0.2cm}
+
+\begin{minipage}[c]{0.50\linewidth}
+\begin{center}
+\payoffgrid{High, Low}{%
+  \node at (1.35,-1) {\Large $3$};
+  \node at (4.05,-1) {\Large $0$};
+  \node at (1.35,-3) {\Large $5$};
+  \node at (4.05,-3) {\Large $1$};}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.46\linewidth}
+{\large Your payoff as the row bidder.}
+
+\vspace{1.4em}
+
+{\large Played once, what should you do? \blank[2.6]}
+
+\vspace{1.4em}
+
+{\large Played once, what do you both get? \blank[2.6]}
+
+\vspace{1.4em}
+
+{\large And if you had both bid High? \blank[2.6]}
+\end{minipage}
+
+\vspace{0.4cm}
+
+{\small\color{inkgrey} Low is a dominant action in the one-shot game, which is
+exactly the problem.}
+
+\newpage
+\slidehead{The die is the future}
+
+\vspace{0.8cm}
+
+{\large We stop on a 1, so the game carries on with probability
+\(\delta =\) \blank[1.8].}
+
+\vspace{1.1cm}
+
+{\large The expected number of rounds is \(\dfrac{1}{1 - \delta} =\)
+\blank[1.8].}
+
+\vspace{1.4cm}
+
+{\large Now we carry on \emph{only} for a 5 or a 6, so \(\delta =\)
+\blank[1.8] and the expected number of rounds is \blank[1.8].}
+
+\vspace{1.4cm}
+
+{\large Did the shorter game change how you played? \blank[4.4]}
+
+\newpage
+\slidehead{Grudger, against Grudger}
+
+\vspace{0.5cm}
+
+{\large Grudger plays High until you play Low, then Low for ever. Hold your
+opponent to it.}
+
+\vspace{0.9cm}
+
+\begin{minipage}[t]{0.47\linewidth}
+\raggedright
+{\large\bfseries You conform, and play High for ever}\\[0.6em]
+{\large \(3 + 3\delta + 3\delta^{2} + \cdots \;=\;\) \blank[3.4]}\\[0.8em]
+\workspace{10.6}{3.4}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\raggedright
+{\large\bfseries You deviate to Low in round one}\\[0.6em]
+{\large \(5 + \delta + \delta^{2} + \cdots \;=\;\) \blank[3.4]}\\[0.8em]
+\workspace{10.6}{3.4}
+\end{minipage}
+
+\vspace{0.7cm}
+
+{\large So cooperating is worth it when \blank[3.4] \(\ge\) \blank[3.4].}
+
+\newpage
+\slidehead{How patient do we have to be?}
+
+\vspace{1cm}
+
+\begin{center}
+{\Large \(\dfrac{3}{1 - \delta} \;\ge\; 5 + \dfrac{\delta}{1 - \delta}
+ \qquad \Longleftrightarrow \qquad \delta \;\ge\;\) \blank[2]}
+\end{center}
+
+\vspace{1.1cm}
+
+{\large Our first die gives \(\delta = 5/6\), so cooperation \blank[3] be
+sustained. The second gives \(\delta = 1/3\), so it \blank[3].}
+
+\vspace{0.7cm}
+
+{\large Which side of the line did you guess before we played? \blank[3]}
+
+\vspace{0.8cm}
+
+\begin{center}
+\workspace{22.6}{2.6}
+\end{center}
+
+\newpage
+\slidehead{What if we knew it was the last round?}
+
+\vspace{1cm}
+
+{\large In a round you know is the last, the future is worth \blank[1.6], so
+you should bid \blank[2.4].}
+
+\vspace{1.1cm}
+
+{\large Both of you know that, so in the round before it the future is also
+worth nothing, and you bid \blank[2.4]. Keep going backwards and cooperation
+\underline{\hspace{5cm}}.}
+
+\vspace{1.2cm}
+
+{\large So the die was doing real work: not by making the game long, but by
+making the end \underline{\hspace{5cm}}.}
+
+\vspace{1cm}
+
+\begin{center}
+\workspace{22.6}{2.6}
+\end{center}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.5cm}
+
+{\large What we just did in the room is \textbf{Question 1} on the Repeated
+Games page.}
+
+\vspace{0.9cm}
+
+\hspace{0.6cm}
+\begin{minipage}{0.92\linewidth}
+{\large
+\begin{tabbing}
+\hspace{1.2cm} \= \hspace{17cm} \= \kill
+\textbf{(a)} \> Interpret \(\delta = 5/6\) and give the expected number of
+  rounds. \> [2]\\[0.55em]
+\textbf{(b)} \> Discounted payoffs against Grudger, conforming and
+  deviating. \> [6]\\[0.55em]
+\textbf{(c)} \> Is cooperation sustained at \(\delta = 5/6\)? \> [4]\\[0.55em]
+\textbf{(d)} \> The smallest \(\delta\) that sustains it, and what our die
+  meant. \> [5]\\[0.55em]
+\textbf{(e)} \> The same for a forgiving trigger that punishes for two rounds
+  only. \> [7]
+\end{tabbing}}
+\end{minipage}
+
+\vspace{1.2cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/repeated-games.html}
+\end{center}
+
+\end{document}

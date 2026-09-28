@@ -38,6 +38,16 @@ SITE_ROOT = "/gt"
 # still live in src/class-notes/.
 NOTES_URL = "run"
 
+# Recordings of the worked solutions. Linked from the foot of each topic page,
+# below the questions, so that students meet the questions first. The same
+# recordings sit in a Panopto folder, for anyone who would rather not use
+# YouTube; that one needs a Cardiff login.
+PLAYLIST_URL = "https://www.youtube.com/playlist?list=PLYGzMFNzFpCI"
+PANOPTO_URL = (
+    "https://cardiff.cloud.panopto.eu/Panopto/Pages/Sessions/List.aspx"
+    "?folderID=767d96ed-9a68-4672-938c-b49800dd8764"
+)
+
 SRC = pathlib.Path("src")
 ROOT = pathlib.Path(".")
 
@@ -234,6 +244,8 @@ def main() -> None:
             baseurl=baseurl if baseurl is not None else baseurl_for(output.parent),
             css_version=css_version,
             notes_dir=NOTES_URL,
+            playlist_url=PLAYLIST_URL,
+            panopto_url=PANOPTO_URL,
             **kwargs,
         )
         write_html(output, html)

@@ -1,0 +1,167 @@
+% Rationalisation: committing to a response before the mix is revealed.
+\input{../preamble.tex}
+
+\deckname{Rationalisation}
+
+\begin{document}
+
+\titleslide{Rationalisation}{Guess the mix, commit, then find out}{%
+    \begin{tikzpicture}[font=\small]
+      \stepbox{s0}{0.0}{\textbf{Commit}\\[0.25em]
+        Pick your response before you know theirs.}
+      \stepbox{s1}{6.9}{\textbf{Reveal}\\[0.25em]
+        Play against the actual mix.}
+      \stepbox{s2}{13.8}{\textbf{Compare}\\[0.25em]
+        Was your guess a best response?}
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
+      \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
+    \end{tikzpicture}
+
+    \vspace{2.4em}
+
+    {\large You are the \textbf{column} player throughout.}}
+
+\newpage
+\slidehead{The game}
+
+\vspace{0.5cm}
+
+\begin{center}
+{\Large \(A = \begin{pmatrix} 2 & -2 \\ -1 & 1 \end{pmatrix}
+ \qquad\qquad
+ B = \begin{pmatrix} -2 & 2 \\ 1 & -1 \end{pmatrix}\)}
+\end{center}
+
+\vspace{1.1cm}
+
+{\large \(A\) pays the row player and \(B\) pays you. Every cell adds to
+\blank[1.5], so this is a \underline{\hspace{4cm}} game.}
+
+\vspace{1.1cm}
+
+{\large The row player will mix. You have to choose \(c_1\) or \(c_2\) before
+you know how.}
+
+\vspace{0.9cm}
+
+\begin{center}
+\workspace{22.6}{2.4}
+\end{center}
+
+\newpage
+\slidehead{What you committed to}
+
+\vspace{0.6cm}
+
+\hspace{0.3cm}
+\begin{tikzpicture}[font=\small]
+  \foreach \lab/\col in {The row player's mix/0, You guessed/7.4,
+                         Best response/12.6, Your payoff/17.8}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.6,-0.36);
+  \foreach \mix [count=\row from 1] in
+    {{\(\sigma_1 = (0.2,\; 0.8)\)}, {\(\sigma_1 = (0.9,\; 0.1)\)},
+     {\(\sigma_1 = (1/3,\; 2/3)\)}}{%
+    \node[anchor=west, font=\large] at (0,-1.6*\row) {\mix};
+    \node[anchor=west] at (7.4,-1.6*\row) {\blank[2.4]};
+    \node[anchor=west] at (12.6,-1.6*\row) {\blank[2.4]};
+    \node[anchor=west] at (17.8,-1.6*\row) {\blank[2.4]};}
+\end{tikzpicture}
+
+\vspace{0.9cm}
+
+{\large How many pairs guessed right before the reveal? \blank[2.4]}
+
+\newpage
+\slidehead{Working it out properly}
+
+\vspace{0.5cm}
+
+{\large Against \(\sigma_1 = (p,\; 1 - p)\) your two actions pay}
+
+\vspace{0.7cm}
+
+\begin{center}
+{\Large \(u_2(c_1, \sigma_1) \;=\;\) \blank[4.4] \hspace{2.2cm}
+ \(u_2(c_2, \sigma_1) \;=\;\) \blank[4.4]}
+\end{center}
+
+\vspace{1.1cm}
+
+{\large So \(c_1\) is the better reply exactly when \(p\) \blank[1.2]
+\blank[1.6], and the two are equal at \(p =\) \blank[1.6].}
+
+\vspace{0.9cm}
+
+\begin{center}
+\workspace{22.6}{2.8}
+\end{center}
+
+\newpage
+\slidehead{Why dominance was no help}
+
+\vspace{0.9cm}
+
+{\large Is \(c_1\) dominated by \(c_2\)? \blank[2] \hspace{2.2cm}
+Is \(c_2\) dominated by \(c_1\)? \blank[2]}
+
+\vspace{1.2cm}
+
+{\large Neither, because which one is better depends on
+\underline{\hspace{6cm}}.}
+
+\vspace{1.2cm}
+
+{\large Dominance only settles an action that is worse against
+\emph{every} strategy of the opponent. Here each action is a best response to
+some mixes, so we need the \underline{\hspace{5cm}} instead.}
+
+\vspace{1cm}
+
+\begin{center}
+\workspace{22.6}{2.4}
+\end{center}
+
+\newpage
+\slidehead{The mix that makes you indifferent}
+
+\vspace{0.8cm}
+
+{\large At \(\sigma_1 = (1/3,\; 2/3)\) both of your actions pay \blank[1.6],
+so every strategy of yours is a best response.}
+
+\vspace{1.1cm}
+
+{\large That is the row player's half of the equilibrium: they mix precisely so
+that you cannot exploit them. Which of your own mixes does the same to
+\emph{them}?}
+
+\vspace{0.9cm}
+
+\begin{center}
+\workspace{22.6}{4.2}
+\end{center}
+
+\newpage
+\slidehead{The same thing, as an exam answer}
+
+\vspace{0.9cm}
+
+{\large Dominance and best responses are not examined on their own. They are
+examined together with \textbf{Nash Equilibrium}, so the natural follow-up is
+\textbf{Question 1} on that page, where the best response condition does exactly
+this job for Rock-Paper-Scissors.}
+
+\vspace{1.4cm}
+
+{\large The habit worth building now: before computing anything, ask which
+actions could ever be a best response. Anything that never can be is not worth
+carrying into the algebra.}
+
+\vspace{1.6cm}
+
+\begin{center}
+{\large\color{inkgrey} vknight.org/gt/topics/nash-equilibrium.html}
+\end{center}
+
+\end{document}

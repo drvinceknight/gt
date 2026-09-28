@@ -11,6 +11,8 @@ Solutions to the example questions on the
 
 ## Question 1 [19 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=8yxhBu1C9LY)
+
 **(a) Second-price auction.** [3]
 
 In a second-price (Vickrey) auction each bidder submits one sealed bid; the
@@ -52,6 +54,8 @@ depends on the other bidders' behaviour, so truthful bidding is neither dominant
 nor optimal.
 
 ## Question 2 [21 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=GmsOqp8jstM)
 
 **(a) Definitions.** (Bookwork.) [3]
 

@@ -32,7 +32,8 @@ If you do nothing else, do this, in order:
 4. Sit the mock exam and the example exam, both linked from the
    [Assessment](/assessment/) page, under timed conditions. We work through the
    mock together in class.
-5. For anything you got stuck on, watch the solution-walkthrough recording.
+5. For anything you got stuck on, watch the
+   [solution walkthroughs][playlist].
 
 That is the whole target. It is finite, and it does not change much from year to
 year.
@@ -90,6 +91,12 @@ If you are juggling the course with everything else:
 ## A note on recordings
 
 The class recordings capture the live activities, which are good for being in the
-room but less useful for last-minute revision. There are also recordings of me
-working through the solutions to the exam-type questions; if you are catching up
-late, those are the recordings to watch.
+room but less useful for last-minute revision. There are also
+[recordings of me working through the solutions][playlist] to the exam-type
+questions; if you are catching up late, those are the recordings to watch. Each
+one is linked from the question it answers, at the top of that question on the
+solutions page. If you would rather not use YouTube, the same recordings are in
+a [Panopto folder][panopto], which opens with your Cardiff login.
+
+[playlist]: https://www.youtube.com/playlist?list=PLYGzMFNzFpCI
+[panopto]: https://cardiff.cloud.panopto.eu/Panopto/Pages/Sessions/List.aspx?folderID=767d96ed-9a68-4672-938c-b49800dd8764

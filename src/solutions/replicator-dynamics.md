@@ -12,6 +12,8 @@ worth 25 marks.
 
 ## Question 1 [25 marks]
 
+[YouTube video](https://www.youtube.com/watch?v=U6SmfC6cThk)
+
 **(a) Fitnesses.** [3]
 
 \[
@@ -52,6 +54,8 @@ lower fitness than the resident, so it cannot spread: \(x = \tfrac{2}{3}\) is
 evolutionarily stable.
 
 ## Question 2 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=LggkzNQZiXk)
 
 **(a) Replicator equation.** (Bookwork.) [3]
 
@@ -105,6 +109,8 @@ population settles on a single convention, all driving left or all driving
 right.
 
 ## Question 3 [25 marks]
+
+[YouTube video](https://www.youtube.com/watch?v=pDsMKvbY6gQ)
 
 **(a) Fitnesses and average fitness.** [5]
 
