@@ -47,31 +47,6 @@
 payoffs add to \blank[1.3].}
 
 \newpage
-\slidehead{What the room actually played}
-
-\vspace{0.4cm}
-
-\hspace{0.3cm}
-\begin{tikzpicture}[font=\small]
-  \node[anchor=west, text=inkgrey] at (0,0) {Action};
-  \node[anchor=west, text=inkgrey] at (10.5,0) {Tally};
-  \node[anchor=west, text=inkgrey] at (17.5,0) {Count};
-  \node[anchor=west, text=inkgrey] at (20.6,0) {Share};
-  \draw[inkfaint, line width=0.6pt] (0,-0.34) -- (22.9,-0.34);
-  \foreach \name [count=\row from 1] in {Rock, Paper, Scissors, Lizard, Spock}{%
-    \node[anchor=west, font=\normalsize] at (0,-1.1*\row) {\name};
-    \draw[inkfaint, line width=0.6pt]
-      (3.4,-1.1*\row-0.34) -- (17.0,-1.1*\row-0.34);
-    \node[anchor=west] at (17.5,-1.1*\row) {\blank[1.5]};
-    \node[anchor=west] at (20.6,-1.1*\row) {\blank[1.5]};}
-\end{tikzpicture}
-
-\vspace{0.5cm}
-
-{\large If everyone had played the same action, what should you have played?
-\blank[3.5]}
-
-\newpage
 \slidehead{Three actions, so we can see it}
 
 \vspace{0.3cm}

@@ -11,10 +11,9 @@ through repeated play.
 
 **The deck.** There is a write-on deck at
 [/decks/nash-equilibrium/main.pdf](/decks/nash-equilibrium/main.pdf): the
-rules of Rock Paper Scissors Lizard Spock as two diagrams, a tally of what the
-room played, an empty Rock-Paper-Scissors payoff grid to fill in and mark best
-responses on, and the indifference equations laid out with the working left
-blank.
+rules of Rock Paper Scissors Lizard Spock as two diagrams, an empty
+Rock-Paper-Scissors payoff grid to fill in and mark best responses on, and the
+indifference equations laid out with the working left blank.
 
 Play a "divisional" class round robin tournament of Rock Paper Scissors Lizard
 Spock. Ask students to play in groups of four, then ask the winners to stand up
