@@ -70,20 +70,53 @@
 <h2 id="activity-20-minutes">Activity (20 minutes)</h2>
 <p><strong>Goal.</strong> Let students feel the best response logic before we formalise it.</p>
 <p><strong>The deck.</strong> There is a write-on deck at
-<a href="../decks/rationalisation/main.pdf">/decks/rationalisation/main.pdf</a>: the game
-printed once, a table for what each pair committed to against each mix, and the
-expected payoffs laid out with the working left blank.</p>
-<p>Use <a href="../assets/activities/best_responses/main.pdf">best responses</a> and have
-students play against a mixed strategy. Before revealing how the opponent
-plays, ask each pair to guess the opponent's mix and to commit to a response.
-Then play against the actual mixed strategy:</p>
-<pre><code>&gt;&gt;&gt; import random
-&gt;&gt;&gt; random.seed(0)  # Don't seed in class
-&gt;&gt;&gt; ["r_2", "r_1"][random.random() &lt; 0.8]  # 80 percent chance of r_2
-'r_2'
-</code></pre>
-<p>Compare the responses students committed to with the best response to the
-revealed mix.</p>
+<a href="../decks/rationalisation/main.pdf">/decks/rationalisation/main.pdf</a>. It carries
+the game, a table for the six rounds played in pairs, and the three-mix table
+that used to be a separate sheet, so nothing else needs printing.</p>
+<p><strong>First, in pairs.</strong> Pair the students up and have them decide who is the row
+player. They play two games, six rounds each, choosing at the same time, and
+fill in every column: both actions, both payoffs and both running totals.</p>
+<p>The first game is matching pennies, so the payoffs are mirror images and the
+table is easy to fill. The second is the asymmetric game we actually want,
+where the cells no longer mirror and they have to read each one. Doing the easy
+one first means the second table tests their reading rather than their nerve,
+and the six rounds are the same six they then play against the dice.</p>
+<p><strong>Then against the dice.</strong> The row player is now a die with a known mix.
+Before each roll a student commits to <span class="arithmatex">\(c_1\)</span> or <span class="arithmatex">\(c_2\)</span>; then roll, read off
+<span class="arithmatex">\(r_1\)</span> or <span class="arithmatex">\(r_2\)</span>, and score. Six rounds for each of three mixes:</p>
+<table>
+<thead>
+<tr>
+<th>Mix</th>
+<th><span class="arithmatex">\(r_1\)</span> on a roll of</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\sigma_1 = (1/4,\ 3/4)\)</span></td>
+<td>1 to 3</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_1 = (3/4,\ 1/4)\)</span></td>
+<td>1 to 9</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma_1 = (1/3,\ 2/3)\)</span></td>
+<td>1 to 4</td>
+</tr>
+</tbody>
+</table>
+<p>One D12 per pair covers all three, which is why the mixes are quarters and
+thirds rather than the tenths we used to use. Twelfths divide exactly by both,
+so each probability is exact rather than approximated. The three are chosen so
+that one sits below the indifference point, one above it and one exactly on it,
+which is the whole point of the exercise. Note that no single standard die can
+produce <span class="arithmatex">\(0.2\)</span> and <span class="arithmatex">\(0.9\)</span> alongside <span class="arithmatex">\(1/3\)</span>: that would need a multiple of 30
+faces.</p>
+<p>Because the students roll their own dice, the mixes are printed on the deck
+rather than hidden. The commitment still matters: they must write down their
+<span class="arithmatex">\(c_1\)</span> or <span class="arithmatex">\(c_2\)</span> before each roll, so the running total is a fair test of the
+reply they chose rather than of hindsight.</p>
 <h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
 <p>Discuss the <strong>Rationalisation</strong> chapter.</p>
 <p>Discussion Point: <strong>After the definition of dominance, ask why dominance is not
@@ -91,50 +124,70 @@ relevant to the game we played.</strong></p>
 <p>Discussion Point: <strong>How does the best response condition apply to the matching
 pennies game we played in class?</strong></p>
 <h2 id="answers-for-the-deck">Answers for the deck</h2>
-<p><strong>The game.</strong> Every cell of <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> adds to zero, so it is zero sum.</p>
-<p><strong>The best responses.</strong> Against <span class="arithmatex">\(\sigma_1 = (p, 1 - p)\)</span> your two actions pay</p>
-<div class="arithmatex">\[
-u_2(c_1, \sigma_1) = 1 - 3p, \qquad u_2(c_2, \sigma_1) = 3p - 1,
-\]</div>
-<p>so <span class="arithmatex">\(c_1\)</span> is better exactly when <span class="arithmatex">\(p &lt; 1/3\)</span>, and the two are equal at
-<span class="arithmatex">\(p = 1/3\)</span>. The three mixes we play therefore give:</p>
+<p>Headings match the deck's page numbers, so this can sit open on a second screen
+while the deck is projected.</p>
+<p><strong>Page 3, matching pennies.</strong> Zero sum: every cell adds to <span class="arithmatex">\(0\)</span>. Neither action
+is dominated, and there is no equilibrium in pure actions, so anyone who always
+shows the same thing loses to an opponent who notices. The equilibrium is both
+players mixing <span class="arithmatex">\((1/2,\ 1/2)\)</span>, with value <span class="arithmatex">\(0\)</span>.</p>
+<p><strong>Page 4, the main game.</strong> Also zero sum, every cell adding to <span class="arithmatex">\(0\)</span>. If the row
+player picks <span class="arithmatex">\(r_1\)</span> and the column player <span class="arithmatex">\(c_2\)</span>, the column player scores
+<span class="arithmatex">\(+2\)</span> and the row player <span class="arithmatex">\(-2\)</span>.</p>
+<p><strong>Page 5, the dice.</strong> One D12 per pair.</p>
 <table>
 <thead>
 <tr>
-<th>The row player's mix</th>
-<th>Best response</th>
-<th>Your payoff</th>
+<th>Mix</th>
+<th><span class="arithmatex">\(r_1\)</span> on</th>
+<th>Best reply</th>
+<th>Per round</th>
+<th>Over six rounds</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="arithmatex">\((0.2,\ 0.8)\)</span></td>
+<td><span class="arithmatex">\((1/4,\ 3/4)\)</span></td>
+<td>1 to 3</td>
 <td><span class="arithmatex">\(c_1\)</span></td>
-<td><span class="arithmatex">\(0.4\)</span></td>
+<td><span class="arithmatex">\(1/4\)</span></td>
+<td><span class="arithmatex">\(3/2\)</span></td>
 </tr>
 <tr>
-<td><span class="arithmatex">\((0.9,\ 0.1)\)</span></td>
+<td><span class="arithmatex">\((3/4,\ 1/4)\)</span></td>
+<td>1 to 9</td>
 <td><span class="arithmatex">\(c_2\)</span></td>
-<td><span class="arithmatex">\(1.7\)</span></td>
+<td><span class="arithmatex">\(5/4\)</span></td>
+<td><span class="arithmatex">\(15/2\)</span></td>
 </tr>
 <tr>
 <td><span class="arithmatex">\((1/3,\ 2/3)\)</span></td>
+<td>1 to 4</td>
 <td>either</td>
+<td><span class="arithmatex">\(0\)</span></td>
 <td><span class="arithmatex">\(0\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>The third one is chosen deliberately: it is the mix that makes you indifferent,
-so nothing you do can beat it.</p>
-<p><strong>Why dominance was no help.</strong> Neither of your actions dominates the other,
-since <span class="arithmatex">\(c_1\)</span> is better for <span class="arithmatex">\(p &lt; 1/3\)</span> and <span class="arithmatex">\(c_2\)</span> for <span class="arithmatex">\(p &gt; 1/3\)</span>. Dominance
-only rules out an action that is worse against <em>every</em> strategy of the opponent.
-Both of yours are a best response to something, so we need the best response
-condition instead.</p>
-<p><strong>Closing the loop.</strong> Your mix that makes the row player indifferent is
-<span class="arithmatex">\((1/2, 1/2)\)</span>: it gives them <span class="arithmatex">\(0\)</span> whichever row they pick. Together with their
-<span class="arithmatex">\((1/3, 2/3)\)</span> that is the Nash equilibrium of this game, and its value is
-<span class="arithmatex">\(0\)</span>.</p>
+<p><strong>Page 6, working it out.</strong> Against <span class="arithmatex">\(\sigma_1 = (p,\ 1 - p)\)</span>,</p>
+<div class="arithmatex">\[
+u_2(c_1, \sigma_1) = 1 - 3p, \qquad u_2(c_2, \sigma_1) = 3p - 1.
+\]</div>
+<p>So <span class="arithmatex">\(c_1\)</span> is the better reply when <span class="arithmatex">\(p &lt; 1/3\)</span>, <span class="arithmatex">\(c_2\)</span> when <span class="arithmatex">\(p &gt; 1/3\)</span>, and
+the two are equal at <span class="arithmatex">\(p = 1/3\)</span>.</p>
+<p><strong>Page 7, dominance.</strong> Neither action is dominated, because <span class="arithmatex">\(c_1\)</span> is better
+for <span class="arithmatex">\(p &lt; 1/3\)</span> and <span class="arithmatex">\(c_2\)</span> for <span class="arithmatex">\(p &gt; 1/3\)</span>. Dominance only rules out an action
+that is worse against <em>every</em> strategy of the opponent, and both of these are a
+best response to something, so the best response condition is what we need.</p>
+<p><strong>Page 8, indifference.</strong> The third die pays <span class="arithmatex">\(0\)</span> whatever the column player
+does, so their six-round total should hover around <span class="arithmatex">\(0\)</span>. Their own mix that
+does the same to the row player is <span class="arithmatex">\((1/2,\ 1/2)\)</span>, which gives the row player
+<span class="arithmatex">\(0\)</span> from either row. Together with the row player's <span class="arithmatex">\((1/3,\ 2/3)\)</span> that is
+the Nash equilibrium, and the value of the game is <span class="arithmatex">\(0\)</span>.</p>
+<p><strong>What to watch for in the pairs rounds.</strong> Nothing to compute here, so watch
+instead for pairs who settle into one action and get punished for it, and for
+pairs who start alternating. Name both in the debrief: the first shows why a
+pure strategy is exploitable, the second is the room inventing mixed strategies
+before we have defined them.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>This activity feeds into the Nash equilibrium material. Use <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/nash-equilibrium.html">Nash Equilibrium</a> page to show students how the ideas here become a full-mark exam answer.</p>
 
