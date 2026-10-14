@@ -16,6 +16,10 @@
 {% for week in toc %}
 <div class="week-block">
   <h3>{{ week.title }}</h3>
+  {% if week.note %}
+  <p class="week-note"><em>{{ week.note }}</em></p>
+  {% endif %}
+  {% if week.topics %}
   <ul>
     {% for topic in week.topics %}
     {% if topic.example %}
@@ -25,6 +29,7 @@
     {% endif %}
     {% endfor %}
   </ul>
+  {% endif %}
 </div>
 {% endfor %}
 

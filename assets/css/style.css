@@ -372,6 +372,13 @@ tr:last-child td { border-bottom: none; }
 
 .week-block li small { color: var(--text-muted); }
 
+.week-block .week-note {
+  margin: 0;
+  padding-left: 1rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
 .week-block li.example-class { color: var(--text); }
 .week-block li.example-class strong { color: var(--teal); }
 .week-block li.example-class::before { background: var(--teal); }

@@ -21,27 +21,27 @@
       example: true
     - title: Direct Reciprocity
       note: "first of two classes"
-- title: "Week 5 (3 classes)"
+- title: "Week 5 (6 classes)"
   topics:
     - title: Direct Reciprocity
       note: "second of two classes"
     - title: Reciprocity and evolutionary stability
       example: true
     - title: Replicator Dynamics
-- title: "Week 6 (2 classes)"
-  topics:
     - title: Moran Process
       note: "first of two classes"
     - title: Moran Process
       note: "second of two classes"
-- title: "Week 7 (3 classes)"
-  topics:
     - title: Evolutionary dynamics (Replicator and Moran)
       example: true
+- title: "Week 6"
+  note: "No teaching. These hours have moved to weeks 5 and 8."
+- title: "Week 7"
+  note: "No teaching. These hours have moved to weeks 5 and 8."
+- title: "Week 8 (4 classes)"
+  topics:
     - title: Routing Games
     - title: Matching Games
-- title: "Week 8 (2 classes)"
-  topics:
     - title: Routing and matching games
       example: true
     - title: Auctions
