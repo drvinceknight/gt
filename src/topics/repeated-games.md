@@ -22,9 +22,9 @@ In class we played "Will it end?": pairs played the contractor stage game
 A = \begin{pmatrix} 3 & 0 \\ 5 & 1 \end{pmatrix}
 \]
 
-(first action High, second action Low), and after each round rolled a die,
-continuing unless a 1 was rolled, so the game continued with probability
-\(\delta = 5/6\).
+(first action High, second action Low), and after each round rolled a
+twelve-sided die, continuing unless a 1 or a 2 was rolled, so the game continued
+with probability \(\delta = 10/12 = 5/6\).
 
 (a) Interpret \(\delta = 5/6\) and state the expected number of rounds. [2]
 

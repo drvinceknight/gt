@@ -13,6 +13,77 @@
   \begin{minipage}[t]{\dimexpr\linewidth-#1\relax}\raggedright\large #3%
   \end{minipage}\par\vspace{0.55em}}
 
+% The centipede tree. Nodes are named by the player who moves and a letter, so
+% that a strategy can be written as one action per named node. The argument is
+% drawn afterwards, which lets a page add its own marks.
+\newcommand{\centipede}[2][1.12]{%
+  \begin{tikzpicture}[font=\small, scale=#1,
+      every node/.style={transform shape},
+      dec/.style={circle, draw=inkblue, line width=1.1pt, fill=white,
+                  text=inkblue, minimum size=1.35cm, font=\bfseries\small,
+                  inner sep=0pt},
+      leaf/.style={font=\normalsize},
+      writebox/.style={draw=inkfaint, line width=0.7pt, rounded corners=2pt,
+                   fill=white}]
+    \foreach \who/\lab [count=\i from 0] in {1/A, 2/B, 1/C, 2/D}{%
+      \node[dec] (n\i) at (\i*4.6,0) {\who:\lab};}
+    \node[leaf] (end) at (18.4,0) {\((4,4)\)};
+    \foreach \pay [count=\i from 0] in {{\((2,0)\)}, {\((1,3)\)}, {\((4,2)\)},
+                                        {\((3,5)\)}}{%
+      \draw[-{Stealth[length=3mm]}, inkred, line width=1.2pt]
+        (n\i) -- node[left, font=\small, text=inkred] {take} ++(0,-2.1);
+      \node[leaf] at (\i*4.6,-2.65) {\pay};}
+    \foreach \i in {0,1,2}{%
+      \pgfmathtruncatemacro{\j}{\i+1}
+      \draw[-{Stealth[length=3mm]}, inkteal, line width=1.2pt]
+        (n\i) -- node[above, font=\small, text=inkteal] {pass} (n\j);}
+    \draw[-{Stealth[length=3mm]}, inkteal, line width=1.2pt]
+      (n3) -- node[above, font=\small, text=inkteal] {pass} (end);
+    #2
+  \end{tikzpicture}}
+
+% A box above each node, for writing one action per node onto the tree.
+\newcommand{\nodeboxes}{%
+  \foreach \i in {0,...,3}{%
+    \draw[writebox] (\i*4.6-1.1,1.1) rectangle (\i*4.6+1.1,1.9);}}
+
+% A strategy, as the class writes it on paper: one row per node.
+\newcommand{\strategytable}[3]{%
+  \begin{tabular}{@{}c@{\hspace{0.9cm}}c@{}}
+    \multicolumn{2}{@{}c@{}}{\large\bfseries\color{inkblue} #1}\\[0.55em]
+    {\small\color{inkgrey} Node} & {\small\color{inkgrey} Action}\\[0.3em]
+    {\large #2} & \blank[3.2]\\[0.6em]
+    {\large #3} & \blank[3.2]\\
+  \end{tabular}}
+
+% Room for all four of a player's strategies, one per numbered row.
+\newcommand{\strategylist}[3]{%
+  \begin{tabular}{@{}c@{\hspace{0.7em}}c@{\hspace{0.7em}}c@{}}
+    \multicolumn{3}{@{}c@{}}{\large\bfseries\color{inkblue} #1}\\[0.6em]
+    & {\small\color{inkgrey} #2} & {\small\color{inkgrey} #3}\\[0.25em]
+    {\large\color{inkblue} 1} & \blank[2.4] & \blank[2.4]\\[0.45em]
+    {\large\color{inkblue} 2} & \blank[2.4] & \blank[2.4]\\[0.45em]
+    {\large\color{inkblue} 3} & \blank[2.4] & \blank[2.4]\\[0.45em]
+    {\large\color{inkblue} 4} & \blank[2.4] & \blank[2.4]\\
+  \end{tabular}}
+
+% One player's four by four payoff matrix. The label cells are blank too, since
+% the class fills in the strategies it has just built. The scale is settable so
+% that a page carrying instructions as well can still hold both matrices.
+\newcommand{\payoffmatrix}[2][1]{%
+  \begin{tikzpicture}[font=\small, scale=#1,
+      every node/.style={transform shape},
+      cell/.style={draw=inkfaint, line width=0.7pt, rounded corners=2pt,
+                   fill=white}]
+    \foreach \j in {0,...,3}{%
+      \draw[cell] (\j*2.1,0.2) rectangle (\j*2.1+1.9,0.9);
+      \foreach \i in {0,...,3}{%
+        \draw[cell] (\j*2.1,-\i*1.15) rectangle (\j*2.1+1.9,-\i*1.15-0.95);}}
+    \foreach \i in {0,...,3}{%
+      \draw[cell] (-2.1,-\i*1.15) rectangle (-0.2,-\i*1.15-0.95);}
+    \node[text=inkblue, font=\large\bfseries] at (3.0,1.6) {#2};
+  \end{tikzpicture}}
+
 \begin{document}
 
 % The ask comes before the reveal: ten volunteers, who do not yet know what
@@ -167,63 +238,134 @@ threat to banish a suspect still worth carrying out?}
 \vspace{0.3cm}
 
 \begin{center}
-\begin{tikzpicture}[font=\small, scale=1.12,
-    every node/.style={transform shape},
-    dec/.style={circle, draw=inkblue, line width=1.1pt, fill=white,
-                text=inkblue, minimum size=0.95cm, font=\bfseries,
-                inner sep=0pt},
-    leaf/.style={font=\normalsize}]
-  \foreach \who [count=\i from 0] in {1, 2, 1, 2}{%
-    \node[dec] (n\i) at (\i*4.6,0) {\who};}
-  \node[leaf] (end) at (18.4,0) {$(4,4)$};
-  \foreach \pay [count=\i from 0] in {{$(2,0)$}, {$(1,3)$}, {$(4,2)$},
-                                      {$(3,5)$}}{%
-    \draw[-{Stealth[length=3mm]}, inkred, line width=1.2pt]
-      (n\i) -- node[left, font=\small, text=inkred] {take} ++(0,-2.1);
-    \node[leaf] at (\i*4.6,-2.65) {\pay};}
-  \foreach \i in {0,1,2}{%
-    \pgfmathtruncatemacro{\j}{\i+1}
-    \draw[-{Stealth[length=3mm]}, inkteal, line width=1.2pt]
-      (n\i) -- node[above, font=\small, text=inkteal] {pass} (n\j);}
-  \draw[-{Stealth[length=3mm]}, inkteal, line width=1.2pt]
-    (n3) -- node[above, font=\small, text=inkteal] {pass} (end);
-\end{tikzpicture}
+\centipede{}
 \end{center}
 
 \vspace{0.2cm}
 
-{\large\color{inkgrey} Payoffs are (player 1, player 2). Player 1 moves at the
-first and third circles, player 2 at the second and fourth.}
+{\large\color{inkgrey} Payoffs are (player 1, player 2). Every node carries the
+player who moves there and a letter: player 1 moves at A and C, player 2 at B
+and D.}
 
 \newpage
 \slidehead{Write down a strategy}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
-{\Large Pick a player. Write a strategy for them, then swap and write one for
-the other.}
+{\Large Pick a player. Write a strategy for them on paper, then swap and write
+one for the other.}
 
-\vspace{0.7em}
+\vspace{0.4em}
 
 \step{1}{A strategy gives an action at \emph{every} node where that player
-  moves. Player 1 has two nodes, so a strategy for player 1 is a pair.}
-\step{2}{Fill in both, even if your first action ends the game. A strategy says
-  what you \emph{would} do, not only what happens.}
-\step{3}{\emph{Take} or \emph{pass} at each. Nothing else is allowed.}
+  moves, so the table has one row per node.}
+\step{2}{Fill in both rows, even if the first action ends the game. A strategy
+  says what you \emph{would} do, not only what happens.}
+
+\vspace{0.2cm}
+
+\begin{center}
+\centipede[0.82]{}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{center}
+\strategytable{Player 1}{1:A}{1:C}
+\hspace{3.5cm}
+\strategytable{Player 2}{2:B}{2:D}
+\end{center}
+
+\vspace{0.2cm}
+
+{\large\color{inkgrey} \emph{Pass} at A with \emph{take} at C means: pass at the
+first circle, and take at the third if we ever get there.}
+
+\newpage
+\slidehead{The strategy space}
+
+\vspace{0.4cm}
+
+{\Large Two nodes, two actions at each, so each player has
+\(2 \times 2 = 4\) strategies. List all four.}
+
+\vspace{0.5em}
+
+{\large\color{inkgrey} Keep the same order as everybody else in the room: it is
+the order the rows and columns of the grid will take.}
 
 \vspace{0.7cm}
 
 \begin{center}
-{\Large Player 1: \(\bigl(\) \blank[2.6] , \blank[2.6] \(\bigr)\)
- \hspace{2cm}
- Player 2: \(\bigl(\) \blank[2.6] , \blank[2.6] \(\bigr)\)}
+\strategylist{Player 1}{A}{C}
+\hspace{3.5cm}
+\strategylist{Player 2}{B}{D}
 \end{center}
 
-\vspace{0.9cm}
+\newpage
+\slidehead{The normal form}
 
-{\large\color{inkgrey} So \((\text{pass}, \text{take})\) for player 1 means:
-pass at the first circle, and take at the third if we ever get there. There are
-four strategies for each player.}
+\vspace{0.1cm}
+
+{\Large Rows are player 1's strategies, columns are player 2's, in both
+matrices. Fill a cell by tracing the path that pair of strategies produces.}
+
+\vspace{0.25cm}
+
+\begin{center}
+\centipede[0.6]{}
+\end{center}
+
+\vspace{0.1cm}
+
+\begin{center}
+\payoffmatrix[0.9]{\(A\): what player 1 gets}
+\hspace{1.4cm}
+\payoffmatrix[0.9]{\(B\): what player 2 gets}
+\end{center}
+
+\newpage
+\slidehead{Finding the Nash equilibria}
+
+\vspace{0.4cm}
+
+{\Large The pair \((A, B)\) is an ordinary normal form game, so we find its
+equilibria the way we always do.}
+
+\vspace{0.6em}
+
+\step{1}{Down each column of \(A\), underline player 1's best payoff.}
+\step{2}{Across each row of \(B\), underline player 2's best payoff.}
+\step{3}{A position underlined in both matrices is a pure Nash equilibrium.
+  There is more than one.}
+
+\vspace{0.2cm}
+
+\begin{center}
+\payoffmatrix[0.78]{\(A\)} \hspace{2cm} \payoffmatrix[0.78]{\(B\)}
+\end{center}
+
+\newpage
+\slidehead{Back to the tree}
+
+\vspace{0.4cm}
+
+{\Large Only one of those equilibria survives backward induction. The others
+rest on a threat nobody would carry out.}
+
+\vspace{0.6em}
+
+\step{1}{Start at D, the last node, and mark the action player 2 prefers there.}
+\step{2}{Work leftwards: at each node, compare the payoffs the marks to its
+  right lead to.}
+\step{3}{Read off one action per node. That pair of strategies is the subgame
+  perfect equilibrium.}
+
+\vspace{0.4cm}
+
+\begin{center}
+\centipede{\nodeboxes}
+\end{center}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

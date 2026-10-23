@@ -8,85 +8,136 @@
 \titleslide{Repeated games}{Will it end?}{%
     \begin{tikzpicture}[font=\small]
       \stepbox{s0}{0.0}{\textbf{Play}\\[0.25em]
-        Bid High or Low. Then roll the die.}
+        Bid High or Low. Then roll the D12.}
       \stepbox{s1}{6.9}{\textbf{Shorten}\\[0.25em]
-        Carry on only for a 5 or 6. Play again.}
+        Carry on only on a 9 or above.}
       \stepbox{s2}{13.8}{\textbf{Explain}\\[0.25em]
         Why the future changes today.}
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
     \end{tikzpicture}
 
-    \vspace{2.4em}
+    \vspace{2.2em}
 
-    {\large Podium: \blank[3.4] \hspace{1.2cm} \blank[3.4]
-     \hspace{1.2cm} \blank[3.4]}}
+    {\large Bribentives for the podium}
+
+    \vspace{1em}
+
+    \begin{tikzpicture}[scale=0.85, every node/.style={transform shape},
+        block/.style={draw=inkblue, line width=1pt, rounded corners=2pt,
+                     fill=white}]
+      \draw[block] (-3.4,0) rectangle (-0.2,1.5);
+      \draw[block] (0,0) rectangle (3.2,2.4);
+      \draw[block] (3.4,0) rectangle (6.6,1.0);
+      \node[text=inkblue, font=\large\bfseries] at (-1.8,0.75) {2};
+      \node[text=inkblue, font=\LARGE\bfseries] at (1.6,1.2) {1};
+      \node[text=inkblue, font=\large\bfseries] at (5.0,0.5) {3};
+      \draw[inkfaint, line width=1.2pt] (-3.9,-0.1) -- (7.1,-0.1);
+    \end{tikzpicture}}
 
 \newpage
 \slidehead{The stage game}
 
-\vspace{0.2cm}
+\vspace{0.4cm}
 
 \begin{minipage}[c]{0.50\linewidth}
 \begin{center}
 \payoffgrid{High, Low}{%
-  \node at (1.35,-1) {\Large $3$};
-  \node at (4.05,-1) {\Large $0$};
-  \node at (1.35,-3) {\Large $5$};
-  \node at (4.05,-3) {\Large $1$};}
+  \node at (1.35,-1) {\Large \(3\)};
+  \node at (4.05,-1) {\Large \(0\)};
+  \node at (1.35,-3) {\Large \(5\)};
+  \node at (4.05,-3) {\Large \(1\)};}
 \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.46\linewidth}
 {\large Your payoff as the row bidder.}
 
-\vspace{1.4em}
+\vspace{1.6em}
 
 {\large Played once, what should you do? \blank[2.6]}
 
-\vspace{1.4em}
+\vspace{1.6em}
 
 {\large Played once, what do you both get? \blank[2.6]}
 
-\vspace{1.4em}
+\vspace{1.6em}
 
 {\large And if you had both bid High? \blank[2.6]}
 \end{minipage}
 
-\vspace{0.4cm}
+\newpage
+\slidehead{Now we repeat it}
 
-{\small\color{inkgrey} Low is a dominant action in the one-shot game, which is
-exactly the problem.}
+\vspace*{\fill}
+
+\begin{center}
+{\Huge\bfseries\color{inkblue} Play it again, and again.}
+
+\vspace{1.8em}
+
+{\LARGE Roll the D12 after every round.}
+
+\vspace{0.9em}
+
+{\LARGE On a 1 or a 2 the game ends. Otherwise play another round.}
+\end{center}
+
+\vspace*{\fill}
+
+\begin{center}
+{\large\color{inkgrey} Keep a running total. Nobody knows how many rounds
+there will be.}
+\end{center}
 
 \newpage
 \slidehead{The die is the future}
 
-\vspace{0.8cm}
+\vspace{1.6cm}
 
-{\large We stop on a 1, so the game carries on with probability
-\(\delta =\) \blank[1.8].}
+{\Large The game ends on a 1 or a 2, so it carries on with probability}
 
-\vspace{1.1cm}
+\vspace{1.0cm}
 
-{\large The expected number of rounds is \(\dfrac{1}{1 - \delta} =\)
-\blank[1.8].}
+\begin{center}
+{\Large \(\delta \;=\;\) \blank[2.4]}
+\end{center}
+
+\vspace{1.8cm}
+
+\begin{center}
+{\Large The expected number of rounds is \(\dfrac{1}{1 - \delta} \;=\;\)
+\blank[2.4]}
+\end{center}
+
+\newpage
+\slidehead{A shorter future}
 
 \vspace{1.4cm}
 
-{\large Now we carry on \emph{only} for a 5 or a 6, so \(\delta =\)
-\blank[1.8] and the expected number of rounds is \blank[1.8].}
+{\Large New rule: we carry on \emph{only} on a 9 or above.}
 
 \vspace{1.4cm}
 
-{\large Did the shorter game change how you played? \blank[4.4]}
+\begin{center}
+{\Large \(\delta \;=\;\) \blank[2.4] \hspace{3cm}
+ \(\dfrac{1}{1 - \delta} \;=\;\) \blank[2.4]}
+\end{center}
+
+\vspace{1.6cm}
+
+{\Large Before we replay: will you bid High as often? \blank[4.4]}
+
+\vspace{1.2cm}
+
+{\large\color{inkgrey} Same payoffs, same opponent, shorter future.}
 
 \newpage
 \slidehead{Grudger, against Grudger}
 
 \vspace{0.5cm}
 
-{\large Grudger plays High until you play Low, then Low for ever. Hold your
-opponent to it.}
+{\large Grudger plays High until you play Low, then Low for ever.}
 
 \vspace{0.9cm}
 
@@ -104,59 +155,48 @@ opponent to it.}
 \workspace{10.6}{3.4}
 \end{minipage}
 
-\vspace{0.7cm}
-
-{\large So cooperating is worth it when \blank[3.4] \(\ge\) \blank[3.4].}
 
 \newpage
 \slidehead{How patient do we have to be?}
 
-\vspace{1cm}
+\vspace{1.2cm}
 
 \begin{center}
 {\Large \(\dfrac{3}{1 - \delta} \;\ge\; 5 + \dfrac{\delta}{1 - \delta}
  \qquad \Longleftrightarrow \qquad \delta \;\ge\;\) \blank[2]}
 \end{center}
 
-\vspace{1.1cm}
+\vspace{1.6cm}
 
-{\large Our first die gives \(\delta = 5/6\), so cooperation \blank[3] be
-sustained. The second gives \(\delta = 1/3\), so it \blank[3].}
-
-\vspace{0.7cm}
-
-{\large Which side of the line did you guess before we played? \blank[3]}
-
-\vspace{0.8cm}
-
-\begin{center}
-\workspace{22.6}{2.6}
-\end{center}
+\begin{minipage}[t]{0.47\linewidth}
+\raggedright
+{\large Our first die gives \(\delta =\) \blank[1.8]}\\[0.9em]
+\workspace{10.6}{4.0}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\raggedright
+{\large The second gives \(\delta =\) \blank[1.8]}\\[0.9em]
+\workspace{10.6}{4.0}
+\end{minipage}
 
 \newpage
 \slidehead{What if we knew it was the last round?}
 
-\vspace{1cm}
+\vspace{1.4cm}
 
-{\large In a round you know is the last, the future is worth \blank[1.6], so
-you should bid \blank[2.4].}
+{\Large In a round you know is the last, the future is worth \blank[1.6], so
+you bid \blank[2.4].}
 
-\vspace{1.1cm}
+\vspace{1.6cm}
 
-{\large Both of you know that, so in the round before it the future is also
-worth nothing, and you bid \blank[2.4]. Keep going backwards and cooperation
+{\Large Both of you know that, so keep working backwards and cooperation
 \underline{\hspace{5cm}}.}
 
-\vspace{1.2cm}
+\vspace{1.6cm}
 
-{\large So the die was doing real work: not by making the game long, but by
+{\Large The die was doing real work: not by making the game long, but by
 making the end \underline{\hspace{5cm}}.}
-
-\vspace{1cm}
-
-\begin{center}
-\workspace{22.6}{2.6}
-\end{center}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

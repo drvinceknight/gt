@@ -16,7 +16,7 @@ Solutions to the example questions on the
 **(a) Interpretation.** [2]
 
 \(\delta = 5/6\) is the probability that the game continues after each round (the
-die not showing a 1). The expected number of rounds is
+twelve-sided die not showing a 1 or a 2). The expected number of rounds is
 \(\dfrac{1}{1 - \delta} = \dfrac{1}{1/6} = 6\).
 
 **(b) Discounted payoffs.** [6]
