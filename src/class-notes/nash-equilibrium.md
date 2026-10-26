@@ -15,6 +15,10 @@ rules of Rock Paper Scissors Lizard Spock as two diagrams, an empty
 Rock-Paper-Scissors payoff grid to fill in and mark best responses on, and the
 indifference equations laid out with the working left blank.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class.
+
 Play a "divisional" class round robin tournament of Rock Paper Scissors Lizard
 Spock. Ask students to play in groups of four, then ask the winners to stand up
 and keep playing until a single class champion remains.
@@ -26,6 +30,11 @@ The champion plays me for a bribentive.
 Discuss the **Nash equilibrium** chapter.
 
 Discussion Point: **After the definition of support enumeration algorithm, ask how many steps to obtain the Nash equilibrium for our game?**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Nash Equilibrium topic
+page](/topics/nash-equilibrium.html): five questions on the screen, answered by
+a show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 

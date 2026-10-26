@@ -16,6 +16,12 @@ the tournament, the second to analyse the results.
 covering both classes: a round-robin scoreboard, a row per team for its
 strategy as a pair \((p, q)\), and an empty \(4 \times 4\) transition matrix.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class. The rules of the activity sit on the slide
+that is up while the room plays, so a pair working alone is not going from
+memory.
+
 **First class.** Watch the Golden Balls video. Then split the class into four
 teams and run an iterated Prisoner's Dilemma tournament, each team submitting a
 strategy that is played against every other team:
@@ -54,6 +60,12 @@ the long-run outcome of two teams' strategies could be computed.**
 
 Discussion Point: **After discussing Tit For Tat, ask: the Folk Theorem tells
 us cooperation can be sustained; what does this chapter add to that?**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Direct Reciprocity
+topic page](/topics/direct-reciprocity.html): five questions on the screen,
+answered by a show of hands. It takes five minutes and tells us both what
+landed.
 
 ## Answers for the deck
 

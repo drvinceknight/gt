@@ -57,7 +57,10 @@ Feedback
 
 ---
 
-Show feedback from previous year.
+Show the [mid-module feedback](/feedback/). Every year is kept there, newest
+first: the comments as they were written, and the response to them. Make the
+point that the feedback is collected in class, published, and acted on, and
+that this cohort's answers will join the page in the same way.
 
 Learning and assessment
 

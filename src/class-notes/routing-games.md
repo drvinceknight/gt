@@ -16,6 +16,11 @@ step, with the network already drawn and every number the class produces left
 blank. Project it and annotate it live on a tablet, so no class time goes on
 drawing the network and the finished pages can be shared afterwards.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class. A "While you play" slide carries the rules:
+leave it up while the room plays.
+
 **The network.** Drivers travel from Start ($S$) to End ($T$). Draw two routes
 on the board:
 
@@ -63,6 +68,11 @@ added.**
 Discussion Point: **After the potential function and marginal cost results, ask
 students how each driver ignoring the congestion they impose on others explains
 Braess's paradox.**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Routing Games topic
+page](/topics/routing-games.html): five questions on the screen, answered by a
+show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 

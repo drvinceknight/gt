@@ -17,6 +17,10 @@ covering both classes: the \((n, m)\) ladder down to parity, the Vote-Left
 properties, the centipede tree with the payoffs printed and the node values
 blank, and the threshold on \(q\).
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class.
+
 **Goal.** Show that a plan of action can look like an equilibrium at the start of
 a game yet stop being optimal once a particular subgame is reached. This is the
 gap between a Nash equilibrium of the whole game and one that is optimal in every
@@ -159,6 +163,12 @@ leads to for the centipede game.**
 Discussion point: **After the subgame perfection definition, ask which
 equilibrium is subgame perfect, and relate it to the Traitors punishment threat
 that was credible early and failed in the endgame subgame.**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Subgame Perfection
+topic page](/topics/subgame-perfection.html): five questions on the screen,
+answered by a show of hands. It takes five minutes and tells us both what
+landed.
 
 ## Answers for the deck
 

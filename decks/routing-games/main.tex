@@ -44,7 +44,25 @@
     {\large Drivers in the room: \blank[2.2] \hspace{2cm} Date: \blank[3]}}
 
 \newpage
+\slidehead{While you play}
+\notesref{14.2.1}{Routing Games: Definition: Routing Game}
+
+\vspace*{\fill}
+
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+{\LARGE Stand on the route you are
+driving. A small road takes as many minutes as there are people on it; a motorway is
+fixed at 50 minutes. When the two times are announced you may switch, as often as you
+like, until nobody gains by moving.}
+\end{minipage}
+\end{center}
+
+\vspace*{\fill}
+
+\newpage
 \slidehead{Phase 1: two routes}
+\notesref{14.2.1}{Routing Games: Definition: Routing Game}
 
 \begin{minipage}[c]{0.60\linewidth}
 \begin{center}
@@ -84,9 +102,9 @@ quicker. Stop when nobody moves.}
       \draw[inkfaint, line width=0.6pt]
         (\col,-0.78*\row-0.26) -- (\col+2.8,-0.78*\row-0.26);}}
 \end{tikzpicture}
-
 \newpage
 \slidehead{Phase 1: is anybody still moving?}
+\notesref{14.2.6}{Routing Games: Definition: Nash Flow}
 
 \vspace{0.3cm}
 
@@ -114,9 +132,25 @@ quicker. Stop when nobody moves.}
 \end{minipage}
 
 \newpage
-\slidehead{Phase 2: one new road}
+\slidehead{While you play}
+\notesref{14.2.1}{Routing Games: Definition: Routing Game}
 
-\vspace{0.2cm}
+\vspace*{\fill}
+
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+{\LARGE Same again, with the new road
+open. Small roads still take a minute per person and motorways are still 50 minutes.
+Switch whenever it saves you time, until nobody wants to
+move.}
+\end{minipage}
+\end{center}
+
+\vspace*{\fill}
+
+\newpage
+\slidehead{Phase 2: one new road}
+\notesref{14.2.1}{Routing Games: Definition: Routing Game}
 
 \begin{minipage}[c]{0.60\linewidth}
 \begin{center}
@@ -139,7 +173,7 @@ quicker. Stop when nobody moves.}
   {\color{inkred}$S \to A \to B \to T$} \hspace{0.4cm} \blank[1.8]}
 \end{minipage}
 
-\vspace{0.7cm}
+\vspace{0.3cm}
 
 {\small\color{inkgrey} Re-choose again. The new road is free, so who would not
 take it?}
@@ -149,9 +183,9 @@ take it?}
 \begin{center}
 \workspace{22.6}{2.6}
 \end{center}
-
 \newpage
 \slidehead{Phase 2: where everyone ends up}
+\notesref{14.2.6}{Routing Games: Definition: Nash Flow}
 
 \vspace{0.8cm}
 
@@ -193,6 +227,7 @@ take it?}
 
 \newpage
 \slidehead{Why it got worse}
+\notesref{14.2.9}{Routing Games: Definition: Marginal Cost}
 
 \vspace{0.4cm}
 
@@ -228,6 +263,7 @@ take it?}
 
 \newpage
 \slidehead{Writing it down}
+\notesref{14.2.3, 14.2.4}{Routing Games: Feasible Flow, Cost function}
 
 \vspace{0.3cm}
 
@@ -253,6 +289,7 @@ take it?}
 
 \newpage
 \slidehead{Nash flow against optimal flow}
+\notesref{14.2.5, 14.2.7}{Routing Games: Optimal Flow, Potential Function}
 
 \vspace{0.3cm}
 
@@ -280,6 +317,7 @@ half of us each way.}
 
 \newpage
 \slidehead{The same thing, as an exam answer}
+\notesref{14.2.8}{Routing Games: Nash Flow minimises the potential function}
 
 \vspace{0.5cm}
 
@@ -308,5 +346,54 @@ Games page, worth 25 marks.}
 \begin{center}
 {\large\color{inkgrey} vknight.org/gt/topics/routing-games.html}
 \end{center}
+
+\newpage
+\nonotes
+\slidehead{Where this sits in the notes}
+
+\vspace{0.3cm}
+
+{\large Every stage of today, and the part of the notes it was reading.}
+
+\vspace{0.35cm}
+
+\hspace{0.3cm}
+\begin{minipage}{0.95\linewidth}
+\begin{tabbing}
+\hspace{6.9cm} \= \hspace{3.0cm} \= \hspace{9.4cm} \= \kill
+\textbf{What we did} \> {\color{inkteal}\textbf{Notes}} \> \textbf{In the textbook} \>
+  \\[0.5em]
+Choosing a route, over and over \> {\color{inkteal}\textbf{14.2.1}} \> Routing Games:
+  Definition: Routing Game \> \\[0.45em]
+Where nobody gains by switching \> {\color{inkteal}\textbf{14.2.6}} \> Routing Games:
+  Definition: Nash Flow \> \\[0.45em]
+Writing the flows and the costs \> {\color{inkteal}\textbf{14.2.2 to 14.2.4}} \>
+  Routing Games: Set of Paths, Feasible Flow, Cost \> \\
+\> \> function \> \\[0.45em]
+What a planner would have done \> {\color{inkteal}\textbf{14.2.5}} \> Routing Games:
+  Definition: Optimal Flow \> \\[0.45em]
+The cost of the extra car \> {\color{inkteal}\textbf{14.2.9}} \> Routing Games:
+  Definition: Marginal Cost \> \\[0.45em]
+\textbf{Examinable} \> {\color{inkteal}\textbf{14.2.8, 14.2.10}} \> Nash Flow
+  minimises the potential function, Optimal \> \\
+\> \> Flow is a Nash Flow for marginal costs, statements \> \\
+\> \> only \> 
+\end{tabbing}
+\end{minipage}
+
+\vspace{0.45cm}
+
+{\color{inkgrey} vknight.org/gtb/chapters/routing-games}
+
+\vspace{0.3cm}
+
+{\large\color{inkteal} Quick quiz before you go:
+vknight.org/gt/topics/routing-games.html}
+
+\vspace{0.3cm}
+
+{\large Before the next class: read the Routing Games chapter as far as marginal
+  costs, and
+  attempt Question 1.}
 
 \end{document}

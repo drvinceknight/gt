@@ -16,6 +16,11 @@ snowdrift payoffs printed, blank axes with \(x = 2/3\) already marked so the
 trajectory can be plotted round by round, and the replicator equation assembled
 from what the room saw.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class. A "While you play" slide carries the rules:
+leave it up while the room plays.
+
 **The room is a population.** Each student is one individual playing the
 **snowdrift game**: two drivers meet at a snowdrift blocking the road and each
 chooses to **Dig** or **Stay**. Clearing the drift is worth 4 to each driver;
@@ -70,6 +75,12 @@ Rock-Paper-Scissors equilibrium, which is not.**
 
 Discussion Point: **After the characterisation of the ESS theorem ask how we
 could use this to find the ESS for the replicator dynamics equation?**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Replicator Dynamics
+topic page](/topics/replicator-dynamics.html): five questions on the screen,
+answered by a show of hands. It takes five minutes and tells us both what
+landed.
 
 ## Answers for the deck
 

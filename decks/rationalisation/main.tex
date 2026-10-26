@@ -56,6 +56,7 @@
 
 \newpage
 \slidehead{The game}
+\notesref{2.2.3}{Games: Definition: Normal Form Game}
 
 \vspace{0.6cm}
 
@@ -82,9 +83,10 @@
 
 \newpage
 \slidehead{First, in pairs: matching pennies}
+\notesref{2.2.3}{Games: Definition: Normal Form Game}
 
-{\large Decide who is the row player. Both choose at the same time, six
-times. Fill in every column.}
+\playrules{Decide who is the row player and keep that role. Six rounds,
+  both choosing at the same time, no signalling. Fill in every column.}
 
 \vspace{0.15cm}
 
@@ -108,9 +110,10 @@ action? \blank[3]}
 
 \newpage
 \slidehead{Again, with a less tidy game}
+\notesref{2.2.3}{Games: Definition: Normal Form Game}
 
-{\large Same pairs, same six rounds. The payoffs are no longer mirror images,
-so read each cell carefully.}
+\playrules{Same pairs, same roles, six more rounds. The payoffs no longer
+  mirror, so read your own cell every time.}
 
 \vspace{0.15cm}
 
@@ -134,20 +137,21 @@ so read each cell carefully.}
 
 \newpage
 \slidehead{Now against the die}
+\notesref{2.2.4}{Games: Definition: Strategy in Normal Form Games}
 
-\vspace{0.1cm}
+\vspace{-0.1cm}
 
-{\large The row player is a die now. Commit to your \(c_1\) or \(c_2\)
-\emph{before} each roll. One D12 covers all three mixes.}
+\playrules{Say \(c_1\) or \(c_2\) out loud before each roll. Six rounds per
+  mix, one D12 covering all three.}
 
-\vspace{0.1cm}
+\vspace{-0.05cm}
 
 \maingame
 
 \vspace{-0.1cm}
 
 \hspace{0.2cm}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.93, every node/.style={transform shape}]
   \node[anchor=west] at (0,0) {\colhead{Round}};
   \foreach \mix/\rule/\mid in {%
       {\(\sigma_1 = (1/4,\ 3/4)\)}/{\(r_1\) on 1 to 3}/5.1,
@@ -163,13 +167,14 @@ so read each cell carefully.}
   \cellrows{2.2,4.2,6.2,8.8,10.8,12.8,15.4,17.4,19.4}{1.8}{6}
 \end{tikzpicture}
 
-\vspace{0.15cm}
+\vspace{0.05cm}
 
 {\large Totals after six rounds: \blank[1.8] \hspace{2.4cm} \blank[1.8]
 \hspace{2.4cm} \blank[1.8]}
 
 \newpage
 \slidehead{Working it out properly}
+\notesref{3.2.5}{Rationalisation: Definition: Best Response}
 
 \vspace{0.3cm}
 
@@ -195,6 +200,8 @@ so read each cell carefully.}
 
 \newpage
 \slidehead{Why dominance was no help}
+\notesref{3.2.2, 3.2.3}{Rationalisation: Strictly Dominated, Weakly Dominated
+  Strategy}
 
 \vspace{0.9cm}
 
@@ -220,6 +227,7 @@ we need the \underline{\hspace{5cm}} instead.}
 
 \newpage
 \slidehead{The mix that makes you indifferent}
+\notesref{3.2.6}{Rationalisation: Theorem: Best Response Condition}
 
 \vspace{0.8cm}
 
@@ -241,6 +249,7 @@ so that you cannot exploit them. Which of your own mixes does the same to
 
 \newpage
 \slidehead{The same thing, as an exam answer}
+\notesref{3.2.6}{Rationalisation: Theorem: Best Response Condition}
 
 \vspace{0.9cm}
 
@@ -260,5 +269,51 @@ carrying into the algebra.}
 \begin{center}
 {\large\color{inkgrey} vknight.org/gt/topics/nash-equilibrium.html}
 \end{center}
+
+\newpage
+\nonotes
+\slidehead{Where this sits in the notes}
+
+\vspace{0.3cm}
+
+{\large Every stage of today, and the part of the notes it was reading.}
+
+\vspace{0.35cm}
+
+\hspace{0.3cm}
+\begin{minipage}{0.95\linewidth}
+\begin{tabbing}
+\hspace{6.9cm} \= \hspace{3.0cm} \= \hspace{9.4cm} \= \kill
+\textbf{What we did} \> {\color{inkteal}\textbf{Notes}} \> \textbf{In the textbook} \>
+  \\[0.5em]
+Playing against a known mix \> {\color{inkteal}\textbf{2.2.4}} \> Games: Definition:
+  Strategy in Normal Form Games \> \\[0.45em]
+Looking for a dominated action \> {\color{inkteal}\textbf{3.2.2, 3.2.3}} \>
+  Rationalisation: Strictly Dominated, Weakly Dominated \> \\
+\> \> Strategy \> \\[0.45em]
+Choosing against the die \> {\color{inkteal}\textbf{3.2.5}} \> Rationalisation:
+  Definition: Best Response \> \\[0.45em]
+The mix that left you indifferent \> {\color{inkteal}\textbf{3.2.6}} \>
+  Rationalisation: Theorem: Best Response Condition \> \\[0.45em]
+\textbf{Examinable} \> {\color{inkteal}\textbf{3.2.6}} \> Theorem: Best Response
+  Condition, and proof \> 
+\end{tabbing}
+\end{minipage}
+
+\vspace{0.45cm}
+
+{\color{inkgrey} vknight.org/gtb/chapters/games, \;
+  vknight.org/gtb/chapters/rationalisation}
+
+\vspace{0.3cm}
+
+{\large\color{inkteal} Quick quiz before you go:
+vknight.org/gt/topics/nash-equilibrium.html}
+
+\vspace{0.3cm}
+
+{\large Before the next class: read the Rationalisation chapter as far as the best
+  response
+  condition, and attempt Question 1 on the Nash Equilibrium page.}
 
 \end{document}

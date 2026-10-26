@@ -14,6 +14,11 @@ same preferences. This doubles as a revision-topic vote.
 for the rankings, then the same votes counted three ways side by side, so the
 disagreement is visible on one page.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class. A "While you play" slide carries the rules:
+leave it up while the room plays.
+
 List all topics from the course on Menti and ask students to choose which one we
 revise in class.
 
@@ -29,6 +34,11 @@ the revision topic choice.**
 
 Discussion Point: **After the condorcet method and the borda method definitions
 ask which one they feel was used by stablevoting.org?**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Social Choice topic
+page](/topics/social-choice.html): five questions on the screen, answered by a
+show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 

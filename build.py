@@ -14,10 +14,12 @@ Usage:
 """
 from __future__ import annotations
 
+import csv
 import hashlib
 import json
 import pathlib
 import re
+from html import escape as escape_html
 from typing import Any
 
 import frontmatter
@@ -144,6 +146,33 @@ def read_collection(
     return pages
 
 
+def load_feedback(path: pathlib.Path, baseurl: str) -> list[Post]:
+    """Read the mid-module feedback rounds, newest first.
+
+    Each round is a Markdown file carrying the response to that year's
+    feedback, with a ``data`` key naming the CSV of anonymous responses in
+    ``src/data/feedback``. The CSV holds one row per response, with the Menti
+    question it answered, so adding a year means adding two files.
+    """
+    rounds = []
+    for page in read_collection(path, baseurl):
+        responses = list(
+            csv.DictReader(
+                (SRC / "data/feedback" / page["data"]).open(encoding="utf-8")
+            )
+        )
+        questions: list[Post] = []
+        for response in responses:
+            if not questions or questions[-1]["question"] != response["question"]:
+                questions.append({"question": response["question"], "responses": []})
+            questions[-1]["responses"].append(escape_html(response["response"]))
+        page["responses"] = responses
+        page["questions"] = questions
+        rounds.append(page)
+    rounds.sort(key=lambda page: page.get("date", ""), reverse=True)
+    return rounds
+
+
 def to_json(value: Any) -> str:
     """Serialise to JSON, escaped so it is safe inside an HTML <script> tag."""
     return (
@@ -196,6 +225,7 @@ def main() -> None:
     notes_dir = ROOT / NOTES_URL
     assessment_dir = ROOT / "assessment"
     start_here_dir = ROOT / "start-here"
+    feedback_dir = ROOT / "feedback"
 
     # Load collections
     topics = read_collection(SRC / "topics", baseurl_for(topics_dir))
@@ -251,15 +281,20 @@ def main() -> None:
         write_html(output, html)
 
     # --- Topic pages ---
+    # A topic has a deck when decks/<slug>/main.pdf exists, which is how the
+    # decks are named, so no page has to carry the path itself.
     for topic in topics:
         tag = topic.get("tag")
+        slug = slugify(topic["title"])
+        deck = ROOT / "decks" / slug / "main.pdf"
         render(
             "topic.html",
-            topics_dir / f"{slugify(topic['title'])}.html",
+            topics_dir / f"{slug}.html",
             page=topic,
             class_notes=notes_by_tag.get(tag),
             solution=solutions_by_tag.get(tag),
             quiz=quizzes_by_tag.get(tag),
+            deck_url=f"decks/{slug}/main.pdf" if deck.exists() else None,
         )
 
     # --- Solution pages ---
@@ -305,6 +340,16 @@ def main() -> None:
     start_here = read_page(SRC / "start-here/index.md", baseurl_for(start_here_dir))
     render("page.html", start_here_dir / "index.html", page=start_here)
 
+    # --- Mid-module feedback page ---
+    feedback_index = read_page(SRC / "feedback/index.md", baseurl_for(feedback_dir))
+    feedback_rounds = load_feedback(SRC / "feedback", baseurl_for(feedback_dir))
+    render(
+        "feedback.html",
+        feedback_dir / "index.html",
+        page=feedback_index,
+        rounds=feedback_rounds,
+    )
+
     # --- Home / schedule page ---
     render("index.html", ROOT / "index.html", toc=toc, faqs=faqs)
 
@@ -313,7 +358,8 @@ def main() -> None:
 
     print(
         f"Built {len(topics)} topics, {len(class_notes)} class-notes, "
-        f"{len(solutions)} solutions, {len(quizzes_by_tag)} quizzes → repo root"
+        f"{len(solutions)} solutions, {len(quizzes_by_tag)} quizzes, "
+        f"{len(feedback_rounds)} feedback rounds → repo root"
     )
 
 
