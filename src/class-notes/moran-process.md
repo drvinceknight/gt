@@ -15,6 +15,11 @@ longer than the usual 20 minutes.
 payoffs printed, the birth-death chain with its transition probabilities blank,
 and tables for the fitnesses and the selection probabilities.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class. A "While you play" slide carries the rules:
+leave it up while the room plays.
+
 Use [moran process form](/assets/activities/moran_process/main.pdf) and have
 students play in pairs.
 
@@ -211,6 +216,11 @@ Discussion Point: After the definition of the moran process, ask how this differ
 Discussion Point: After the definition of fixation probability, ask what the fixation probability of a hawk is based on our simulation?
 
 Discussion Point: After the theoretic fixation in two types ask how this could be used for our example? Leave this as an exercise.
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Moran Process topic
+page](/topics/moran-process.html): five questions on the screen, answered by a
+show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 

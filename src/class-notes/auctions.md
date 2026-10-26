@@ -14,6 +14,12 @@ the first class and set up the question of truthful bidding.
 bids, the rules left blank, and the two cases of the weak dominance argument
 side by side.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class. The rules of the activity sit on the slide
+that is up while the room plays, so a pair working alone is not going from
+memory.
+
 Ask the class to repeat the £5 auction, but this time the highest bid wins and
 pays the amount of the second bid. Run it sealed: get everyone to write their
 bid on a piece of paper and reveal at the end.
@@ -26,6 +32,11 @@ Discussion Point: **After the definition of an auction, ask what the rules are
 for the sealed auction we just played.**
 
 Discussion Point: **After two theorems ask why I chose the auction I did?**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Auctions topic
+page](/topics/auctions.html): five questions on the screen, answered by a show
+of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 

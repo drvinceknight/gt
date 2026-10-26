@@ -15,6 +15,12 @@ extensive form games.
 distribution, the ladder of iterated reasoning, and space to work out what a
 strategy is in each form of the game. Project it and annotate it live.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class. The rules of the activity sit on the slide
+that is up while the room plays, so a pair working alone is not going from
+memory.
+
 Play the 2/3 of the average game. Use Menti to collect each student's number,
 then reveal the distribution and the winning value (2/3 of the mean). Play a
 second round and ask students to explain how and why their number changed.
@@ -32,6 +38,11 @@ would look like for the 2/3 of the average game.**
 Discussion Point: **After the definition of a strategy in an extensive form
 game, ask how we could modify the 2/3 game to be an extensive form game and
 what a strategy would look like.**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Nash Equilibrium topic
+page](/topics/nash-equilibrium.html): five questions on the screen, answered by
+a show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 

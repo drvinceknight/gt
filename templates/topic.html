@@ -46,6 +46,16 @@ is linked from the question it answers.</small></p>
 <p><strong><a href="{{ baseurl }}/assets/quizzes/{{ page.tag }}.pdf">Download the full quiz as a PDF (all questions, no solutions) &rarr;</a></strong></p>
 {% endif %}
 
+<p><strong><a href="https://vknight.org/gtb/pdf/main.pdf">The notes as a PDF you
+can download and annotate &rarr;</a></strong>
+<small>The whole textbook in one file.</small></p>
+
+{% if deck_url %}
+<p><strong><a href="{{ baseurl }}/{{ deck_url }}">The write-on slides used in class (PDF) &rarr;</a></strong>
+<small>Each slide points at the part of the notes it was reading, and the last
+one gathers them together.</small></p>
+{% endif %}
+
 {% if class_notes %}
 <p><small><code><a href="{{ baseurl }}/{{ notes_dir }}/{{ class_notes.title | slugify }}.html">Facilitator notes: {{ class_notes.title }}</a></code></small></p>
 {% endif %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — {{ site_title }}{% endblock %}
+
+{% block content %}
+
+{{ page.content_html }}
+
+{% for round in rounds %}
+<section class="feedback-round">
+  <h2>{{ round.kind }} feedback, {{ round.title }}</h2>
+  <p class="feedback-meta">
+    {{ round.date }} &middot; {{ round.responses | length }} responses
+  </p>
+
+  {% if round.groups %}
+  {# One dot per person who voted, grouped by what they chose to answer. #}
+  <figure class="feedback-figure">
+    <svg viewBox="0 0 400 {{ 14 + ((round.voters - 1) // 20 + 1) * 19 }}"
+         class="dot-grid" role="img"
+         aria-label="{{ round.voters }} voters: {% for group in round.groups %}{{ group.count }} {{ group.label | lower }}{% if not loop.last %}, {% endif %}{% endfor %}.">
+      {% set ns = namespace(index=0) %}
+      {% for group in round.groups %}
+      <g class="dot-group dot-group-{{ loop.index }}">
+        <title>{{ group.label }}: {{ group.count }}</title>
+        {% for dot in range(group.count) %}
+        <circle cx="{{ 9 + (ns.index % 20) * 19 }}"
+                cy="{{ 9 + (ns.index // 20) * 19 }}" r="7"/>
+        {% set ns.index = ns.index + 1 %}
+        {% endfor %}
+      </g>
+      {% endfor %}
+    </svg>
+    <ul class="feedback-legend">
+      {% for group in round.groups %}
+      <li class="legend-{{ loop.index }}">{{ group.label }}:
+        <strong>{{ group.count }}</strong></li>
+      {% endfor %}
+    </ul>
+    <figcaption>Everybody who voted, one dot each. Nobody asked for a change
+      without first saying what works.</figcaption>
+  </figure>
+  {% endif %}
+
+  {{ round.content_html }}
+
+  {% if round.themes %}
+  <figure class="feedback-figure">
+    <h3>What the comments were about</h3>
+    {% set widest = round.themes | map(attribute="count") | max %}
+    <div class="theme-bars">
+      {% for theme in round.themes %}
+      <div class="theme-row" title="{{ theme.label }}: {{ theme.count }} comments">
+        <span class="theme-label">{{ theme.label }}</span>
+        <span class="theme-track">
+          <span class="theme-bar theme-{{ theme.source }}"
+                style="width: {{ (100 * theme.count / widest) | round(1) }}%"></span>
+        </span>
+        <span class="theme-count">{{ theme.count }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    <ul class="feedback-legend">
+      <li class="legend-1">What works</li>
+      <li class="legend-2">What has not worked</li>
+    </ul>
+    <figcaption>Comments counted by subject. One comment can touch more than
+      one of these.</figcaption>
+  </figure>
+  {% endif %}
+
+  <h3>The responses</h3>
+  {% for question in round.questions %}
+  <details class="feedback-question">
+    <summary>{{ question.question }} <span>({{ question.responses | length }})</span></summary>
+    <ul class="feedback-responses">
+      {% for response in question.responses %}
+      <li>{{ response }}</li>
+      {% endfor %}
+    </ul>
+  </details>
+  {% endfor %}
+</section>
+{% endfor %}
+
+{% endblock %}

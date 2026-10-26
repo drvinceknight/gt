@@ -15,6 +15,10 @@ formalise any of it.
 printed, boxes for \(\delta\) and the expected number of rounds under both
 rules, and the Grudger comparison built up to the threshold.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class.
+
 Run "Will it end?". Students pair off. In each round both players secretly
 choose to bid **High** or **Low** for a contract, using the stage game
 
@@ -64,6 +68,11 @@ in the contractor game and more generally.**
 
 Discussion Point: **After the finite-horizon discussion, ask why backward
 induction kills cooperation when the number of rounds is known in advance.**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Repeated Games topic
+page](/topics/repeated-games.html): five questions on the screen, answered by a
+show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 

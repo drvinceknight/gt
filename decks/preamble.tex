@@ -108,6 +108,29 @@
 \renewcommand{\headrulewidth}{0pt}
 \fancyfoot[R]{\small\color{inkgrey}\thepage}
 
+% A pointer into the notes at the foot of a slide, so that the activity reads as
+% a way through the chapter rather than a detour from it. The first argument is
+% the numbered section in the textbook and the second names it. Each page sets
+% its own, which is read when the page is shipped out, so a page with nothing to
+% point at calls \nonotes.
+\newcommand{\notesline}{}
+\newcommand{\notesref}[2]{\gdef\notesline{%
+  \tikz[baseline=-0.5ex]{\fill[inkteal, rounded corners=1pt]
+    (0,0) rectangle (0.24,0.24);}\;\textbf{Notes #1}\; #2}}
+\newcommand{\nonotes}{\gdef\notesline{}}
+\fancyfoot[L]{\small\color{inkteal}\notesline}
+
+% The rules of the activity, kept on screen while the room plays, so that a pair
+% working on their own is not going from memory.
+\newcommand{\playrules}[1]{%
+  \begin{tikzpicture}
+    \node[draw=inkteal, line width=1pt, rounded corners=4pt, fill=white,
+          inner sep=0.35cm, text width=\dimexpr\linewidth-1cm\relax,
+          align=left, font=\normalsize, text=inktext] (rules) {#1};
+    \node[fill=inkbg, text=inkteal, font=\small\bfseries, anchor=west,
+          inner sep=2pt] at ([xshift=0.6cm]rules.north west) {While you play};
+  \end{tikzpicture}}
+
 % Deck title pages, which carry no header and no page number.
 \newcommand{\titleslide}[3]{%
   \thispagestyle{empty}%

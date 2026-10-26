@@ -29,6 +29,11 @@ Along the way, you’ll see how game theory draws on a wide range of mathematica
 numerical integration of differential equations, and Markov chains.
 This makes this module a great option whether you’re looking to apply familiar techniques or encounter these topics for the first time.
 
+Part way through the module I collect anonymous feedback on what is working and
+what is not. Every comment, from every year the module has run in this form,
+together with what I did about it, is on the
+[Mid-module feedback](/feedback/) page.
+
 All course materials are available online at
 [vknight.org/gt/](http://vknight.org/gt/). You can also find all the source
 files that create that website at
@@ -40,9 +45,10 @@ There are 2 components to the course content, all of which can be found at this
 site.
 
 - The course notes we will use is the open source text book available here:
-  [https://vknight.org/gtb/](https://vknight.org/gtb/). The textbook contains
-  every topic we cover, together with exercises, worked solutions and the
-  programming material. Note that not every chapter of the textbook is on the
+  [https://vknight.org/gtb/](https://vknight.org/gtb/), or as
+  [a single PDF](https://vknight.org/gtb/pdf/main.pdf) if you would rather
+  download it and annotate it. The textbook contains every topic we cover,
+  together with exercises, worked solutions and the programming material. Note that not every chapter of the textbook is on the
   course: the schedule lists what is examinable, but you are very welcome to read
   the other chapters too.
 - Content we will generate in class: through our discussions and activities we

@@ -505,3 +505,175 @@ tr:last-child td { border-bottom: none; }
   h2 { font-size: 1.25rem; }
   header { padding: 0 1rem; }
 }
+
+/* ---- Mid-module feedback -------------------------------------- */
+.feedback-round {
+  margin-top: 2.5rem;
+}
+
+.feedback-meta {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: -0.75rem;
+}
+
+.feedback-question {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.feedback-question summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.feedback-question summary span {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.feedback-responses {
+  margin: 1rem 0 0.5rem;
+  padding-left: 1.25rem;
+}
+
+.feedback-responses li {
+  margin-bottom: 0.6rem;
+  color: var(--text-muted);
+  white-space: pre-line;
+}
+
+/* A student comment, set above the answer to it, so the two do not run
+   together as one paragraph. */
+.feedback-round blockquote {
+  background: var(--surface);
+  border-left: 3px solid var(--teal);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.7rem 1rem;
+  margin: 1.75rem 0 0.75rem;
+  color: var(--text);
+  font-style: normal;
+}
+
+.feedback-round blockquote p {
+  margin: 0;
+}
+
+.feedback-round blockquote + p {
+  margin-top: 0;
+}
+
+/* ---- Feedback figures ------------------------------------------ */
+/* Two categorical colours, chosen per mode against that mode's chart
+   surface and checked for colour-vision separation rather than by eye. */
+:root {
+  --viz-a: #5b8ae6;
+  --viz-b: #cf7a3f;
+}
+
+[data-theme="light"] {
+  --viz-a: #1e66f5;
+  --viz-b: #fe640b;
+}
+
+.feedback-figure {
+  margin: 1.75rem 0 2rem;
+}
+
+.feedback-figure h3 {
+  margin-bottom: 0.75rem;
+}
+
+.feedback-figure figcaption {
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  margin-top: 0.6rem;
+}
+
+.dot-grid {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+
+.dot-group-1 circle { fill: var(--viz-a); }
+.dot-group-2 circle { fill: var(--viz-b); }
+.dot-group-3 circle { fill: var(--text-muted); }
+
+.feedback-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0.9rem 0 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.feedback-legend li {
+  margin-bottom: 0.3rem;
+}
+
+.feedback-legend li::before {
+  content: "";
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  vertical-align: baseline;
+}
+
+.feedback-legend .legend-1::before { background: var(--viz-a); }
+.feedback-legend .legend-2::before { background: var(--viz-b); }
+.feedback-legend .legend-3::before { background: var(--text-muted); }
+
+.feedback-legend strong { color: var(--text); }
+
+.theme-row {
+  display: grid;
+  grid-template-columns: minmax(0, 14rem) 1fr 2rem;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.875rem;
+}
+
+.theme-label {
+  color: var(--text-muted);
+}
+
+.theme-track {
+  display: block;
+  height: 0.9rem;
+}
+
+.theme-bar {
+  display: block;
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+}
+
+.theme-works { background: var(--viz-a); }
+.theme-asks { background: var(--viz-b); }
+
+.theme-count {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .theme-row {
+    grid-template-columns: 1fr 2rem;
+    grid-template-areas: "label count" "track track";
+    row-gap: 0.25rem;
+  }
+  .theme-label { grid-area: label; }
+  .theme-count { grid-area: count; }
+  .theme-track { grid-area: track; }
+}

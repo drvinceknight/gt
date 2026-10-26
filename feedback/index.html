@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feedback — Game Theory</title>
+  <link rel="shortcut icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../assets/css/style.css?v=625df19a">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath:  [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="../">Game Theory</a>
+    <nav>
+      <ul>
+        <li><a href="../start-here/">Start here</a></li>
+        <li><a href="../">Schedule</a></li>
+        <li><a href="../assessment/">Assessment</a></li>
+        <li><a href="../feedback/">Feedback</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = stored || (prefersDark ? 'dark' : 'light');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      document.addEventListener('DOMContentLoaded', function () {
+        var btn = document.getElementById('theme-toggle');
+        btn.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? '🌙' : '☀️';
+        btn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme');
+          var next = current === 'light' ? 'dark' : 'light';
+          if (next === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+          btn.textContent = next === 'light' ? '🌙' : '☀️';
+          localStorage.setItem('theme', next);
+        });
+      });
+    })();
+  </script>
+
+  <div class="container">
+    
+
+<h1 id="feedback">Feedback</h1>
+<p>Part way through the module, and again at the end of it, I give over part of a
+class to anonymous feedback: what is working, what is not, and anything else you
+want to tell me. Every round is kept on this page, newest first, exactly as it
+was written and with my response to it, so the record builds up year on year.</p>
+<p>I publish it for two reasons. The first is that you can see the feedback is read
+and acted on rather than collected and filed. The second is that the comments
+tell you what the people who sat in your seat found hard, which is useful when
+you are working out how to study.</p>
+<p>Responses appear as they were submitted, including the typos. A few are cut
+short because the polling tool limits how much can be typed into one answer.</p>
+
+
+<section class="feedback-round">
+  <h2>Mid-module feedback, 2026/27</h2>
+  <p class="feedback-meta">
+    2026-10-23 &middot; 138 responses
+  </p>
+
+  
+  
+  <figure class="feedback-figure">
+    <svg viewBox="0 0 400 71"
+         class="dot-grid" role="img"
+         aria-label="57 voters: 39 said what works, and asked for something too, 18 said only what works, 0 asked for something, and said nothing that works.">
+      
+      
+      <g class="dot-group dot-group-1">
+        <title>Said what works, and asked for something too: 39</title>
+        
+        <circle cx="9"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="28"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="47"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="66"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="85"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="104"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="123"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="142"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="161"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="180"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="199"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="218"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="237"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="256"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="275"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="294"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="313"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="332"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="351"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="370"
+                cy="9" r="7"/>
+        
+        
+        <circle cx="9"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="28"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="47"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="66"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="85"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="104"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="123"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="142"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="161"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="180"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="199"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="218"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="237"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="256"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="275"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="294"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="313"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="332"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="351"
+                cy="28" r="7"/>
+        
+        
+      </g>
+      
+      <g class="dot-group dot-group-2">
+        <title>Said only what works: 18</title>
+        
+        <circle cx="370"
+                cy="28" r="7"/>
+        
+        
+        <circle cx="9"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="28"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="47"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="66"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="85"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="104"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="123"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="142"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="161"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="180"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="199"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="218"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="237"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="256"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="275"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="294"
+                cy="47" r="7"/>
+        
+        
+        <circle cx="313"
+                cy="47" r="7"/>
+        
+        
+      </g>
+      
+      <g class="dot-group dot-group-3">
+        <title>Asked for something, and said nothing that works: 0</title>
+        
+      </g>
+      
+    </svg>
+    <ul class="feedback-legend">
+      
+      <li class="legend-1">Said what works, and asked for something too:
+        <strong>39</strong></li>
+      
+      <li class="legend-2">Said only what works:
+        <strong>18</strong></li>
+      
+      <li class="legend-3">Asked for something, and said nothing that works:
+        <strong>0</strong></li>
+      
+    </ul>
+    <figcaption>Everybody who voted, one dot each. Nobody asked for a change
+      without first saying what works.</figcaption>
+  </figure>
+  
+
+  <p>Collected in class on 23 October 2026, in week 4 of the module. Fifty-seven of
+you answered the first question, 39 the second and 17 the third.
+Thank you.</p>
+<h3 id="what-works">What works</h3>
+<p>Forty-seven of the 73 comments on what works name the activities: the games
+keep the room awake, and several of you say that playing a game first and
+meeting the theory afterwards helps with the theory. Twenty-eight
+mention the website, the notes, the worked solutions or the video walkthroughs.
+The enthusiasm, the questions in class and the bribentives all get a mention
+too. None of that is changing.</p>
+<h3 id="what-does-not-work">What does not work</h3>
+<p>One theme dominates, and it is a fair one. Thirty of the 47 comments on what has
+not worked are about the mathematical content: the definitions, the theorems and the
+notation in the notes, how much of them appears in class, and how clearly the
+game we have just played connects to them. Several of you put it as "sometimes
+it feels like we just play games", and several more said that the subgame
+perfection class, where we played the Traitors and then wrote the centipede game
+out on the board, was a good mix. </p>
+<p>Twelve comments ask for more exam-style work in class and a clearer statement of
+which proofs and definitions are examinable. Six are about the games themselves,
+mostly that the rules are not clear enough when you play in pairs. Five ask for
+resources: the slides, a version of the notes you can download and annotate,
+more past papers, and better handwriting in the videos. Three are about the
+room, which I will get back to below.</p>
+<h3 id="what-i-am-doing">What I am doing</h3>
+<ol>
+<li>Every class will end on the notes. Each slide carries the numbered section
+   of the <a href="https://vknight.org/gtb/">textbook</a> it is reading, and the last slide
+   will summarise them into one table, marks what is examinable, and says what to read
+   before the next class.</li>
+<li>More of each class will be spent turning the game into notation, the way
+   the subgame perfection class did.</li>
+<li>When an examinable theorem comes up, I will say so in class and point at
+   the <a href="../assessment/">list of examinable theorems</a>.</li>
+<li>The slide decks are on the site already, linked at the foot of every topic
+   page, so you can read them before class and keep them afterwards. I will not
+   be uploading the versions I annotate live.</li>
+<li>I will add a summary of rules of each game slide to stay on screen while you play it, so you are not
+   working from memory once you are in pairs.</li>
+<li>The notes are linked as a PDF you can download and annotate, at the foot of
+   every topic page.</li>
+<li>Last year's exam paper is on the <a href="../assessment/">Assessment</a> page.</li>
+</ol>
+<h3 id="single-comments-worth-answering">Single comments worth answering</h3>
+<p>Most of what follows was said by one person, which does not make it less worth
+answering.</p>
+<blockquote>
+<p>If you could sometimes chuck up a definition or a theorem on the slides.</p>
+</blockquote>
+<p>Every slide now names the numbered section of the notes it is reading, and the last
+slide of each class gathers them into one table.</p>
+<blockquote>
+<p>It is unclear what I am meant to be taking away from each lecture. Perhaps a speedy
+summary would help?</p>
+</blockquote>
+<p>That same closing slide is the summary, and it ends with what to read before the next
+class.</p>
+<blockquote>
+<p>You have mentioned some topics on the website are not in the exam, can you mention
+which ones are not?</p>
+</blockquote>
+<p>The <a href="../">schedule</a> is the examinable list: if a topic is not on it, it is not in the
+exam. The <a href="../assessment/">Assessment</a> page lists the theorems whose proofs you need on
+top of that.</p>
+<blockquote>
+<p>Is there any way of downloading the notes to a device so I can annotate?</p>
+</blockquote>
+<p>Yes. The whole textbook is available as <a href="https://vknight.org/gtb/pdf/main.pdf">one
+PDF</a>, linked at the foot of every topic page.
+One warning: the PDF is a snapshot, so any typos and small mistakes in it stay in it.
+I fix those in the web version as they are found, so check there if something looks
+wrong.</p>
+<blockquote>
+<p>Please can you upload the PowerPoints used in class.</p>
+</blockquote>
+<p>They are already on the site, linked from every topic page, so you can read a deck
+before class as well as after.</p>
+<blockquote>
+<p>Any more past exams available from previous years?</p>
+</blockquote>
+<p>Last year's paper is now on the <a href="../assessment/">Assessment</a> page.</p>
+<blockquote>
+<p>Maybe more quiz questions, the short form ones at the end of lectures.</p>
+</blockquote>
+<p>I will keep this in mind. I had intended for the quizzes to be simple things for
+you to do if you had 5 minutes but they did work well during the traitors
+session. When we have time I will do a quizz in class.</p>
+<blockquote>
+<p>Could you try making notes in the notes app with your pen? A scrolling board is
+easier to follow than an infinite whiteboard.</p>
+</blockquote>
+<p>A fair point. I will run the next example class that way.</p>
+<blockquote>
+<p>I have not done discrete maths before and the notation at the start did not make
+much sense.</p>
+</blockquote>
+<p>You were not the only one. Every symbol we use is defined in chapter 2 of the notes,
+utility included, before anything is built on it. I hope you feel like you can ask me
+if you're ever unsure.</p>
+<blockquote>
+<p>The handwriting in the videos is like reading ancient greek: beautiful but I do not
+know what it means.</p>
+</blockquote>
+<p>Fair. I will try and do better next time.</p>
+<blockquote>
+<p>I personally dislike 2.26 because the tables are an odd shape. I think it is unclear
+how many people are meant to fit on a table which discourages people from making
+space for others.</p>
+</blockquote>
+<p>I should admit that I like the room. It is one of the few teaching spaces where
+everybody can see everybody else and where a game can spread across the floor, which is
+most of why this module is taught the way it is. That does not make it a good room to
+write in, and the tables really are an odd shape. Somebody also asked about the
+temperature in there, which is a fair question.</p>
+<blockquote>
+<p>I like your approach to class q/a in the way that each response is genuinely
+appreciated even if it's wrong, it encourages engagement.</p>
+</blockquote>
+<p>Thank you, and thank you to everybody who answers in class. A wrong answer out loud is
+worth more than a right one kept quiet: it tells me exactly where to go next, and the
+person who offers it has done the whole room a favour. That is not changing, so keep
+putting your hand up.</p>
+<p>Honeydew melon, Lidl bakery items, KitKats and fruit have all been proposed as
+bribentives. Noted.</p>
+<p>The balance I am not changing is the order: activity first, theory second. The
+games are not a break from the content, they are the thing the content is about,
+and the feedback above is what tells me the join needs to be tighter.</p>
+
+  
+  <figure class="feedback-figure">
+    <h3>What the comments were about</h3>
+    
+    <div class="theme-bars">
+      
+      <div class="theme-row" title="The activities and the games: 47 comments">
+        <span class="theme-label">The activities and the games</span>
+        <span class="theme-track">
+          <span class="theme-bar theme-works"
+                style="width: 100.0%"></span>
+        </span>
+        <span class="theme-count">47</span>
+      </div>
+      
+      <div class="theme-row" title="The website, notes, solutions and videos: 28 comments">
+        <span class="theme-label">The website, notes, solutions and videos</span>
+        <span class="theme-track">
+          <span class="theme-bar theme-works"
+                style="width: 59.6%"></span>
+        </span>
+        <span class="theme-count">28</span>
+      </div>
+      
+      <div class="theme-row" title="More theory in class, tied to the games: 30 comments">
+        <span class="theme-label">More theory in class, tied to the games</span>
+        <span class="theme-track">
+          <span class="theme-bar theme-asks"
+                style="width: 63.8%"></span>
+        </span>
+        <span class="theme-count">30</span>
+      </div>
+      
+      <div class="theme-row" title="More exam work, and what is examinable: 12 comments">
+        <span class="theme-label">More exam work, and what is examinable</span>
+        <span class="theme-track">
+          <span class="theme-bar theme-asks"
+                style="width: 25.5%"></span>
+        </span>
+        <span class="theme-count">12</span>
+      </div>
+      
+      <div class="theme-row" title="The games themselves: rules, length: 6 comments">
+        <span class="theme-label">The games themselves: rules, length</span>
+        <span class="theme-track">
+          <span class="theme-bar theme-asks"
+                style="width: 12.8%"></span>
+        </span>
+        <span class="theme-count">6</span>
+      </div>
+      
+      <div class="theme-row" title="Resources: slides, notes to annotate, videos: 5 comments">
+        <span class="theme-label">Resources: slides, notes to annotate, videos</span>
+        <span class="theme-track">
+          <span class="theme-bar theme-asks"
+                style="width: 10.6%"></span>
+        </span>
+        <span class="theme-count">5</span>
+      </div>
+      
+      <div class="theme-row" title="The room: 3 comments">
+        <span class="theme-label">The room</span>
+        <span class="theme-track">
+          <span class="theme-bar theme-asks"
+                style="width: 6.4%"></span>
+        </span>
+        <span class="theme-count">3</span>
+      </div>
+      
+    </div>
+    <ul class="feedback-legend">
+      <li class="legend-1">What works</li>
+      <li class="legend-2">What has not worked</li>
+    </ul>
+    <figcaption>Comments counted by subject. One comment can touch more than
+      one of these.</figcaption>
+  </figure>
+  
+
+  <h3>The responses</h3>
+  
+  <details class="feedback-question">
+    <summary>Please note any features of this module that you feel work well, and why they help you to learn. <span>(73)</span></summary>
+    <ul class="feedback-responses">
+      
+      <li>Examples to explain topics</li>
+      
+      <li>i like that the lectures are very interactive</li>
+      
+      <li>Interactive so helps keep attention</li>
+      
+      <li>fun and interactive lectures</li>
+      
+      <li>Playing the games helps me understand how they really work and the underlying theory behind them.</li>
+      
+      <li>Interactivity keeps me engaged during the lecture</li>
+      
+      <li>The interactive games help a lot. I like how we first play it and then you explain the theory behind it.</li>
+      
+      <li>very engaging, makes 9am&#x27;s much more bearable</li>
+      
+      <li>Engaging and interactive</li>
+      
+      <li>The games are very engaging and provide a practical intuition for the topics</li>
+      
+      <li>The website for the course content is great :)</li>
+      
+      <li>interaction</li>
+      
+      <li>Example classes, help with understanding how the content applies to the exam</li>
+      
+      <li>very engaging lectures</li>
+      
+      <li>interactive , playing games with class mates helps understand better , good slides and very comprehensive teaching</li>
+      
+      <li>Examples that are used to explain the topics and the textbook uploaded by vince</li>
+      
+      <li>Interactive so keeps attention</li>
+      
+      <li>Interactive class and is engaging</li>
+      
+      <li>The game demonstrations work to help visualise the games really well. The website is really clear and SO SO helpful I cannot overstate how much I appreciate the website and the textbook.</li>
+      
+      <li>Doing interactive games and relating them to the formal notes is good actually helps you understand and learn better</li>
+      
+      <li>Its fun to be involved and play game. And also the balance of doing question and presentation mixes well</li>
+      
+      <li>Interactive teaching, explains things clearly, passionate about what he does, notes are clear as well as examples and exam style questions for all topics</li>
+      
+      <li>Very interactive and keeps me awake at 9am, probably the most I’ve ever looked forward to lectures :)</li>
+      
+      <li>The interactive games played in the lectures help with understanding the core concepts from the notes and makes the lectures themselves very enjoyable :)</li>
+      
+      <li>chocolate 😋</li>
+      
+      <li>I like the examples we go through in class, but I’m concerned about the connect with the material in the notes/exam material</li>
+      
+      <li>Notes are in depth, lots of questions and solutions which is GREAT to help work through ideas. Love all the structure, tools and resources. It is a lot of content, but better to have too many than not</li>
+      
+      <li>The example games help to understand the theory in context and also help motivate the maths</li>
+      
+      <li>The lectures are very interactive. A good environment for asking questions. Lots of examples in the notes to help understanding</li>
+      
+      <li>Lots of examples and exercise questions</li>
+      
+      <li>Vince is enthusiastic about the subject and has great energy</li>
+      
+      <li>Interactions and explanation of topics</li>
+      
+      <li>Very good showing and playing through examples. Good website. Chocolate is a good reward.</li>
+      
+      <li>The games are engaging and I like the website it’s very useful with many different features</li>
+      
+      <li>Visual examples help actually understand application of theory and layout of notes and number of examples provided which help with revision great professor</li>
+      
+      <li>Interactive games to practically show what’s going on with the maths</li>
+      
+      <li>I think the lectures while engaging and help learnt the application.</li>
+      
+      <li>Interactive class activities, plenty of opportunities to ask questions, approachable and passionate lecturer, helpful exercises on the textbook website</li>
+      
+      <li>Good examples and fun lessons since class is involved in the examples. Helps put what we learn from notebooks into real life scenarios.</li>
+      
+      <li>very interactive and doesn’t make me fall asleep</li>
+      
+      <li>Interesting games, interactive and can provide links to topics</li>
+      
+      <li>The lectures are extremely engaging. I enjoy the games and the fill-in-the-slide type slides  are very useful. They’re not too busy that I can’t copy down the slide and the fill in the blank too. :)</li>
+      
+      <li>You’ve mentioned some topics on the website aren’t in the exam can you mention which ones aren’t?</li>
+      
+      <li>Lectures are really engaging! The notes to study outside of class are good too :)</li>
+      
+      <li>You’re really good at engaging with the class. It makes going through the notes more enjoyable. The notes themselves and the website is also very good.</li>
+      
+      <li>I like the active examples that help me visualise the more formal notes. Lots of questions and video solutions good as well.</li>
+      
+      <li>More exam questions</li>
+      
+      <li>Fun games</li>
+      
+      <li>super interactive which is a nice break from the rest of the degree as a student
+everything being online on the website from the get go is so so beneficial</li>
+      
+      <li>Struggling with understanding what is going on in the notes, especially around notation and methods and would appreciate a little more time in class just going over this.</li>
+      
+      <li>The games are great fun and the resources on your website are incredibly useful. You are so enthusiastic about the subject which makes listening to you very easy</li>
+      
+      <li>Na</li>
+      
+      <li>Games in class ease into concepts</li>
+      
+      <li>The lecturers are great for general concepts. The only complaint is about the use of python in the notes on the website, I’m sure it’s useful for some but makes it harder for me personally to understa</li>
+      
+      <li>Giving some formal definitions or proofs during practical games would be useful to link back. Especially the super key definitions we need. We know where to find but being reminded helps link between</li>
+      
+      <li>I find the lecture slides very well made and the flow diagrams are amazing for seeing decisions.</li>
+      
+      <li>Practical examples in lectures.
+Having access to all course notes, and module schedule (what we are covering each week).
+Please can we have honeydew melon as a bribentive.</li>
+      
+      <li>slightly hard to link to actual exam</li>
+      
+      <li>I find lectures engaging, but sometimes feels like i cant connect the content to the lecture notes/definiti, but for example today doing the example for subgames really helped me understand the te</li>
+      
+      <li>Clearer explanation for the rules of the games when played individually and more links to the notes, maybe throughout the lectures. Traitors game doing the quiz was really good.</li>
+      
+      <li>Very interactive which is great. Can we have Lidl bakery items as a prize</li>
+      
+      <li>The interactive games are fun and helpful once you have gone through the lecture notes. If you haven’t been through them before monday morning it can be a bit tricky to catch on.</li>
+      
+      <li>The chocolates make my day</li>
+      
+      <li>Interactive sessions are engaging and therefore aid in my ability to actually digest the content.</li>
+      
+      <li>Lots of practice tools are useful to practice revisions. Just a lack of time to do them</li>
+      
+      <li>If you could sometimes chuck up a definition or a theorem on the slides so we can get a view of the more formal side of the module and where we’re up to</li>
+      
+      <li>Really cool module different to any others I’ve experienced (in a good way). Love how structured everything is. Website is amazing. Love the in class games and examples. Vince is fun and enthusiastic</li>
+      
+      <li>Feels wrong to assume random voting in The Traitors (some justification of that please). Changing rules (mid game) of prisoners game to avoid coordination to get chocolate.</li>
+      
+      <li>I dislike 2.26 because the tables are an annoying shape if you want to write. Its also unclear how many people are meant to fit on a table which I think makes people less likely to make space for othe</li>
+      
+      <li>I like your approach to class q/a in the way that each response is genuinely appreciated even if it’s wrong, it encourages engagement.</li>
+      
+      <li>It feels like some lectures we JUST play the games, and the last few mins are scrambling to teach content and it feels rushed</li>
+      
+      <li>More direction to where we are in the notes, and maybe even a ‘what do to between lectures’ moment at the end to make sure we are all were you need us to be</li>
+      
+      <li>Next example class, could you try making notes in the ‘notes’ app still with your ‘pen’, it might be easier to follow a scrolling board rather than an infinite whiteboard</li>
+      
+    </ul>
+  </details>
+  
+  <details class="feedback-question">
+    <summary>Please note any features of this module that you feel have not worked well, and suggest any potential changes that might help to address these. <span>(47)</span></summary>
+    <ul class="feedback-responses">
+      
+      <li>The notes are a lot more advanced than what we cover in lectures</li>
+      
+      <li>If you covered more of the notes. For example, the notations, formulas, etc</li>
+      
+      <li>More exam examples</li>
+      
+      <li>Bit more reference to notes i think</li>
+      
+      <li>Too many people for the small rooms</li>
+      
+      <li>sometimes it helps when the games we play are explained a little more</li>
+      
+      <li>Explain what we have to do slightly more when we do the in class games between ourselves</li>
+      
+      <li>Longer spent on defns and theorems as hard to link to content sometimes</li>
+      
+      <li>Sometimes I feel we don’t cover the content but just play games</li>
+      
+      <li>Having to work through notes in own time</li>
+      
+      <li>Sometimes not enough theory. The lecture this morning felt like a good mix of the two of doing a game and also writing stuff in the board. Helpful to actively be translating game to stuff on paper</li>
+      
+      <li>Cover more the content like a normal lecture</li>
+      
+      <li>Would prefer more theory in lectures</li>
+      
+      <li>sometimes struggle to understand the actual theory parts in notes from the lectures</li>
+      
+      <li>Would like a bit more theory/lecture note content in lectures. The games don&#x27;t need to last all lecture</li>
+      
+      <li>Hi there, I really like the module, it&#x27;s brilliant but may you please do fewer examples of the games such as one traitor round. I find the lecture slides with maths more intuitive than the games</li>
+      
+      <li>Pointing at specific theorems in the notes as you explain why certain outcomes, behaviours have occurred</li>
+      
+      <li>handwriting in the youtube videos could be improved</li>
+      
+      <li>I think it would be good if we did more exam style work in lectures and covered more lecture notes</li>
+      
+      <li>its hard to see how the stuff we have done in lectures so far could be examined in a formal exam, would love to see more exam type questions</li>
+      
+      <li>The theory in the notes can be confusing and then is not explained in lectures</li>
+      
+      <li>The proofs can sometimes be quite confusing in the notes so maybe if you could go through the examinable ones?</li>
+      
+      <li>Lectures don’t really cover the theoretical content which is a lot harder to grasp than any example game</li>
+      
+      <li>The notes definitions and theorems that we will be assessed in the exams don’t seem to be as prevalent in lectures.</li>
+      
+      <li>None really you are super helpful</li>
+      
+      <li>More time on defns and link the games played to the notes</li>
+      
+      <li>Helpful to be writing stuff down ourselves too. Even if not super mathematical. Converting game being played to paper helps get equipped with the notation and mathematics</li>
+      
+      <li>Have a little more in class structure with notes like showing actual definitions or walking through them before demonstrations starts</li>
+      
+      <li>Shorter games more links to notes and clearer indication of what exactly we need to know, lectures sometimes lack exactly which proofs etc are needed for exam</li>
+      
+      <li>More linking the interactive games we do in lecture to the notes and questions, so maybe more going through examples.</li>
+      
+      <li>Introductions to more language that is used within the notes to make them more readable/ easier to understand</li>
+      
+      <li>would like more time spent on exam type questions and answering them in class like recently</li>
+      
+      <li>Feels like we don&#x27;t spend long enough on actual theorems, notation, equations etc. Although the games in class are fun, I&#x27;d prefer to cover more content in class so there&#x27;s less self-teaching</li>
+      
+      <li>Dont need to go through every definition and take thorough notes in lecture but id appreciate examples that r directly connected to the method in textbook examples, such as subgames today</li>
+      
+      <li>Relate the games we play to the content, today’s lecture was a good mix of theory and games</li>
+      
+      <li>Just doing games is fine, I know it’s expected to do notes prior to coming to class or doing the notes after the lesson since we can relate with it, however covering even a little amount would be good</li>
+      
+      <li>today’s lecture (friday 22/10) was a perfect blend of games and theory/teaching. it’s a lot easier to understand the content and the links to real games</li>
+      
+      <li>Some of the games sessions feel too not linked, like Traitors. Could use the time learning theory instead. Some more explicit calculations would be useful too</li>
+      
+      <li>I personally dislike 2.26 because the tables are an odd shape. I think it is unclear how many people are meant to fit on a table which discourages people from making space for others.</li>
+      
+      <li>Love how clear and structured the website is but I like being able to download notes so I have a copy if there’s any way of downloading the notes to a device so I can annotate?</li>
+      
+      <li>I do enjoy the fact that the games are interactive, and don’t get me wrong I enjoyed the lecture but when we did the traitors bit, I found the approach interesting but I think it could’ve been 10 mins</li>
+      
+      <li>Please can you upload the PowerPoints used in class so we have access after the class</li>
+      
+      <li>Assuming random voting in The Traitors game feels wrong (needs more justification please). Changing rules of prisoners game mid game to avoid coordination to get chocolate.</li>
+      
+      <li>Handwriting in the youtube videos is like reading ancient greek: beautiful but I don’t know what it means.</li>
+      
+      <li>despite the whole schedule being online, i feel that it is unclear what I am meant to be &quot;taking away&quot; from each lecture. Perhaps a speedy summary would help?</li>
+      
+      <li>Unless I short circuited, I don&#x27;t think that the notation used made much sense @ start. I havent done discrete maths before but a friend told me what utility was. Its in the notes but I was confused</li>
+      
+      <li>What on earth is the temperature in that room. is this a comat problem? hyb problem? can you feedback to them that its very strange</li>
+      
+    </ul>
+  </details>
+  
+  <details class="feedback-question">
+    <summary>If you would like to add any additional comments related to the module, please include them here. <span>(18)</span></summary>
+    <ul class="feedback-responses">
+      
+      <li>I like chocolate</li>
+      
+      <li>Vince &lt;3</li>
+      
+      <li>Fewer games and more worked examples in the class. But otherwise it&#x27;s a great module. Thanks</li>
+      
+      <li>Bring some fruit in for healthy rewards??</li>
+      
+      <li>🫶🫶🫶</li>
+      
+      <li>Any more past exams available from previous years?</li>
+      
+      <li>Is there chocolate in the exam?</li>
+      
+      <li>Kitkats for bribentives</li>
+      
+      <li>Maybe more quiz questions, the short form ones at the end of lectures. Like 5 quick ones to make sure I remember the core concepts.</li>
+      
+      <li>Ur my goat</li>
+      
+      <li>N/A</li>
+      
+      <li>More traitors</li>
+      
+      <li>Really enjoying so far, just a lot of content to work through so struggling to cope with all content. Any tips or clear signposting would be useful</li>
+      
+      <li>Really cool module, love how it’s being taught :)</li>
+      
+      <li>Hope you have a good weekend</li>
+      
+      <li>Your overall approach to the module makes it enjoyable, I follow along with the notes also as ultimately I’m just trying to get a good grade. I feel like some more of that could be included in lecture</li>
+      
+      <li>💅</li>
+      
+      <li>Lidl bakery items for prizes</li>
+      
+    </ul>
+  </details>
+  
+</section>
+
+
+
+  </div>
+
+  <script src="../assets/js/quiz.js" defer></script>
+</body>
+</html>

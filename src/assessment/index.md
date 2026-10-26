@@ -13,6 +13,7 @@ You can find:
 
 - an [example exam here]({{site.baseurl}}/assets/assessment/example-exam/main.pdf) with [solutions here]({{site.baseurl}}/assets/assessment/example-exam/solutions.html).
 - a [mock exam (that we will work through in class) here]({{site.baseurl}}/assets/assessment/mock-exam/main.pdf) with [solutions here]({{site.baseurl}}/assets/assessment/mock-exam/solutions.html).
+- the [2025/26 exam here]({{site.baseurl}}/assets/assessment/past-exams/2025-2026/main.pdf) with [solutions here]({{site.baseurl}}/assets/assessment/past-exams/2025-2026/solutions.pdf).
 
 ## List of examinable theorems and proofs
 

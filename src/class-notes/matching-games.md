@@ -14,6 +14,12 @@ tags:
 preference lists waiting to be filled in, then four copies of the bipartite
 diagram so each round of proposals can be drawn on top of the last.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class. The rules of the activity sit on the slide
+that is up while the room plays, so a pair working alone is not going from
+memory.
+
 Use [this preference sheet](/assets/activities/matching-scientists/main.pdf) and
 ask students to work in groups to identify preferences for each mathematician and
 physicist.
@@ -77,6 +83,11 @@ game.solve()
 
 Show students the notes, when you get to the algorithm work through the
 algorithm with the students.
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Matching Games topic
+page](/topics/matching-games.html): five questions on the screen, answered by a
+show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 

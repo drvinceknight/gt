@@ -13,6 +13,12 @@ tag: rationalisation
 the game, a table for the six rounds played in pairs, and the three-mix table
 that used to be a separate sheet, so nothing else needs printing.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class. The rules of the activity sit on the slide
+that is up while the room plays, so a pair working alone is not going from
+memory.
+
 **First, in pairs.** Pair the students up and have them decide who is the row
 player. They play two games, six rounds each, choosing at the same time, and
 fill in every column: both actions, both payoffs and both running totals.
@@ -55,6 +61,11 @@ relevant to the game we played.**
 
 Discussion Point: **How does the best response condition apply to the matching
 pennies game we played in class?**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Nash Equilibrium topic
+page](/topics/nash-equilibrium.html): five questions on the screen, answered by
+a show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 

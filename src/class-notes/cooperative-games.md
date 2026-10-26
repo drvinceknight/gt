@@ -15,6 +15,12 @@ split the proceeds fairly when the parts did not contribute equally.
 seven coalition scores as boxes to fill in as the class calls them out, then the
 six orderings as a table of marginal contributions.
 
+Every slide of the deck names the numbered section of the notes it is reading,
+and the last slide gathers them into one table, marks what is examinable and
+sets the reading for the next class. The rules of the activity sit on the slide
+that is up while the room plays, so a pair working alone is not going from
+memory.
+
 Run "The revision aid". The whole room plays at once in teams of three (about
 twenty teams in a class of sixty). In roughly twelve minutes each team makes a
 one-page revision aid for a game theory topic, on a single poster with three
@@ -69,6 +75,11 @@ already there; the same part contributes more in company.**
 
 Discussion Point: **After the definition of the Shapley value, ask for the steps,
 then work through the six orderings for the winning aid.**
+
+**Close on the last slide.** It names what the class was reading and sets the
+reading for next time. Then run the quick quiz from the [Cooperative Games topic
+page](/topics/cooperative-games.html): five questions on the screen, answered by
+a show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 
