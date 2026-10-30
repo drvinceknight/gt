@@ -23,8 +23,10 @@ that is up while the room plays, so a pair working alone is not going from
 memory.
 
 **First class.** Watch the Golden Balls video. Then split the class into four
-teams and run an iterated Prisoner's Dilemma tournament, each team submitting a
-strategy that is played against every other team:
+teams and run an iterated Prisoner's Dilemma tournament. The teams play the game
+themselves rather than submitting a strategy: every pair of teams plays five
+rounds, choosing at the same time each round, and no team plays itself. With
+four teams that is six matches:
 
 $$
 A =
@@ -40,9 +42,11 @@ B =
 \end{pmatrix}
 $$
 
-Keep a running scoreboard and hand out a bribentive to the winning team.
+The deck's scoreboard has a box for each team against each opponent, with the
+diagonal closed off, so each match's score goes in as it finishes. Hand out a
+bribentive to the winning team.
 
-**Second class.** Reveal the strategies each team played and rank them. Discuss
+**Second class.** Ask each team to say how they played, then rank them. Discuss
 which did well and why, drawing out reciprocity, retaliation and forgiveness.
 Ask each team to write their strategy as a reactive strategy $(p, q)$, where $p$
 is the probability of cooperating after the opponent cooperated and $q$ after

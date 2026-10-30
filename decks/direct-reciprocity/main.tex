@@ -3,15 +3,31 @@
 
 \deckname{Direct reciprocity}
 
+% One match of the tournament: five rounds of C or D for each team, then the
+% score each took from it. Teams never meet themselves, so only the six pairs
+% appear.
+\newcommand{\match}[4]{%
+  \node[anchor=west, text=inkblue, font=\small\bfseries]
+    at (#1,#2+0.62) {#3 v #4};
+  \foreach \team [count=\r from 0] in {#3,#4}{%
+    \node[anchor=east, text=inkgrey, font=\scriptsize]
+      at (#1+0.95,#2-0.62*\r) {\team};
+    \foreach \round in {1,...,5}{%
+      \draw[inkfaint, line width=0.7pt, rounded corners=2pt, fill=white]
+        (#1+0.2+0.9*\round,#2-0.62*\r-0.25)
+        rectangle (#1+0.95+0.9*\round,#2-0.62*\r+0.25);}
+    \draw[inkfaint, line width=0.7pt, rounded corners=2pt, fill=inksurface]
+      (#1+5.85,#2-0.62*\r-0.25) rectangle (#1+7.0,#2-0.62*\r+0.25);}}
+
 \begin{document}
 
 \titleslide{Direct reciprocity}{Four teams, one tournament, and what
  survived}{%
     \begin{tikzpicture}[font=\small]
       \stepbox{s0}{0.0}{\textbf{First class}\\[0.25em]
-        Submit a strategy. Play everyone.}
+        Five rounds against every other team.}
       \stepbox{s1}{6.9}{\textbf{Second class}\\[0.25em]
-        Reveal the strategies. Rank them.}
+        Name how you played. Rank the teams.}
       \stepbox{s2}{13.8}{\textbf{Then}\\[0.25em]
         Write each one as a pair \((p, q)\).}
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
@@ -26,42 +42,52 @@
 \slidehead{The stage game, and the scoreboard}
 \notesref{8.2.1}{Direct Reciprocity: Definition: Prisoner's Dilemma}
 
-\vspace{0.2cm}
+\vspace{-0.1cm}
 
-\begin{minipage}[c]{0.42\linewidth}
+\begin{minipage}[c]{0.28\linewidth}
 \begin{center}
-\payoffgrid{C, D}{%
-  \node at (1.35,-1) {\Large $3$};
-  \node at (4.05,-1) {\Large $0$};
-  \node at (1.35,-3) {\Large $5$};
-  \node at (4.05,-3) {\Large $1$};}
+\begin{tikzpicture}[scale=0.82, every node/.style={transform shape}]
+  \node at (0,0) {\payoffgrid{C, D}{%
+    \node at (1.35,-1) {\Large \(3\)};
+    \node at (4.05,-1) {\Large \(0\)};
+    \node at (1.35,-3) {\Large \(5\)};
+    \node at (4.05,-3) {\Large \(1\)};}};
+\end{tikzpicture}
 \end{center}
 \end{minipage}
 \hfill
-\begin{minipage}[c]{0.54\linewidth}
+\begin{minipage}[c]{0.68\linewidth}
 \begin{tikzpicture}[font=\small]
-  \foreach \lab/\col in {Team/0, vs 1/2.2, vs 2/4.3, vs 3/6.4, vs 4/8.5,
-                         Total/10.6}{%
-    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
-  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (12.3,-0.36);
-  \foreach \row in {1,2,3,4}{%
-    \node[anchor=west, text=inkgrey] at (0,-1.05*\row) {\row};
-    \foreach \col in {2.2,4.3,6.4,8.5,10.6}{%
-      \draw[inkfaint, line width=0.7pt]
-        (\col,-1.05*\row-0.3) -- (\col+1.7,-1.05*\row-0.3);}}
+  \node[text=inkgrey, font=\scriptsize] at (3.6,1.15) {round 1 to 5};
+  \node[text=inkgrey, font=\scriptsize] at (6.4,1.15) {score};
+  \node[text=inkgrey, font=\scriptsize] at (11.6,1.15) {round 1 to 5};
+  \node[text=inkgrey, font=\scriptsize] at (14.4,1.15) {score};
+  \match{0}{0}{1}{2}
+  \match{0}{-1.95}{1}{3}
+  \match{0}{-3.9}{1}{4}
+  \match{8.0}{0}{2}{3}
+  \match{8.0}{-1.95}{2}{4}
+  \match{8.0}{-3.9}{3}{4}
 \end{tikzpicture}
 \end{minipage}
 
-\vspace{0.4cm}
+\vspace{0.1cm}
 
 {\small\color{inkgrey} Row player's payoff. \(R = 3\), \(S = 0\), \(T = 5\),
-\(P = 1\).}
+\(P = 1\). Write each round's C or D as it is played, then the five-round score
+in the shaded box.}
 
-\vspace{0.4cm}
+\vspace{0.15cm}
 
-\playrules{In four teams. Your team agrees one strategy and plays it against every
-  other team, round after round. You learn what the other team did last round and
-  nothing else. Keep a running total.}
+{\large Totals: \;1 \blank[1.5] \hspace{0.8cm} 2 \blank[1.5]
+ \hspace{0.8cm} 3 \blank[1.5] \hspace{0.8cm} 4 \blank[1.5]}
+
+\vspace{0.2cm}
+
+\playrules{In four teams. You play five rounds against each of the other three
+  teams, and never against yourselves. Both teams choose C or D at the same time
+  each round, and only then see what the other did.}
+
 \newpage
 \slidehead{Every strategy as two numbers}
 \notesref{8.2.3}{Direct Reciprocity: Definition: Reactive Strategy}
@@ -75,7 +101,7 @@ probability \(p\) after they cooperated, and \(q\) after they defected.}
 
 \hspace{0.3cm}
 \begin{tikzpicture}[font=\small]
-  \foreach \lab/\col in {Team/0, What they submitted/3.4,
+  \foreach \lab/\col in {Team/0, How they played/3.4,
                          {As \((p, q)\)}/14.4, Rank/19.6}{%
     \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
   \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.6,-0.36);
