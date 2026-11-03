@@ -56,15 +56,15 @@
 
 \vspace{1.6em}
 
-{\large Played once, what should you do? \blank[2.6]}
+{\large Played once, what should you do? \answerblank[2.6]{Bid Low}}
 
 \vspace{1.6em}
 
-{\large Played once, what do you both get? \blank[2.6]}
+{\large Played once, what do you both get? \answerblank[2.6]{\(1\) each}}
 
 \vspace{1.6em}
 
-{\large And if you had both bid High? \blank[2.6]}
+{\large And if you had both bid High? \answerblank[2.6]{\(3\) each}}
 \end{minipage}
 
 \newpage
@@ -103,14 +103,14 @@ there will be.}
 \vspace{1.0cm}
 
 \begin{center}
-{\Large \(\delta \;=\;\) \blank[2.4]}
+{\Large \(\delta \;=\;\) \answerblank[2.4]{\(10/12 = 5/6\)}}
 \end{center}
 
 \vspace{1.8cm}
 
 \begin{center}
 {\Large The expected number of rounds is \(\dfrac{1}{1 - \delta} \;=\;\)
-\blank[2.4]}
+\answerblank[2.4]{\(6\)}}
 \end{center}
 
 \newpage
@@ -124,13 +124,15 @@ there will be.}
 \vspace{1.4cm}
 
 \begin{center}
-{\Large \(\delta \;=\;\) \blank[2.4] \hspace{3cm}
- \(\dfrac{1}{1 - \delta} \;=\;\) \blank[2.4]}
+{\Large \(\delta \;=\;\) \answerblank[2.4]{\(4/12 = 1/3\)}
+ \hspace{3cm}
+ \(\dfrac{1}{1 - \delta} \;=\;\) \answerblank[2.4]{\(3/2\)}}
 \end{center}
 
 \vspace{1.6cm}
 
-{\Large Before we replay: will you bid High as often? \blank[4.4]}
+{\Large Before we replay: will you bid High as often?
+ \answerblank[4.4]{No: the future is too short}}
 
 \vspace{1.2cm}
 
@@ -149,15 +151,21 @@ there will be.}
 \begin{minipage}[t]{0.47\linewidth}
 \raggedright
 {\large\bfseries You conform, and play High for ever}\\[0.6em]
-{\large \(3 + 3\delta + 3\delta^{2} + \cdots \;=\;\) \blank[3.4]}\\[0.8em]
-\workspace{10.6}{3.4}
+{\large \(3 + 3\delta + 3\delta^{2} + \cdots \;=\;\)
+\answerblank[3.4]{\(\dfrac{3}{1 - \delta}\)}}\\[0.8em]
+\answerspace{10.6}{3.4}{%
+  A geometric series with first term \(3\) and ratio \(\delta\). At
+  \(\delta = 5/6\) it is worth \(18\).}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.47\linewidth}
 \raggedright
 {\large\bfseries You deviate to Low in round one}\\[0.6em]
-{\large \(5 + \delta + \delta^{2} + \cdots \;=\;\) \blank[3.4]}\\[0.8em]
-\workspace{10.6}{3.4}
+{\large \(5 + \delta + \delta^{2} + \cdots \;=\;\)
+\answerblank[3.4]{\(5 + \dfrac{\delta}{1 - \delta}\)}}\\[0.8em]
+\answerspace{10.6}{3.4}{%
+  Five now, then Grudger plays Low for ever and every later round pays
+  \(1\). At \(\delta = 5/6\) that is \(10\).}
 \end{minipage}
 
 
@@ -169,21 +177,28 @@ there will be.}
 
 \begin{center}
 {\Large \(\dfrac{3}{1 - \delta} \;\ge\; 5 + \dfrac{\delta}{1 - \delta}
- \qquad \Longleftrightarrow \qquad \delta \;\ge\;\) \blank[2]}
+ \qquad \Longleftrightarrow \qquad \delta \;\ge\;\)
+ \answerblank[2]{\(1/2\)}}
 \end{center}
 
 \vspace{1.6cm}
 
 \begin{minipage}[t]{0.47\linewidth}
 \raggedright
-{\large Our first die gives \(\delta =\) \blank[1.8]}\\[0.9em]
-\workspace{10.6}{4.0}
+{\large Our first die gives \(\delta =\)
+\answerblank[1.8]{\(5/6\)}}\\[0.9em]
+\answerspace{10.6}{4.0}{%
+  \(5/6 \ge 1/2\), so cooperation holds: conforming is worth \(18\)
+  against \(10\) for deviating.}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.47\linewidth}
 \raggedright
-{\large The second gives \(\delta =\) \blank[1.8]}\\[0.9em]
-\workspace{10.6}{4.0}
+{\large The second gives \(\delta =\)
+\answerblank[1.8]{\(1/3\)}}\\[0.9em]
+\answerspace{10.6}{4.0}{%
+  \(1/3 < 1/2\), so it does not: conforming is worth \(9/2\) against
+  \(11/2\) for deviating.}
 \end{minipage}
 
 \newpage
@@ -192,18 +207,18 @@ there will be.}
 
 \vspace{1.4cm}
 
-{\Large In a round you know is the last, the future is worth \blank[1.6], so
-you bid \blank[2.4].}
+{\Large In a round you know is the last, the future is worth
+\answerblank[1.6]{\(0\)}, so you bid \answerblank[2.4]{Low}.}
 
 \vspace{1.6cm}
 
 {\Large Both of you know that, so keep working backwards and cooperation
-\underline{\hspace{5cm}}.}
+\answerrule[5cm]{unravels}.}
 
 \vspace{1.6cm}
 
 {\Large The die was doing real work: not by making the game long, but by
-making the end \underline{\hspace{5cm}}.}
+making the end \answerrule[5cm]{uncertain}.}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

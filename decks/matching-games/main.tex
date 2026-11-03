@@ -16,10 +16,21 @@
     #1
   \end{tikzpicture}}
 
-% One person's preference list, waiting to be filled in.
-\newcommand{\prefrow}[1]{%
+% One person's preference list, waiting to be filled in. The four names after
+% the person's own are the ranking the class is steered to, most preferred
+% first, which the answer build writes in.
+\newcommand{\prefrow}[5]{%
   \makebox[2.1cm][l]{#1}
-  \blank[2]\, \blank[2]\, \blank[2]\, \blank[2]}
+  \answerblank[2]{#2}\, \answerblank[2]{#3}\, \answerblank[2]{#4}\,
+  \answerblank[2]{#5}}
+
+% A proposal in a round of deferred acceptance: one that is held, and one that
+% is turned down. The arguments are the mathematician and the physicist.
+\newcommand{\hold}[2]{%
+  \draw[-{Stealth[length=2.2mm]}, inkteal, line width=1pt] (m#1) -- (p#2);}
+\newcommand{\reject}[2]{%
+  \draw[-{Stealth[length=2.2mm]}, inkred, line width=1pt, dashed]
+    (m#1) -- (p#2);}
 
 \deckname{Matching games}
 
@@ -46,10 +57,10 @@
 \vspace{0.8em}
 
 {\large
-\prefrow{Gauss}\\[1.1em]
-\prefrow{Noether}\\[1.1em]
-\prefrow{Turing}\\[1.1em]
-\prefrow{Euler}}
+\prefrow{Gauss}{Curie}{Newton}{Feynman}{Einstein}\\[1.1em]
+\prefrow{Noether}{Curie}{Feynman}{Einstein}{Newton}\\[1.1em]
+\prefrow{Turing}{Feynman}{Curie}{Einstein}{Newton}\\[1.1em]
+\prefrow{Euler}{Newton}{Curie}{Einstein}{Feynman}}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\linewidth}
@@ -58,10 +69,10 @@
 \vspace{0.8em}
 
 {\large
-\prefrow{Einstein}\\[1.1em]
-\prefrow{Curie}\\[1.1em]
-\prefrow{Newton}\\[1.1em]
-\prefrow{Feynman}}
+\prefrow{Einstein}{Noether}{Gauss}{Turing}{Euler}\\[1.1em]
+\prefrow{Curie}{Noether}{Euler}{Turing}{Gauss}\\[1.1em]
+\prefrow{Newton}{Gauss}{Euler}{Noether}{Turing}\\[1.1em]
+\prefrow{Feynman}{Turing}{Noether}{Gauss}{Euler}}
 \end{minipage}
 
 \vspace{1.4cm}
@@ -85,22 +96,27 @@ sheet, not from me.}
 
 \begin{center}
 {\large
-\blank[2.6] \; with \; \blank[2.6] \hspace{2.4cm}
-\blank[2.6] \; with \; \blank[2.6]\\[1.3em]
-\blank[2.6] \; with \; \blank[2.6] \hspace{2.4cm}
-\blank[2.6] \; with \; \blank[2.6]}
+\answerblank[2.6]{Gauss} \; with \; \answerblank[2.6]{Curie}
+\hspace{2.4cm}
+\answerblank[2.6]{Noether} \; with \; \answerblank[2.6]{Newton}\\[1.3em]
+\answerblank[2.6]{Turing} \; with \; \answerblank[2.6]{Einstein}
+\hspace{2.4cm}
+\answerblank[2.6]{Euler} \; with \; \answerblank[2.6]{Feynman}}
 \end{center}
 
 \vspace{1cm}
 
 {\large Now find two people who would both rather have each other. That pair
-is a \underline{\hspace{3.4cm}}, and the matching is
-\underline{\hspace{3cm}}.}
+is a \answerrule[3.4cm]{blocking pair}, and the matching is
+\answerrule[3cm]{unstable}.}
 
 \vspace{0.9cm}
 
 \begin{center}
-\workspace{22.6}{2.8}
+\answerspace{22.6}{2.8}{%
+  Noether and Curie block this one. Noether has Newton, her last choice, and
+  prefers Curie; Curie has Gauss, her last choice, and prefers Noether. So
+  both would walk away from what they have been given.}
 \end{center}
 
 \newpage
@@ -112,14 +128,14 @@ is a \underline{\hspace{3.4cm}}, and the matching is
 \begin{minipage}[t]{0.48\linewidth}
 \begin{center}
 {\large\bfseries Round 1}\\[0.4em]
-\bipartite{}
+\bipartite{\onlyanswer{\hold{1}{1} \hold{2}{3} \hold{3}{2} \reject{0}{1}}}
 \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\linewidth}
 \begin{center}
 {\large\bfseries Round 2}\\[0.4em]
-\bipartite{}
+\bipartite{\onlyanswer{\hold{0}{2} \hold{1}{1} \hold{2}{3} \reject{3}{2}}}
 \end{center}
 \end{minipage}
 
@@ -137,14 +153,14 @@ cross out the rejections.}
 \begin{minipage}[t]{0.48\linewidth}
 \begin{center}
 {\large\bfseries Round 3}\\[0.4em]
-\bipartite{}
+\bipartite{\onlyanswer{\hold{0}{2} \hold{1}{1} \hold{2}{3} \reject{3}{1}}}
 \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\linewidth}
 \begin{center}
 {\large\bfseries Round 4}\\[0.4em]
-\bipartite{}
+\bipartite{\onlyanswer{\hold{0}{2} \hold{1}{1} \hold{2}{3} \hold{3}{0}}}
 \end{center}
 \end{minipage}
 
@@ -161,10 +177,12 @@ accepted.}
 
 \begin{center}
 {\large
-\blank[2.6] \; with \; \blank[2.6] \hspace{2.4cm}
-\blank[2.6] \; with \; \blank[2.6]\\[1.3em]
-\blank[2.6] \; with \; \blank[2.6] \hspace{2.4cm}
-\blank[2.6] \; with \; \blank[2.6]}
+\answerblank[2.6]{Gauss} \; with \; \answerblank[2.6]{Newton}
+\hspace{2.4cm}
+\answerblank[2.6]{Noether} \; with \; \answerblank[2.6]{Curie}\\[1.3em]
+\answerblank[2.6]{Turing} \; with \; \answerblank[2.6]{Feynman}
+\hspace{2.4cm}
+\answerblank[2.6]{Euler} \; with \; \answerblank[2.6]{Einstein}}
 \end{center}
 
 \vspace{1.1cm}
@@ -175,13 +193,17 @@ show at least one of them prefers who they have.}
 \vspace{0.7cm}
 
 \begin{center}
-\workspace{22.6}{3.4}
+\answerspace{22.6}{3.4}{%
+  Gauss would rather have Curie, but Curie has Noether and prefers her. Euler
+  would rather have Newton or Curie, and both prefer the mathematician they
+  already hold. Nobody else is above their partner on anyone's list, so there
+  is no blocking pair.}
 \end{center}
 
 \vspace{0.4cm}
 
 {\large Who does better out of this, the proposers or the proposed to?
-\blank[4]}
+\answerblank[4]{The proposers}}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

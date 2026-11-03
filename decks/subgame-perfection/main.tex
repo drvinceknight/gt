@@ -61,16 +61,20 @@
   \begin{tabular}{@{}c@{\hspace{0.7em}}c@{\hspace{0.7em}}c@{}}
     \multicolumn{3}{@{}c@{}}{\large\bfseries\color{inkblue} #1}\\[0.6em]
     & {\small\color{inkgrey} #2} & {\small\color{inkgrey} #3}\\[0.25em]
-    {\large\color{inkblue} 1} & \blank[2.4] & \blank[2.4]\\[0.28em]
-    {\large\color{inkblue} 2} & \blank[2.4] & \blank[2.4]\\[0.28em]
-    {\large\color{inkblue} 3} & \blank[2.4] & \blank[2.4]\\[0.28em]
-    {\large\color{inkblue} 4} & \blank[2.4] & \blank[2.4]\\
+    {\large\color{inkblue} 1} & \answerblank[2.4]{take}
+      & \answerblank[2.4]{take}\\[0.28em]
+    {\large\color{inkblue} 2} & \answerblank[2.4]{take}
+      & \answerblank[2.4]{pass}\\[0.28em]
+    {\large\color{inkblue} 3} & \answerblank[2.4]{pass}
+      & \answerblank[2.4]{take}\\[0.28em]
+    {\large\color{inkblue} 4} & \answerblank[2.4]{pass}
+      & \answerblank[2.4]{pass}\\
   \end{tabular}}
 
 % One player's four by four payoff matrix. The label cells are blank too, since
 % the class fills in the strategies it has just built. The scale is settable so
 % that a page carrying instructions as well can still hold both matrices.
-\newcommand{\payoffmatrix}[2][1]{%
+\newcommand{\payoffmatrix}[3][1]{%
   \begin{tikzpicture}[font=\small, scale=#1,
       every node/.style={transform shape},
       cell/.style={draw=inkfaint, line width=0.7pt, rounded corners=2pt,
@@ -82,7 +86,40 @@
     \foreach \i in {0,...,3}{%
       \draw[cell] (-2.1,-\i*1.15) rectangle (-0.2,-\i*1.15-0.95);}
     \node[text=inkblue, font=\large\bfseries] at (3.0,1.6) {#2};
+    \onlyanswer{#3}
   \end{tikzpicture}}
+
+% The marks that go on a payoff matrix: an entry, a heading on a row or a
+% column, and the underline on a best response. Rows and columns count from 0.
+\newcommand{\mcell}[3]{%
+  \node[text=inkanswer] at (#2*2.1+0.95,-#1*1.15-0.475) {#3};}
+\newcommand{\mcolhead}[2]{%
+  \node[text=inkanswer, font=\small] at (#1*2.1+0.95,0.55) {#2};}
+\newcommand{\mrowhead}[2]{%
+  \node[text=inkanswer, font=\small] at (-1.15,-#1*1.15-0.475) {#2};}
+\newcommand{\munder}[2]{%
+  \draw[inkanswer, line width=0.8pt]
+    (#2*2.1+0.6,-#1*1.15-0.8) -- (#2*2.1+1.3,-#1*1.15-0.8);}
+
+% The two matrices the class builds from the tree. Rows are player 1's
+% strategies, in the order (take, take), (take, pass), (pass, take),
+% (pass, pass), and columns are player 2's in the same order. A row or column
+% heading is the pair of actions at that player's two nodes.
+\newcommand{\strategyheads}{%
+  \foreach \lab [count=\k from 0] in {T\,T, T\,P, P\,T, P\,P}{%
+    \mcolhead{\k}{\lab} \mrowhead{\k}{\lab}}}
+\newcommand{\matrixaentries}{%
+  \strategyheads
+  \foreach \row [count=\i from 0] in {{2,2,2,2}, {2,2,2,2}, {1,1,4,4},
+                                       {1,1,3,4}}{%
+    \foreach \value [count=\j from 0] in \row{%
+      \mcell{\i}{\j}{\(\value\)}}}}
+\newcommand{\matrixbentries}{%
+  \strategyheads
+  \foreach \row [count=\i from 0] in {{0,0,0,0}, {0,0,0,0}, {3,3,2,2},
+                                       {3,3,5,4}}{%
+    \foreach \value [count=\j from 0] in \row{%
+      \mcell{\i}{\j}{\(\value\)}}}}
 
 \begin{document}
 
@@ -167,7 +204,8 @@ been banished.}
 \vspace{1.2cm}
 
 \begin{center}
-{\Large Today: \blank[2.2] players, of whom \blank[2.2] are Traitors.}
+{\Large Today: \answerblank[2.2]{\(10\)} players, of whom
+ \answerblank[2.2]{\(2\)} are Traitors.}
 \end{center}
 
 \vspace{1.2cm}
@@ -329,9 +367,9 @@ matrices. Fill a cell by tracing the path that pair of strategies produces.}
 \vspace{0.1cm}
 
 \begin{center}
-\payoffmatrix[0.9]{\(A\): what player 1 gets}
+\payoffmatrix[0.9]{\(A\): what player 1 gets}{\matrixaentries}
 \hspace{1.4cm}
-\payoffmatrix[0.9]{\(B\): what player 2 gets}
+\payoffmatrix[0.9]{\(B\): what player 2 gets}{\matrixbentries}
 \end{center}
 
 \newpage
@@ -353,7 +391,15 @@ equilibria the way we always do.}
 \vspace{0.2cm}
 
 \begin{center}
-\payoffmatrix[0.78]{\(A\)} \hspace{2cm} \payoffmatrix[0.78]{\(B\)}
+\payoffmatrix[0.78]{\(A\)}{%
+  \matrixaentries
+  \munder{0}{0} \munder{1}{0} \munder{0}{1} \munder{1}{1}
+  \munder{2}{2} \munder{2}{3} \munder{3}{3}}
+\hspace{2cm}
+\payoffmatrix[0.78]{\(B\)}{%
+  \matrixbentries
+  \foreach \j in {0,...,3}{\munder{0}{\j} \munder{1}{\j}}
+  \munder{2}{0} \munder{2}{1} \munder{3}{2}}
 \end{center}
 
 \newpage
@@ -376,7 +422,10 @@ rest on a threat nobody would carry out.}
 \vspace{0.4cm}
 
 \begin{center}
-\centipede{\nodeboxes}
+\centipede{\nodeboxes
+  \onlyanswer{%
+    \foreach \i in {0,...,3}{%
+      \node[text=inkanswer, font=\small] at (\i*4.6,1.5) {take};}}}
 \end{center}
 
 \newpage

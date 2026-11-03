@@ -38,12 +38,15 @@ is on show out of ten.}
     part/.style={draw=inkfaint, line width=0.8pt, rounded corners=4pt,
                  fill=white, minimum width=4.4cm, minimum height=1.5cm,
                  align=center}]
-  \node[part] (a) at (0,0) {Maths\\[0.2em] \blank[1.6]};
-  \node[part] (b) at (5.2,0) {Picture\\[0.2em] \blank[1.6]};
-  \node[part] (c) at (10.4,0) {Story\\[0.2em] \blank[1.6]};
-  \node[part] (ab) at (0,-2.6) {Maths $+$ picture\\[0.2em] \blank[1.6]};
-  \node[part] (ac) at (5.2,-2.6) {Maths $+$ story\\[0.2em] \blank[1.6]};
-  \node[part] (bc) at (10.4,-2.6) {Picture $+$ story\\[0.2em] \blank[1.6]};
+  \node[part] (a) at (0,0) {Maths\\[0.2em] \answerblank[1.6]{\(2\)}};
+  \node[part] (b) at (5.2,0) {Picture\\[0.2em] \answerblank[1.6]{\(1\)}};
+  \node[part] (c) at (10.4,0) {Story\\[0.2em] \answerblank[1.6]{\(2\)}};
+  \node[part] (ab) at (0,-2.6)
+    {Maths $+$ picture\\[0.2em] \answerblank[1.6]{\(5\)}};
+  \node[part] (ac) at (5.2,-2.6)
+    {Maths $+$ story\\[0.2em] \answerblank[1.6]{\(6\)}};
+  \node[part] (bc) at (10.4,-2.6)
+    {Picture $+$ story\\[0.2em] \answerblank[1.6]{\(4\)}};
   \node[part, draw=inkblue, line width=1.2pt, minimum width=5.6cm]
     (all) at (16.4,-1.3) {The whole aid\\[0.2em] \Large\bfseries 10};
 \end{tikzpicture}
@@ -71,17 +74,19 @@ is on show out of ten.}
                          {Story adds}/16.8}{%
     \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
   \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.2,-0.36);
-  \foreach \order [count=\row from 1] in
-    {{Maths, picture, story}, {Maths, story, picture},
-     {Picture, maths, story}, {Picture, story, maths},
-     {Story, maths, picture}, {Story, picture, maths}}{%
+  \foreach \order/\maths/\picture/\story [count=\row from 1] in
+    {{Maths, picture, story}/2/3/5, {Maths, story, picture}/2/4/4,
+     {Picture, maths, story}/4/1/5, {Picture, story, maths}/6/1/3,
+     {Story, maths, picture}/4/4/2, {Story, picture, maths}/6/2/2}{%
     \node[anchor=west, font=\normalsize] at (0,-1.12*\row) {\order};
-    \foreach \col in {6.0,11.4,16.8}{%
-      \node[anchor=west] at (\col,-1.12*\row) {\blank[3]};}}
+    \foreach \value/\col in {\maths/6.0, \picture/11.4, \story/16.8}{%
+      \node[anchor=west] at (\col,-1.12*\row)
+        {\answerblank[3]{\(\value\)}};}}
   \draw[inkfaint, line width=0.7pt] (0,-7.5) -- (22.2,-7.5);
   \node[anchor=west, font=\normalsize\bfseries] at (0,-8.2) {Average};
-  \foreach \col in {6.0,11.4,16.8}{%
-    \node[anchor=west] at (\col,-8.2) {\blank[3]};}
+  \foreach \value/\col in {{\tfrac{24}{6} = 4}/6.0, {\tfrac{5}{2}}/11.4,
+                           {\tfrac{7}{2}}/16.8}{%
+    \node[anchor=west] at (\col,-8.2) {\answerblank[3]{\(\value\)}};}
 \end{tikzpicture}
 
 \newpage
@@ -91,20 +96,22 @@ is on show out of ten.}
 \vspace{1cm}
 
 \begin{center}
-{\Large Maths \blank[2.4] \hspace{1.8cm} Picture \blank[2.4]
- \hspace{1.8cm} Story \blank[2.4]}
+{\Large Maths \answerblank[2.4]{\(4\)} \hspace{1.8cm}
+ Picture \answerblank[2.4]{\(5/2\)} \hspace{1.8cm}
+ Story \answerblank[2.4]{\(7/2\)}}
 \end{center}
 
 \vspace{1.4cm}
 
-{\large They should add to \blank[1.8], which is the whole value of the aid.
-That property is called \underline{\hspace{4.5cm}}.}
+{\large They should add to \answerblank[1.8]{\(10\)}, which is the whole
+value of the aid. That property is called \answerrule[4.5cm]{efficiency}.}
 
 \vspace{1.4cm}
 
-{\large The three parts on their own are worth \blank[1.6] $+$ \blank[1.6] $+$
-\blank[1.6] $=$ \blank[1.8], so \blank[1.8] of the aid's value came from the
-parts \underline{\hspace{5cm}}.}
+{\large The three parts on their own are worth \answerblank[1.6]{\(2\)} $+$
+\answerblank[1.6]{\(1\)} $+$ \answerblank[1.6]{\(2\)} $=$
+\answerblank[1.8]{\(5\)}, so \answerblank[1.8]{\(5\)} of the aid's value
+came from the parts \answerrule[5cm]{working together}.}
 
 \newpage
 \slidehead{Who gained the most from the others?}
@@ -118,19 +125,24 @@ their part was worth alone?}
 \vspace{0.8cm}
 
 \begin{center}
-{\Large Maths \blank[2.2] \hspace{1.8cm} Picture \blank[2.2]
- \hspace{1.8cm} Story \blank[2.2]}
+{\Large Maths \answerblank[2.2]{\(+2\)} \hspace{1.8cm}
+ Picture \answerblank[2.2]{\(+3/2\)} \hspace{1.8cm}
+ Story \answerblank[2.2]{\(+3/2\)}}
 \end{center}
 
 \vspace{1.2cm}
 
 {\large The part that gains most is the one that
-\underline{\hspace{6cm}}, not the one that is best on its own.}
+\answerrule[6cm]{combines best}, not the one that is best on its own.}
 
 \vspace{1cm}
 
 \begin{center}
-\workspace{22.6}{3}
+\answerspace{22.6}{3}{%
+  The maths is worth \(2\) alone and is paid \(4\), because adding it to
+  the picture is worth \(3\) and adding it to the story is worth \(4\).
+  The story scores the same \(2\) alone but gains only \(3/2\), so what is
+  rewarded here is how well a part fits with the others.}
 \end{center}
 
 \newpage

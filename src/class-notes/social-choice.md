@@ -42,6 +42,10 @@ show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 
+Every page of the deck with its boxes completed is at the foot of this page.
+The ballots, the three counts and what stablevoting.org returned are the
+class's own vote, so those boxes stay empty there.
+
 The topics come from the class. These are the answers for the example on the
 exam page: nine students rank three topics, with four saying
 \(A \succ B \succ C\), three saying \(B \succ C \succ A\) and two saying

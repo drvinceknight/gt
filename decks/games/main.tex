@@ -71,13 +71,13 @@ Winner\\[0.4em]
                  minimum width=5.4cm, minimum height=1.6cm, align=center,
                  font=\normalsize}]
   \node[rung] (l0) at (0,0)
-    {Everyone picks at random\\[0.3em] average is \blank[1.3]};
+    {Everyone picks at random\\[0.3em] average is \answerblank[1.3]{\(50\)}};
   \node[rung] (l1) at (5.6,-2.1)
-    {so I should pick\\[0.3em] \blank[1.3]};
+    {so I should pick\\[0.3em] \answerblank[1.3]{\(33\)}};
   \node[rung] (l2) at (11.2,-4.2)
-    {but if they all do that\\[0.3em] I pick \blank[1.3]};
+    {but if they all do that\\[0.3em] I pick \answerblank[1.3]{\(22\)}};
   \node[rung] (l3) at (16.8,-6.3)
-    {and so on, down to\\[0.3em] \blank[1.3]};
+    {and so on, down to\\[0.3em] \answerblank[1.3]{\(0\)}};
   \draw[-{Stealth[length=3mm]}, inkgrey, line width=1.2pt] (l0) -- (l1);
   \draw[-{Stealth[length=3mm]}, inkgrey, line width=1.2pt] (l1) -- (l2);
   \draw[-{Stealth[length=3mm]}, inkgrey, line width=1.2pt] (l2) -- (l3);
@@ -123,12 +123,14 @@ Winner\\[0.4em]
 
 \vspace{0.5em}
 
-{\large Everyone chooses \underline{\hspace{3.5cm}}, and a payoff
+{\large Everyone chooses \answerrule[3.5cm]{simultaneously}, and a payoff
 follows.}
 
 \vspace{0.8em}
 
-\workspace{10.6}{4.4}
+\answerspace{10.6}{4.4}{%
+  Everyone writes a number down and hands it in at the same moment. Nobody
+  sees another number first, so there is nothing to react to.}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.47\linewidth}
@@ -136,18 +138,20 @@ follows.}
 
 \vspace{0.5em}
 
-{\large Players move \underline{\hspace{3.5cm}}, and can see what has
+{\large Players move \answerrule[3.5cm]{in sequence}, and can see what has
 happened.}
 
 \vspace{0.8em}
 
-\workspace{10.6}{4.4}
+\answerspace{10.6}{4.4}{%
+  The players are ordered. Each one hears what came before and then chooses,
+  so a later player can answer an earlier one.}
 \end{minipage}
 
 \vspace{0.9cm}
 
-{\large Our game is \underline{\hspace{5cm}}, because
-\underline{\hspace{7cm}}.}
+{\large Our game is \answerrule[5cm]{normal form}, because
+\answerrule[7cm]{we all submit at once}.}
 
 \newpage
 \slidehead{So what is a strategy?}
@@ -156,7 +160,7 @@ happened.}
 \vspace{0.8cm}
 
 {\large In the game we just played, a strategy is
-\underline{\hspace{9cm}}.}
+\answerrule[9cm]{a single number in \(\{0, 1, \ldots, 100\}\)}.}
 
 \vspace{1.1cm}
 
@@ -166,12 +170,17 @@ before you picked. Draw a couple of levels of that game.}
 \vspace{0.7cm}
 
 \begin{center}
-\workspace{22.6}{4.6}
+\answerspace{22.6}{4.6}{%
+  The first player's move branches 101 ways. Under each branch the second
+  player has the same 101 choices, and the edge leading there says which
+  number was announced, so what the second player knows is the whole history
+  above them.}
 \end{center}
 
 \vspace{0.5cm}
 
-{\large In \emph{that} game, a strategy has to say \blank[6].}
+{\large In \emph{that} game, a strategy has to say
+ \answerblank[6]{what to pick for every number heard}.}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

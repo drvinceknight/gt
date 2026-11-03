@@ -83,6 +83,11 @@ a show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 
+Every page of the deck with its boxes completed is at the foot of this page.
+Those pages carry the exam page's example rather than a class's own scores, so
+that the arithmetic can be followed all the way through; the winning team and
+its votes stay empty.
+
 The seven scores come from the class. These are the answers for the example on
 the exam page, where \(v(\{1\}) = 2\), \(v(\{2\}) = 1\), \(v(\{3\}) = 2\),
 \(v(\{1,2\}) = 5\), \(v(\{1,3\}) = 6\), \(v(\{2,3\}) = 4\) and

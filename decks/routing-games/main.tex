@@ -68,9 +68,9 @@ like, until nobody gains by moving.}
 \begin{center}
 \network{
   \node[above left=0.1cm and 0.1cm of $(S)!0.5!(A)$]
-    {\blank[1.1]\;{\color{inkgrey}\footnotesize cars}};
+    {\answerblank[1.1]{\(20\)}\;{\color{inkgrey}\footnotesize cars}};
   \node[below right=0.1cm and 0.1cm of $(B)!0.5!(T)$]
-    {\blank[1.1]\;{\color{inkgrey}\footnotesize cars}};
+    {\answerblank[1.1]{\(20\)}\;{\color{inkgrey}\footnotesize cars}};
 }
 \end{center}
 \end{minipage}
@@ -78,9 +78,11 @@ like, until nobody gains by moving.}
 \begin{minipage}[c]{0.36\linewidth}
 {\large
   Top route\\[0.5em]
-  \hspace*{0.6cm} \blank[1.5] $+\ 50\ =$ \blank[1.8]\\[1.6em]
+  \hspace*{0.6cm} \answerblank[1.5]{\(20\)} $+\ 50\ =$
+    \answerblank[1.8]{\(70\)}\\[1.6em]
   Bottom route\\[0.5em]
-  \hspace*{0.6cm} \blank[1.5] $+\ 50\ =$ \blank[1.8]}
+  \hspace*{0.6cm} \answerblank[1.5]{\(20\)} $+\ 50\ =$
+    \answerblank[1.8]{\(70\)}}
 \end{minipage}
 
 \vspace{0.15cm}
@@ -108,27 +110,33 @@ quicker. Stop when nobody moves.}
 
 \vspace{0.3cm}
 
-{\large Where we settled: \blank[1.4] on top, \blank[1.4] on bottom.}
+{\large Where we settled: \answerblank[1.4]{\(20\)} on top,
+\answerblank[1.4]{\(20\)} on bottom.}
 
 \vspace{0.6cm}
 
 {\large If one driver switches from top to bottom, their time goes from
-\blank[1.6] to \blank[1.6].}
+\answerblank[1.6]{\(70\)} to \answerblank[1.6]{\(71\)}.}
 
 \vspace{0.8cm}
 
-{\large\bfseries So this is a \underline{\hspace{5cm}} flow.}
+{\large\bfseries So this is a \answerrule[5cm]{Nash} flow.}
 
 \vspace{0.5cm}
 
 \begin{minipage}[t]{0.46\linewidth}
   {\small\color{inkgrey} A flow is a Nash flow when:}\\[0.4em]
-  \workspace{10.6}{4.9}
+  \answerspace{10.6}{4.9}{%
+    No driver can cut their own time by moving. Every route anyone uses takes
+    the same time, and no empty route is quicker.}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.46\linewidth}
   {\small\color{inkgrey} Is it also the best the class could do?}\\[0.4em]
-  \workspace{10.6}{4.9}
+  \answerspace{10.6}{4.9}{%
+    Yes. With \(x\) on top the total is
+    \(x^{2} + (40 - x)^{2} + 2000\), smallest at \(x = 20\). Here the
+    Nash flow and the optimal flow agree.}
 \end{minipage}
 
 \newpage
@@ -159,18 +167,19 @@ move.}
   \node[right=0.15cm of $(A)!0.5!(B)$, text=inkred, font=\small]
     {new road: $0$};
   \node[above left=0.1cm and 0.1cm of $(S)!0.5!(A)$]
-    {\blank[1.1]\;{\color{inkgrey}\footnotesize cars}};
+    {\answerblank[1.1]{\(40\)}\;{\color{inkgrey}\footnotesize cars}};
   \node[below right=0.1cm and 0.1cm of $(B)!0.5!(T)$]
-    {\blank[1.1]\;{\color{inkgrey}\footnotesize cars}};
+    {\answerblank[1.1]{\(40\)}\;{\color{inkgrey}\footnotesize cars}};
 }
 \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.36\linewidth}
 {\large
-  $S \to A \to T$ \hspace{0.4cm} \blank[1.8]\\[1.5em]
-  $S \to B \to T$ \hspace{0.4cm} \blank[1.8]\\[1.5em]
-  {\color{inkred}$S \to A \to B \to T$} \hspace{0.4cm} \blank[1.8]}
+  $S \to A \to T$ \hspace{0.4cm} \answerblank[1.8]{\(0\)}\\[1.5em]
+  $S \to B \to T$ \hspace{0.4cm} \answerblank[1.8]{\(0\)}\\[1.5em]
+  {\color{inkred}$S \to A \to B \to T$} \hspace{0.4cm}
+    \answerblank[1.8]{\(40\)}}
 \end{minipage}
 
 \vspace{0.3cm}
@@ -181,7 +190,10 @@ take it?}
 \vspace{0.3cm}
 
 \begin{center}
-\workspace{22.6}{2.6}
+\answerspace{22.6}{2.6}{%
+  Whatever the others do, \(S \to A\) is never slower than \(S \to B\)
+  and the link to \(B\) is free, so taking the new road is the better move
+  for every driver on their own. All 40 end up on it.}
 \end{center}
 \newpage
 \slidehead{Phase 2: where everyone ends up}
@@ -191,21 +203,23 @@ take it?}
 
 \begin{center}
 {\large
-  $S \to A$: \blank[1.3] cars $=$ \blank[1.3] mins
+  $S \to A$: \answerblank[1.3]{\(40\)} cars $=$
+    \answerblank[1.3]{\(40\)} mins
   \hspace{1.1cm} $+$ \hspace{1.1cm}
   $A \to B$: $0$ mins
   \hspace{1.1cm} $+$ \hspace{1.1cm}
-  $B \to T$: \blank[1.3] cars $=$ \blank[1.3] mins}
+  $B \to T$: \answerblank[1.3]{\(40\)} cars $=$
+    \answerblank[1.3]{\(40\)} mins}
 
 \vspace{1.4em}
 
-{\Large Everyone's time: \blank[2.4] mins}
+{\Large Everyone's time: \answerblank[2.4]{\(80\)} mins}
 \end{center}
 
 \vspace{0.9cm}
 
 {\large Nobody wants to leave: going back to $S \to A \to T$ would cost
-\blank[1.5] $+\ 50\ =$ \blank[1.8].}
+\answerblank[1.5]{\(40\)} $+\ 50\ =$ \answerblank[1.8]{\(90\)}.}
 
 \vspace{1.1cm}
 
@@ -214,11 +228,11 @@ take it?}
   \node[draw=inkteal, line width=1.2pt, rounded corners=4pt,
         minimum width=8cm, minimum height=2.6cm, align=center]
     (before) at (0,0) {\textbf{Before the new road}\\[0.8em]
-                       \blank[2.2]\; mins};
+                       \answerblank[2.2]{\(70\)}\; mins};
   \node[draw=inkred, line width=1.2pt, rounded corners=4pt,
         minimum width=8cm, minimum height=2.6cm, align=center]
     (after) at (12.4,0) {\textbf{After the new road}\\[0.8em]
-                         \blank[2.2]\; mins};
+                         \answerblank[2.2]{\(80\)}\; mins};
   \draw[-{Stealth[length=4mm]}, inkgrey, line width=1.4pt]
     (before) -- node[above, font=\small, text=inkgrey] {we added a road}
     (after);
@@ -237,10 +251,11 @@ take it?}
 
 \hspace{1cm}
 \begin{minipage}{0.4\linewidth}
-  {\large It costs \emph{me} \blank[1.6] minutes.}
+  {\large It costs \emph{me} \answerblank[1.6]{\(x + 1\)} minutes.}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
-  {\large It costs \emph{everyone else} \blank[1.6] minutes.}
+  {\large It costs \emph{everyone else} \answerblank[1.6]{\(x\)}
+   minutes.}
 \end{minipage}
 
 \vspace{0.9cm}
@@ -250,15 +265,20 @@ take it?}
 \vspace{0.5cm}
 
 \begin{center}
-{\Large $x \, c(x) \;=\;$ \blank[2] \hspace{2.6cm}
+{\Large $x \, c(x) \;=\;$ \answerblank[2]{\(x^{2}\)} \hspace{2.6cm}
  and one more car really adds
- $\dfrac{\mathrm{d}}{\mathrm{d}x}\big(x \, c(x)\big) \;=\;$ \blank[2]}
+ $\dfrac{\mathrm{d}}{\mathrm{d}x}\big(x \, c(x)\big) \;=\;$
+ \answerblank[2]{\(2x\)}}
 \end{center}
 
 \vspace{0.6cm}
 
 \begin{center}
-\workspace{22.6}{2.8}
+\answerspace{22.6}{2.8}{%
+  Each driver counts the minute the road costs them and none of the \(x\)
+  minutes they impose on the drivers already there. At \(x = 40\) the true
+  cost of one more car is \(80\) minutes against the \(41\) they feel,
+  which is the whole of the gap between the Nash flow and the optimal one.}
 \end{center}
 
 \newpage
@@ -279,12 +299,21 @@ take it?}
 
 \begin{minipage}[t]{0.47\linewidth}
   {\large Our network, \emph{before} the new road:}\\[0.5em]
-  \workspace{10.8}{5}
+  \answerspace{10.8}{5}{%
+    \[
+      C(f) = 20 \times 20 + 20 \times 50 + 20 \times 50 + 20 \times 20
+      = 2800,
+    \]
+    which is \(70\) minutes each.}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.47\linewidth}
   {\large Our network, \emph{after} the new road:}\\[0.5em]
-  \workspace{10.8}{5}
+  \answerspace{10.8}{5}{%
+    \[
+      C(f) = 40 \times 40 + 40 \times 0 + 40 \times 40 = 3200,
+    \]
+    which is \(80\) minutes each.}
 \end{minipage}
 
 \newpage
@@ -300,19 +329,25 @@ half of us each way.}
 
 \begin{minipage}[t]{0.47\linewidth}
 {\large Left alone: the Nash flow \(\tilde f\), and each driver's time:}\\[0.5em]
-\workspace{10.8}{4.4}
+\answerspace{10.8}{4.4}{%
+  All 40 on \(S \to A \to B \to T\), so \(C(\tilde f) = 3200\) and
+  every driver takes \(80\) minutes.}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.47\linewidth}
 {\large Planned: the optimal flow \(f^{*}\), and each driver's time:}\\[0.5em]
-\workspace{10.8}{4.4}
+\answerspace{10.8}{4.4}{%
+  Twenty each way and the new road left empty, so \(C(f^{*}) = 2800\) and
+  every driver takes \(70\) minutes.}
 \end{minipage}
 
 \vspace{0.7cm}
 
 \begin{center}
 {\Large Price of anarchy \(\;=\; \dfrac{C(\tilde f)}{C(f^{*})} \;=\;
- \dfrac{\;\blank[1.8]\;}{\;\blank[1.8]\;} \;=\;\) \blank[2]}
+ \dfrac{\;\answerblank[1.8]{\(3200\)}\;}%
+ {\;\answerblank[1.8]{\(2800\)}\;} \;=\;\)
+ \answerblank[2]{\(8/7\)}}
 \end{center}
 
 \newpage

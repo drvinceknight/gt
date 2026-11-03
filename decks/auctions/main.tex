@@ -58,16 +58,16 @@
 
 \vspace{1cm}
 
-{\large Everyone submits \underline{\hspace{4cm}}, without seeing anyone
-else's.}
+{\large Everyone submits \answerrule[4cm]{one sealed bid}, without seeing
+anyone else's.}
 
 \vspace{1.1cm}
 
-{\large The item goes to \underline{\hspace{5cm}}.}
+{\large The item goes to \answerrule[5cm]{the highest bidder}.}
 
 \vspace{1.1cm}
 
-{\large The winner pays \underline{\hspace{5cm}}.}
+{\large The winner pays \answerrule[5cm]{the second highest bid}.}
 
 \vspace{1.4cm}
 
@@ -95,12 +95,15 @@ Compare bidding \(v\) with bidding something else.}
 
 \vspace{0.5em}
 
-{\large You only win extra times when \(b\) is between \blank[1.4] and
-\blank[1.4], and then you pay \blank[1.4] and make \blank[1.4].}
+{\large You only win extra times when \(b\) is between
+\answerblank[1.4]{\(v\)} and \answerblank[1.4]{your bid}, and then you pay
+\answerblank[1.4]{\(b\)} and make \answerblank[1.4]{\(v - b < 0\)}.}
 
 \vspace{0.8em}
 
-\workspace{10.6}{3.4}
+\answerspace{10.6}{3.4}{%
+  The price is \(b\) whatever you bid, so bidding high only buys auctions
+  that were not worth winning. Every other auction is unchanged.}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.47\linewidth}
@@ -110,16 +113,18 @@ Compare bidding \(v\) with bidding something else.}
 \vspace{0.5em}
 
 {\large You lose some auctions you would have won, and when you do still win
-you pay \blank[3.4].}
+you pay \answerblank[3.4]{the same \(b\)}.}
 
 \vspace{0.8em}
 
-\workspace{10.6}{3.4}
+\answerspace{10.6}{3.4}{%
+  The ones you give up are those with \(b\) between your bid and \(v\),
+  which you would have won at a profit. Nothing you gain makes up for them.}
 \end{minipage}
 
 \vspace{0.6cm}
 
-{\large So bidding your true value is \underline{\hspace{5cm}}.}
+{\large So bidding your true value is \answerrule[5cm]{weakly dominant}.}
 
 \newpage
 \slidehead{Why that matters}
@@ -128,23 +133,27 @@ you pay \blank[3.4].}
 \vspace{1.1cm}
 
 {\large If truth is a weakly dominant strategy, then to bid well you need to
-know \underline{\hspace{5cm}} about the other bidders.}
+know \answerrule[5cm]{nothing at all} about the other bidders.}
 
 \vspace{1.3cm}
 
 {\large So the seller gets the item to the person who
-\underline{\hspace{5cm}}, which is not guaranteed otherwise.}
+\answerrule[5cm]{values it most}, which is not guaranteed otherwise.}
 
 \vspace{1.3cm}
 
 {\large Now change one rule: the winner pays their \emph{own} bid. Is truth
-still weakly dominant? \blank[2.2] \hspace{1.4cm} What should you do instead?
-\blank[5]}
+still weakly dominant? \answerblank[2.2]{No} \hspace{1.4cm} What should you
+do instead? \answerblank[5]{Bid below your value}}
 
 \vspace{1cm}
 
 \begin{center}
-\workspace{22.6}{2.4}
+\answerspace{22.6}{2.4}{%
+  Paying your own bid makes a truthful win worth \(v - v = 0\), so the only
+  way to profit is to shade below \(v\). How far below depends on what the
+  others are likely to bid, which is exactly the knowledge the second-price
+  rule made unnecessary.}
 \end{center}
 
 \newpage
