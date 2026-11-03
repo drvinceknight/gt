@@ -19,6 +19,30 @@
     \draw[inkfaint, line width=0.7pt, rounded corners=2pt, fill=inksurface]
       (#1+5.85,#2-0.62*\r-0.25) rectangle (#1+7.0,#2-0.62*\r+0.25);}}
 
+% One team's row of a match as it was played, written into the boxes in the
+% answer build. The first two arguments place it on the same corner as the
+% match itself, and #3 is 0 for the upper team and 1 for the lower.
+\newcommand{\matchrow}[5]{%
+  \foreach \letter [count=\round] in {#4}{%
+    \node[text=inkanswer, font=\small]
+      at (#1+0.575+0.9*\round,#2-0.62*#3) {\letter};}
+  \node[text=inkanswer, font=\small] at (#1+6.425,#2-0.62*#3) {#5};}
+
+% One team's line of the strategy table: how they played, the pair \((p, q)\)
+% fitted to it, and where they finished.
+\newcommand{\strategyrow}[4]{%
+  \node[anchor=west, font=\large] at (0,-1.5*#1) {#1};
+  \draw[inkfaint, line width=0.7pt] (3.4,-1.5*#1-0.36) -- (13.6,-1.5*#1-0.36);
+  \onlyanswer{\node[anchor=west, text=inkanswer] at (3.5,-1.5*#1) {#2};}
+  \node[anchor=west] at (14.4,-1.5*#1) {\answerblank[3.4]{#3}};
+  \node[anchor=west] at (19.6,-1.5*#1) {\answerblank[2]{#4}};}
+
+% One row of the transition matrix, written into the empty grid.
+\newcommand{\matrixrow}[2]{%
+  \foreach \entry [count=\col from 0] in {#2}{%
+    \node[text=inkanswer, font=\large]
+      at (\col*2.7+1.35,-#1*2-1) {\(\displaystyle\entry\)};}}
+
 \begin{document}
 
 \titleslide{Direct reciprocity}{Four teams, one tournament, and what
@@ -36,7 +60,7 @@
 
     \vspace{2.4em}
 
-    {\large Winning team: \blank[4.4]}}
+    {\large Winning team: \answerblank[4.4]{Team 4, on 45}}}
 
 \newpage
 \slidehead{The stage game, and the scoreboard}
@@ -68,6 +92,20 @@
   \match{8.0}{0}{2}{3}
   \match{8.0}{-1.95}{2}{4}
   \match{8.0}{-3.9}{3}{4}
+  % The tournament as the 2026 cohort played it, read off the annotated deck.
+  \onlyanswer{%
+    \matchrow{0}{0}{0}{D,D,C,C,D}{15}
+    \matchrow{0}{0}{1}{C,C,D,D,C}{10}
+    \matchrow{0}{-1.95}{0}{C,D,D,D,D}{4}
+    \matchrow{0}{-1.95}{1}{D,D,D,D,D}{9}
+    \matchrow{0}{-3.9}{0}{C,C,C,C,C}{15}
+    \matchrow{0}{-3.9}{1}{C,C,C,C,C}{15}
+    \matchrow{8.0}{0}{0}{C,C,C,D,D}{15}
+    \matchrow{8.0}{0}{1}{C,C,C,C,D}{10}
+    \matchrow{8.0}{-1.95}{0}{C,C,C,C,D}{10}
+    \matchrow{8.0}{-1.95}{1}{C,C,C,D,D}{15}
+    \matchrow{8.0}{-3.9}{0}{C,C,C,C,C}{15}
+    \matchrow{8.0}{-3.9}{1}{C,C,C,C,C}{15}}
 \end{tikzpicture}
 \end{minipage}
 
@@ -79,8 +117,9 @@ in the shaded box.}
 
 \vspace{0.15cm}
 
-{\large Totals: \;1 \blank[1.5] \hspace{0.8cm} 2 \blank[1.5]
- \hspace{0.8cm} 3 \blank[1.5] \hspace{0.8cm} 4 \blank[1.5]}
+{\large Totals: \;1 \answerblank[1.5]{34} \hspace{0.8cm}
+ 2 \answerblank[1.5]{35} \hspace{0.8cm} 3 \answerblank[1.5]{34}
+ \hspace{0.8cm} 4 \answerblank[1.5]{45}}
 
 \vspace{0.2cm}
 
@@ -105,12 +144,14 @@ probability \(p\) after they cooperated, and \(q\) after they defected.}
                          {As \((p, q)\)}/14.4, Rank/19.6}{%
     \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
   \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.6,-0.36);
-  \foreach \row in {1,2,3,4}{%
-    \node[anchor=west, font=\large] at (0,-1.5*\row) {\row};
-    \draw[inkfaint, line width=0.7pt]
-      (3.4,-1.5*\row-0.36) -- (13.6,-1.5*\row-0.36);
-    \node[anchor=west] at (14.4,-1.5*\row) {\blank[3.4]};
-    \node[anchor=west] at (19.6,-1.5*\row) {\blank[2]};}
+  \strategyrow{1}{Opened D against 2, then matched what came back}%
+    {\((5/6,\; 1/6)\)}{3rd=}
+  \strategyrow{2}{Always opened C, defected late in two matches}%
+    {\((2/3,\; 1/3)\)}{2nd}
+  \strategyrow{3}{Mirrored, and never forgave a defection}%
+    {\((7/8,\; 0)\)}{3rd=}
+  \strategyrow{4}{Cooperated throughout, bar two late defections}%
+    {\((5/6,\; -)\)}{1st}
 \end{tikzpicture}
 
 \newpage
@@ -121,21 +162,23 @@ probability \(p\) after they cooperated, and \(q\) after they defected.}
 
 \hspace{0.6cm}
 \begin{tikzpicture}[font=\large]
-  \node[anchor=west] at (0,0) {\((1, 1)\) is \blank[5]};
-  \node[anchor=west] at (11.4,0) {\((0, 0)\) is \blank[5]};
-  \node[anchor=west] at (0,-2.4) {\((1, 0)\) is \blank[5]};
+  \node[anchor=west] at (0,0) {\((1, 1)\) is \answerblank[5]{Always Cooperate}};
+  \node[anchor=west] at (11.4,0) {\((0, 0)\) is \answerblank[5]{Always Defect}};
+  \node[anchor=west] at (0,-2.4) {\((1, 0)\) is \answerblank[5]{Tit For Tat}};
   \node[anchor=west] at (11.4,-2.4)
-    {\(\left(\tfrac{1}{2}, \tfrac{1}{2}\right)\) is \blank[5]};
+    {\(\left(\tfrac{1}{2}, \tfrac{1}{2}\right)\) is
+     \answerblank[5]{Random}};
 \end{tikzpicture}
 
 \vspace{1.6cm}
 
-{\large Which of the four did the teams actually submit? \blank[5]}
+{\large Which of the four did the teams actually submit?
+ \answerblank[5]{None exactly}}
 
 \vspace{1cm}
 
-{\large Did the winner cooperate first? \blank[2] \hspace{2cm}
-Did it ever forgive? \blank[2]}
+{\large Did the winner cooperate first? \answerblank[2]{Yes}
+\hspace{2cm} Did it ever forgive? \answerblank[2]{Never asked}}
 
 \newpage
 \slidehead{Two strategies make a Markov chain}
@@ -145,7 +188,12 @@ Did it ever forgive? \blank[2]}
 
 \begin{minipage}[c]{0.58\linewidth}
 \begin{center}
-\payoffgrid{CC, CD, DC, DD}{}
+\payoffgrid{CC, CD, DC, DD}{%
+  \onlyanswer{%
+    \matrixrow{0}{\frac{12}{25}, \frac{8}{25}, \frac{3}{25}, \frac{2}{25}}
+    \matrixrow{1}{\frac{3}{25}, \frac{2}{25}, \frac{12}{25}, \frac{8}{25}}
+    \matrixrow{2}{\frac{2}{25}, \frac{18}{25}, \frac{1}{50}, \frac{9}{50}}
+    \matrixrow{3}{\frac{1}{50}, \frac{9}{50}, \frac{2}{25}, \frac{18}{25}}}}
 \end{center}
 \end{minipage}
 \hfill
@@ -161,8 +209,8 @@ Did it ever forgive? \blank[2]}
 \vspace{1.2em}
 
 {\large In state \(CD\) I cooperated and they defected, so next round I
-cooperate with probability \blank[1.6] and they cooperate with probability
-\blank[1.6].}
+cooperate with probability \answerblank[1.6]{\(1/5\)} and they cooperate with
+probability \answerblank[1.6]{\(3/5\)}.}
 \end{minipage}
 
 \vspace{0.3cm}
@@ -183,18 +231,29 @@ Check one row of \(\pi P = \pi\):}
 \vspace{0.6cm}
 
 \begin{center}
-\workspace{22.6}{3.4}
+\answerspace{22.6}{3.4}{%
+  The \(CC\) column, with \(\pi = \tfrac{1}{245}(26, 65, 44, 110)\):
+  \[
+    (\pi P)_{CC} = \tfrac{1}{245}\left(26 \cdot \tfrac{12}{25}
+      + 65 \cdot \tfrac{3}{25} + 44 \cdot \tfrac{2}{25}
+      + 110 \cdot \tfrac{1}{50}\right)
+    = \tfrac{1}{245} \cdot \tfrac{312 + 195 + 88 + 55}{25}
+    = \tfrac{26}{245},
+  \]
+  which is the first entry of \(\pi\) again.}
 \end{center}
 
 \vspace{0.9cm}
 
-{\large My long-run payoff is \(\pi \cdot (R, S, T, P) =\) \blank[3.4], and
-theirs is \blank[3.4].}
+{\large My long-run payoff is \(\pi \cdot (R, S, T, P) =\)
+\answerblank[3.4]{\(408/245 \approx 1.67\)}, and theirs is
+\answerblank[3.4]{\(513/245 \approx 2.09\)}.}
 
 \vspace{0.8cm}
 
-{\large Mutual cooperation for ever would have paid \blank[1.8] each. What did
-the reciprocity cost? \blank[2.4]}
+{\large Mutual cooperation for ever would have paid \answerblank[1.8]{\(3\)}
+each. What did the reciprocity cost?
+\answerblank[2.4]{\(1.33\) and \(0.91\)}}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

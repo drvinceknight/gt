@@ -121,6 +121,26 @@ def note_label(url: str, page_title: str = "") -> str:
     return url
 
 
+def deck_answer_pages(slug: str) -> list[Post]:
+    """Return the pages of a deck's answer build, in order.
+
+    ``make answers`` in decks/ compiles each deck a second time with the
+    answers written into the boxes and renders one image per page into
+    assets/img/decks/<slug>/. A notes page shows those pages as soon as its
+    deck has answers to show, and nothing while it does not.
+    """
+    directory = ROOT / "assets/img/decks" / slug
+    if not directory.exists():
+        return []
+    pages = sorted(
+        directory.glob("page-*.png"), key=lambda path: int(path.stem.split("-")[1])
+    )
+    return [
+        {"number": int(path.stem.split("-")[1]), "url": path.as_posix()}
+        for path in pages
+    ]
+
+
 def read_page(path: pathlib.Path, baseurl: str) -> Post:
     post = frontmatter.load(path)
     data: Post = dict(post.metadata)
@@ -304,11 +324,15 @@ def main() -> None:
         )
 
     # --- Class-notes pages ---
+    # The deck for a set of notes is the one whose directory matches the
+    # title, which is also how the topic pages find it.
     for notes in class_notes:
+        slug = slugify(notes["title"])
         render(
             "class-notes.html",
-            notes_dir / f"{slugify(notes['title'])}.html",
+            notes_dir / f"{slug}.html",
             page=notes,
+            deck_answers=deck_answer_pages(slug),
         )
 
     # --- Class-notes index (ordered to follow the schedule) ---

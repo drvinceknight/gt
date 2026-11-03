@@ -3,7 +3,9 @@
 % Every deck is designed to be projected and annotated live on a tablet:
 % whatever takes time to draw is pre-drawn, and whatever the class produces is
 % left blank. Compile a deck with `pdflatex main.tex` from its own directory,
-% or run `make` in decks/ to build them all.
+% or run `make` in decks/ to build them all. `make answers` builds the same
+% decks with the answers written in, together with the page images that the
+% facilitator notes show.
 \documentclass[10pt]{article}
 
 \usepackage[papersize={25.6cm,14.4cm}, margin=1.1cm, bottom=1.5cm,
@@ -30,9 +32,21 @@
 \definecolor{inkteal}{HTML}{179299}    % teal
 \definecolor{inkred}{HTML}{FE640B}     % peach, for whatever wants attention
 \definecolor{inkmauve}{HTML}{8839EF}   % mauve
+\definecolor{inkanswer}{HTML}{D20F39}  % red, for anything written by hand
 
 \pagecolor{inkbg}
 \color{inktext}
+
+% Answer mode. A deck compiles blank, which is what we project, and compiles a
+% second time with the answers written in when \answermode is defined ahead of
+% this preamble. Both builds come from the one source, so a key cannot drift
+% away from the deck it answers.
+\newif\ifanswers
+\ifdefined\answermode\answerstrue\fi
+
+% Material that belongs to the answer build alone, for a grid or a diagram that
+% is printed empty and written into in the room.
+\newcommand{\onlyanswer}[1]{\ifanswers#1\fi}
 
 % A box to write a number into. White against the tinted page, so it reads as
 % somewhere to write rather than as part of the printed material.
@@ -41,14 +55,48 @@
     \draw[inkfaint, line width=0.7pt, rounded corners=2pt, fill=white]
       (0,-0.18) rectangle (#1,0.62);}}
 
+% The same box with its answer in it: blank on the projector, filled in the
+% answer build. A box whose answer belongs to the room rather than to the
+% mathematics stays a plain \blank and is empty in both builds.
+\newcommand{\answerblank}[2][1.6]{%
+  \tikz[baseline=(current bounding box.base)]{%
+    \draw[inkfaint, line width=0.7pt, rounded corners=2pt, fill=white]
+      (0,-0.18) rectangle (#1,0.62);
+    \onlyanswer{%
+      \node[text=inkanswer, font=\small, inner sep=1pt, align=center,
+            anchor=center]
+        at (#1/2,0.22) {#2};}}}
+
+% A rule to write a word on, for a sentence that is completed out loud. The
+% answer build writes the word on the rule.
+\newcommand{\answerrule}[2][4cm]{%
+  \ifanswers
+    \underline{\makebox[#1]{\color{inkanswer}#2}}%
+  \else
+    \underline{\hspace{#1}}%
+  \fi}
+
+% The ruled area itself, drawn inside a picture the caller owns.
+\newcommand{\workspacebox}[2]{%
+  \draw[inkfaint, line width=0.7pt, rounded corners=3pt, fill=white]
+    (0,0) rectangle (#1,#2);
+  \foreach \gx in {0.5,1.0,...,#1}{%
+    \foreach \gy in {0.5,1.0,...,#2}{%
+      \fill[inkfaint] (\gx,\gy) circle (0.5pt);}}}
+
 % A ruled area to work in. Faint dots keep handwriting level on a tablet.
 \newcommand{\workspace}[2]{%
+  \begin{tikzpicture}\workspacebox{#1}{#2}\end{tikzpicture}}
+
+% A ruled area with the working in it, for a page whose answer is a short
+% calculation rather than a number.
+\newcommand{\answerspace}[3]{%
   \begin{tikzpicture}
-    \draw[inkfaint, line width=0.7pt, rounded corners=3pt, fill=white]
-      (0,0) rectangle (#1,#2);
-    \foreach \gx in {0.5,1.0,...,#1}{%
-      \foreach \gy in {0.5,1.0,...,#2}{%
-        \fill[inkfaint] (\gx,\gy) circle (0.5pt);}}
+    \workspacebox{#1}{#2}
+    \onlyanswer{%
+      \node[text=inkanswer, anchor=north west, align=left, font=\large,
+            text width=\dimexpr#1cm-0.9cm\relax]
+        at (0.45,#2-0.35) {#3};}
   \end{tikzpicture}}
 
 % A panel for material that is printed rather than written on.

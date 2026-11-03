@@ -677,3 +677,34 @@ tr:last-child td { border-bottom: none; }
   .theme-count { grid-area: count; }
   .theme-track { grid-area: track; }
 }
+
+/* ---- The deck with its answers, on the facilitator notes ------- */
+.deck-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.deck-answers figure {
+  margin: 0;
+}
+
+.deck-answers img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.deck-answers a:hover img {
+  border-color: var(--accent);
+}
+
+.deck-answers figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}

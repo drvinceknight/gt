@@ -3,6 +3,20 @@
 
 \deckname{Nash equilibrium}
 
+% One row of the payoff matrix, written into the empty grid.
+\newcommand{\matrixrow}[2]{%
+  \foreach \entry [count=\col from 0] in {#2}{%
+    \node[text=inkanswer, font=\large]
+      at (\col*2.7+1.35,-#1*2-1) {\(\entry\)};}}
+
+% The marks the class makes on the grid: a circle on the row player's best
+% response in a column, a square on the column player's best response in a row.
+\newcommand{\rowbest}[2]{%
+  \draw[inkanswer, line width=1pt] (#2*2.7+1.35,-#1*2-1) circle (0.62);}
+\newcommand{\colbest}[2]{%
+  \draw[inkanswer, line width=1pt, rounded corners=2pt]
+    (#2*2.7+0.65,-#1*2-1.65) rectangle (#2*2.7+2.05,-#1*2-0.35);}
+
 \begin{document}
 
 \titleslide{Nash equilibrium}{Rock Paper Scissors Lizard Spock, all the way down}{%
@@ -43,9 +57,10 @@
 
 \vspace{0.4cm}
 
-{\large Each action wins \blank[1.3], loses \blank[1.3] and draws
-\blank[1.3]. So the game is \underline{\hspace{3.2cm}}, and every cell's
-payoffs add to \blank[1.3].}
+{\large Each action wins \answerblank[1.3]{\(2\)}, loses
+\answerblank[1.3]{\(2\)} and draws \answerblank[1.3]{\(1\)}. So the game is
+\answerrule[3.2cm]{zero sum}, and every cell's payoffs add to
+\answerblank[1.3]{\(0\)}.}
 
 \newpage
 \slidehead{Three actions, so we can see it}
@@ -55,7 +70,13 @@ payoffs add to \blank[1.3].}
 
 \begin{minipage}[c]{0.52\linewidth}
 \begin{center}
-\payoffgrid{Rock, Paper, Scissors}{}
+\payoffgrid{Rock, Paper, Scissors}{%
+  \onlyanswer{%
+    \matrixrow{0}{0, -1, 1}
+    \matrixrow{1}{1, 0, -1}
+    \matrixrow{2}{-1, 1, 0}
+    \rowbest{1}{0} \rowbest{2}{1} \rowbest{0}{2}
+    \colbest{0}{1} \colbest{1}{2} \colbest{2}{0}}}
 \end{center}
 \end{minipage}
 \hfill
@@ -63,7 +84,7 @@ payoffs add to \blank[1.3].}
 {\large Fill in the \emph{row} player's payoff:}\\[0.8em]
 {\large \hspace*{0.6cm} win $= +1$, \quad draw $= 0$, \quad lose $= -1$.}\\[1.6em]
 {\large Then circle each player's best responses.}\\[1.6em]
-{\large The column player's matrix is \blank[3.5].}
+{\large The column player's matrix is \answerblank[3.5]{\(M^{T} = -M\)}.}
 \end{minipage}
 
 \vspace{0.4cm}
@@ -84,11 +105,11 @@ a pure Nash equilibrium.}
 \hspace{1cm}
 \begin{tikzpicture}[font=\large]
   \node[anchor=west] at (0,0)
-    {If they play Rock, I want \blank[2.6]};
+    {If they play Rock, I want \answerblank[2.6]{Paper}};
   \node[anchor=west] at (11,0)
-    {If they play Paper, I want \blank[2.6]};
+    {If they play Paper, I want \answerblank[2.6]{Scissors}};
   \node[anchor=west] at (0,-1.6)
-    {If they play Scissors, I want \blank[2.6]};
+    {If they play Scissors, I want \answerblank[2.6]{Rock}};
   \node[anchor=west] at (11,-1.6)
     {\ldots\ and then they want to move too.};
 \end{tikzpicture}
@@ -96,12 +117,15 @@ a pure Nash equilibrium.}
 \vspace{0.9cm}
 
 {\large\bfseries So any equilibrium has to be
-\underline{\hspace{4.5cm}}.}
+\answerrule[4.5cm]{mixed}.}
 
 \vspace{0.5cm}
 
 \begin{center}
-\workspace{22.6}{2.6}
+\answerspace{22.6}{2.6}{%
+  Whichever cell we point at, one of the two players is losing or drawing and
+  would rather move to the action that beats what the other is doing. No pair
+  of pure actions survives, so nothing on the grid can be an equilibrium.}
 \end{center}
 
 \newpage
@@ -116,13 +140,17 @@ if}
 \vspace{0.6cm}
 
 \begin{center}
-\workspace{21}{3.4}
+\answerspace{21}{3.4}{%
+  \[
+    \sigma_i > 0 \implies u_r(i, \tau)
+      = \max_{k} u_r(k, \tau) \quad \text{for every action } i.
+  \]}
 \end{center}
 
 \vspace{0.9cm}
 
 {\large In words: every action I actually use has to be
-\underline{\hspace{6cm}}.}
+\answerrule[6cm]{a best response}.}
 
 \vspace{0.9cm}
 
@@ -144,21 +172,27 @@ expected payoff.}
 {\large
 \begin{tabbing}
 \(u_r(\text{Scissors}, \sigma_c) \;=\;\) \= \kill
-\(u_r(\text{Rock}, \sigma_c) \;=\;\) \> \blank[5.4]\\[1.5em]
-\(u_r(\text{Paper}, \sigma_c) \;=\;\) \> \blank[5.4]\\[1.5em]
-\(u_r(\text{Scissors}, \sigma_c) \;=\;\) \> \blank[5.4]
+\(u_r(\text{Rock}, \sigma_c) \;=\;\) \>
+  \answerblank[5.4]{\(1 - x - 2y\)}\\[1.5em]
+\(u_r(\text{Paper}, \sigma_c) \;=\;\) \>
+  \answerblank[5.4]{\(2x + y - 1\)}\\[1.5em]
+\(u_r(\text{Scissors}, \sigma_c) \;=\;\) \>
+  \answerblank[5.4]{\(y - x\)}
 \end{tabbing}}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.44\linewidth}
 {\small\color{inkgrey} Set them equal, and solve:}\\[0.4em]
-\workspace{10.2}{5.2}
+\answerspace{10.2}{5.2}{%
+  The first and the third agree when \(1 - x - 2y = y - x\), so
+  \(y = 1/3\). The second and the third agree when
+  \(2x + y - 1 = y - x\), so \(x = 1/3\). All three are then \(0\).}
 \end{minipage}
 
 \vspace{0.8cm}
 
 \begin{center}
-{\Large \(\sigma_c \;=\;\) \blank[6]}
+{\Large \(\sigma_c \;=\;\) \answerblank[6]{\large\(\left(\tfrac13, \tfrac13, \tfrac13\right)\)}}
 \end{center}
 
 \newpage
@@ -174,11 +208,13 @@ expected payoff.}
 \hspace{1cm}
 \begin{tikzpicture}[font=\large]
   \node[anchor=west] at (0,0)
-    {Non-empty supports for one player, out of 3 actions: \blank[2.2]};
+    {Non-empty supports for one player, out of 3 actions:
+     \answerblank[2.2]{\(2^3 - 1 = 7\)}};
   \node[anchor=west] at (0,-1.7)
-    {Pairs of supports to check: \blank[2.2]};
+    {Pairs of supports to check: \answerblank[2.2]{\(7^2 = 49\)}};
   \node[anchor=west] at (0,-3.4)
-    {And with 5 actions, as in the game we played: \blank[2.6]};
+    {And with 5 actions, as in the game we played:
+     \answerblank[2.6]{\(31^2 = 961\)}};
 \end{tikzpicture}
 
 \vspace{1.4cm}

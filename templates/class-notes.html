@@ -16,6 +16,26 @@
 
 {{ page.content_html }}
 
+{% if deck_answers %}
+<h2>The deck, filled in</h2>
+
+<p>Every page of the deck with its boxes completed, built from the same source
+as the blank deck we project. Click a page to see it full size.</p>
+
+<div class="deck-answers">
+  {% for slide in deck_answers %}
+  <figure>
+    <a href="{{ baseurl }}/{{ slide.url }}">
+      <img src="{{ baseurl }}/{{ slide.url }}"
+           alt="Page {{ slide.number }} of the deck, with the answers written in"
+           loading="lazy">
+    </a>
+    <figcaption>Page {{ slide.number }}</figcaption>
+  </figure>
+  {% endfor %}
+</div>
+{% endif %}
+
 {% if page.tag not in ['about', 'slack', 'mock-exam'] %}
 <h2>Communications</h2>
 

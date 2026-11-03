@@ -66,8 +66,9 @@ if you both dig.}
 
 \vspace{1.2em}
 
-{\large Two diggers get 3 each. A lone digger gets \blank[1.4] while the
-other free-rides for \blank[1.4]. Two stayers get \blank[1.4].}
+{\large Two diggers get 3 each. A lone digger gets \answerblank[1.4]{\(2\)}
+while the other free-rides for \answerblank[1.4]{\(4\)}. Two stayers get
+\answerblank[1.4]{\(0\)}.}
 
 \vspace{1.2em}
 
@@ -130,18 +131,23 @@ expect it to end up.}
 \vspace{0.7cm}
 
 \begin{center}
-{\Large \(f_D \;=\;\) \blank[5.4] \hspace{2.4cm} \(f_S \;=\;\) \blank[5.4]}
+{\Large \(f_D \;=\;\) \answerblank[5.4]{\(3x + 2(1 - x) = x + 2\)}
+\hspace{2.4cm} \(f_S \;=\;\) \answerblank[5.4]{\(4x\)}}
 \end{center}
 
 \vspace{1.2cm}
 
-{\large They are equal when \(x =\) \blank[2], which is where the room
-\underline{\hspace{4cm}}.}
+{\large They are equal when \(x =\) \answerblank[2]{\(2/3\)}, which is where
+the room \answerrule{settles}.}
 
 \vspace{1cm}
 
 \begin{center}
-\workspace{22.6}{3}
+\answerspace{22.6}{3}{%
+  A digger meets a digger with probability \(x\) and a stayer otherwise, so
+  \(f_D = 3x + 2(1 - x) = x + 2\), while a stayer gets \(4\) from a digger
+  and \(0\) from a stayer, so \(f_S = 4x\). The two agree when
+  \(x + 2 = 4x\), that is at \(x = 2/3\).}
 \end{center}
 
 \newpage
@@ -158,21 +164,21 @@ expect it to end up.}
 \hspace{1cm}
 \begin{tikzpicture}[font=\large]
   \node[anchor=west] at (0,0)
-    {how far above average it is: \blank[3.4]};
+    {how far above average it is: \answerblank[3.4]{\(f_D - \phi\)}};
   \node[anchor=west] at (11.6,0)
-    {and how many already play it: \blank[3.4]};
+    {and how many already play it: \answerblank[3.4]{\(x\)}};
 \end{tikzpicture}
 
 \vspace{1.2cm}
 
 \begin{center}
-{\Huge \(\dot{x} \;=\;\) \blank[6]}
+{\Huge \(\dot{x} \;=\;\) \answerblank[6]{\large\(x(f_D - \phi)\)}}
 \end{center}
 
 \vspace{1.2cm}
 
 {\large Each round of the activity, with its small fixed step, was one step of
-\underline{\hspace{5cm}} on this equation.}
+\answerrule[5cm]{Euler's method} on this equation.}
 
 \newpage
 \slidehead{Where it can rest, and where it goes}
@@ -185,19 +191,26 @@ expect it to end up.}
 \vspace{0.6cm}
 
 \begin{center}
-\workspace{22.6}{3.6}
+\answerspace{22.6}{3.6}{%
+  The average is \(\phi = x f_D + (1 - x) f_S = x(x + 2) + 4x(1 - x)
+  = -3x^{2} + 6x\), so
+  \[
+    \dot{x} = x\left(x + 2 + 3x^{2} - 6x\right)
+      = x\left(3x^{2} - 5x + 2\right) = x(3x - 2)(x - 1).
+  \]}
 \end{center}
 
 \vspace{0.8cm}
 
-{\large Rest points: \blank[2] \hspace{1.2cm} \blank[2] \hspace{1.2cm}
-\blank[2]}
+{\large Rest points: \answerblank[2]{\(0\)} \hspace{1.2cm}
+\answerblank[2]{\(2/3\)} \hspace{1.2cm} \answerblank[2]{\(1\)}}
 
 \vspace{0.9cm}
 
-{\large For \(0 < x < 2/3\) the sign of \(\dot{x}\) is \blank[1.4], and for
-\(2/3 < x < 1\) it is \blank[1.4]. So from anywhere inside, the population
-moves towards \blank[2].}
+{\large For \(0 < x < 2/3\) the sign of \(\dot{x}\) is
+\answerblank[1.4]{\(+\)}, and for \(2/3 < x < 1\) it is
+\answerblank[1.4]{\(-\)}. So from anywhere inside, the population moves
+towards \answerblank[2]{\(2/3\)}.}
 
 \newpage
 \slidehead{Is it evolutionarily stable?}
@@ -207,19 +220,24 @@ moves towards \blank[2].}
 \vspace{0.9cm}
 
 {\large A small group of Stayers invades a population sitting at
-\(x = 2/3\). Do they earn more or less than the residents? \blank[3]}
+\(x = 2/3\). Do they earn more or less than the residents?
+\answerblank[3]{Less}}
 
 \vspace{1.2cm}
 
 \begin{center}
-\workspace{22.6}{4}
+\answerspace{22.6}{4}{%
+  The invaders push the fraction digging down to \(x = 2/3 - \varepsilon\).
+  There \(f_D - f_S = (x + 2) - 4x = 2 - 3x = 3\varepsilon > 0\), so the
+  Stayers who have just arrived do worse than the Diggers they joined, the
+  Digging side grows again, and the room returns to \(2/3\).}
 \end{center}
 
 \vspace{1cm}
 
-{\large So \(x = 2/3\) \underline{\hspace{3cm}} an ESS. Rock-Paper-Scissors
+{\large So \(x = 2/3\) \answerrule[3cm]{is} an ESS. Rock-Paper-Scissors
 has an interior rest point too, but there the dynamics
-\underline{\hspace{4cm}} instead of settling.}
+\answerrule{cycle around it} instead of settling.}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

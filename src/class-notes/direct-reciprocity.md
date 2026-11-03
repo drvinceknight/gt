@@ -73,6 +73,15 @@ landed.
 
 ## Answers for the deck
 
+Every page of the deck with its boxes completed is at the foot of this page.
+They are built from the deck's own source, so they cannot drift away from what
+we project. The scoreboard and the table of strategies carry the 2026 cohort's
+tournament, which is a record of one class rather than a key: team 4 won on 45,
+team 2 took 35, and teams 1 and 3 tied on 34. Fitting a reactive strategy to
+each team's twelve conditioned rounds gives \((5/6, 1/6)\) for team 1,
+\((2/3, 1/3)\) for team 2 and \((7/8, 0)\) for team 3. Team 4 never met a
+defection in the previous round, so their \(q\) is unidentified.
+
 **The named strategies.** \((1, 1)\) is Always Cooperate, \((0, 0)\) is Always
 Defect, \((1, 0)\) is Tit For Tat, and
 \(\left(\tfrac{1}{2}, \tfrac{1}{2}\right)\) is Random.

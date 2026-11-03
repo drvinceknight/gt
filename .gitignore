@@ -27,6 +27,10 @@ assets/assessment/**/submissions/
 # Student marks (grade data must stay out of the repo)
 assets/**/marks/
 
+# The answer build of a deck, which is only a step on the way to the page
+# images the facilitator notes show.
+decks/*/main-answers.pdf
+
 # LaTeX build artefacts
 *.aux
 *.bcf

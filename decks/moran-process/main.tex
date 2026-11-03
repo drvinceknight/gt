@@ -17,13 +17,17 @@
     \node[state]  (s2) at (10.8,0) {$2$};
     \node[absorb] (s3) at (16.2,0) {$3$};
     \draw[gain] ([yshift=3.5mm]s1.east) --
-      node[above, font=\small] {\blank[1.6]} ([yshift=3.5mm]s2.west);
+      node[above, font=\small] {\answerblank[1.6]{\(1/3\)}}
+      ([yshift=3.5mm]s2.west);
     \draw[gain] ([yshift=3.5mm]s2.east) --
-      node[above, font=\small] {\blank[1.6]} ([yshift=3.5mm]s3.west);
+      node[above, font=\small] {\answerblank[1.6]{\(1/4\)}}
+      ([yshift=3.5mm]s3.west);
     \draw[loss] ([yshift=-3.5mm]s1.west) --
-      node[below, font=\small] {\blank[1.6]} ([yshift=-3.5mm]s0.east);
+      node[below, font=\small] {\answerblank[1.6]{\(1/6\)}}
+      ([yshift=-3.5mm]s0.east);
     \draw[loss] ([yshift=-3.5mm]s2.west) --
-      node[below, font=\small] {\blank[1.6]} ([yshift=-3.5mm]s1.east);
+      node[below, font=\small] {\answerblank[1.6]{\(1/6\)}}
+      ([yshift=-3.5mm]s1.east);
     \node[below=0.35cm of s0, font=\small, text=inkred] {all doves};
     \node[below=0.35cm of s3, font=\small, text=inkred] {all hawks};
   \end{tikzpicture}}
@@ -66,9 +70,10 @@
 \hfill
 \begin{minipage}[c]{0.62\linewidth}
 \raggedright
-{\large Four resources to share. Two hawks get \blank[1.2] each; a hawk meeting
-a dove takes \blank[1.2] to the dove's \blank[1.2]; two doves split them
-\blank[1.2] each.}
+{\large Four resources to share. Two hawks get \answerblank[1.2]{\(0\)}
+each; a hawk meeting a dove takes \answerblank[1.2]{\(3\)} to the dove's
+\answerblank[1.2]{\(1\)}; two doves split them \answerblank[1.2]{\(2\)}
+each.}
 \end{minipage}
 
 \vspace{0.35cm}
@@ -100,17 +105,21 @@ the population, so it never plays itself.}
                          {$f(\text{dove})$}/14.4}{%
     \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
   \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.4,-0.36);
-  \foreach \state [count=\row from 1] in
-    {{1 hawk, 2 doves}, {2 hawks, 1 dove}}{%
+  \foreach \state/\hawk/\dove [count=\row from 1] in
+    {{1 hawk, 2 doves}/{3 + 3 = 6}/{1 + 2 = 3},
+     {2 hawks, 1 dove}/{0 + 3 = 3}/{1 + 1 = 2}}{%
     \node[anchor=west, font=\large] at (0,-1.9*\row) {\state};
-    \node[anchor=west] at (6.4,-1.9*\row) {\blank[6]};
-    \node[anchor=west] at (14.4,-1.9*\row) {\blank[6]};}
+    \node[anchor=west] at (6.4,-1.9*\row)
+      {\answerblank[6]{\(\hawk\)}};
+    \node[anchor=west] at (14.4,-1.9*\row)
+      {\answerblank[6]{\(\dove\)}};}
 \end{tikzpicture}
 
 \vspace{1cm}
 
-{\large Which type is fitter when hawks are rare? \blank[2.6]
-\hspace{1.6cm} And when they are common? \blank[2.6]}
+{\large Which type is fitter when hawks are rare?
+\answerblank[2.6]{The hawk} \hspace{1.6cm} And when they are common?
+\answerblank[2.6]{The hawk, just}}
 
 \newpage
 \slidehead{While you play}
@@ -134,7 +143,7 @@ taken over.}
 \notesref{11.2.1}{Moran Process: Definition: Moran Process}
 
 {\large Birth is proportional to fitness. Death is uniform, so it is
-proportional to \underline{\hspace{4.5cm}}.}
+proportional to \answerrule[4.5cm]{how many there are}.}
 
 \vspace{0.3cm}
 
@@ -144,13 +153,17 @@ proportional to \underline{\hspace{4.5cm}}.}
                          {Chosen for death}/15.4}{%
     \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
   \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.4,-0.36);
-  \foreach \state/\type [count=\row from 1] in
-    {{1 hawk, 2 doves}/hawk, {1 hawk, 2 doves}/dove,
-     {2 hawks, 1 dove}/hawk, {2 hawks, 1 dove}/dove}{%
+  \foreach \state/\type/\birth/\death [count=\row from 1] in
+    {{1 hawk, 2 doves}/hawk/{6/12 = 1/2}/{1/3},
+     {1 hawk, 2 doves}/dove/{6/12 = 1/2}/{2/3},
+     {2 hawks, 1 dove}/hawk/{6/8 = 3/4}/{2/3},
+     {2 hawks, 1 dove}/dove/{2/8 = 1/4}/{1/3}}{%
     \node[anchor=west] at (0,-1.5*\row) {\state};
     \node[anchor=west] at (5.4,-1.5*\row) {\type};
-    \node[anchor=west] at (8.6,-1.5*\row) {\blank[5.4]};
-    \node[anchor=west] at (15.4,-1.5*\row) {\blank[5.4]};}
+    \node[anchor=west] at (8.6,-1.5*\row)
+      {\answerblank[5.4]{\(\birth\)}};
+    \node[anchor=west] at (15.4,-1.5*\row)
+      {\answerblank[5.4]{\(\death\)}};}
 \end{tikzpicture}
 
 \vspace{0.5cm}
@@ -169,20 +182,28 @@ type that dies.}
 \vspace{1.1cm}
 
 \begin{center}
-{\Large \(p_{10} =\) \blank[2.6] \hspace{1.4cm} \(p_{12} =\) \blank[2.6]
- \hspace{1.4cm} \(p_{21} =\) \blank[2.6] \hspace{1.4cm}
- \(p_{23} =\) \blank[2.6]}
+{\Large \(p_{10} =\) \answerblank[2.6]{\(\tfrac12 \cdot \tfrac13
+ = \tfrac16\)} \hspace{1.4cm} \(p_{12} =\)
+ \answerblank[2.6]{\(\tfrac12 \cdot \tfrac23 = \tfrac13\)}
+ \hspace{1.4cm} \(p_{21} =\)
+ \answerblank[2.6]{\(\tfrac14 \cdot \tfrac23 = \tfrac16\)}
+ \hspace{1.4cm} \(p_{23} =\)
+ \answerblank[2.6]{\(\tfrac34 \cdot \tfrac13 = \tfrac14\)}}
 \end{center}
 
 \vspace{1.2cm}
 
 {\large Go back and write these on the chain. What happens with the remaining
-probability? \blank[4.4]}
+probability? \answerblank[4.4]{The state does not change}}
 
 \vspace{0.9cm}
 
 \begin{center}
-\workspace{22.6}{2.6}
+\answerspace{22.6}{2.6}{%
+  The count moves only when the type born differs from the type that dies, so
+  each arrow is one birth probability times the other type's death
+  probability. Drawing the same type for both leaves the population exactly
+  as it was.}
 \end{center}
 
 \newpage
@@ -197,17 +218,23 @@ so a fixation probability of about \blank[2.6].}
 \vspace{1.3cm}
 
 {\large The theory says \(x_1 = \dfrac{1}{1 + \gamma_1 + \gamma_1 \gamma_2}\)
-with \(\gamma_i = \) \blank[3.4], giving \blank[2.6].}
+with \(\gamma_i = \) \answerblank[3.4]{\(p_{i,i-1}/p_{i,i+1}\)}, giving
+\answerblank[2.6]{\(6/11 \approx 0.55\)}.}
 
 \vspace{1.3cm}
 
 {\large Close enough? \blank[2.2] \hspace{1.6cm} How many runs would we need to
-be sure? \blank[3.4]}
+be sure? \answerblank[3.4]{About 100}}
 
 \vspace{1cm}
 
 \begin{center}
-\workspace{22.6}{2.4}
+\answerspace{22.6}{2.4}{%
+  Here \(\gamma_1 = 1/2\) and \(\gamma_2 = 2/3\), so
+  \(x_1 = 1/(1 + \tfrac12 + \tfrac13) = 6/11\). Twenty runs carry a
+  standard error of about \(0.11\), so anything from eight to fourteen hawk
+  fixations agrees with that; pinning the answer to \(\pm 0.05\) takes
+  around a hundred runs.}
 \end{center}
 
 \newpage
