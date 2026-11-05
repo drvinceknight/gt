@@ -325,14 +325,15 @@ def main() -> None:
 
     # --- Class-notes pages ---
     # The deck for a set of notes is the one whose directory matches the
-    # title, which is also how the topic pages find it.
+    # notes' tag, falling back to the title. The tag matters where the two
+    # differ: the "Moran Processes" notes use the moran-process deck.
     for notes in class_notes:
         slug = slugify(notes["title"])
         render(
             "class-notes.html",
             notes_dir / f"{slug}.html",
             page=notes,
-            deck_answers=deck_answer_pages(slug),
+            deck_answers=deck_answer_pages(notes.get("tag") or slug),
         )
 
     # --- Class-notes index (ordered to follow the schedule) ---
