@@ -13,21 +13,19 @@ longer than the usual 20 minutes.
 **The deck.** There is a write-on deck at
 [/decks/moran-process/main.pdf](/decks/moran-process/main.pdf): the Hawk-Dove
 payoffs printed, the birth-death chain with its transition probabilities blank,
-and tables for the fitnesses and the selection probabilities.
+tables for the fitnesses and the selection probabilities, and a table turning
+those probabilities into ranges on a D12. There is no separate form: everything
+the pairs need is on the deck.
 
 Every slide of the deck names the numbered section of the notes it is reading,
 and the last slide gathers them into one table, marks what is examinable and
-sets the reading for the next class. A "While you play" slide carries the rules:
-leave it up while the room plays.
+sets the reading for the next class. A "While you play" slide carries the rules
+and the D12 ranges: leave it up while the room plays. Each pair only needs
+scrap paper to keep a tally of how each run ended.
 
-Use [moran process form](/assets/activities/moran_process/main.pdf) and have
-students play in pairs.
-
-**Also requires use of dice, allowing for multiples of 4 and 6.** For example:
-
-- 1 d12 (12-sided dice), or  
-- 1 d6 and 1 d4 (the example used in this page), or  
-- 1 d6 and 1 d8.
+**Requires one D12 (12-sided die) per pair.** Twelve is divisible by both four
+and six, so a single die reproduces every selection probability. Without a D12,
+a d6 and a d4 also work, using the mapping in the code below.
 
 **Virtual modification:** use breakout rooms of 4. For dice, show how to use the
 Python `random` library.
@@ -239,6 +237,10 @@ uniform, so it is proportional to how many of that type there are.
 |---|---|---|
 | 1 hawk, 2 doves | \(6/12 = 1/2\) | \(1/3\) |
 | 2 hawks, 1 dove | \(6/8 = 3/4\) | \(2/3\) |
+
+**The D12.** With one hawk, a hawk is born on 1 to 6 and dies on 1 to 4. With
+two hawks, a hawk is born on 1 to 9 and dies on 1 to 8. Any higher roll chooses
+a dove.
 
 **Transitions.** The count only changes when the type born differs from the type
 that dies:

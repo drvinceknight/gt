@@ -36,7 +36,7 @@
 
 \begin{document}
 
-\titleslide{Moran process}{Three individuals, two dice, one survivor}{%
+\titleslide{Moran process}{Three individuals, one die, one survivor}{%
     \begin{tikzpicture}[font=\small]
       \stepbox{s0}{0.0}{\textbf{Set up}\\[0.25em]
         Work out the fitnesses by hand.}
@@ -122,23 +122,6 @@ the population, so it never plays itself.}
 \answerblank[2.6]{The hawk, just}}
 
 \newpage
-\slidehead{While you play}
-\notesref{11.2.1}{Moran Process: Definition: Moran Process}
-
-\vspace*{\fill}
-
-\begin{center}
-\begin{minipage}{0.86\linewidth}
-{\LARGE In pairs, with one D12. Roll
-once for the birth, reading the ranges off your sheet, then once for the death, which
-is uniform over everybody. Write down the new state and roll again, until one type has
-taken over.}
-\end{minipage}
-\end{center}
-
-\vspace*{\fill}
-
-\newpage
 \slidehead{Who gets born, who dies}
 \notesref{11.2.1}{Moran Process: Definition: Moran Process}
 
@@ -168,8 +151,155 @@ proportional to \answerrule[4.5cm]{how many there are}.}
 
 \vspace{0.5cm}
 
-{\small\color{inkgrey} These are the numbers the dice have to reproduce, which
-is why we need a four and a six.}
+{\small\color{inkgrey} These are the numbers the die has to reproduce. Every
+denominator divides twelve, which is why one D12 is enough.}
+
+\newpage
+\slidehead{From probabilities to a D12}
+\notesref{11.2.1}{Moran Process: Definition: Moran Process}
+
+\vspace{0.5cm}
+
+{\large Twelve faces split evenly into halves, thirds and quarters. A hawk is
+chosen when the roll lands in:}
+
+\vspace{0.7cm}
+
+\hspace{0.3cm}
+\begin{tikzpicture}[font=\small]
+  \foreach \lab/\col in {State/0, {Hawk born on}/7.4, {Hawk dies on}/15.0}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.4,-0.36);
+  \foreach \state/\birth/\death [count=\row from 1] in
+    {{1 hawk, 2 doves}/{1 \text{ to } 6}/{1 \text{ to } 4},
+     {2 hawks, 1 dove}/{1 \text{ to } 9}/{1 \text{ to } 8}}{%
+    \node[anchor=west, font=\large] at (0,-1.9*\row) {\state};
+    \node[anchor=west] at (7.4,-1.9*\row)
+      {\answerblank[5.4]{\(\birth\)}};
+    \node[anchor=west] at (15.0,-1.9*\row)
+      {\answerblank[5.4]{\(\death\)}};}
+\end{tikzpicture}
+
+\vspace{0.9cm}
+
+{\large Any higher roll chooses a dove.}
+
+\vspace{0.6cm}
+
+\ifanswers
+{\small\color{inkgrey} With one hawk, a birth needs \(6/12 = 1/2\) and a death
+needs \(4/12 = 1/3\). With two hawks, \(9/12 = 3/4\) and \(8/12 = 2/3\).}
+\fi
+
+\newpage
+\slidehead{How a step works}
+\notesref{11.2.1}{Moran Process: Definition: Moran Process}
+
+\vspace{0.4cm}
+
+{\Large In pairs, with one D12, starting from one hawk and two doves. Roll once
+for the birth and once for the death, and read each type off the table.}
+
+\vspace{0.7cm}
+
+\begin{center}
+\begin{tikzpicture}[font=\Large]
+  \foreach \lab/\col in {State/0, {Hawk born on}/7.4, {Hawk dies on}/14.2}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.45) -- (20.4,-0.45);
+  \foreach \state/\birth/\death [count=\row from 1] in
+    {{1 hawk}/{1 to 6}/{1 to 4},
+     {2 hawks}/{1 to 9}/{1 to 8}}{%
+    \node[anchor=west] at (0,-1.4*\row) {\state};
+    \node[anchor=west, text=inkblue] at (7.4,-1.4*\row) {\textbf{\birth}};
+    \node[anchor=west, text=inkblue] at (14.2,-1.4*\row) {\textbf{\death}};}
+\end{tikzpicture}
+\end{center}
+
+\vspace{0.6cm}
+
+{\Large Keep count of the hawks. When the count reaches 0 or 3, make a tally mark
+for how that run ended and start again from one hawk.}
+
+\vspace{0.6cm}
+
+{\large\color{inkgrey} For example, with one hawk a birth roll of 3 and a death
+roll of 9 give a new hawk and one fewer dove, so we move to two hawks.}
+\newpage
+\slidehead{While you play}
+\notesref{11.2.2}{Moran Process: Definition: The Fixation Probability}
+
+\vspace{0.2cm}
+
+\begin{minipage}[t]{0.46\linewidth}
+{\large\textbf{\color{inkblue}Each run}}
+
+\vspace{0.3cm}
+
+{\large
+\begin{enumerate}
+  \setlength{\itemsep}{0.35em}
+  \item Start with \textbf{1 hawk}, 2 doves.
+  \item Roll for the \textbf{birth}, then for the \textbf{death}.
+  \item Write down the rolls and the new number of hawks.
+  \item Repeat until there are \textbf{0 or 3} hawks.
+  \item Make a tally mark, then start a new run.
+\end{enumerate}}
+
+\vspace{0.4cm}
+
+\begin{tikzpicture}[font=\large]
+  \foreach \lab/\col in {Hawks/0, {Hawk born on}/2.6, {Hawk dies on}/7.0}{%
+    \node[anchor=west, text=inkgrey, font=\normalsize] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.4) -- (10.6,-0.4);
+  \foreach \hawks/\birth/\death [count=\row from 1] in
+    {1/{1 to 6}/{1 to 4}, 2/{1 to 9}/{1 to 8}}{%
+    \node[anchor=west] at (0.3,-1.0*\row) {\hawks};
+    \node[anchor=west, text=inkblue] at (2.6,-1.0*\row) {\textbf{\birth}};
+    \node[anchor=west, text=inkblue] at (7.0,-1.0*\row) {\textbf{\death}};}
+\end{tikzpicture}
+
+\vspace{0.25cm}
+
+{\normalsize\color{inkgrey} Any higher roll is a dove.}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+{\large\textbf{\color{inkblue}What your paper should look like}}
+
+\vspace{0.3cm}
+
+\begin{tikzpicture}[font=\normalsize]
+  \draw[inkfaint, line width=0.9pt, rounded corners=4pt, fill=white]
+    (-0.3,0.55) rectangle (11.2,-6.55);
+  \foreach \lab/\col in {Hawks/0, Birth/2.4, Death/5.2, {Hawks next}/8.0}{%
+    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.35) -- (10.9,-0.35);
+  \foreach \hawks/\birth/\death/\after [count=\row from 1] in
+    {1/{3 (hawk)}/{9 (dove)}/2,
+     2/{11 (dove)}/{2 (hawk)}/1,
+     1/{5 (hawk)}/{2 (hawk)}/1,
+     1/{8 (dove)}/{1 (hawk)}/{\textbf{0}}}{%
+    \node[anchor=west] at (0.3,-0.75*\row) {\hawks};
+    \node[anchor=west] at (2.4,-0.75*\row) {\birth};
+    \node[anchor=west] at (5.2,-0.75*\row) {\death};
+    \node[anchor=west] at (8.3,-0.75*\row) {\after};}
+  \node[anchor=west, text=inkred] at (0,-3.75) {Run over: all doves.};
+  \draw[inkfaint, line width=0.7pt] (0,-4.3) -- (10.9,-4.3);
+  \node[anchor=west, font=\large] at (0,-5.0) {All hawks:};
+  \node[anchor=west, font=\Large\bfseries, text=inkteal] at (3.6,-5.0)
+    {| | |};
+  \node[anchor=west, font=\large] at (0,-5.9) {All doves:};
+  \node[anchor=west, font=\Large\bfseries, text=inkred] at (3.6,-5.9)
+    {| | | |};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace*{\fill}
+
+{\large\color{inkteal} When we stop, each pair reports two numbers: how many runs
+ended all hawks, and how many ended all doves.}
+
 \newpage
 \slidehead{Moving between states}
 \notesref{11.2.1}{Moran Process: Definition: Moran Process}
