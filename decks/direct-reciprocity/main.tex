@@ -43,6 +43,13 @@
     \node[text=inkanswer, font=\large]
       at (\col*2.7+1.35,-#1*2-1) {\(\displaystyle\entry\)};}}
 
+% A row of the transition matrix in symbols, smaller than \matrixrow so that
+% products such as (1 - p)(1 - p') fit their cells.
+\newcommand{\symrow}[2]{%
+  \foreach \entry [count=\col from 0] in {#2}{%
+    \node[text=inkanswer, font=\normalsize]
+      at (\col*2.7+1.35,-#1*2-1) {\(\entry\)};}}
+
 \begin{document}
 
 \titleslide{Direct reciprocity}{Four teams, one tournament, and what
@@ -56,11 +63,7 @@
         Write each one as a pair \((p, q)\).}
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
-    \end{tikzpicture}
-
-    \vspace{2.4em}
-
-    {\large Winning team: \answerblank[4.4]{Team 4, on 45}}}
+    \end{tikzpicture}}
 
 \newpage
 \slidehead{The stage game, and the scoreboard}
@@ -170,15 +173,6 @@ probability \(p\) after they cooperated, and \(q\) after they defected.}
      \answerblank[5]{Random}};
 \end{tikzpicture}
 
-\vspace{1.6cm}
-
-{\large Which of the four did the teams actually submit?
- \answerblank[5]{None exactly}}
-
-\vspace{1cm}
-
-{\large Did the winner cooperate first? \answerblank[2]{Yes}
-\hspace{2cm} Did it ever forgive? \answerblank[2]{Never asked}}
 
 \newpage
 \slidehead{Two strategies make a Markov chain}
@@ -190,10 +184,10 @@ probability \(p\) after they cooperated, and \(q\) after they defected.}
 \begin{center}
 \payoffgrid{CC, CD, DC, DD}{%
   \onlyanswer{%
-    \matrixrow{0}{\frac{12}{25}, \frac{8}{25}, \frac{3}{25}, \frac{2}{25}}
-    \matrixrow{1}{\frac{3}{25}, \frac{2}{25}, \frac{12}{25}, \frac{8}{25}}
-    \matrixrow{2}{\frac{2}{25}, \frac{18}{25}, \frac{1}{50}, \frac{9}{50}}
-    \matrixrow{3}{\frac{1}{50}, \frac{9}{50}, \frac{2}{25}, \frac{18}{25}}}}
+    \symrow{0}{pp', p(1 - p'), (1 - p)p', (1 - p)(1 - p')}
+    \symrow{1}{qp', q(1 - p'), (1 - q)p', (1 - q)(1 - p')}
+    \symrow{2}{pq', p(1 - q'), (1 - p)q', (1 - p)(1 - q')}
+    \symrow{3}{qq', q(1 - q'), (1 - q)q', (1 - q)(1 - q')}}}
 \end{center}
 \end{minipage}
 \hfill
@@ -203,14 +197,15 @@ probability \(p\) after they cooperated, and \(q\) after they defected.}
 
 \vspace{1.2em}
 
-{\large Take \((p, q) = (4/5,\; 1/5)\) against
-\((p', q') = (3/5,\; 1/10)\).}
+{\large My strategy is \((p, q)\) and theirs is \((p', q')\). In state \(CD\) I
+cooperated and they defected, so next round I cooperate with probability
+\answerblank[1.4]{\(q\)} and they cooperate with probability
+\answerblank[1.4]{\(p'\)}.}
 
 \vspace{1.2em}
 
-{\large In state \(CD\) I cooperated and they defected, so next round I
-cooperate with probability \answerblank[1.6]{\(1/5\)} and they cooperate with
-probability \answerblank[1.6]{\(3/5\)}.}
+{\large Then put in \((p, q) = (4/5,\; 1/5)\) against
+\((p', q') = (3/5,\; 1/10)\).}
 \end{minipage}
 
 \vspace{0.3cm}
@@ -225,23 +220,19 @@ we fill it in.}
 
 \vspace{0.7cm}
 
-{\large The chain settles at \(\pi = \tfrac{1}{245}\,(26,\; 65,\; 44,\; 110)\).
-Check one row of \(\pi P = \pi\):}
+{\large Start anywhere, say \(\pi_0 = (1, 0, 0, 0)\), and keep stepping:}
 
-\vspace{0.6cm}
+\vspace{0.5cm}
 
 \begin{center}
-\answerspace{22.6}{3.4}{%
-  The \(CC\) column, with \(\pi = \tfrac{1}{245}(26, 65, 44, 110)\):
-  \[
-    (\pi P)_{CC} = \tfrac{1}{245}\left(26 \cdot \tfrac{12}{25}
-      + 65 \cdot \tfrac{3}{25} + 44 \cdot \tfrac{2}{25}
-      + 110 \cdot \tfrac{1}{50}\right)
-    = \tfrac{1}{245} \cdot \tfrac{312 + 195 + 88 + 55}{25}
-    = \tfrac{26}{245},
-  \]
-  which is the first entry of \(\pi\) again.}
+{\Large \(\pi \;=\; \lim_{n \to \infty} \pi_0 P^{n} \;=\;\)
+\answerblank[6.4]{\(\tfrac{1}{245}\,(26,\ 65,\ 44,\ 110)\)}}
 \end{center}
+
+\vspace{0.3cm}
+
+{\small\color{inkgrey} The limit does not depend on \(\pi_0\), and it solves
+\(\pi P = \pi\).}
 
 \vspace{0.9cm}
 
@@ -249,11 +240,6 @@ Check one row of \(\pi P = \pi\):}
 \answerblank[3.4]{\(408/245 \approx 1.67\)}, and theirs is
 \answerblank[3.4]{\(513/245 \approx 2.09\)}.}
 
-\vspace{0.8cm}
-
-{\large Mutual cooperation for ever would have paid \answerblank[1.8]{\(3\)}
-each. What did the reciprocity cost?
-\answerblank[2.4]{\(1.33\) and \(0.91\)}}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

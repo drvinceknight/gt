@@ -86,8 +86,8 @@ landed.
 
 Every page of the deck with its boxes completed is at the foot of this page.
 They are built from the deck's own source, so they cannot drift away from what
-we project. The two pages the class fills in itself, the starting split and the
-round-by-round plot, stay empty there.
+we project. The page the class fills in itself, the round-by-round plot and its
+table of \(x\), \(f_D\), \(f_S\) and \(\phi\), stays empty there.
 
 **The payoffs.** Two diggers get 3 each. A lone digger gets 2 while the stayer
 free-rides for 4, and two stayers get 0.

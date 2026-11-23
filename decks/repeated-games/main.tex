@@ -1,6 +1,10 @@
 % Repeated games: "Will it end?", and the shadow of the future.
 \input{../preamble.tex}
 
+% A row of empty boxes for the totals the pairs call out, to find the podium.
+\newcommand{\scoreboard}[1]{%
+  {\large #1}\;\foreach \k in {1,...,8}{\blank[1.6]\,}}
+
 \deckname{Repeated games}
 
 \begin{document}
@@ -65,53 +69,45 @@
 \vspace{1.6em}
 
 {\large And if you had both bid High? \answerblank[2.6]{\(3\) each}}
+
+\vspace{1.6em}
+
+{\large The column bidder's matrix is \(M_c =\)
+\answerblank[3.2]{\(\begin{pmatrix} 3 & 5 \\ 0 & 1 \end{pmatrix}\)}}
 \end{minipage}
 
 \newpage
 \slidehead{Now we repeat it}
-\notesref{7.2.1}{Repeated Games: Definition: repeated game}
+\notesref{7.2.1, 7.2.5}{Repeated Games: Repeated game, Discounting}
 
-\vspace*{\fill}
+\vspace{0.6cm}
 
 \begin{center}
 {\Huge\bfseries\color{inkblue} Play it again, and again.}
 
-\vspace{1.8em}
+\vspace{1.2em}
 
-{\LARGE Roll the D12 after every round.}
-
-\vspace{0.9em}
-
-{\LARGE On a 1 or a 2 the game ends. Otherwise play another round.}
+{\LARGE Roll the D12 after every round. On a 1 or a 2 the game ends.}
 \end{center}
-
-\vspace*{\fill}
-
-\begin{center}
-{\large\color{inkgrey} Keep a running total. Nobody knows how many rounds
-there will be.}
-\end{center}
-
-\newpage
-\slidehead{The die is the future}
-\notesref{7.2.5}{Repeated Games: Infinitely Repeated Game with Discounting}
-
-\vspace{1.6cm}
-
-{\Large The game ends on a 1 or a 2, so it carries on with probability}
 
 \vspace{1.0cm}
 
-\begin{center}
-{\Large \(\delta \;=\;\) \answerblank[2.4]{\(10/12 = 5/6\)}}
-\end{center}
+{\Large The game ends with probability \answerblank[2]{\(1/6\)}, so it carries
+on with probability \(\delta =\) \answerblank[2]{\(5/6\)}.}
 
-\vspace{1.8cm}
+\vspace{0.6cm}
 
-\begin{center}
-{\Large The expected number of rounds is \(\dfrac{1}{1 - \delta} \;=\;\)
-\answerblank[2.4]{\(6\)}}
-\end{center}
+{\Large On average it lasts \(\dfrac{1}{1 - \delta} =\) \answerblank[2]{\(6\)}
+rounds.}
+
+\vspace{0.9cm}
+
+\scoreboard{Totals:}
+
+\vspace{0.4cm}
+
+{\large\color{inkgrey} Keep a running total. Nobody knows how many rounds there
+will be.}
 
 \newpage
 \slidehead{A shorter future}
@@ -131,8 +127,7 @@ there will be.}
 
 \vspace{1.6cm}
 
-{\Large Before we replay: will you bid High as often?
- \answerblank[4.4]{No: the future is too short}}
+\scoreboard{Totals:}
 
 \vspace{1.2cm}
 
@@ -142,32 +137,42 @@ there will be.}
 \slidehead{Grudger, against Grudger}
 \notesref{7.2.2}{Repeated Games: Definition: Strategies in a repeated game}
 
-\vspace{0.5cm}
+\vspace{0.3cm}
 
-{\large Grudger plays High until you play Low, then Low for ever.}
+{\large Grudger plays High until you play Low, then Low for ever. Always Low
+plays Low every round.}
 
-\vspace{0.9cm}
+\vspace{0.6cm}
 
 \begin{minipage}[t]{0.47\linewidth}
-\raggedright
-{\large\bfseries You conform, and play High for ever}\\[0.6em]
+{\large\bfseries You conform, and play High for ever}\\[0.5em]
 {\large \(3 + 3\delta + 3\delta^{2} + \cdots \;=\;\)
-\answerblank[3.4]{\(\dfrac{3}{1 - \delta}\)}}\\[0.8em]
-\answerspace{10.6}{3.4}{%
-  A geometric series with first term \(3\) and ratio \(\delta\). At
-  \(\delta = 5/6\) it is worth \(18\).}
+\answerblank[3]{\(\dfrac{3}{1 - \delta}\)}}
+
+\vspace{0.8cm}
+
+{\large\bfseries You deviate to Low in round one}\\[0.5em]
+{\large \(5 + \delta + \delta^{2} + \cdots \;=\;\)
+\answerblank[3]{\(5 + \dfrac{\delta}{1 - \delta}\)}}
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.47\linewidth}
-\raggedright
-{\large\bfseries You deviate to Low in round one}\\[0.6em]
-{\large \(5 + \delta + \delta^{2} + \cdots \;=\;\)
-\answerblank[3.4]{\(5 + \dfrac{\delta}{1 - \delta}\)}}\\[0.8em]
-\answerspace{10.6}{3.4}{%
-  Five now, then Grudger plays Low for ever and every later round pays
-  \(1\). At \(\delta = 5/6\) that is \(10\).}
+\begin{minipage}[t]{0.5\linewidth}
+{\large Your discounted payoff, \(M_r\):}\\[0.3cm]
+\begin{tikzpicture}[font=\large]
+  \node[font=\bfseries, text=inkblue] at (2.1,0.5) {Grudger};
+  \node[font=\bfseries, text=inkblue] at (6.3,0.5) {Always Low};
+  \node[font=\bfseries, text=inkblue, anchor=east] at (-0.2,-0.9) {Grudger};
+  \node[font=\bfseries, text=inkblue, anchor=east] at (-0.2,-2.7) {Always Low};
+  \foreach \x in {0,4.2}{\foreach \y in {0,-1.8}{%
+    \draw[inkfaint, line width=0.7pt, fill=white] (\x,\y) rectangle
+      (\x+4.2,\y-1.8);}}
+  \onlyanswer{%
+    \node[text=inkanswer] at (2.1,-0.9) {\(\dfrac{3}{1-\delta}\)};
+    \node[text=inkanswer] at (6.3,-0.9) {\(\dfrac{\delta}{1-\delta}\)};
+    \node[text=inkanswer] at (2.1,-2.7) {\(5 + \dfrac{\delta}{1-\delta}\)};
+    \node[text=inkanswer] at (6.3,-2.7) {\(\dfrac{1}{1-\delta}\)};}
+\end{tikzpicture}
 \end{minipage}
-
 
 \newpage
 \slidehead{How patient do we have to be?}

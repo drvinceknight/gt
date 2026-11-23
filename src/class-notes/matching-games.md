@@ -7,12 +7,15 @@ tags:
 
 ## Activity (20 minutes)
 
-**Goal.** Elicit preferences and motivate the need for a stable matching.
+**Goal.** Motivate the need for a stable matching, then find one with the
+Gale-Shapley algorithm, run once together and once by the students.
 
 **The deck.** There is a write-on deck at
-[/decks/matching-games/main.pdf](/decks/matching-games/main.pdf): the
-preference lists waiting to be filled in, then four copies of the bipartite
-diagram so each round of proposals can be drawn on top of the last.
+[/decks/matching-games/main.pdf](/decks/matching-games/main.pdf): the people,
+their rankings, a page for one pair's matching, a single diagram with each
+person's ranking under them for the mathematicians proposing (write each round
+on it and erase the rejections), the algorithm written out, and a
+self-contained page for the students to run it with the physicists proposing.
 
 Every slide of the deck names the numbered section of the notes it is reading,
 and the last slide gathers them into one table, marks what is examinable and
@@ -22,17 +25,27 @@ memory.
 
 Slides 2 and 3 introduce the four mathematicians and the four physicists in
 words: what each person is like, what they look for in a collaborator and what
-puts them off. Slide 4 then puts all eight on one slide as pictures, with a key
-along the top and the rules for the ranking. Show the two slides of
-descriptions briefly, so that three slides of reading do not eat the activity,
-then leave slide 4 up while groups work out a ranking for
-every person: one person's 'wants' and 'avoids' against each card on the other
-side is the comparison to make. The pictures guide the ranking rather than fix
-it, so steer the room towards the lists below. The same descriptions are on
+puts them off. Slides 4 to 19 then take one person at a time: their card on the
+left and the four people on the other side on the right, then the same page
+again with that person's ranking revealed. Ask the room to guess the order
+before moving on; the class does not work out the rankings, which takes too
+long, but each one should feel earned. The same descriptions are on
 [this preference sheet](/assets/activities/matching-scientists/main.pdf) for
 anyone who wants a copy on paper.
 
-Arrive at this:
+Slide 20 gathers the rankings, and the room's task is to use them. In pairs, the
+students match every mathematician with a physicist, aiming for a matching that
+nobody would walk away from. Slide 21 takes one pair's matching and asks for a
+blocking pair. Then work through the algorithm with the mathematicians
+proposing on slide 22, a single diagram with every ranking under its person
+that is written on and erased round by round, and check the result on slide
+23. Slide 24 writes the algorithm down, and slide 25 is for the students: it
+carries the algorithm and the same diagram, so they can run it with the
+physicists proposing without turning back. Slide 26 lists every person's
+ranking beside their partner in each matching and how far down the ranking
+that partner is, which makes it plain who gains from proposing.
+
+The rankings are:
 
 **Mathematicians**
 
@@ -48,13 +61,8 @@ Arrive at this:
 - Newton: Gauss > Turing > Euler > Noether
 - Feynman: Euler > Noether > Turing > Gauss
 
-Every one of these agrees with the pictures: score one for each trait a person
-wants that the other has, and take one off for each trait they avoid. Where two
-people score the same, the lists above break the tie, and those tie breaks are
-the places to steer the room. Curie's ranking is fixed by the cards, and Gauss
-and Newton rank each other first or second whatever the room does, so that
-pair is a good first win. These rankings have two stable matchings, which is
-what lets the last part of the deck show that the proposing side does better.
+These rankings have two stable matchings, which is what
+lets the last part of the deck show that the proposing side does better.
 
 The following will obtain a stable matching:
 
@@ -118,7 +126,7 @@ worst physicist and prefers Einstein, and Einstein has his second choice and
 prefers Noether.
 
 **Deferred acceptance, with the mathematicians proposing.** It takes four
-rounds, which is why there are four diagrams:
+rounds, all drawn on the one diagram:
 
 1. Gauss proposes to Curie, Noether and Euler both to Feynman, Turing to
    Einstein. Feynman holds Euler and rejects Noether.

@@ -80,13 +80,10 @@ sets the reading for the next class. The rules of the activity sit on the slide
 that is up while the room plays, so a pair working alone is not going from
 memory.</p>
 <p><strong>First, in pairs.</strong> Pair the students up and have them decide who is the row
-player. They play two games, six rounds each, choosing at the same time, and
-fill in every column: both actions, both payoffs and both running totals.</p>
-<p>The first game is matching pennies, so the payoffs are mirror images and the
-table is easy to fill. The second is the asymmetric game we actually want,
-where the cells no longer mirror and they have to read each one. Doing the easy
-one first means the second table tests their reading rather than their nerve,
-and the six rounds are the same six they then play against the dice.</p>
+player. They play matching pennies for six rounds, choosing at the same time,
+and fill in every column: both actions, both payoffs and both running totals.
+The payoffs are mirror images, so the table is easy to fill, and the pairs then
+meet the asymmetric game we actually want against the dice.</p>
 <p><strong>Then against the dice.</strong> The row player is now a die with a known mix.
 Before each roll a student commits to <span class="arithmatex">\(c_1\)</span> or <span class="arithmatex">\(c_2\)</span>; then roll, read off
 <span class="arithmatex">\(r_1\)</span> or <span class="arithmatex">\(r_2\)</span>, and score. Six rounds for each of three mixes:</p>
@@ -136,14 +133,16 @@ a show of hands. It takes five minutes and tells us both what landed.</p>
 <h2 id="answers-for-the-deck">Answers for the deck</h2>
 <p>Headings match the deck's page numbers, so this can sit open on a second screen
 while the deck is projected.</p>
-<p><strong>Page 3, matching pennies.</strong> Zero sum: every cell adds to <span class="arithmatex">\(0\)</span>. Neither action
-is dominated, and there is no equilibrium in pure actions, so anyone who always
-shows the same thing loses to an opponent who notices. The equilibrium is both
-players mixing <span class="arithmatex">\((1/2,\ 1/2)\)</span>, with value <span class="arithmatex">\(0\)</span>.</p>
-<p><strong>Page 4, the main game.</strong> Also zero sum, every cell adding to <span class="arithmatex">\(0\)</span>. If the row
-player picks <span class="arithmatex">\(r_1\)</span> and the column player <span class="arithmatex">\(c_2\)</span>, the column player scores
-<span class="arithmatex">\(+2\)</span> and the row player <span class="arithmatex">\(-2\)</span>.</p>
-<p><strong>Page 5, the dice.</strong> One D12 per pair.</p>
+<p><strong>Page 2, the game.</strong> Zero sum: every cell adds to <span class="arithmatex">\(0\)</span>. The action sets are
+<span class="arithmatex">\(A_r = \{r_1, r_2\}\)</span> and <span class="arithmatex">\(A_c = \{c_1, c_2\}\)</span>. If the row player picks
+<span class="arithmatex">\(r_1\)</span> and the column player <span class="arithmatex">\(c_2\)</span>, the column player scores <span class="arithmatex">\(+2\)</span> and the
+row player <span class="arithmatex">\(-2\)</span>.</p>
+<p><strong>Page 3, matching pennies.</strong> Zero sum again. Neither action is dominated, and
+there is no equilibrium in pure actions, so anyone who always shows the same
+thing loses to an opponent who notices. The equilibrium is both players mixing
+<span class="arithmatex">\((1/2,\ 1/2)\)</span>, with value <span class="arithmatex">\(0\)</span>.</p>
+<p><strong>Page 4, the dice.</strong> One D12 per pair. The last entry in each <span class="arithmatex">\(\sum u_2\)</span>
+column is the six-round total to circle.</p>
 <table>
 <thead>
 <tr>
@@ -178,21 +177,18 @@ player picks <span class="arithmatex">\(r_1\)</span> and the column player <span
 </tr>
 </tbody>
 </table>
-<p><strong>Page 6, working it out.</strong> Against <span class="arithmatex">\(\sigma_1 = (p,\ 1 - p)\)</span>,</p>
+<p><strong>Page 5, working it out.</strong> Against <span class="arithmatex">\(\sigma_1 = (p,\ 1 - p)\)</span>,</p>
 <div class="arithmatex">\[
 u_2(c_1, \sigma_1) = 1 - 3p, \qquad u_2(c_2, \sigma_1) = 3p - 1.
 \]</div>
-<p>So <span class="arithmatex">\(c_1\)</span> is the better reply when <span class="arithmatex">\(p &lt; 1/3\)</span>, <span class="arithmatex">\(c_2\)</span> when <span class="arithmatex">\(p &gt; 1/3\)</span>, and
-the two are equal at <span class="arithmatex">\(p = 1/3\)</span>.</p>
-<p><strong>Page 7, dominance.</strong> Neither action is dominated, because <span class="arithmatex">\(c_1\)</span> is better
-for <span class="arithmatex">\(p &lt; 1/3\)</span> and <span class="arithmatex">\(c_2\)</span> for <span class="arithmatex">\(p &gt; 1/3\)</span>. Dominance only rules out an action
-that is worse against <em>every</em> strategy of the opponent, and both of these are a
-best response to something, so the best response condition is what we need.</p>
-<p><strong>Page 8, indifference.</strong> The third die pays <span class="arithmatex">\(0\)</span> whatever the column player
-does, so their six-round total should hover around <span class="arithmatex">\(0\)</span>. Their own mix that
-does the same to the row player is <span class="arithmatex">\((1/2,\ 1/2)\)</span>, which gives the row player
-<span class="arithmatex">\(0\)</span> from either row. Together with the row player's <span class="arithmatex">\((1/3,\ 2/3)\)</span> that is
-the Nash equilibrium, and the value of the game is <span class="arithmatex">\(0\)</span>.</p>
+<p>Plotted against <span class="arithmatex">\(p\)</span>, the two lines cross at <span class="arithmatex">\(p = 1/3\)</span>. Writing the column
+player's mix as <span class="arithmatex">\(\sigma_2 = (x,\ 1 - x)\)</span>, the best response is <span class="arithmatex">\(x^* = 1\)</span> when
+<span class="arithmatex">\(p &lt; 1/3\)</span>, <span class="arithmatex">\(x^* = 0\)</span> when <span class="arithmatex">\(p &gt; 1/3\)</span>, and any <span class="arithmatex">\(x\)</span> at <span class="arithmatex">\(p = 1/3\)</span>. Neither
+action is dominated, because which one is better depends on the mix: dominance
+only rules out an action that is worse against <em>every</em> strategy of the opponent,
+so the best response condition is what we need. The column player's own
+indifferent mix is <span class="arithmatex">\((1/2,\ 1/2)\)</span>, which with the row player's <span class="arithmatex">\((1/3,\ 2/3)\)</span>
+is the Nash equilibrium; the value of the game is <span class="arithmatex">\(0\)</span>.</p>
 <p><strong>What to watch for in the pairs rounds.</strong> Nothing to compute here, so watch
 instead for pairs who settle into one action and get punished for it, and for
 pairs who start alternating. Name both in the debrief: the first shows why a
@@ -210,8 +206,8 @@ as the blank deck we project. Click a page to see it full size.</p>
 <div class="deck-answers">
   
   <figure>
-    <a href="../assets/img/decks/rationalisation/page-01.png">
-      <img src="../assets/img/decks/rationalisation/page-01.png"
+    <a href="../assets/img/decks/rationalisation/page-1.png">
+      <img src="../assets/img/decks/rationalisation/page-1.png"
            alt="Page 1 of the deck, with the answers written in"
            loading="lazy">
     </a>
@@ -219,8 +215,8 @@ as the blank deck we project. Click a page to see it full size.</p>
   </figure>
   
   <figure>
-    <a href="../assets/img/decks/rationalisation/page-02.png">
-      <img src="../assets/img/decks/rationalisation/page-02.png"
+    <a href="../assets/img/decks/rationalisation/page-2.png">
+      <img src="../assets/img/decks/rationalisation/page-2.png"
            alt="Page 2 of the deck, with the answers written in"
            loading="lazy">
     </a>
@@ -228,8 +224,8 @@ as the blank deck we project. Click a page to see it full size.</p>
   </figure>
   
   <figure>
-    <a href="../assets/img/decks/rationalisation/page-03.png">
-      <img src="../assets/img/decks/rationalisation/page-03.png"
+    <a href="../assets/img/decks/rationalisation/page-3.png">
+      <img src="../assets/img/decks/rationalisation/page-3.png"
            alt="Page 3 of the deck, with the answers written in"
            loading="lazy">
     </a>
@@ -237,8 +233,8 @@ as the blank deck we project. Click a page to see it full size.</p>
   </figure>
   
   <figure>
-    <a href="../assets/img/decks/rationalisation/page-04.png">
-      <img src="../assets/img/decks/rationalisation/page-04.png"
+    <a href="../assets/img/decks/rationalisation/page-4.png">
+      <img src="../assets/img/decks/rationalisation/page-4.png"
            alt="Page 4 of the deck, with the answers written in"
            loading="lazy">
     </a>
@@ -246,8 +242,8 @@ as the blank deck we project. Click a page to see it full size.</p>
   </figure>
   
   <figure>
-    <a href="../assets/img/decks/rationalisation/page-05.png">
-      <img src="../assets/img/decks/rationalisation/page-05.png"
+    <a href="../assets/img/decks/rationalisation/page-5.png">
+      <img src="../assets/img/decks/rationalisation/page-5.png"
            alt="Page 5 of the deck, with the answers written in"
            loading="lazy">
     </a>
@@ -255,8 +251,8 @@ as the blank deck we project. Click a page to see it full size.</p>
   </figure>
   
   <figure>
-    <a href="../assets/img/decks/rationalisation/page-06.png">
-      <img src="../assets/img/decks/rationalisation/page-06.png"
+    <a href="../assets/img/decks/rationalisation/page-6.png">
+      <img src="../assets/img/decks/rationalisation/page-6.png"
            alt="Page 6 of the deck, with the answers written in"
            loading="lazy">
     </a>
@@ -264,39 +260,12 @@ as the blank deck we project. Click a page to see it full size.</p>
   </figure>
   
   <figure>
-    <a href="../assets/img/decks/rationalisation/page-07.png">
-      <img src="../assets/img/decks/rationalisation/page-07.png"
+    <a href="../assets/img/decks/rationalisation/page-7.png">
+      <img src="../assets/img/decks/rationalisation/page-7.png"
            alt="Page 7 of the deck, with the answers written in"
            loading="lazy">
     </a>
     <figcaption>Page 7</figcaption>
-  </figure>
-  
-  <figure>
-    <a href="../assets/img/decks/rationalisation/page-08.png">
-      <img src="../assets/img/decks/rationalisation/page-08.png"
-           alt="Page 8 of the deck, with the answers written in"
-           loading="lazy">
-    </a>
-    <figcaption>Page 8</figcaption>
-  </figure>
-  
-  <figure>
-    <a href="../assets/img/decks/rationalisation/page-09.png">
-      <img src="../assets/img/decks/rationalisation/page-09.png"
-           alt="Page 9 of the deck, with the answers written in"
-           loading="lazy">
-    </a>
-    <figcaption>Page 9</figcaption>
-  </figure>
-  
-  <figure>
-    <a href="../assets/img/decks/rationalisation/page-10.png">
-      <img src="../assets/img/decks/rationalisation/page-10.png"
-           alt="Page 10 of the deck, with the answers written in"
-           loading="lazy">
-    </a>
-    <figcaption>Page 10</figcaption>
   </figure>
   
 </div>

@@ -36,12 +36,7 @@
         Watch where it stops moving.}
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
-    \end{tikzpicture}
-
-    \vspace{2.4em}
-
-    {\large In the room: \blank[2.2] \hspace{2cm}
-     Starting split: \blank[2.2] digging}}
+    \end{tikzpicture}}
 
 \newpage
 \slidehead{The snowdrift}
@@ -72,7 +67,8 @@ while the other free-rides for \answerblank[1.4]{\(4\)}. Two stayers get
 
 \vspace{1.2em}
 
-{\large Would you rather be the one digging? \blank[2.2]}
+{\large As a matrix, \(A = \begin{pmatrix} 3 & 2 \\ 4 & 0 \end{pmatrix}\), rows
+and columns in the order Dig, Stay.}
 \end{minipage}
 
 \newpage
@@ -104,29 +100,31 @@ round.}
 \hfill
 \begin{minipage}[c]{0.36\linewidth}
 \begin{tikzpicture}[font=\small]
-  \foreach \lab/\col in {Round/0, $x$/1.7, $f_D$/4.0, $f_S$/6.3}{%
+  \foreach \lab/\col in {Round/0, $x$/1.3, $f_D$/2.9, $f_S$/4.5, $\phi$/6.1}{%
     \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
-  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (8.3,-0.36);
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (7.6,-0.36);
   \foreach \row in {1,2,3,4,5,6}{%
     \node[anchor=west, text=inkgrey] at (0,-0.92*\row) {\row};
-    \foreach \col in {1.7,4.0,6.3}{%
+    \foreach \col in {1.3,2.9,4.5,6.1}{%
       \draw[inkfaint, line width=0.7pt]
-        (\col,-0.92*\row-0.3) -- (\col+1.9,-0.92*\row-0.3);}}
+        (\col,-0.92*\row-0.3) -- (\col+1.4,-0.92*\row-0.3);}}
 \end{tikzpicture}
 \end{minipage}
 
 \vspace{0.3cm}
 
 {\small\color{inkgrey} Plot the split each round. The dashed line is where we
-expect it to end up.}
+expect it to end up.} \hfill
+{\large \(A = \begin{pmatrix} 3 & 2 \\ 4 & 0 \end{pmatrix}\)}
 \newpage
 \slidehead{Which side is doing better?}
 \notesref{10.2.3}{Replicator Dynamics: Definition: Fitness of a strategy in a
   population}
 
-\vspace{0.8cm}
+\vspace{0.5cm}
 
-{\large With a fraction \(x\) digging,}
+{\large With a fraction \(x\) digging, and
+\(A = \begin{pmatrix} 3 & 2 \\ 4 & 0 \end{pmatrix}\),}
 
 \vspace{0.7cm}
 
@@ -140,15 +138,6 @@ expect it to end up.}
 {\large They are equal when \(x =\) \answerblank[2]{\(2/3\)}, which is where
 the room \answerrule{settles}.}
 
-\vspace{1cm}
-
-\begin{center}
-\answerspace{22.6}{3}{%
-  A digger meets a digger with probability \(x\) and a stayer otherwise, so
-  \(f_D = 3x + 2(1 - x) = x + 2\), while a stayer gets \(4\) from a digger
-  and \(0\) from a stayer, so \(f_S = 4x\). The two agree when
-  \(x + 2 = 4x\), that is at \(x = 2/3\).}
-\end{center}
 
 \newpage
 \slidehead{Turning the room into an equation}
@@ -225,15 +214,11 @@ towards \answerblank[2]{\(2/3\)}.}
 
 \vspace{1.2cm}
 
-\begin{center}
-\answerspace{22.6}{4}{%
-  The invaders push the fraction digging down to \(x = 2/3 - \varepsilon\).
-  There \(f_D - f_S = (x + 2) - 4x = 2 - 3x = 3\varepsilon > 0\), so the
-  Stayers who have just arrived do worse than the Diggers they joined, the
-  Digging side grows again, and the room returns to \(2/3\).}
-\end{center}
+{\large After the invasion \(x = 2/3 - \varepsilon\), and
+\(f_D - f_S = 2 - 3x =\) \answerblank[2]{\(3\varepsilon\)}, which is
+\answerblank[2]{positive}.}
 
-\vspace{1cm}
+\vspace{1.2cm}
 
 {\large So \(x = 2/3\) \answerrule[3cm]{is} an ESS. Rock-Paper-Scissors
 has an interior rest point too, but there the dynamics

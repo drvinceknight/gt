@@ -20,14 +20,10 @@ that is up while the room plays, so a pair working alone is not going from
 memory.
 
 **First, in pairs.** Pair the students up and have them decide who is the row
-player. They play two games, six rounds each, choosing at the same time, and
-fill in every column: both actions, both payoffs and both running totals.
-
-The first game is matching pennies, so the payoffs are mirror images and the
-table is easy to fill. The second is the asymmetric game we actually want,
-where the cells no longer mirror and they have to read each one. Doing the easy
-one first means the second table tests their reading rather than their nerve,
-and the six rounds are the same six they then play against the dice.
+player. They play matching pennies for six rounds, choosing at the same time,
+and fill in every column: both actions, both payoffs and both running totals.
+The payoffs are mirror images, so the table is easy to fill, and the pairs then
+meet the asymmetric game we actually want against the dice.
 
 **Then against the dice.** The row player is now a die with a known mix.
 Before each roll a student commits to \(c_1\) or \(c_2\); then roll, read off
@@ -72,16 +68,18 @@ a show of hands. It takes five minutes and tells us both what landed.
 Headings match the deck's page numbers, so this can sit open on a second screen
 while the deck is projected.
 
-**Page 3, matching pennies.** Zero sum: every cell adds to \(0\). Neither action
-is dominated, and there is no equilibrium in pure actions, so anyone who always
-shows the same thing loses to an opponent who notices. The equilibrium is both
-players mixing \((1/2,\ 1/2)\), with value \(0\).
+**Page 2, the game.** Zero sum: every cell adds to \(0\). The action sets are
+\(A_r = \{r_1, r_2\}\) and \(A_c = \{c_1, c_2\}\). If the row player picks
+\(r_1\) and the column player \(c_2\), the column player scores \(+2\) and the
+row player \(-2\).
 
-**Page 4, the main game.** Also zero sum, every cell adding to \(0\). If the row
-player picks \(r_1\) and the column player \(c_2\), the column player scores
-\(+2\) and the row player \(-2\).
+**Page 3, matching pennies.** Zero sum again. Neither action is dominated, and
+there is no equilibrium in pure actions, so anyone who always shows the same
+thing loses to an opponent who notices. The equilibrium is both players mixing
+\((1/2,\ 1/2)\), with value \(0\).
 
-**Page 5, the dice.** One D12 per pair.
+**Page 4, the dice.** One D12 per pair. The last entry in each \(\sum u_2\)
+column is the six-round total to circle.
 
 | Mix | \(r_1\) on | Best reply | Per round | Over six rounds |
 |---|---|---|---|---|
@@ -89,25 +87,20 @@ player picks \(r_1\) and the column player \(c_2\), the column player scores
 | \((3/4,\ 1/4)\) | 1 to 9 | \(c_2\) | \(5/4\) | \(15/2\) |
 | \((1/3,\ 2/3)\) | 1 to 4 | either | \(0\) | \(0\) |
 
-**Page 6, working it out.** Against \(\sigma_1 = (p,\ 1 - p)\),
+**Page 5, working it out.** Against \(\sigma_1 = (p,\ 1 - p)\),
 
 \[
 u_2(c_1, \sigma_1) = 1 - 3p, \qquad u_2(c_2, \sigma_1) = 3p - 1.
 \]
 
-So \(c_1\) is the better reply when \(p < 1/3\), \(c_2\) when \(p > 1/3\), and
-the two are equal at \(p = 1/3\).
-
-**Page 7, dominance.** Neither action is dominated, because \(c_1\) is better
-for \(p < 1/3\) and \(c_2\) for \(p > 1/3\). Dominance only rules out an action
-that is worse against *every* strategy of the opponent, and both of these are a
-best response to something, so the best response condition is what we need.
-
-**Page 8, indifference.** The third die pays \(0\) whatever the column player
-does, so their six-round total should hover around \(0\). Their own mix that
-does the same to the row player is \((1/2,\ 1/2)\), which gives the row player
-\(0\) from either row. Together with the row player's \((1/3,\ 2/3)\) that is
-the Nash equilibrium, and the value of the game is \(0\).
+Plotted against \(p\), the two lines cross at \(p = 1/3\). Writing the column
+player's mix as \(\sigma_2 = (x,\ 1 - x)\), the best response is \(x^* = 1\) when
+\(p < 1/3\), \(x^* = 0\) when \(p > 1/3\), and any \(x\) at \(p = 1/3\). Neither
+action is dominated, because which one is better depends on the mix: dominance
+only rules out an action that is worse against *every* strategy of the opponent,
+so the best response condition is what we need. The column player's own
+indifferent mix is \((1/2,\ 1/2)\), which with the row player's \((1/3,\ 2/3)\)
+is the Nash equilibrium; the value of the game is \(0\).
 
 **What to watch for in the pairs rounds.** Nothing to compute here, so watch
 instead for pairs who settle into one action and get punished for it, and for

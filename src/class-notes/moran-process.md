@@ -13,8 +13,9 @@ longer than the usual 20 minutes.
 **The deck.** There is a write-on deck at
 [/decks/moran-process/main.pdf](/decks/moran-process/main.pdf): the Hawk-Dove
 payoffs printed, the birth-death chain with its transition probabilities blank,
-tables for the fitnesses and the selection probabilities, and a table turning
-those probabilities into ranges on a D12. There is no separate form: everything
+tables for the fitnesses and the selection probabilities, the D12 ranges that
+reproduce those probabilities, and a tally of how each pair's runs ended, next
+to the fixation theorem. There is no separate form: everything
 the pairs need is on the deck.
 
 Every slide of the deck names the numbered section of the notes it is reading,
@@ -263,6 +264,13 @@ x_1 = \frac{1}{1 + \gamma_1 + \gamma_1\gamma_2}
     = \frac{1}{1 + \tfrac{1}{2} + \tfrac{1}{3}} = \frac{6}{11}
     \approx 0.545.
 \]
+
+The deck states the general theorem with \(\gamma_k = f_R(k)/f_M(k)\), with the
+hawk as the mutant: \(\gamma_1 = f_D(1)/f_H(1) = 3/6\) and
+\(\gamma_2 = f_D(2)/f_H(2) = 2/3\), the same values as above. It also asks for
+the chance that one dove among two hawks takes over, which is
+\(1 - \rho_2 = 1 - \frac{1 + \gamma_1}{1 + \gamma_1 + \gamma_1\gamma_2}
+= 1 - \frac{9}{11} = \frac{2}{11}\).
 
 Simulating the students' dice gives about \(0.547\), so a class of twenty pairs
 should land somewhere near eleven hawk fixations out of twenty. That spread is

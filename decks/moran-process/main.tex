@@ -50,8 +50,7 @@
 
     \vspace{2.4em}
 
-    {\large Pairs playing: \blank[2.2] \hspace{2cm}
-     Starting state: one hawk, two doves}}
+    {\large Starting state: one hawk, two doves}}
 
 \newpage
 \slidehead{Hawk-Dove, and where it can end}
@@ -153,43 +152,6 @@ proportional to \answerrule[4.5cm]{how many there are}.}
 
 {\small\color{inkgrey} These are the numbers the die has to reproduce. Every
 denominator divides twelve, which is why one D12 is enough.}
-
-\newpage
-\slidehead{From probabilities to a D12}
-\notesref{11.2.1}{Moran Process: Definition: Moran Process}
-
-\vspace{0.5cm}
-
-{\large Twelve faces split evenly into halves, thirds and quarters. A hawk is
-chosen when the roll lands in:}
-
-\vspace{0.7cm}
-
-\hspace{0.3cm}
-\begin{tikzpicture}[font=\small]
-  \foreach \lab/\col in {State/0, {Hawk born on}/7.4, {Hawk dies on}/15.0}{%
-    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
-  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.4,-0.36);
-  \foreach \state/\birth/\death [count=\row from 1] in
-    {{1 hawk, 2 doves}/{1 \text{ to } 6}/{1 \text{ to } 4},
-     {2 hawks, 1 dove}/{1 \text{ to } 9}/{1 \text{ to } 8}}{%
-    \node[anchor=west, font=\large] at (0,-1.9*\row) {\state};
-    \node[anchor=west] at (7.4,-1.9*\row)
-      {\answerblank[5.4]{\(\birth\)}};
-    \node[anchor=west] at (15.0,-1.9*\row)
-      {\answerblank[5.4]{\(\death\)}};}
-\end{tikzpicture}
-
-\vspace{0.9cm}
-
-{\large Any higher roll chooses a dove.}
-
-\vspace{0.6cm}
-
-\ifanswers
-{\small\color{inkgrey} With one hawk, a birth needs \(6/12 = 1/2\) and a death
-needs \(4/12 = 1/3\). With two hawks, \(9/12 = 3/4\) and \(8/12 = 2/3\).}
-\fi
 
 \newpage
 \slidehead{How a step works}
@@ -323,49 +285,58 @@ type that dies.}
 
 \vspace{1.2cm}
 
-{\large Go back and write these on the chain. What happens with the remaining
-probability? \answerblank[4.4]{The state does not change}}
-
-\vspace{0.9cm}
-
-\begin{center}
-\answerspace{22.6}{2.6}{%
-  The count moves only when the type born differs from the type that dies, so
-  each arrow is one birth probability times the other type's death
-  probability. Drawing the same type for both leaves the population exactly
-  as it was.}
-\end{center}
+{\large Go back and write these on the chain.}
 
 \newpage
 \slidehead{What the room found}
-\notesref{11.2.2}{Moran Process: Definition: The Fixation Probability}
+\notesref{11.2.2, 11.2.3}{Moran Process: Fixation Probability, and its Theorem}
 
-\vspace{0.9cm}
+\vspace{0cm}
 
-{\large Runs that ended with all hawks: \blank[2.2] out of \blank[2.2],
-so a fixation probability of about \blank[2.6].}
+{\large Each pair calls out how many runs ended all hawks and all doves.}
 
-\vspace{1.3cm}
+\vspace{0.3cm}
 
-{\large The theory says \(x_1 = \dfrac{1}{1 + \gamma_1 + \gamma_1 \gamma_2}\)
-with \(\gamma_i = \) \answerblank[3.4]{\(p_{i,i-1}/p_{i,i+1}\)}, giving
-\answerblank[2.6]{\(6/11 \approx 0.55\)}.}
+{\large
+\makebox[2.2cm][l]{Hawks}\foreach \k in {1,...,12}{\blank[1.25]\,}\; total
+\blank[1.6]\\[0.25em]
+\makebox[2.2cm][l]{Doves}\foreach \k in {1,...,12}{\blank[1.25]\,}\; total
+\blank[1.6]}
 
-\vspace{1.3cm}
+\vspace{0.2cm}
 
-{\large Close enough? \blank[2.2] \hspace{1.6cm} How many runs would we need to
-be sure? \answerblank[3.4]{About 100}}
+{\large So a fixation probability for the hawk of about \blank[2.4].}
 
-\vspace{1cm}
+\vspace{0.3cm}
 
-\begin{center}
-\answerspace{22.6}{2.4}{%
-  Here \(\gamma_1 = 1/2\) and \(\gamma_2 = 2/3\), so
-  \(x_1 = 1/(1 + \tfrac12 + \tfrac13) = 6/11\). Twenty runs carry a
-  standard error of about \(0.11\), so anything from eight to fourteen hawk
-  fixations agrees with that; pinning the answer to \(\pm 0.05\) takes
-  around a hundred runs.}
-\end{center}
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{0pt}
+\tikz\node[draw=inkteal, line width=1pt, rounded corners=4pt, fill=white,
+  text width=11.2cm, inner sep=0.25cm, align=left, text=inktext]{%
+  {\bfseries\color{inkteal} Theorem.} Starting from \(i\) mutants in a population
+  of \(N\),
+  \[
+    \rho_i = \frac{1 + \sum_{j=1}^{i-1} \prod_{k=1}^{j} \gamma_k}
+                  {1 + \sum_{j=1}^{N-1} \prod_{k=1}^{j} \gamma_k},
+    \qquad \gamma_k = \frac{f_R(k)}{f_M(k)}.
+  \]};
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.46\linewidth}
+\vspace{0pt}
+{\large The hawk is the mutant: \(\gamma_1 =\) \answerblank[1.4]{\(1/2\)},
+\(\gamma_2 =\) \answerblank[1.4]{\(2/3\)}.}
+
+\vspace{0.3cm}
+
+{\large \(\rho_1 = \dfrac{1}{1 + \gamma_1 + \gamma_1 \gamma_2} =\)
+\answerblank[2.6]{\(6/11 \approx 0.55\)}}
+
+\vspace{0.3cm}
+
+{\large And one dove among two hawks takes over with probability
+\(1 - \rho_2 =\) \answerblank[1.6]{\(2/11\)}.}
+\end{minipage}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

@@ -1,20 +1,51 @@
-% Matching games: eliciting preferences, then running Gale-Shapley by hand.
+% Matching games: the people, their rankings, a matching, then Gale-Shapley both ways.
 \input{../preamble.tex}
 
-% The two sides of the market, with #1 drawn afterwards so each round can add
-% its own proposals, holds and rejections.
-\newcommand{\bipartite}[1]{%
-  \begin{tikzpicture}[scale=1.5, every node/.style={transform shape},
+% The same two sides with each person's ranking written under them, in
+% two-letter initials, so a single diagram can be written on and erased round
+% after round. #2 is drawn afterwards.
+\newcommand{\rankedbipartite}[2][1.4]{%
+  \begin{tikzpicture}[scale=#1, every node/.style={transform shape},
       person/.style={draw=inkblue, line width=0.9pt, fill=white, text=inkblue,
                      rounded corners=3pt, minimum width=2.3cm,
-                     minimum height=0.72cm, font=\small\bfseries}]
-    \foreach \name [count=\i from 0] in {Gauss, Noether, Turing, Euler}{%
-      \node[person] (m\i) at (0,-\i*1.25) {\name};}
-    \foreach \name [count=\i from 0] in {Einstein, Curie, Newton, Feynman}{%
-      \node[person, draw=inkteal, text=inkteal] (p\i) at (4.7,-\i*1.25)
-        {\name};}
-    #1
+                     minimum height=0.7cm, font=\small\bfseries},
+      prefs/.style={font=\footnotesize, text=inkgrey}]
+    \foreach \name/\list [count=\i from 0] in {%
+        Gauss/{Cu \(\succ\) Ne \(\succ\) Ei \(\succ\) Fe},
+        Noether/{Fe \(\succ\) Ei \(\succ\) Cu \(\succ\) Ne},
+        Turing/{Ei \(\succ\) Fe \(\succ\) Ne \(\succ\) Cu},
+        Euler/{Fe \(\succ\) Ei \(\succ\) Cu \(\succ\) Ne}}{%
+      \node[person] (m\i) at (0,-\i*1.55) {\name};
+      \node[prefs] at (0,-\i*1.55-0.56) {\list};}
+    \foreach \name/\list [count=\i from 0] in {%
+        Einstein/{No \(\succ\) Tu \(\succ\) Ga \(\succ\) Eu},
+        Curie/{No \(\succ\) Tu \(\succ\) Ga \(\succ\) Eu},
+        Newton/{Ga \(\succ\) Tu \(\succ\) Eu \(\succ\) No},
+        Feynman/{Eu \(\succ\) No \(\succ\) Tu \(\succ\) Ga}}{%
+      \node[person, draw=inkteal, text=inkteal] (p\i) at (6.2,-\i*1.55)
+        {\name};
+      \node[prefs] at (6.2,-\i*1.55-0.56) {\list};}
+    #2
   \end{tikzpicture}}
+
+% One person's ranking, printed: the name, then the other side most preferred
+% first.
+\newcommand{\ranking}[5]{%
+  \makebox[2.3cm][l]{\bfseries #1}#2 \(\succ\) #3 \(\succ\) #4 \(\succ\) #5}
+
+% A numbered step, at whatever size the surrounding text is.
+\newcommand{\gsstep}[2]{%
+  \noindent\makebox[0.8cm][l]{\color{inkblue}\bfseries #1}%
+  \begin{minipage}[t]{\dimexpr\linewidth-0.8cm\relax}\raggedright #2%
+  \end{minipage}\par\vspace{0.4em}}
+
+% The steps of the Gale-Shapley algorithm, for whichever side proposes.
+\newcommand{\galeshapley}{%
+  \gsstep{1}{Everyone on the proposing side who is not held proposes to the
+    favourite they have not yet asked.}
+  \gsstep{2}{Everyone proposed to holds the best offer they have, counting the
+    one already held, and rejects the rest.}
+  \gsstep{3}{Repeat until nobody is rejected. What is held is the matching.}}
 
 % One person's preference list, waiting to be filled in. The four names after
 % the person's own are the ranking the class is steered to, most preferred
@@ -31,84 +62,6 @@
 \newcommand{\reject}[2]{%
   \draw[-{Stealth[length=2.2mm]}, inkred, line width=1pt, dashed]
     (m#1) -- (p#2);}
-
-% Small drawings for the traits on the cards, each about half a centimetre
-% across and centred on the origin. They draw in the current colour, so a card
-% sets its side's colour around them.
-\tikzset{trait/.style={line width=0.9pt, line join=round, line cap=round}}
-\newcommand{\iconrigour}{%
-  \begin{scope}[rotate=25]
-    \draw[trait, fill=white] (-0.27,-0.09) rectangle (0.27,0.09);
-    \foreach \x in {-0.18,-0.09,0,0.09,0.18}{\draw[line width=0.6pt]
-      (\x,0.09) -- (\x,0.01);}
-  \end{scope}}
-\newcommand{\iconideas}{%
-  \draw[trait, fill=white] (0,0.06) circle (0.15);
-  \draw[trait] (-0.07,-0.1) -- (-0.07,-0.2) -- (0.07,-0.2) -- (0.07,-0.1);
-  \foreach \a in {30,90,150}{\draw[line width=0.6pt]
-    (\a:0.21) ++(0,0.06) -- ++(\a:0.07);}}
-\newcommand{\iconplay}{%
-  \draw[trait, fill=white] (0,0) circle (0.21);
-  \fill (-0.075,0.06) circle (0.03) (0.075,0.06) circle (0.03);
-  \draw[trait] (-0.11,-0.04) arc[start angle=200, end angle=340, radius=0.117];}
-\newcommand{\iconboldness}{%
-  \filldraw[trait] (0.07,0.25) -- (-0.13,-0.02) -- (0,-0.02) -- (-0.07,-0.25) --
-    (0.13,0.05) -- (0,0.05) -- cycle;}
-\newcommand{\icondrive}{%
-  \draw[trait, fill=white] (-0.27,-0.2) -- (-0.1,0.06) -- (-0.02,-0.04) --
-    (0.09,0.12) -- (0.27,-0.2) -- cycle;
-  \draw[trait] (0.09,0.12) -- (0.09,0.3);
-  \fill (0.09,0.3) -- (0.24,0.25) -- (0.09,0.2) -- cycle;}
-\newcommand{\iconenthusiasm}{%
-  \draw[trait, fill=white] (0,0) circle (0.1);
-  \foreach \a in {0,45,...,315}{\draw[line width=0.7pt, line cap=round]
-    (\a:0.155) -- (\a:0.24);}}
-\newcommand{\iconwarmth}{%
-  \filldraw[trait] (0,-0.2) .. controls (-0.32,0.03) and (-0.13,0.27) ..
-    (0,0.09) .. controls (0.13,0.27) and (0.32,0.03) .. (0,-0.2);}
-\newcommand{\iconego}{%
-  \draw[trait, fill=white] (-0.21,-0.15) -- (-0.21,0.1) -- (-0.105,0) --
-    (0,0.18) -- (0.105,0) -- (0.21,0.1) -- (0.21,-0.15) -- cycle;
-  \fill (-0.21,0.1) circle (0.03) (0,0.18) circle (0.03) (0.21,0.1) circle (0.03);}
-\newcommand{\iconrigidity}{%
-  \draw[trait] (-0.09,0.02) -- (-0.09,0.1) arc[start angle=180, end angle=0,
-    radius=0.09] -- (0.09,0.02);
-  \filldraw[trait, fill=white] (-0.16,-0.21) rectangle (0.16,0.03);
-  \fill (0,-0.09) circle (0.03);}
-
-% A trait drawn at #1 in colour #2. With the starred form it is struck out, for
-% something that puts a person off.
-\newcommand{\trait}[3]{%
-  \begin{scope}[shift={#1}, scale=1.3, color=#2]\csname icon#3\endcsname\end{scope}}
-\newcommand{\avoid}[2]{%
-  \begin{scope}[shift={#1}]
-    \begin{scope}[scale=0.95, color=inkgrey]\csname icon#2\endcsname\end{scope}
-    \draw[inkred, line width=1.2pt] (0,0) circle (0.36) (-0.255,0.255) --
-      (0.255,-0.255);
-  \end{scope}}
-
-% One person's card, from the preference sheet, with its top left corner at #1.
-% #2 is the colour of their side, #3 the name and #4 the dates; then the traits
-% the person has, the traits they want and the traits that put them off, each a
-% comma separated list of icon names; and last what they are known for.
-\newcommand{\cardwidth}{5.55}
-\newcommand{\cardheight}{3.45}
-\newcommand{\card}[8]{%
-  \begin{scope}[shift={#1}]
-    \draw[#2, line width=1pt, rounded corners=4pt, fill=white] (0,0) rectangle
-      (\cardwidth,-\cardheight);
-    \node[anchor=base west, text=#2, font=\Large\bfseries] at (0.25,-0.65) {#3};
-    \node[anchor=base east, text=inkgrey, font=\footnotesize]
-      at (\cardwidth-0.25,-0.65) {#4};
-    \foreach \label/\row in {is/1.25, wants/1.98, avoids/2.64}{%
-      \node[anchor=west, text=#2, font=\small\bfseries] at (0.25,-\row)
-        {\label};}
-    \foreach \name [count=\k from 0] in {#5}{\trait{(2.05+0.85*\k,-1.25)}{#2}{\name}}
-    \foreach \name [count=\k from 0] in {#6}{\trait{(2.05+0.85*\k,-1.98)}{#2}{\name}}
-    \foreach \name [count=\k from 0] in {#7}{\avoid{(2.05+0.85*\k,-2.64)}{\name}}
-    \node[anchor=base west, text=inkgrey, font=\scriptsize]
-      at (0.25,-\cardheight+0.22) {#8};
-  \end{scope}}
 
 % A proposal from a physicist, when the physicists propose. The arguments are
 % the physicist and the mathematician.
@@ -137,6 +90,58 @@
       {\color{inkgrey} #7}};
   \end{tikzpicture}}
 
+% The four on each side, as the person pages list them.
+\def\physicistlist{Einstein/{Bold, imaginative and eccentric.},
+  Curie/{Disciplined, patient and practical.},
+  Newton/{Intense, ambitious and determined.},
+  Feynman/{Playful and curious.}}
+\def\mathematicianlist{Gauss/{Precise and rigorous. Values elegance and quiet
+  focus.}, Noether/{Creative and general. Loves symmetry.},
+  Turing/{Visionary, analytical and playful.},
+  Euler/{Prolific and versatile, with boundless energy.}}
+
+% One person's ranking, shown twice: first with the four people on the other
+% side unranked, then with the ranking revealed, so that moving to the next page
+% does what a click would. #1 is m for a mathematician or p for a physicist, #2
+% to #6 are the person's card as in \bio, #7 the rank of each of the four on the
+% other side in the order they are listed, and #8 is 1 on the revealing page.
+\newcommand{\personpage}[8]{%
+  \newpage
+  \if#1m\def\own{inkblue}\def\other{inkteal}\let\others\physicistlist
+  \else\def\own{inkteal}\def\other{inkblue}\let\others\mathematicianlist\fi
+  \slidehead{Who does #2 want?}
+  \notesref{15.2.1}{Matching Games: Definition: Matching Game}
+  \vspace{0.3cm}
+  \begin{minipage}[t]{0.49\linewidth}
+  \vspace{0pt}
+  \bio{\own}{#2}{#3}{#4}{#5}{#6}{}
+  \ifnum#8=1
+    \vspace{0.4cm}
+    {\large\color{inkgrey} 1 is #2's first choice.}
+  \fi
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.49\linewidth}
+  \vspace{0pt}
+  \begin{tikzpicture}
+    \foreach \name/\what [count=\i from 0] in \others{%
+      \draw[\other, line width=1pt, rounded corners=4pt, fill=white]
+        (0,-\i*2.3) rectangle (11.2,-\i*2.3-1.9);
+      \node[anchor=north west, text=\other, font=\Large\bfseries]
+        at (1.6,-\i*2.3-0.2) {\name};
+      \node[anchor=north west, text=inktext, font=\normalsize, text width=9.2cm]
+        at (1.6,-\i*2.3-0.9) {\what};
+      \draw[inkfaint, line width=1pt, fill=inkbg] (0.8,-\i*2.3-0.95) circle (0.5);
+      \ifnum#8=1
+        \pgfmathtruncatemacro{\rank}{{#7}[\i]}
+        \node[text=inkred, font=\LARGE\bfseries] at (0.8,-\i*2.3-0.95) {\rank};
+      \fi}
+  \end{tikzpicture}
+  \end{minipage}}
+\newcommand{\personslides}[7]{%
+  \personpage{#1}{#2}{#3}{#4}{#5}{#6}{#7}{0}%
+  \personpage{#1}{#2}{#3}{#4}{#5}{#6}{#7}{1}}
+
 % Four cards in a two by two grid.
 \newcommand{\biogrid}[4]{%
   \begin{center}
@@ -150,9 +155,12 @@
 
 \titleslide{Matching games}{Four mathematicians, four physicists: who gets whom?}{%
     \begin{tikzpicture}[font=\small]
-      \stepbox{s0}{0.0}{\textbf{Elicit}\\[0.25em] Read the cards. Rank everyone.}
-      \stepbox{s1}{6.9}{\textbf{Break}\\[0.25em] Find a pair who would elope.}
-      \stepbox{s2}{13.8}{\textbf{Fix}\\[0.25em] Propose, hold, reject. Repeat.}
+      \stepbox{s0}{0.0}{\textbf{Meet them}\\[0.25em] The people, then their
+        rankings.}
+      \stepbox{s1}{6.9}{\textbf{Match}\\[0.25em] Pair them up. Would anyone
+        elope?}
+      \stepbox{s2}{13.8}{\textbf{Propose}\\[0.25em] The algorithm, both ways
+        round.}
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
     \end{tikzpicture}}
@@ -213,62 +221,41 @@
   {Rigidity and self-importance.}%
   {Quantum electrodynamics; a brilliant communicator.}}
 
-\newpage
-\slidehead{Who wants whom}
-\notesref{15.2.1}{Matching Games: Definition: Matching Game}
-
-\vspace{-0.05cm}
-
-\begin{center}
-\begin{tikzpicture}
-  % The key to the drawings.
-  \foreach \name/\word [count=\k from 0] in {rigour/rigour, ideas/ideas,
-      play/play, boldness/boldness, drive/drive, enthusiasm/enthusiasm,
-      warmth/warmth, ego/ego, rigidity/rigidity}{%
-    \trait{(0.95+2.6*\k,0.8)}{inktext}{\name}
-    \node[anchor=west, font=\small, text=inktext] at (1.35+2.6*\k,0.8) {\word};}
-
-  \node[rotate=90, text=inkblue, font=\small\bfseries]
-    at (0.22,-\cardheight/2) {Mathematicians};
-  \node[rotate=90, text=inkteal, font=\small\bfseries]
-    at (0.22,-\cardheight*1.5-0.25) {Physicists};
-
-  \card{(0.6,0)}{inkblue}{Gauss}{1777--1855}%
-    {rigour,drive}{rigour,drive}{ego}%
-    {Number theory, statistics, geometry}
-  \card{(6.35,0)}{inkblue}{Noether}{1882--1935}%
-    {ideas,warmth}{ideas,warmth}{rigidity}%
-    {Abstract algebra; symmetry and conservation}
-  \card{(12.1,0)}{inkblue}{Turing}{1912--1954}%
-    {ideas,rigour,play}{boldness,ideas,play}{rigidity}%
-    {Founded computer science; Enigma}
-  \card{(17.85,0)}{inkblue}{Euler}{1707--1783}%
-    {enthusiasm,drive}{enthusiasm}{ego}%
-    {Graph theory, analysis and mechanics}
-
-  \card{(0.6,-\cardheight-0.25)}{inkteal}{Einstein}{1879--1955}%
-    {boldness,ideas,play}{boldness,ideas}{rigidity}%
-    {Special and general relativity}
-  \card{(6.35,-\cardheight-0.25)}{inkteal}{Curie}{1867--1934}%
-    {drive,rigour}{ideas,warmth}{enthusiasm}%
-    {Polonium, radium and radioactivity}
-  \card{(12.1,-\cardheight-0.25)}{inkteal}{Newton}{1642--1727}%
-    {drive,rigour}{rigour,drive}{ego}%
-    {Motion and gravitation; calculus}
-  \card{(17.85,-\cardheight-0.25)}{inkteal}{Feynman}{1918--1988}%
-    {play,ideas,enthusiasm}{enthusiasm,ideas}{rigidity,ego}%
-    {Quantum electrodynamics; a great explainer}
-\end{tikzpicture}
-\end{center}
-
-\vspace{-0.4cm}
-
-\playrules{For every person, rank all four on the other side, best first and with no
-  ties. Compare what this person \textbf{wants} and \textbf{avoids} with what each
-  card on the other side \textbf{is}. Agree each ranking as a group.}
+\personslides{m}{Gauss}{1777--1855}%
+  {Precise and rigorous. Values elegance and quiet focus.}%
+  {Collaborators who respect rigour and solid foundations.}%
+  {Flashy ideas.}{3,1,2,4}
+\personslides{m}{Noether}{1882--1935}%
+  {Creative and general. Loves symmetry.}%
+  {Creative, inclusive collaborators.}%
+  {Narrow or rigid approaches.}{2,3,4,1}
+\personslides{m}{Turing}{1912--1954}%
+  {Visionary, analytical and playful.}%
+  {Boundary-pushing ideas, brilliance and playful creativity.}%
+  {Old-fashioned approaches.}{1,4,3,2}
+\personslides{m}{Euler}{1707--1783}%
+  {Prolific and versatile, with boundless energy.}%
+  {Enthusiastic colleagues.}%
+  {Sceptics and show-offs.}{2,3,4,1}
+\personslides{p}{Einstein}{1879--1955}%
+  {Bold, imaginative and eccentric.}%
+  {Bold ideas and eccentric creativity.}%
+  {Rigid, routine-based thinkers.}{3,1,2,4}
+\personslides{p}{Curie}{1867--1934}%
+  {Disciplined, patient and practical.}%
+  {Creative, generous collaborators.}%
+  {Drama and over-excitement.}{3,1,2,4}
+\personslides{p}{Newton}{1642--1727}%
+  {Intense, ambitious and determined.}%
+  {Clear reasoning and determined collaborators.}%
+  {Rivals.}{1,4,2,3}
+\personslides{p}{Feynman}{1918--1988}%
+  {Playful and curious.}%
+  {Excitement and fresh perspectives.}%
+  {Rigidity and self-importance.}{4,2,3,1}
 
 \newpage
-\slidehead{What the groups decided}
+\slidehead{The rankings}
 \notesref{15.2.1}{Matching Games: Definition: Matching Game}
 
 {\large The mathematicians are the suitors \(S\) and the physicists the reviewers
@@ -279,31 +266,32 @@
 \begin{minipage}[t]{0.48\linewidth}
 {\large\bfseries\color{inkblue} Mathematicians}
 
-\vspace{0.8em}
+\vspace{0.6em}
 
 {\large
-\prefrow{Gauss}{Curie}{Newton}{Einstein}{Feynman}\\[1.1em]
-\prefrow{Noether}{Feynman}{Einstein}{Curie}{Newton}\\[1.1em]
-\prefrow{Turing}{Einstein}{Feynman}{Newton}{Curie}\\[1.1em]
-\prefrow{Euler}{Feynman}{Einstein}{Curie}{Newton}}
+\ranking{Gauss}{Curie}{Newton}{Einstein}{Feynman}\\[0.7em]
+\ranking{Noether}{Feynman}{Einstein}{Curie}{Newton}\\[0.7em]
+\ranking{Turing}{Einstein}{Feynman}{Newton}{Curie}\\[0.7em]
+\ranking{Euler}{Feynman}{Einstein}{Curie}{Newton}}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\linewidth}
 {\large\bfseries\color{inkteal} Physicists}
 
-\vspace{0.8em}
+\vspace{0.6em}
 
 {\large
-\prefrow{Einstein}{Noether}{Turing}{Gauss}{Euler}\\[1.1em]
-\prefrow{Curie}{Noether}{Turing}{Gauss}{Euler}\\[1.1em]
-\prefrow{Newton}{Gauss}{Turing}{Euler}{Noether}\\[1.1em]
-\prefrow{Feynman}{Euler}{Noether}{Turing}{Gauss}}
+\ranking{Einstein}{Noether}{Turing}{Gauss}{Euler}\\[0.7em]
+\ranking{Curie}{Noether}{Turing}{Gauss}{Euler}\\[0.7em]
+\ranking{Newton}{Gauss}{Turing}{Euler}{Noether}\\[0.7em]
+\ranking{Feynman}{Euler}{Noether}{Turing}{Gauss}}
 \end{minipage}
 
-\vspace{1.4cm}
+\vspace{0.8cm}
 
-{\small\color{inkgrey} Most preferred first. Your group's rankings, from the cards
-on the last slide.}
+\playrules{In pairs, match every mathematician with a physicist. Aim for a
+  matching where no mathematician and physicist would both rather be with each
+  other than with the partner you gave them.}
 
 \newpage
 \slidehead{When is a matching no good?}
@@ -311,7 +299,7 @@ on the last slide.}
 
 \vspace{0.6cm}
 
-{\large Pair everyone up however you like:}
+{\large One pair's matching:}
 
 \vspace{0.5cm}
 
@@ -327,8 +315,8 @@ on the last slide.}
 
 \vspace{1cm}
 
-{\large Now find two people who would both rather have each other. That pair
-is a \answerrule[3.4cm]{blocking pair}, and the matching is
+{\large Can you find two people who would both rather have each other? That
+pair is a \answerrule[3.4cm]{blocking pair}, and the matching is
 \answerrule[3cm]{unstable}.}
 
 \vspace{0.9cm}
@@ -336,54 +324,21 @@ is a \answerrule[3.4cm]{blocking pair}, and the matching is
 {\large Blocking pair: \answerblank[2.6]{Noether} and \answerblank[2.6]{Einstein}}
 
 \newpage
-\slidehead{Deferred acceptance: rounds 1 and 2}
+\slidehead{Deferred acceptance: the mathematicians propose}
 \notesref{15.2.4}{Matching Games: Definition: The Gale-Shapley algorithm}
 
-\vspace{0.2cm}
+\vspace{0.1cm}
 
-\begin{minipage}[t]{0.48\linewidth}
 \begin{center}
-{\large\bfseries Round 1}\\[0.4em]
-\bipartite{\onlyanswer{\hold{0}{1} \hold{2}{0} \hold{3}{3} \reject{1}{3}}}
+\rankedbipartite{\onlyanswer{\hold{0}{1} \hold{1}{0} \hold{2}{2} \hold{3}{3}
+  \reject{1}{3} \reject{2}{0} \reject{2}{3}}}
 \end{center}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\linewidth}
-\begin{center}
-{\large\bfseries Round 2}\\[0.4em]
-\bipartite{\onlyanswer{\hold{0}{1} \hold{1}{0} \hold{3}{3} \reject{2}{0}}}
-\end{center}
-\end{minipage}
 
-\vspace{0.5cm}
+\vspace{0.1cm}
 
-{\small\color{inkgrey} Draw each proposal as an arrow. Circle the one held, and
-cross out the rejections.}
-
-\newpage
-\slidehead{Deferred acceptance: rounds 3 and 4}
-\notesref{15.2.4}{Matching Games: Definition: The Gale-Shapley algorithm}
-
-\vspace{0.2cm}
-
-\begin{minipage}[t]{0.48\linewidth}
-\begin{center}
-{\large\bfseries Round 3}\\[0.4em]
-\bipartite{\onlyanswer{\hold{0}{1} \hold{1}{0} \hold{3}{3} \reject{2}{3}}}
-\end{center}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\linewidth}
-\begin{center}
-{\large\bfseries Round 4}\\[0.4em]
-\bipartite{\onlyanswer{\hold{0}{1} \hold{1}{0} \hold{3}{3} \hold{2}{2}}}
-\end{center}
-\end{minipage}
-
-\vspace{0.5cm}
-
-{\small\color{inkgrey} Stop when nobody is left holding a proposal they have not
-accepted.}
+{\small\color{inkgrey} One diagram for every round: draw each proposal, keep the
+ones held and erase the rejections. Stop when nobody is rejected. Each ranking
+is under its person, most preferred first.}
 
 \newpage
 \slidehead{The matching, and why it holds}
@@ -412,66 +367,94 @@ show at least one of them prefers who they have.}
 
 
 \newpage
-\slidehead{Now the physicists propose}
+\slidehead{The algorithm}
+\notesref{15.2.4}{Matching Games: Definition: The Gale-Shapley algorithm}
+
+\vspace{0.4cm}
+
+{\Large What we just did is the \textbf{Gale-Shapley algorithm}, also called
+deferred acceptance. With one side proposing:}
+
+\vspace{0.6cm}
+
+{\Large \galeshapley}
+
+\vspace{0.6cm}
+
+{\large Nobody is ever matched for certain until the end: a reviewer can always
+trade up, which is why the result has no blocking pair.}
+
+\newpage
+\slidehead{You do: the physicists propose}
 \notesref{15.2.5}{Matching Games: Unique matching as output of Gale-Shapley}
 
-\vspace{0.2cm}
-
-\begin{minipage}[t]{0.48\linewidth}
-\begin{center}
-{\large\bfseries Round 1}\\[0.4em]
-\bipartite{\onlyanswer{\phold{0}{1} \phold{2}{0} \phold{3}{3} \preject{1}{1}}}
-\end{center}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\linewidth}
-\begin{center}
-{\large\bfseries Round 2}\\[0.4em]
-\bipartite{\onlyanswer{\phold{0}{1} \phold{1}{2} \phold{2}{0} \phold{3}{3}}}
-\end{center}
-\end{minipage}
+\begin{minipage}[t]{0.38\linewidth}
+\vspace{0pt}
+{\large Same rankings, but now the \textbf{physicists} propose and the
+mathematicians hold.}
 
 \vspace{0.5cm}
 
-{\small\color{inkgrey} Same rankings, other side proposing. Same rules: draw each
-proposal, circle the one held and cross out the rejections.}
+\galeshapley
+
+\vspace{0.4cm}
+
+{\large Newton with \answerblank[2]{Gauss}\\[0.5em]
+Einstein with \answerblank[2]{Noether}\\[0.5em]
+Curie with \answerblank[2]{Turing}\\[0.5em]
+Feynman with \answerblank[2]{Euler}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.58\linewidth}
+\vspace{0pt}
+\begin{center}
+\rankedbipartite[1.2]{\onlyanswer{\phold{0}{1} \phold{1}{2} \phold{2}{0}
+  \phold{3}{3} \preject{1}{1}}}
+\end{center}
+
+\vspace{0.1cm}
+
+{\small\color{inkgrey} Draw each proposal from physicist to mathematician, on
+this one diagram, round after round.}
+\end{minipage}
 
 \newpage
 \slidehead{Who does better?}
 \notesref{15.2.6}{Matching Games: Reviewer sub optimality}
 
-\vspace{0.1cm}
+{\large Both matchings are stable. Who gets whom in each, and how far down
+their own ranking is that partner?}
 
-{\large Both matchings are stable. Who gets whom in each?}
+\vspace{0.25cm}
 
-\vspace{0.35cm}
-
-\hspace{0.6cm}
-\begin{minipage}{0.9\linewidth}
+\newcommand{\whorow}[4]{%
+  #1 & {\color{inkgrey}#2} & \answerblank[3.4]{#3} & \answerblank[3.4]{#4}\\[0.32em]}
 {\large
-\begin{tabbing}
-\hspace{3.6cm} \= \hspace{6.4cm} \= \kill
-\> \textbf{Mathematicians propose} \> \textbf{Physicists propose}\\[0.55em]
-Gauss \> \answerblank[3]{Curie (1st)} \> \answerblank[3]{Newton (2nd)}\\[0.55em]
-Noether \> \answerblank[3]{Einstein} \> \answerblank[3]{Einstein}\\[0.55em]
-Turing \> \answerblank[3]{Newton (3rd)} \> \answerblank[3]{Curie (4th)}\\[0.55em]
-Euler \> \answerblank[3]{Feynman} \> \answerblank[3]{Feynman}
-\end{tabbing}}
-\end{minipage}
+\begin{tabular}{@{}l@{\hspace{0.5cm}}l@{\hspace{0.8cm}}c@{\hspace{0.8cm}}c@{}}
+& \small Ranking & \bfseries Mathematicians propose & \bfseries Physicists
+  propose\\[0.3em]
+\whorow{\color{inkblue}\bfseries Gauss}{Cu \(\succ\) Ne \(\succ\) Ei \(\succ\) Fe}%
+  {Curie (1st)}{Newton (2nd)}
+\whorow{\color{inkblue}\bfseries Noether}{Fe \(\succ\) Ei \(\succ\) Cu \(\succ\) Ne}%
+  {Einstein (2nd)}{Einstein (2nd)}
+\whorow{\color{inkblue}\bfseries Turing}{Ei \(\succ\) Fe \(\succ\) Ne \(\succ\) Cu}%
+  {Newton (3rd)}{Curie (4th)}
+\whorow{\color{inkblue}\bfseries Euler}{Fe \(\succ\) Ei \(\succ\) Cu \(\succ\) Ne}%
+  {Feynman (1st)}{Feynman (1st)}
+\whorow{\color{inkteal}\bfseries Einstein}{No \(\succ\) Tu \(\succ\) Ga \(\succ\) Eu}%
+  {Noether (1st)}{Noether (1st)}
+\whorow{\color{inkteal}\bfseries Curie}{No \(\succ\) Tu \(\succ\) Ga \(\succ\) Eu}%
+  {Gauss (3rd)}{Turing (2nd)}
+\whorow{\color{inkteal}\bfseries Newton}{Ga \(\succ\) Tu \(\succ\) Eu \(\succ\) No}%
+  {Turing (2nd)}{Gauss (1st)}
+\whorow{\color{inkteal}\bfseries Feynman}{Eu \(\succ\) No \(\succ\) Tu \(\succ\) Ga}%
+  {Euler (1st)}{Euler (1st)}
+\end{tabular}}
 
-\vspace{0.35cm}
+\vspace{0.3cm}
 
 {\large Whoever proposes does at least as well. The side that is proposed to
 gets its \answerrule[3cm]{worst} stable partner.}
-
-\vspace{0.35cm}
-
-\begin{center}
-\answerspace{22.6}{2.0}{%
-  Gauss and Turing each do better when the mathematicians propose. Newton and
-  Curie each do better when the physicists propose: Newton gets Gauss rather
-  than Turing, and Curie gets Turing rather than Gauss.}
-\end{center}
 
 \newpage
 \slidehead{The same thing, as an exam answer}
@@ -522,7 +505,7 @@ Games page, with three on each side instead of four.}
 \hspace{6.9cm} \= \hspace{3.0cm} \= \hspace{9.4cm} \= \kill
 \textbf{What we did} \> {\color{inkteal}\textbf{Notes}} \> \textbf{In the textbook} \>
   \\[0.5em]
-Both sides rank each other \> {\color{inkteal}\textbf{15.2.1}} \> Matching Games:
+The people and their rankings \> {\color{inkteal}\textbf{15.2.1}} \> Matching Games:
   Definition: Matching Game \> \\[0.45em]
 A pair who would rather swap \> {\color{inkteal}\textbf{15.2.2}} \> Matching Games:
   Definition: a blocking pair \> \\[0.45em]

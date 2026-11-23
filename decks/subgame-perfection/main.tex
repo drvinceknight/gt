@@ -201,12 +201,6 @@ been banished.}
 \step{3}{Sit in a circle and stay in that order for the whole game. Your
   position matters later.}
 
-\vspace{1.2cm}
-
-\begin{center}
-{\Large Today: \answerblank[2.2]{\(10\)} players, of whom
- \answerblank[2.2]{\(2\)} are Traitors.}
-\end{center}
 
 \vspace{1.2cm}
 
@@ -314,13 +308,6 @@ one for the other.}
 \centipede[0.82]{}
 \end{center}
 
-\vspace{0.3cm}
-
-\begin{center}
-\strategytable{Player 1}{1:A}{1:C}
-\hspace{3.5cm}
-\strategytable{Player 2}{2:B}{2:D}
-\end{center}
 
 \vspace{0.2cm}
 
@@ -350,15 +337,17 @@ the order the rows and columns of the grid will take.}
 \end{center}
 
 \newpage
-\slidehead{The normal form}
-\notesref{2.2.3}{Games: Definition: Normal Form Game}
+\slidehead{The normal form, and its Nash equilibria}
+\notesref{2.2.6, 5.2.1}{Games: Extensive to Normal Form; Nash Equilibria}
 
 \vspace{0.1cm}
 
-{\Large Rows are player 1's strategies, columns are player 2's, in both
-matrices. Fill a cell by tracing the path that pair of strategies produces.}
+{\large Rows are player 1's strategies, columns are player 2's. Fill a cell by
+tracing the path that pair of strategies produces. Then underline player 1's
+best payoff down each column of \(A\), and player 2's across each row of \(B\):
+a cell underlined in both is a pure Nash equilibrium.}
 
-\vspace{0.25cm}
+\vspace{0.2cm}
 
 \begin{center}
 \centipede[0.6]{}
@@ -367,39 +356,15 @@ matrices. Fill a cell by tracing the path that pair of strategies produces.}
 \vspace{0.1cm}
 
 \begin{center}
-\payoffmatrix[0.9]{\(A\): what player 1 gets}{\matrixaentries}
-\hspace{1.4cm}
-\payoffmatrix[0.9]{\(B\): what player 2 gets}{\matrixbentries}
-\end{center}
-
-\newpage
-\slidehead{Finding the Nash equilibria}
-\notesref{5.2.1}{Nash Equilibrium: Definition: Nash Equilibria}
-
-\vspace{0.4cm}
-
-{\Large The pair \((A, B)\) is an ordinary normal form game, so we find its
-equilibria the way we always do.}
-
-\vspace{0.6em}
-
-\step{1}{Down each column of \(A\), underline player 1's best payoff.}
-\step{2}{Across each row of \(B\), underline player 2's best payoff.}
-\step{3}{A position underlined in both matrices is a pure Nash equilibrium.
-  There is more than one.}
-
-\vspace{0.2cm}
-
-\begin{center}
-\payoffmatrix[0.78]{\(A\)}{%
+\payoffmatrix[0.85]{\(A\): what player 1 gets}{%
   \matrixaentries
-  \munder{0}{0} \munder{1}{0} \munder{0}{1} \munder{1}{1}
-  \munder{2}{2} \munder{2}{3} \munder{3}{3}}
-\hspace{2cm}
-\payoffmatrix[0.78]{\(B\)}{%
+  \onlyanswer{\munder{0}{0} \munder{1}{0} \munder{0}{1} \munder{1}{1}
+  \munder{2}{2} \munder{2}{3} \munder{3}{3}}}
+\hspace{1.4cm}
+\payoffmatrix[0.85]{\(B\): what player 2 gets}{%
   \matrixbentries
-  \foreach \j in {0,...,3}{\munder{0}{\j} \munder{1}{\j}}
-  \munder{2}{0} \munder{2}{1} \munder{3}{2}}
+  \onlyanswer{\foreach \j in {0,...,3}{\munder{0}{\j} \munder{1}{\j}}
+  \munder{2}{0} \munder{2}{1} \munder{3}{2}}}
 \end{center}
 
 \newpage
@@ -413,7 +378,8 @@ rest on a threat nobody would carry out.}
 
 \vspace{0.6em}
 
-\step{1}{Start at D, the last node, and mark the action player 2 prefers there.}
+\step{1}{Start at D, the last node, and mark the action player 2 prefers there,
+  with the payoff it leads to.}
 \step{2}{Work leftwards: at each node, compare the payoffs the marks to its
   right lead to.}
 \step{3}{Read off one action per node. That pair of strategies is the subgame
@@ -424,8 +390,10 @@ rest on a threat nobody would carry out.}
 \begin{center}
 \centipede{\nodeboxes
   \onlyanswer{%
-    \foreach \i in {0,...,3}{%
-      \node[text=inkanswer, font=\small] at (\i*4.6,1.5) {take};}}}
+    \foreach \value [count=\i from 0] in {{(2, 0)}, {(1, 3)}, {(4, 2)},
+                                           {(3, 5)}}{%
+      \node[text=inkanswer, font=\small] at (\i*4.6,1.5)
+        {take, \(\value\)};}}}
 \end{center}
 
 \newpage

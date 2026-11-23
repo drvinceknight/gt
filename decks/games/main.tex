@@ -1,20 +1,29 @@
 % Games: two-thirds of the average, and what a strategy actually is.
 \input{../preamble.tex}
 
-% Blank axes for sketching the class's Menti distribution.
+% Blank axes for sketching the class's distribution, with the ladder of
+% dominance underneath: a number line from 0 to 100 with a tick at each rung,
+% 100 times (2/3)^k. The answer build labels the rungs.
 \newcommand{\distribution}{%
   \begin{tikzpicture}[scale=1.0, every node/.style={transform shape}]
-    \fill[white] (0,0) rectangle (14.5,6.6);
+    \fill[white] (0,0) rectangle (14.5,5.0);
     \foreach \x in {0,10,...,100}{%
-      \draw[inkfaint, line width=0.5pt] (\x*0.145,0) -- (\x*0.145,6.6);}
-    \foreach \y in {1,2,3,4,5,6}{%
-      \draw[inkfaint, line width=0.5pt] (0,\y*1.1) -- (14.5,\y*1.1);}
+      \draw[inkfaint, line width=0.5pt] (\x*0.145,0) -- (\x*0.145,5.0);}
+    \foreach \y in {1,2,3,4}{%
+      \draw[inkfaint, line width=0.5pt] (0,\y*1.0) -- (14.5,\y*1.0);}
     \draw[inkgrey, line width=1pt, -{Stealth[length=2.5mm]}] (0,0) -- (15.1,0);
-    \draw[inkgrey, line width=1pt, -{Stealth[length=2.5mm]}] (0,0) -- (0,6.9);
+    \draw[inkgrey, line width=1pt, -{Stealth[length=2.5mm]}] (0,0) -- (0,5.3);
     \foreach \x in {0,10,...,100}{%
       \node[below, font=\small, text=inkgrey] at (\x*0.145,-0.1) {\x};}
     \node[left, font=\small, text=inkgrey, rotate=90, anchor=south]
-      at (-0.5,3.3) {how many chose it};
+      at (-0.5,2.5) {how many chose it};
+    \draw[inkblue, line width=1pt] (0,-1.3) -- (14.5,-1.3);
+    \node[left, font=\small, text=inkblue] at (-0.1,-1.3) {ladder};
+    \foreach \rung/\label in {100/100, 66.67/67, 44.44/44, 29.63/30, 19.75/20,
+                              13.17/13, 8.78/9}{%
+      \draw[inkblue, line width=1pt] (\rung*0.145,-1.45) -- (\rung*0.145,-1.15);
+      \onlyanswer{\node[below, font=\small, text=inkanswer]
+        at (\rung*0.145,-1.45) {\label};}}
   \end{tikzpicture}}
 
 \deckname{Games}
@@ -50,8 +59,6 @@
 Average\\[0.4em]
 \hspace*{0.3cm}\blank[2.4]\\[1.5em]
 Two thirds of it\\[0.4em]
-\hspace*{0.3cm}\blank[2.4]\\[1.5em]
-Winner\\[0.4em]
 \hspace*{0.3cm}\blank[2.4]}
 \end{minipage}
 
@@ -84,9 +91,6 @@ Winner\\[0.4em]
 \end{tikzpicture}
 \end{center}
 
-\vspace{0.5cm}
-
-{\large How far down the ladder did the room actually go? \blank[2.4] steps.}
 
 \newpage
 \slidehead{Round 2}
@@ -103,8 +107,6 @@ Winner\\[0.4em]
 Average\\[0.4em]
 \hspace*{0.3cm}\blank[2.4]\\[1.5em]
 Two thirds of it\\[0.4em]
-\hspace*{0.3cm}\blank[2.4]\\[1.5em]
-Winner\\[0.4em]
 \hspace*{0.3cm}\blank[2.4]}
 \end{minipage}
 
@@ -113,74 +115,30 @@ Winner\\[0.4em]
 \playrules{Same again: one whole number from 0 to 100, closest to two thirds of the
   average wins. You have seen where the room landed last time.}
 \newpage
-\slidehead{Which kind of game is this?}
-\notesref{2.2.1, 2.2.3}{Games: Extensive Form Game, Normal Form Game}
+\slidehead{What kind of game, and what is a strategy?}
+\notesref{2.2.1 to 2.2.4}{Games: Extensive Form, Normal Form, Strategy}
 
-\vspace{0.7cm}
+\vspace{0.6cm}
 
-\begin{minipage}[t]{0.47\linewidth}
-{\large\bfseries Normal form}
-
-\vspace{0.5em}
-
-{\large Everyone chooses \answerrule[3.5cm]{simultaneously}, and a payoff
-follows.}
-
-\vspace{0.8em}
-
-\answerspace{10.6}{4.4}{%
-  Everyone writes a number down and hands it in at the same moment. Nobody
-  sees another number first, so there is nothing to react to.}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.47\linewidth}
-{\large\bfseries Extensive form}
-
-\vspace{0.5em}
-
-{\large Players move \answerrule[3.5cm]{in sequence}, and can see what has
-happened.}
-
-\vspace{0.8em}
-
-\answerspace{10.6}{4.4}{%
-  The players are ordered. Each one hears what came before and then chooses,
-  so a later player can answer an earlier one.}
-\end{minipage}
+{\large In a \textbf{normal form} game everyone chooses
+\answerrule[3.8cm]{simultaneously}. In an \textbf{extensive form} game players
+move \answerrule[3.8cm]{in sequence} and can see what has happened.}
 
 \vspace{0.9cm}
 
-{\large Our game is \answerrule[5cm]{normal form}, because
+{\large Our game is \answerrule[4cm]{normal form}, because
 \answerrule[7cm]{we all submit at once}.}
 
-\newpage
-\slidehead{So what is a strategy?}
-\notesref{2.2.4}{Games: Definition: Strategy in Normal Form Games}
-
-\vspace{0.8cm}
+\vspace{0.9cm}
 
 {\large In the game we just played, a strategy is
 \answerrule[9cm]{a single number in \(\{0, 1, \ldots, 100\}\)}.}
 
-\vspace{1.1cm}
+\vspace{0.9cm}
 
-{\large Now change the rules: you pick \emph{after} hearing what the person
-before you picked. Draw a couple of levels of that game.}
-
-\vspace{0.7cm}
-
-\begin{center}
-\answerspace{22.6}{4.6}{%
-  The first player's move branches 101 ways. Under each branch the second
-  player has the same 101 choices, and the edge leading there says which
-  number was announced, so what the second player knows is the whole history
-  above them.}
-\end{center}
-
-\vspace{0.5cm}
-
-{\large In \emph{that} game, a strategy has to say
- \answerblank[6]{what to pick for every number heard}.}
+{\large If instead you picked \emph{after} hearing the person before you, a
+strategy would have to say
+\answerrule[8cm]{what to pick for every number heard}.}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

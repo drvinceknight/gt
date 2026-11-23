@@ -75,8 +75,9 @@ longer than the usual 20 minutes.</p>
 <p><strong>The deck.</strong> There is a write-on deck at
 <a href="../decks/moran-process/main.pdf">/decks/moran-process/main.pdf</a>: the Hawk-Dove
 payoffs printed, the birth-death chain with its transition probabilities blank,
-tables for the fitnesses and the selection probabilities, and a table turning
-those probabilities into ranges on a D12. There is no separate form: everything
+tables for the fitnesses and the selection probabilities, the D12 ranges that
+reproduce those probabilities, and a tally of how each pair's runs ended, next
+to the fixation theorem. There is no separate form: everything
 the pairs need is on the deck.</p>
 <p>Every slide of the deck names the numbered section of the notes it is reading,
 and the last slide gathers them into one table, marks what is examinable and
@@ -360,6 +361,12 @@ x_1 = \frac{1}{1 + \gamma_1 + \gamma_1\gamma_2}
     = \frac{1}{1 + \tfrac{1}{2} + \tfrac{1}{3}} = \frac{6}{11}
     \approx 0.545.
 \]</div>
+<p>The deck states the general theorem with <span class="arithmatex">\(\gamma_k = f_R(k)/f_M(k)\)</span>, with the
+hawk as the mutant: <span class="arithmatex">\(\gamma_1 = f_D(1)/f_H(1) = 3/6\)</span> and
+<span class="arithmatex">\(\gamma_2 = f_D(2)/f_H(2) = 2/3\)</span>, the same values as above. It also asks for
+the chance that one dove among two hawks takes over, which is
+<span class="arithmatex">\(1 - \rho_2 = 1 - \frac{1 + \gamma_1}{1 + \gamma_1 + \gamma_1\gamma_2}
+= 1 - \frac{9}{11} = \frac{2}{11}\)</span>.</p>
 <p>Simulating the students' dice gives about <span class="arithmatex">\(0.547\)</span>, so a class of twenty pairs
 should land somewhere near eleven hawk fixations out of twenty. That spread is
 worth naming: with twenty runs the standard error is about <span class="arithmatex">\(0.11\)</span>, so anything
@@ -463,15 +470,6 @@ as the blank deck we project. Click a page to see it full size.</p>
            loading="lazy">
     </a>
     <figcaption>Page 10</figcaption>
-  </figure>
-  
-  <figure>
-    <a href="../assets/img/decks/moran-process/page-11.png">
-      <img src="../assets/img/decks/moran-process/page-11.png"
-           alt="Page 11 of the deck, with the answers written in"
-           loading="lazy">
-    </a>
-    <figcaption>Page 11</figcaption>
   </figure>
   
 </div>
