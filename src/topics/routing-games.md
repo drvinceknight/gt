@@ -19,7 +19,8 @@ Initially there are two routes: the top route is a small road \(S \to A\) whose
 travel time in minutes equals the number of cars on it, followed by a motorway
 \(A \to T\) fixed at 50 minutes; the bottom route is a motorway \(S \to B\) fixed
 at 50 minutes followed by a small road \(B \to T\) whose time equals the number
-of cars on it.
+of cars on it. Treat the traffic as non-atomic: each driver is a negligible share
+of a flow of 40, so one driver switching does not change any road's travel time.
 
 (a) Explain what a Nash flow is in this setting. [3]
 
@@ -31,11 +32,12 @@ time. [7]
 
 (d) Compare the two travel times and explain, in terms of each driver ignoring
 the congestion they impose on others, why adding a road made everyone worse off.
-[7]
+[5]
 
-(e) With the shortcut in place, a social planner could still route 20 drivers
-each way (ignoring the shortcut) for an average of 70 minutes. Compute the price
-of anarchy of the network with the shortcut. [3]
+(e) With the shortcut in place, use the marginal costs to show that the optimal
+flow sends 10 drivers along \(S \to A \to B \to T\) and 15 along each of the
+other two routes. Hence compute the price of anarchy of the network with the
+shortcut. [5]
 
 ### Question 2
 

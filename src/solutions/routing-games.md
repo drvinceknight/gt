@@ -16,9 +16,12 @@ marks.
 
 **(a) Nash flow.** [3]
 
-A Nash flow is a way the drivers split across the routes such that no individual
-driver can reduce their own travel time by switching route; every route actually
-used has minimal cost.
+The traffic is non-atomic: a flow of 40 split across the routes, with each
+driver a negligible share of it. A Nash flow is a split in which every route
+actually used has minimal cost: if \(f_{P_1} > 0\) then
+\(c_{P_1}(f) \leq c_{P_2}(f)\) for every other route \(P_2\), with both costs
+evaluated at the same flow \(f\). Since one driver's switch does not change
+\(f\), no driver can then reduce their own travel time by switching route.
 
 **(b) Nash flow before the shortcut.** [5]
 
@@ -42,7 +45,7 @@ minutes. A driver who deviates to the old top route \(S \to A \to T\) pays
 \(50 + 40 = 90\) minutes. Both are worse than 80, so no driver can improve by
 switching: the zig-zag flow is a Nash flow.
 
-**(d) Braess's paradox.** [7]
+**(d) Braess's paradox.** [5]
 
 Before the road, every driver took 70 minutes; after it, every driver takes 80.
 Adding a road made everyone worse off. Each driver chooses the route that is best
@@ -52,14 +55,37 @@ once, and the resulting Nash flow is more costly than the original. The selfish
 (Nash) outcome need not be the social optimum, and extra capacity can make the
 selfish outcome worse.
 
-**(e) Price of Anarchy with the shortcut.** [3]
+**(e) Price of Anarchy with the shortcut.** [5]
 
-The Nash flow with the shortcut costs each driver \(80\) minutes, while the social
-optimum (routing 20 drivers each way) costs \(70\). The Price of Anarchy is
+The marginal cost of an edge with cost \(c(x)\) is
+\(\frac{\mathrm{d}}{\mathrm{d}x}\big(x\,c(x)\big)\): \(2x\) on each small road,
+\(50\) on each motorway and \(0\) on the shortcut. With 15 drivers on each of
+the top and bottom routes and 10 on \(S \to A \to B \to T\), each small road
+carries 25 cars, so the marginal cost of every route is the same:
 
 \[
-\frac{80}{70} = \frac{8}{7}.
+2 \times 25 + 50 = 2 \times 25 + 0 + 2 \times 25 = 100.
 \]
+
+This flow is therefore a Nash flow for the marginal costs, and so, by the
+theorem that an optimal flow is a Nash flow for marginal costs, it is the
+optimal flow. Its total cost is
+
+\[
+C(f^{*}) = 25 \times 25 + 15 \times 50 + 15 \times 50 + 25 \times 25 + 10 \times 0
+= 2750,
+\]
+
+against \(C(\tilde f) = 40 \times 80 = 3200\) for the Nash flow. The Price of
+Anarchy is
+
+\[
+\frac{C(\tilde f)}{C(f^{*})} = \frac{3200}{2750} = \frac{64}{55} \approx 1.16.
+\]
+
+Note that routing 20 drivers each way and ignoring the shortcut costs
+\(2800\): better than the Nash flow, but not optimal. A planner makes a little
+use of the shortcut.
 
 ## Question 2 [25 marks]
 

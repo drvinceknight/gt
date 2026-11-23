@@ -32,7 +32,7 @@
 \titleslide{Routing games}{Braess's paradox, in the room}{%
     \begin{tikzpicture}[font=\small]
       \stepbox{s0}{0.0}{\textbf{Phase 1}\\[0.25em]
-                          Two routes. Find where the class settles.}
+                          Two routes. Find where we settle.}
       \stepbox{s1}{6.9}{\textbf{Phase 2}\\[0.25em] Add a road. Watch it get worse.}
       \stepbox{s2}{13.8}{\textbf{Then}\\[0.25em] Write it down properly.}
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
@@ -41,7 +41,7 @@
 
     \vspace{2.4em}
 
-    {\large Drivers in the room: \blank[2.2] \hspace{2cm} Date: \blank[3]}}
+    {\large Drivers in the room: \blank[2.2]}}
 
 \newpage
 \slidehead{While you play}
@@ -51,10 +51,14 @@
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-{\LARGE Stand on the route you are
-driving. A small road takes as many minutes as there are people on it; a motorway is
-fixed at 50 minutes. When the two times are announced you may switch, as often as you
-like, until nobody gains by moving.}
+{\LARGE Each round, put your hand up for the route you are driving. A small road
+takes as many minutes as there are hands for it; a motorway is fixed at 50 minutes.
+We announce the times, and you may switch for the next round. We stop when nobody
+wants to.}
+
+\vspace{1.2em}
+
+{\Large\color{inkgrey} Phase 2 adds a third route. Same rules.}
 \end{minipage}
 \end{center}
 
@@ -64,13 +68,15 @@ like, until nobody gains by moving.}
 \slidehead{Phase 1: two routes}
 \notesref{14.2.1}{Routing Games: Definition: Routing Game}
 
+\vspace{0.6cm}
+
 \begin{minipage}[c]{0.60\linewidth}
 \begin{center}
 \network{
   \node[above left=0.1cm and 0.1cm of $(S)!0.5!(A)$]
-    {\answerblank[1.1]{\(20\)}\;{\color{inkgrey}\footnotesize cars}};
+    {\answerblank[1.1]{\(20\)}\;{\color{inkgrey}\footnotesize hands}};
   \node[below right=0.1cm and 0.1cm of $(B)!0.5!(T)$]
-    {\answerblank[1.1]{\(20\)}\;{\color{inkgrey}\footnotesize cars}};
+    {\answerblank[1.1]{\(20\)}\;{\color{inkgrey}\footnotesize hands}};
 }
 \end{center}
 \end{minipage}
@@ -85,25 +91,11 @@ like, until nobody gains by moving.}
     \answerblank[1.8]{\(70\)}}
 \end{minipage}
 
-\vspace{0.15cm}
+\vspace{0.8cm}
 
-{\small\color{inkgrey} Stand on your route. Re-choose if the other one is
-quicker. Stop when nobody moves.}
+{\large\color{inkgrey} Hands up for top or bottom. If the other route is quicker,
+switch next round.}
 
-\vspace{0.15cm}
-
-\hspace{0.2cm}
-\begin{tikzpicture}[font=\small]
-  \foreach \col/\lab in {0/Round, 3.3/On top, 6.6/On bottom,
-                         9.9/Top time, 13.2/Bottom time, 16.5/Who moves?}{%
-    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
-  \draw[inkfaint, line width=0.6pt] (0,-0.32) -- (19.3,-0.32);
-  \foreach \row in {1,2,3,4}{%
-    \node[anchor=west, text=inkgrey] at (0,-0.78*\row) {\row};
-    \foreach \col in {3.3,6.6,9.9,13.2,16.5}{%
-      \draw[inkfaint, line width=0.6pt]
-        (\col,-0.78*\row-0.26) -- (\col+2.8,-0.78*\row-0.26);}}
-\end{tikzpicture}
 \newpage
 \slidehead{Phase 1: is anybody still moving?}
 \notesref{14.2.6}{Routing Games: Definition: Nash Flow}
@@ -111,54 +103,37 @@ quicker. Stop when nobody moves.}
 \vspace{0.3cm}
 
 {\large Where we settled: \answerblank[1.4]{\(20\)} on top,
-\answerblank[1.4]{\(20\)} on bottom.}
+\answerblank[1.4]{\(20\)} on bottom, both taking \answerblank[1.4]{\(70\)}
+minutes.}
 
 \vspace{0.6cm}
 
-{\large If one driver switches from top to bottom, their time goes from
-\answerblank[1.6]{\(70\)} to \answerblank[1.6]{\(71\)}.}
+{\large In the room, one driver who switches makes their new road one car busier,
+so their time goes from \answerblank[1.4]{\(70\)} to \answerblank[1.4]{\(71\)}.}
 
-\vspace{0.8cm}
+\vspace{0.6cm}
+
+{\large In the model, each of us is a tiny share of a flow of 40 drivers: the
+traffic is \textbf{non-atomic}. One driver switching changes no road's time, so
+the only question is whether some other route is already quicker.}
+
+\vspace{0.6cm}
 
 {\large\bfseries So this is a \answerrule[5cm]{Nash} flow.}
 
-\vspace{0.5cm}
+\vspace{0.4cm}
 
-\begin{minipage}[t]{0.46\linewidth}
-  {\small\color{inkgrey} A flow is a Nash flow when:}\\[0.4em]
-  \answerspace{10.6}{4.9}{%
-    No driver can cut their own time by moving. Every route anyone uses takes
-    the same time, and no empty route is quicker.}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.46\linewidth}
-  {\small\color{inkgrey} Is it also the best the class could do?}\\[0.4em]
-  \answerspace{10.6}{4.9}{%
-    Yes. With \(x\) on top the total is
-    \(x^{2} + (40 - x)^{2} + 2000\), smallest at \(x = 20\). Here the
-    Nash flow and the optimal flow agree.}
-\end{minipage}
-
-\newpage
-\slidehead{While you play}
-\notesref{14.2.1}{Routing Games: Definition: Routing Game}
-
-\vspace*{\fill}
-
-\begin{center}
-\begin{minipage}{0.86\linewidth}
-{\LARGE Same again, with the new road
-open. Small roads still take a minute per person and motorways are still 50 minutes.
-Switch whenever it saves you time, until nobody wants to
-move.}
-\end{minipage}
-\end{center}
-
-\vspace*{\fill}
+{\small\color{inkgrey} A flow is a Nash flow when:}\\[0.4em]
+\answerspace{22.6}{2.2}{%
+  Every route that carries traffic takes the least time: if \(f_{P_1} > 0\) then
+  \(c_{P_1}(f) \leq c_{P_2}(f)\), with both costs worked out at the same flow
+  \(f\).}
 
 \newpage
 \slidehead{Phase 2: one new road}
 \notesref{14.2.1}{Routing Games: Definition: Routing Game}
+
+\vspace{0.6cm}
 
 \begin{minipage}[c]{0.60\linewidth}
 \begin{center}
@@ -166,15 +141,12 @@ move.}
   \draw[->, line width=1.6pt, draw=inkred, dashed] (A) -- (B);
   \node[right=0.15cm of $(A)!0.5!(B)$, text=inkred, font=\small]
     {new road: $0$};
-  \node[above left=0.1cm and 0.1cm of $(S)!0.5!(A)$]
-    {\answerblank[1.1]{\(40\)}\;{\color{inkgrey}\footnotesize cars}};
-  \node[below right=0.1cm and 0.1cm of $(B)!0.5!(T)$]
-    {\answerblank[1.1]{\(40\)}\;{\color{inkgrey}\footnotesize cars}};
 }
 \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.36\linewidth}
+{\large\color{inkgrey} Hands up for your route:}\\[0.8em]
 {\large
   $S \to A \to T$ \hspace{0.4cm} \answerblank[1.8]{\(0\)}\\[1.5em]
   $S \to B \to T$ \hspace{0.4cm} \answerblank[1.8]{\(0\)}\\[1.5em]
@@ -182,46 +154,26 @@ move.}
     \answerblank[1.8]{\(40\)}}
 \end{minipage}
 
-\vspace{0.3cm}
+\vspace{0.6cm}
 
-{\small\color{inkgrey} Re-choose again. The new road is free, so who would not
-take it?}
+{\large The new road is free, so who would not take it?
+\answerrule[9cm]{Nobody: it is never slower for me}}
 
-\vspace{0.3cm}
-
-\begin{center}
-\answerspace{22.6}{2.6}{%
-  Whatever the others do, \(S \to A\) is never slower than \(S \to B\)
-  and the link to \(B\) is free, so taking the new road is the better move
-  for every driver on their own. All 40 end up on it.}
-\end{center}
 \newpage
 \slidehead{Phase 2: where everyone ends up}
 \notesref{14.2.6}{Routing Games: Definition: Nash Flow}
 
 \vspace{0.8cm}
 
-\begin{center}
-{\large
-  $S \to A$: \answerblank[1.3]{\(40\)} cars $=$
-    \answerblank[1.3]{\(40\)} mins
-  \hspace{1.1cm} $+$ \hspace{1.1cm}
-  $A \to B$: $0$ mins
-  \hspace{1.1cm} $+$ \hspace{1.1cm}
-  $B \to T$: \answerblank[1.3]{\(40\)} cars $=$
-    \answerblank[1.3]{\(40\)} mins}
+{\large Everyone's time: \answerblank[1.5]{\(40\)} $+\ 0\ +$
+\answerblank[1.5]{\(40\)} $=$ \answerblank[1.8]{\(80\)} minutes.}
 
-\vspace{1.4em}
+\vspace{0.7cm}
 
-{\Large Everyone's time: \answerblank[2.4]{\(80\)} mins}
-\end{center}
+{\large Going back to a motorway would cost \answerblank[1.5]{\(40\)}
+$+\ 50\ =$ \answerblank[1.8]{\(90\)}. So nobody does.}
 
-\vspace{0.9cm}
-
-{\large Nobody wants to leave: going back to $S \to A \to T$ would cost
-\answerblank[1.5]{\(40\)} $+\ 50\ =$ \answerblank[1.8]{\(90\)}.}
-
-\vspace{1.1cm}
+\vspace{1.2cm}
 
 \begin{center}
 \begin{tikzpicture}[font=\large]
@@ -245,110 +197,137 @@ take it?}
 
 \vspace{0.4cm}
 
-{\large One more car joins a small road that already carries $x$ cars.}
+{\large Add a sliver \(\delta\) of traffic to a small road that already carries
+\(x\).}
 
 \vspace{0.7cm}
 
 \hspace{1cm}
-\begin{minipage}{0.4\linewidth}
-  {\large It costs \emph{me} \answerblank[1.6]{\(x + 1\)} minutes.}
-\end{minipage}
-\begin{minipage}{0.5\linewidth}
-  {\large It costs \emph{everyone else} \answerblank[1.6]{\(x\)}
-   minutes.}
-\end{minipage}
-
-\vspace{0.9cm}
-
-{\large I pay the first and ignore the second. The road's total time is}
-
-\vspace{0.5cm}
-
-\begin{center}
-{\Large $x \, c(x) \;=\;$ \answerblank[2]{\(x^{2}\)} \hspace{2.6cm}
- and one more car really adds
- $\dfrac{\mathrm{d}}{\mathrm{d}x}\big(x \, c(x)\big) \;=\;$
- \answerblank[2]{\(2x\)}}
-\end{center}
-
-\vspace{0.6cm}
-
-\begin{center}
-\answerspace{22.6}{2.8}{%
-  Each driver counts the minute the road costs them and none of the \(x\)
-  minutes they impose on the drivers already there. At \(x = 40\) the true
-  cost of one more car is \(80\) minutes against the \(41\) they feel,
-  which is the whole of the gap between the Nash flow and the optimal one.}
-\end{center}
-
-\newpage
-\slidehead{Writing it down}
-\notesref{14.2.3, 14.2.4}{Routing Games: Feasible Flow, Cost function}
-
-\vspace{0.3cm}
-
-{\large A routing game has a flow $f$ on each route, and a cost}
-
-\vspace{0.2cm}
-
-\begin{center}
-{\Large $\displaystyle C(f) \;=\; \sum_{e} f_e\, c_e(f_e)$}
-\end{center}
-
-\vspace{0.4cm}
-
-\begin{minipage}[t]{0.47\linewidth}
-  {\large Our network, \emph{before} the new road:}\\[0.5em]
-  \answerspace{10.8}{5}{%
-    \[
-      C(f) = 20 \times 20 + 20 \times 50 + 20 \times 50 + 20 \times 20
-      = 2800,
-    \]
-    which is \(70\) minutes each.}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.47\linewidth}
-  {\large Our network, \emph{after} the new road:}\\[0.5em]
-  \answerspace{10.8}{5}{%
-    \[
-      C(f) = 40 \times 40 + 40 \times 0 + 40 \times 40 = 3200,
-    \]
-    which is \(80\) minutes each.}
-\end{minipage}
-
-\newpage
-\slidehead{Nash flow against optimal flow}
-\notesref{14.2.5, 14.2.7}{Routing Games: Optimal Flow, Potential Function}
-
-\vspace{0.3cm}
-
-{\large A planner who could route us all could ignore the new road and send
-half of us each way.}
-
-\vspace{0.5cm}
-
-\begin{minipage}[t]{0.47\linewidth}
-{\large Left alone: the Nash flow \(\tilde f\), and each driver's time:}\\[0.5em]
-\answerspace{10.8}{4.4}{%
-  All 40 on \(S \to A \to B \to T\), so \(C(\tilde f) = 3200\) and
-  every driver takes \(80\) minutes.}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.47\linewidth}
-{\large Planned: the optimal flow \(f^{*}\), and each driver's time:}\\[0.5em]
-\answerspace{10.8}{4.4}{%
-  Twenty each way and the new road left empty, so \(C(f^{*}) = 2800\) and
-  every driver takes \(70\) minutes.}
+\begin{minipage}{0.9\linewidth}
+  {\large The sliver itself spends \answerblank[1.4]{\(x\)} minutes per driver:
+   \answerblank[1.4]{\(x\delta\)} in all.}\\[0.9em]
+  {\large The \(x\) already there are each slowed by \answerblank[1.4]{\(\delta\)}:
+   \answerblank[1.4]{\(x\delta\)} in all.}
 \end{minipage}
 
 \vspace{0.7cm}
 
+{\large A driver feels the first and ignores the second. The road's total time is}
+
+\vspace{0.5cm}
+
+\begin{center}
+{\Large $x \, c(x) \;=\;$ \answerblank[2]{\(x^{2}\)} \hspace{2.2cm}
+ and the sliver really adds
+ $\dfrac{\mathrm{d}}{\mathrm{d}x}\big(x \, c(x)\big)\,\delta \;=\;$
+ \answerblank[2]{\(2x\)}$\,\delta$}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{center}
+\answerspace{22.6}{2.3}{%
+  Each driver counts the \(x\) minutes they spend and none of the delay they put
+  on the traffic already there. At \(x = 40\), more traffic really costs \(80\)
+  minutes per driver added against the \(40\) that driver feels, which is the whole of
+  the gap between the Nash flow and the optimal one.}
+\end{center}
+
+\newpage
+\slidehead{Two theorems}
+\notesref{14.2.7 to 14.2.10}{Routing Games: Potential Function, Marginal Cost}
+
+\vspace{0.2cm}
+
+\begin{minipage}[t]{0.48\linewidth}
+\tikz\node[draw=inkteal, line width=1pt, rounded corners=4pt, fill=white,
+  text width=10.7cm, inner sep=0.45cm, align=left, text=inktext]{%
+  {\bfseries\color{inkteal} Theorem.} A Nash flow minimises the potential
+  \[
+    \Phi(f) = \sum_{e} \int_{0}^{f_e} c_e(x)\,\mathrm{d}x.
+  \]};
+
+\vspace{0.4cm}
+
+{\large All 40 on the new route: \(\Phi =\) \answerblank[1.8]{\(1600\)}}
+
+\vspace{0.6em}
+
+{\large Twenty each way: \(\Phi =\) \answerblank[1.8]{\(2400\)}}
+
+\vspace{0.6em}
+
+{\large\color{inkgrey} The room minimised \(\Phi\), not the time. An
+integral, not a sum: the traffic is non-atomic.}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\tikz\node[draw=inkred, line width=1pt, rounded corners=4pt, fill=white,
+  text width=10.7cm, inner sep=0.45cm, align=left, text=inktext]{%
+  {\bfseries\color{inkred} Theorem.} An optimal flow is a Nash flow for the
+  marginal costs
+  \[
+    c^{*}_e(x) = \frac{\mathrm{d}}{\mathrm{d}x}\big(x\,c_e(x)\big).
+  \]};
+
+\vspace{0.4cm}
+
+{\large Small road \answerblank[1.4]{\(2x\)} \quad motorway
+\answerblank[1.4]{\(50\)} \quad new road \answerblank[1.4]{\(0\)}}
+
+\vspace{0.6em}
+
+{\large Equal marginal times when \answerblank[1.2]{\(10\)} take the new
+road and \answerblank[1.2]{\(15\)} take each other route.}
+\end{minipage}
+
+\vspace{0.4cm}
+
+\begin{center}
+\answerspace{22.6}{2.2}{%
+  Small roads give \(\int_0^{40} x\,\mathrm{d}x = 800\) each, so
+  \(\Phi = 1600\). With 10, 15 and 15, every route costs \(100\) in
+  marginal minutes: \(2 \times 25 + 0 + 2 \times 25 = 2 \times 25 + 50\).}
+\end{center}
+
+\newpage
+\slidehead{What it costs us all}
+\notesref{14.2.4, 14.2.5}{Routing Games: Cost function, Optimal Flow}
+
+\vspace{0.3cm}
+
+{\large The total time of a flow \(f\) adds up every road: \quad
+\(\displaystyle C(f) = \sum_{e} f_e\, c_e(f_e)\)}
+
+\vspace{0.5cm}
+
+\begin{minipage}[t]{0.47\linewidth}
+{\large Left alone, the Nash flow \(\tilde f\):}\\[0.5em]
+\answerspace{10.8}{3.4}{%
+  All 40 on the new route:
+  \(C(\tilde f) = 40 \times 40 + 40 \times 0 + 40 \times 40 = 3200\).}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.47\linewidth}
+{\large The optimal flow \(f^{*}\), from the second theorem:}\\[0.5em]
+\answerspace{10.8}{3.4}{%
+  25 on each small road, 15 on each motorway:
+  \(C(f^{*}) = 2 \times 25^{2} + 2 \times 15 \times 50 = 2750\).}
+\end{minipage}
+
+\vspace{0.8cm}
+
 \begin{center}
 {\Large Price of anarchy \(\;=\; \dfrac{C(\tilde f)}{C(f^{*})} \;=\;
  \dfrac{\;\answerblank[1.8]{\(3200\)}\;}%
- {\;\answerblank[1.8]{\(2800\)}\;} \;=\;\)
- \answerblank[2]{\(8/7\)}}
+ {\;\answerblank[1.8]{\(2750\)}\;} \;=\;\)
+ \answerblank[2]{\(64/55\)}}
 \end{center}
+
+\vspace{0.4cm}
+
+{\small\color{inkgrey} Twenty each way, ignoring the new road, costs 2800: better
+than the room, but not the best a planner can do.}
 
 \newpage
 \slidehead{The same thing, as an exam answer}
@@ -371,8 +350,9 @@ Games page, worth 25 marks.}
 \textbf{(c)} \> Adding $A \to B$: show all 40 on $S \to A \to B \to T$ is a
   Nash flow. \> [7]\\[0.55em]
 \textbf{(d)} \> Compare the times, and explain it through the congestion each
-  driver ignores. \> [7]\\[0.55em]
-\textbf{(e)} \> Compute the price of anarchy. \> [3]
+  driver ignores. \> [5]\\[0.55em]
+\textbf{(e)} \> The optimal flow from the marginal costs, and the price of
+  anarchy. \> [5]
 \end{tabbing}}
 \end{minipage}
 
@@ -398,7 +378,7 @@ Games page, worth 25 marks.}
 \hspace{6.9cm} \= \hspace{3.0cm} \= \hspace{9.4cm} \= \kill
 \textbf{What we did} \> {\color{inkteal}\textbf{Notes}} \> \textbf{In the textbook} \>
   \\[0.5em]
-Choosing a route, over and over \> {\color{inkteal}\textbf{14.2.1}} \> Routing Games:
+Hands up for a route, over and over \> {\color{inkteal}\textbf{14.2.1}} \> Routing Games:
   Definition: Routing Game \> \\[0.45em]
 Where nobody gains by switching \> {\color{inkteal}\textbf{14.2.6}} \> Routing Games:
   Definition: Nash Flow \> \\[0.45em]
@@ -407,6 +387,8 @@ Writing the flows and the costs \> {\color{inkteal}\textbf{14.2.2 to 14.2.4}} \>
 \> \> function \> \\[0.45em]
 What a planner would have done \> {\color{inkteal}\textbf{14.2.5}} \> Routing Games:
   Definition: Optimal Flow \> \\[0.45em]
+The two theorems \> {\color{inkteal}\textbf{14.2.7 to 14.2.10}} \> Routing Games:
+  Potential Function, Marginal Cost \> \\[0.45em]
 The cost of the extra car \> {\color{inkteal}\textbf{14.2.9}} \> Routing Games:
   Definition: Marginal Cost \> \\[0.45em]
 \textbf{Examinable} \> {\color{inkteal}\textbf{14.2.8, 14.2.10}} \> Nash Flow

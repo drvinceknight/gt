@@ -20,25 +20,40 @@ sets the reading for the next class. The rules of the activity sit on the slide
 that is up while the room plays, so a pair working alone is not going from
 memory.
 
-Use [this preference sheet](/assets/activities/matching-scientists/main.pdf) and
-ask students to work in groups to identify preferences for each mathematician and
-physicist.
+Slides 2 and 3 introduce the four mathematicians and the four physicists in
+words: what each person is like, what they look for in a collaborator and what
+puts them off. Slide 4 then puts all eight on one slide as pictures, with a key
+along the top and the rules for the ranking. Go through the two slides of
+descriptions first, then leave slide 4 up while groups work out a ranking for
+every person: one person's 'wants' and 'avoids' against each card on the other
+side is the comparison to make. The pictures guide the ranking rather than fix
+it, so steer the room towards the lists below. The same descriptions are on
+[this preference sheet](/assets/activities/matching-scientists/main.pdf) for
+anyone who wants a copy on paper.
 
 Arrive at this:
 
 **Mathematicians**
 
-- Gauss: Curie > Newton > Feynman > Einstein
-- Noether: Curie > Feynman > Einstein > Newton
-- Turing: Feynman > Curie > Einstein > Newton
-- Euler: Newton > Curie > Einstein > Feynman
+- Gauss: Curie > Newton > Einstein > Feynman
+- Noether: Feynman > Einstein > Curie > Newton
+- Turing: Einstein > Feynman > Newton > Curie
+- Euler: Feynman > Einstein > Curie > Newton
 
 **Physicists**
 
-- Einstein: Noether > Gauss > Turing > Euler
-- Curie: Noether > Euler > Turing > Gauss
-- Newton: Gauss > Euler > Noether > Turing
-- Feynman: Turing > Noether > Gauss > Euler
+- Einstein: Noether > Turing > Gauss > Euler
+- Curie: Noether > Turing > Gauss > Euler
+- Newton: Gauss > Turing > Euler > Noether
+- Feynman: Euler > Noether > Turing > Gauss
+
+Every one of these agrees with the pictures: score one for each trait a person
+wants that the other has, and take one off for each trait they avoid. Where two
+people score the same, the lists above break the tie, and those tie breaks are
+the places to steer the room. Curie's ranking is fixed by the cards, and Gauss
+and Newton rank each other first or second whatever the room does, so that
+pair is a good first win. These rankings have two stable matchings, which is
+what lets the last part of the deck show that the proposing side does better.
 
 The following will obtain a stable matching:
 
@@ -64,15 +79,15 @@ physicists = [
 gauss, noether, turing, euler = mathematicians
 einstein, curie, newton, feynman = physicists
 
-gauss.set_prefs([curie, newton, feynman, einstein])
-noether.set_prefs([curie, feynman, einstein, newton])
-turing.set_prefs([feynman, curie, einstein, newton])
-euler.set_prefs([newton, curie, einstein, feynman])
+gauss.set_prefs([curie, newton, einstein, feynman])
+noether.set_prefs([feynman, einstein, curie, newton])
+turing.set_prefs([einstein, feynman, newton, curie])
+euler.set_prefs([feynman, einstein, curie, newton])
 
-einstein.set_prefs([noether, gauss, turing, euler])
-curie.set_prefs([noether, euler, turing, gauss])
-newton.set_prefs([gauss, euler, noether, turing])
-feynman.set_prefs([turing, noether, gauss, euler])
+einstein.set_prefs([noether, turing, gauss, euler])
+curie.set_prefs([noether, turing, gauss, euler])
+newton.set_prefs([gauss, turing, euler, noether])
+feynman.set_prefs([euler, noether, turing, gauss])
 
 game = matching.games.StableMarriage(mathematicians, physicists)
 game.solve()
@@ -93,28 +108,38 @@ show of hands. It takes five minutes and tells us both what landed.
 
 **A blocking pair.** Any pairing the class writes down will do, but if they need
 prompting: pair Gauss with Curie, Noether with Newton, Turing with Einstein and
-Euler with Feynman. Then Noether and Curie block it, since Noether has her worst
-physicist and prefers Curie, and Curie has her worst mathematician and prefers
-Noether.
+Euler with Feynman. Then Noether and Einstein block it, since Noether has her
+worst physicist and prefers Einstein, and Einstein has his second choice and
+prefers Noether.
 
 **Deferred acceptance, with the mathematicians proposing.** It takes four
 rounds, which is why there are four diagrams:
 
-1. Gauss and Noether both propose to Curie, Turing to Feynman, Euler to Newton.
-   Curie holds Noether and rejects Gauss.
-2. Gauss proposes to Newton. Newton prefers Gauss, so holds Gauss and rejects
-   Euler.
-3. Euler proposes to Curie. Curie still prefers Noether, so rejects Euler.
-4. Euler proposes to Einstein, who holds him.
+1. Gauss proposes to Curie, Noether and Euler both to Feynman, Turing to
+   Einstein. Feynman holds Euler and rejects Noether.
+2. Noether proposes to Einstein. Einstein prefers Noether, so holds her and
+   rejects Turing.
+3. Turing proposes to Feynman. Feynman still prefers Euler, so rejects Turing.
+4. Turing proposes to Newton, who holds him.
 
-**The matching.** Gauss with Newton, Noether with Curie, Turing with Feynman,
-Euler with Einstein. It is stable: there is no blocking pair. Gauss would rather
-have Curie, but Curie has Noether and prefers her; Euler would rather have
-Newton or Curie, but both prefer who they already have.
+**The matching.** Gauss with Curie, Noether with Einstein, Turing with Newton,
+Euler with Feynman. It is stable: there is no blocking pair. Gauss and Euler
+have their first choice. Noether would rather have Feynman, but Feynman prefers
+Euler. Turing would rather have Einstein or Feynman, but each prefers who they
+hold.
 
-**Who does better.** The proposers. Deferred acceptance returns the
-suitor-optimal stable matching, so every mathematician gets the best physicist
-they could have in *any* stable matching, and every physicist the worst.
+**The physicists propose.** Two rounds. Einstein and Curie both propose to
+Noether, Newton to Gauss and Feynman to Euler; Noether holds Einstein and
+rejects Curie. Curie then proposes to Turing, who holds her. The matching is
+Gauss with Newton, Noether with Einstein, Turing with Curie and Euler with
+Feynman, which is also stable.
+
+**Who does better.** The proposers. Gauss gets Curie, his first choice, when
+the mathematicians propose, and Newton, his second, when the physicists do.
+Turing gets his third choice rather than his fourth. Newton and Curie gain in
+the opposite direction. Deferred acceptance returns the suitor-optimal stable
+matching, so every suitor gets the best partner they could have in *any*
+stable matching, and every reviewer the worst.
 
 ## From the activity to the exam answer
 
