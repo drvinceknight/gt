@@ -23,8 +23,9 @@ memory.
 Slides 2 and 3 introduce the four mathematicians and the four physicists in
 words: what each person is like, what they look for in a collaborator and what
 puts them off. Slide 4 then puts all eight on one slide as pictures, with a key
-along the top and the rules for the ranking. Go through the two slides of
-descriptions first, then leave slide 4 up while groups work out a ranking for
+along the top and the rules for the ranking. Show the two slides of
+descriptions briefly, so that three slides of reading do not eat the activity,
+then leave slide 4 up while groups work out a ranking for
 every person: one person's 'wants' and 'avoids' against each card on the other
 side is the comparison to make. The pictures guide the ranking rather than fix
 it, so steer the room towards the lists below. The same descriptions are on
@@ -105,6 +106,10 @@ page](/topics/matching-games.html): five questions on the screen, answered by a
 show of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
+
+Slide 5 writes the rankings as the maps \(f : S \to R^4\) and
+\(g : R \to S^4\), with the mathematicians as suitors and the physicists as
+reviewers, which is the form Question 1(a) asks for.
 
 **A blocking pair.** Any pairing the class writes down will do, but if they need
 prompting: pair Gauss with Curie, Noether with Newton, Turing with Einstein and
