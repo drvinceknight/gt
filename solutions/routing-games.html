@@ -67,9 +67,12 @@ marks.</p>
 <h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
 <p><a href="https://www.youtube.com/watch?v=tG9f5LpwDQM">YouTube video</a></p>
 <p><strong>(a) Nash flow.</strong> [3]</p>
-<p>A Nash flow is a way the drivers split across the routes such that no individual
-driver can reduce their own travel time by switching route; every route actually
-used has minimal cost.</p>
+<p>The traffic is non-atomic: a flow of 40 split across the routes, with each
+driver a negligible share of it. A Nash flow is a split in which every route
+actually used has minimal cost: if <span class="arithmatex">\(f_{P_1} &gt; 0\)</span> then
+<span class="arithmatex">\(c_{P_1}(f) \leq c_{P_2}(f)\)</span> for every other route <span class="arithmatex">\(P_2\)</span>, with both costs
+evaluated at the same flow <span class="arithmatex">\(f\)</span>. Since one driver's switch does not change
+<span class="arithmatex">\(f\)</span>, no driver can then reduce their own travel time by switching route.</p>
 <p><strong>(b) Nash flow before the shortcut.</strong> [5]</p>
 <p>Let <span class="arithmatex">\(x\)</span> drivers take the top route and <span class="arithmatex">\(40 - x\)</span> the bottom. The top route
 costs <span class="arithmatex">\(x + 50\)</span> and the bottom costs <span class="arithmatex">\(50 + (40 - x)\)</span>. At a Nash flow these are
@@ -86,7 +89,7 @@ minutes. A driver who deviates to the old top route <span class="arithmatex">\(S
 <span class="arithmatex">\(40 + 50 = 90\)</span> minutes, and one who deviates to <span class="arithmatex">\(S \to B \to T\)</span> pays
 <span class="arithmatex">\(50 + 40 = 90\)</span> minutes. Both are worse than 80, so no driver can improve by
 switching: the zig-zag flow is a Nash flow.</p>
-<p><strong>(d) Braess's paradox.</strong> [7]</p>
+<p><strong>(d) Braess's paradox.</strong> [5]</p>
 <p>Before the road, every driver took 70 minutes; after it, every driver takes 80.
 Adding a road made everyone worse off. Each driver chooses the route that is best
 for them, ignoring the extra congestion they add to the small roads <span class="arithmatex">\(S \to A\)</span>
@@ -94,12 +97,30 @@ and <span class="arithmatex">\(B \to T\)</span>. The free shortcut tempts everyo
 once, and the resulting Nash flow is more costly than the original. The selfish
 (Nash) outcome need not be the social optimum, and extra capacity can make the
 selfish outcome worse.</p>
-<p><strong>(e) Price of Anarchy with the shortcut.</strong> [3]</p>
-<p>The Nash flow with the shortcut costs each driver <span class="arithmatex">\(80\)</span> minutes, while the social
-optimum (routing 20 drivers each way) costs <span class="arithmatex">\(70\)</span>. The Price of Anarchy is</p>
+<p><strong>(e) Price of Anarchy with the shortcut.</strong> [5]</p>
+<p>The marginal cost of an edge with cost <span class="arithmatex">\(c(x)\)</span> is
+<span class="arithmatex">\(\frac{\mathrm{d}}{\mathrm{d}x}\big(x\,c(x)\big)\)</span>: <span class="arithmatex">\(2x\)</span> on each small road,
+<span class="arithmatex">\(50\)</span> on each motorway and <span class="arithmatex">\(0\)</span> on the shortcut. With 15 drivers on each of
+the top and bottom routes and 10 on <span class="arithmatex">\(S \to A \to B \to T\)</span>, each small road
+carries 25 cars, so the marginal cost of every route is the same:</p>
 <div class="arithmatex">\[
-\frac{80}{70} = \frac{8}{7}.
+2 \times 25 + 50 = 2 \times 25 + 0 + 2 \times 25 = 100.
 \]</div>
+<p>This flow is therefore a Nash flow for the marginal costs, and so, by the
+theorem that an optimal flow is a Nash flow for marginal costs, it is the
+optimal flow. Its total cost is</p>
+<div class="arithmatex">\[
+C(f^{*}) = 25 \times 25 + 15 \times 50 + 15 \times 50 + 25 \times 25 + 10 \times 0
+= 2750,
+\]</div>
+<p>against <span class="arithmatex">\(C(\tilde f) = 40 \times 80 = 3200\)</span> for the Nash flow. The Price of
+Anarchy is</p>
+<div class="arithmatex">\[
+\frac{C(\tilde f)}{C(f^{*})} = \frac{3200}{2750} = \frac{64}{55} \approx 1.16.
+\]</div>
+<p>Note that routing 20 drivers each way and ignoring the shortcut costs
+<span class="arithmatex">\(2800\)</span>: better than the Nash flow, but not optimal. A planner makes a little
+use of the shortcut.</p>
 <h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
 <p><a href="https://www.youtube.com/watch?v=QZlxrhmdtBk">YouTube video</a></p>
 <p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>

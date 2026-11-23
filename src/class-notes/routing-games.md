@@ -31,11 +31,11 @@ on the board:
 
 **Phase 1 (no shortcut).**
 
-1. Each student picks the top or bottom route and stands on that side. The
-   number of students on a small road is its travel time.
-2. Announce the two route times and let students re-choose to lower their own
-   time, lobbing a few small bribentives to whichever route is currently faster.
-   Repeat until nobody wants to switch.
+1. Each student picks the top or bottom route and puts a hand up when it is
+   called. The number of hands for a route is the travel time on its small road.
+2. Announce the two route times and ask again: anyone may switch to lower their
+   own time, and a few small bribentives go to whichever route is currently
+   faster. Repeat until nobody wants to switch.
 
 With a class of 40 the split settles at 20 and 20, each route taking
 $20 + 50 = 70$ minutes. This is the Nash flow, and here it is also the optimal
@@ -46,9 +46,10 @@ flow.
 3. Add a brand-new, instant road from $A$ to $B$ taking 0 minutes. There is now
    a tempting route $S \to A \to B \to T$ that uses both small roads and skips
    both motorways.
-4. Let students re-choose, again tossing a few small bribentives to whichever
-   route is currently faster. Everyone is drawn onto $S \to A$ and $B \to T$, so
-   the class funnels onto the zig-zag: all 40 on each small road, taking
+4. Call the three routes for hands again and let students re-choose, again
+   tossing a few small bribentives to whichever route is currently faster.
+   Everyone is drawn onto $S \to A$ and $B \to T$, so the class funnels onto the
+   zig-zag: all 40 on each small road, taking
    $40 + 0 + 40 = 80$ minutes.
 5. Point out that nobody can do better by switching back: the old routes now
    cost $40 + 50 = 90$ minutes. The new road is a Nash flow that is worse for
@@ -79,19 +80,27 @@ show of hands. It takes five minutes and tells us both what landed.
 The counts in Phase 1 and Phase 2 come from the room. These are the rest.
 
 **Phase 1.** The class settles at 20 and 20, so each route takes
-\(20 + 50 = 70\) minutes. A driver who switches sides makes their new road carry
-21 cars, so their own time goes from \(70\) to \(71\): nobody moves, and this is
-a Nash flow. Here it is also the optimal flow.
+\(20 + 50 = 70\) minutes. In the room, a driver who switches sides makes their
+new road carry 21 cars, so their own time goes from \(70\) to \(71\). The slide
+then makes the step to the model, where the traffic is non-atomic: each driver
+is a negligible share of a flow of 40, one switch changes no road's time, and a
+Nash flow is simply one where every used route takes the least time. Both routes
+take 70, so this is a Nash flow. Here it is also the optimal flow. This
+distinction is worth naming out loud, since the chapter's definitions, the
+integral in the potential and the derivative in the marginal cost all rely on
+it.
 
 **Phase 2.** All 40 end up on \(S \to A \to B \to T\), taking
 \(40 + 0 + 40 = 80\) minutes. Switching back to \(S \to A \to T\) would cost
 \(40 + 50 = 90\), so nobody does.
 
-**Why it got worse.** Joining a road that already carries \(x\) cars, my own
-time is \(x + 1\) minutes, and I add one minute to each of the \(x\) drivers
-already there, so \(x\) minutes to everyone else. I pay the first and ignore the
-second. The road's total time is \(x \, c(x) = x^{2}\), and one more car really
-adds \(\frac{\mathrm{d}}{\mathrm{d}x}(x \, c(x)) = 2x\), not \(1\).
+**Why it got worse.** Add a sliver \(\delta\) of traffic to a road that already
+carries \(x\). The sliver spends \(x\) minutes per driver, \(x\delta\) in all,
+and slows each of the \(x\) already there by \(\delta\), another \(x\delta\). A
+driver feels the first and ignores the second. The road's total time is
+\(x \, c(x) = x^{2}\), so the sliver really adds
+\(\frac{\mathrm{d}}{\mathrm{d}x}(x \, c(x))\,\delta = 2x\delta\): \(80\) minutes per
+driver at \(x = 40\), against the \(40\) each one feels.
 
 **Writing it down.** With \(C(f) = \sum_{e} f_e c_e(f_e)\), before the new road
 
@@ -107,10 +116,23 @@ C(f) = 40 \times 40 + 40 \times 0 + 40 \times 40 = 3200,
 
 which is \(80\) minutes each.
 
-**Price of anarchy.** Left alone we take \(80\) minutes each. A planner who
-ignored the new road and sent 20 each way would give us \(70\), so the price of
-anarchy is \(80/70 = 8/7 \approx 1.14\). This is the value asked for in
-Question 1(e).
+**The two theorems.** The potential \(\Phi(f) = \sum_e \int_0^{f_e} c_e(x)\,
+\mathrm{d}x\) is \(1600\) for the room's flow, all 40 on the new route, against
+\(2400\) for twenty each way: the Nash flow minimises \(\Phi\), not the time.
+The potential is an integral rather than a sum because the traffic is
+non-atomic.
+For the marginal costs, \(2x\) on a small road, \(50\) on a motorway and \(0\)
+on the new road, the Nash flow sends 10 along the new road and 15 along each of
+the other routes. Every route then costs \(100\) marginal minutes, and by the
+second theorem this is the optimal flow.
+
+**Price of anarchy.** The Nash flow costs \(C(\tilde f) = 3200\). The optimal
+flow has 25 cars on each small road and 15 on each motorway, so
+\(C(f^{*}) = 2 \times 25^{2} + 2 \times 15 \times 50 = 2750\), and the price of
+anarchy is \(3200/2750 = 64/55 \approx 1.16\). This is the value asked for in
+Question 1(e). Expect someone to say that a planner would ignore the new road
+and send twenty each way: that costs \(2800\), better than the room but not
+optimal, because a little use of the new road helps.
 
 ## From the activity to the exam answer
 
