@@ -29,9 +29,9 @@
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-{\LARGE Rank all three topics in
-strict order, best first. No ties, and rank every topic even if you only care about
-one of them.}
+{\LARGE Vote at \textbf{stablevoting.org} on your phone. Rank all three
+topics in strict order, best first. No ties, and rank every topic even if you
+only care about one of them.}
 \end{minipage}
 \end{center}
 
@@ -49,16 +49,14 @@ one of them.}
 
 \hspace{0.3cm}
 \begin{tikzpicture}[font=\small]
-  \foreach \lab/\col in {How they ranked them/0, How many said it/9.0,
-                         First choice/14.0, Borda points/18.4}{%
+  \foreach \lab/\col in {Ranking/0, How many voted it/7.4}{%
     \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
-  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.4,-0.36);
-  \foreach \row in {1,2,3,4,5,6}{%
-    \draw[inkfaint, line width=0.7pt]
-      (0,-1.08*\row-0.3) -- (8.2,-1.08*\row-0.3);
-    \node[anchor=west] at (9.0,-1.08*\row) {\blank[2.4]};
-    \node[anchor=west] at (14.0,-1.08*\row) {\blank[2.4]};
-    \node[anchor=west] at (18.4,-1.08*\row) {\blank[2.4]};}
+  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (11.6,-0.36);
+  \foreach \ranking [count=\row] in {%
+      A \succ B \succ C, A \succ C \succ B, B \succ A \succ C,
+      B \succ C \succ A, C \succ A \succ B, C \succ B \succ A}{%
+    \node[anchor=west, font=\Large] at (0,-1.08*\row) {\(\ranking\)};
+    \node[anchor=west] at (7.4,-1.08*\row) {\blank[2.4]};}
 \end{tikzpicture}
 
 \vspace{0.3cm}
@@ -106,17 +104,25 @@ one of them.}
 
 \vspace{0.6em}
 
-{\large \(A\) v \(B\) \blank[2.6] \\[0.7em] \(A\) v \(C\) \blank[2.6] \\[0.7em]
-\(B\) v \(C\) \blank[2.6]}
+{\small\color{inkgrey} How many rank the row above the column.}\\[0.3em]
+\begin{tikzpicture}[font=\large]
+  \foreach \name [count=\j from 0] in {A, B, C}{%
+    \node[text=inkblue, font=\bfseries] at (\j*1.7+0.85,0.45) {\(\name\)};
+    \node[text=inkblue, font=\bfseries] at (-0.45,-\j*1.1-0.55) {\(\name\)};
+    \foreach \i in {0,1,2}{%
+      \ifnum\i=\j
+        \fill[inkfaint] (\j*1.7,-\i*1.1) rectangle (\j*1.7+1.7,-\i*1.1-1.1);
+      \else
+        \draw[inkfaint, line width=0.7pt, fill=white]
+          (\j*1.7,-\i*1.1) rectangle (\j*1.7+1.7,-\i*1.1-1.1);
+      \fi}}
+\end{tikzpicture}
 
 \vspace{0.9em}
 
 {\large Condorcet winner \blank[2.4]}
 \end{minipage}
 
-\vspace{0.9cm}
-
-{\large Did all three agree? \blank[2.2]}
 
 \newpage
 \slidehead{Why they disagree}
@@ -141,15 +147,6 @@ everybody's second choice can beat one that half the room ranks last.}
 
 \vspace{1cm}
 
-\begin{center}
-\answerspace{22.6}{2.6}{%
-  In the nine-student example on the exam page, \(A\) takes four first
-  choices and wins that count, while \(B\) wins on Borda, 12 to 8, and beats
-  both of the others head to head. The counts disagree because \(A\) is
-  ranked \emph{last} by five of the nine, which only a method reading the
-  whole ballot can see.}
-\end{center}
-
 \newpage
 \slidehead{What the machine said}
 \notesref{17.2.5}{Social Choice: Definition: Condorcet's Method}
@@ -159,17 +156,7 @@ everybody's second choice can beat one that half the room ranks last.}
 {\large stablevoting.org gave \blank[4.4]. Which of our three counts does that
 match? \blank[4.4]}
 
-\vspace{1cm}
-
-{\large So which method should we use for the class vote, and why?}
-
-\vspace{0.7cm}
-
-\begin{center}
-\workspace{22.6}{3.6}
-\end{center}
-
-\vspace{0.7cm}
+\vspace{1.4cm}
 
 {\large We are revising: \blank[6]}
 

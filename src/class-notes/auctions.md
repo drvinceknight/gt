@@ -6,23 +6,40 @@ tag: "auctions"
 
 ## Activity (20 minutes)
 
-**Goal.** Contrast a sealed second-price auction with the open £5 auction from
-the first class and set up the question of truthful bidding.
+**Goal.** Compare a first-price and a second-price sealed auction with private
+values, see bidders shade in one and bid their value in the other, and find that
+the seller makes about the same from both.
 
 **The deck.** There is a write-on deck at
-[/decks/auctions/main.pdf](/decks/auctions/main.pdf): a sheet for the sealed
-bids, the rules left blank, and the two cases of the weak dominance argument
-side by side.
+[/decks/auctions/main.pdf](/decks/auctions/main.pdf): the rules on a "While you
+play" slide, two grids of bid against value (one per round) with average price
+boxes, the rules and payoff left blank, the two cases of the weak dominance
+argument on number lines, the shaded first-price bid, and the seller's revenue
+in each format.
 
 Every slide of the deck names the numbered section of the notes it is reading,
 and the last slide gathers them into one table, marks what is examinable and
-sets the reading for the next class. The rules of the activity sit on the slide
-that is up while the room plays, so a pair working alone is not going from
-memory.
+sets the reading for the next class. Leave the "While you play" slide up while
+the room plays.
 
-Ask the class to repeat the £5 auction, but this time the highest bid wins and
-pays the amount of the second bid. Run it sealed: get everyone to write their
-bid on a piece of paper and reveal at the end.
+**Requires one D12 per student, or per group passed round.** The class already
+ran the dollar auction, where everyone's value is the same; here each value is
+private, which is the setting of the chapter and of Question 1.
+
+Put the room in threes. Each student rolls a D12 without showing anyone: that
+is their value for the item. Each writes a bid on paper and the three reveal at
+once.
+
+1. Round 1, first price. The highest bid wins and pays its own bid; the winner
+   scores their value minus their bid, the others score 0.
+2. Round 2, second price. Everyone rolls a fresh value. The highest bid wins and
+   pays the second highest bid.
+
+Keep totals across both rounds and give the bribentives to the top scorers.
+Then collect a handful of groups' values and bids for each round and mark them
+on the two grids: second-price bids should sit near the line bid = value and
+first-price bids below it. Ask each group for the price paid in each round and
+write the two averages in.
 
 ## Discussion (20 minutes)
 
@@ -40,8 +57,13 @@ of hands. It takes five minutes and tells us both what landed.
 
 ## Answers for the deck
 
-**The rules.** Everyone submits a sealed bid without seeing anyone else's; the
-highest bidder wins; the winner pays the *second* highest bid.
+The values, bids and average prices come from the room. These are the rest.
+
+**The rules.** Everyone submits one sealed bid without seeing anyone else's, and
+the highest bidder wins. In a first-price auction the winner pays their own bid;
+in a second-price auction they pay the second highest bid. With value \(v\), the
+second-price payoff is \(v\) minus the second highest bid for the winner and
+\(0\) for everyone else.
 
 **Should you bid your value?** Write \(v\) for your value and \(b\) for the
 highest bid among everybody else. You win when your bid beats \(b\), and you
@@ -56,12 +78,22 @@ what you pay.
 
 Neither can do better, so bidding your true value is weakly dominant.
 
-**Why that matters.** You do not need to know anything about the other bidders
-to bid well, and the item reaches the person who values it most.
+**First price.** Bidding your value and winning scores \(0\), so you shade
+below it. With \(N\) bidders and values uniform, the equilibrium bid is
+\(b = \frac{N - 1}{N}v\): the book states it for values on \([0, 1]\), and it
+scales to any interval starting at \(0\). With \(N = 3\), \(b = \frac{2}{3}v\),
+the line drawn on the first-price grid. In a second-price auction you need to
+know nothing about the others; in a first-price auction how far to shade
+depends on how many others there are.
 
-**First price.** No. If you pay your own bid then bidding your value gives you a
-payoff of zero whenever you win, so you should shade below it, and how far below
-depends on what you think the others will do.
+**What the seller made.** With three values uniform on \([0, 12]\), the highest
+averages \(9\) and the second highest \(6\). The second-price seller gets the
+second highest value, \(6\) on average; the first-price seller gets
+\(\frac{2}{3}\) of the highest, also \(6\). That is revenue equivalence. A D12 is
+discrete, so the room's exact targets are slightly different: \(6.5\) for the
+second-price round and about \(6.3\) for the first-price round if everyone bids
+\(\frac{2}{3}v\). Either way the two averages should be close, and a gap of a
+pound or so between them is noise from a few dozen groups.
 
 ## From the activity to the exam answer
 

@@ -50,8 +50,11 @@ the parts in combination, asking the class to score what is on show out of ten:
 
 These seven numbers are the worth of each coalition of the three students, and
 they are not additive: a picture on its own is a cryptic diagram, but beside the
-maths and a plain-English story it makes the topic click. Write them on the
-board, compute the Shapley value, and hand out the bribentive in those shares.
+maths and a plain-English story it makes the topic click. Write them into the
+boxes on slide 2, each labelled with its \(v(\cdot)\), then fill the six
+orderings on slide 3: every cell is labelled with the subtraction it needs, so
+each one is read straight off slide 2. Slide 4 gives the Shapley value; hand out
+the bribentive in those shares.
 
 **Debrief.** The three parts are worth only a few points on their own, yet the
 whole aid scores ten, so most of the value comes from the parts reinforcing one
@@ -85,8 +88,7 @@ a show of hands. It takes five minutes and tells us both what landed.
 
 Every page of the deck with its boxes completed is at the foot of this page.
 Those pages carry the exam page's example rather than a class's own scores, so
-that the arithmetic can be followed all the way through; the winning team and
-its votes stay empty.
+that the arithmetic can be followed all the way through.
 
 The seven scores come from the class. These are the answers for the example on
 the exam page, where \(v(\{1\}) = 2\), \(v(\{2\}) = 1\), \(v(\{3\}) = 2\),

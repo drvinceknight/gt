@@ -19,11 +19,13 @@ and the last slide gathers them into one table, marks what is examinable and
 sets the reading for the next class. A "While you play" slide carries the rules:
 leave it up while the room plays.
 
-List all topics from the course on Menti and ask students to choose which one we
-revise in class.
-
-Now list them all on <https://stablevoting.org> and discuss whether the approach
-gives a different result.
+Before the class, create a poll on <https://stablevoting.org> with three
+topics from the course as the shortlist, and put its link on the screen. Students
+vote there on their phones, ranking all three topics. The site collects ranked
+ballots and shows how many voters cast each ranking, so copy those counts into
+the ballot table on the deck and count them three ways by hand: first choices,
+Borda and head to head. Then reveal the site's own winner and discuss whether it
+matches any of the three counts.
 
 ## Discussion (20 minutes)
 
@@ -58,7 +60,9 @@ exam page: nine students rank three topics, with four saying
 
 **Head to head.** \(B\) beats \(A\) by 5 to 4, \(C\) beats \(A\) by 5 to 4, and
 \(B\) beats \(C\) by 7 to 2. So \(B\) beats everyone and is the Condorcet
-winner.
+winner. On the deck these go into a grid where each cell counts how many rank
+the row above the column, so the Condorcet winner is the row that beats every
+column.
 
 **Why they disagree.** Counting first choices looks only at the top of each
 ballot and throws the rest away, so it cannot see that \(A\) is *last* for five

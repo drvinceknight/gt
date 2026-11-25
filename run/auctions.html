@@ -69,20 +69,36 @@
 <h1>Auctions</h1>
 
 <h2 id="activity-20-minutes">Activity (20 minutes)</h2>
-<p><strong>Goal.</strong> Contrast a sealed second-price auction with the open £5 auction from
-the first class and set up the question of truthful bidding.</p>
+<p><strong>Goal.</strong> Compare a first-price and a second-price sealed auction with private
+values, see bidders shade in one and bid their value in the other, and find that
+the seller makes about the same from both.</p>
 <p><strong>The deck.</strong> There is a write-on deck at
-<a href="../decks/auctions/main.pdf">/decks/auctions/main.pdf</a>: a sheet for the sealed
-bids, the rules left blank, and the two cases of the weak dominance argument
-side by side.</p>
+<a href="../decks/auctions/main.pdf">/decks/auctions/main.pdf</a>: the rules on a "While you
+play" slide, two grids of bid against value (one per round) with average price
+boxes, the rules and payoff left blank, the two cases of the weak dominance
+argument on number lines, the shaded first-price bid, and the seller's revenue
+in each format.</p>
 <p>Every slide of the deck names the numbered section of the notes it is reading,
 and the last slide gathers them into one table, marks what is examinable and
-sets the reading for the next class. The rules of the activity sit on the slide
-that is up while the room plays, so a pair working alone is not going from
-memory.</p>
-<p>Ask the class to repeat the £5 auction, but this time the highest bid wins and
-pays the amount of the second bid. Run it sealed: get everyone to write their
-bid on a piece of paper and reveal at the end.</p>
+sets the reading for the next class. Leave the "While you play" slide up while
+the room plays.</p>
+<p><strong>Requires one D12 per student, or per group passed round.</strong> The class already
+ran the dollar auction, where everyone's value is the same; here each value is
+private, which is the setting of the chapter and of Question 1.</p>
+<p>Put the room in threes. Each student rolls a D12 without showing anyone: that
+is their value for the item. Each writes a bid on paper and the three reveal at
+once.</p>
+<ol>
+<li>Round 1, first price. The highest bid wins and pays its own bid; the winner
+   scores their value minus their bid, the others score 0.</li>
+<li>Round 2, second price. Everyone rolls a fresh value. The highest bid wins and
+   pays the second highest bid.</li>
+</ol>
+<p>Keep totals across both rounds and give the bribentives to the top scorers.
+Then collect a handful of groups' values and bids for each round and mark them
+on the two grids: second-price bids should sit near the line bid = value and
+first-price bids below it. Ask each group for the price paid in each round and
+write the two averages in.</p>
 <h2 id="discussion-20-minutes">Discussion (20 minutes)</h2>
 <p>Work through the Auctions chapter.</p>
 <p>Discussion Point: <strong>After the definition of an auction, ask what the rules are
@@ -93,8 +109,12 @@ reading for next time. Then run the quick quiz from the <a href="../topics/aucti
 page</a>: five questions on the screen, answered by a show
 of hands. It takes five minutes and tells us both what landed.</p>
 <h2 id="answers-for-the-deck">Answers for the deck</h2>
-<p><strong>The rules.</strong> Everyone submits a sealed bid without seeing anyone else's; the
-highest bidder wins; the winner pays the <em>second</em> highest bid.</p>
+<p>The values, bids and average prices come from the room. These are the rest.</p>
+<p><strong>The rules.</strong> Everyone submits one sealed bid without seeing anyone else's, and
+the highest bidder wins. In a first-price auction the winner pays their own bid;
+in a second-price auction they pay the second highest bid. With value <span class="arithmatex">\(v\)</span>, the
+second-price payoff is <span class="arithmatex">\(v\)</span> minus the second highest bid for the winner and
+<span class="arithmatex">\(0\)</span> for everyone else.</p>
 <p><strong>Should you bid your value?</strong> Write <span class="arithmatex">\(v\)</span> for your value and <span class="arithmatex">\(b\)</span> for the
 highest bid among everybody else. You win when your bid beats <span class="arithmatex">\(b\)</span>, and you
 then pay <span class="arithmatex">\(b\)</span> whatever you bid, so your bid only changes <em>whether</em> you win, not
@@ -107,11 +127,21 @@ what you pay.</p>
   the same <span class="arithmatex">\(b\)</span> as before.</li>
 </ul>
 <p>Neither can do better, so bidding your true value is weakly dominant.</p>
-<p><strong>Why that matters.</strong> You do not need to know anything about the other bidders
-to bid well, and the item reaches the person who values it most.</p>
-<p><strong>First price.</strong> No. If you pay your own bid then bidding your value gives you a
-payoff of zero whenever you win, so you should shade below it, and how far below
-depends on what you think the others will do.</p>
+<p><strong>First price.</strong> Bidding your value and winning scores <span class="arithmatex">\(0\)</span>, so you shade
+below it. With <span class="arithmatex">\(N\)</span> bidders and values uniform, the equilibrium bid is
+<span class="arithmatex">\(b = \frac{N - 1}{N}v\)</span>: the book states it for values on <span class="arithmatex">\([0, 1]\)</span>, and it
+scales to any interval starting at <span class="arithmatex">\(0\)</span>. With <span class="arithmatex">\(N = 3\)</span>, <span class="arithmatex">\(b = \frac{2}{3}v\)</span>,
+the line drawn on the first-price grid. In a second-price auction you need to
+know nothing about the others; in a first-price auction how far to shade
+depends on how many others there are.</p>
+<p><strong>What the seller made.</strong> With three values uniform on <span class="arithmatex">\([0, 12]\)</span>, the highest
+averages <span class="arithmatex">\(9\)</span> and the second highest <span class="arithmatex">\(6\)</span>. The second-price seller gets the
+second highest value, <span class="arithmatex">\(6\)</span> on average; the first-price seller gets
+<span class="arithmatex">\(\frac{2}{3}\)</span> of the highest, also <span class="arithmatex">\(6\)</span>. That is revenue equivalence. A D12 is
+discrete, so the room's exact targets are slightly different: <span class="arithmatex">\(6.5\)</span> for the
+second-price round and about <span class="arithmatex">\(6.3\)</span> for the first-price round if everyone bids
+<span class="arithmatex">\(\frac{2}{3}v\)</span>. Either way the two averages should be close, and a gap of a
+pound or so between them is noise from a few dozen groups.</p>
 <h2 id="from-the-activity-to-the-exam-answer">From the activity to the exam answer</h2>
 <p>The activity above is written up as a marked exam question: <strong>Question 1 (the in-class activity)</strong> on the <a href="../topics/auctions.html">Auctions</a> page, with a full worked solution. Closing the loop here is the step that helps students who find exams hard: work through that question together, or set it as the immediate follow-up, so they see the game they just played turned into a full-mark answer.</p>
 
@@ -184,6 +214,24 @@ as the blank deck we project. Click a page to see it full size.</p>
            loading="lazy">
     </a>
     <figcaption>Page 7</figcaption>
+  </figure>
+  
+  <figure>
+    <a href="../assets/img/decks/auctions/page-8.png">
+      <img src="../assets/img/decks/auctions/page-8.png"
+           alt="Page 8 of the deck, with the answers written in"
+           loading="lazy">
+    </a>
+    <figcaption>Page 8</figcaption>
+  </figure>
+  
+  <figure>
+    <a href="../assets/img/decks/auctions/page-9.png">
+      <img src="../assets/img/decks/auctions/page-9.png"
+           alt="Page 9 of the deck, with the answers written in"
+           loading="lazy">
+    </a>
+    <figcaption>Page 9</figcaption>
   </figure>
   
 </div>
