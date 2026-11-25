@@ -65,62 +65,63 @@
 <a href="../topics/routing-games.html">Routing Games</a> page. Each question is worth 25
 marks.</p>
 <h2 id="question-1-25-marks">Question 1 [25 marks]</h2>
-<p><a href="https://www.youtube.com/watch?v=tG9f5LpwDQM">YouTube video</a></p>
 <p><strong>(a) Nash flow.</strong> [3]</p>
-<p>The traffic is non-atomic: a flow of 40 split across the routes, with each
-driver a negligible share of it. A Nash flow is a split in which every route
-actually used has minimal cost: if <span class="arithmatex">\(f_{P_1} &gt; 0\)</span> then
+<p>The traffic is non-atomic: one unit of flow split across the routes, with each
+driver a negligible share of it. A Nash flow is a feasible split in which every
+route actually used has minimal cost: if <span class="arithmatex">\(f_{P_1} &gt; 0\)</span> then
 <span class="arithmatex">\(c_{P_1}(f) \leq c_{P_2}(f)\)</span> for every other route <span class="arithmatex">\(P_2\)</span>, with both costs
 evaluated at the same flow <span class="arithmatex">\(f\)</span>. Since one driver's switch does not change
-<span class="arithmatex">\(f\)</span>, no driver can then reduce their own travel time by switching route.</p>
-<p><strong>(b) Nash flow before the shortcut.</strong> [5]</p>
-<p>Let <span class="arithmatex">\(x\)</span> drivers take the top route and <span class="arithmatex">\(40 - x\)</span> the bottom. The top route
-costs <span class="arithmatex">\(x + 50\)</span> and the bottom costs <span class="arithmatex">\(50 + (40 - x)\)</span>. At a Nash flow these are
-equal:</p>
+<span class="arithmatex">\(f\)</span>, no driver can then reduce their own cost by switching route.</p>
+<p><strong>(b) Nash flow before the new road.</strong> [5]</p>
+<p>Let <span class="arithmatex">\(x\)</span> be the flow on the top route and <span class="arithmatex">\(1 - x\)</span> the flow on the bottom. The
+top route costs <span class="arithmatex">\(x + 1\)</span> and the bottom costs <span class="arithmatex">\(1 + (1 - x)\)</span>. Both routes are
+used, so at a Nash flow the two costs are equal:</p>
 <div class="arithmatex">\[
-x + 50 = 50 + (40 - x) \;\Longrightarrow\; x = 20.
+x + 1 = 2 - x \;\Longrightarrow\; x = \frac{1}{2}.
 \]</div>
-<p>So 20 drivers take each route, and every driver's travel time is
-<span class="arithmatex">\(20 + 50 = 70\)</span> minutes.</p>
-<p><strong>(c) Nash flow after the shortcut.</strong> [7]</p>
-<p>Suppose all 40 drivers take <span class="arithmatex">\(S \to A \to B \to T\)</span>. Then 40 cars are on
-<span class="arithmatex">\(S \to A\)</span> and 40 on <span class="arithmatex">\(B \to T\)</span>, giving a travel time of <span class="arithmatex">\(40 + 0 + 40 = 80\)</span>
-minutes. A driver who deviates to the old top route <span class="arithmatex">\(S \to A \to T\)</span> pays
-<span class="arithmatex">\(40 + 50 = 90\)</span> minutes, and one who deviates to <span class="arithmatex">\(S \to B \to T\)</span> pays
-<span class="arithmatex">\(50 + 40 = 90\)</span> minutes. Both are worse than 80, so no driver can improve by
-switching: the zig-zag flow is a Nash flow.</p>
+<p>Half of the traffic takes each route, and each route costs
+<span class="arithmatex">\(\frac{1}{2} + 1 = \frac{3}{2}\)</span>.</p>
+<p><strong>(c) Nash flow after the new road.</strong> [7]</p>
+<p>Suppose all of the traffic takes <span class="arithmatex">\(S \to A \to B \to T\)</span>. Both small roads then
+carry a flow of <span class="arithmatex">\(1\)</span>, so this route costs <span class="arithmatex">\(1 + 0 + 1 = 2\)</span>. At the same flow,
+the top route <span class="arithmatex">\(S \to A \to T\)</span> costs <span class="arithmatex">\(1 + 1 = 2\)</span> and the bottom route
+<span class="arithmatex">\(S \to B \to T\)</span> costs <span class="arithmatex">\(1 + 1 = 2\)</span>. The only route in use has cost <span class="arithmatex">\(2\)</span>, and
+no other route is cheaper, so the Nash condition holds: sending everything
+along <span class="arithmatex">\(S \to A \to B \to T\)</span> is a Nash flow, and every driver's cost is <span class="arithmatex">\(2\)</span>.</p>
 <p><strong>(d) Braess's paradox.</strong> [5]</p>
-<p>Before the road, every driver took 70 minutes; after it, every driver takes 80.
-Adding a road made everyone worse off. Each driver chooses the route that is best
-for them, ignoring the extra congestion they add to the small roads <span class="arithmatex">\(S \to A\)</span>
-and <span class="arithmatex">\(B \to T\)</span>. The free shortcut tempts everyone onto both congested edges at
-once, and the resulting Nash flow is more costly than the original. The selfish
-(Nash) outcome need not be the social optimum, and extra capacity can make the
-selfish outcome worse.</p>
-<p><strong>(e) Price of Anarchy with the shortcut.</strong> [5]</p>
+<p>Before the new road every driver's cost was <span class="arithmatex">\(\frac{3}{2}\)</span>; after it, every
+driver's cost is <span class="arithmatex">\(2\)</span>. Adding a road made everyone worse off. Each driver
+chooses the route that is best for them, ignoring the extra congestion they add
+to the small roads <span class="arithmatex">\(S \to A\)</span> and <span class="arithmatex">\(B \to T\)</span>. The free road draws everyone onto
+both congested edges at once, and the resulting Nash flow is more costly than
+the original. The selfish (Nash) outcome need not be the social optimum, and
+extra capacity can make the selfish outcome worse.</p>
+<p><strong>(e) Price of Anarchy with the new road.</strong> [5]</p>
 <p>The marginal cost of an edge with cost <span class="arithmatex">\(c(x)\)</span> is
 <span class="arithmatex">\(\frac{\mathrm{d}}{\mathrm{d}x}\big(x\,c(x)\big)\)</span>: <span class="arithmatex">\(2x\)</span> on each small road,
-<span class="arithmatex">\(50\)</span> on each motorway and <span class="arithmatex">\(0\)</span> on the shortcut. With 15 drivers on each of
-the top and bottom routes and 10 on <span class="arithmatex">\(S \to A \to B \to T\)</span>, each small road
-carries 25 cars, so the marginal cost of every route is the same:</p>
+<span class="arithmatex">\(1\)</span> on each motorway and <span class="arithmatex">\(0\)</span> on the new road. With half of the traffic on
+each of the top and bottom routes and none on <span class="arithmatex">\(S \to A \to B \to T\)</span>, each small
+road carries <span class="arithmatex">\(\frac{1}{2}\)</span> and has marginal cost <span class="arithmatex">\(1\)</span>. The marginal cost of
+each route is then</p>
 <div class="arithmatex">\[
-2 \times 25 + 50 = 2 \times 25 + 0 + 2 \times 25 = 100.
+\underbrace{1 + 1}_{S \to A \to T} = \underbrace{1 + 1}_{S \to B \to T}
+= \underbrace{1 + 0 + 1}_{S \to A \to B \to T} = 2.
 \]</div>
-<p>This flow is therefore a Nash flow for the marginal costs, and so, by the
-theorem that an optimal flow is a Nash flow for marginal costs, it is the
-optimal flow. Its total cost is</p>
+<p>Every used route has minimal marginal cost, so this flow is a Nash flow for the
+marginal costs, and so, by the theorem that an optimal flow is a Nash flow for
+marginal costs, it is the optimal flow. Its total cost is</p>
 <div class="arithmatex">\[
-C(f^{*}) = 25 \times 25 + 15 \times 50 + 15 \times 50 + 25 \times 25 + 10 \times 0
-= 2750,
+C(f^{*}) = \frac{1}{2} \cdot \frac{1}{2} + \frac{1}{2} \cdot 1
++ \frac{1}{2} \cdot 1 + \frac{1}{2} \cdot \frac{1}{2} = \frac{3}{2},
 \]</div>
-<p>against <span class="arithmatex">\(C(\tilde f) = 40 \times 80 = 3200\)</span> for the Nash flow. The Price of
-Anarchy is</p>
+<p>against <span class="arithmatex">\(C(\tilde f) = 1 \cdot 1 + 1 \cdot 0 + 1 \cdot 1 = 2\)</span> for the Nash flow.
+The Price of Anarchy is</p>
 <div class="arithmatex">\[
-\frac{C(\tilde f)}{C(f^{*})} = \frac{3200}{2750} = \frac{64}{55} \approx 1.16.
+\frac{C(\tilde f)}{C(f^{*})} = \frac{2}{3/2} = \frac{4}{3}.
 \]</div>
-<p>Note that routing 20 drivers each way and ignoring the shortcut costs
-<span class="arithmatex">\(2800\)</span>: better than the Nash flow, but not optimal. A planner makes a little
-use of the shortcut.</p>
+<p>The planner makes no use of the new road at all, and the price of anarchy is
+the same <span class="arithmatex">\(\frac{4}{3}\)</span> as Pigou's example in Question 2: with affine costs this
+is the worst that selfish routing can do.</p>
 <h2 id="question-2-25-marks">Question 2 [25 marks]</h2>
 <p><a href="https://www.youtube.com/watch?v=QZlxrhmdtBk">YouTube video</a></p>
 <p><strong>(a) Definitions.</strong> (Bookwork.) [4]</p>

@@ -14,30 +14,30 @@ worked solutions.
 
 ### Question 1 (based on the in-class activity)
 
-In class we ran Braess's paradox. Forty drivers travel from \(S\) to \(T\).
-Initially there are two routes: the top route is a small road \(S \to A\) whose
-travel time in minutes equals the number of cars on it, followed by a motorway
-\(A \to T\) fixed at 50 minutes; the bottom route is a motorway \(S \to B\) fixed
-at 50 minutes followed by a small road \(B \to T\) whose time equals the number
-of cars on it. Treat the traffic as non-atomic: each driver is a negligible share
-of a flow of 40, so one driver switching does not change any road's travel time.
+In class we ran Braess's paradox. One unit of traffic travels from \(S\) to
+\(T\), and the flow on a road is the share of the traffic that uses it. The
+traffic is non-atomic: any single driver is a negligible part of it. Initially
+there are two routes. The top route is a small road \(S \to A\) with cost
+\(c(x) = x\), where \(x\) is the flow on it, followed by a motorway \(A \to T\)
+with cost \(c(x) = 1\). The bottom route is a motorway \(S \to B\) with cost
+\(c(x) = 1\) followed by a small road \(B \to T\) with cost \(c(x) = x\).
 
 (a) Explain what a Nash flow is in this setting. [3]
 
-(b) Find the Nash flow and the resulting travel time for each driver. [5]
+(b) Find the Nash flow and the cost of each route. [5]
 
-(c) A new road \(A \to B\) taking 0 minutes is added. Show that all 40 drivers
-using the route \(S \to A \to B \to T\) is now a Nash flow, and find the travel
-time. [7]
+(c) A new road \(A \to B\) with cost \(c(x) = 0\) is added. Show that sending
+all of the traffic along \(S \to A \to B \to T\) is now a Nash flow, and find its
+cost. [7]
 
-(d) Compare the two travel times and explain, in terms of each driver ignoring
-the congestion they impose on others, why adding a road made everyone worse off.
+(d) Compare the two costs and explain, in terms of each driver ignoring the
+congestion they impose on others, why adding a road made everyone worse off.
 [5]
 
-(e) With the shortcut in place, use the marginal costs to show that the optimal
-flow sends 10 drivers along \(S \to A \to B \to T\) and 15 along each of the
-other two routes. Hence compute the price of anarchy of the network with the
-shortcut. [5]
+(e) With the new road in place, use the marginal costs to show that the optimal
+flow sends half of the traffic along each of the two original routes and none
+along \(S \to A \to B \to T\). Hence compute the price of anarchy of the network
+with the new road. [5]
 
 ### Question 2
 

@@ -85,25 +85,25 @@ questions below. They are reshuffled each time, so you can keep retrying.</p>
 <strong>Each question is worth 25 marks.</strong> Attempt them in full before reading the
 worked solutions.</p>
 <h3 id="question-1-based-on-the-in-class-activity">Question 1 (based on the in-class activity)</h3>
-<p>In class we ran Braess's paradox. Forty drivers travel from <span class="arithmatex">\(S\)</span> to <span class="arithmatex">\(T\)</span>.
-Initially there are two routes: the top route is a small road <span class="arithmatex">\(S \to A\)</span> whose
-travel time in minutes equals the number of cars on it, followed by a motorway
-<span class="arithmatex">\(A \to T\)</span> fixed at 50 minutes; the bottom route is a motorway <span class="arithmatex">\(S \to B\)</span> fixed
-at 50 minutes followed by a small road <span class="arithmatex">\(B \to T\)</span> whose time equals the number
-of cars on it. Treat the traffic as non-atomic: each driver is a negligible share
-of a flow of 40, so one driver switching does not change any road's travel time.</p>
+<p>In class we ran Braess's paradox. One unit of traffic travels from <span class="arithmatex">\(S\)</span> to
+<span class="arithmatex">\(T\)</span>, and the flow on a road is the share of the traffic that uses it. The
+traffic is non-atomic: any single driver is a negligible part of it. Initially
+there are two routes. The top route is a small road <span class="arithmatex">\(S \to A\)</span> with cost
+<span class="arithmatex">\(c(x) = x\)</span>, where <span class="arithmatex">\(x\)</span> is the flow on it, followed by a motorway <span class="arithmatex">\(A \to T\)</span>
+with cost <span class="arithmatex">\(c(x) = 1\)</span>. The bottom route is a motorway <span class="arithmatex">\(S \to B\)</span> with cost
+<span class="arithmatex">\(c(x) = 1\)</span> followed by a small road <span class="arithmatex">\(B \to T\)</span> with cost <span class="arithmatex">\(c(x) = x\)</span>.</p>
 <p>(a) Explain what a Nash flow is in this setting. [3]</p>
-<p>(b) Find the Nash flow and the resulting travel time for each driver. [5]</p>
-<p>(c) A new road <span class="arithmatex">\(A \to B\)</span> taking 0 minutes is added. Show that all 40 drivers
-using the route <span class="arithmatex">\(S \to A \to B \to T\)</span> is now a Nash flow, and find the travel
-time. [7]</p>
-<p>(d) Compare the two travel times and explain, in terms of each driver ignoring
-the congestion they impose on others, why adding a road made everyone worse off.
+<p>(b) Find the Nash flow and the cost of each route. [5]</p>
+<p>(c) A new road <span class="arithmatex">\(A \to B\)</span> with cost <span class="arithmatex">\(c(x) = 0\)</span> is added. Show that sending
+all of the traffic along <span class="arithmatex">\(S \to A \to B \to T\)</span> is now a Nash flow, and find its
+cost. [7]</p>
+<p>(d) Compare the two costs and explain, in terms of each driver ignoring the
+congestion they impose on others, why adding a road made everyone worse off.
 [5]</p>
-<p>(e) With the shortcut in place, use the marginal costs to show that the optimal
-flow sends 10 drivers along <span class="arithmatex">\(S \to A \to B \to T\)</span> and 15 along each of the
-other two routes. Hence compute the price of anarchy of the network with the
-shortcut. [5]</p>
+<p>(e) With the new road in place, use the marginal costs to show that the optimal
+flow sends half of the traffic along each of the two original routes and none
+along <span class="arithmatex">\(S \to A \to B \to T\)</span>. Hence compute the price of anarchy of the network
+with the new road. [5]</p>
 <h3 id="question-2">Question 2</h3>
 <p>(a) Provide definitions for the following terms:</p>
 <ul>

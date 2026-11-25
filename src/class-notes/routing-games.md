@@ -129,10 +129,12 @@ second theorem this is the optimal flow.
 **Price of anarchy.** The Nash flow costs \(C(\tilde f) = 3200\). The optimal
 flow has 25 cars on each small road and 15 on each motorway, so
 \(C(f^{*}) = 2 \times 25^{2} + 2 \times 15 \times 50 = 2750\), and the price of
-anarchy is \(3200/2750 = 64/55 \approx 1.16\). This is the value asked for in
-Question 1(e). Expect someone to say that a planner would ignore the new road
-and send twenty each way: that costs \(2800\), better than the room but not
-optimal, because a little use of the new road helps.
+anarchy is \(3200/2750 = 64/55 \approx 1.16\). Expect someone to say that a
+planner would ignore the new road and send twenty each way: that costs
+\(2800\), better than the room but not optimal, because a little use of the new
+road helps. Question 1 on the topic page uses the normalised network instead,
+one unit of traffic with motorways costing \(1\), where the planner ignores the
+new road and the price of anarchy is \(4/3\).
 
 ## From the activity to the exam answer
 
