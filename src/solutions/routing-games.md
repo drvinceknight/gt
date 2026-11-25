@@ -12,80 +12,80 @@ marks.
 
 ## Question 1 [25 marks]
 
-[YouTube video](https://www.youtube.com/watch?v=tG9f5LpwDQM)
-
 **(a) Nash flow.** [3]
 
-The traffic is non-atomic: a flow of 40 split across the routes, with each
-driver a negligible share of it. A Nash flow is a split in which every route
-actually used has minimal cost: if \(f_{P_1} > 0\) then
+The traffic is non-atomic: one unit of flow split across the routes, with each
+driver a negligible share of it. A Nash flow is a feasible split in which every
+route actually used has minimal cost: if \(f_{P_1} > 0\) then
 \(c_{P_1}(f) \leq c_{P_2}(f)\) for every other route \(P_2\), with both costs
 evaluated at the same flow \(f\). Since one driver's switch does not change
-\(f\), no driver can then reduce their own travel time by switching route.
+\(f\), no driver can then reduce their own cost by switching route.
 
-**(b) Nash flow before the shortcut.** [5]
+**(b) Nash flow before the new road.** [5]
 
-Let \(x\) drivers take the top route and \(40 - x\) the bottom. The top route
-costs \(x + 50\) and the bottom costs \(50 + (40 - x)\). At a Nash flow these are
-equal:
+Let \(x\) be the flow on the top route and \(1 - x\) the flow on the bottom. The
+top route costs \(x + 1\) and the bottom costs \(1 + (1 - x)\). Both routes are
+used, so at a Nash flow the two costs are equal:
 
 \[
-x + 50 = 50 + (40 - x) \;\Longrightarrow\; x = 20.
+x + 1 = 2 - x \;\Longrightarrow\; x = \frac{1}{2}.
 \]
 
-So 20 drivers take each route, and every driver's travel time is
-\(20 + 50 = 70\) minutes.
+Half of the traffic takes each route, and each route costs
+\(\frac{1}{2} + 1 = \frac{3}{2}\).
 
-**(c) Nash flow after the shortcut.** [7]
+**(c) Nash flow after the new road.** [7]
 
-Suppose all 40 drivers take \(S \to A \to B \to T\). Then 40 cars are on
-\(S \to A\) and 40 on \(B \to T\), giving a travel time of \(40 + 0 + 40 = 80\)
-minutes. A driver who deviates to the old top route \(S \to A \to T\) pays
-\(40 + 50 = 90\) minutes, and one who deviates to \(S \to B \to T\) pays
-\(50 + 40 = 90\) minutes. Both are worse than 80, so no driver can improve by
-switching: the zig-zag flow is a Nash flow.
+Suppose all of the traffic takes \(S \to A \to B \to T\). Both small roads then
+carry a flow of \(1\), so this route costs \(1 + 0 + 1 = 2\). At the same flow,
+the top route \(S \to A \to T\) costs \(1 + 1 = 2\) and the bottom route
+\(S \to B \to T\) costs \(1 + 1 = 2\). The only route in use has cost \(2\), and
+no other route is cheaper, so the Nash condition holds: sending everything
+along \(S \to A \to B \to T\) is a Nash flow, and every driver's cost is \(2\).
 
 **(d) Braess's paradox.** [5]
 
-Before the road, every driver took 70 minutes; after it, every driver takes 80.
-Adding a road made everyone worse off. Each driver chooses the route that is best
-for them, ignoring the extra congestion they add to the small roads \(S \to A\)
-and \(B \to T\). The free shortcut tempts everyone onto both congested edges at
-once, and the resulting Nash flow is more costly than the original. The selfish
-(Nash) outcome need not be the social optimum, and extra capacity can make the
-selfish outcome worse.
+Before the new road every driver's cost was \(\frac{3}{2}\); after it, every
+driver's cost is \(2\). Adding a road made everyone worse off. Each driver
+chooses the route that is best for them, ignoring the extra congestion they add
+to the small roads \(S \to A\) and \(B \to T\). The free road draws everyone onto
+both congested edges at once, and the resulting Nash flow is more costly than
+the original. The selfish (Nash) outcome need not be the social optimum, and
+extra capacity can make the selfish outcome worse.
 
-**(e) Price of Anarchy with the shortcut.** [5]
+**(e) Price of Anarchy with the new road.** [5]
 
 The marginal cost of an edge with cost \(c(x)\) is
 \(\frac{\mathrm{d}}{\mathrm{d}x}\big(x\,c(x)\big)\): \(2x\) on each small road,
-\(50\) on each motorway and \(0\) on the shortcut. With 15 drivers on each of
-the top and bottom routes and 10 on \(S \to A \to B \to T\), each small road
-carries 25 cars, so the marginal cost of every route is the same:
+\(1\) on each motorway and \(0\) on the new road. With half of the traffic on
+each of the top and bottom routes and none on \(S \to A \to B \to T\), each small
+road carries \(\frac{1}{2}\) and has marginal cost \(1\). The marginal cost of
+each route is then
 
 \[
-2 \times 25 + 50 = 2 \times 25 + 0 + 2 \times 25 = 100.
+\underbrace{1 + 1}_{S \to A \to T} = \underbrace{1 + 1}_{S \to B \to T}
+= \underbrace{1 + 0 + 1}_{S \to A \to B \to T} = 2.
 \]
 
-This flow is therefore a Nash flow for the marginal costs, and so, by the
-theorem that an optimal flow is a Nash flow for marginal costs, it is the
-optimal flow. Its total cost is
+Every used route has minimal marginal cost, so this flow is a Nash flow for the
+marginal costs, and so, by the theorem that an optimal flow is a Nash flow for
+marginal costs, it is the optimal flow. Its total cost is
 
 \[
-C(f^{*}) = 25 \times 25 + 15 \times 50 + 15 \times 50 + 25 \times 25 + 10 \times 0
-= 2750,
+C(f^{*}) = \frac{1}{2} \cdot \frac{1}{2} + \frac{1}{2} \cdot 1
++ \frac{1}{2} \cdot 1 + \frac{1}{2} \cdot \frac{1}{2} = \frac{3}{2},
 \]
 
-against \(C(\tilde f) = 40 \times 80 = 3200\) for the Nash flow. The Price of
-Anarchy is
+against \(C(\tilde f) = 1 \cdot 1 + 1 \cdot 0 + 1 \cdot 1 = 2\) for the Nash flow.
+The Price of Anarchy is
 
 \[
-\frac{C(\tilde f)}{C(f^{*})} = \frac{3200}{2750} = \frac{64}{55} \approx 1.16.
+\frac{C(\tilde f)}{C(f^{*})} = \frac{2}{3/2} = \frac{4}{3}.
 \]
 
-Note that routing 20 drivers each way and ignoring the shortcut costs
-\(2800\): better than the Nash flow, but not optimal. A planner makes a little
-use of the shortcut.
+The planner makes no use of the new road at all, and the price of anarchy is
+the same \(\frac{4}{3}\) as Pigou's example in Question 2: with affine costs this
+is the worst that selfish routing can do.
 
 ## Question 2 [25 marks]
 
