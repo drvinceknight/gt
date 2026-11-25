@@ -16,11 +16,7 @@
         Score the parts. Share the prize.}
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
-    \end{tikzpicture}
-
-    \vspace{2.4em}
-
-    {\large Winning team: \blank[4.4] \hspace{1.6cm} Votes: \blank[2.2]}}
+    \end{tikzpicture}}
 
 \newpage
 \slidehead{Score the parts, not the people}
@@ -36,26 +32,27 @@ is on show out of ten.}
 \begin{center}
 \begin{tikzpicture}[font=\large,
     part/.style={draw=inkfaint, line width=0.8pt, rounded corners=4pt,
-                 fill=white, minimum width=4.4cm, minimum height=1.5cm,
+                 fill=white, minimum width=4.8cm, minimum height=1.5cm,
                  align=center}]
-  \node[part] (a) at (0,0) {Maths\\[0.2em] \answerblank[1.6]{\(2\)}};
-  \node[part] (b) at (5.2,0) {Picture\\[0.2em] \answerblank[1.6]{\(1\)}};
-  \node[part] (c) at (10.4,0) {Story\\[0.2em] \answerblank[1.6]{\(2\)}};
+  \node[part] (a) at (0,0) {Maths, \(v(M)\)\\[0.2em] \answerblank[1.6]{\(2\)}};
+  \node[part] (b) at (5.4,0) {Picture, \(v(P)\)\\[0.2em] \answerblank[1.6]{\(1\)}};
+  \node[part] (c) at (10.8,0) {Story, \(v(S)\)\\[0.2em] \answerblank[1.6]{\(2\)}};
   \node[part] (ab) at (0,-2.6)
-    {Maths $+$ picture\\[0.2em] \answerblank[1.6]{\(5\)}};
-  \node[part] (ac) at (5.2,-2.6)
-    {Maths $+$ story\\[0.2em] \answerblank[1.6]{\(6\)}};
-  \node[part] (bc) at (10.4,-2.6)
-    {Picture $+$ story\\[0.2em] \answerblank[1.6]{\(4\)}};
-  \node[part, draw=inkblue, line width=1.2pt, minimum width=5.6cm]
-    (all) at (16.4,-1.3) {The whole aid\\[0.2em] \Large\bfseries 10};
+    {Maths $+$ picture, \(v(MP)\)\\[0.2em] \answerblank[1.6]{\(5\)}};
+  \node[part] (ac) at (5.4,-2.6)
+    {Maths $+$ story, \(v(MS)\)\\[0.2em] \answerblank[1.6]{\(6\)}};
+  \node[part] (bc) at (10.8,-2.6)
+    {Picture $+$ story, \(v(PS)\)\\[0.2em] \answerblank[1.6]{\(4\)}};
+  \node[part, draw=inkblue, line width=1.2pt, minimum width=5.4cm]
+    (all) at (16.8,-1.3) {The whole aid, \(v(MPS)\)\\[0.2em] \Large\bfseries 10};
 \end{tikzpicture}
 \end{center}
 
 \vspace{0.5cm}
 
 {\small\color{inkgrey} Those seven numbers are the characteristic function
-\(v\). Anchor the whole aid at ten and judge the rest against it.}
+\(v\), writing \(v(MP)\) for \(v(\{M, P\})\). Anchor the whole aid at ten and
+judge the rest against it.}
 
 \vspace{0.4cm}
 
@@ -74,14 +71,19 @@ is on show out of ten.}
                          {Story adds}/16.8}{%
     \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
   \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (22.2,-0.36);
-  \foreach \order/\maths/\picture/\story [count=\row from 1] in
-    {{Maths, picture, story}/2/3/5, {Maths, story, picture}/2/4/4,
-     {Picture, maths, story}/4/1/5, {Picture, story, maths}/6/1/3,
-     {Story, maths, picture}/4/4/2, {Story, picture, maths}/6/2/2}{%
+  \foreach \order/\maths/\picture/\story/\mlab/\plab/\slab [count=\row from 1] in
+    {{Maths, picture, story}/2/3/5/{v(M)}/{v(MP) - v(M)}/{v(MPS) - v(MP)},
+     {Maths, story, picture}/2/4/4/{v(M)}/{v(MPS) - v(MS)}/{v(MS) - v(M)},
+     {Picture, maths, story}/4/1/5/{v(MP) - v(P)}/{v(P)}/{v(MPS) - v(MP)},
+     {Picture, story, maths}/6/1/3/{v(MPS) - v(PS)}/{v(P)}/{v(PS) - v(P)},
+     {Story, maths, picture}/4/4/2/{v(MS) - v(S)}/{v(MPS) - v(MS)}/{v(S)},
+     {Story, picture, maths}/6/2/2/{v(MPS) - v(PS)}/{v(PS) - v(S)}/{v(S)}}{%
     \node[anchor=west, font=\normalsize] at (0,-1.12*\row) {\order};
-    \foreach \value/\col in {\maths/6.0, \picture/11.4, \story/16.8}{%
-      \node[anchor=west] at (\col,-1.12*\row)
-        {\answerblank[3]{\(\value\)}};}}
+    \foreach \value/\lab/\col in {\maths/\mlab/6.0, \picture/\plab/11.4,
+                                  \story/\slab/16.8}{%
+      \node[anchor=west] at (\col,-1.12*\row) {\answerblank[1.8]{\(\value\)}};
+      \node[anchor=west, text=inkgrey, font=\footnotesize]
+        at (\col+1.9,-1.12*\row) {\(\lab\)};}}
   \draw[inkfaint, line width=0.7pt] (0,-7.5) -- (22.2,-7.5);
   \node[anchor=west, font=\normalsize\bfseries] at (0,-8.2) {Average};
   \foreach \value/\col in {{\tfrac{24}{6} = 4}/6.0, {\tfrac{5}{2}}/11.4,
@@ -135,15 +137,6 @@ their part was worth alone?}
 {\large The part that gains most is the one that
 \answerrule[6cm]{combines best}, not the one that is best on its own.}
 
-\vspace{1cm}
-
-\begin{center}
-\answerspace{22.6}{3}{%
-  The maths is worth \(2\) alone and is paid \(4\), because adding it to
-  the picture is worth \(3\) and adding it to the story is worth \(4\).
-  The story scores the same \(2\) alone but gains only \(3/2\), so what is
-  rewarded here is how well a part fits with the others.}
-\end{center}
 
 \newpage
 \slidehead{The same thing, as an exam answer}

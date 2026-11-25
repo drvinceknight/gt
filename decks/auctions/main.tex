@@ -1,57 +1,110 @@
-% Auctions: the sealed second-price auction, against the open one from week one.
+% Auctions: secret values from a D12, a first-price round and a second-price round.
 \input{../preamble.tex}
+
+% A number line for the argument about where the highest other bid b falls.
+% #1 and #2 place your value v and your bid, on a line from 0 to 10; the answer
+% build shades the stretch between them, with #3 as its label.
+\newcommand{\bidline}[3]{%
+  \begin{tikzpicture}[scale=0.95]
+    \draw[inkgrey, line width=1pt, -{Stealth[length=2.5mm]}] (0,0) -- (10.6,0);
+    \onlyanswer{%
+      \fill[inkanswer, opacity=0.15] (#1,-0.3) rectangle (#2,0.3);
+      \node[text=inkanswer, font=\small, align=center, text width=4.4cm]
+        at ({(#1+#2)/2},-1.0) {#3};}
+    \foreach \x/\lab in {#1/\(v\), #2/your bid}{%
+      \draw[inkblue, line width=1.2pt] (\x,-0.3) -- (\x,0.3);
+      \node[above, text=inkblue, font=\normalsize] at (\x,0.3) {\lab};}
+  \end{tikzpicture}}
+
+% Axes for one round's bids against values, both running from 0 to 12. The
+% line bid = value is printed for reference; #2 is drawn on top, so the answer
+% build can add the equilibrium bid.
+\newcommand{\bidplot}[2]{%
+  \begin{tikzpicture}[scale=0.54]
+    \fill[white] (0,0) rectangle (12,12);
+    \foreach \x in {1,...,12}{%
+      \draw[inkfaint, line width=0.4pt] (\x,0) -- (\x,12);
+      \draw[inkfaint, line width=0.4pt] (0,\x) -- (12,\x);}
+    \draw[inkgrey, line width=1pt, -{Stealth[length=2.5mm]}] (0,0) -- (12.7,0)
+      node[right, font=\small] {value};
+    \draw[inkgrey, line width=1pt, -{Stealth[length=2.5mm]}] (0,0) -- (0,12.7)
+      node[above, font=\small] {bid};
+    \foreach \x in {0,3,6,9,12}{%
+      \node[below, text=inkgrey, font=\small] at (\x,0) {\x};
+      \node[left, text=inkgrey, font=\small] at (0,\x) {\x};}
+    \draw[inkgrey, dashed, line width=0.8pt] (0,0) -- (12,12)
+      node[above left, font=\small] {bid \(=\) value};
+    \node[text=inkblue, font=\large\bfseries] at (6,13.4) {#1};
+    #2
+  \end{tikzpicture}}
 
 \deckname{Auctions}
 
 \begin{document}
 
-\titleslide{Auctions}{The same five pounds, sold a different way}{%
+\titleslide{Auctions}{Secret values, two ways to pay}{%
     \begin{tikzpicture}[font=\small]
-      \stepbox{s0}{0.0}{\textbf{Bid}\\[0.25em]
-        Write it down. Nobody sees it.}
-      \stepbox{s1}{6.9}{\textbf{Reveal}\\[0.25em]
-        Highest bid wins, pays the second.}
+      \stepbox{s0}{0.0}{\textbf{Roll}\\[0.25em]
+        Your value is a D12. Keep it secret.}
+      \stepbox{s1}{6.9}{\textbf{Bid}\\[0.25em]
+        First price, then second price.}
       \stepbox{s2}{13.8}{\textbf{Compare}\\[0.25em]
-        Against the open auction in week one.}
+        Bids against values, and what the seller made.}
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s1) -- (s2);
-    \end{tikzpicture}
-
-    \vspace{2.4em}
-
-    {\large On sale: a five pound note. What is it worth to you?}}
+    \end{tikzpicture}}
 
 \newpage
-\slidehead{The bids}
+\slidehead{While you play}
 \notesref{16.2.1}{Auction Games: Definition: Auction Game}
 
-\vspace{0.5cm}
+\vspace*{\fill}
 
-\hspace{0.3cm}
-\begin{tikzpicture}[font=\small]
-  \foreach \lab/\col in {Bidder/0, Bid/4.2, Bidder/11.8, Bid/16.0}{%
-    \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
-  \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (10.6,-0.36);
-  \draw[inkfaint, line width=0.7pt] (11.8,-0.36) -- (22.4,-0.36);
-  \foreach \row in {1,2,3,4,5}{%
-    \foreach \shift in {0,11.8}{%
-      \draw[inkfaint, line width=0.7pt]
-        (\shift,-0.85*\row-0.3) -- (\shift+3.8,-0.85*\row-0.3);
-      \draw[inkfaint, line width=0.7pt]
-        (\shift+4.2,-0.85*\row-0.3) -- (\shift+10.6,-0.85*\row-0.3);}}
-\end{tikzpicture}
+\begin{center}
+\begin{minipage}{0.86\linewidth}
+{\LARGE In threes. Roll a D12 without showing anyone: that is your value for
+the item. Write a bid on paper, then all three reveal at once.}
 
-\vspace{0.7cm}
+\vspace{1em}
 
-{\large Winner \blank[3.4] \hspace{1.4cm} Highest bid \blank[2.2]
-\hspace{1.4cm} Price paid \blank[2.2] \hspace{1.4cm} Their profit
-\blank[2.2]}
+{\LARGE \textbf{Round 1, first price:} the highest bid wins and pays its own
+bid.\\[0.3em]
+\textbf{Round 2, second price:} roll again; the highest bid wins and pays the
+second highest bid.}
 
-\vspace{0.4cm}
+\vspace{1em}
 
-\playrules{Write one bid on a piece of paper and keep it hidden. The highest bid wins
-  the \(\pounds 5\) and pays the second-highest bid. Nothing is revealed until every
-  bid is in.}
+{\Large\color{inkgrey} The winner scores their value minus what they pay;
+everyone else scores 0. Keep your total across both rounds.}
+\end{minipage}
+\end{center}
+
+\vspace*{\fill}
+
+\newpage
+\slidehead{Bids against values}
+\notesref{16.2.1}{Auction Games: Definition: Auction Game}
+
+\vspace{0.1cm}
+
+{\large Each group calls out every value and bid. Mark them as dots.}
+
+\vspace{0.2cm}
+
+\begin{center}
+\bidplot{Round 1: first price}{%
+  \onlyanswer{\draw[inkanswer, line width=1.2pt] (0,0) -- (12,8)
+    node[right, font=\small] {\(\tfrac{2}{3}v\)};}}
+\hspace{2cm}
+\bidplot{Round 2: second price}{%
+  \onlyanswer{\draw[inkanswer, line width=1.2pt] (0,0) -- (12,12);}}
+\end{center}
+
+\vspace{0.1cm}
+
+{\large Average price paid: round 1 \blank[2] \hspace{1.2cm} round 2
+\blank[2]}
+
 \newpage
 \slidehead{What are the rules, exactly?}
 \notesref{16.2.1}{Auction Games: Definition: Auction Game}
@@ -59,24 +112,18 @@
 \vspace{1cm}
 
 {\large Everyone submits \answerrule[4cm]{one sealed bid}, without seeing
-anyone else's.}
+anyone else's, and the item goes to \answerrule[5cm]{the highest bidder}.}
 
 \vspace{1.1cm}
 
-{\large The item goes to \answerrule[5cm]{the highest bidder}.}
+{\large In a first-price auction the winner pays \answerrule[5cm]{their own bid}.
+In a second-price auction they pay \answerrule[5cm]{the second highest bid}.}
 
 \vspace{1.1cm}
 
-{\large The winner pays \answerrule[5cm]{the second highest bid}.}
-
-\vspace{1.4cm}
-
-{\large In week one we ran this open and ascending, and it went badly. Name one
-thing that changed when we sealed it:}
-
-\vspace{0.6cm}
-
-\hspace*{1cm}\blank[8]
+{\large So in round 2, with value \(v\), your payoff is \(v -\)
+\answerblank[4.6]{the second highest bid} if you win, and
+\answerblank[1.4]{\(0\)} otherwise.}
 
 \newpage
 \slidehead{Should you bid what it is worth?}
@@ -84,8 +131,8 @@ thing that changed when we sealed it:}
 
 \vspace{0.5cm}
 
-{\large Your value is \(v\). Let \(b\) be the highest bid among everybody else.
-Compare bidding \(v\) with bidding something else.}
+{\large Round 2, second price. Your value is \(v\). Let \(b\) be the highest bid
+among everybody else. Compare bidding \(v\) with bidding something else.}
 
 \vspace{0.7cm}
 
@@ -99,11 +146,9 @@ Compare bidding \(v\) with bidding something else.}
 \answerblank[1.4]{\(v\)} and \answerblank[1.4]{your bid}, and then you pay
 \answerblank[1.4]{\(b\)} and make \answerblank[1.4]{\(v - b < 0\)}.}
 
-\vspace{0.8em}
+\vspace{0.6em}
 
-\answerspace{10.6}{3.4}{%
-  The price is \(b\) whatever you bid, so bidding high only buys auctions
-  that were not worth winning. Every other auction is unchanged.}
+\bidline{3}{7}{\(b\) here: you now win, and pay more than \(v\)}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.47\linewidth}
@@ -115,11 +160,10 @@ Compare bidding \(v\) with bidding something else.}
 {\large You lose some auctions you would have won, and when you do still win
 you pay \answerblank[3.4]{the same \(b\)}.}
 
-\vspace{0.8em}
+\vspace{0.6em}
 
-\answerspace{10.6}{3.4}{%
-  The ones you give up are those with \(b\) between your bid and \(v\),
-  which you would have won at a profit. Nothing you gain makes up for them.}
+\bidline{7}{3}{\(b\) here: you now lose an auction you would have won at a
+profit}
 \end{minipage}
 
 \vspace{0.6cm}
@@ -127,34 +171,51 @@ you pay \answerblank[3.4]{the same \(b\)}.}
 {\large So bidding your true value is \answerrule[5cm]{weakly dominant}.}
 
 \newpage
-\slidehead{Why that matters}
-\notesref{16.2.2}{Auction Games: Definition: Bayesian Nash Equilibrium}
+\slidehead{Why first price is different}
+\notesref{16.2.4}{Auction Games: Bayesian NE in a first-price auction}
+
+\vspace{0.8cm}
+
+{\large In round 1, bidding your value and winning scores
+\answerblank[1.4]{\(0\)}, so you should bid \answerrule[4cm]{below your value}.}
 
 \vspace{1.1cm}
 
-{\large If truth is a weakly dominant strategy, then to bid well you need to
-know \answerrule[5cm]{nothing at all} about the other bidders.}
+{\large With \(N\) bidders and values spread evenly, the equilibrium bid is
+\(b = \)\answerblank[2.6]{\(\frac{N - 1}{N}\,v\)}. For us, \(N = 3\), so
+\(b = \)\answerblank[2]{\(\frac{2}{3}\,v\)}.}
 
-\vspace{0.9cm}
+\vspace{1.1cm}
 
-{\large So the seller gets the item to the person who
-\answerrule[5cm]{values it most}, which is not guaranteed otherwise.}
+{\large To bid well in a second-price auction you need to know
+\answerrule[4cm]{nothing at all} about the others. In a first-price auction,
+how far to shade depends on \answerrule[5cm]{how many others there are}.}
 
-\vspace{0.9cm}
+\newpage
+\slidehead{What the seller made}
+\notesref{16.2.5}{Auction Games: Theorem: Revenue Equivalence}
 
-{\large Now change one rule: the winner pays their \emph{own} bid. Is truth
-still weakly dominant? \answerblank[2.2]{No} \hspace{1.4cm} What should you
-do instead? \answerblank[5]{Bid below your value}}
+\vspace{0.6cm}
+
+{\large The room: round 1 averaged \blank[2] and round 2 averaged \blank[2].}
 
 \vspace{1cm}
 
-\begin{center}
-\answerspace{22.6}{2.4}{%
-  Paying your own bid makes a truthful win worth \(v - v = 0\), so the only
-  way to profit is to shade below \(v\). How far below depends on what the
-  others are likely to bid, which is exactly the knowledge the second-price
-  rule made unnecessary.}
-\end{center}
+{\large With three values spread evenly from 0 to 12, the highest is
+\answerblank[1.4]{\(9\)} on average and the second highest
+\answerblank[1.4]{\(6\)}.}
+
+\vspace{0.8cm}
+
+{\large Second price: the seller gets the second highest value,
+\answerblank[1.4]{\(6\)}. \hspace{0.8cm} First price: \(\tfrac{2}{3}\) of the
+highest, \answerblank[1.4]{\(6\)}.}
+
+\vspace{1cm}
+
+{\large In both, the item goes to the highest value and a bidder with the
+lowest possible value expects nothing. So on average they raise the same:
+\answerrule[5.4cm]{revenue equivalence}.}
 
 \newpage
 \slidehead{The same thing, as an exam answer}
@@ -162,8 +223,8 @@ do instead? \answerblank[5]{Bid below your value}}
 
 \vspace{0.5cm}
 
-{\large What we just did in the room is \textbf{Question 1} on the Auctions
-page, with values \(v_1 = 10\), \(v_2 = 7\) and \(v_3 = 4\).}
+{\large Round 2 is \textbf{Question 1} on the Auctions page, with three bidders
+whose values are \(v_1 = 10\), \(v_2 = 7\) and \(v_3 = 4\).}
 
 \vspace{0.9cm}
 
@@ -205,7 +266,7 @@ page, with values \(v_1 = 10\), \(v_2 = 7\) and \(v_3 = 4\).}
 \hspace{6.9cm} \= \hspace{3.0cm} \= \hspace{9.4cm} \= \kill
 \textbf{What we did} \> {\color{inkteal}\textbf{Notes}} \> \textbf{In the textbook} \>
   \\[0.5em]
-Collecting the sealed bids \> {\color{inkteal}\textbf{16.2.1}} \> Auction Games:
+Two rounds of sealed bids \> {\color{inkteal}\textbf{16.2.1}} \> Auction Games:
   Definition: Auction Game \> \\[0.45em]
 Bidding your own value \> {\color{inkteal}\textbf{16.2.3}} \> Auction Games: Theorem:
   Bayesian Nash Equilibrium for \> \\
@@ -215,6 +276,8 @@ What you need to know about others \> {\color{inkteal}\textbf{16.2.2}} \> Auctio
 Bidding below value in a first-price sale \> {\color{inkteal}\textbf{16.2.4}} \>
   Auction Games: Theorem: Bayesian NE in a first-price \> \\
 \> \> auction \> \\[0.45em]
+What the seller made \> {\color{inkteal}\textbf{16.2.5}} \> Auction Games:
+  Theorem: Revenue Equivalence \> \\[0.45em]
 \textbf{Examinable} \> {\color{inkteal}\textbf{16.2.3, 16.2.4}} \> Both with proof,
   and 16.2.5 Revenue Equivalence, \> \\
 \> \> statement only \> 
