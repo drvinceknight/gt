@@ -11,11 +11,11 @@ values, see bidders shade in one and bid their value in the other, and find that
 the seller makes about the same from both.
 
 **The deck.** There is a write-on deck at
-[/decks/auctions/main.pdf](/decks/auctions/main.pdf): the rules on a "While you
-play" slide, two grids of bid against value (one per round) with average price
-boxes, the rules and payoff left blank, the two cases of the weak dominance
-argument on number lines, the shaded first-price bid, and the seller's revenue
-in each format.
+[/decks/auctions/main.pdf](/decks/auctions/main.pdf): the rules and payoff
+left blank, to fill in before anyone plays; a single "While you play" slide
+with the rules of both rounds, two grids of bid against value and the average
+price boxes; the two cases of the weak dominance argument on number lines; the
+shaded first-price bid; and the seller's revenue in each format.
 
 Every slide of the deck names the numbered section of the notes it is reading,
 and the last slide gathers them into one table, marks what is examinable and
@@ -35,7 +35,10 @@ once.
 2. Round 2, second price. Everyone rolls a fresh value. The highest bid wins and
    pays the second highest bid.
 
-Keep totals across both rounds and give the bribentives to the top scorers.
+Every winner gets bribentives based on their score, value minus price, so the
+prize is the auction's own payoff and depends on how well they bid rather than
+on the die. Do not reward the highest value: that is luck, and it would give
+nobody a reason to bid carefully.
 Then collect a handful of groups' values and bids for each round and mark them
 on the two grids: second-price bids should sit near the line bid = value and
 first-price bids below it. Ask each group for the price paid in each round and
@@ -50,8 +53,9 @@ for the sealed auction we just played.**
 
 Discussion Point: **After two theorems ask why I chose the auction I did?**
 
-**Close on the last slide.** It names what the class was reading and sets the
-reading for next time. Then run the quick quiz from the [Auctions topic
+**Close on the last slide.** It names what the class was reading and points to
+the Order Statistics appendix as extra reading, for anyone who wants to see
+where the averages of 9 and 6 come from. Then run the quick quiz from the [Auctions topic
 page](/topics/auctions.html): five questions on the screen, answered by a show
 of hands. It takes five minutes and tells us both what landed.
 
@@ -87,7 +91,10 @@ know nothing about the others; in a first-price auction how far to shade
 depends on how many others there are.
 
 **What the seller made.** With three values uniform on \([0, 12]\), the highest
-averages \(9\) and the second highest \(6\). The second-price seller gets the
+averages \(9\) and the second highest \(6\): the \(k\)-th smallest of \(N\)
+uniform values averages \(\frac{k}{N + 1}\) of the way along, which is the
+theorem on expected order statistics in the book's
+[Order Statistics appendix](https://vknight.org/gtb/appendices/order-statistics/). The second-price seller gets the
 second highest value, \(6\) on average; the first-price seller gets
 \(\frac{2}{3}\) of the highest, also \(6\). That is revenue equivalence. A D12 is
 discrete, so the room's exact targets are slightly different: \(6.5\) for the
