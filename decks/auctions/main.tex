@@ -1,5 +1,6 @@
 % Auctions: secret values from a D12, a first-price round and a second-price round.
 \input{../preamble.tex}
+\usetikzlibrary{decorations.pathreplacing}
 
 % A number line for the argument about where the highest other bid b falls.
 % #1 and #2 place your value v and your bid, on a line from 0 to 10; the answer
@@ -20,7 +21,7 @@
 % line bid = value is printed for reference; #2 is drawn on top, so the answer
 % build can add the equilibrium bid.
 \newcommand{\bidplot}[2]{%
-  \begin{tikzpicture}[scale=0.54]
+  \begin{tikzpicture}[scale=0.43]
     \fill[white] (0,0) rectangle (12,12);
     \foreach \x in {1,...,12}{%
       \draw[inkfaint, line width=0.4pt] (\x,0) -- (\x,12);
@@ -55,57 +56,6 @@
     \end{tikzpicture}}
 
 \newpage
-\slidehead{While you play}
-\notesref{16.2.1}{Auction Games: Definition: Auction Game}
-
-\vspace*{\fill}
-
-\begin{center}
-\begin{minipage}{0.86\linewidth}
-{\LARGE In threes. Roll a D12 without showing anyone: that is your value for
-the item. Write a bid on paper, then all three reveal at once.}
-
-\vspace{1em}
-
-{\LARGE \textbf{Round 1, first price:} the highest bid wins and pays its own
-bid.\\[0.3em]
-\textbf{Round 2, second price:} roll again; the highest bid wins and pays the
-second highest bid.}
-
-\vspace{1em}
-
-{\Large\color{inkgrey} The winner scores their value minus what they pay;
-everyone else scores 0. Keep your total across both rounds.}
-\end{minipage}
-\end{center}
-
-\vspace*{\fill}
-
-\newpage
-\slidehead{Bids against values}
-\notesref{16.2.1}{Auction Games: Definition: Auction Game}
-
-\vspace{0.1cm}
-
-{\large Each group calls out every value and bid. Mark them as dots.}
-
-\vspace{0.2cm}
-
-\begin{center}
-\bidplot{Round 1: first price}{%
-  \onlyanswer{\draw[inkanswer, line width=1.2pt] (0,0) -- (12,8)
-    node[right, font=\small] {\(\tfrac{2}{3}v\)};}}
-\hspace{2cm}
-\bidplot{Round 2: second price}{%
-  \onlyanswer{\draw[inkanswer, line width=1.2pt] (0,0) -- (12,12);}}
-\end{center}
-
-\vspace{0.1cm}
-
-{\large Average price paid: round 1 \blank[2] \hspace{1.2cm} round 2
-\blank[2]}
-
-\newpage
 \slidehead{What are the rules, exactly?}
 \notesref{16.2.1}{Auction Games: Definition: Auction Game}
 
@@ -124,6 +74,45 @@ In a second-price auction they pay \answerrule[5cm]{the second highest bid}.}
 {\large So in round 2, with value \(v\), your payoff is \(v -\)
 \answerblank[4.6]{the second highest bid} if you win, and
 \answerblank[1.4]{\(0\)} otherwise.}
+
+\newpage
+\slidehead{While you play}
+\notesref{16.2.1}{Auction Games: Definition: Auction Game}
+
+\vspace{0.2cm}
+
+\begin{minipage}[t]{0.6\linewidth}
+\vspace{0pt}
+\bidplot{Round 1: first price}{%
+  \onlyanswer{\draw[inkanswer, line width=1.2pt] (0,0) -- (12,8)
+    node[right, font=\small] {\(\tfrac{2}{3}v\)};}}
+\hfill
+\bidplot{Round 2: second price}{%
+  \onlyanswer{\draw[inkanswer, line width=1.2pt] (0,0) -- (12,12);}}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.37\linewidth}
+\vspace{0pt}
+\tikz\node[draw=inkteal, line width=1pt, rounded corners=4pt, fill=white,
+  text width=7.9cm, inner sep=0.35cm, align=left, text=inktext]{%
+  In threes. Roll a D12 without showing anyone: that is your value. Write a
+  bid on paper, then all three reveal at once.\\[0.5em]
+  \textbf{Round 1, first price:} the highest bid wins and pays its own
+  bid.\\[0.5em]
+  \textbf{Round 2, second price:} roll again; the highest bid wins and pays
+  the second highest bid.\\[0.5em]
+  The winner scores their value minus what they pay; everyone else scores 0.
+  Every winner gets \mbox{bribentives} based on their score.\\[0.5em]
+  {\color{inkgrey} Afterwards, a few groups call out all three values and bids,
+  winners and losers alike. Every group gives the price paid.}};
+\end{minipage}
+
+\vspace{0.35cm}
+
+{\large
+\makebox[3.0cm][l]{Prices, round 1}\blank[16.6]\; mean \blank[1.5]\\[0.25em]
+\makebox[3.0cm][l]{Prices, round 2}\blank[16.6]\; mean \blank[1.5]}
 
 \newpage
 \slidehead{Should you bid what it is worth?}
@@ -199,19 +188,43 @@ how far to shade depends on \answerrule[5cm]{how many others there are}.}
 
 {\large The room: round 1 averaged \blank[2] and round 2 averaged \blank[2].}
 
-\vspace{1cm}
+\vspace{0.6cm}
 
 {\large With three values spread evenly from 0 to 12, the highest is
 \answerblank[1.4]{\(9\)} on average and the second highest
 \answerblank[1.4]{\(6\)}.}
 
-\vspace{0.8cm}
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tikzpicture}[xscale=1.3]
+  \draw[inkgrey, line width=1pt] (0,0) -- (12,0);
+  \foreach \x in {0,12}{%
+    \draw[inkgrey, line width=1pt] (\x,-0.2) -- (\x,0.2);
+    \node[below, text=inkgrey] at (\x,-0.2) {\x};}
+  \onlyanswer{%
+    \foreach \x/\lab in {3/lowest, 6/second highest, 9/highest}{%
+      \fill[inkanswer] (\x,0) circle (0.12);
+      \node[above, text=inkanswer, font=\small] at (\x,0.2) {\lab};
+      \node[below, text=inkanswer] at (\x,-0.2) {\x};}
+    \foreach \a in {0,3,6,9}{%
+      \draw[inkanswer, decorate, decoration={brace, amplitude=4pt, mirror}]
+        (\a+0.1,-0.75) -- (\a+2.9,-0.75)
+        node[midway, below=4pt, font=\small] {3};}}
+\end{tikzpicture}
+
+{\small\color{inkgrey} On average, three values split the line into four equal
+gaps: the \(k\)-th smallest of \(N\) averages \(\frac{k}{N + 1}\) of the way along
+(Appendix: Order Statistics).}
+\end{center}
+
+\vspace{0.3cm}
 
 {\large Second price: the seller gets the second highest value,
 \answerblank[1.4]{\(6\)}. \hspace{0.8cm} First price: \(\tfrac{2}{3}\) of the
 highest, \answerblank[1.4]{\(6\)}.}
 
-\vspace{1cm}
+\vspace{0.6cm}
 
 {\large In both, the item goes to the highest value and a bidder with the
 lowest possible value expects nothing. So on average they raise the same:
@@ -288,15 +301,11 @@ What the seller made \> {\color{inkteal}\textbf{16.2.5}} \> Auction Games:
 
 {\color{inkgrey} vknight.org/gtb/chapters/auction-games}
 
-\vspace{0.3cm}
+\vspace{0.4cm}
 
-{\large\color{inkteal} Quick quiz before you go:
-vknight.org/gt/topics/auctions.html}
+{\large Extra reading, not examinable: where the 9 and the 6 come from, in the
+Order Statistics appendix.}
 
-\vspace{0.3cm}
-
-{\large Before the next class: read the Auction Games chapter as far as revenue
-  equivalence,
-  and attempt Question 1.}
+{\color{inkgrey} vknight.org/gtb/appendices/order-statistics}
 
 \end{document}
