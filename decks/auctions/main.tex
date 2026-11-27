@@ -2,21 +2,6 @@
 \input{../preamble.tex}
 \usetikzlibrary{decorations.pathreplacing}
 
-% A number line for the argument about where the highest other bid b falls.
-% #1 and #2 place your value v and your bid, on a line from 0 to 10; the answer
-% build shades the stretch between them, with #3 as its label.
-\newcommand{\bidline}[3]{%
-  \begin{tikzpicture}[scale=0.95]
-    \draw[inkgrey, line width=1pt, -{Stealth[length=2.5mm]}] (0,0) -- (10.6,0);
-    \onlyanswer{%
-      \fill[inkanswer, opacity=0.15] (#1,-0.3) rectangle (#2,0.3);
-      \node[text=inkanswer, font=\small, align=center, text width=4.4cm]
-        at ({(#1+#2)/2},-1.0) {#3};}
-    \foreach \x/\lab in {#1/\(v\), #2/your bid}{%
-      \draw[inkblue, line width=1.2pt] (\x,-0.3) -- (\x,0.3);
-      \node[above, text=inkblue, font=\normalsize] at (\x,0.3) {\lab};}
-  \end{tikzpicture}}
-
 % Axes for one round's bids against values, both running from 0 to 12. The
 % line bid = value is printed for reference; #2 is drawn on top, so the answer
 % build can add the equilibrium bid.
@@ -71,7 +56,13 @@ In a second-price auction they pay \answerrule[5cm]{the second highest bid}.}
 
 \vspace{1.1cm}
 
-{\large So in round 2, with value \(v\), your payoff is \(v -\)
+{\large So with value \(v\), in round 1 your payoff is \(v -\)
+\answerblank[3.6]{your own bid} if you win, and \answerblank[1.4]{\(0\)}
+otherwise.}
+
+\vspace{0.7cm}
+
+{\large In round 2 your payoff is \(v -\)
 \answerblank[4.6]{the second highest bid} if you win, and
 \answerblank[1.4]{\(0\)} otherwise.}
 
@@ -115,74 +106,76 @@ In a second-price auction they pay \answerrule[5cm]{the second highest bid}.}
 \makebox[3.0cm][l]{Prices, round 2}\blank[16.6]\; mean \blank[1.5]}
 
 \newpage
-\slidehead{Should you bid what it is worth?}
-\notesref{16.2.3}{Auction Games: Bayesian Nash Equilibrium for Second Pay Auction}
+\slidehead{What changed?}
+\notesref{16.2.1}{Auction Games: Definition: Auction Game}
 
-\vspace{0.5cm}
+\vspace*{\fill}
 
-{\large Round 2, second price. Your value is \(v\). Let \(b\) be the highest bid
-among everybody else. Compare bidding \(v\) with bidding something else.}
+\begin{center}
+{\Huge\bfseries\color{inkblue} Look at the two grids.}
 
-\vspace{0.7cm}
+\vspace{1.2em}
 
-\begin{minipage}[t]{0.47\linewidth}
-\raggedright
-{\large\bfseries You bid above your value}
+{\LARGE Did you bid differently in the two rounds? Why?}
+\end{center}
 
-\vspace{0.5em}
+\vspace{1.2cm}
 
-{\large You only win extra times when \(b\) is between
-\answerblank[1.4]{\(v\)} and \answerblank[1.4]{your bid}, and then you pay
-\answerblank[1.4]{\(b\)} and make \answerblank[1.4]{\(v - b < 0\)}.}
-
-\vspace{0.6em}
-
-\bidline{3}{7}{\(b\) here: you now win, and pay more than \(v\)}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.47\linewidth}
-\raggedright
-{\large\bfseries You bid below your value}
-
-\vspace{0.5em}
-
-{\large You lose some auctions you would have won, and when you do still win
-you pay \answerblank[3.4]{the same \(b\)}.}
-
-\vspace{0.6em}
-
-\bidline{7}{3}{\(b\) here: you now lose an auction you would have won at a
-profit}
-\end{minipage}
+{\Large In round 1, bids sat \answerrule[5cm]{below} the line bid = value.}
 
 \vspace{0.6cm}
 
-{\large So bidding your true value is \answerrule[5cm]{weakly dominant}.}
+{\Large In round 2, bids sat \answerrule[5cm]{on} it.}
+
+\vspace*{\fill}
 
 \newpage
-\slidehead{Why first price is different}
+\slidehead{Second price: the result}
+\notesref{16.2.3}{Auction Games: Bayesian Nash Equilibrium for Second Pay Auction}
+
+\vspace*{\fill}
+
+\begin{center}
+\tikz\node[draw=inkteal, line width=1pt, rounded corners=4pt, fill=white,
+  text width=19cm, inner sep=0.6cm, align=left, text=inktext, font=\Large]{%
+  {\bfseries\color{inkteal} Theorem.} In a second-price auction, bidding your
+  own value, \(b_i =\) \answerblank[1.6]{\(v_i\)}, is
+  \answerrule[5cm]{weakly dominant}. It is a Bayesian Nash equilibrium for
+  everyone to bid their value.};
+\end{center}
+
+\vspace{1cm}
+
+{\Large To bid well you need to know \answerrule[5cm]{nothing at all} about the
+other bidders.}
+
+\vspace*{\fill}
+
+\newpage
+\slidehead{First price: the result}
 \notesref{16.2.4}{Auction Games: Bayesian NE in a first-price auction}
 
-\vspace{0.8cm}
+\vspace*{\fill}
 
-{\large In round 1, bidding your value and winning scores
-\answerblank[1.4]{\(0\)}, so you should bid \answerrule[4cm]{below your value}.}
+\begin{center}
+\tikz\node[draw=inkred, line width=1pt, rounded corners=4pt, fill=white,
+  text width=19cm, inner sep=0.6cm, align=left, text=inktext, font=\Large]{%
+  {\bfseries\color{inkred} Theorem.} In a first-price auction with \(N\)
+  bidders whose values are spread evenly, the Bayesian Nash equilibrium is for
+  each bidder to shade their bid to \(b_i =\)
+  \answerblank[2.6]{\(\frac{N - 1}{N}\,v_i\)}.};
+\end{center}
 
-\vspace{1.1cm}
+\vspace{1cm}
 
-{\large With \(N\) bidders and values spread evenly, the equilibrium bid is
-\(b = \)\answerblank[2.6]{\(\frac{N - 1}{N}\,v\)}. For us, \(N = 3\), so
-\(b = \)\answerblank[2]{\(\frac{2}{3}\,v\)}.}
+{\Large For us, \(N = 3\), so \(b = \) \answerblank[2]{\(\frac{2}{3}\,v\)}: the line
+on the round 1 grid.}
 
-\vspace{1.1cm}
-
-{\large To bid well in a second-price auction you need to know
-\answerrule[4cm]{nothing at all} about the others. In a first-price auction,
-how far to shade depends on \answerrule[5cm]{how many others there are}.}
+\vspace*{\fill}
 
 \newpage
 \slidehead{What the seller made}
-\notesref{16.2.5}{Auction Games: Theorem: Revenue Equivalence}
+\notesref{16.2.5 and Appendix}{Revenue Equivalence; Order Statistics}
 
 \vspace{0.6cm}
 

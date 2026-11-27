@@ -14,8 +14,10 @@ the seller makes about the same from both.
 [/decks/auctions/main.pdf](/decks/auctions/main.pdf): the rules and payoff
 left blank, to fill in before anyone plays; a single "While you play" slide
 with the rules of both rounds, two grids of bid against value and the average
-price boxes; the two cases of the weak dominance argument on number lines; the
-shaded first-price bid; and the seller's revenue in each format.
+price boxes; a slide asking the room what changed between the rounds; the two
+main results, stated for you to write in; and the seller's revenue in each
+format. The argument for why truthful bidding is weakly dominant is not on the
+deck: it is in the answers below and in the worked solution to Question 1(c).
 
 Every slide of the deck names the numbered section of the notes it is reading,
 and the last slide gathers them into one table, marks what is examinable and
@@ -66,8 +68,9 @@ The values, bids and average prices come from the room. These are the rest.
 **The rules.** Everyone submits one sealed bid without seeing anyone else's, and
 the highest bidder wins. In a first-price auction the winner pays their own bid;
 in a second-price auction they pay the second highest bid. With value \(v\), the
-second-price payoff is \(v\) minus the second highest bid for the winner and
-\(0\) for everyone else.
+first-price payoff is \(v\) minus your own bid for the winner, the
+second-price payoff is \(v\) minus the second highest bid for the winner, and
+everyone else scores \(0\) in both.
 
 **Should you bid your value?** Write \(v\) for your value and \(b\) for the
 highest bid among everybody else. You win when your bid beats \(b\), and you
