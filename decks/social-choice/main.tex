@@ -8,9 +8,9 @@
 \titleslide{Social choice}{One set of preferences, three winners}{%
     \begin{tikzpicture}[font=\small]
       \stepbox{s0}{0.0}{\textbf{Vote}\\[0.25em]
-        Rank the topics you want revised.}
+        Rank every topic on stablevoting.org.}
       \stepbox{s1}{6.9}{\textbf{Count}\\[0.25em]
-        First choices, Borda, Condorcet.}
+        The top three by hand, three ways.}
       \stepbox{s2}{13.8}{\textbf{Argue}\\[0.25em]
         Decide which count we live by.}
       \draw[-{Stealth[length=2.5mm]}, inkfaint, line width=1.2pt] (s0) -- (s1);
@@ -29,19 +29,46 @@
 
 \begin{center}
 \begin{minipage}{0.86\linewidth}
-{\LARGE Vote at \textbf{stablevoting.org} on your phone. Rank all three
-topics in strict order, best first. No ties, and rank every topic even if you
-only care about one of them.}
+{\LARGE Vote at \textbf{stablevoting.org}: rank every topic, best first.}
 \end{minipage}
 \end{center}
 
 \vspace*{\fill}
 
 \newpage
+\slidehead{What the machine said}
+\notesref{17.2.5}{Social Choice: Definition: Condorcet's Method}
+
+\vspace{0.5cm}
+
+{\large The ranking stablevoting.org gives for every topic:}
+
+\vspace{0.4cm}
+
+\hspace{0.6cm}
+\begin{minipage}{0.6\linewidth}
+{\large
+\makebox[1cm][l]{1st}\blank[9]\\[0.5em]
+\makebox[1cm][l]{2nd}\blank[9]\\[0.5em]
+\makebox[1cm][l]{3rd}\blank[9]\\[0.5em]
+\makebox[1cm][l]{4th}\blank[9]\\[0.5em]
+\makebox[1cm][l]{5th}\blank[9]}
+\end{minipage}
+
+\vspace{0.7cm}
+
+{\large We are revising: \blank[8]}
+
+\vspace{0.6cm}
+
+{\large\color{inkgrey} Now take the top three, and count them three ways by
+hand.}
+
+\newpage
 \slidehead{The ballots}
 \notesref{17.2.1}{Social Choice: Definition: Preference Function}
 
-{\large Three topics on the shortlist:}
+{\large Stable Voting's top three:}
 \hspace{0.8cm} \(A =\) \blank[4] \hspace{0.6cm} \(B =\) \blank[4]
 \hspace{0.6cm} \(C =\) \blank[4]
 
@@ -49,7 +76,7 @@ only care about one of them.}
 
 \hspace{0.3cm}
 \begin{tikzpicture}[font=\small]
-  \foreach \lab/\col in {Ranking/0, How many voted it/7.4}{%
+  \foreach \lab/\col in {Ranking/0, Hands up/7.4}{%
     \node[anchor=west, text=inkgrey] at (\col,0) {\lab};}
   \draw[inkfaint, line width=0.7pt] (0,-0.36) -- (11.6,-0.36);
   \foreach \ranking [count=\row] in {%
@@ -123,10 +150,10 @@ only care about one of them.}
 {\large Condorcet winner \blank[2.4]}
 \end{minipage}
 
-
 \newpage
 \slidehead{Why they disagree}
-\notesref{17.2.2}{Social Choice: Definition: A Social Welfare Function}
+\notesref{17.2.2, 17.2.5, 17.2.6}{Social Choice: Social Welfare Function, Condorcet,
+  Borda}
 
 \vspace{0.9cm}
 
@@ -136,29 +163,15 @@ only care about one of them.}
 
 \vspace{1.1cm}
 
-{\large Borda uses \answerrule[6cm]{the whole ranking}, so a topic that is
-everybody's second choice can beat one that half the room ranks last.}
+{\large A Condorcet winner beats every other topic
+\answerrule[4.5cm]{head to head}, and sometimes
+\answerrule[4cm]{there is none}. Stable Voting always picks the Condorcet winner
+when there is one.}
 
 \vspace{1.1cm}
 
-{\large A Condorcet winner beats every other topic
-\answerrule[4.5cm]{head to head}, and sometimes
-\answerrule[4cm]{there is none}.}
-
-\vspace{1cm}
-
-\newpage
-\slidehead{What the machine said}
-\notesref{17.2.5}{Social Choice: Definition: Condorcet's Method}
-
-\vspace{0.9cm}
-
-{\large stablevoting.org gave \blank[4.4]. Which of our three counts does that
-match? \blank[4.4]}
-
-\vspace{1.4cm}
-
-{\large We are revising: \blank[6]}
+{\large Borda uses \answerrule[6cm]{the whole ranking}, so a topic that is
+everybody's second choice can beat one that half the room ranks last.}
 
 \newpage
 \slidehead{The same thing, as an exam answer}
@@ -206,13 +219,13 @@ Choice page, with nine students and three topics.}
 \hspace{6.9cm} \= \hspace{3.0cm} \= \hspace{9.4cm} \= \kill
 \textbf{What we did} \> {\color{inkteal}\textbf{Notes}} \> \textbf{In the textbook} \>
   \\[0.5em]
-Everybody ranks the shortlist \> {\color{inkteal}\textbf{17.2.1}} \> Social Choice:
+Everybody ranks every topic \> {\color{inkteal}\textbf{17.2.1}} \> Social Choice:
   Definition: Preference Function \> \\[0.45em]
 Turning rankings into one ranking \> {\color{inkteal}\textbf{17.2.2}} \> Social
   Choice: Definition: A Social Welfare Function \> \\[0.45em]
-Three counts, three winners \> {\color{inkteal}\textbf{17.2.3, 17.2.5, 17.2.6}} \>
+Three counts, three winners \> {\color{inkteal}\textbf{17.2.3, 17.2.5,}} \>
   Social Choice: Simple Majority, Condorcet's Method, \> \\
-\> \> Borda's Method \> \\[0.45em]
+\> {\color{inkteal}\textbf{17.2.6}} \> Borda's Method \> \\[0.45em]
 Why no count keeps every property \> {\color{inkteal}\textbf{17.2.4}} \> Social
   Choice: Theorem: Arrow's Impossibility Theorem \> 
 \end{tabbing}
@@ -221,11 +234,6 @@ Why no count keeps every property \> {\color{inkteal}\textbf{17.2.4}} \> Social
 \vspace{0.45cm}
 
 {\color{inkgrey} vknight.org/gtb/chapters/social-choice}
-
-\vspace{0.3cm}
-
-{\large\color{inkteal} Quick quiz before you go:
-vknight.org/gt/topics/social-choice.html}
 
 \vspace{0.3cm}
 

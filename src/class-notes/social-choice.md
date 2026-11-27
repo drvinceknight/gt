@@ -19,13 +19,16 @@ and the last slide gathers them into one table, marks what is examinable and
 sets the reading for the next class. A "While you play" slide carries the rules:
 leave it up while the room plays.
 
-Before the class, create a poll on <https://stablevoting.org> with three
-topics from the course as the shortlist, and put its link on the screen. Students
-vote there on their phones, ranking all three topics. The site collects ranked
-ballots and shows how many voters cast each ranking, so copy those counts into
-the ballot table on the deck and count them three ways by hand: first choices,
-Borda and head to head. Then reveal the site's own winner and discuss whether it
-matches any of the three counts.
+Before the class, create a poll on <https://stablevoting.org> with every topic
+in the course, and put its link on the screen. Students vote there on their
+phones, ranking every topic. The site's winner is the topic we revise, and its
+ranking goes on slide 3.
+
+To keep the mathematics small, take the site's top three topics as \(A\), \(B\)
+and \(C\). Ask for a show of hands for each of the six ways of ordering those
+three, and write the counts into the ballot table on slide 4. Then count them
+three ways by hand on slide 5: first choices, Borda and head to head. Ask
+whether the three counts agree with each other and with the site.
 
 ## Discussion (20 minutes)
 
